@@ -1,0 +1,28 @@
+{
+  "trajectory_id": "fx2_high_eni_partial_dup_recovery",
+  "domain": "_birth_probe",
+  "seed": "fx2",
+  "persona": "test",
+  "steps": [
+    {"loop_index": 0, "focus_claim_id": "C001", "operator": "T3", "novel_claims": 10, "dup_rate": 0.08, "failure_mode": null, "claims": []},
+    {"loop_index": 1, "focus_claim_id": "C001", "operator": "T3", "novel_claims": 3, "dup_rate": 0.42, "failure_mode": null, "claims": []},
+    {"loop_index": 2, "focus_claim_id": "C001", "operator": "T3", "novel_claims": 2, "dup_rate": 0.42, "failure_mode": null, "claims": []},
+    {"loop_index": 3, "focus_claim_id": "C001", "operator": "T3", "novel_claims": 6, "dup_rate": 0.34, "failure_mode": null, "claims": []},
+    {"loop_index": 4, "focus_claim_id": "C001", "operator": "T3", "novel_claims": 5, "dup_rate": 0.28, "failure_mode": null, "claims": []},
+    {"loop_index": 5, "focus_claim_id": "C001", "operator": "T3", "novel_claims": 4, "dup_rate": 0.22, "failure_mode": null, "claims": []}
+  ],
+  "en_events": [
+    {
+      "loop_index": 2,
+      "persona": "test",
+      "eni_novelty": 0.18,
+      "eni_non_drift": 0.7,
+      "eni_admissibility": 1.0,
+      "admitted": true,
+      "novel_claims_next": 6,
+      "dup_rate_before": 0.42,
+      "dup_rate_after": 0.34
+    }
+  ],
+  "terminal_failure_mode": null
+}
