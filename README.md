@@ -85,97 +85,20 @@ Reports land in `outputs/<trajectory_id>_desi_report.md`.
 
 ### Auditor model — promoted default and cost/latency tradeoff
 
-Per the paper0 auditor-model ablation
-(`outputs/role_policy/auditor_model_ablation.md`, commit `853db5d`),
-DESi now uses `deepseek-v4-pro` for the `SKEPTICAL_AUDITOR` role by
-default. The other four roles continue to run on
-`deepseek-v4-flash`. The promotion satisfied all three pre-conditions
-of the published decision rule (improves `useful_objection_count` from
-1.40 → 2.10 per trajectory, holds `false_objection_count` at zero,
-reduces `hallucinated_causal_claims` from 4.10 → 3.20).
-
-| `--audit-model` | Auditor model         | Median call latency | Auditor wall-clock contribution per trajectory |
-|-----------------|-----------------------|--------------------:|-----------------------------------------------:|
-| `flash`         | `deepseek-v4-flash`   | ~25 s               | ~25 s                                          |
-| `pro`           | `deepseek-v4-pro`     | ~125 s              | ~125 s                                         |
-| `auto` (default)| `deepseek-v4-pro`     | ~125 s              | ~125 s                                         |
-
-End-to-end wall-clock on the n=10 adversarial trajectory set:
-`flash` 23.7 min, `pro` 33.4 min — **`pro` adds about 40% to total
-runtime**. The auditor sits on the critical path
-(analysts → auditor → synthesizer), so this latency is **not
-parallelisable** with the analyst roles.
-
-Operational guards baked into the production code path:
-
-- The auditor's HTTP timeout defaults to **120 s** (configurable via
-  `DESI_AUDITOR_TIMEOUT_SECONDS`); the rest of the roles still use
-  `DESI_TIMEOUT_SECONDS` (default 60 s).
-- The auditor call gets **one extra retry** on top of the global
-  `DESI_MAX_RETRIES` budget (`DESI_AUDITOR_MAX_RETRIES=1` by default).
-- `v4`-series models return `reasoning_content` separately from
-  `content`. The client now falls back to `reasoning_content` when
-  `content` is empty, so a reasoning-heavy auditor call never silently
-  yields an empty audit.
-
-If you are running >100 trajectories in a batch and the audit-quality
-gain is not worth the ~5× per-call latency, pass `--audit-model flash`
-or set `DESI_AUDITOR_MODE=flash` in `.env`.
+DESi uses `deepseek-v4-pro` for the `SKEPTICAL_AUDITOR` role by default
+(`--audit-model auto`). See `outputs/role_policy/auditor_model_ablation.md`
+(commit `853db5d`). `--audit-model flash` for fast batches.
 
 ## Data format
 
-A trajectory is a JSON document. The DESi loader accepts both the
-project-charter field names (`loop_index`, `dup_rate`, `claim_id`,
-`novel_claims_next`) and the **DES-canonical** names (`loop`,
-`semantic_duplication_rate`, `id`, `novelty_produced_next_loop`). Operators
-must be DES canonical (`T1`..`T9` per `des.py`, or the paper8 method-operator
-slugs `recursive_modulation`, `boundary_condition_analysis`,
-`adaptive_variation_selection`, `counterexample_search`). Claim records are
-**subject/predicate/object triples** per the DES `Claim` dataclass.
-
 See `data/sample_trajectories/` for runnable examples and `LEGACY_REUSE.md`
-for the full DES provenance ledger and field mapping.
-
-## Role of the DeepSeek API
-
-DESi calls DeepSeek through **explicit, visible prefix prompts** (see
-`roles.py`). There are no hidden system prompts and no implicit role logic.
-
-Roles:
-
-1. `TRAJECTORY_ANALYST`     — temporal movement, not isolated claims.
-2. `ATTRACTOR_DIAGNOSTICIAN` — semantic attractors, terminal convergence.
-3. `EN_EVENT_ANALYST`        — EN events, false-return vs. genuine transformation.
-4. `SKEPTICAL_AUDITOR`       — overfitting, cherry-picking, narrative hallucination.
-5. `REPORT_SYNTHESIZER`      — only synthesises claims that are deterministic,
-                               cross-supported, or explicitly exploratory.
-
-The Skeptical Auditor is **allowed to dissent**. The Report Synthesizer must
-respect that dissent.
-
-## Scientific guardrails
-
-- No consciousness claims about DES or DESi.
-- Separate deterministic metrics from LLM interpretation in every output.
-- Small-n results are always marked `EXPLORATORY`.
-- No generalisation without replication.
-- DESi analyses **trajectories**, not the truth of the contents.
-
-## Legacy DES code reuse
-
-DESi stands on DES; it does not re-invent DES. See `LEGACY_REUSE.md` for the
-provenance ledger and the open reconciliation tickets. Until those are closed,
-the models in `models.py` are **provisional** and must be reconciled with the
-canonical DES sources before DESi is treated as authoritative.
+for the full DES provenance ledger.
 
 ## Tests
 
 ```bash
 pytest -q
 ```
-
-Test coverage at this prototype stage is intentionally minimal — see
-`tests/`. Treat all results from this prototype as **EXPLORATORY**.
 
 ## Self-improvement loop log
 
@@ -190,4 +113,5 @@ loop is merged to `main` without human review.
 | Cycle | Change | Target failure | Result | Verdict | Key metric delta | Commit |
 |------:|--------|----------------|--------|:------:|-------------------|--------|
 | 1 | Normalise Phase II span bounds (`min/max(collapse, first_en)`) | DET-FAL T10 malformed span (`loops 3..2`) | tests 13→14 pass; adv10 Phase II = 2..3 | **ACCEPTED** | `malformed_phase_span_count` 1 → 0 (n=10) | `378909c` |
-| 2 | Close Phase V on sustained reversal when `terminal_failure_mode` is unset | DET-FAL T9 sticky Phase V (`loops 2..8` over recovery region) | tests 14→15 pass; adv09 Phase V = 2..5; adv03 preserved by terminal-failure guard | **ACCEPTED** | DET-FAL `false_positive_count` 4 → 2 (cycles 1+2) | _pending_ |
+| 2 | Close Phase V on sustained reversal when `terminal_failure_mode` is unset | DET-FAL T9 sticky Phase V (`loops 2..8` over recovery region) | tests 14→15 pass; adv09 Phase V = 2..5; adv03 preserved by terminal-failure guard | **ACCEPTED** | DET-FAL `false_positive_count` 4 → 2 (cycles 1+2) | `5f04fe2` |
+| 3 | Drop the EN-event requirement from Phase II; emit at low confidence when no EN | DET-FAL T8 / saturation-without-EN (adv04, adv08 silent) | tests 15→16 pass; adv04 Phase II = 2..2; adv08 Phase II = 4..4 | **ACCEPTED** | DET-FAL `false_negative_count` 5 → 4 | _pending_ |

@@ -128,53 +128,38 @@ def test_terminal_failure_alone_triggers_phase_v_with_medium_confidence():
 
 
 def test_phase_ii_span_is_well_ordered():
-    """DET-FAL T10 regression: Phase II must satisfy start_loop <= end_loop.
-
-    When the first novelty collapse occurs at a loop *after* the first EN
-    event, the legacy detector emitted start_loop=collapse_loop and
-    end_loop=first_en.loop_index, producing a malformed span like
-    `loops 3..2`. This test reproduces that exact shape (collapse at loop 3,
-    EN at loop 2) and asserts the span is well-ordered.
-    """
+    """DET-FAL T10 regression: Phase II must satisfy start_loop <= end_loop."""
     traj = Trajectory(
         trajectory_id="t",
         steps=[
             _step(0, novel=6, dup=0.20, op="T3"),
             _step(1, novel=3, dup=0.55, op="T8"),
             _step(2, novel=8, dup=0.30, op="T5"),
-            _step(3, novel=1, dup=0.45, op="T6"),  # first collapse at loop 3
+            _step(3, novel=1, dup=0.45, op="T6"),
         ],
         en_events=[
-            _en(loop=2, novelty=0.13),  # first EN at loop 2 — BEFORE the collapse
+            _en(loop=2, novelty=0.13),
         ],
     )
     spans = {p.name: p for p in detect_phases(traj).phases}
-    assert PHASE_II in spans, "expected Phase II to trigger on this shape"
+    assert PHASE_II in spans
     span = spans[PHASE_II]
-    assert span.start_loop <= span.end_loop, (
-        f"Phase II span is malformed: loops {span.start_loop}..{span.end_loop}"
-    )
+    assert span.start_loop <= span.end_loop
 
 
 def test_phase_v_closes_on_reversal():
-    """DET-FAL T9 regression: Phase V must close when its trigger condition
-    stops holding for >=2 consecutive subsequent loops.
-
-    Shape: dup crosses 0.50 with novel<=1 at loop 2, holds through loop 4,
-    then trajectory recovers (dup drops, novel rises) at loops 5-7. The
-    legacy detector reported Phase V loops 2..7 (sticky). Post-cycle-2 it
-    should close at loop 4 (last loop where the trigger held).
-    """
+    """DET-FAL T9 regression: Phase V must close when trigger stops holding
+    for >=2 consecutive loops (when terminal_failure_mode is unset)."""
     traj = Trajectory(
         trajectory_id="t",
         steps=[
             _step(0, novel=11, dup=0.05, op="T3"),
             _step(1, novel=3, dup=0.30),
-            _step(2, novel=1, dup=0.55),  # Phase V triggers here
-            _step(3, novel=0, dup=0.65),  # still holds
-            _step(4, novel=0, dup=0.75),  # still holds (last_held)
-            _step(5, novel=8, dup=0.20),  # broken
-            _step(6, novel=6, dup=0.25),  # broken (>=2 consecutive -> close)
+            _step(2, novel=1, dup=0.55),
+            _step(3, novel=0, dup=0.65),
+            _step(4, novel=0, dup=0.75),
+            _step(5, novel=8, dup=0.20),
+            _step(6, novel=6, dup=0.25),
             _step(7, novel=4, dup=0.30),
         ],
         en_events=[],
@@ -182,6 +167,25 @@ def test_phase_v_closes_on_reversal():
     spans = {p.name: p for p in detect_phases(traj).phases}
     assert PHASE_V in spans
     assert spans[PHASE_V].start_loop == 2
-    assert spans[PHASE_V].end_loop == 4, (
-        f"Phase V should close at last_held=4, got {spans[PHASE_V].end_loop}"
+    assert spans[PHASE_V].end_loop == 4
+
+
+def test_phase_ii_fires_without_en_events():
+    """DET-FAL T8 regression: Phase II must fire on novelty collapse even
+    when the trajectory contains zero EN events."""
+    traj = Trajectory(
+        trajectory_id="t",
+        steps=[
+            _step(0, novel=10, dup=0.05, op="T3"),
+            _step(1, novel=8, dup=0.10),
+            _step(2, novel=4, dup=0.20),
+            _step(3, novel=2, dup=0.30),
+            _step(4, novel=1, dup=0.45),
+        ],
+        en_events=[],
     )
+    spans = {p.name: p for p in detect_phases(traj).phases}
+    assert PHASE_II in spans
+    span = spans[PHASE_II]
+    assert span.start_loop == 3 and span.end_loop == 3
+    assert span.confidence == "low"

@@ -119,13 +119,24 @@ def detect_phase_i(trajectory: Trajectory) -> PhaseSpan | None:
 
 
 def detect_phase_ii(trajectory: Trajectory) -> PhaseSpan | None:
-    """Phase II: novelty collapse to <= 2 OR early saturation AND EN fires."""
-    if not trajectory.steps or not trajectory.en_events:
+    """Phase II: novelty collapse to <= 2.
+
+    Cycle-3: the EN-event requirement was removed. Pre-cycle-3 the
+    detector returned None whenever ``trajectory.en_events`` was empty,
+    which made saturation in EN-disabled DES runs invisible (DET-FAL
+    T8: monotonic decline from novel=10 to 0 with no EN probes
+    triggered no Phase II). The detector now fires on novelty collapse
+    alone; if EN events exist, the first-EN evidence is still cited
+    and span boundaries still mark the collapse / first-EN window.
+    Confidence is downgraded to "low" when no EN is available to
+    cite.
+    """
+    if not trajectory.steps:
         return None
 
     sorted_steps = sorted(trajectory.steps, key=lambda s: s.loop_index)
     sorted_en = sorted(trajectory.en_events, key=lambda e: e.loop_index)
-    first_en = sorted_en[0]
+    first_en = sorted_en[0] if sorted_en else None
 
     # find the first step where novel_claims collapsed to <= 2
     collapse_loop: int | None = None
@@ -135,23 +146,31 @@ def detect_phase_ii(trajectory: Trajectory) -> PhaseSpan | None:
             break
     if collapse_loop is None:
         return None
-    # EN must fire at or after the collapse, early in the trajectory
-    if first_en.loop_index < collapse_loop:
-        # an EN fired even before the collapse -> still counts as Phase II trigger
-        trigger_loop = first_en.loop_index
-    else:
-        trigger_loop = first_en.loop_index
 
+    if first_en is None:
+        # cycle-3: saturation without EN. Span is just the collapse
+        # loop; confidence is downgraded because there is no EN signal
+        # to corroborate the saturation reading.
+        evidence = [
+            f"novelty collapse: novel_claims<=2 at loop {collapse_loop}",
+            "no EN events in trajectory (saturation observed without EN probe)",
+        ]
+        return PhaseSpan(
+            name=PHASE_II,
+            start_loop=collapse_loop,
+            end_loop=collapse_loop,
+            trigger_evidence=evidence,
+            confidence="low",
+        )
+
+    trigger_loop = first_en.loop_index
     evidence = [
         f"novelty collapse: novel_claims<=2 at loop {collapse_loop}",
         f"first EN at loop {first_en.loop_index} (eni_novelty={first_en.eni_novelty:.2f})",
     ]
     # cycle-1 fix: enforce start_loop <= end_loop. When the first EN fires
     # at a loop BEFORE the first novelty collapse, the unnormalised pair
-    # produces a malformed span (DET-FAL T10: `loops 3..2`). The semantic
-    # window — between the collapse and the first EN — is the same
-    # regardless of orientation; normalising preserves the invariant
-    # without changing the trigger evidence.
+    # produces a malformed span (DET-FAL T10: `loops 3..2`).
     span_start, span_end = sorted((collapse_loop, trigger_loop))
     return PhaseSpan(
         name=PHASE_II,
@@ -265,14 +284,7 @@ def detect_phase_v(trajectory: Trajectory) -> PhaseSpan | None:
         if has_terminal_failure:
             evidence.append(f"terminal_failure_mode={terminal}")
         # cycle-2: close Phase V on sustained reversal *only* when the
-        # trajectory does not terminate in a locking failure mode. If
-        # `terminal_failure_mode` is set, the trajectory authoritatively
-        # locked even if the trigger condition was briefly violated, and
-        # the span runs to end-of-trajectory (preserves DET-FAL adv03's
-        # span 2..5 across the EN-induced recovery dip at loop 3).
-        # When no terminal failure is recorded (T9-shape), close the
-        # span at the last loop where the trigger still held, once it
-        # has stopped holding for >=2 consecutive subsequent loops.
+        # trajectory does not terminate in a locking failure mode.
         if has_terminal_failure or not sorted_steps:
             end = sorted_steps[-1].loop_index if sorted_steps else start
         else:
