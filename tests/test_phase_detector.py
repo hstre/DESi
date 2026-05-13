@@ -3,35 +3,22 @@ from __future__ import annotations
 
 from desi.models import ENEvent, Trajectory, TrajectoryStep
 from desi.phase_detector import (
-    PHASE_I,
-    PHASE_II,
-    PHASE_IV,
-    PHASE_V,
-    detect_phases,
+    PHASE_I, PHASE_II, PHASE_IV, PHASE_V, detect_phases,
 )
 
 
 def _step(loop: int, *, novel: int = 0, dup: float = 0.0, op: str = "T3",
           failure: str | None = None) -> TrajectoryStep:
     return TrajectoryStep(
-        loop_index=loop,
-        focus_claim_id=f"c{loop}",
-        operator=op,
-        novel_claims=novel,
-        dup_rate=dup,
-        failure_mode=failure,
-        claims=[],
+        loop_index=loop, focus_claim_id=f"c{loop}", operator=op,
+        novel_claims=novel, dup_rate=dup, failure_mode=failure, claims=[],
     )
 
 
 def _en(loop: int, novelty: float) -> ENEvent:
     return ENEvent(
-        loop_index=loop,
-        persona="historian",
-        eni_novelty=novelty,
-        eni_non_drift=0.5,
-        eni_admissibility=0.5,
-        admitted=True,
+        loop_index=loop, persona="historian", eni_novelty=novelty,
+        eni_non_drift=0.5, eni_admissibility=0.5, admitted=True,
     )
 
 
@@ -54,10 +41,7 @@ def test_two_consecutive_low_eni_events_trigger_phase_iv():
             _step(2, novel=1, dup=0.55),
             _step(3, novel=0, dup=0.65),
         ],
-        en_events=[
-            _en(2, 0.05),
-            _en(3, 0.07),
-        ],
+        en_events=[_en(2, 0.05), _en(3, 0.07)],
     )
     spans = {p.name: p for p in detect_phases(traj).phases}
     assert PHASE_IV in spans
@@ -74,10 +58,7 @@ def test_non_consecutive_low_eni_does_not_trigger_phase_iv():
             _step(2, novel=3, dup=0.30),
             _step(3, novel=0, dup=0.60),
         ],
-        en_events=[
-            _en(2, 0.05),
-            _en(3, 0.20),  # genuine -> resets the run
-        ],
+        en_events=[_en(2, 0.05), _en(3, 0.20)],
     )
     names = [p.name for p in detect_phases(traj).phases]
     assert PHASE_IV not in names
@@ -128,7 +109,8 @@ def test_terminal_failure_alone_triggers_phase_v_with_medium_confidence():
 
 
 def test_phase_ii_span_is_well_ordered():
-    """DET-FAL T10 regression: Phase II must satisfy start_loop <= end_loop."""
+    """DET-FAL T10 regression: Phase II must satisfy start_loop <= end_loop.
+    Post-cycle-9: trajectory extended to satisfy persistence rule."""
     traj = Trajectory(
         trajectory_id="t",
         steps=[
@@ -136,10 +118,9 @@ def test_phase_ii_span_is_well_ordered():
             _step(1, novel=3, dup=0.55, op="T8"),
             _step(2, novel=8, dup=0.30, op="T5"),
             _step(3, novel=1, dup=0.45, op="T6"),
+            _step(4, novel=1, dup=0.50, op="T8"),
         ],
-        en_events=[
-            _en(loop=2, novelty=0.13),
-        ],
+        en_events=[_en(loop=2, novelty=0.13)],
     )
     spans = {p.name: p for p in detect_phases(traj).phases}
     assert PHASE_II in spans
@@ -147,9 +128,26 @@ def test_phase_ii_span_is_well_ordered():
     assert span.start_loop <= span.end_loop
 
 
+def test_phase_ii_does_not_fire_on_single_loop_dip():
+    """DET-FAL T5 regression: a single-loop novel<=2 dip in an otherwise
+    oscillating trajectory must NOT trigger Phase II (adv05 shape)."""
+    traj = Trajectory(
+        trajectory_id="t",
+        steps=[
+            _step(0, novel=10, dup=0.05, op="T3"),
+            _step(1, novel=1, dup=0.45),
+            _step(2, novel=9, dup=0.10),
+            _step(3, novel=1, dup=0.40),
+            _step(4, novel=10, dup=0.08),
+        ],
+        en_events=[_en(1, 0.22), _en(3, 0.18)],
+    )
+    names = [p.name for p in detect_phases(traj).phases]
+    assert PHASE_II not in names
+
+
 def test_phase_v_closes_on_reversal():
-    """DET-FAL T9 regression: Phase V must close when trigger stops holding
-    for >=2 consecutive loops (when terminal_failure_mode is unset)."""
+    """DET-FAL T9 regression."""
     traj = Trajectory(
         trajectory_id="t",
         steps=[
@@ -171,8 +169,9 @@ def test_phase_v_closes_on_reversal():
 
 
 def test_phase_ii_fires_without_en_events():
-    """DET-FAL T8 regression: Phase II must fire on novelty collapse even
-    when the trajectory contains zero EN events."""
+    """DET-FAL T8 regression: Phase II must fire on novelty collapse
+    even without EN. Post-cycle-9: persistence requirement satisfied
+    by loops 3+4."""
     traj = Trajectory(
         trajectory_id="t",
         steps=[
