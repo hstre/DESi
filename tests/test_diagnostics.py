@@ -10,11 +10,8 @@ from desi.models import ENEvent, Trajectory, TrajectoryStep
 
 
 def _en(loop: int, novelty: float, **kw) -> ENEvent:
-    base = dict(
-        loop_index=loop, persona="historian",
-        eni_novelty=novelty, eni_non_drift=0.5,
-        eni_admissibility=0.5, admitted=True,
-    )
+    base = dict(loop_index=loop, persona="historian", eni_novelty=novelty,
+                eni_non_drift=0.5, eni_admissibility=0.5, admitted=True)
     base.update(kw)
     return ENEvent(**base)
 
@@ -65,7 +62,6 @@ def test_penultimate_en_not_applicable_with_one_event():
 
 
 def test_detect_branch_explosion_fires_on_adv07_shape():
-    """DET-FAL T7 regression."""
     from desi.diagnostics import detect_branch_explosion
     from desi.models import ClaimState
     steps = []
@@ -81,7 +77,6 @@ def test_detect_branch_explosion_fires_on_adv07_shape():
 
 
 def test_detect_branch_explosion_does_not_fire_on_attractor_lock():
-    """Negative regression."""
     from desi.diagnostics import detect_branch_explosion
     from desi.models import ClaimState
     steps = [
@@ -95,8 +90,6 @@ def test_detect_branch_explosion_does_not_fire_on_attractor_lock():
 
 
 def test_detect_mild_stagnation_fires_on_adv04_shape():
-    """DET-FAL T4 regression: novel stuck at ~2 + dup creeping but never
-    crossing Phase V threshold must trigger mild_stagnation.detected=True."""
     from desi.diagnostics import detect_mild_stagnation
     traj = Trajectory(
         trajectory_id="adv04_shape",
@@ -119,8 +112,6 @@ def test_detect_mild_stagnation_fires_on_adv04_shape():
 
 
 def test_detect_mild_stagnation_suppressed_by_phase_v_trigger():
-    """Negative regression: mild_stagnation must NOT fire when Phase V's hard
-    trigger fires anywhere in the trajectory."""
     from desi.diagnostics import detect_mild_stagnation
     traj = Trajectory(
         trajectory_id="phase_v_shape",
@@ -135,3 +126,34 @@ def test_detect_mild_stagnation_suppressed_by_phase_v_trigger():
     r = detect_mild_stagnation(traj)
     assert r.detected is False
     assert r.has_phase_v_trigger is True
+
+
+def test_validate_step_metric_coherence_flags_contradictory_step():
+    """RPP-STR P03 regression: dup_rate=0.9 AND novel_claims=10 must be
+    flagged as incoherent."""
+    from desi.diagnostics import validate_step_metric_coherence
+    traj = Trajectory(
+        trajectory_id="incoherent",
+        steps=[
+            TrajectoryStep(loop_index=0, operator="T3", novel_claims=10, dup_rate=0.05),
+            TrajectoryStep(loop_index=1, operator="T8", novel_claims=10, dup_rate=0.90),
+        ],
+        en_events=[],
+    )
+    r = validate_step_metric_coherence(traj)
+    assert r.detected is True
+    assert any(s.loop_index == 1 for s in r.incoherent_steps)
+
+
+def test_validate_step_metric_coherence_clean_trajectory():
+    from desi.diagnostics import validate_step_metric_coherence
+    traj = Trajectory(
+        trajectory_id="clean",
+        steps=[
+            TrajectoryStep(loop_index=0, operator="T3", novel_claims=10, dup_rate=0.10),
+            TrajectoryStep(loop_index=1, operator="T4", novel_claims=4, dup_rate=0.30),
+            TrajectoryStep(loop_index=2, operator="T8", novel_claims=1, dup_rate=0.55),
+        ],
+        en_events=[],
+    )
+    assert validate_step_metric_coherence(traj).detected is False

@@ -43,36 +43,17 @@ src/desi/
   cli.py                # `python -m desi.cli analyze ...`
 ```
 
-## Setup
+## Setup / Usage / Tests
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env  # then set DEEPSEEK_API_KEY=...
-```
-
-## Usage
-
-```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt && cp .env.example .env  # then set DEEPSEEK_API_KEY=...
 python -m desi.cli analyze data/sample_trajectories/sample_n03_mozart.json
-python -m desi.cli analyze path/to/traj.json --no-llm
-python -m desi.cli analyze path/to/traj.json --audit-model flash|pro|auto
-```
-
-Reports land in `outputs/<trajectory_id>_desi_report.md`.
-
-### Auditor model
-
-DESi uses `deepseek-v4-pro` for the `SKEPTICAL_AUDITOR` role by default
-(`--audit-model auto`, paper0 ablation `853db5d`). `--audit-model flash`
-for fast batches.
-
-## Tests
-
-```bash
 pytest -q
 ```
+
+`--audit-model {flash,pro,auto}` selects the SKEPTICAL_AUDITOR model
+(default `auto` = `deepseek-v4-pro`, paper0 ablation `853db5d`).
 
 ## Self-improvement loop log
 
@@ -84,10 +65,11 @@ the proposal + evaluation per cycle, and `experiments/self_improvement/
 final_report.md` (after cycle 12) for the synthesis. Nothing in this
 loop is merged to `main` without human review.
 
-| Cycle | Change | Target failure | Result | Verdict | Key metric delta | Commit |
-|------:|--------|----------------|--------|:------:|-------------------|--------|
-| 1 | Normalise Phase II span bounds (`min/max(collapse, first_en)`) | DET-FAL T10 malformed span (`loops 3..2`) | tests 13→14 pass; adv10 Phase II = 2..3 | **ACCEPTED** | `malformed_phase_span_count` 1 → 0 (n=10) | `378909c` |
-| 2 | Close Phase V on sustained reversal when `terminal_failure_mode` is unset | DET-FAL T9 sticky Phase V (`loops 2..8` over recovery region) | tests 14→15 pass; adv09 Phase V = 2..5; adv03 preserved by terminal-failure guard | **ACCEPTED** | DET-FAL `false_positive_count` 4 → 2 (cycles 1+2) | `5f04fe2` |
-| 3 | Drop the EN-event requirement from Phase II; emit at low confidence when no EN | DET-FAL T8 / saturation-without-EN (adv04, adv08 silent) | tests 15→16 pass; adv04 Phase II = 2..2; adv08 Phase II = 4..4 | **ACCEPTED** | DET-FAL `false_negative_count` 5 → 4 | `1953bc8` |
-| 4 | New `detect_branch_explosion` in diagnostics: ≥5 open branches ∧ avg dup<0.20 ∧ avg novel≥5 | DET-FAL T7 branch-explosion shape (adv07) | tests 16→18 pass; adv07 detected; 9/10 negative cases clean | **ACCEPTED** | DET-FAL `false_negative_count` 4 → 3 | `1f642e2` |
-| 5 | New `detect_mild_stagnation` (soft tail signal, suppressed by Phase V guard) | DET-FAL T4 (adv04 — novel stuck ~2, dup creeping but <0.50) | tests 18→20 pass; adv04 detected; zero overlap with Phase V | **ACCEPTED** | DET-FAL `false_negative_count` 3 → 2 | _pending_ |
+| Cycle | Change | Target failure | Verdict | Key metric delta | Commit |
+|------:|--------|----------------|:------:|-------------------|--------|
+| 1 | Normalise Phase II span bounds | DET-FAL T10 malformed span | **ACCEPTED** | `malformed_phase_span_count` 1 → 0 | `378909c` |
+| 2 | Close Phase V on sustained reversal | DET-FAL T9 sticky Phase V | **ACCEPTED** | DET-FAL `false_positive_count` 4 → 2 | `5f04fe2` |
+| 3 | Drop EN-event gate from Phase II | DET-FAL T8 saturation-without-EN | **ACCEPTED** | DET-FAL `false_negative_count` 5 → 4 | `1953bc8` |
+| 4 | New `detect_branch_explosion` | DET-FAL T7 branch-explosion (adv07) | **ACCEPTED** | DET-FAL `false_negative_count` 4 → 3 | `1f642e2` |
+| 5 | New `detect_mild_stagnation` (Phase V-guarded) | DET-FAL T4 mild stagnation (adv04) | **ACCEPTED** | DET-FAL `false_negative_count` 3 → 2 | `5a854d3` |
+| 6 | New `validate_step_metric_coherence` (defensive) | RPP-STR P03 incoherent metric rows | **ACCEPTED** (defensive) | no DET-FAL delta; forward-looking | _pending_ |
