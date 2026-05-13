@@ -1,0 +1,404 @@
+{
+  "adv01_no_recovery_despite_high_en": {
+    "B_BASELINE": {
+      "overclaim_count": 0,
+      "unsupported_claims": 16,
+      "hallucinated_causal_claims": 2,
+      "contradiction_count": 1,
+      "threshold_artifact_detection": 0,
+      "useful_objection_count": 1,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 15,
+      "errors": {},
+      "seconds_total": 106.37765002250671,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-flash",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    },
+    "B_PRO_AUDIT": {
+      "overclaim_count": 0,
+      "unsupported_claims": 1,
+      "hallucinated_causal_claims": 1,
+      "contradiction_count": 0,
+      "threshold_artifact_detection": 0,
+      "useful_objection_count": 2,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 4,
+      "errors": {},
+      "seconds_total": 191.8295452594757,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-pro",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    }
+  },
+  "adv02_recovery_below_threshold": {
+    "B_BASELINE": {
+      "overclaim_count": 3,
+      "unsupported_claims": 0,
+      "hallucinated_causal_claims": 11,
+      "contradiction_count": 1,
+      "threshold_artifact_detection": 3,
+      "useful_objection_count": 1,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 0,
+      "errors": {},
+      "seconds_total": 167.05768132209778,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-flash",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    },
+    "B_PRO_AUDIT": {
+      "overclaim_count": 1,
+      "unsupported_claims": 1,
+      "hallucinated_causal_claims": 2,
+      "contradiction_count": 0,
+      "threshold_artifact_detection": 2,
+      "useful_objection_count": 3,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 2,
+      "errors": {},
+      "seconds_total": 196.35828590393066,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-pro",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    }
+  },
+  "adv03_phase_iv_without_two_consecutive_low_en": {
+    "B_BASELINE": {
+      "overclaim_count": 1,
+      "unsupported_claims": 6,
+      "hallucinated_causal_claims": 0,
+      "contradiction_count": 2,
+      "threshold_artifact_detection": 0,
+      "useful_objection_count": 4,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 5,
+      "errors": {},
+      "seconds_total": 170.0760087966919,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-flash",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    },
+    "B_PRO_AUDIT": {
+      "overclaim_count": 1,
+      "unsupported_claims": 4,
+      "hallucinated_causal_claims": 0,
+      "contradiction_count": 2,
+      "threshold_artifact_detection": 0,
+      "useful_objection_count": 1,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 7,
+      "errors": {},
+      "seconds_total": 206.3166217803955,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-pro",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    }
+  },
+  "adv04_terminal_convergence_without_dup_spike": {
+    "B_BASELINE": {
+      "overclaim_count": 0,
+      "unsupported_claims": 4,
+      "hallucinated_causal_claims": 10,
+      "contradiction_count": 1,
+      "threshold_artifact_detection": 2,
+      "useful_objection_count": 2,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 9,
+      "errors": {},
+      "seconds_total": 128.9930238723755,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-flash",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    },
+    "B_PRO_AUDIT": {
+      "overclaim_count": 0,
+      "unsupported_claims": 3,
+      "hallucinated_causal_claims": 3,
+      "contradiction_count": 1,
+      "threshold_artifact_detection": 0,
+      "useful_objection_count": 3,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 2,
+      "errors": {},
+      "seconds_total": 211.52869653701782,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-pro",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    }
+  },
+  "adv05_oscillating_novelty": {
+    "B_BASELINE": {
+      "overclaim_count": 0,
+      "unsupported_claims": 23,
+      "hallucinated_causal_claims": 4,
+      "contradiction_count": 1,
+      "threshold_artifact_detection": 2,
+      "useful_objection_count": 0,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 15,
+      "errors": {},
+      "seconds_total": 139.0925395488739,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-flash",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    },
+    "B_PRO_AUDIT": {
+      "overclaim_count": 1,
+      "unsupported_claims": 20,
+      "hallucinated_causal_claims": 14,
+      "contradiction_count": 1,
+      "threshold_artifact_detection": 0,
+      "useful_objection_count": 6,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 17,
+      "errors": {},
+      "seconds_total": 218.50690364837646,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-pro",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    }
+  },
+  "adv06_false_penultimate_candidate": {
+    "B_BASELINE": {
+      "overclaim_count": 0,
+      "unsupported_claims": 1,
+      "hallucinated_causal_claims": 1,
+      "contradiction_count": 1,
+      "threshold_artifact_detection": 0,
+      "useful_objection_count": 0,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 1,
+      "errors": {},
+      "seconds_total": 150.38299250602722,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-flash",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    },
+    "B_PRO_AUDIT": {
+      "overclaim_count": 0,
+      "unsupported_claims": 0,
+      "hallucinated_causal_claims": 0,
+      "contradiction_count": 2,
+      "threshold_artifact_detection": 0,
+      "useful_objection_count": 0,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 1,
+      "errors": {
+        "SKEPTICAL_AUDITOR": "HTTPSConnectionPool(host='api.deepseek.com', port=443): Read timed out."
+      },
+      "seconds_total": 148.5885090827942,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-pro",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    }
+  },
+  "adv07_branch_explosion_no_attractor": {
+    "B_BASELINE": {
+      "overclaim_count": 1,
+      "unsupported_claims": 3,
+      "hallucinated_causal_claims": 5,
+      "contradiction_count": 2,
+      "threshold_artifact_detection": 0,
+      "useful_objection_count": 4,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 5,
+      "errors": {},
+      "seconds_total": 130.6642141342163,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-flash",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    },
+    "B_PRO_AUDIT": {
+      "overclaim_count": 1,
+      "unsupported_claims": 6,
+      "hallucinated_causal_claims": 1,
+      "contradiction_count": 1,
+      "threshold_artifact_detection": 0,
+      "useful_objection_count": 0,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 7,
+      "errors": {},
+      "seconds_total": 194.95884346961975,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-pro",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    }
+  },
+  "adv08_monotonic_decline_only": {
+    "B_BASELINE": {
+      "overclaim_count": 4,
+      "unsupported_claims": 5,
+      "hallucinated_causal_claims": 1,
+      "contradiction_count": 1,
+      "threshold_artifact_detection": 0,
+      "useful_objection_count": 2,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 13,
+      "errors": {},
+      "seconds_total": 116.9973406791687,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-flash",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    },
+    "B_PRO_AUDIT": {
+      "overclaim_count": 3,
+      "unsupported_claims": 6,
+      "hallucinated_causal_claims": 4,
+      "contradiction_count": 1,
+      "threshold_artifact_detection": 0,
+      "useful_objection_count": 1,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 5,
+      "errors": {},
+      "seconds_total": 178.10587406158447,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-pro",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    }
+  },
+  "adv09_late_recovery_after_apparent_lock": {
+    "B_BASELINE": {
+      "overclaim_count": 0,
+      "unsupported_claims": 1,
+      "hallucinated_causal_claims": 4,
+      "contradiction_count": 1,
+      "threshold_artifact_detection": 0,
+      "useful_objection_count": 0,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 1,
+      "errors": {},
+      "seconds_total": 157.58941292762756,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-flash",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    },
+    "B_PRO_AUDIT": {
+      "overclaim_count": 1,
+      "unsupported_claims": 5,
+      "hallucinated_causal_claims": 1,
+      "contradiction_count": 1,
+      "threshold_artifact_detection": 0,
+      "useful_objection_count": 2,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 7,
+      "errors": {},
+      "seconds_total": 212.24796605110168,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-pro",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    }
+  },
+  "adv10_random_walk": {
+    "B_BASELINE": {
+      "overclaim_count": 0,
+      "unsupported_claims": 0,
+      "hallucinated_causal_claims": 3,
+      "contradiction_count": 0,
+      "threshold_artifact_detection": 0,
+      "useful_objection_count": 0,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 4,
+      "errors": {},
+      "seconds_total": 152.75045537948608,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-flash",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    },
+    "B_PRO_AUDIT": {
+      "overclaim_count": 0,
+      "unsupported_claims": 0,
+      "hallucinated_causal_claims": 6,
+      "contradiction_count": 1,
+      "threshold_artifact_detection": 1,
+      "useful_objection_count": 3,
+      "false_objection_count": 0,
+      "synthesis_degradation_count": 4,
+      "errors": {},
+      "seconds_total": 242.88204908370972,
+      "models": {
+        "TRAJECTORY_ANALYST": "deepseek-v4-flash",
+        "ATTRACTOR_DIAGNOSTICIAN": "deepseek-v4-flash",
+        "EN_EVENT_ANALYST": "deepseek-v4-flash",
+        "SKEPTICAL_AUDITOR": "deepseek-v4-pro",
+        "REPORT_SYNTHESIZER": "deepseek-v4-flash"
+      }
+    }
+  }
+}
