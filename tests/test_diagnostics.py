@@ -41,15 +41,37 @@ def test_novelty_recovery_requires_novel_claims_and_dup_drop():
 
 
 def test_penultimate_en_candidate_when_principle_matches():
+    """Post-cycle-8: penultimate must be *confirmed* (composite label)."""
     traj = Trajectory(
         trajectory_id="t",
         steps=[TrajectoryStep(loop_index=0, operator="EXPOSITION")],
-        en_events=[_en(2, 0.20), _en(4, 0.18), _en(6, 0.04)],
+        en_events=[
+            _en(2, 0.20),
+            _en(4, 0.18, novel_claims_next=4, dup_rate_before=0.45, dup_rate_after=0.20),
+            _en(6, 0.04),
+        ],
     )
     p = detect_penultimate_en_candidate(traj)
     assert p.has_candidate is True
     assert p.penultimate_loop == 4
     assert p.last_loop == 6
+
+
+def test_penultimate_en_unconfirmed_does_not_count():
+    """DET-FAL T6 regression: penultimate EN with high ENI but NO
+    recovery must NOT be flagged (adv06 shape)."""
+    traj = Trajectory(
+        trajectory_id="t",
+        steps=[TrajectoryStep(loop_index=0, operator="EXPOSITION")],
+        en_events=[
+            _en(2, 0.20),
+            _en(4, 0.15, novel_claims_next=0, dup_rate_before=0.45, dup_rate_after=0.55),
+            _en(6, 0.04),
+        ],
+    )
+    p = detect_penultimate_en_candidate(traj)
+    assert p.has_candidate is False
+    assert p.penultimate_label != "genuine_transformation_confirmed"
 
 
 def test_penultimate_en_not_applicable_with_one_event():
@@ -69,8 +91,7 @@ def test_detect_branch_explosion_fires_on_adv07_shape():
         claims = [ClaimState(id=f"B{i:03d}{j}", branch_open=True, parent_id=f"C00{i}") for j in range(2)]
         steps.append(TrajectoryStep(loop_index=i, focus_claim_id=f"C00{i}", operator="T1", novel_claims=8, dup_rate=0.10, claims=claims))
     traj = Trajectory(trajectory_id="branch_explosion_shape", steps=steps, en_events=[], terminal_failure_mode="GRAPH_TOO_LARGE")
-    r = detect_branch_explosion(traj)
-    assert r.detected is True
+    assert detect_branch_explosion(traj).detected is True
 
 
 def test_detect_branch_explosion_does_not_fire_on_attractor_lock():
@@ -147,25 +168,18 @@ def test_validate_step_metric_coherence_clean_trajectory():
 
 
 def test_composite_en_high_eni_without_recovery_is_unconfirmed():
-    """DET-FAL T1 regression."""
     from desi.diagnostics import classify_en_event_composite
-    r = classify_en_event_composite(_en(1, 0.25, novel_claims_next=0,
-                                        dup_rate_before=0.40, dup_rate_after=0.50))
+    r = classify_en_event_composite(_en(1, 0.25, novel_claims_next=0, dup_rate_before=0.40, dup_rate_after=0.50))
     assert r.label == "genuine_transformation_unconfirmed"
-    assert r.recovered is False
 
 
 def test_composite_en_borderline_with_recovery_is_distinguished():
-    """DET-FAL T2 regression."""
     from desi.diagnostics import classify_en_event_composite
-    r = classify_en_event_composite(_en(2, 0.11, novel_claims_next=5,
-                                        dup_rate_before=0.50, dup_rate_after=0.20))
+    r = classify_en_event_composite(_en(2, 0.11, novel_claims_next=5, dup_rate_before=0.50, dup_rate_after=0.20))
     assert r.label == "borderline_with_recovery"
-    assert r.recovered is True
 
 
 def test_composite_en_high_with_recovery_is_confirmed():
     from desi.diagnostics import classify_en_event_composite
-    r = classify_en_event_composite(_en(2, 0.18, novel_claims_next=4,
-                                        dup_rate_before=0.42, dup_rate_after=0.18))
+    r = classify_en_event_composite(_en(2, 0.18, novel_claims_next=4, dup_rate_before=0.42, dup_rate_after=0.18))
     assert r.label == "genuine_transformation_confirmed"

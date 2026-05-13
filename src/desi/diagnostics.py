@@ -59,6 +59,47 @@ def compute_novelty_recovery(event: ENEvent) -> NoveltyRecovery:
 
 
 @dataclass(frozen=True)
+class CompositeENClassification:
+    loop_index: int
+    eni_novelty: float
+    recovered: bool
+    label: str
+    note: str
+
+
+def classify_en_event_composite(event: ENEvent) -> CompositeENClassification:
+    recovery = compute_novelty_recovery(event)
+    eni = event.eni_novelty
+    if eni > ENI_HIGH_THRESHOLD:
+        bucket = "high"
+    elif eni < ENI_LOW_THRESHOLD:
+        bucket = "low"
+    else:
+        bucket = "borderline"
+    if bucket == "high" and recovery.recovered:
+        label = "genuine_transformation_confirmed"
+    elif bucket == "high" and not recovery.recovered:
+        label = "genuine_transformation_unconfirmed"
+    elif bucket == "borderline" and recovery.recovered:
+        label = "borderline_with_recovery"
+    elif bucket == "borderline" and not recovery.recovered:
+        label = "borderline_no_recovery"
+    elif bucket == "low" and recovery.recovered:
+        label = "low_eni_with_unexpected_recovery"
+    else:
+        label = "false_return_confirmed"
+    note = f"eni_novelty={eni:.2f} bucket={bucket} recovered={recovery.recovered}"
+    return CompositeENClassification(
+        loop_index=event.loop_index, eni_novelty=eni,
+        recovered=recovery.recovered, label=label, note=note,
+    )
+
+
+def classify_en_events_composite(events: Iterable[ENEvent]) -> list[CompositeENClassification]:
+    return [classify_en_event_composite(e) for e in events]
+
+
+@dataclass(frozen=True)
 class PenultimateENAssessment:
     has_candidate: bool
     penultimate_loop: int | None
@@ -69,6 +110,14 @@ class PenultimateENAssessment:
 
 
 def detect_penultimate_en_candidate(trajectory: Trajectory) -> PenultimateENAssessment:
+    """Cycle-8: uses the composite classifier. Candidate iff the
+    penultimate EN was BOTH high novelty AND recovered (composite label
+    `genuine_transformation_confirmed`), and the last EN was NOT
+    `genuine_transformation_confirmed`. Pre-cycle-8 the rule was a
+    label-only check on the legacy classifier (`label == "genuine
+    _transformation"`) which produced DET-FAL T6 false positive on
+    adv06 (penultimate ENI=0.15 with novel_claims_next=0).
+    """
     events = trajectory.en_events
     if len(events) < 2:
         return PenultimateENAssessment(
@@ -76,17 +125,18 @@ def detect_penultimate_en_candidate(trajectory: Trajectory) -> PenultimateENAsse
             last_loop=None, last_label=None,
             note="fewer than 2 EN events; principle not applicable",
         )
-    classifications = classify_en_events(events)
-    penult = classifications[-2]
-    last = classifications[-1]
+    composite = classify_en_events_composite(events)
+    penult = composite[-2]
+    last = composite[-1]
     is_candidate = (
-        penult.label == "genuine_transformation"
-        and last.label != "genuine_transformation"
+        penult.label == "genuine_transformation_confirmed"
+        and last.label != "genuine_transformation_confirmed"
     )
     note = (
-        "penultimate EN was the last genuine transformation"
+        "penultimate EN was the last *confirmed* genuine transformation "
+        "(high ENI + downstream recovery)"
         if is_candidate
-        else "penultimate EN does not match the principle's signature"
+        else f"penultimate EN does not match the principle's signature (penultimate label = {penult.label})"
     )
     return PenultimateENAssessment(
         has_candidate=is_candidate,
@@ -247,55 +297,6 @@ def detect_mild_stagnation(trajectory: Trajectory) -> MildStagnationReport:
         dup_strictly_increasing=strictly_increasing, has_phase_v_trigger=has_phase_v,
         has_genuine_en_in_tail=has_genuine_en_in_tail, note=note,
     )
-
-
-# --- Composite EN classification (cycle 7) ----------------------------------
-# Closes DET-FAL T1 (ENI=0.25 + no recovery) and T2 (ENI=0.11 + strong
-# recovery). Per paper0/self_reflection.md §3, legacy bimodal classifier
-# is decoupled from downstream effect. Composite classifier reads ENI
-# bucket AND compute_novelty_recovery(event).recovered. Legacy classifier
-# UNCHANGED so existing Phase III / Phase II guards keep semantics.
-
-
-@dataclass(frozen=True)
-class CompositeENClassification:
-    loop_index: int
-    eni_novelty: float
-    recovered: bool
-    label: str
-    note: str
-
-
-def classify_en_event_composite(event: ENEvent) -> CompositeENClassification:
-    recovery = compute_novelty_recovery(event)
-    eni = event.eni_novelty
-    if eni > ENI_HIGH_THRESHOLD:
-        bucket = "high"
-    elif eni < ENI_LOW_THRESHOLD:
-        bucket = "low"
-    else:
-        bucket = "borderline"
-    if bucket == "high" and recovery.recovered:
-        label = "genuine_transformation_confirmed"
-    elif bucket == "high" and not recovery.recovered:
-        label = "genuine_transformation_unconfirmed"
-    elif bucket == "borderline" and recovery.recovered:
-        label = "borderline_with_recovery"
-    elif bucket == "borderline" and not recovery.recovered:
-        label = "borderline_no_recovery"
-    elif bucket == "low" and recovery.recovered:
-        label = "low_eni_with_unexpected_recovery"
-    else:
-        label = "false_return_confirmed"
-    note = f"eni_novelty={eni:.2f} bucket={bucket} recovered={recovery.recovered}"
-    return CompositeENClassification(
-        loop_index=event.loop_index, eni_novelty=eni,
-        recovered=recovery.recovered, label=label, note=note,
-    )
-
-
-def classify_en_events_composite(events: Iterable[ENEvent]) -> list[CompositeENClassification]:
-    return [classify_en_event_composite(e) for e in events]
 
 
 # --- Step-metric coherence validator (cycle 6) -----------------------------
