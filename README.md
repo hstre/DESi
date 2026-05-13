@@ -228,3 +228,17 @@ pytest -q
 
 Test coverage at this prototype stage is intentionally minimal — see
 `tests/`. Treat all results from this prototype as **EXPLORATORY**.
+
+## Self-improvement loop log
+
+Branch `experiment/desi-self-improvement-loop-12`. One change per
+cycle, evaluated against the deterministic falsification suite and the
+n=10 adversarial trajectory set. Failed cycles are kept documented; no
+silent metric changes. See `experiments/self_improvement/cycle_N/` for
+the proposal + evaluation per cycle, and `experiments/self_improvement/
+final_report.md` (after cycle 12) for the synthesis. Nothing in this
+loop is merged to `main` without human review.
+
+| Cycle | Change | Target failure | Result | Verdict | Key metric delta | Commit |
+|------:|--------|----------------|--------|:------:|-------------------|--------|
+| 1 | Normalise Phase II span bounds (`min/max(collapse, first_en)`) | DET-FAL T10 malformed span (`loops 3..2`) | tests 13→14 pass; adv10 Phase II = 2..3 | **ACCEPTED** | `malformed_phase_span_count` 1 → 0 (n=10) | _pending_ |

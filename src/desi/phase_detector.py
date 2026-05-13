@@ -146,10 +146,17 @@ def detect_phase_ii(trajectory: Trajectory) -> PhaseSpan | None:
         f"novelty collapse: novel_claims<=2 at loop {collapse_loop}",
         f"first EN at loop {first_en.loop_index} (eni_novelty={first_en.eni_novelty:.2f})",
     ]
+    # cycle-1 fix: enforce start_loop <= end_loop. When the first EN fires
+    # at a loop BEFORE the first novelty collapse, the unnormalised pair
+    # produces a malformed span (DET-FAL T10: `loops 3..2`). The semantic
+    # window — between the collapse and the first EN — is the same
+    # regardless of orientation; normalising preserves the invariant
+    # without changing the trigger evidence.
+    span_start, span_end = sorted((collapse_loop, trigger_loop))
     return PhaseSpan(
         name=PHASE_II,
-        start_loop=collapse_loop,
-        end_loop=trigger_loop,
+        start_loop=span_start,
+        end_loop=span_end,
         trigger_evidence=evidence,
         confidence="medium",
     )

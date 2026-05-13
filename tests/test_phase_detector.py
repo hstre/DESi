@@ -4,6 +4,7 @@ from __future__ import annotations
 from desi.models import ENEvent, Trajectory, TrajectoryStep
 from desi.phase_detector import (
     PHASE_I,
+    PHASE_II,
     PHASE_IV,
     PHASE_V,
     detect_phases,
@@ -124,3 +125,32 @@ def test_terminal_failure_alone_triggers_phase_v_with_medium_confidence():
     spans = {p.name: p for p in detect_phases(traj).phases}
     assert PHASE_V in spans
     assert spans[PHASE_V].confidence == "medium"
+
+
+def test_phase_ii_span_is_well_ordered():
+    """DET-FAL T10 regression: Phase II must satisfy start_loop <= end_loop.
+
+    When the first novelty collapse occurs at a loop *after* the first EN
+    event, the legacy detector emitted start_loop=collapse_loop and
+    end_loop=first_en.loop_index, producing a malformed span like
+    `loops 3..2`. This test reproduces that exact shape (collapse at loop 3,
+    EN at loop 2) and asserts the span is well-ordered.
+    """
+    traj = Trajectory(
+        trajectory_id="t",
+        steps=[
+            _step(0, novel=6, dup=0.20, op="T3"),
+            _step(1, novel=3, dup=0.55, op="T8"),
+            _step(2, novel=8, dup=0.30, op="T5"),
+            _step(3, novel=1, dup=0.45, op="T6"),  # first collapse at loop 3
+        ],
+        en_events=[
+            _en(loop=2, novelty=0.13),  # first EN at loop 2 — BEFORE the collapse
+        ],
+    )
+    spans = {p.name: p for p in detect_phases(traj).phases}
+    assert PHASE_II in spans, "expected Phase II to trigger on this shape"
+    span = spans[PHASE_II]
+    assert span.start_loop <= span.end_loop, (
+        f"Phase II span is malformed: loops {span.start_loop}..{span.end_loop}"
+    )
