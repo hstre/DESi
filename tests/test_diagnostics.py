@@ -41,7 +41,6 @@ def test_novelty_recovery_requires_novel_claims_and_dup_drop():
 
 
 def test_penultimate_en_candidate_when_principle_matches():
-    """Post-cycle-8: penultimate must be *confirmed* (composite label)."""
     traj = Trajectory(
         trajectory_id="t",
         steps=[TrajectoryStep(loop_index=0, operator="EXPOSITION")],
@@ -58,8 +57,6 @@ def test_penultimate_en_candidate_when_principle_matches():
 
 
 def test_penultimate_en_unconfirmed_does_not_count():
-    """DET-FAL T6 regression: penultimate EN with high ENI but NO
-    recovery must NOT be flagged (adv06 shape)."""
     traj = Trajectory(
         trajectory_id="t",
         steps=[TrajectoryStep(loop_index=0, operator="EXPOSITION")],
@@ -187,11 +184,7 @@ def test_composite_en_high_with_recovery_is_confirmed():
 
 # Generalization-loop cycle 1: attractor detector's tail-saturation guard.
 def test_detect_terminal_attractor_skips_unsaturated_tail():
-    """Pre-cycle-1 fired on any trajectory with steady focus. Post-cycle-1
-    requires tail to be SATURATED (low novel + elevated dup).
-    """
     from desi.diagnostics import detect_terminal_attractor_subjects
-    # Tail mean_novel=5 (>3), mean_dup=0.20 (<0.30): NOT saturated.
     traj = Trajectory(
         trajectory_id="unsaturated_tail",
         steps=[
@@ -207,9 +200,7 @@ def test_detect_terminal_attractor_skips_unsaturated_tail():
 
 
 def test_detect_terminal_attractor_fires_on_saturated_tail():
-    """Cycle 1 must preserve the signal when the tail IS saturated."""
     from desi.diagnostics import detect_terminal_attractor_subjects
-    # Tail mean_novel=1 (<=3), mean_dup=0.60 (>=0.30): saturated. Focus repeats.
     traj = Trajectory(
         trajectory_id="saturated_tail",
         steps=[
@@ -222,3 +213,52 @@ def test_detect_terminal_attractor_fires_on_saturated_tail():
     r = detect_terminal_attractor_subjects(traj)
     assert r.candidate_claim_ids == ["C001"]
     assert "tail saturated" in r.note
+
+
+# Generalization-loop cycle 3: branch_explosion averages over tail-3, not whole trajectory.
+def test_branch_explosion_does_not_fire_on_late_synthesis_recovery():
+    from desi.diagnostics import detect_branch_explosion
+    from desi.models import ClaimState
+    steps = []
+    for i in range(5):
+        claims = [ClaimState(id=f"B{i}{j}", branch_open=True, parent_id=f"P{i}") for j in range(2)]
+        steps.append(TrajectoryStep(loop_index=i, focus_claim_id="C001",
+                                    operator="T1", novel_claims=7, dup_rate=0.12,
+                                    claims=claims))
+    for i in range(5, 8):
+        steps.append(TrajectoryStep(loop_index=i, focus_claim_id="C001",
+                                    operator="T9", novel_claims=3, dup_rate=0.30,
+                                    claims=[ClaimState(id="S001", branch_open=False)]))
+    traj = Trajectory(trajectory_id="branch_then_synthesis", steps=steps, en_events=[])
+    r = detect_branch_explosion(traj)
+    assert r.detected is False, f"expected late-synthesis to suppress; got {r.note}"
+
+
+# Generalization-loop cycle 5: borderline-chain detector.
+def test_detect_borderline_chain_fires_on_four_borderlines():
+    from desi.diagnostics import detect_borderline_chain
+    traj = Trajectory(
+        trajectory_id="gen11_shape",
+        steps=[TrajectoryStep(loop_index=i, operator="T3", novel_claims=5, dup_rate=0.20)
+               for i in range(8)],
+        en_events=[
+            _en(1, 0.11), _en(3, 0.10), _en(5, 0.12), _en(7, 0.11),
+        ],
+    )
+    r = detect_borderline_chain(traj)
+    assert r.detected is True
+    assert r.longest_run == 4
+
+
+def test_detect_borderline_chain_does_not_fire_on_mixed_labels():
+    from desi.diagnostics import detect_borderline_chain
+    traj = Trajectory(
+        trajectory_id="mixed",
+        steps=[TrajectoryStep(loop_index=i, operator="T3", novel_claims=5, dup_rate=0.20)
+               for i in range(6)],
+        en_events=[
+            _en(1, 0.11), _en(3, 0.20), _en(5, 0.11),
+        ],
+    )
+    r = detect_borderline_chain(traj)
+    assert r.detected is False

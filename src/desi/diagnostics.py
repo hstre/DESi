@@ -156,10 +156,6 @@ def detect_terminal_attractor_subjects(trajectory: Trajectory, *, tail_loops: in
         return TerminalAttractorReport(candidate_claim_ids=[], method="tail_focus_repetition", note="trajectory has no steps")
     mean_novel = sum(s.novel_claims for s in steps) / len(steps)
     mean_dup = sum(s.dup_rate for s in steps) / len(steps)
-    # Cycle 4 (generalization loop): strict-greater on the dup side. gen04
-    # had tail mean_dup=0.30 exactly, which is the boundary; with `>=` the
-    # detector fired even though the trajectory was synthesising. `>` lets
-    # the boundary case fall through.
     saturated = (
         mean_novel <= ATTRACTOR_TAIL_MAX_MEAN_NOVEL
         and mean_dup > ATTRACTOR_TAIL_MIN_MEAN_DUP
@@ -213,7 +209,7 @@ def summarize_failure_mode(trajectory: Trajectory) -> FailureModeSummary:
 BRANCH_EXPLOSION_MIN_BRANCHES = 5
 BRANCH_EXPLOSION_MAX_AVG_DUP = 0.20
 BRANCH_EXPLOSION_MIN_AVG_NOVEL = 5.0
-BRANCH_EXPLOSION_TAIL = 3
+BRANCH_EXPLOSION_TAIL = 3  # gen-cycle 3
 
 
 @dataclass(frozen=True)
@@ -327,6 +323,56 @@ def detect_mild_stagnation(trajectory: Trajectory) -> MildStagnationReport:
     )
 
 
+# --- Borderline-EN chain detector (generalization-loop cycle 5) ------------
+BORDERLINE_CHAIN_MIN_RUN = 3
+
+
+@dataclass(frozen=True)
+class BorderlineChainReport:
+    detected: bool
+    longest_run: int
+    run_start_loop: int | None
+    run_end_loop: int | None
+    note: str
+
+
+def detect_borderline_chain(trajectory: Trajectory) -> BorderlineChainReport:
+    events = sorted(trajectory.en_events, key=lambda e: e.loop_index)
+    if not events:
+        return BorderlineChainReport(
+            detected=False, longest_run=0, run_start_loop=None, run_end_loop=None,
+            note="no EN events",
+        )
+    longest = 0
+    cur = 0
+    best_start: int | None = None
+    best_end: int | None = None
+    cur_start: int | None = None
+    for e in events:
+        cls = classify_en_event(e)
+        if cls.label == "borderline":
+            cur += 1
+            if cur_start is None:
+                cur_start = e.loop_index
+            if cur > longest:
+                longest = cur
+                best_start = cur_start
+                best_end = e.loop_index
+        else:
+            cur = 0
+            cur_start = None
+    detected = longest >= BORDERLINE_CHAIN_MIN_RUN
+    note = (
+        f"borderline chain length {longest} at loops {best_start}..{best_end}"
+        if detected
+        else f"longest borderline run = {longest} (< {BORDERLINE_CHAIN_MIN_RUN})"
+    )
+    return BorderlineChainReport(
+        detected=detected, longest_run=longest,
+        run_start_loop=best_start, run_end_loop=best_end, note=note,
+    )
+
+
 @dataclass(frozen=True)
 class IncoherentStep:
     loop_index: int
@@ -377,6 +423,7 @@ class DeterministicMetrics:
     branch_explosion: BranchExplosionReport
     mild_stagnation: MildStagnationReport
     step_coherence: StepCoherenceReport
+    borderline_chain: BorderlineChainReport
 
 
 def compute_all(trajectory: Trajectory) -> DeterministicMetrics:
@@ -393,4 +440,5 @@ def compute_all(trajectory: Trajectory) -> DeterministicMetrics:
         branch_explosion=detect_branch_explosion(trajectory),
         mild_stagnation=detect_mild_stagnation(trajectory),
         step_coherence=validate_step_metric_coherence(trajectory),
+        borderline_chain=detect_borderline_chain(trajectory),
     )
