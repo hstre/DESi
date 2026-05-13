@@ -72,8 +72,7 @@ def detect_penultimate_en_candidate(trajectory: Trajectory) -> PenultimateENAsse
     events = trajectory.en_events
     if len(events) < 2:
         return PenultimateENAssessment(
-            has_candidate=False,
-            penultimate_loop=None, penultimate_label=None,
+            has_candidate=False, penultimate_loop=None, penultimate_label=None,
             last_loop=None, last_label=None,
             note="fewer than 2 EN events; principle not applicable",
         )
@@ -92,8 +91,7 @@ def detect_penultimate_en_candidate(trajectory: Trajectory) -> PenultimateENAsse
     return PenultimateENAssessment(
         has_candidate=is_candidate,
         penultimate_loop=penult.loop_index, penultimate_label=penult.label,
-        last_loop=last.loop_index, last_label=last.label,
-        note=note,
+        last_loop=last.loop_index, last_label=last.label, note=note,
     )
 
 
@@ -120,8 +118,7 @@ def detect_terminal_attractor_subjects(trajectory: Trajectory, *, tail_loops: in
         | {cid for cid, n in presence_counts.items() if n == len(steps) and n >= 2}
     )
     return TerminalAttractorReport(
-        candidate_claim_ids=candidates,
-        method="tail_focus_repetition",
+        candidate_claim_ids=candidates, method="tail_focus_repetition",
         note=f"examined last {len(steps)} step(s); candidate = focus repeated twice OR claim present in every tail step",
     )
 
@@ -226,14 +223,11 @@ def detect_mild_stagnation(trajectory: Trajectory) -> MildStagnationReport:
     tail_loop_set = {s.loop_index for s in tail}
     has_genuine_en_in_tail = any(
         classify_en_event(e).label == "genuine_transformation"
-        and e.loop_index in tail_loop_set
-        for e in trajectory.en_events
+        and e.loop_index in tail_loop_set for e in trajectory.en_events
     )
     detected = (
-        not has_phase_v
-        and mean_novel <= MILD_STAGNATION_MAX_AVG_NOVEL
-        and strictly_increasing
-        and not has_genuine_en_in_tail
+        not has_phase_v and mean_novel <= MILD_STAGNATION_MAX_AVG_NOVEL
+        and strictly_increasing and not has_genuine_en_in_tail
     )
     if detected:
         note = f"mild stagnation in tail of {len(tail)} loops: mean_novel={mean_novel:.2f} (<= {MILD_STAGNATION_MAX_AVG_NOVEL}), dup strictly increasing, no genuine EN, no Phase V hard trigger"
@@ -249,13 +243,59 @@ def detect_mild_stagnation(trajectory: Trajectory) -> MildStagnationReport:
             reasons.append("genuine EN in tail")
         note = "no mild stagnation: " + "; ".join(reasons) if reasons else "no mild stagnation"
     return MildStagnationReport(
-        detected=detected, tail_loops=len(tail),
-        tail_mean_novel=round(mean_novel, 2),
-        dup_strictly_increasing=strictly_increasing,
-        has_phase_v_trigger=has_phase_v,
-        has_genuine_en_in_tail=has_genuine_en_in_tail,
-        note=note,
+        detected=detected, tail_loops=len(tail), tail_mean_novel=round(mean_novel, 2),
+        dup_strictly_increasing=strictly_increasing, has_phase_v_trigger=has_phase_v,
+        has_genuine_en_in_tail=has_genuine_en_in_tail, note=note,
     )
+
+
+# --- Composite EN classification (cycle 7) ----------------------------------
+# Closes DET-FAL T1 (ENI=0.25 + no recovery) and T2 (ENI=0.11 + strong
+# recovery). Per paper0/self_reflection.md §3, legacy bimodal classifier
+# is decoupled from downstream effect. Composite classifier reads ENI
+# bucket AND compute_novelty_recovery(event).recovered. Legacy classifier
+# UNCHANGED so existing Phase III / Phase II guards keep semantics.
+
+
+@dataclass(frozen=True)
+class CompositeENClassification:
+    loop_index: int
+    eni_novelty: float
+    recovered: bool
+    label: str
+    note: str
+
+
+def classify_en_event_composite(event: ENEvent) -> CompositeENClassification:
+    recovery = compute_novelty_recovery(event)
+    eni = event.eni_novelty
+    if eni > ENI_HIGH_THRESHOLD:
+        bucket = "high"
+    elif eni < ENI_LOW_THRESHOLD:
+        bucket = "low"
+    else:
+        bucket = "borderline"
+    if bucket == "high" and recovery.recovered:
+        label = "genuine_transformation_confirmed"
+    elif bucket == "high" and not recovery.recovered:
+        label = "genuine_transformation_unconfirmed"
+    elif bucket == "borderline" and recovery.recovered:
+        label = "borderline_with_recovery"
+    elif bucket == "borderline" and not recovery.recovered:
+        label = "borderline_no_recovery"
+    elif bucket == "low" and recovery.recovered:
+        label = "low_eni_with_unexpected_recovery"
+    else:
+        label = "false_return_confirmed"
+    note = f"eni_novelty={eni:.2f} bucket={bucket} recovered={recovery.recovered}"
+    return CompositeENClassification(
+        loop_index=event.loop_index, eni_novelty=eni,
+        recovered=recovery.recovered, label=label, note=note,
+    )
+
+
+def classify_en_events_composite(events: Iterable[ENEvent]) -> list[CompositeENClassification]:
+    return [classify_en_event_composite(e) for e in events]
 
 
 # --- Step-metric coherence validator (cycle 6) -----------------------------
@@ -307,6 +347,7 @@ class DeterministicMetrics:
     n_steps: int
     n_en_events: int
     en_classifications: list[ENClassification]
+    en_classifications_composite: list[CompositeENClassification]
     novelty_recoveries: list[NoveltyRecovery]
     penultimate: PenultimateENAssessment
     attractor: TerminalAttractorReport
@@ -322,6 +363,7 @@ def compute_all(trajectory: Trajectory) -> DeterministicMetrics:
         n_steps=len(trajectory.steps),
         n_en_events=len(trajectory.en_events),
         en_classifications=classify_en_events(trajectory.en_events),
+        en_classifications_composite=classify_en_events_composite(trajectory.en_events),
         novelty_recoveries=[compute_novelty_recovery(e) for e in trajectory.en_events],
         penultimate=detect_penultimate_en_candidate(trajectory),
         attractor=detect_terminal_attractor_subjects(trajectory),
