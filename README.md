@@ -43,56 +43,30 @@ src/desi/
   cli.py                # `python -m desi.cli analyze ...`
 ```
 
-The split is intentional: **deterministic diagnostics never depend on the LLM**,
-and the report writer must mark every LLM-derived claim as such.
-
 ## Setup
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-
-cp .env.example .env
-# edit .env and set DEEPSEEK_API_KEY=...
+cp .env.example .env  # then set DEEPSEEK_API_KEY=...
 ```
-
-> **Never commit `.env`.** It is in `.gitignore`. The repository ships
-> `.env.example` with placeholder values only.
 
 ## Usage
 
 ```bash
-# Full analysis (deterministic + DeepSeek roles)
 python -m desi.cli analyze data/sample_trajectories/sample_n03_mozart.json
-
-# Deterministic only — no API calls, no key needed
-python -m desi.cli analyze data/sample_trajectories/sample_n03_darwin.json --no-llm
-
-# Override the analyst/synth model (the four non-auditor roles)
-python -m desi.cli analyze path/to/traj.json --model deepseek-v4-flash
-
-# Pick the auditor model independently
-python -m desi.cli analyze path/to/traj.json --audit-model flash   # fast batch
-python -m desi.cli analyze path/to/traj.json --audit-model pro     # explicit
-python -m desi.cli analyze path/to/traj.json --audit-model auto    # default
-
-# Output path
-python -m desi.cli analyze path/to/traj.json --out outputs/my_report.md
+python -m desi.cli analyze path/to/traj.json --no-llm
+python -m desi.cli analyze path/to/traj.json --audit-model flash|pro|auto
 ```
 
 Reports land in `outputs/<trajectory_id>_desi_report.md`.
 
-### Auditor model — promoted default and cost/latency tradeoff
+### Auditor model
 
 DESi uses `deepseek-v4-pro` for the `SKEPTICAL_AUDITOR` role by default
-(`--audit-model auto`). See `outputs/role_policy/auditor_model_ablation.md`
-(commit `853db5d`). `--audit-model flash` for fast batches.
-
-## Data format
-
-See `data/sample_trajectories/` for runnable examples and `LEGACY_REUSE.md`
-for the full DES provenance ledger.
+(`--audit-model auto`, paper0 ablation `853db5d`). `--audit-model flash`
+for fast batches.
 
 ## Tests
 
@@ -114,4 +88,5 @@ loop is merged to `main` without human review.
 |------:|--------|----------------|--------|:------:|-------------------|--------|
 | 1 | Normalise Phase II span bounds (`min/max(collapse, first_en)`) | DET-FAL T10 malformed span (`loops 3..2`) | tests 13→14 pass; adv10 Phase II = 2..3 | **ACCEPTED** | `malformed_phase_span_count` 1 → 0 (n=10) | `378909c` |
 | 2 | Close Phase V on sustained reversal when `terminal_failure_mode` is unset | DET-FAL T9 sticky Phase V (`loops 2..8` over recovery region) | tests 14→15 pass; adv09 Phase V = 2..5; adv03 preserved by terminal-failure guard | **ACCEPTED** | DET-FAL `false_positive_count` 4 → 2 (cycles 1+2) | `5f04fe2` |
-| 3 | Drop the EN-event requirement from Phase II; emit at low confidence when no EN | DET-FAL T8 / saturation-without-EN (adv04, adv08 silent) | tests 15→16 pass; adv04 Phase II = 2..2; adv08 Phase II = 4..4 | **ACCEPTED** | DET-FAL `false_negative_count` 5 → 4 | _pending_ |
+| 3 | Drop the EN-event requirement from Phase II; emit at low confidence when no EN | DET-FAL T8 / saturation-without-EN (adv04, adv08 silent) | tests 15→16 pass; adv04 Phase II = 2..2; adv08 Phase II = 4..4 | **ACCEPTED** | DET-FAL `false_negative_count` 5 → 4 | `1953bc8` |
+| 4 | New `detect_branch_explosion` in diagnostics: ≥5 open branches ∧ avg dup<0.20 ∧ avg novel≥5 | DET-FAL T7 branch-explosion shape (adv07) | tests 16→18 pass; adv07 detected; 9/10 negative cases clean | **ACCEPTED** | DET-FAL `false_negative_count` 4 → 3 | _pending_ |

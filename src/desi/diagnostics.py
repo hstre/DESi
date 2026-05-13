@@ -211,6 +211,85 @@ def summarize_failure_mode(trajectory: Trajectory) -> FailureModeSummary:
     return FailureModeSummary(terminal=terminal, per_step=per_step)
 
 
+# --- Branch-explosion detector (cycle 4) -----------------------------------
+#
+# Closes DET-FAL T7 (paper0/self_reflection.md §6.1). The pathology: many
+# `branch_open=True` claims with parent_id chains, sustained high novel and
+# low dup, no SYNTHESIS-style operator firing in the recent window, often
+# terminating in `GRAPH_TOO_LARGE`. The legacy DESi pipeline saw only
+# Phase I + a medium-confidence Phase V via the terminal failure mode;
+# the explosion pathology itself was invisible.
+
+
+BRANCH_EXPLOSION_MIN_BRANCHES = 5
+BRANCH_EXPLOSION_MAX_AVG_DUP = 0.20
+BRANCH_EXPLOSION_MIN_AVG_NOVEL = 5.0
+
+
+@dataclass(frozen=True)
+class BranchExplosionReport:
+    detected: bool
+    distinct_open_branches: int
+    avg_dup_rate: float
+    avg_novel_claims: float
+    parent_claim_ids: list[str]
+    note: str
+
+
+def detect_branch_explosion(trajectory: Trajectory) -> BranchExplosionReport:
+    """Detect branch-explosion shape: many open branches + low dup + high novel.
+
+    Rule (one composite trigger; calibrated against DET-FAL adv07):
+
+        distinct_open_branches >= 5
+        AND avg dup_rate < 0.20
+        AND avg novel_claims >= 5
+
+    The thresholds are intentionally conservative on n=10; raise k=5 to k>5
+    if real DES paper7 trajectories with normal multi-branch exploration
+    misfire. Calibration metadata is captured in trigger_evidence so the
+    threshold can be tuned without losing the detector's history.
+    """
+    distinct_open: set[str] = set()
+    parents: set[str] = set()
+    for step in trajectory.steps:
+        for c in step.claims:
+            if c.branch_open:
+                distinct_open.add(c.id)
+                if c.parent_id:
+                    parents.add(c.parent_id)
+    n_steps = max(1, len(trajectory.steps))
+    avg_dup = sum(s.dup_rate for s in trajectory.steps) / n_steps
+    avg_novel = sum(s.novel_claims for s in trajectory.steps) / n_steps
+
+    detected = (
+        len(distinct_open) >= BRANCH_EXPLOSION_MIN_BRANCHES
+        and avg_dup < BRANCH_EXPLOSION_MAX_AVG_DUP
+        and avg_novel >= BRANCH_EXPLOSION_MIN_AVG_NOVEL
+    )
+    if detected:
+        note = (
+            f"distinct open branches={len(distinct_open)} (>=5) "
+            f"avg_dup_rate={avg_dup:.2f} (<0.20) "
+            f"avg_novel_claims={avg_novel:.1f} (>=5)"
+        )
+    else:
+        note = (
+            f"no branch explosion: "
+            f"distinct_open={len(distinct_open)}, "
+            f"avg_dup={avg_dup:.2f}, "
+            f"avg_novel={avg_novel:.1f}"
+        )
+    return BranchExplosionReport(
+        detected=detected,
+        distinct_open_branches=len(distinct_open),
+        avg_dup_rate=round(avg_dup, 3),
+        avg_novel_claims=round(avg_novel, 2),
+        parent_claim_ids=sorted(parents),
+        note=note,
+    )
+
+
 # --- Convenience aggregator -------------------------------------------------
 
 
@@ -224,6 +303,7 @@ class DeterministicMetrics:
     penultimate: PenultimateENAssessment
     attractor: TerminalAttractorReport
     failure: FailureModeSummary
+    branch_explosion: BranchExplosionReport
 
 
 def compute_all(trajectory: Trajectory) -> DeterministicMetrics:
@@ -236,4 +316,5 @@ def compute_all(trajectory: Trajectory) -> DeterministicMetrics:
         penultimate=detect_penultimate_en_candidate(trajectory),
         attractor=detect_terminal_attractor_subjects(trajectory),
         failure=summarize_failure_mode(trajectory),
+        branch_explosion=detect_branch_explosion(trajectory),
     )

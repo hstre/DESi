@@ -79,8 +79,8 @@ def test_penultimate_en_candidate_when_principle_matches():
         steps=[TrajectoryStep(loop_index=0, operator="EXPOSITION")],
         en_events=[
             _en(loop=2, novelty=0.20),
-            _en(loop=4, novelty=0.18),  # penultimate: genuine
-            _en(loop=6, novelty=0.04),  # last: false return
+            _en(loop=4, novelty=0.18),
+            _en(loop=6, novelty=0.04),
         ],
     )
     p = detect_penultimate_en_candidate(traj)
@@ -97,3 +97,50 @@ def test_penultimate_en_not_applicable_with_one_event():
     )
     p = detect_penultimate_en_candidate(traj)
     assert p.has_candidate is False
+
+
+def test_detect_branch_explosion_fires_on_adv07_shape():
+    """DET-FAL T7 regression: many open branches + low dup + high novel must
+    trigger branch_explosion.detected=True. Calibrated to adv07."""
+    from desi.diagnostics import detect_branch_explosion
+    from desi.models import ClaimState
+    steps = []
+    for i in range(6):
+        claims = [
+            ClaimState(id=f"B{i:03d}{j}", branch_open=True, parent_id=f"C00{i}")
+            for j in range(2)
+        ]
+        steps.append(TrajectoryStep(
+            loop_index=i, focus_claim_id=f"C00{i}", operator="T1",
+            novel_claims=8, dup_rate=0.10, claims=claims,
+        ))
+    traj = Trajectory(
+        trajectory_id="branch_explosion_shape",
+        steps=steps, en_events=[],
+        terminal_failure_mode="GRAPH_TOO_LARGE",
+    )
+    report = detect_branch_explosion(traj)
+    assert report.detected is True
+    assert report.distinct_open_branches >= 5
+    assert report.avg_dup_rate < 0.20
+    assert report.avg_novel_claims >= 5
+
+
+def test_detect_branch_explosion_does_not_fire_on_attractor_lock():
+    """Negative regression: an attractor-lock trajectory (no open branches,
+    rising dup, falling novel) must not trigger branch_explosion."""
+    from desi.diagnostics import detect_branch_explosion
+    from desi.models import ClaimState
+    steps = [
+        TrajectoryStep(
+            loop_index=i, focus_claim_id="C001", operator="T8",
+            novel_claims=max(0, 12 - 2*i), dup_rate=min(0.85, 0.05 + 0.15*i),
+            claims=[ClaimState(id="C001", branch_open=False)],
+        )
+        for i in range(6)
+    ]
+    traj = Trajectory(
+        trajectory_id="attractor_lock_shape",
+        steps=steps, en_events=[], terminal_failure_mode="ATTRACTOR_LOCK",
+    )
+    assert detect_branch_explosion(traj).detected is False
