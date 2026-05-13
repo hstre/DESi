@@ -31,3 +31,8 @@ htmlcov/
 # Generated reports (keep folder, ignore content)
 outputs/*.md
 !outputs/.gitkeep
+
+# Generalization-loop derived artifacts (deterministically regenerable;
+# see experiments/generalization_loop/README.md).
+data/generalization/
+outputs/generalization_loop/
