@@ -51,23 +51,18 @@ def classify_en_events(events: Iterable[ENEvent]) -> list[ENClassification]:
 @dataclass(frozen=True)
 class NoveltyRecovery:
     loop_index: int
-    dup_delta: float | None  # dup_rate_after - dup_rate_before (negative = recovery)
+    dup_delta: float | None
     novel_claims_next: int | None
     recovered: bool
 
 
 def compute_novelty_recovery(event: ENEvent) -> NoveltyRecovery:
-    """Was the EN event followed by a measurable novelty recovery?
-
-    Heuristic: dup-rate dropped by >= 0.10 AND at least one novel claim
-    appeared in the next loop. Missing fields -> recovered=False.
-    """
+    """Was the EN event followed by a measurable novelty recovery?"""
     dup_delta: float | None
     if event.dup_rate_before is not None and event.dup_rate_after is not None:
         dup_delta = event.dup_rate_after - event.dup_rate_before
     else:
         dup_delta = None
-
     nc_next = event.novel_claims_next
     recovered = (
         dup_delta is not None
@@ -97,22 +92,14 @@ class PenultimateENAssessment:
 
 
 def detect_penultimate_en_candidate(trajectory: Trajectory) -> PenultimateENAssessment:
-    """Penultimate-EN-Principle check.
-
-    Candidate iff: there are >= 2 EN events, the penultimate is classified as
-    `genuine_transformation`, and the last is NOT.
-    """
     events = trajectory.en_events
     if len(events) < 2:
         return PenultimateENAssessment(
             has_candidate=False,
-            penultimate_loop=None,
-            penultimate_label=None,
-            last_loop=None,
-            last_label=None,
+            penultimate_loop=None, penultimate_label=None,
+            last_loop=None, last_label=None,
             note="fewer than 2 EN events; principle not applicable",
         )
-
     classifications = classify_en_events(events)
     penult = classifications[-2]
     last = classifications[-1]
@@ -127,10 +114,8 @@ def detect_penultimate_en_candidate(trajectory: Trajectory) -> PenultimateENAsse
     )
     return PenultimateENAssessment(
         has_candidate=is_candidate,
-        penultimate_loop=penult.loop_index,
-        penultimate_label=penult.label,
-        last_loop=last.loop_index,
-        last_label=last.label,
+        penultimate_loop=penult.loop_index, penultimate_label=penult.label,
+        last_loop=last.loop_index, last_label=last.label,
         note=note,
     )
 
@@ -150,13 +135,6 @@ def detect_terminal_attractor_subjects(
     *,
     tail_loops: int = 3,
 ) -> TerminalAttractorReport:
-    """Heuristic stub.
-
-    We look at the last `tail_loops` steps. A claim_id that appears as the
-    focus claim in at least two of them, OR appears as a claim in all of them,
-    is flagged as a terminal attractor candidate. Future versions should use
-    DES branch-structure information instead.
-    """
     steps = trajectory.steps[-tail_loops:]
     if not steps:
         return TerminalAttractorReport(
@@ -164,7 +142,6 @@ def detect_terminal_attractor_subjects(
             method="tail_focus_repetition",
             note="trajectory has no steps",
         )
-
     focus_counts: dict[str, int] = {}
     presence_counts: dict[str, int] = {}
     for step in steps:
@@ -174,7 +151,6 @@ def detect_terminal_attractor_subjects(
             )
         for claim in step.claims:
             presence_counts[claim.claim_id] = presence_counts.get(claim.claim_id, 0) + 1
-
     candidates = sorted(
         {cid for cid, n in focus_counts.items() if n >= 2}
         | {cid for cid, n in presence_counts.items() if n == len(steps) and n >= 2}
@@ -213,13 +189,7 @@ def summarize_failure_mode(trajectory: Trajectory) -> FailureModeSummary:
 
 # --- Branch-explosion detector (cycle 4) -----------------------------------
 #
-# Closes DET-FAL T7 (paper0/self_reflection.md §6.1). The pathology: many
-# `branch_open=True` claims with parent_id chains, sustained high novel and
-# low dup, no SYNTHESIS-style operator firing in the recent window, often
-# terminating in `GRAPH_TOO_LARGE`. The legacy DESi pipeline saw only
-# Phase I + a medium-confidence Phase V via the terminal failure mode;
-# the explosion pathology itself was invisible.
-
+# Closes DET-FAL T7 (paper0/self_reflection.md §6.1).
 
 BRANCH_EXPLOSION_MIN_BRANCHES = 5
 BRANCH_EXPLOSION_MAX_AVG_DUP = 0.20
@@ -237,19 +207,7 @@ class BranchExplosionReport:
 
 
 def detect_branch_explosion(trajectory: Trajectory) -> BranchExplosionReport:
-    """Detect branch-explosion shape: many open branches + low dup + high novel.
-
-    Rule (one composite trigger; calibrated against DET-FAL adv07):
-
-        distinct_open_branches >= 5
-        AND avg dup_rate < 0.20
-        AND avg novel_claims >= 5
-
-    The thresholds are intentionally conservative on n=10; raise k=5 to k>5
-    if real DES paper7 trajectories with normal multi-branch exploration
-    misfire. Calibration metadata is captured in trigger_evidence so the
-    threshold can be tuned without losing the detector's history.
-    """
+    """Detect branch-explosion shape: many open branches + low dup + high novel."""
     distinct_open: set[str] = set()
     parents: set[str] = set()
     for step in trajectory.steps:
@@ -261,7 +219,6 @@ def detect_branch_explosion(trajectory: Trajectory) -> BranchExplosionReport:
     n_steps = max(1, len(trajectory.steps))
     avg_dup = sum(s.dup_rate for s in trajectory.steps) / n_steps
     avg_novel = sum(s.novel_claims for s in trajectory.steps) / n_steps
-
     detected = (
         len(distinct_open) >= BRANCH_EXPLOSION_MIN_BRANCHES
         and avg_dup < BRANCH_EXPLOSION_MAX_AVG_DUP
@@ -290,6 +247,88 @@ def detect_branch_explosion(trajectory: Trajectory) -> BranchExplosionReport:
     )
 
 
+# --- Mild-stagnation detector (cycle 5) -----------------------------------
+#
+# Closes DET-FAL T4 (paper0/self_reflection.md §6.2 / §4.2). Mild stagnation
+# is a *soft* convergence signal designed to coexist with Phase V: it fires
+# only when Phase V's hard trigger never fires anywhere in the trajectory.
+
+MILD_STAGNATION_TAIL = 5
+MILD_STAGNATION_MAX_AVG_NOVEL = 2.5
+
+
+@dataclass(frozen=True)
+class MildStagnationReport:
+    detected: bool
+    tail_loops: int
+    tail_mean_novel: float
+    dup_strictly_increasing: bool
+    has_phase_v_trigger: bool
+    has_genuine_en_in_tail: bool
+    note: str
+
+
+def detect_mild_stagnation(trajectory: Trajectory) -> MildStagnationReport:
+    """Soft convergence: tail-window mean(novel) <= tau + dup rising, *only*
+    when no Phase V hard trigger fires anywhere in the trajectory."""
+    steps = sorted(trajectory.steps, key=lambda s: s.loop_index)
+    if not steps:
+        return MildStagnationReport(
+            detected=False, tail_loops=0, tail_mean_novel=0.0,
+            dup_strictly_increasing=False, has_phase_v_trigger=False,
+            has_genuine_en_in_tail=False, note="empty trajectory",
+        )
+    has_phase_v = any(s.dup_rate > 0.50 and s.novel_claims <= 1 for s in steps)
+    tail = steps[-MILD_STAGNATION_TAIL:] if len(steps) >= MILD_STAGNATION_TAIL else steps[:]
+    if len(tail) < 3:
+        return MildStagnationReport(
+            detected=False, tail_loops=len(tail), tail_mean_novel=0.0,
+            dup_strictly_increasing=False, has_phase_v_trigger=has_phase_v,
+            has_genuine_en_in_tail=False,
+            note=f"tail too short (len={len(tail)})",
+        )
+    mean_novel = sum(s.novel_claims for s in tail) / len(tail)
+    dup_rates = [s.dup_rate for s in tail]
+    strictly_increasing = all(b > a for a, b in zip(dup_rates, dup_rates[1:]))
+    tail_loop_set = {s.loop_index for s in tail}
+    has_genuine_en_in_tail = any(
+        classify_en_event(e).label == "genuine_transformation"
+        and e.loop_index in tail_loop_set
+        for e in trajectory.en_events
+    )
+    detected = (
+        not has_phase_v
+        and mean_novel <= MILD_STAGNATION_MAX_AVG_NOVEL
+        and strictly_increasing
+        and not has_genuine_en_in_tail
+    )
+    if detected:
+        note = (
+            f"mild stagnation in tail of {len(tail)} loops: "
+            f"mean_novel={mean_novel:.2f} (<= {MILD_STAGNATION_MAX_AVG_NOVEL}), "
+            f"dup strictly increasing, no genuine EN, no Phase V hard trigger"
+        )
+    else:
+        reasons = []
+        if has_phase_v:
+            reasons.append("Phase V hard trigger fires (use Phase V instead)")
+        if mean_novel > MILD_STAGNATION_MAX_AVG_NOVEL:
+            reasons.append(f"tail mean novel={mean_novel:.2f} too high")
+        if not strictly_increasing:
+            reasons.append("dup not strictly increasing in tail")
+        if has_genuine_en_in_tail:
+            reasons.append("genuine EN in tail")
+        note = "no mild stagnation: " + "; ".join(reasons) if reasons else "no mild stagnation"
+    return MildStagnationReport(
+        detected=detected, tail_loops=len(tail),
+        tail_mean_novel=round(mean_novel, 2),
+        dup_strictly_increasing=strictly_increasing,
+        has_phase_v_trigger=has_phase_v,
+        has_genuine_en_in_tail=has_genuine_en_in_tail,
+        note=note,
+    )
+
+
 # --- Convenience aggregator -------------------------------------------------
 
 
@@ -304,6 +343,7 @@ class DeterministicMetrics:
     attractor: TerminalAttractorReport
     failure: FailureModeSummary
     branch_explosion: BranchExplosionReport
+    mild_stagnation: MildStagnationReport
 
 
 def compute_all(trajectory: Trajectory) -> DeterministicMetrics:
@@ -317,4 +357,5 @@ def compute_all(trajectory: Trajectory) -> DeterministicMetrics:
         attractor=detect_terminal_attractor_subjects(trajectory),
         failure=summarize_failure_mode(trajectory),
         branch_explosion=detect_branch_explosion(trajectory),
+        mild_stagnation=detect_mild_stagnation(trajectory),
     )
