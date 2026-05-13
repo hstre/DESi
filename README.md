@@ -14,25 +14,32 @@ pytest -q
 `--audit-model {flash,pro,auto}` selects the SKEPTICAL_AUDITOR model
 (default `auto` = `deepseek-v4-pro`, paper0 ablation `853db5d`).
 
-## Self-improvement loop log
+## Self-improvement loop log (complete, n=10 adversarial)
 
-Branch `experiment/desi-self-improvement-loop-12`. One change per
-cycle, evaluated against the deterministic falsification suite and the
-n=10 adversarial trajectory set. Failed cycles are kept documented; no
-silent metric changes. See `experiments/self_improvement/cycle_N/` and
-`experiments/self_improvement/final_report.md` (after cycle 12).
+Branch `experiment/desi-self-improvement-loop-12`. 12 cycles, one
+change per cycle, failed attempts preserved. See
+`experiments/self_improvement/cycle_N/` for per-cycle artifacts and
+`experiments/self_improvement/final_report.md` for the synthesis.
 Nothing in this loop is merged to `main` without human review.
 
-| Cycle | Change | Verdict | Key metric delta | Commit |
-|------:|--------|:------:|-------------------|--------|
-| 1 | Normalise Phase II span bounds | **ACCEPTED** | `malformed_phase_span_count` 1 → 0 | `378909c` |
-| 2 | Close Phase V on sustained reversal | **ACCEPTED** | DET-FAL `false_positive_count` 4 → 2 | `5f04fe2` |
-| 3 | Drop EN-event gate from Phase II | **ACCEPTED** | DET-FAL `false_negative_count` 5 → 4 | `1953bc8` |
-| 4 | New `detect_branch_explosion` | **ACCEPTED** | DET-FAL `false_negative_count` 4 → 3 | `1f642e2` |
-| 5 | New `detect_mild_stagnation` | **ACCEPTED** | DET-FAL `false_negative_count` 3 → 2 | `5a854d3` |
-| 6 | New `validate_step_metric_coherence` (defensive) | **ACCEPTED** | no DET-FAL delta; forward-looking | `4c6c571` |
-| 7 | New composite EN classification (capability) | **ACCEPTED** | adds 6-cell label table | `217a457` |
-| 8 | Switch penultimate-EN to composite classifier | **ACCEPTED** | DET-FAL `false_positive_count` 2 → 1 | `b28755d` |
-| 9 | Phase II persistence requirement | **ACCEPTED** | DET-FAL `false_positive_count` 1 → **0** | `f05c08a` |
-| 10 | Phase III first-trigger on composite EN | **ACCEPTED** (defensive) | no DET-FAL movement; defensive | `cec32a6` |
-| 11 | report_writer surfaces cycle 4-7 detectors + restored cycle-10 test | **ACCEPTED** | tests 27 → 28; new markdown section | _pending_ |
+Headline n=10 adversarial deltas:
+
+- `false_positive_count` 4 → **0**
+- `false_negative_count` 5 → **2**
+- `malformed_phase_span_count` 1 → **0**
+- pytest 13 → **28**
+
+| Cycle | Change | Verdict | Commit |
+|------:|--------|:------:|--------|
+| 1 | Normalise Phase II span bounds | ACCEPTED | `378909c` |
+| 2 | Close Phase V on sustained reversal | ACCEPTED | `5f04fe2` |
+| 3 | Drop EN-event gate from Phase II | ACCEPTED | `1953bc8` |
+| 4 | New `detect_branch_explosion` | ACCEPTED | `1f642e2` |
+| 5 | New `detect_mild_stagnation` | ACCEPTED | `5a854d3` |
+| 6 | New `validate_step_metric_coherence` (defensive) | ACCEPTED | `4c6c571` |
+| 7 | New composite EN classification (capability) | ACCEPTED | `217a457` |
+| 8 | Switch penultimate-EN to composite classifier | ACCEPTED | `b28755d` |
+| 9 | Phase II persistence requirement | ACCEPTED | `f05c08a` |
+| 10 | Phase III first-trigger on composite EN (defensive) | ACCEPTED | `cec32a6` |
+| 11 | report_writer surfaces cycle 4-7 detectors + cycle-10 test repair | ACCEPTED | `2cf9264` |
+| 12 | final_report.md synthesis | — | _this commit_ |
