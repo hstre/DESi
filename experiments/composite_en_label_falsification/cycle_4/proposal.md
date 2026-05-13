@@ -1,3 +1,11 @@
+> **Mislabelling note (added in semantic-drift audit):** this file
+> refers to `birth(B)` throughout. That term was incorrectly bound to
+> `confirmed_genuine_en` in the original probe. Paper 0 defines
+> `birth(B) = (D, R, F, P, ΔQ)`; the cycle's findings concern composite-EN
+> label boundaries, not Paper 0's tuple. See
+> `../../semantic_drift_report.md` for the post-mortem. The factual
+> content below is preserved verbatim as the historical record.
+
 # Cycle 4 — Metric contradiction: evaluator references phantom composite labels
 
 ## Hypothesis

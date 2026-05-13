@@ -1,19 +1,28 @@
-"""Birth(B) falsification probe.
+"""confirmed_genuine_en falsification probe.
 
-Operational definition of birth(B):
-  birth(B) = 1 iff `compute_all(trajectory).en_classifications_composite`
-  contains at least one entry with label == "genuine_transformation_confirmed".
+ORIGINAL FRAMING (NOW REPUDIATED): This file was authored under the
+mistaken belief that birth(B) reduces to "the composite classifier
+produces genuine_transformation_confirmed for some EN event". Paper 0
+defines birth(B) = (D, R, F, P, ΔQ), a 5-tuple. The 5 -> 1 reduction
+was a category error caught by the user; see
+`../semantic_drift_report.md` for the post-mortem.
 
-Falsification task: produce trajectories DESi *should* recognise as having a
-genuine breakthrough (per paper7 / DES semantics) but for which the existing
-detector returns birth(B) = 0. Each fixture is a hypothesis under test.
+CORRECTED FRAMING: This probe measures `confirmed_genuine_en(trajectory)`,
+defined as:
 
-This probe does NOT modify DESi. It runs the unchanged compute_all on the
-given fixture and reports birth(B) plus auxiliary signals (Phase III, the
-composite label that was actually produced, novelty_recovery flags).
+    confirmed_genuine_en(traj) = 1 iff
+        compute_all(traj).en_classifications_composite contains at
+        least one entry with label == "genuine_transformation_confirmed".
+
+It does NOT measure birth(B). It measures one composite EN label.
+That signal is operationally relevant to DESi (Phase III's first
+trigger gate uses it), but is not equivalent to Paper 0's tuple.
+
+This probe does NOT modify DESi. It runs the unchanged compute_all on
+the given fixture and reports.
 
 Usage:
-    PYTHONPATH=src python3 experiments/birth_falsification/probe.py FIXTURE.json
+    PYTHONPATH=src python3 experiments/composite_en_label_falsification/probe.py FIXTURE.json
 """
 from __future__ import annotations
 
@@ -29,7 +38,7 @@ from desi.phase_detector import PHASE_III, detect_phases  # noqa: E402
 from desi.trajectory_loader import load_trajectory  # noqa: E402
 
 
-def birth(trajectory) -> dict:
+def confirmed_genuine_en(trajectory) -> dict:
     metrics = compute_all(trajectory)
     phases = detect_phases(trajectory)
     composite_labels = [c.label for c in metrics.en_classifications_composite]
@@ -47,13 +56,13 @@ def birth(trajectory) -> dict:
         "phase_iii_present": phase_iii is not None,
         "phase_iii_span": None if phase_iii is None else (phase_iii.start_loop, phase_iii.end_loop),
         "confirmed_count": confirmed_count,
-        "birth_B": 1 if confirmed_count >= 1 else 0,
+        "confirmed_genuine_en": 1 if confirmed_count >= 1 else 0,
     }
 
 
 def run(path: pathlib.Path) -> dict:
     traj = load_trajectory(str(path))
-    return birth(traj)
+    return confirmed_genuine_en(traj)
 
 
 def main() -> int:
