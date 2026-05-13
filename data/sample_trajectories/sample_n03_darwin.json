@@ -1,0 +1,283 @@
+{
+  "trajectory_id": "n03_darwin",
+  "domain": "history_of_science",
+  "seed": "What role did Wallace's 1858 letter actually play in Darwin's publication of On the Origin of Species?",
+  "persona": "historian_of_science",
+  "steps": [
+    {
+      "loop_index": 0,
+      "focus_claim_id": "C001",
+      "operator": "T3",
+      "novel_claims": 11,
+      "dup_rate": 0.08,
+      "failure_mode": null,
+      "question": "What did Wallace's 1858 letter actually contain?",
+      "claims": [
+        {
+          "id": "C001",
+          "subject": "Wallace's 1858 letter to Darwin",
+          "predicate": "outlined",
+          "object": "a mechanism functionally equivalent to natural selection",
+          "status": "unknown",
+          "confidence": 0.60,
+          "modality": "hypothesis",
+          "scope": {"period": "1858"},
+          "history": []
+        },
+        {
+          "id": "C002",
+          "subject": "the Linnean Society joint paper of 1 July 1858",
+          "predicate": "preserves",
+          "object": "both Darwin's and Wallace's priority claims",
+          "status": "unknown",
+          "confidence": 0.70,
+          "modality": "hypothesis",
+          "scope": {"period": "1858"},
+          "history": []
+        },
+        {
+          "id": "C003",
+          "subject": "Lyell and Hooker",
+          "predicate": "intervened to arrange",
+          "object": "the joint presentation",
+          "status": "unknown",
+          "confidence": 0.65,
+          "modality": "hypothesis",
+          "history": []
+        }
+      ]
+    },
+    {
+      "loop_index": 1,
+      "focus_claim_id": "C001",
+      "operator": "T4",
+      "novel_claims": 2,
+      "dup_rate": 0.38,
+      "failure_mode": null,
+      "claims": [
+        {
+          "id": "C001",
+          "subject": "Wallace's 1858 letter to Darwin",
+          "predicate": "outlined",
+          "object": "a mechanism functionally equivalent to natural selection",
+          "status": "underspecified",
+          "confidence": 0.65,
+          "modality": "hypothesis",
+          "scope": {"period": "1858"},
+          "history": ["T3"]
+        }
+      ]
+    },
+    {
+      "loop_index": 2,
+      "focus_claim_id": "C001",
+      "operator": "T5",
+      "novel_claims": 5,
+      "dup_rate": 0.20,
+      "failure_mode": null,
+      "claims": [
+        {
+          "id": "C001",
+          "subject": "Wallace's 1858 letter to Darwin",
+          "predicate": "outlined",
+          "object": "a mechanism functionally equivalent to natural selection",
+          "status": "disputed",
+          "confidence": 0.65,
+          "modality": "hypothesis",
+          "history": ["T3", "T4"]
+        },
+        {
+          "id": "C004",
+          "subject": "Darwin's 1842 sketch and 1844 essay",
+          "predicate": "already encode",
+          "object": "the selection mechanism in essentially mature form",
+          "status": "supported",
+          "confidence": 0.55,
+          "modality": "hypothesis",
+          "is_synthesis": true,
+          "history": ["T5"]
+        }
+      ]
+    },
+    {
+      "loop_index": 3,
+      "focus_claim_id": "C004",
+      "operator": "T1",
+      "novel_claims": 4,
+      "dup_rate": 0.22,
+      "failure_mode": null,
+      "claims": [
+        {
+          "id": "C004",
+          "subject": "Darwin's 1842 sketch and 1844 essay",
+          "predicate": "already encode",
+          "object": "the selection mechanism in essentially mature form",
+          "status": "supported",
+          "confidence": 0.60,
+          "modality": "hypothesis",
+          "branch_open": true,
+          "history": ["T5"]
+        },
+        {
+          "id": "B001",
+          "subject": "the 1842 sketch (35 pages)",
+          "predicate": "is necessary and sufficient evidence for",
+          "object": "Darwin's priority",
+          "status": "unknown",
+          "confidence": 0.55,
+          "modality": "hypothesis",
+          "parent_id": "C004",
+          "history": []
+        },
+        {
+          "id": "B002",
+          "subject": "the 1844 essay (231 pages)",
+          "predicate": "is necessary and sufficient evidence for",
+          "object": "Darwin's priority",
+          "status": "unknown",
+          "confidence": 0.55,
+          "modality": "hypothesis",
+          "parent_id": "C004",
+          "history": []
+        }
+      ]
+    },
+    {
+      "loop_index": 4,
+      "focus_claim_id": "C004",
+      "operator": "T6",
+      "novel_claims": 3,
+      "dup_rate": 0.30,
+      "failure_mode": null,
+      "claims": [
+        {
+          "id": "C004",
+          "subject": "Darwin's 1842 sketch and 1844 essay",
+          "predicate": "already encode",
+          "object": "the selection mechanism in essentially mature form",
+          "status": "supported",
+          "confidence": 0.65,
+          "modality": "evidence",
+          "evidence_refs": ["hooker_correspondence_1858"],
+          "history": ["T5", "T1"]
+        },
+        {
+          "id": "C007",
+          "subject": "the Darwin-Hooker correspondence",
+          "predicate": "documents",
+          "object": "Hooker's prior reading of the 1844 essay",
+          "status": "supported",
+          "confidence": 0.60,
+          "modality": "evidence",
+          "history": []
+        }
+      ]
+    },
+    {
+      "loop_index": 5,
+      "focus_claim_id": "C004",
+      "operator": "T7",
+      "novel_claims": 2,
+      "dup_rate": 0.36,
+      "failure_mode": null,
+      "claims": [
+        {
+          "id": "C004",
+          "subject": "Darwin's 1842 sketch and 1844 essay",
+          "predicate": "already encode",
+          "object": "the selection mechanism in essentially mature form",
+          "status": "supported",
+          "confidence": 0.66,
+          "modality": "evidence",
+          "qualifier": {"scope_limit": "evidence is internal to Darwin's circle"},
+          "history": ["T5", "T1", "T6"]
+        }
+      ]
+    },
+    {
+      "loop_index": 6,
+      "focus_claim_id": "C004",
+      "operator": "T9",
+      "novel_claims": 1,
+      "dup_rate": 0.48,
+      "failure_mode": null,
+      "claims": [
+        {
+          "id": "C004",
+          "subject": "Darwin's 1842 sketch and 1844 essay",
+          "predicate": "already encode",
+          "object": "the selection mechanism in essentially mature form",
+          "status": "supported",
+          "confidence": 0.68,
+          "modality": "evidence",
+          "is_synthesis": true,
+          "history": ["T5", "T1", "T6", "T7"]
+        }
+      ]
+    },
+    {
+      "loop_index": 7,
+      "focus_claim_id": "C004",
+      "operator": "T8",
+      "novel_claims": 1,
+      "dup_rate": 0.52,
+      "failure_mode": "PREMATURE_TERMINATION",
+      "claims": [
+        {
+          "id": "C004",
+          "subject": "Darwin's 1842 sketch and 1844 essay",
+          "predicate": "already encode",
+          "object": "the selection mechanism in essentially mature form",
+          "status": "supported",
+          "confidence": 0.72,
+          "modality": "established",
+          "sealed": true,
+          "history": ["T5", "T1", "T6", "T7", "T9"]
+        }
+      ]
+    }
+  ],
+  "en_events": [
+    {
+      "loop_index": 2,
+      "persona": "historian_of_science",
+      "eni_novelty": 0.21,
+      "eni_non_drift": 0.74,
+      "eni_admissibility": 1.0,
+      "eni_composite": 0.53,
+      "admitted": true,
+      "question": "Did Darwin's 1842 and 1844 essays already encode the mechanism, making Wallace's letter a catalyst rather than a co-discovery?",
+      "novelty_produced_next_loop": 4,
+      "dup_rate_before": 0.38,
+      "dup_rate_after": 0.22
+    },
+    {
+      "loop_index": 5,
+      "persona": "historian_of_science",
+      "eni_novelty": 0.15,
+      "eni_non_drift": 0.66,
+      "eni_admissibility": 1.0,
+      "eni_composite": 0.47,
+      "admitted": true,
+      "question": "Is the 'catalyst' framing reproducible from the Hooker correspondence alone?",
+      "novelty_produced_next_loop": 1,
+      "dup_rate_before": 0.30,
+      "dup_rate_after": 0.36
+    },
+    {
+      "loop_index": 7,
+      "persona": "historian_of_science",
+      "eni_novelty": 0.07,
+      "eni_non_drift": 0.45,
+      "eni_admissibility": 0.0,
+      "eni_composite": 0.17,
+      "admitted": false,
+      "rejection_reason": "alexandria_gate: candidate already covered by sealed synthesis",
+      "question": "Is there any framing that reopens the priority question without external archives?",
+      "novelty_produced_next_loop": 0,
+      "dup_rate_before": 0.48,
+      "dup_rate_after": 0.52
+    }
+  ],
+  "terminal_failure_mode": "PREMATURE_TERMINATION"
+}
