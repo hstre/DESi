@@ -1,0 +1,54 @@
+{
+  "adv01_no_recovery_despite_high_en": {
+    "A": {
+      "contradiction_count": 0,
+      "unsupported_claims": 8,
+      "overclaim_count": 6,
+      "recovery_misclassification": 0,
+      "attractor_misclassification": 0,
+      "phase_overlap_count": 0,
+      "hallucinated_causal_claims": 11,
+      "agreement_with_deterministic_metrics": 1.0,
+      "errors": {},
+      "seconds_total": 95.29616093635559
+    },
+    "B": {
+      "contradiction_count": 1,
+      "unsupported_claims": 2,
+      "overclaim_count": 4,
+      "recovery_misclassification": 1,
+      "attractor_misclassification": 0,
+      "phase_overlap_count": 0,
+      "hallucinated_causal_claims": 2,
+      "agreement_with_deterministic_metrics": 0.6,
+      "errors": {},
+      "seconds_total": 75.4478018283844
+    },
+    "C": {
+      "contradiction_count": 2,
+      "unsupported_claims": 3,
+      "overclaim_count": 3,
+      "recovery_misclassification": 1,
+      "attractor_misclassification": 0,
+      "phase_overlap_count": 0,
+      "hallucinated_causal_claims": 4,
+      "agreement_with_deterministic_metrics": 0.4,
+      "errors": {},
+      "seconds_total": 71.97308802604675
+    }
+  },
+  "adv02_recovery_below_threshold": {
+    "A": {
+      "contradiction_count": 0,
+      "unsupported_claims": 2,
+      "overclaim_count": 0,
+      "recovery_misclassification": 0,
+      "attractor_misclassification": 0,
+      "phase_overlap_count": 0,
+      "hallucinated_causal_claims": 5,
+      "agreement_with_deterministic_metrics": 0.75,
+      "errors": {},
+      "seconds_total": 70.90497350692749
+    }
+  }
+}
