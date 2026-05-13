@@ -2,12 +2,6 @@
 
 **Meta-Trajectory-Diagnostic-System** for the Dynamic Epistemic Sequencer (DES).
 
-DESi reads recorded DES trajectories and produces meta-diagnoses:
-phase model, EN (Epistemic Navigator) effectiveness, terminal attractors,
-penultimate-EN principle, and bimodal-EN-threshold checks.
-
-> When an Epistemic Search System Learns to Model Its Own Search.
-
 ## Setup / Usage / Tests
 
 ```bash
@@ -40,4 +34,5 @@ Nothing in this loop is merged to `main` without human review.
 | 7 | New composite EN classification (capability) | **ACCEPTED** | adds 6-cell label table | `217a457` |
 | 8 | Switch penultimate-EN to composite classifier | **ACCEPTED** | DET-FAL `false_positive_count` 2 → 1 | `b28755d` |
 | 9 | Phase II persistence requirement | **ACCEPTED** | DET-FAL `false_positive_count` 1 → **0** | `f05c08a` |
-| 10 | Phase III first-trigger on composite (boundary stays legacy) | **ACCEPTED** (defensive) | no DET-FAL movement; defensive | _pending_ |
+| 10 | Phase III first-trigger on composite EN | **ACCEPTED** (defensive) | no DET-FAL movement; defensive | `cec32a6` |
+| 11 | report_writer surfaces cycle 4-7 detectors + restored cycle-10 test | **ACCEPTED** | tests 27 → 28; new markdown section | _pending_ |

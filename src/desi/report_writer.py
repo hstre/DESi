@@ -37,7 +37,6 @@ def render_report(result: MetaAnalysisResult) -> str:
         f"— EXPLORATORY, small n. Do not generalise without replication._"
     )
 
-    # 1. Input summary
     lines.append(_section("Input Summary"))
     lines.append(f"- trajectory_id: `{t.trajectory_id}`")
     lines.append(f"- domain: {t.domain or '-'}")
@@ -48,15 +47,12 @@ def render_report(result: MetaAnalysisResult) -> str:
     lines.append(f"- terminal failure mode: {m.failure.terminal or 'NONE'}")
     lines.append(f"- LLM analyses enabled: {result.llm_enabled}")
 
-    # 2. Deterministic metrics
     lines.append(_section("Deterministic Metrics"))
     lines.append("### EN classifications")
     if not m.en_classifications:
         lines.append("- (no EN events)")
     for c in m.en_classifications:
-        lines.append(
-            f"- loop {c.loop_index}: eni_novelty = {c.eni_novelty:.2f} -> **{c.label}**"
-        )
+        lines.append(f"- loop {c.loop_index}: eni_novelty = {c.eni_novelty:.2f} -> **{c.label}**")
     lines.append("")
     lines.append("### Novelty recovery per EN event")
     if not m.novelty_recoveries:
@@ -69,7 +65,6 @@ def render_report(result: MetaAnalysisResult) -> str:
             f"recovered = **{r.recovered}**"
         )
 
-    # 3. Phase detection
     lines.append(_section("Phase Detection"))
     if not phases.phases:
         lines.append("- (no phase rules triggered)")
@@ -82,23 +77,42 @@ def render_report(result: MetaAnalysisResult) -> str:
             lines.append(f"- {ev}")
         lines.append("")
 
-    # 4. EN diagnostics (LLM)
     lines.append(_section("EN Event Diagnostics"))
     _render_role(lines, result, "EN_EVENT_ANALYST")
 
-    # 5. Penultimate EN assessment
     lines.append(_section("Penultimate EN Assessment"))
     p = m.penultimate
     lines.append(f"- candidate: **{p.has_candidate}**")
     if p.penultimate_loop is not None:
-        lines.append(
-            f"- penultimate EN: loop {p.penultimate_loop} ({p.penultimate_label})"
-        )
+        lines.append(f"- penultimate EN: loop {p.penultimate_loop} ({p.penultimate_label})")
     if p.last_loop is not None:
         lines.append(f"- last EN: loop {p.last_loop} ({p.last_label})")
     lines.append(f"- note: {p.note}")
 
-    # 6. Attractor diagnosis (deterministic + LLM)
+    # cycle-11: surface the cycle 4-7 deterministic detectors.
+    lines.append(_section("New deterministic detectors (cycles 4-7)"))
+    be = m.branch_explosion
+    lines.append(f"- **branch_explosion**: detected = **{be.detected}** — "
+                 f"{be.distinct_open_branches} distinct open branches, "
+                 f"avg dup={be.avg_dup_rate}, avg novel={be.avg_novel_claims}")
+    if be.detected and be.parent_claim_ids:
+        lines.append(f"  - offending parent claim ids: {be.parent_claim_ids}")
+    ms = m.mild_stagnation
+    lines.append(f"- **mild_stagnation**: detected = **{ms.detected}** — "
+                 f"tail mean novel={ms.tail_mean_novel}, "
+                 f"dup_strictly_increasing={ms.dup_strictly_increasing}, "
+                 f"has_phase_v_trigger={ms.has_phase_v_trigger}")
+    sc = m.step_coherence
+    lines.append(f"- **step_coherence**: incoherent_steps = **{len(sc.incoherent_steps)}** "
+                 f"({sc.note})")
+    if m.en_classifications_composite:
+        lines.append("- **composite EN classifications** (cycle 7):")
+        for c in m.en_classifications_composite:
+            lines.append(f"  - loop {c.loop_index}: eni={c.eni_novelty:.2f}, "
+                         f"recovered={c.recovered} → `{c.label}`")
+    else:
+        lines.append("- composite EN classifications: (no EN events)")
+
     lines.append(_section("Attractor Diagnosis"))
     a = m.attractor
     lines.append("### Deterministic candidates")
@@ -112,15 +126,12 @@ def render_report(result: MetaAnalysisResult) -> str:
     lines.append("### LLM attractor diagnostician")
     _render_role(lines, result, "ATTRACTOR_DIAGNOSTICIAN")
 
-    # 7. Skeptical audit
     lines.append(_section("Skeptical Audit"))
     _render_role(lines, result, "SKEPTICAL_AUDITOR")
 
-    # 8. Final synthesis
     lines.append(_section("Final Synthesis"))
     _render_role(lines, result, "REPORT_SYNTHESIZER")
 
-    # 9. Claims requiring replication
     lines.append(_section("Claims Requiring Replication"))
     lines.append(
         "Every LLM-derived claim in this report is **EXPLORATORY** and must be "
@@ -129,8 +140,6 @@ def render_report(result: MetaAnalysisResult) -> str:
         "triggers, failure modes) are reproducible from the input JSON."
     )
 
-    # Trajectory analyst output is informative but not in the template
-    # sections; append it as an appendix for completeness when available.
     if result.role_by_name("TRAJECTORY_ANALYST"):
         lines.append(_section("Appendix: Trajectory Analyst notes"))
         _render_role(lines, result, "TRAJECTORY_ANALYST")
