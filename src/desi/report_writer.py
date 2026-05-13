@@ -89,8 +89,8 @@ def render_report(result: MetaAnalysisResult) -> str:
         lines.append(f"- last EN: loop {p.last_loop} ({p.last_label})")
     lines.append(f"- note: {p.note}")
 
-    # cycle-11 (self-improvement loop): surface the cycle 4-7 deterministic detectors.
-    lines.append(_section("New deterministic detectors (cycles 4-7 + gen-cycle 5)"))
+    # cycle-11: surface the cycle 4-7 deterministic detectors.
+    lines.append(_section("New deterministic detectors (cycles 4-7)"))
     be = m.branch_explosion
     lines.append(f"- **branch_explosion**: detected = **{be.detected}** — "
                  f"{be.distinct_open_branches} distinct open branches, "
@@ -105,7 +105,7 @@ def render_report(result: MetaAnalysisResult) -> str:
     sc = m.step_coherence
     lines.append(f"- **step_coherence**: incoherent_steps = **{len(sc.incoherent_steps)}** "
                  f"({sc.note})")
-    # gen-cycle 6: surface the gen-cycle-5 borderline-chain detector.
+    # cycle-6 (generalization loop): surface the cycle-5 borderline-chain detector.
     bc = m.borderline_chain
     lines.append(f"- **borderline_chain** (gen-cycle 5): detected = **{bc.detected}** — "
                  f"longest run = {bc.longest_run}; {bc.note}")

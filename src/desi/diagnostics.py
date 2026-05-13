@@ -110,6 +110,14 @@ class PenultimateENAssessment:
 
 
 def detect_penultimate_en_candidate(trajectory: Trajectory) -> PenultimateENAssessment:
+    """Cycle-8: uses the composite classifier. Candidate iff the
+    penultimate EN was BOTH high novelty AND recovered (composite label
+    `genuine_transformation_confirmed`), and the last EN was NOT
+    `genuine_transformation_confirmed`. Pre-cycle-8 the rule was a
+    label-only check on the legacy classifier (`label == "genuine
+    _transformation"`) which produced DET-FAL T6 false positive on
+    adv06 (penultimate ENI=0.15 with novel_claims_next=0).
+    """
     events = trajectory.en_events
     if len(events) < 2:
         return PenultimateENAssessment(
@@ -144,8 +152,10 @@ class TerminalAttractorReport:
     note: str
 
 
-# Cycle 1 (generalization loop): tail-saturation guard.
-# Cycle 4 (generalization loop): strict-> on the dup boundary.
+# Cycle 1 (generalization loop): tail-saturation guard. The pre-cycle-1
+# detector fired on 20/20 generalization fixtures and 9/10 adversarial
+# fixtures because focus_claim_id continuity alone is too weak a signal.
+# An attractor requires the tail to ALSO look saturated.
 ATTRACTOR_TAIL_MAX_MEAN_NOVEL = 3.0
 ATTRACTOR_TAIL_MIN_MEAN_DUP = 0.30
 
@@ -156,6 +166,10 @@ def detect_terminal_attractor_subjects(trajectory: Trajectory, *, tail_loops: in
         return TerminalAttractorReport(candidate_claim_ids=[], method="tail_focus_repetition", note="trajectory has no steps")
     mean_novel = sum(s.novel_claims for s in steps) / len(steps)
     mean_dup = sum(s.dup_rate for s in steps) / len(steps)
+    # Cycle 4 (generalization loop): strict-greater on the dup side. gen04
+    # had tail mean_dup=0.30 exactly, which is the boundary; with `>=` the
+    # detector fired even though the trajectory was synthesising. `>` lets
+    # the boundary case fall through.
     saturated = (
         mean_novel <= ATTRACTOR_TAIL_MAX_MEAN_NOVEL
         and mean_dup > ATTRACTOR_TAIL_MIN_MEAN_DUP
@@ -206,10 +220,10 @@ def summarize_failure_mode(trajectory: Trajectory) -> FailureModeSummary:
     return FailureModeSummary(terminal=terminal, per_step=per_step)
 
 
+# --- Branch-explosion detector (cycle 4) -----------------------------------
 BRANCH_EXPLOSION_MIN_BRANCHES = 5
 BRANCH_EXPLOSION_MAX_AVG_DUP = 0.20
 BRANCH_EXPLOSION_MIN_AVG_NOVEL = 5.0
-BRANCH_EXPLOSION_TAIL = 3  # gen-cycle 3
 
 
 @dataclass(frozen=True)
@@ -220,6 +234,16 @@ class BranchExplosionReport:
     avg_novel_claims: float
     parent_claim_ids: list[str]
     note: str
+
+
+# Cycle 3 (generalization loop): window the averaging to the tail-3
+# instead of the whole trajectory. Pre-cycle-3 the detector fired on
+# gen04 / gen17 because early branch-explosion loops dragged the
+# whole-trajectory averages past threshold even though the tail had
+# closed branches via synthesis. Counting distinct_open over the
+# WHOLE history is preserved (the "did the trajectory ever explode")
+# but the rate-of-recovery is judged on the tail.
+BRANCH_EXPLOSION_TAIL = 3
 
 
 def detect_branch_explosion(trajectory: Trajectory) -> BranchExplosionReport:
@@ -251,7 +275,8 @@ def detect_branch_explosion(trajectory: Trajectory) -> BranchExplosionReport:
         note = (
             f"no branch explosion: distinct_open={len(distinct_open)}, "
             f"tail-{BRANCH_EXPLOSION_TAIL} avg_dup={avg_dup:.2f}, "
-            f"tail-{BRANCH_EXPLOSION_TAIL} avg_novel={avg_novel:.1f}"
+            f"tail-{BRANCH_EXPLOSION_TAIL} avg_novel={avg_novel:.1f} "
+            "(tail-windowed in cycle 3 of generalization loop)"
         )
     return BranchExplosionReport(
         detected=detected, distinct_open_branches=len(distinct_open),
@@ -260,6 +285,7 @@ def detect_branch_explosion(trajectory: Trajectory) -> BranchExplosionReport:
     )
 
 
+# --- Mild-stagnation detector (cycle 5) -----------------------------------
 MILD_STAGNATION_TAIL = 5
 MILD_STAGNATION_MAX_AVG_NOVEL = 2.5
 
@@ -324,6 +350,10 @@ def detect_mild_stagnation(trajectory: Trajectory) -> MildStagnationReport:
 
 
 # --- Borderline-EN chain detector (generalization-loop cycle 5) ------------
+# Many trajectories drift in the [0.10, 0.12] ENI band without ever
+# producing a confirmed genuine transformation. Pre-cycle-5 these were
+# visible only in the composite_en label list; no aggregator-level flag
+# existed. gen11 (4 borderline ENs in a row) is the canonical case.
 BORDERLINE_CHAIN_MIN_RUN = 3
 
 
@@ -373,6 +403,9 @@ def detect_borderline_chain(trajectory: Trajectory) -> BorderlineChainReport:
     )
 
 
+# --- Step-metric coherence validator (cycle 6) -----------------------------
+
+
 @dataclass(frozen=True)
 class IncoherentStep:
     loop_index: int
@@ -387,6 +420,7 @@ class StepCoherenceReport:
 
 
 def validate_step_metric_coherence(trajectory: Trajectory) -> StepCoherenceReport:
+    """Flag steps with mutually-impossible metric combinations (RPP-STR P03)."""
     incoherent: list[IncoherentStep] = []
     sorted_steps = sorted(trajectory.steps, key=lambda s: s.loop_index)
     for i, s in enumerate(sorted_steps):
@@ -407,6 +441,9 @@ def validate_step_metric_coherence(trajectory: Trajectory) -> StepCoherenceRepor
     else:
         note = "all steps coherent"
     return StepCoherenceReport(detected=detected, incoherent_steps=incoherent, note=note)
+
+
+# --- Convenience aggregator -------------------------------------------------
 
 
 @dataclass(frozen=True)
