@@ -133,58 +133,6 @@ slugs `recursive_modulation`, `boundary_condition_analysis`,
 `adaptive_variation_selection`, `counterexample_search`). Claim records are
 **subject/predicate/object triples** per the DES `Claim` dataclass.
 
-Minimal example (DES-canonical form):
-
-```json
-{
-  "trajectory_id": "n03_mozart",
-  "domain": "music_history",
-  "seed": "Why did Mozart die at age 35?",
-  "persona": "historian",
-  "steps": [
-    {
-      "loop_index": 0,
-      "focus_claim_id": "C001",
-      "operator": "T3",
-      "novel_claims": 12,
-      "dup_rate": 0.05,
-      "failure_mode": null,
-      "claims": [
-        {
-          "id": "C001",
-          "subject": "Mozart's recorded cause of death",
-          "predicate": "is documented as",
-          "object": "'hitziges Frieselfieber' in the Vienna death register",
-          "status": "unknown",
-          "confidence": 0.55,
-          "modality": "hypothesis",
-          "history": []
-        }
-      ]
-    }
-  ],
-  "en_events": [
-    {
-      "loop_index": 2,
-      "persona": "historian",
-      "eni_novelty": 0.18,
-      "eni_non_drift": 0.71,
-      "eni_admissibility": 1.0,
-      "eni_composite": 0.41,
-      "admitted": true,
-      "question": "Was 'rheumatic fever' a 19th-century historiographic construction?",
-      "novelty_produced_next_loop": 4,
-      "dup_rate_before": 0.42,
-      "dup_rate_after": 0.18
-    }
-  ],
-  "terminal_failure_mode": "ATTRACTOR_LOCK"
-}
-```
-
-The DES `eni_composite` formula (provenance: paper7/en.py:53) is
-`0.5*novelty + 0.3*non_drift + 0.2*float(admitted)`. DESi never recomputes it.
-
 See `data/sample_trajectories/` for runnable examples and `LEGACY_REUSE.md`
 for the full DES provenance ledger and field mapping.
 
@@ -241,4 +189,5 @@ loop is merged to `main` without human review.
 
 | Cycle | Change | Target failure | Result | Verdict | Key metric delta | Commit |
 |------:|--------|----------------|--------|:------:|-------------------|--------|
-| 1 | Normalise Phase II span bounds (`min/max(collapse, first_en)`) | DET-FAL T10 malformed span (`loops 3..2`) | tests 13→14 pass; adv10 Phase II = 2..3 | **ACCEPTED** | `malformed_phase_span_count` 1 → 0 (n=10) | _pending_ |
+| 1 | Normalise Phase II span bounds (`min/max(collapse, first_en)`) | DET-FAL T10 malformed span (`loops 3..2`) | tests 13→14 pass; adv10 Phase II = 2..3 | **ACCEPTED** | `malformed_phase_span_count` 1 → 0 (n=10) | `378909c` |
+| 2 | Close Phase V on sustained reversal when `terminal_failure_mode` is unset | DET-FAL T9 sticky Phase V (`loops 2..8` over recovery region) | tests 14→15 pass; adv09 Phase V = 2..5; adv03 preserved by terminal-failure guard | **ACCEPTED** | DET-FAL `false_positive_count` 4 → 2 (cycles 1+2) | _pending_ |

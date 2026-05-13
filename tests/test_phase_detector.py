@@ -154,3 +154,34 @@ def test_phase_ii_span_is_well_ordered():
     assert span.start_loop <= span.end_loop, (
         f"Phase II span is malformed: loops {span.start_loop}..{span.end_loop}"
     )
+
+
+def test_phase_v_closes_on_reversal():
+    """DET-FAL T9 regression: Phase V must close when its trigger condition
+    stops holding for >=2 consecutive subsequent loops.
+
+    Shape: dup crosses 0.50 with novel<=1 at loop 2, holds through loop 4,
+    then trajectory recovers (dup drops, novel rises) at loops 5-7. The
+    legacy detector reported Phase V loops 2..7 (sticky). Post-cycle-2 it
+    should close at loop 4 (last loop where the trigger held).
+    """
+    traj = Trajectory(
+        trajectory_id="t",
+        steps=[
+            _step(0, novel=11, dup=0.05, op="T3"),
+            _step(1, novel=3, dup=0.30),
+            _step(2, novel=1, dup=0.55),  # Phase V triggers here
+            _step(3, novel=0, dup=0.65),  # still holds
+            _step(4, novel=0, dup=0.75),  # still holds (last_held)
+            _step(5, novel=8, dup=0.20),  # broken
+            _step(6, novel=6, dup=0.25),  # broken (>=2 consecutive -> close)
+            _step(7, novel=4, dup=0.30),
+        ],
+        en_events=[],
+    )
+    spans = {p.name: p for p in detect_phases(traj).phases}
+    assert PHASE_V in spans
+    assert spans[PHASE_V].start_loop == 2
+    assert spans[PHASE_V].end_loop == 4, (
+        f"Phase V should close at last_held=4, got {spans[PHASE_V].end_loop}"
+    )

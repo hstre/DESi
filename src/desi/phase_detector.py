@@ -258,13 +258,46 @@ def detect_phase_v(trajectory: Trajectory) -> PhaseSpan | None:
 
     if trigger_step is not None:
         start = trigger_step.loop_index
-        end = sorted_steps[-1].loop_index if sorted_steps else start
         evidence = [
             f"dup_rate={trigger_step.dup_rate:.2f} > 0.50 AND "
             f"novel_claims={trigger_step.novel_claims} <= 1 at loop {start}"
         ]
         if has_terminal_failure:
             evidence.append(f"terminal_failure_mode={terminal}")
+        # cycle-2: close Phase V on sustained reversal *only* when the
+        # trajectory does not terminate in a locking failure mode. If
+        # `terminal_failure_mode` is set, the trajectory authoritatively
+        # locked even if the trigger condition was briefly violated, and
+        # the span runs to end-of-trajectory (preserves DET-FAL adv03's
+        # span 2..5 across the EN-induced recovery dip at loop 3).
+        # When no terminal failure is recorded (T9-shape), close the
+        # span at the last loop where the trigger still held, once it
+        # has stopped holding for >=2 consecutive subsequent loops.
+        if has_terminal_failure or not sorted_steps:
+            end = sorted_steps[-1].loop_index if sorted_steps else start
+        else:
+            last_held = start
+            consecutive_broken = 0
+            closed = False
+            for s in sorted_steps:
+                if s.loop_index <= start:
+                    continue
+                if s.dup_rate > 0.50 and s.novel_claims <= 1:
+                    last_held = s.loop_index
+                    consecutive_broken = 0
+                else:
+                    consecutive_broken += 1
+                    if consecutive_broken >= 2:
+                        closed = True
+                        break
+            if closed:
+                end = last_held
+                evidence.append(
+                    f"Phase V trigger no longer holds for >=2 consecutive loops "
+                    f"after loop {last_held}; span closed at {last_held}"
+                )
+            else:
+                end = sorted_steps[-1].loop_index
         return PhaseSpan(
             name=PHASE_V,
             start_loop=start,
