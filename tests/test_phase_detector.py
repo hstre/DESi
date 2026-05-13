@@ -32,13 +32,16 @@ def test_phase_i_triggers_on_exposition_with_high_novelty_and_low_dup():
 
 
 def test_two_consecutive_low_eni_events_trigger_phase_iv():
+    # Generalization-loop cycle 2: avoid co-firing Phase V on the same loops
+    # so the assertion about Phase IV's span is independent of Phase V's
+    # post-clip subsumption. Dup is kept below the Phase V trigger.
     traj = Trajectory(
         trajectory_id="t",
         steps=[
             _step(0, novel=11, dup=0.05, op="T3"),
             _step(1, novel=2, dup=0.30),
-            _step(2, novel=1, dup=0.55),
-            _step(3, novel=0, dup=0.65),
+            _step(2, novel=1, dup=0.40),
+            _step(3, novel=0, dup=0.45),
         ],
         en_events=[_en(2, 0.05), _en(3, 0.07)],
     )
@@ -191,3 +194,41 @@ def test_phase_iii_requires_confirmed_genuine_en_after_cycle_10():
     )
     from desi.phase_detector import PHASE_III
     assert PHASE_III not in [p.name for p in detect_phases(traj).phases]
+
+
+# Generalization-loop cycle 2: phase non-overlap post-processor.
+def test_phase_clip_eliminates_ii_v_overlap():
+    """Pre-cycle-2 Phase II:1-3 and Phase V:1-3 could overlap completely.
+    Post-cycle-2 Phase II is clipped to end at 0 (becomes empty) or to
+    Phase V.start - 1; either way the spans must not intersect.
+    """
+    from desi.phase_detector import PHASE_II, PHASE_V
+    traj = Trajectory(
+        trajectory_id="ii_v_overlap",
+        steps=[
+            _step(0, novel=10, dup=0.05),
+            _step(1, novel=1, dup=0.55),
+            _step(2, novel=0, dup=0.60),
+            _step(3, novel=0, dup=0.65),
+            _step(4, novel=6, dup=0.20),
+        ],
+        en_events=[],
+    )
+    spans = {p.name: (p.start_loop, p.end_loop) for p in detect_phases(traj).phases}
+    if PHASE_II in spans and PHASE_V in spans:
+        ii_s, ii_e = spans[PHASE_II]
+        v_s, v_e = spans[PHASE_V]
+        assert ii_e < v_s, f"Phase II:{ii_s}-{ii_e} must end before Phase V:{v_s}-{v_e}"
+
+
+def test_phase_clip_preserves_non_overlapping_spans():
+    """Cycle 2 must not modify already-non-overlapping spans."""
+    from desi.phase_detector import PHASE_I
+    traj = Trajectory(
+        trajectory_id="no_overlap",
+        steps=[_step(0, novel=12, dup=0.05, op="T3")],
+        en_events=[],
+    )
+    phases = detect_phases(traj).phases
+    p1 = next(p for p in phases if p.name == PHASE_I)
+    assert (p1.start_loop, p1.end_loop) == (0, 0)

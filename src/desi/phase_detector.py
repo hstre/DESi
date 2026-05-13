@@ -254,6 +254,40 @@ class PhaseDetectionResult:
         return [p.name for p in self.phases]
 
 
+def _clip_phase_overlaps(spans: list[PhaseSpan]) -> list[PhaseSpan]:
+    """Generalization-loop cycle 2: when an earlier phase span overlaps with
+    a later phase span (later in PHASES_ORDERED), clip the earlier one to
+    end one loop before the later one starts. Drop spans that become empty.
+
+    Pattern motivating this: n=20 baseline showed 5/20 fixtures with
+    II/V or III/IV or III/V overlap; the n=10 suite already had 3/10.
+    Detectors are independent and don't reconcile their boundaries.
+    """
+    order = {name: i for i, name in enumerate(PHASES_ORDERED)}
+    indexed = sorted(spans, key=lambda s: order.get(s.name, 99))
+    clipped: list[PhaseSpan] = []
+    for i, earlier in enumerate(indexed):
+        e_start, e_end = earlier.start_loop, earlier.end_loop
+        for later in indexed[i + 1:]:
+            if later.start_loop <= e_end and order.get(later.name, 99) > order.get(earlier.name, 99):
+                e_end = min(e_end, later.start_loop - 1)
+        if e_end >= e_start:
+            if e_end != earlier.end_loop:
+                evidence = list(earlier.trigger_evidence) + [
+                    f"clipped end from {earlier.end_loop} to {e_end} (later phase started)"
+                ]
+                clipped.append(PhaseSpan(
+                    name=earlier.name, start_loop=e_start, end_loop=e_end,
+                    trigger_evidence=evidence, confidence=earlier.confidence,
+                ))
+            else:
+                clipped.append(earlier)
+        # else: drop — earlier phase entirely subsumed by a later one
+    # Restore original PHASES_ORDERED ordering for downstream stability.
+    clipped.sort(key=lambda s: (order.get(s.name, 99), s.start_loop))
+    return clipped
+
+
 def detect_phases(trajectory: Trajectory) -> PhaseDetectionResult:
     detectors = (detect_phase_i, detect_phase_ii, detect_phase_iii,
                  detect_phase_iv, detect_phase_v)
@@ -262,4 +296,4 @@ def detect_phases(trajectory: Trajectory) -> PhaseDetectionResult:
         span = fn(trajectory)
         if span is not None:
             found.append(span)
-    return PhaseDetectionResult(phases=found)
+    return PhaseDetectionResult(phases=_clip_phase_overlaps(found))
