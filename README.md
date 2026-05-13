@@ -69,11 +69,58 @@ python -m desi.cli analyze data/sample_trajectories/sample_n03_mozart.json
 # Deterministic only — no API calls, no key needed
 python -m desi.cli analyze data/sample_trajectories/sample_n03_darwin.json --no-llm
 
-# Choose model / output path
-python -m desi.cli analyze path/to/traj.json --model deepseek-chat --out outputs/my_report.md
+# Override the analyst/synth model (the four non-auditor roles)
+python -m desi.cli analyze path/to/traj.json --model deepseek-v4-flash
+
+# Pick the auditor model independently
+python -m desi.cli analyze path/to/traj.json --audit-model flash   # fast batch
+python -m desi.cli analyze path/to/traj.json --audit-model pro     # explicit
+python -m desi.cli analyze path/to/traj.json --audit-model auto    # default
+
+# Output path
+python -m desi.cli analyze path/to/traj.json --out outputs/my_report.md
 ```
 
 Reports land in `outputs/<trajectory_id>_desi_report.md`.
+
+### Auditor model — promoted default and cost/latency tradeoff
+
+Per the paper0 auditor-model ablation
+(`outputs/role_policy/auditor_model_ablation.md`, commit `853db5d`),
+DESi now uses `deepseek-v4-pro` for the `SKEPTICAL_AUDITOR` role by
+default. The other four roles continue to run on
+`deepseek-v4-flash`. The promotion satisfied all three pre-conditions
+of the published decision rule (improves `useful_objection_count` from
+1.40 → 2.10 per trajectory, holds `false_objection_count` at zero,
+reduces `hallucinated_causal_claims` from 4.10 → 3.20).
+
+| `--audit-model` | Auditor model         | Median call latency | Auditor wall-clock contribution per trajectory |
+|-----------------|-----------------------|--------------------:|-----------------------------------------------:|
+| `flash`         | `deepseek-v4-flash`   | ~25 s               | ~25 s                                          |
+| `pro`           | `deepseek-v4-pro`     | ~125 s              | ~125 s                                         |
+| `auto` (default)| `deepseek-v4-pro`     | ~125 s              | ~125 s                                         |
+
+End-to-end wall-clock on the n=10 adversarial trajectory set:
+`flash` 23.7 min, `pro` 33.4 min — **`pro` adds about 40% to total
+runtime**. The auditor sits on the critical path
+(analysts → auditor → synthesizer), so this latency is **not
+parallelisable** with the analyst roles.
+
+Operational guards baked into the production code path:
+
+- The auditor's HTTP timeout defaults to **120 s** (configurable via
+  `DESI_AUDITOR_TIMEOUT_SECONDS`); the rest of the roles still use
+  `DESI_TIMEOUT_SECONDS` (default 60 s).
+- The auditor call gets **one extra retry** on top of the global
+  `DESI_MAX_RETRIES` budget (`DESI_AUDITOR_MAX_RETRIES=1` by default).
+- `v4`-series models return `reasoning_content` separately from
+  `content`. The client now falls back to `reasoning_content` when
+  `content` is empty, so a reasoning-heavy auditor call never silently
+  yields an empty audit.
+
+If you are running >100 trajectories in a batch and the audit-quality
+gain is not worth the ~5× per-call latency, pass `--audit-model flash`
+or set `DESI_AUDITOR_MODE=flash` in `.env`.
 
 ## Data format
 

@@ -13,7 +13,7 @@ import logging
 import sys
 from pathlib import Path
 
-from .config import ConfigError
+from .config import AUDITOR_MODE_CHOICES, ConfigError
 from .meta_analyzer import analyze
 from .report_writer import default_report_path, write_report
 from .trajectory_loader import TrajectoryLoadError, load_trajectory
@@ -39,7 +39,20 @@ def _build_parser() -> argparse.ArgumentParser:
     p_analyze.add_argument(
         "--model",
         default=None,
-        help="DeepSeek model name to use (overrides DEEPSEEK_MODEL)",
+        help="DeepSeek model name for the four non-auditor roles "
+             "(overrides DEEPSEEK_MODEL). Use --audit-model to set the "
+             "auditor model independently.",
+    )
+    p_analyze.add_argument(
+        "--audit-model",
+        default=None,
+        choices=list(AUDITOR_MODE_CHOICES),
+        help="Auditor (SKEPTICAL_AUDITOR) model selection. "
+             "'flash' = deepseek-v4-flash (fast, ~25s/call). "
+             "'pro' = deepseek-v4-pro (~5x slower, ~125s/call, "
+             "produces more numbered objections per paper0 ablation). "
+             "'auto' (default) = the promoted default, currently 'pro'. "
+             "See outputs/role_policy/auditor_model_ablation.md.",
     )
     p_analyze.add_argument(
         "--out",
@@ -71,6 +84,7 @@ def _cmd_analyze(args: argparse.Namespace) -> int:
             trajectory,
             use_llm=not args.no_llm,
             model_override=args.model,
+            audit_model=args.audit_model,
         )
     except ConfigError as exc:
         print(f"error: {exc}", file=sys.stderr)

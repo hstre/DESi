@@ -44,7 +44,17 @@ class DeepSeekClient:
         model: str | None = None,
         temperature: float | None = None,
         max_tokens: int | None = None,
+        timeout: float | None = None,
+        max_retries: int | None = None,
     ) -> str:
+        """Send a chat-completion request.
+
+        ``timeout`` and ``max_retries`` override the request-level defaults
+        from ``Config`` for this call only. Used by the meta-analyzer to
+        give the SKEPTICAL_AUDITOR role a longer timeout when v4-pro is
+        the resolved auditor model (paper0 ablation showed v4-pro
+        auditor calls run 90-150s).
+        """
         api_key = self._config.require_api_key()
         payload = {
             "model": model or self._config.deepseek_model,
@@ -61,20 +71,27 @@ class DeepSeekClient:
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
         }
+        effective_timeout = (
+            self._config.timeout_seconds if timeout is None else timeout
+        )
+        effective_retries = (
+            self._config.max_retries if max_retries is None else max_retries
+        )
 
         last_error: Exception | None = None
-        for attempt in range(1, self._config.max_retries + 1):
+        for attempt in range(1, effective_retries + 1):
             try:
                 response = requests.post(
                     self._endpoint,
                     json=payload,
                     headers=headers,
-                    timeout=self._config.timeout_seconds,
+                    timeout=effective_timeout,
                 )
             except requests.RequestException as exc:
                 last_error = exc
                 _LOG.warning("DeepSeek request failed (attempt %d): %s", attempt, exc)
-                self._sleep_backoff(attempt)
+                if attempt < effective_retries:
+                    self._sleep_backoff(attempt)
                 continue
 
             if response.status_code in _TRANSIENT_STATUS:
@@ -86,7 +103,8 @@ class DeepSeekClient:
                     attempt,
                     response.status_code,
                 )
-                self._sleep_backoff(attempt)
+                if attempt < effective_retries:
+                    self._sleep_backoff(attempt)
                 continue
 
             if response.status_code >= 400:
@@ -97,14 +115,25 @@ class DeepSeekClient:
 
             try:
                 body = response.json()
-                return body["choices"][0]["message"]["content"]
+                msg = body["choices"][0]["message"]
             except (ValueError, KeyError, IndexError) as exc:
                 raise DeepSeekError(
                     f"Malformed DeepSeek response: {response.text[:500]}"
                 ) from exc
+            # v4-series models split output into reasoning_content + content.
+            # When the model burns its budget on reasoning and the content
+            # field is empty, fall back to reasoning_content rather than
+            # silently returning ''. Without this fallback, v4-pro auditor
+            # calls under heavy evidence load would produce empty audits.
+            content = (msg.get("content") or "").strip()
+            if not content:
+                reasoning = (msg.get("reasoning_content") or "").strip()
+                if reasoning:
+                    content = reasoning
+            return content
 
         raise DeepSeekError(
-            f"DeepSeek call failed after {self._config.max_retries} attempts: {last_error}"
+            f"DeepSeek call failed after {effective_retries} attempts: {last_error}"
         )
 
     @staticmethod

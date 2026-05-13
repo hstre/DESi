@@ -17,7 +17,7 @@ import json
 import logging
 from dataclasses import dataclass
 
-from .config import Config, load_config
+from .config import Config, load_config, resolve_auditor_model
 from .deepseek_client import DeepSeekClient
 from .diagnostics import DeterministicMetrics, compute_all
 from .models import Trajectory
@@ -142,9 +142,18 @@ def _safe_call(
     role_name: str,
     role_prefix: str,
     user_payload: str,
+    *,
+    model: str | None = None,
+    timeout: float | None = None,
+    max_retries: int | None = None,
 ) -> RoleOutput:
     try:
-        content = client.chat(build_messages(role_prefix, user_payload))
+        content = client.chat(
+            build_messages(role_prefix, user_payload),
+            model=model,
+            timeout=timeout,
+            max_retries=max_retries,
+        )
         return RoleOutput(role=role_name, content=content)
     except Exception as exc:  # noqa: BLE001 — any failure becomes a role-output error
         _LOG.warning("Role %s failed: %s", role_name, exc)
@@ -157,8 +166,20 @@ def analyze(
     use_llm: bool = True,
     config: Config | None = None,
     model_override: str | None = None,
+    audit_model: str | None = None,
 ) -> MetaAnalysisResult:
-    """Run the full DESi meta-analysis pipeline."""
+    """Run the full DESi meta-analysis pipeline.
+
+    Parameters
+    ----------
+    audit_model:
+        Override for the SKEPTICAL_AUDITOR model. Accepts one of
+        ``"flash"`` / ``"pro"`` / ``"auto"`` (resolved via
+        :func:`config.resolve_auditor_model`), or any explicit model id.
+        ``None`` falls back to ``config.auditor_mode`` (default
+        ``"auto"`` — promoted after paper0 ablation; uses
+        ``deepseek-v4-pro``).
+    """
     cfg = config or load_config()
     metrics = compute_all(trajectory)
     phases = detect_phases(trajectory)
@@ -181,7 +202,24 @@ def analyze(
             max_tokens=cfg.max_tokens,
             timeout_seconds=cfg.timeout_seconds,
             max_retries=cfg.max_retries,
+            auditor_mode=cfg.auditor_mode,
+            auditor_timeout_seconds=cfg.auditor_timeout_seconds,
+            auditor_max_retries=cfg.auditor_max_retries,
         )
+
+    # Resolve the auditor model. CLI override > config default.
+    auditor_model = (
+        resolve_auditor_model(audit_model, default_model=cfg.deepseek_model)
+        if audit_model
+        else cfg.resolved_auditor_model()
+    )
+    _LOG.info(
+        "DESi: analyst/synth model=%s, auditor model=%s (timeout=%ss, retries=%d)",
+        cfg.deepseek_model,
+        auditor_model,
+        cfg.auditor_timeout_seconds,
+        cfg.auditor_max_retries,
+    )
 
     client = DeepSeekClient(cfg)
     metrics_block = _summarize_metrics_for_llm(trajectory, metrics, phases)
@@ -207,12 +245,22 @@ def analyze(
     ))
 
     # Auditor sees deterministic metrics + previous three role outputs.
+    # The auditor gets its own model, longer timeout, and an explicit
+    # retry budget (paper0 ablation: v4-pro auditor calls run 90-150s
+    # and 1 timeout / 10 calls is expected without the extra retry).
     auditor_payload = base_payload + "\n\n## Prior role outputs (subject to audit)\n"
     for r in outputs:
         body = r.error and f"[ERROR: {r.error}]" or r.content
         auditor_payload += f"\n### {r.role}\n{body}\n"
     outputs.append(_safe_call(
-        client, "SKEPTICAL_AUDITOR", ROLE_SKEPTICAL_AUDITOR, auditor_payload
+        client,
+        "SKEPTICAL_AUDITOR",
+        ROLE_SKEPTICAL_AUDITOR,
+        auditor_payload,
+        model=auditor_model,
+        timeout=cfg.auditor_timeout_seconds,
+        # +1 attempt beyond the base call so a single read-timeout retries.
+        max_retries=cfg.auditor_max_retries + 1,
     ))
 
     # Synthesizer sees everything.
