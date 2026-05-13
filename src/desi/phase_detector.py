@@ -19,6 +19,7 @@ from typing import Iterable
 from .diagnostics import (
     ENI_LOW_THRESHOLD,
     classify_en_event,
+    classify_en_event_composite,
 )
 from .models import ENEvent, Trajectory, TrajectoryStep
 
@@ -96,17 +97,12 @@ def detect_phase_i(trajectory: Trajectory) -> PhaseSpan | None:
 
 
 def detect_phase_ii(trajectory: Trajectory) -> PhaseSpan | None:
-    """Phase II: novelty collapse to <= 2 (cycle-3 dropped EN gate;
-    cycle-9 added persistence requirement; cycle-1 normalised span)."""
+    """Phase II: cycle-3 dropped EN gate; cycle-9 added persistence; cycle-1 normalised span."""
     if not trajectory.steps:
         return None
     sorted_steps = sorted(trajectory.steps, key=lambda s: s.loop_index)
     sorted_en = sorted(trajectory.en_events, key=lambda e: e.loop_index)
     first_en = sorted_en[0] if sorted_en else None
-
-    # cycle-9: persistence requirement. First loop>0 with novel<=2 AND
-    # next loop also novel<=2. Pre-cycle-9 a single-loop dip fired
-    # Phase II (DET-FAL T5 adv05 oscillation).
     collapse_loop: int | None = None
     for a, b in zip(sorted_steps, sorted_steps[1:]):
         if a.loop_index > 0 and a.novel_claims <= 2 and b.novel_claims <= 2:
@@ -114,9 +110,7 @@ def detect_phase_ii(trajectory: Trajectory) -> PhaseSpan | None:
             break
     if collapse_loop is None:
         return None
-
     if first_en is None:
-        # cycle-3: saturation without EN.
         evidence = [
             f"novelty collapse: novel_claims<=2 at loop {collapse_loop}",
             f"persistence: novel<=2 at loops {collapse_loop} and {collapse_loop+1}",
@@ -124,25 +118,30 @@ def detect_phase_ii(trajectory: Trajectory) -> PhaseSpan | None:
         ]
         return PhaseSpan(name=PHASE_II, start_loop=collapse_loop, end_loop=collapse_loop,
                          trigger_evidence=evidence, confidence="low")
-
     trigger_loop = first_en.loop_index
     evidence = [
         f"novelty collapse: novel_claims<=2 at loop {collapse_loop}",
         f"persistence: novel<=2 at loops {collapse_loop} and {collapse_loop+1}",
         f"first EN at loop {first_en.loop_index} (eni_novelty={first_en.eni_novelty:.2f})",
     ]
-    # cycle-1: normalise span bounds.
     span_start, span_end = sorted((collapse_loop, trigger_loop))
     return PhaseSpan(name=PHASE_II, start_loop=span_start, end_loop=span_end,
                      trigger_evidence=evidence, confidence="medium")
 
 
 def detect_phase_iii(trajectory: Trajectory) -> PhaseSpan | None:
-    """Phase III: novelty recovery after a genuine EN, dup oscillating ~0.10-0.40."""
+    """Phase III: cycle-10 first-trigger on composite; boundary stays legacy.
+
+    First-genuine trigger uses classify_en_event_composite (must be
+    `genuine_transformation_confirmed`). The window-boundary lookup
+    intentionally stays on the legacy classifier so unconfirmed but
+    high-ENI events still bound the window (preventing the failed-
+    cycle-10 regression where Phase III extended over adv06 Phase V).
+    """
     sorted_en = sorted(trajectory.en_events, key=lambda e: e.loop_index)
     genuine = next(
         (e for e in sorted_en
-         if classify_en_event(e).label == "genuine_transformation"),
+         if classify_en_event_composite(e).label == "genuine_transformation_confirmed"),
         None,
     )
     if genuine is None:

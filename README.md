@@ -39,4 +39,5 @@ Nothing in this loop is merged to `main` without human review.
 | 6 | New `validate_step_metric_coherence` (defensive) | **ACCEPTED** | no DET-FAL delta; forward-looking | `4c6c571` |
 | 7 | New composite EN classification (capability) | **ACCEPTED** | adds 6-cell label table | `217a457` |
 | 8 | Switch penultimate-EN to composite classifier | **ACCEPTED** | DET-FAL `false_positive_count` 2 → 1 | `b28755d` |
-| 9 | Phase II persistence requirement (>=2 consecutive novel<=2) | **ACCEPTED** | DET-FAL `false_positive_count` 1 → **0** | _pending_ |
+| 9 | Phase II persistence requirement | **ACCEPTED** | DET-FAL `false_positive_count` 1 → **0** | `f05c08a` |
+| 10 | Phase III first-trigger on composite (boundary stays legacy) | **ACCEPTED** (defensive) | no DET-FAL movement; defensive | _pending_ |
