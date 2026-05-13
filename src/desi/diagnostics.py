@@ -152,10 +152,32 @@ class TerminalAttractorReport:
     note: str
 
 
+# Cycle 1 (generalization loop): tail-saturation guard. The pre-cycle-1
+# detector fired on 20/20 generalization fixtures and 9/10 adversarial
+# fixtures because focus_claim_id continuity alone is too weak a signal.
+# An attractor requires the tail to ALSO look saturated.
+ATTRACTOR_TAIL_MAX_MEAN_NOVEL = 3.0
+ATTRACTOR_TAIL_MIN_MEAN_DUP = 0.30
+
+
 def detect_terminal_attractor_subjects(trajectory: Trajectory, *, tail_loops: int = 3) -> TerminalAttractorReport:
     steps = trajectory.steps[-tail_loops:]
     if not steps:
         return TerminalAttractorReport(candidate_claim_ids=[], method="tail_focus_repetition", note="trajectory has no steps")
+    mean_novel = sum(s.novel_claims for s in steps) / len(steps)
+    mean_dup = sum(s.dup_rate for s in steps) / len(steps)
+    saturated = (
+        mean_novel <= ATTRACTOR_TAIL_MAX_MEAN_NOVEL
+        and mean_dup >= ATTRACTOR_TAIL_MIN_MEAN_DUP
+    )
+    if not saturated:
+        return TerminalAttractorReport(
+            candidate_claim_ids=[], method="tail_focus_repetition_guarded",
+            note=(
+                f"tail not saturated: mean_novel={mean_novel:.1f} (>{ATTRACTOR_TAIL_MAX_MEAN_NOVEL}) "
+                f"OR mean_dup={mean_dup:.2f} (<{ATTRACTOR_TAIL_MIN_MEAN_DUP})"
+            ),
+        )
     focus_counts: dict[str, int] = {}
     presence_counts: dict[str, int] = {}
     for step in steps:
@@ -168,8 +190,11 @@ def detect_terminal_attractor_subjects(trajectory: Trajectory, *, tail_loops: in
         | {cid for cid, n in presence_counts.items() if n == len(steps) and n >= 2}
     )
     return TerminalAttractorReport(
-        candidate_claim_ids=candidates, method="tail_focus_repetition",
-        note=f"examined last {len(steps)} step(s); candidate = focus repeated twice OR claim present in every tail step",
+        candidate_claim_ids=candidates, method="tail_focus_repetition_guarded",
+        note=(
+            f"tail saturated (mean_novel={mean_novel:.1f}, mean_dup={mean_dup:.2f}); "
+            f"candidate = focus repeated twice OR claim present in every tail step"
+        ),
     )
 
 

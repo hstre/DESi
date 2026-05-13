@@ -183,3 +183,42 @@ def test_composite_en_high_with_recovery_is_confirmed():
     from desi.diagnostics import classify_en_event_composite
     r = classify_en_event_composite(_en(2, 0.18, novel_claims_next=4, dup_rate_before=0.42, dup_rate_after=0.18))
     assert r.label == "genuine_transformation_confirmed"
+
+
+# Generalization-loop cycle 1: attractor detector's tail-saturation guard.
+def test_detect_terminal_attractor_skips_unsaturated_tail():
+    """Pre-cycle-1 fired on any trajectory with steady focus. Post-cycle-1
+    requires tail to be SATURATED (low novel + elevated dup).
+    """
+    from desi.diagnostics import detect_terminal_attractor_subjects
+    # Tail mean_novel=5 (>3), mean_dup=0.20 (<0.30): NOT saturated.
+    traj = Trajectory(
+        trajectory_id="unsaturated_tail",
+        steps=[
+            TrajectoryStep(loop_index=i, focus_claim_id="C001",
+                           operator="T3", novel_claims=5, dup_rate=0.20)
+            for i in range(5)
+        ],
+        en_events=[],
+    )
+    r = detect_terminal_attractor_subjects(traj)
+    assert r.candidate_claim_ids == []
+    assert "tail not saturated" in r.note
+
+
+def test_detect_terminal_attractor_fires_on_saturated_tail():
+    """Cycle 1 must preserve the signal when the tail IS saturated."""
+    from desi.diagnostics import detect_terminal_attractor_subjects
+    # Tail mean_novel=1 (<=3), mean_dup=0.60 (>=0.30): saturated. Focus repeats.
+    traj = Trajectory(
+        trajectory_id="saturated_tail",
+        steps=[
+            TrajectoryStep(loop_index=i, focus_claim_id="C001",
+                           operator="T8", novel_claims=1, dup_rate=0.60)
+            for i in range(5)
+        ],
+        en_events=[],
+    )
+    r = detect_terminal_attractor_subjects(traj)
+    assert r.candidate_claim_ids == ["C001"]
+    assert "tail saturated" in r.note
