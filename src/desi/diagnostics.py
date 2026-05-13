@@ -232,6 +232,16 @@ class BranchExplosionReport:
     note: str
 
 
+# Cycle 3 (generalization loop): window the averaging to the tail-3
+# instead of the whole trajectory. Pre-cycle-3 the detector fired on
+# gen04 / gen17 because early branch-explosion loops dragged the
+# whole-trajectory averages past threshold even though the tail had
+# closed branches via synthesis. Counting distinct_open over the
+# WHOLE history is preserved (the "did the trajectory ever explode")
+# but the rate-of-recovery is judged on the tail.
+BRANCH_EXPLOSION_TAIL = 3
+
+
 def detect_branch_explosion(trajectory: Trajectory) -> BranchExplosionReport:
     distinct_open: set[str] = set()
     parents: set[str] = set()
@@ -241,18 +251,29 @@ def detect_branch_explosion(trajectory: Trajectory) -> BranchExplosionReport:
                 distinct_open.add(c.id)
                 if c.parent_id:
                     parents.add(c.parent_id)
-    n_steps = max(1, len(trajectory.steps))
-    avg_dup = sum(s.dup_rate for s in trajectory.steps) / n_steps
-    avg_novel = sum(s.novel_claims for s in trajectory.steps) / n_steps
+    sorted_steps = sorted(trajectory.steps, key=lambda s: s.loop_index)
+    tail = sorted_steps[-BRANCH_EXPLOSION_TAIL:] if sorted_steps else []
+    n_tail = max(1, len(tail))
+    avg_dup = sum(s.dup_rate for s in tail) / n_tail if tail else 0.0
+    avg_novel = sum(s.novel_claims for s in tail) / n_tail if tail else 0.0
     detected = (
         len(distinct_open) >= BRANCH_EXPLOSION_MIN_BRANCHES
         and avg_dup < BRANCH_EXPLOSION_MAX_AVG_DUP
         and avg_novel >= BRANCH_EXPLOSION_MIN_AVG_NOVEL
     )
     if detected:
-        note = f"distinct open branches={len(distinct_open)} (>=5) avg_dup_rate={avg_dup:.2f} (<0.20) avg_novel_claims={avg_novel:.1f} (>=5)"
+        note = (
+            f"distinct open branches={len(distinct_open)} (>=5) "
+            f"tail-{BRANCH_EXPLOSION_TAIL} avg_dup={avg_dup:.2f} (<0.20) "
+            f"tail-{BRANCH_EXPLOSION_TAIL} avg_novel={avg_novel:.1f} (>=5)"
+        )
     else:
-        note = f"no branch explosion: distinct_open={len(distinct_open)}, avg_dup={avg_dup:.2f}, avg_novel={avg_novel:.1f}"
+        note = (
+            f"no branch explosion: distinct_open={len(distinct_open)}, "
+            f"tail-{BRANCH_EXPLOSION_TAIL} avg_dup={avg_dup:.2f}, "
+            f"tail-{BRANCH_EXPLOSION_TAIL} avg_novel={avg_novel:.1f} "
+            "(tail-windowed in cycle 3 of generalization loop)"
+        )
     return BranchExplosionReport(
         detected=detected, distinct_open_branches=len(distinct_open),
         avg_dup_rate=round(avg_dup, 3), avg_novel_claims=round(avg_novel, 2),
