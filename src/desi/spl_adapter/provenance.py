@@ -38,6 +38,11 @@ class SPLProvenance:
     fields are mandatory for ``spl_llm`` and default to empty strings
     / zero values for ``spl_deterministic`` (where they are not
     meaningful).
+
+    v1.1 adds three source-document fields (``content_type``,
+    ``parser_version``, ``parser_hash``) that are populated when the
+    candidate originated from a :class:`SourceDocument` flowing
+    through :meth:`SPLAdapter.project_document`. Empty otherwise.
     """
 
     source: str
@@ -56,6 +61,10 @@ class SPLProvenance:
     document_id: str = ""
     author: str = ""
     language: str = ""
+    # v1.1: source-document audit fields (set by project_document).
+    content_type: str = ""
+    parser_version: str = ""
+    parser_hash: str = ""
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -70,7 +79,26 @@ class SPLProvenance:
             "document_id": self.document_id,
             "author": self.author,
             "language": self.language,
+            "content_type": self.content_type,
+            "parser_version": self.parser_version,
+            "parser_hash": self.parser_hash,
         }
+
+    def with_source_fields(
+        self,
+        *,
+        content_type: str,
+        parser_version: str,
+        parser_hash: str,
+    ) -> "SPLProvenance":
+        """Return a copy with v1.1 source-document fields filled in."""
+        from dataclasses import replace as _replace
+        return _replace(
+            self,
+            content_type=content_type,
+            parser_version=parser_version,
+            parser_hash=parser_hash,
+        )
 
     @property
     def is_llm(self) -> bool:

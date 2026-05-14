@@ -205,6 +205,10 @@ class DeterministicSemanticBackend:
 DEEPSEEK_MODEL_NAME = "deepseek-4-pro"
 DEEPSEEK_MODEL_VERSION = "2026-05"
 
+# v1.1 directive: hard cap on raw LLM response size, enforced both at
+# the HTTP transport (DeepSeekClient) and at this parse boundary.
+MAX_LLM_RESPONSE_BYTES = 50 * 1024  # 50 KB
+
 
 LLMCallable = Callable[[str], str]
 """Signature of the injectable LLM call.
@@ -339,6 +343,15 @@ class LLMSemanticBackend:
     ) -> tuple[tuple[SemanticUnit, ...], str]:
         if not raw or not raw.strip():
             raise BackendError("empty_output", "LLM returned empty body")
+        # v1.1: hard 50 KB response cap, enforced independently of the
+        # transport so an injected ``llm_call`` that returns a giant
+        # blob still fail-closes here.
+        size_bytes = len(raw.encode("utf-8"))
+        if size_bytes > MAX_LLM_RESPONSE_BYTES:
+            raise BackendError(
+                "response_too_large",
+                f"{size_bytes} bytes > {MAX_LLM_RESPONSE_BYTES} byte cap",
+            )
         try:
             payload = json.loads(raw)
         except (json.JSONDecodeError, TypeError, ValueError) as exc:

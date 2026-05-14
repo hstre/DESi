@@ -63,6 +63,16 @@ class LedgerEventType(str, Enum):
     SEMANTIC_PROJECTION_STARTED = "semantic_projection_started"
     SEMANTIC_CANDIDATE_EMITTED = "semantic_candidate_emitted"
     SEMANTIC_PROJECTION_REJECTED = "semantic_projection_rejected"
+    # v1.1: source-document and real-LLM events. The five events form
+    # an additional layer the SPLAdapter writes when it talks to a
+    # SourceDocument and/or a real LLM transport: parsed, request
+    # started, request failed (network), response accepted (size +
+    # output_hash), response rejected (response-level errors).
+    SOURCE_DOCUMENT_PARSED = "source_document_parsed"
+    LLM_REQUEST_STARTED = "llm_request_started"
+    LLM_REQUEST_FAILED = "llm_request_failed"
+    LLM_RESPONSE_ACCEPTED = "llm_response_accepted"
+    LLM_RESPONSE_REJECTED = "llm_response_rejected"
 
 
 @dataclass(frozen=True)
