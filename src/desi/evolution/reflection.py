@@ -79,7 +79,22 @@ class ReflectionEngine:
     LATE_GUARD_TICK_PERCENTILE: float = 0.75
     DEAD_END_MIN_TICKS_SINCE_LAST_REF: int = 6
 
-    def reflect(self, result: EvaluationResult) -> ReflectionReport:
+    def reflect(
+        self,
+        result: EvaluationResult,
+        *,
+        memory_view: Any | None = None,
+    ) -> ReflectionReport:
+        """Walk an EvaluationResult into a ReflectionReport.
+
+        v0.6: ``memory_view`` is an optional
+        :class:`desi.memory.ReadOnlyMemoryView`. When supplied, the
+        engine **may** consult historical state to enrich its findings.
+        v0.6 keeps the surface narrow — only the cross-run recurrence
+        detector reads memory. The directive forbids memory reads
+        *during* a run; here we read only after the run has completed,
+        which is allowed.
+        """
         findings: list[ReflectionFinding] = []
         findings.extend(self._unnecessary_branches(result))
         findings.extend(self._repeated_revisions(result))
@@ -87,11 +102,50 @@ class ReflectionEngine:
         findings.extend(self._late_guard_triggers(result))
         findings.extend(self._unstable_path(result))
         findings.extend(self._unresolved_conflicts(result))
+        if memory_view is not None:
+            findings.extend(self._cross_run_recurrence(result, memory_view))
         return ReflectionReport(
             evaluation_id=result.evaluation_id,
             scenario_id=result.scenario_id,
             findings=tuple(findings),
         )
+
+    def _cross_run_recurrence(
+        self,
+        result: EvaluationResult,
+        memory_view: Any,
+    ) -> list[ReflectionFinding]:
+        """If the operator path of this run was seen many times before,
+        flag it as a possible recurrence loop."""
+        # Conservative read-only access via the v0.2 ReadOnlyMemoryView
+        # surface. If the view does not implement get_operator_history
+        # (e.g. a stub passed in by a test), silently return nothing.
+        get_history = getattr(memory_view, "get_operator_history", None)
+        if not callable(get_history):
+            return []
+        ops_in_run = [str(e.payload.get("operator"))
+                      for e in result.timeline
+                      if e.event_type.value == "operator_started"]
+        if not ops_in_run:
+            return []
+        head = ops_in_run[0]
+        prior = get_history(head)
+        if not prior or len(prior) < 5:
+            return []
+        return [ReflectionFinding(
+            category="performance",
+            observed_problem=(
+                f"operator {head!r} has been seen >= 5 times in prior "
+                f"runs; the current run may be re-doing established work."
+            ),
+            suspected_root_cause=(
+                "no memoisation across runs; the same opening operator "
+                "is replayed instead of consulting prior trajectories."
+            ),
+            affected_components=("diagnostics",),
+            confidence=0.4,
+            supporting_events=(),
+        )]
 
     # ------------------------------------------------------------------
     # Detectors
