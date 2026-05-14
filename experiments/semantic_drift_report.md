@@ -155,3 +155,37 @@ is the user providing those component definitions (or pointing to the
 section of Paper 0 that contains them).
 
 I will not attempt another operational definition without that input.
+
+## Update — Paper 0 now in the repository
+
+The user added `DESi Paper-0 Birth v1-6.docx` to the branch
+(`experiment/desi-birth-falsification`) after this drift report was
+written. §12.1 defines the five components:
+
+```
+D  — Failure Detection (in the system's OWN diagnostic rules)
+R  — Revision Proposal (concrete, measurable revisions)
+F  — Falsifiability (testable under adversarial conditions;
+                     tolerates rejection, regression, failed hypotheses)
+P  — Preservation of Rejected Paths (no silent overwriting,
+                                     no history deletion,
+                                     no retroactive narrative repair)
+ΔQ — Measurable Improvement (at least some accepted revisions
+                             improve measurable behaviour)
+```
+
+Paper 0 §12.2 claims DESi satisfies all five → birth(B) = 1.
+Paper 0 §12.3 explicitly frames birth as a *lower bound, not an
+endpoint*.
+
+The proper falsification — using these definitions — lives in
+`experiments/birth_criterion_falsification/`. Its verdict (see
+`synthesis.md` there): under §12.1 as written, birth(B) = 1 stands;
+under a stricter reading on D, F, or ΔQ, birth(B) = 0 is forced.
+Paper 0 §12.3's "lower bound" wording commits to the weaker reading,
+so the claim is internally consistent.
+
+The earlier `experiments/composite_en_label_falsification/`
+artefacts remain renamed and annotated — they probed a misnamed
+boolean proxy and their findings (composite-EN-label boundary
+behaviour) are real but **not** birth(B) falsifications.
