@@ -134,6 +134,68 @@ def render_report(result: MetaAnalysisResult) -> str:
     else:
         lines.append("- composite EN classifications: (no EN events)")
 
+    # EN-reconstruction cycle 1: candidates reconstructed from upstream
+    # DES operations (hypothesis_builder + target). Distinct from
+    # en_classifications/composite above, which require native ENI input.
+    er = m.en_reconstruction
+    lines.append(_section("Reconstructed EN Candidates (cycle 1)"))
+    lines.append(
+        "_These are STRUCTURAL candidates derived from "
+        "`operator_sub_role == 'hypothesis_builder'` with a target claim. "
+        "They are NOT eni_novelty measurements; they identify loop "
+        "positions where DES likely created new claims via "
+        "hypothesis-building. Treat as candidates pending confirmation._"
+    )
+    if er.count == 0:
+        lines.append("- (no candidates under rule "
+                     "`cycle1_hypothesis_builder_with_target`)")
+    for c in er.candidates:
+        lines.append(
+            f"- loop {c.loop_index}: `{c.operator}` "
+            f"[{c.source_claim} → {c.target_claim}] "
+            f"(rule: `{c.rule_id}`)"
+        )
+
+    # Critique-navigation cycle 2: SEPARATE section per user directive.
+    # Do NOT merge with EN. Falsifier ops with target_claim are the
+    # critique analog of hypothesis_builder ops.
+    cn = m.critique_navigation
+    lines.append(_section("Reconstructed Critique-Navigation Candidates (cycle 2)"))
+    lines.append(
+        "_These are STRUCTURAL candidates derived from "
+        "`operator_sub_role == 'falsifier'` with a target claim. They "
+        "represent DES extending the claim graph via critique rather "
+        "than via construction. **They are NOT EN candidates** — the "
+        "two categories share a syntactic shape but encode different "
+        "epistemic moves and are surfaced separately by design._"
+    )
+    if cn.count == 0:
+        lines.append("- (no candidates under rule "
+                     "`cycle2_falsifier_with_target`)")
+    for c in cn.candidates:
+        lines.append(
+            f"- loop {c.loop_index}: `{c.operator}` "
+            f"[{c.source_claim} → {c.target_claim}] "
+            f"(rule: `{c.rule_id}`)"
+        )
+    # Cross-reference: are any candidate loops shared between the two?
+    en_loops = {c.loop_index for c in er.candidates}
+    cn_loops = {c.loop_index for c in cn.candidates}
+    overlap = sorted(en_loops & cn_loops)
+    if er.count or cn.count:
+        if overlap:
+            lines.append(
+                f"- **WARNING**: candidate loops appear in BOTH EN and "
+                f"critique-navigation lists: {overlap}. This should not "
+                f"happen — each step has exactly one sub-role."
+            )
+        else:
+            lines.append(
+                f"- cross-check: EN and critique-navigation candidate "
+                f"loops are disjoint ({len(en_loops)} EN, "
+                f"{len(cn_loops)} critique-nav)."
+            )
+
     lines.append(_section("Attractor Diagnosis"))
     a = m.attractor
     lines.append("### Deterministic candidates")

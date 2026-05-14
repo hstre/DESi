@@ -1,0 +1,28 @@
+=== CONSERVATIVE ===
+  input_origin: translated_DES_conservative
+  EN candidates (cycle 1):
+    loop 3: T6[C002 -> C004]
+    loop 7: T5[C003 -> C006]
+    loop 10: T6[C003 -> C008]
+  Critique-navigation candidates (cycle 2):
+    loop 4: T6[C002 -> C005]
+    loop 8: T5[C003 -> C007]
+    loop 11: T6[C003 -> C009]
+  EN loops: [3, 7, 10]
+  CN loops: [4, 8, 11]
+  intersection: []  (must be empty)
+
+=== HEURISTIC ===
+  input_origin: translator_heuristic
+  EN candidates (cycle 1):
+    loop 3: T6[C002 -> C004]
+    loop 7: T5[C003 -> C006]
+    loop 10: T6[C003 -> C008]
+  Critique-navigation candidates (cycle 2):
+    loop 4: T6[C002 -> C005]
+    loop 8: T5[C003 -> C007]
+    loop 11: T6[C003 -> C009]
+  EN loops: [3, 7, 10]
+  CN loops: [4, 8, 11]
+  intersection: []  (must be empty)
+

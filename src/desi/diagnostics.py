@@ -578,6 +578,67 @@ def reconstruct_en_candidates(trajectory: Trajectory) -> ENReconstructionReport:
     )
 
 
+# --- Critique-navigation reconstruction (cycle 2) --------------------------
+# Distinct from EN candidates by design. `falsifier` sub-role with a new
+# target claim is a "DES extended the graph via critique" event. The user
+# specifically directed: do NOT merge with EN candidates. Treat as a
+# separate candidate kind, surfaced via its own report.
+
+
+@dataclass(frozen=True)
+class CritiqueNavigationCandidate:
+    loop_index: int
+    operator: str
+    source_claim: str | None
+    target_claim: str | None
+    rule_id: str
+    note: str
+
+
+@dataclass(frozen=True)
+class CritiqueNavigationReport:
+    candidates: list[CritiqueNavigationCandidate]
+    rules_applied: list[str]
+    note: str
+
+    @property
+    def count(self) -> int:
+        return len(self.candidates)
+
+
+def reconstruct_critique_navigation_candidates(
+    trajectory: Trajectory,
+) -> CritiqueNavigationReport:
+    """Cycle 2 rule: falsifier + target_claim is a critique-navigation
+    candidate. NOT an EN candidate. The two categories may co-occur on
+    the same trajectory but the loop indices are disjoint per
+    operation: a single step has exactly one sub-role.
+    """
+    candidates: list[CritiqueNavigationCandidate] = []
+    for s in trajectory.steps:
+        if s.operator_sub_role == "falsifier" and s.operator_target:
+            candidates.append(CritiqueNavigationCandidate(
+                loop_index=s.loop_index,
+                operator=s.operator,
+                source_claim=s.focus_claim_id,
+                target_claim=s.operator_target,
+                rule_id="cycle2_falsifier_with_target",
+                note=(
+                    f"falsifier op {s.operator} extended the claim graph "
+                    f"via critique: {s.focus_claim_id} -> {s.operator_target}"
+                ),
+            ))
+    note = (
+        f"{len(candidates)} critique-navigation candidate(s) reconstructed "
+        f"under rule cycle2_falsifier_with_target"
+    )
+    return CritiqueNavigationReport(
+        candidates=candidates,
+        rules_applied=["cycle2_falsifier_with_target"],
+        note=note,
+    )
+
+
 @dataclass(frozen=True)
 class DeterministicMetrics:
     trajectory_id: str
@@ -595,6 +656,7 @@ class DeterministicMetrics:
     borderline_chain: BorderlineChainReport
     schema_mismatch: SchemaMismatchReport
     en_reconstruction: ENReconstructionReport
+    critique_navigation: CritiqueNavigationReport
 
 
 def compute_all(trajectory: Trajectory) -> DeterministicMetrics:
@@ -614,4 +676,5 @@ def compute_all(trajectory: Trajectory) -> DeterministicMetrics:
         borderline_chain=detect_borderline_chain(trajectory),
         schema_mismatch=detect_schema_mismatch(trajectory),
         en_reconstruction=reconstruct_en_candidates(trajectory),
+        critique_navigation=reconstruct_critique_navigation_candidates(trajectory),
     )

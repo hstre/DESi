@@ -472,3 +472,99 @@ def test_reconstruct_en_candidates_requires_target_claim():
         en_events=[],
     )
     assert reconstruct_en_candidates(traj).count == 0
+
+
+# EN-reconstruction cycle 2: falsifier + target -> critique-navigation candidate
+def test_reconstruct_critique_navigation_fires_on_falsifier_with_target():
+    from desi.diagnostics import reconstruct_critique_navigation_candidates
+    traj = Trajectory(
+        trajectory_id="fal",
+        steps=[
+            TrajectoryStep(loop_index=0, operator="T3", focus_claim_id="C001"),
+            TrajectoryStep(loop_index=1, operator="T6", focus_claim_id="C002",
+                           operator_sub_role="falsifier",
+                           operator_target="C005"),
+        ],
+        en_events=[],
+    )
+    r = reconstruct_critique_navigation_candidates(traj)
+    assert r.count == 1
+    c = r.candidates[0]
+    assert c.loop_index == 1
+    assert c.operator == "T6"
+    assert c.source_claim == "C002"
+    assert c.target_claim == "C005"
+    assert c.rule_id == "cycle2_falsifier_with_target"
+
+
+def test_critique_navigation_silent_on_hand_authored_fixtures():
+    """Hand-authored fixtures don't carry sub-role/target. No FPs."""
+    from desi.diagnostics import reconstruct_critique_navigation_candidates
+    traj = Trajectory(
+        trajectory_id="hand_authored",
+        steps=[
+            TrajectoryStep(loop_index=0, operator="T3", focus_claim_id="C001",
+                           novel_claims=10, dup_rate=0.05),
+            TrajectoryStep(loop_index=1, operator="T8", focus_claim_id="C001",
+                           novel_claims=1, dup_rate=0.55),
+        ],
+        en_events=[],
+    )
+    assert reconstruct_critique_navigation_candidates(traj).count == 0
+
+
+def test_critique_navigation_does_not_fire_on_hypothesis_builder():
+    """Each step has exactly one sub-role. Critique-nav must not
+    mis-classify a hypothesis_builder op."""
+    from desi.diagnostics import reconstruct_critique_navigation_candidates
+    traj = Trajectory(
+        trajectory_id="hb_only",
+        steps=[
+            TrajectoryStep(loop_index=0, operator="T6", focus_claim_id="C001",
+                           operator_sub_role="hypothesis_builder",
+                           operator_target="C002"),
+        ],
+        en_events=[],
+    )
+    assert reconstruct_critique_navigation_candidates(traj).count == 0
+
+
+def test_en_and_critique_navigation_are_disjoint_per_step():
+    """EN and critique-nav share schema but must NEVER fire on the
+    same loop (a step has at most one sub-role)."""
+    from desi.diagnostics import (
+        reconstruct_en_candidates,
+        reconstruct_critique_navigation_candidates,
+    )
+    traj = Trajectory(
+        trajectory_id="both",
+        steps=[
+            TrajectoryStep(loop_index=0, operator="T6", focus_claim_id="C001",
+                           operator_sub_role="hypothesis_builder",
+                           operator_target="C002"),
+            TrajectoryStep(loop_index=1, operator="T6", focus_claim_id="C001",
+                           operator_sub_role="falsifier",
+                           operator_target="C003"),
+        ],
+        en_events=[],
+    )
+    en_loops = {c.loop_index for c in reconstruct_en_candidates(traj).candidates}
+    cn_loops = {c.loop_index for c in
+                reconstruct_critique_navigation_candidates(traj).candidates}
+    assert en_loops == {0}
+    assert cn_loops == {1}
+    assert en_loops.isdisjoint(cn_loops)
+
+
+def test_critique_navigation_requires_target_claim():
+    from desi.diagnostics import reconstruct_critique_navigation_candidates
+    traj = Trajectory(
+        trajectory_id="no_target",
+        steps=[
+            TrajectoryStep(loop_index=0, operator="T6", focus_claim_id="C001",
+                           operator_sub_role="falsifier",
+                           operator_target=None),
+        ],
+        en_events=[],
+    )
+    assert reconstruct_critique_navigation_candidates(traj).count == 0
