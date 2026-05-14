@@ -36,3 +36,8 @@ outputs/*.md
 # see experiments/generalization_loop/README.md).
 data/generalization/
 outputs/generalization_loop/
+
+# Paper 1 deliverable — the binary .docx is reconstructable from
+# DESi_Paper_1_Representation_Gap_v0_1.docx.b64 via decode_docx.py.
+# Keeping it out of git avoids the binary-payload firewall on push.
+docs/paper1/DESi_Paper_1_Representation_Gap_v0_1.docx
