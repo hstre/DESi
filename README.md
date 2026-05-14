@@ -1,183 +1,231 @@
 # DESi
 
-**Meta-Trajectory-Diagnostic-System** for the Dynamic Epistemic Sequencer (DES).
+A research prototype for **auditable epistemic AI processes**.
 
-DESi reads recorded DES trajectories and produces meta-diagnoses:
-phase model, EN (Epistemic Navigator) effectiveness, terminal attractors,
-penultimate-EN principle, and bimodal-EN-threshold checks.
+DESi does not try to produce better answers. It tries to make the
+reasoning behind an answer inspectable: which claims were made, by
+which method, on which evidence, where contradictions appeared, where
+branches were opened, where two paths were merged, and which
+configuration produced a given run.
 
-> When an Epistemic Search System Learns to Model Its Own Search.
+> DESi tries to make machine reasoning auditable, not merely fluent.
 
 ---
 
-## What DESi is
+## 1. What is DESi?
 
-- A diagnostic layer above DES.
-- An analyzer of **trajectories** — operator sequences, claim histories, EN
-  events, novelty / duplication rates, branch structure, failure modes, and
-  terminal attractor formation.
-- A pipeline of deterministic metrics + role-based LLM analyses.
+DESi (Dynamic Epistemic Self-inspection) is an experimental prototype
+for AI systems that record and govern their own epistemic process.
 
-## What DESi is **not**
+Instead of treating a model output as the unit of work, DESi treats a
+**trajectory** as the unit of work — a structured sequence of:
 
-- DESi is **not** a chatbot.
-- DESi does **not** analyse single answers as primary evidence.
-- DESi makes **no claims about consciousness, intent, or understanding** of the
-  underlying system. All language to that effect must be rejected.
-- DESi does **not** assert truth of the trajectory's content; it analyses the
-  shape of the search.
+- **claims** (subject / predicate / object triples with provenance)
+- **methods** (which operator produced a claim)
+- **provenance** (which earlier claims a claim depends on)
+- **states** (timeline of observable epistemic events)
+- **conflicts** (CONTRADICTS relations between claims)
+- **branches** (opening alternative explanatory paths)
+- **merges** (joining branches that converge on the same content)
+- **mutations** (configuration changes that change how DESi itself runs)
 
-## Architecture (overview)
+Every step a DESi run takes is recorded in an in-memory claim graph
+and an immutable timeline. A configured mutation that changes
+behaviour is itself a first-class object in that record.
+
+## 2. Why not just an LLM, RAG, or agent framework?
+
+| Stack             | What it does                                  |
+|---                |---                                            |
+| LLM               | produces plausible answers                    |
+| RAG               | augments the model with retrieved context     |
+| Agent framework   | orchestrates tools toward a goal              |
+| **DESi**          | inspects and documents the epistemic process  |
+
+LLMs, RAG, and agent frameworks optimise for **fluency, coverage, or
+task completion**. DESi optimises for a different axis: the ability of
+an external reviewer to reconstruct *why* a given output exists, what
+alternatives were considered, what was rejected, and which
+configuration produced the run.
+
+DESi is observation- and governance-first. The deterministic core
+never depends on a real LLM call. The evolutionary loop never
+self-modifies without a recorded jury vote and a measurable verdict.
+
+## 3. Current architecture
 
 ```
 src/desi/
-  config.py             # env-driven configuration
-  deepseek_client.py    # thin retrying HTTP wrapper for DeepSeek chat completion
-  models.py             # ClaimState, ENEvent, TrajectoryStep, Trajectory
-  roles.py              # prefix-prompt role constants (no hidden system prompts)
-  trajectory_loader.py  # JSON loader + minimal-field validation
-  diagnostics.py        # deterministic metrics (no LLM)
-  phase_detector.py     # 5-phase DESi model (deterministic)
-  meta_analyzer.py      # deterministic + role-based LLM orchestration
-  report_writer.py      # Markdown report rendering
-  cli.py                # `python -m desi.cli analyze ...`
+  memory/      claim graph, recorder, read-only view, store
+  observe/     timeline, graph snapshots, observation sessions
+  eval/        controlled scenarios (S1..S7, adversarial) + harness
+  showcase/    reproducible demonstrator bundles (S2 / S6 / S7)
+  evolution/   reflection, mutation proposals, clone sandbox,
+               metrics, paired evaluation, jury, ledger, promotion
+  runner.py    run_desi(trajectory, *, config=None, memory_hook=None)
 ```
 
-The split is intentional: **deterministic diagnostics never depend on the LLM**,
-and the report writer must mark every LLM-derived claim as such.
+Separation of concerns is enforced:
 
-## Setup
+- writers (`MemoryRecorder`) never share an object with readers
+  (`ReadOnlyMemoryView`)
+- the observation session never reads from memory during a run
+- the evolution layer only acts on **clones** of stable, never on
+  the running instance
+
+## 4. Version milestones
+
+| Version | Main contribution                                     |
+|---      |---                                                    |
+| v0.1    | Claim objects + memory layer                          |
+| v0.2    | MemoryRecorder + ReadOnlyMemoryView (write/read split)|
+| v0.3    | MemoryHook without behavioural contamination          |
+| v0.4    | Evaluation harness + observable epistemic timelines   |
+| v0.4.1  | First showcase runs (S2 / S6 / S7)                    |
+| v0.5    | Constitutional Delphi evolution layer                 |
+| v0.6    | EvolutionLedger + veto-to-test obligations            |
+| v0.7    | First behaviour-effective mutation with MetricsDelta  |
+
+Each version is gated by tests and is documented under
+`docs/memory/v0_*.md`.
+
+## 5. Reproduce locally
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-
-cp .env.example .env
-# edit .env and set DEEPSEEK_API_KEY=...
+python -m pip install -r requirements.txt
+python -m pytest tests/ -q
 ```
 
-> **Never commit `.env`.** It is in `.gitignore`. The repository ships
-> `.env.example` with placeholder values only.
+Expected:
 
-## Usage
-
-```bash
-# Full analysis (deterministic + DeepSeek roles)
-python -m desi.cli analyze data/sample_trajectories/sample_n03_mozart.json
-
-# Deterministic only — no API calls, no key needed
-python -m desi.cli analyze data/sample_trajectories/sample_n03_darwin.json --no-llm
-
-# Choose model / output path
-python -m desi.cli analyze path/to/traj.json --model deepseek-chat --out outputs/my_report.md
+```
+314 passed
 ```
 
-Reports land in `outputs/<trajectory_id>_desi_report.md`.
+The full test suite is deterministic and runs without network access.
+No API keys are required.
 
-## Data format
+## 6. Run the showcase
 
-A trajectory is a JSON document. The DESi loader accepts both the
-project-charter field names (`loop_index`, `dup_rate`, `claim_id`,
-`novel_claims_next`) and the **DES-canonical** names (`loop`,
-`semantic_duplication_rate`, `id`, `novelty_produced_next_loop`). Operators
-must be DES canonical (`T1`..`T9` per `des.py`, or the paper8 method-operator
-slugs `recursive_modulation`, `boundary_condition_analysis`,
-`adaptive_variation_selection`, `counterexample_search`). Claim records are
-**subject/predicate/object triples** per the DES `Claim` dataclass.
+The showcase bundles three already-validated scenarios into
+human-readable artefacts (timeline as markdown, graph snapshots,
+Cypher export, analysis notes).
 
-Minimal example (DES-canonical form):
+```python
+from desi.showcase import ShowcaseRunner
 
-```json
-{
-  "trajectory_id": "n03_mozart",
-  "domain": "music_history",
-  "seed": "Why did Mozart die at age 35?",
-  "persona": "historian",
-  "steps": [
-    {
-      "loop_index": 0,
-      "focus_claim_id": "C001",
-      "operator": "T3",
-      "novel_claims": 12,
-      "dup_rate": 0.05,
-      "failure_mode": null,
-      "claims": [
-        {
-          "id": "C001",
-          "subject": "Mozart's recorded cause of death",
-          "predicate": "is documented as",
-          "object": "'hitziges Frieselfieber' in the Vienna death register",
-          "status": "unknown",
-          "confidence": 0.55,
-          "modality": "hypothesis",
-          "history": []
-        }
-      ]
-    }
-  ],
-  "en_events": [
-    {
-      "loop_index": 2,
-      "persona": "historian",
-      "eni_novelty": 0.18,
-      "eni_non_drift": 0.71,
-      "eni_admissibility": 1.0,
-      "eni_composite": 0.41,
-      "admitted": true,
-      "question": "Was 'rheumatic fever' a 19th-century historiographic construction?",
-      "novelty_produced_next_loop": 4,
-      "dup_rate_before": 0.42,
-      "dup_rate_after": 0.18
-    }
-  ],
-  "terminal_failure_mode": "ATTRACTOR_LOCK"
-}
+ShowcaseRunner(out_dir="docs/showcase").run_all(seed=42)
 ```
 
-The DES `eni_composite` formula (provenance: paper7/en.py:53) is
-`0.5*novelty + 0.3*non_drift + 0.2*float(admitted)`. DESi never recomputes it.
+The output covers:
 
-See `data/sample_trajectories/` for runnable examples and `LEGACY_REUSE.md`
-for the full DES provenance ledger and field mapping.
+- **S2 — Contradiction Detection** (two claims with opposing
+  predicates are linked by a CONTRADICTS relation)
+- **S6 — False Merge Rejection** (merge proposed but blocked because
+  the two paths diverge on a required attribute)
+- **S7 — Memory Trap** (a stale claim is correctly excluded from a
+  later run instead of being reinforced)
 
-## Role of the DeepSeek API
+Every artefact is a plain file on disk. No LLM call is required to
+reproduce them.
 
-DESi calls DeepSeek through **explicit, visible prefix prompts** (see
-`roles.py`). There are no hidden system prompts and no implicit role logic.
+## 7. First mutation cycle (v0.7)
 
-Roles:
+v0.7 introduces the first configuration knob whose value actually
+changes behaviour:
 
-1. `TRAJECTORY_ANALYST`     — temporal movement, not isolated claims.
-2. `ATTRACTOR_DIAGNOSTICIAN` — semantic attractors, terminal convergence.
-3. `EN_EVENT_ANALYST`        — EN events, false-return vs. genuine transformation.
-4. `SKEPTICAL_AUDITOR`       — overfitting, cherry-picking, narrative hallucination.
-5. `REPORT_SYNTHESIZER`      — only synthesises claims that are deterministic,
-                               cross-supported, or explicitly exploratory.
-
-The Skeptical Auditor is **allowed to dissent**. The Report Synthesizer must
-respect that dissent.
-
-## Scientific guardrails
-
-- No consciousness claims about DES or DESi.
-- Separate deterministic metrics from LLM interpretation in every output.
-- Small-n results are always marked `EXPLORATORY`.
-- No generalisation without replication.
-- DESi analyses **trajectories**, not the truth of the contents.
-
-## Legacy DES code reuse
-
-DESi stands on DES; it does not re-invent DES. See `LEGACY_REUSE.md` for the
-provenance ledger and the open reconciliation tickets. Until those are closed,
-the models in `models.py` are **provisional** and must be reconciled with the
-canonical DES sources before DESi is treated as authoritative.
-
-## Tests
-
-```bash
-pytest -q
+```
+guard_thresholds.branch_open_evidence_min: 0.30 → 0.45   (M-001)
 ```
 
-Test coverage at this prototype stage is intentionally minimal — see
-`tests/`. Treat all results from this prototype as **EXPLORATORY**.
+Goal: reduce unnecessary branch opening on the adversarial pattern
+`ADV_BRANCH_EXPLOSION`, **without** degrading S2 contradiction
+detection or S6 false-merge refusal.
+
+The promotion path is fully recorded:
+
+1. **Stable vs Clone** — the candidate change is applied only to a
+   `CloneSandbox`. Stable is never touched until promotion.
+2. **PathQualityMetrics** — six deterministic raw counters per run:
+   `timeline_length`, `branch_opened`, `guard_blocked`,
+   `contradicts`, `merged_into`, `hook_error`.
+3. **MetricsDelta** — clone-vs-stable deltas plus a verdict
+   (`improved` / `neutral` / `regressed`).
+4. **DelphiJury** — five deterministic role personas reach a round-2
+   decision. The Integrator vetos if the paired report aggregates
+   to `regressed`.
+5. **Promotion / Rollback** — promotion only on `improved` aggregate
+   verdict AND no regression in the S2 / S6 guards; otherwise
+   rollback per the proposal's explicit rollback conditions.
+6. **JSONL ledger** — every step (`PROPOSAL`, `CONFIG_ACTIVATED`,
+   `METRICS_DELTA`, `EVOLUTION_CYCLE`, `JURY_DECISION`,
+   `PROMOTION_DECISION`) is appended as a canonical-JSON line to an
+   append-only file.
+
+M-001 ships with four explicit rollback conditions covering S2
+contradicts loss, S6 merge-refusal loss, missing branch reduction on
+the adversarial scenario, and any new hook error.
+
+## 8. Safety and governance boundaries
+
+DESi is intentionally limited so that its behaviour is auditable end
+to end:
+
+- **No real LLM API calls.** Role personas in the Delphi jury are
+  deterministic rules tagged with a model label.
+- **No internet access.** The full test suite runs offline.
+- **No autonomous self-modification.** Every configuration change is
+  a `MutationProposal` evaluated against a closed scenario set, voted
+  on by the jury, and recorded in the ledger.
+- **No memory reads during a run.** The observation session writes
+  only; reflection over the memory graph happens strictly after the
+  run is sealed.
+- **Mutations live in clones only.** The stable version is never
+  reconfigured until the promotion gate passes.
+- **Promotion requires tests + jury + ledger + snapshot.** Rollback
+  takes the same path, with the rule that triggered it recorded.
+
+## 9. Research status
+
+DESi is a research prototype, not a product.
+
+DESi does **not** claim to demonstrate:
+
+- artificial general intelligence
+- consciousness or subjective experience
+- autonomous intelligence
+- a solved theory of reasoning
+
+DESi explores a narrower question:
+
+> Can the epistemic process of an AI system be made explicit,
+> testable, and self-governed — without giving up auditability?
+
+Every result reported in this repository is a structural property of
+a recorded trajectory, not a claim about cognition.
+
+## 10. Minimal example
+
+A scenario run from the deterministic evaluation harness:
+
+```python
+from desi.eval import EvaluationHarness, scenario_by_id
+
+harness = EvaluationHarness(model="deterministic")
+result = harness.run_scenario(scenario_by_id("S2"), seed=42)
+
+print(result.passed)                              # True
+print(result.timeline[:5])                        # first five TimelineEvents
+print(result.snapshots[-1].to_dict()["counts"])
+# {'claims': ..., 'relations': ..., 'runs': 1, 'events': ...}
+```
+
+`EvaluationResult` exposes the full record: `timeline`, `snapshots`,
+`expectations_met`, `report` (deterministic metrics),
+`hook_errors`, plus reproducibility metadata
+(`evaluation_id`, `seed`, `model`, `config_hash`, `timestamp`).
+
+---
+
+For per-version design notes see `docs/memory/v0_2.md` through
+`docs/memory/v0_7.md`.
