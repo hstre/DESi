@@ -34,6 +34,14 @@ class ClaimState(str, Enum):
     REJECTED = "rejected"
     MERGED = "merged"
     SPLIT = "split"
+    # v1.2: states emitted by the logical-audit pipeline. The audit
+    # never up-grades a claim by authority — only by an explicit,
+    # gap-free, replayable reasoning chain.
+    UNDER_LOGICAL_AUDIT = "under_logical_audit"
+    GAP_DETECTED = "gap_detected"
+    BRIDGE_REQUIRED = "bridge_required"
+    LOGICALLY_SUPPORTED = "logically_supported"
+    LOGICALLY_REJECTED = "logically_rejected"
 
 
 # ---------------------------------------------------------------------------

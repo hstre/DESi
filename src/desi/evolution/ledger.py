@@ -73,6 +73,14 @@ class LedgerEventType(str, Enum):
     LLM_REQUEST_FAILED = "llm_request_failed"
     LLM_RESPONSE_ACCEPTED = "llm_response_accepted"
     LLM_RESPONSE_REJECTED = "llm_response_rejected"
+    # v1.2: authority-free logical belief gate. Audit lifecycle —
+    # one STARTED per audit, one of {PROOF_ACCEPTED, PROOF_REJECTED,
+    # GAP_DETECTED, BRIDGE_CREATED} per outcome.
+    LOGICAL_AUDIT_STARTED = "logical_audit_started"
+    LOGICAL_GAP_DETECTED = "logical_gap_detected"
+    LOGICAL_BRIDGE_CREATED = "logical_bridge_created"
+    LOGICAL_PROOF_ACCEPTED = "logical_proof_accepted"
+    LOGICAL_PROOF_REJECTED = "logical_proof_rejected"
 
 
 @dataclass(frozen=True)
