@@ -81,6 +81,177 @@ def compute_path_quality(result: EvaluationResult) -> PathQualityMetrics:
 
 
 __all__ = [
+    "MetricsDelta",
     "PathQualityMetrics",
     "compute_path_quality",
 ]
+
+
+# ---------------------------------------------------------------------------
+# v0.7: clone-vs-stable delta
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class MetricsDelta:
+    """Difference between a stable run and a clone run on the same scenario.
+
+    Absolute deltas are computed as ``clone_value - stable_value`` so
+    that a *reduction* in a counter shows up as a negative integer.
+    Convention: a negative ``branch_opened_delta`` is *good* (the
+    clone produced fewer branches).
+
+    The :attr:`verdict` aggregates the six absolute deltas into one
+    of three coarse labels:
+
+    * ``improved``  — at least one favourable absolute delta and no
+                       unfavourable one (regression cannot be hidden)
+    * ``regressed`` — at least one unfavourable absolute delta
+                       (regressions dominate, even with offsets)
+    * ``neutral``   — every absolute delta is exactly zero
+
+    Favourable directions:
+
+    * fewer branches opened
+    * fewer guard blocks (a guard that fired on stable would block
+      promotion via the v0.5 gate; if the clone still triggers it,
+      it has not improved)
+    * shorter timeline
+    * fewer or equal hook errors
+    * contradicts / merged_into counts: change is treated as
+      *behavioural drift*, not improvement. The Skeptiker veto-path
+      catches drift on these.
+    """
+
+    stable: PathQualityMetrics
+    clone: PathQualityMetrics
+
+    # Absolute deltas (clone - stable). Negative is reduction.
+    @property
+    def timeline_length_delta(self) -> int:
+        return self.clone.timeline_length - self.stable.timeline_length
+
+    @property
+    def branch_opened_delta(self) -> int:
+        return self.clone.branch_opened_count - self.stable.branch_opened_count
+
+    @property
+    def guard_blocked_delta(self) -> int:
+        return self.clone.guard_blocked_count - self.stable.guard_blocked_count
+
+    @property
+    def contradicts_delta(self) -> int:
+        return self.clone.contradicts_count - self.stable.contradicts_count
+
+    @property
+    def merged_into_delta(self) -> int:
+        return self.clone.merged_into_count - self.stable.merged_into_count
+
+    @property
+    def hook_error_delta(self) -> int:
+        return self.clone.hook_error_count - self.stable.hook_error_count
+
+    # Relative deltas, expressed as percentages of the stable baseline.
+    @property
+    def branch_reduction_pct(self) -> float:
+        return _pct_reduction(self.stable.branch_opened_count,
+                              self.clone.branch_opened_count)
+
+    @property
+    def timeline_reduction_pct(self) -> float:
+        return _pct_reduction(self.stable.timeline_length,
+                              self.clone.timeline_length)
+
+    # Verdict.
+    @property
+    def verdict(self) -> str:
+        """Three-state assessment.
+
+        v0.7 rules:
+
+        * fewer branches opened              → favourable
+        * fewer hook errors                  → favourable
+        * shorter timeline                   → favourable (modulo
+                                                guard-blocked, which
+                                                adds events)
+        * more hook errors                   → unfavourable
+        * any change to CONTRADICTS count    → unfavourable (drift)
+        * any change to MERGED_INTO count    → unfavourable (drift)
+
+        ``guard_blocked_delta`` is treated as **neutral** in v0.7: the
+        one active knob (``branch_open_evidence_min``) generates
+        guard-blocked events as its mechanism of action. Counting
+        those as regressions would mark every working mutation as a
+        regression. v0.8 may revisit this when more than one guard is
+        config-effective.
+
+        Timeline-length changes that are *exactly explained* by the
+        branch / guard delta are also treated as neutral, so that the
+        verdict reflects the substantive epistemic delta rather than
+        bookkeeping events the v0.7 mechanism is known to produce.
+        """
+        unfavourable = False
+        favourable = False
+        if self.branch_opened_delta < 0:
+            favourable = True
+        elif self.branch_opened_delta > 0:
+            unfavourable = True
+        if self.hook_error_delta > 0:
+            unfavourable = True
+        elif self.hook_error_delta < 0:
+            favourable = True
+        if self.contradicts_delta != 0:
+            unfavourable = True
+        if self.merged_into_delta != 0:
+            unfavourable = True
+        # Timeline-length drift attributable to (branch-open + guard-
+        # blocked) accounting is neutral. Each branch suppression in
+        # v0.7 substitutes one BRANCH_OPENED for one GUARD_BLOCKED;
+        # the net timeline delta from that exchange is zero. Larger
+        # timeline drifts NOT explained by guard/branch swaps are
+        # treated as unfavourable.
+        net_event_swap = (
+            self.branch_opened_delta + self.guard_blocked_delta
+        )
+        explained_timeline = self.timeline_length_delta - net_event_swap
+        if explained_timeline > 0:
+            unfavourable = True
+        elif explained_timeline < 0:
+            favourable = True
+
+        if unfavourable:
+            return "regressed"
+        if favourable:
+            return "improved"
+        return "neutral"
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "scenario_id": self.stable.scenario_id,
+            "stable": self.stable.to_dict(),
+            "clone": self.clone.to_dict(),
+            "absolute": {
+                "timeline_length_delta": self.timeline_length_delta,
+                "branch_opened_delta": self.branch_opened_delta,
+                "guard_blocked_delta": self.guard_blocked_delta,
+                "contradicts_delta": self.contradicts_delta,
+                "merged_into_delta": self.merged_into_delta,
+                "hook_error_delta": self.hook_error_delta,
+            },
+            "relative": {
+                "branch_reduction_pct": self.branch_reduction_pct,
+                "timeline_reduction_pct": self.timeline_reduction_pct,
+            },
+            "verdict": self.verdict,
+        }
+
+
+def _pct_reduction(stable_value: int, clone_value: int) -> float:
+    """Percent reduction from stable to clone.
+
+    Positive means clone is smaller than stable (good). Returns 0.0
+    when ``stable_value`` is zero (no baseline to compare against).
+    """
+    if stable_value == 0:
+        return 0.0
+    return 100.0 * (stable_value - clone_value) / stable_value

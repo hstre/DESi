@@ -43,8 +43,22 @@ from .jury import (
     Veto,
     Vote,
 )
-from .ledger import EvolutionLedger, LedgerEntry, LedgerEventType
-from .metrics import PathQualityMetrics, compute_path_quality
+from .ledger import (
+    EvolutionLedger,
+    EvolutionLedgerJSONL,
+    LedgerEntry,
+    LedgerEventType,
+)
+from .metrics import MetricsDelta, PathQualityMetrics, compute_path_quality
+from .mutations import NAMED_MUTATIONS, m_001, mutation_by_id
+from .paired_evaluation import (
+    EVOLUTION_CANDIDATE_SCENARIOS,
+    PFLICHT_ADVERSARIAL,
+    PairedEvaluationReport,
+    PairedMutationEvaluation,
+    PairedScenarioOutcome,
+    REGRESSION_GUARDS,
+)
 from .promotion import (
     PromotionError,
     PromotionGate,
@@ -72,23 +86,32 @@ __all__ = [
     "AdversarialPattern",
     "CloneSandbox",
     "DelphiJury",
+    "EVOLUTION_CANDIDATE_SCENARIOS",
     "EvolutionLedger",
+    "EvolutionLedgerJSONL",
     "JuryDecision",
     "JuryMember",
     "JuryReview",
     "JuryRole",
     "LedgerEntry",
     "LedgerEventType",
+    "MetricsDelta",
     "MutationEvaluation",
     "MutationEvaluationReport",
     "MutationProposal",
     "MutationTarget",
+    "NAMED_MUTATIONS",
     "ObligationStatus",
+    "PFLICHT_ADVERSARIAL",
+    "PairedEvaluationReport",
+    "PairedMutationEvaluation",
+    "PairedScenarioOutcome",
     "PathQualityMetrics",
     "PromotionError",
     "PromotionGate",
     "PromotionResult",
     "ProposalDraftBuilder",
+    "REGRESSION_GUARDS",
     "ReflectionEngine",
     "ReflectionFinding",
     "ReflectionReport",
@@ -100,6 +123,8 @@ __all__ = [
     "Vote",
     "compute_path_quality",
     "is_resolved",
+    "m_001",
+    "mutation_by_id",
     "promote",
     "promote_with_ledger",
     "rollback",
