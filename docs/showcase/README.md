@@ -1,16 +1,26 @@
 # DESi v0.4.1 — Showcase artefacts
 
-The contents of this directory are the **as-rendered sample artefacts**
-from one execution of `ShowcaseRunner.run_all(seed=42)`. They are
-checked in so that a reviewer can read the artefacts directly without
-running the code.
+This directory carries the two tracked top-level files of the v0.4.1
+showcase plus the regeneration recipe. The per-scenario artefact
+bundles under `S2/`, `S6/`, `S7/` are generated on demand by
+`ShowcaseRunner.run_all(seed=42)` — they are intentionally **not
+tracked in git** because wall-clock timestamps and per-run UUIDs in
+the JSON / Cypher exports would otherwise produce a noisy diff on
+every regeneration.
 
 ## What is here
 
 ```
 docs/showcase/
 ├── README.md           (this file)
-├── baseline_notes.md   classical-LLM vs DESi-path contrast per scenario
+└── baseline_notes.md   classical-LLM vs DESi-path contrast per scenario
+```
+
+After `ShowcaseRunner.run_all(seed=42)` you will additionally see
+(locally, gitignored):
+
+```
+docs/showcase/
 ├── S2/                 Contradiction Detection
 ├── S6/                 False Merge Rejection
 └── S7/                 Memory Trap
