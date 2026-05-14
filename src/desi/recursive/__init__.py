@@ -17,12 +17,14 @@ from .depth_guard import DEFAULT_MAX_DEPTH, DepthExceeded, check_depth
 from .graph import GraphNode, ResolutionGraph, node_id
 from .replay import ResolutionReplay
 from .resolver import (
+    BlockingReason,
     RecursiveResolutionResult,
     RecursiveResolver,
     ResolutionState,
 )
 
 __all__ = [
+    "BlockingReason",
     "CycleHit",
     "DEFAULT_MAX_DEPTH",
     "DepthExceeded",

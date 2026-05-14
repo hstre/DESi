@@ -22,17 +22,12 @@ def test_category_b_has_ten_cases() -> None:
 
 
 def test_category_b_pinned_true_positive_count() -> None:
-    """v1.6 baseline: 8 of 9 SHOULD_RESOLVE cases complete.
+    """v1.7 baseline: 9 of 9 SHOULD_RESOLVE cases complete.
 
-    Same TP count as v1.5 but via a different mechanism for B2,
-    B7, B8: those used to complete via generic-fallback bridges
-    that the v1.6 consilium would now veto. v1.6 adds the regular
-    plural inflections (philosophers/philosopher, cats/cat,
-    mammals/mammal, squares/square, rectangles/rectangle) so the
-    SYLLOGISM rule matches at the audit level — depth 0, no
-    bridge needed. B10 (universal-conclusion syllogism) remains
-    the lone FN; addressing it requires a new rule, which v1.6
-    deliberately does not add.
+    v1.7 closes the last Cat-B false negative (B10) by extending
+    the existing SYLLOGISM rule with a universal-conclusion form:
+    "All A are B. All B are C. Therefore all A are C." Same rule,
+    new branch — no new operator, no new heuristic.
     """
     run = _cat_b_run()
     tp = sum(
@@ -40,7 +35,7 @@ def test_category_b_pinned_true_positive_count() -> None:
         if r.case.ground_truth is GroundTruth.SHOULD_RESOLVE
         and r.final_state is ResolutionState.RESOLUTION_COMPLETE
     )
-    assert tp == 8
+    assert tp == 9
 
 
 def test_category_b_invalid_transitivity_is_rejected() -> None:
@@ -49,34 +44,39 @@ def test_category_b_invalid_transitivity_is_rejected() -> None:
     assert run.results[0].final_state is ResolutionState.RESOLUTION_BLOCKED
 
 
-def test_category_b10_is_a_known_false_negative() -> None:
-    """B10: universal-conclusion syllogism is logically valid but
-    sits outside v1.2's Barbara form. Pinned as FN until the rule
-    set grows."""
+def test_category_b10_universal_conclusion_now_completes() -> None:
+    """v1.7: B10 ("All A are B. All B are C. Therefore all A are C.")
+    completes via the universal-conclusion branch of the SYLLOGISM
+    rule. No new operator: same `try_each_rule` orchestration, same
+    closed inference enum — only the syllogism rule's conclusion
+    shape was widened.
+    """
     run = BenchmarkRunner().run((case_by_id("B10"),))
     r = run.results[0]
     assert r.case.ground_truth is GroundTruth.SHOULD_RESOLVE
-    assert r.final_state is not ResolutionState.RESOLUTION_COMPLETE
-    assert r.false_negative is True
+    assert r.final_state is ResolutionState.RESOLUTION_COMPLETE
+    assert r.false_negative is False
 
 
-def test_category_b_completed_count_is_pinned_at_eight() -> None:
+def test_category_b_completed_count_is_pinned_at_nine() -> None:
+    """v1.7: nine completions, up from eight in v1.6 — B10 joins."""
     run = _cat_b_run()
     completed = sum(
         1 for r in run.results
         if r.final_state is ResolutionState.RESOLUTION_COMPLETE
     )
-    assert completed == 8
+    assert completed == 9
 
 
-def test_category_b_blocked_count_is_two() -> None:
-    """B6 (correctly rejected) + B10 (false-negative reject)."""
+def test_category_b_blocked_count_is_one() -> None:
+    """v1.7: only B6 (correctly rejected invalid transitivity)
+    remains blocked in Category B."""
     run = _cat_b_run()
     blocked = sum(
         1 for r in run.results
         if r.final_state is ResolutionState.RESOLUTION_BLOCKED
     )
-    assert blocked == 2
+    assert blocked == 1
 
 
 def test_category_b_canonical_syllogism_completes_at_depth_zero() -> None:

@@ -53,31 +53,65 @@ def _try_syllogism(
     premises: tuple[Premise, ...],
     conclusion: ConclusionProposition,
 ) -> InferenceMatch | None:
-    """Barbara: All M are P. S is M. Therefore S is P."""
-    if conclusion.kind != PremiseKind.PARTICULAR:
+    """Barbara: All M are P. S is M. Therefore S is P.
+
+    v1.7: universal-conclusion form.
+    All A are B. All B are C. Therefore all A are C.
+
+    The two forms differ only in conclusion shape (PARTICULAR vs
+    UNIVERSAL); the universal form requires two universal premises
+    that share a middle term. Adding it is a narrow extension of
+    the existing rule, not a new operator.
+    """
+    if conclusion.kind == PremiseKind.PARTICULAR:
+        s, p = conclusion.subject, conclusion.predicate
+        if not (s and p):
+            return None
+        for univ in premises:
+            if univ.kind != PremiseKind.UNIVERSAL:
+                continue
+            if univ.predicate != p:
+                continue
+            m = univ.subject
+            for part in premises:
+                if part.premise_id == univ.premise_id:
+                    continue
+                if part.kind != PremiseKind.PARTICULAR:
+                    continue
+                if part.subject != s:
+                    continue
+                if part.predicate != m:
+                    continue
+                return InferenceMatch(
+                    rule=InferenceRule.SYLLOGISM,
+                    used_premise_ids=(univ.premise_id, part.premise_id),
+                )
         return None
-    s, p = conclusion.subject, conclusion.predicate
-    if not (s and p):
+    if conclusion.kind == PremiseKind.UNIVERSAL:
+        # v1.7: universal-conclusion Barbara.
+        a, c = conclusion.subject, conclusion.predicate
+        if not (a and c):
+            return None
+        for p1 in premises:
+            if p1.kind != PremiseKind.UNIVERSAL:
+                continue
+            if p1.subject != a:
+                continue
+            b = p1.predicate
+            for p2 in premises:
+                if p2.premise_id == p1.premise_id:
+                    continue
+                if p2.kind != PremiseKind.UNIVERSAL:
+                    continue
+                if p2.subject != b:
+                    continue
+                if p2.predicate != c:
+                    continue
+                return InferenceMatch(
+                    rule=InferenceRule.SYLLOGISM,
+                    used_premise_ids=(p1.premise_id, p2.premise_id),
+                )
         return None
-    for univ in premises:
-        if univ.kind != PremiseKind.UNIVERSAL:
-            continue
-        if univ.predicate != p:
-            continue
-        m = univ.subject
-        for part in premises:
-            if part.premise_id == univ.premise_id:
-                continue
-            if part.kind != PremiseKind.PARTICULAR:
-                continue
-            if part.subject != s:
-                continue
-            if part.predicate != m:
-                continue
-            return InferenceMatch(
-                rule=InferenceRule.SYLLOGISM,
-                used_premise_ids=(univ.premise_id, part.premise_id),
-            )
     return None
 
 

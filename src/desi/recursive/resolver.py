@@ -32,9 +32,12 @@ from typing import Any
 from ..consilium import (
     BridgeConsilium,
     BridgeState,
+    ConsiliumRole,
     Verdict,
 )
 from ..logic import LogicalAuditor, LogicalState
+from ..logic.gap_detector import GapKind
+from ..logic.premises import PremiseKind
 from .cycle_detector import CycleHit, check_for_cycle
 from .depth_guard import DEFAULT_MAX_DEPTH, DepthExceeded, check_depth
 from .graph import GraphNode, ResolutionGraph, node_id
@@ -51,6 +54,40 @@ class ResolutionState(str, Enum):
     RESOLUTION_DEPTH_EXCEEDED = "resolution_depth_exceeded"
 
 
+class BlockingReason(str, Enum):
+    """v1.7 — closed taxonomy for *why* a resolution was blocked.
+
+    Set on the result whenever ``final_state`` is
+    :attr:`ResolutionState.RESOLUTION_BLOCKED`. The five values are
+    disjoint and exhaustive within the v1.7 surface; they capture
+    the distinction between a *parser failure* (the system didn't
+    understand the input) and an *actual logical block* (the
+    system understood and rejected on principled grounds).
+
+    * ``INVALID_INFERENCE``        — an inference rule was attempted
+      and the conclusion does not follow from the premises (e.g.
+      bad transitivity in B6).
+    * ``REAL_LOGICAL_GAP``         — a real missing premise that no
+      bridge / counterexample / authority match resolves. Typically
+      the LOGICIAN's structural-disconnect signal.
+    * ``PARSER_UNSUPPORTED_FORM``  — the premise extractor could not
+      structure the input (atomic premise or conclusion, no
+      explicit chain). Block-by-incomprehension, not by logical
+      pushback.
+    * ``AUTHORITY_CLAIM``          — an "X says Y" framing was
+      detected; authority is never grounds for promotion.
+    * ``COUNTEREXAMPLE_FOUND``      — the SKEPTIC surfaced an
+      adversarial condition (user-supplied or the v1.6 auto-veto on
+      GENERIC_FALLBACK).
+    """
+
+    INVALID_INFERENCE = "invalid_inference"
+    REAL_LOGICAL_GAP = "real_logical_gap"
+    PARSER_UNSUPPORTED_FORM = "parser_unsupported_form"
+    AUTHORITY_CLAIM = "authority_claim"
+    COUNTEREXAMPLE_FOUND = "counterexample_found"
+
+
 @dataclass(frozen=True)
 class RecursiveResolutionResult:
     """Output of :meth:`RecursiveResolver.resolve`.
@@ -58,6 +95,11 @@ class RecursiveResolutionResult:
     The four ``*_claim_ids`` fields are sorted for deterministic
     serialisation; the resolver populates them as plain sets at
     walk time and converts to sorted tuples on return.
+
+    v1.7: ``blocking_reason`` is set whenever ``final_state`` is
+    :attr:`ResolutionState.RESOLUTION_BLOCKED`. It carries one of
+    the five :class:`BlockingReason` values so downstream consumers
+    can distinguish a real logical block from a parser failure.
     """
 
     root_claim_id: str
@@ -69,6 +111,7 @@ class RecursiveResolutionResult:
     replay_hash: str = ""
     cycle_path: tuple[str, ...] = ()
     rationale: str = ""
+    blocking_reason: BlockingReason | None = None
     timestamp: datetime = field(
         default_factory=lambda: datetime.now(timezone.utc),
     )
@@ -84,6 +127,9 @@ class RecursiveResolutionResult:
             "replay_hash": self.replay_hash,
             "cycle_path": list(self.cycle_path),
             "rationale": self.rationale,
+            "blocking_reason": (
+                self.blocking_reason.value if self.blocking_reason else None
+            ),
         }
 
 
@@ -103,6 +149,7 @@ class _NodeOutcome:
     depth_reached: int = 0
     cycle_path: tuple[str, ...] = ()
     rationale: str = ""
+    blocking_reason: BlockingReason | None = None
 
 
 class RecursiveResolver:
@@ -186,6 +233,9 @@ class RecursiveResolver:
             replay_hash=replay.replay_hash,
             cycle_path=outcome.cycle_path,
             rationale=outcome.rationale,
+            blocking_reason=outcome.blocking_reason if (
+                outcome.state is ResolutionState.RESOLUTION_BLOCKED
+            ) else None,
         )
         self._emit_outcome(result)
         return result
@@ -263,9 +313,11 @@ class RecursiveResolver:
             )
 
         if audit.state == LogicalState.LOGICALLY_REJECTED:
+            reason = _classify_audit_block(audit)
             self._emit("RECURSIVE_NODE_BLOCKED", {
                 "node_id": nid,
                 "reason": "logically_rejected",
+                "blocking_reason": reason.value,
                 "depth": depth,
             })
             return _NodeOutcome(
@@ -274,6 +326,7 @@ class RecursiveResolver:
                 open_gaps={nid},
                 depth_reached=depth,
                 rationale="audit returned LOGICALLY_REJECTED.",
+                blocking_reason=reason,
             )
 
         if audit.state == LogicalState.GAP_DETECTED:
@@ -282,9 +335,11 @@ class RecursiveResolver:
             # * depth > 0   → the bridge is a leaf proposition; the
             #                  parent's consilium has already vetted it.
             if depth == 0:
+                reason = _classify_audit_block(audit)
                 self._emit("RECURSIVE_NODE_BLOCKED", {
                     "node_id": nid,
                     "reason": "root_has_no_chain",
+                    "blocking_reason": reason.value,
                     "depth": depth,
                 })
                 return _NodeOutcome(
@@ -296,6 +351,7 @@ class RecursiveResolver:
                         "root claim is GAP_DETECTED — no chain to "
                         "resolve."
                     ),
+                    blocking_reason=reason,
                 )
             self._emit("RECURSIVE_NODE_RESOLVED", {
                 "node_id": nid,
@@ -324,6 +380,7 @@ class RecursiveResolver:
         rationale_parts: list[str] = []
         new_ancestors = ancestors + (nid,)
 
+        node_block_reason: BlockingReason | None = None
         for bridge in audit.bridges:
             bridge_id = node_id(bridge.text)
             graph.add_node(bridge.text, depth=depth + 1)
@@ -339,12 +396,14 @@ class RecursiveResolver:
                 ),
             )
             if cons.verdict.verdict is not Verdict.ACCEPT_AS_BRIDGE:
+                consilium_reason = _classify_consilium_block(cons)
                 self._emit("RECURSIVE_NODE_BLOCKED", {
                     "node_id": bridge_id,
                     "reason": f"consilium_{cons.verdict.verdict.value}",
                     "blocking_roles": [
                         r.value for r in cons.verdict.blocking_roles
                     ],
+                    "blocking_reason": consilium_reason.value,
                     "depth": depth + 1,
                 })
                 agg_blocked.add(bridge_id)
@@ -354,6 +413,11 @@ class RecursiveResolver:
                     f"bridge '{bridge.text}' → "
                     f"{cons.verdict.verdict.value}"
                 )
+                # First consilium block at this level seeds the
+                # node's blocking_reason; subsequent ones do not
+                # overwrite — the first observable cause wins.
+                if node_block_reason is None:
+                    node_block_reason = consilium_reason
                 continue
 
             # Bridge accepted — recurse on the bridge text.
@@ -391,11 +455,20 @@ class RecursiveResolver:
                     f"bridge '{bridge.text}' subtree → "
                     f"{child.state.value}"
                 )
+                # Inherit the child's blocking_reason if we don't
+                # already have one from a sibling consilium veto.
+                if (node_block_reason is None
+                        and child.blocking_reason is not None):
+                    node_block_reason = child.blocking_reason
 
         if not all_complete or agg_blocked:
+            if node_block_reason is None:
+                # Defensive fallback — should not normally trigger.
+                node_block_reason = BlockingReason.REAL_LOGICAL_GAP
             self._emit("RECURSIVE_NODE_BLOCKED", {
                 "node_id": nid,
                 "reason": "child_blocked",
+                "blocking_reason": node_block_reason.value,
                 "depth": depth,
             })
             return _NodeOutcome(
@@ -408,6 +481,7 @@ class RecursiveResolver:
                     "; ".join(rationale_parts)
                     or "at least one bridge subtree did not complete."
                 ),
+                blocking_reason=node_block_reason,
             )
 
         self._emit("RECURSIVE_NODE_RESOLVED", {
@@ -459,7 +533,66 @@ class RecursiveResolver:
         })
 
 
+# ---------------------------------------------------------------------------
+# Blocking-reason classifiers (v1.7)
+# ---------------------------------------------------------------------------
+
+
+def _classify_audit_block(audit) -> BlockingReason:
+    """Classify an audit-level block into a v1.7 BlockingReason.
+
+    Distinguishes "the parser didn't understand" (atomic / no chain)
+    from "the inference is structurally invalid" (transitivity that
+    doesn't close, etc.) — INV: parser failure must never be
+    reported as INVALID_INFERENCE.
+    """
+    if audit.state is LogicalState.LOGICALLY_REJECTED:
+        if audit.gap is not None and audit.gap.kind is GapKind.UNREACHABLE:
+            conclusion = audit.propositions.conclusion
+            if conclusion is None or conclusion.kind is PremiseKind.ATOMIC:
+                return BlockingReason.PARSER_UNSUPPORTED_FORM
+            return BlockingReason.INVALID_INFERENCE
+        return BlockingReason.INVALID_INFERENCE
+    if audit.state is LogicalState.GAP_DETECTED:
+        if audit.gap is None:
+            return BlockingReason.PARSER_UNSUPPORTED_FORM
+        if audit.gap.kind is GapKind.AUTHORITY_CLAIM:
+            return BlockingReason.AUTHORITY_CLAIM
+        if audit.gap.kind is GapKind.NO_EXPLICIT_CHAIN:
+            return BlockingReason.PARSER_UNSUPPORTED_FORM
+        if audit.gap.kind is GapKind.UNREACHABLE:
+            conclusion = audit.propositions.conclusion
+            if conclusion is None or conclusion.kind is PremiseKind.ATOMIC:
+                return BlockingReason.PARSER_UNSUPPORTED_FORM
+            return BlockingReason.INVALID_INFERENCE
+        # MISSING_BRIDGE shouldn't reach this path (it leads to
+        # BRIDGE_REQUIRED, not GAP_DETECTED) but be defensive.
+        return BlockingReason.REAL_LOGICAL_GAP
+    return BlockingReason.REAL_LOGICAL_GAP
+
+
+def _classify_consilium_block(cons_result) -> BlockingReason:
+    """Classify a consilium-level block into a v1.7 BlockingReason.
+
+    Priority:
+    1. SKEPTIC in blocking_roles → COUNTEREXAMPLE_FOUND
+       (covers both v1.3 explicit counterexamples and v1.6 auto-veto
+       on GENERIC_FALLBACK).
+    2. LOGICIAN-only block → REAL_LOGICAL_GAP (structural disconnect).
+    3. REJECT_BRIDGE (input contract failure) → REAL_LOGICAL_GAP.
+    4. Default → REAL_LOGICAL_GAP.
+    """
+    verdict = cons_result.verdict.verdict
+    if verdict is Verdict.REJECT_BRIDGE:
+        return BlockingReason.REAL_LOGICAL_GAP
+    blocking = set(cons_result.verdict.blocking_roles)
+    if ConsiliumRole.SKEPTIC in blocking:
+        return BlockingReason.COUNTEREXAMPLE_FOUND
+    return BlockingReason.REAL_LOGICAL_GAP
+
+
 __all__ = [
+    "BlockingReason",
     "RecursiveResolutionResult",
     "RecursiveResolver",
     "ResolutionState",

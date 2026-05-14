@@ -166,6 +166,30 @@ _RE_UNIVERSAL = re.compile(
     r"^all\s+(?P<subj>[\w\s]+?)\s+are\s+(?P<pred>[\w\s]+?)\.?$",
     re.IGNORECASE,
 )
+# v1.7 negation support — narrow extension of the PARTICULAR shape.
+# Match BE-verb negation: "X is/are/was/were not Y".
+# Existing _RE_PARTICULAR already greedy-matches "X is not Y" (predicate
+# captures "not Y"). The new pattern handles ``are/was/were`` which the
+# existing regex misses. Predicate is normalised to "not <captured>" so
+# the existing contradiction logic (``predicate.startswith("not ")``)
+# keeps working uniformly.
+_RE_PARTICULAR_BE_NEG = re.compile(
+    r"^(?P<subj>[\w][\w\s]*?)\s+(?:is|are|was|were)\s+not\s+"
+    r"(?P<pred>[\w][\w\s]*?)\.?$",
+    re.IGNORECASE,
+)
+# v1.7: modal / auxiliary negation: "X did/does/do/will not VERB".
+_RE_PARTICULAR_AUX_NEG = re.compile(
+    r"^(?P<subj>[\w][\w\s]*?)\s+(?:did|does|do|will)\s+not\s+"
+    r"(?P<pred>[\w][\w\s]*?)\.?$",
+    re.IGNORECASE,
+)
+# v1.7: "cannot" / "can not".
+_RE_PARTICULAR_CANNOT = re.compile(
+    r"^(?P<subj>[\w][\w\s]*?)\s+(?:cannot|can\s+not)\s+"
+    r"(?P<pred>[\w][\w\s]*?)\.?$",
+    re.IGNORECASE,
+)
 _RE_PARTICULAR_A = re.compile(
     r"^(?P<subj>[\w][\w\s]*?)\s+is\s+a\s+(?P<pred>[\w][\w\s]*?)\.?$",
     re.IGNORECASE,
@@ -215,6 +239,27 @@ def _classify(text: str) -> tuple[PremiseKind, dict[str, str]]:
         return PremiseKind.AUTHORITY, {
             "speaker": _normalise_phrase(m.group("speaker")),
             "predicate": _normalise_phrase(m.group("claim")),
+        }
+    # v1.7 negation patterns — tested before the generic PARTICULAR
+    # match so that the predicate is canonicalised to "not <pred>"
+    # uniformly across all BE-verb / auxiliary / cannot forms.
+    m = _RE_PARTICULAR_BE_NEG.match(text)
+    if m:
+        return PremiseKind.PARTICULAR, {
+            "subject": _normalise_phrase(m.group("subj")),
+            "predicate": "not " + _normalise_phrase(m.group("pred")),
+        }
+    m = _RE_PARTICULAR_AUX_NEG.match(text)
+    if m:
+        return PremiseKind.PARTICULAR, {
+            "subject": _normalise_phrase(m.group("subj")),
+            "predicate": "not " + _normalise_phrase(m.group("pred")),
+        }
+    m = _RE_PARTICULAR_CANNOT.match(text)
+    if m:
+        return PremiseKind.PARTICULAR, {
+            "subject": _normalise_phrase(m.group("subj")),
+            "predicate": "not " + _normalise_phrase(m.group("pred")),
         }
     m = _RE_PARTICULAR_A.match(text)
     if m:
