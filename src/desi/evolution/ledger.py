@@ -81,6 +81,18 @@ class LedgerEventType(str, Enum):
     LOGICAL_BRIDGE_CREATED = "logical_bridge_created"
     LOGICAL_PROOF_ACCEPTED = "logical_proof_accepted"
     LOGICAL_PROOF_REJECTED = "logical_proof_rejected"
+    # v1.3: authority-free bridge consilium. One STARTED per session,
+    # one ROLE_REVIEWED per role, one COUNTEREXAMPLE_FOUND when the
+    # SKEPTIC surfaces a hit, exactly one of {ACCEPTED, REJECTED, VETO}
+    # for the final verdict, and one CLAIM_UPGRADED_BY_CONSILIUM when
+    # the original claim is escalated.
+    CONSILIUM_STARTED = "consilium_started"
+    CONSILIUM_ROLE_REVIEWED = "consilium_role_reviewed"
+    CONSILIUM_COUNTEREXAMPLE_FOUND = "consilium_counterexample_found"
+    CONSILIUM_VETO = "consilium_veto"
+    CONSILIUM_ACCEPTED = "consilium_accepted"
+    CONSILIUM_REJECTED = "consilium_rejected"
+    CLAIM_UPGRADED_BY_CONSILIUM = "claim_upgraded_by_consilium"
 
 
 @dataclass(frozen=True)
