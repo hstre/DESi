@@ -93,6 +93,17 @@ class LedgerEventType(str, Enum):
     CONSILIUM_ACCEPTED = "consilium_accepted"
     CONSILIUM_REJECTED = "consilium_rejected"
     CLAIM_UPGRADED_BY_CONSILIUM = "claim_upgraded_by_consilium"
+    # v1.4: recursive bridge resolution. One STARTED per resolve()
+    # call, one NODE_ENTERED / NODE_RESOLVED / NODE_BLOCKED per
+    # graph node, one CYCLE_DETECTED / DEPTH_EXCEEDED on the
+    # corresponding hard halt, one COMPLETED at the end.
+    RECURSIVE_RESOLUTION_STARTED = "recursive_resolution_started"
+    RECURSIVE_NODE_ENTERED = "recursive_node_entered"
+    RECURSIVE_NODE_RESOLVED = "recursive_node_resolved"
+    RECURSIVE_NODE_BLOCKED = "recursive_node_blocked"
+    RECURSIVE_CYCLE_DETECTED = "recursive_cycle_detected"
+    RECURSIVE_DEPTH_EXCEEDED = "recursive_depth_exceeded"
+    RECURSIVE_RESOLUTION_COMPLETED = "recursive_resolution_completed"
 
 
 @dataclass(frozen=True)
