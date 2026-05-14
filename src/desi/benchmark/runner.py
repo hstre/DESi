@@ -78,13 +78,16 @@ class BenchmarkRunner:
     # ------------------------------------------------------------------
 
     def _run_one(self, case: BenchmarkCase) -> BenchmarkResult:
-        # The v1.4 resolver consumes the text only. The benchmark's
-        # `additional_conditions` / `context` are not threaded
-        # through the recursive walker (v1.4 doesn't accept them);
-        # they are recorded on the case for documentation and for a
-        # future v1.5+ extension that pipes them into the consilium.
+        # v1.6: thread the case's ``context`` and
+        # ``additional_conditions`` into the resolver so every
+        # consilium call inside the walk sees what the caller
+        # provided. "No silent empty calls allowed" per directive.
         resolver = self._resolver_factory()
-        resolution = resolver.resolve(case.text)
+        resolution = resolver.resolve(
+            case.text,
+            context=case.context,
+            additional_conditions=case.additional_conditions,
+        )
         bridge_count = max(0, len(resolution.resolved_claims) - 1)
         veto_count = _veto_count_for(case, resolver)
         fp, fn = classify_outcome(case, resolution.final_state)

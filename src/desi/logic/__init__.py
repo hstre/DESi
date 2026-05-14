@@ -21,7 +21,7 @@ from .audit import (
     LogicalState,
     replay,
 )
-from .bridge_claims import BRIDGE_METHOD, BridgeClaim, propose_bridge
+from .bridge_claims import BRIDGE_METHOD, BridgeClaim, BridgeKind, propose_bridge
 from .gap_detector import Gap, GapKind, detect_gap
 from .inference import (
     InferenceMatch,
@@ -42,6 +42,7 @@ __all__ = [
     "AuditResult",
     "BRIDGE_METHOD",
     "BridgeClaim",
+    "BridgeKind",
     "ConclusionProposition",
     "Gap",
     "GapKind",

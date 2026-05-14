@@ -33,43 +33,45 @@ def test_category_a_every_case_ground_truth_is_bridge() -> None:
 
 
 def test_category_a_pinned_completion_count() -> None:
-    """v1.5 baseline: 4 of 10 causal claims silently complete.
+    """v1.6 baseline: 0 of 10 causal claims complete.
 
-    Findings noted in docs/memory/v1_5.md: the parser produces
-    clean particular structure for these cases, the consilium has
-    no counter-evidence, and the bridge is silently accepted.
+    v1.5 had 4 silent completions (A5, A6, A7, A10) where a clean
+    particular structure produced a generic-fallback bridge that
+    the consilium silently accepted. v1.6 kills that loophole:
+    GENERIC_FALLBACK bridges with no causal-mechanism word fail
+    the LOGICIAN, and the SKEPTIC auto-VETOs them.
     """
     run = _cat_a_run()
     completed = sum(
         1 for r in run.results
         if r.final_state is ResolutionState.RESOLUTION_COMPLETE
     )
-    assert completed == 4
+    assert completed == 0
 
 
 def test_category_a_pinned_blocked_count() -> None:
-    """v1.5 baseline: 6 of 10 causal claims block at depth=0.
+    """v1.6 baseline: all 10 causal claims block.
 
-    Findings: the v1.2 premise extractor cannot parse negative
-    verbs ("will not start", "is not watered") into PARTICULAR
-    propositions, so the conclusion falls through to UNREACHABLE
-    → REJECTED → BLOCKED at the root.
+    Four of these (A5, A6, A7, A10) block via the new v1.6
+    generic-fallback gate (LOGICIAN + SKEPTIC). The other six
+    still block via the v1.2 premise extractor's narrow
+    PARTICULAR pattern — block-by-accident, documented in v1.5
+    for v1.7+ work.
     """
     run = _cat_a_run()
     blocked = sum(
         1 for r in run.results
         if r.final_state is ResolutionState.RESOLUTION_BLOCKED
     )
-    assert blocked == 6
+    assert blocked == 10
 
 
-def test_category_a_false_positive_count_is_four() -> None:
-    """v1.5 pin: 4 cases silently invent certainty (FP).
+def test_category_a_false_positive_count_is_zero() -> None:
+    """v1.6 pin: 0 cases invent certainty (down from 4 in v1.5).
 
-    The directive's research question — 'does DESi discover real
-    gaps, or invent them?' — answers 4/10 for everyday causal
-    cases: half of those the parser can read.
+    The dominant failure mode — silent generic-bridge acceptance —
+    is gone for Cat A.
     """
     run = _cat_a_run()
     fps = sum(1 for r in run.results if r.false_positive)
-    assert fps == 4
+    assert fps == 0

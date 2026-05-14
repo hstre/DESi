@@ -146,13 +146,33 @@ def test_veto_maps_to_consilium_blocked() -> None:
 
 
 def test_needs_more_premises_maps_to_consilium_blocked() -> None:
-    audit = LogicalAuditor().audit(
-        "The market is hot. Therefore the city is flooded."
+    """v1.6 strengthening: auto-generated bridges for the metaphor
+    case are GENERIC_FALLBACK and now hard-VETOed (a strict subset
+    of CONSILIUM_BLOCKED). To exercise the NEEDS_MORE_PREMISES →
+    CONSILIUM_BLOCKED mapping under v1.6, we hand-construct a
+    SPECIFIC bridge so only the DOMAIN_EXAMINER's metaphor flag
+    survives."""
+    from desi.logic.bridge_claims import (
+        BRIDGE_METHOD, BridgeClaim, BridgeKind,
+    )
+    from desi.memory.claim import Claim, ClaimState, Provenance
+    text = "The market is hot. Therefore the city is flooded."
+    specific_bridge = BridgeClaim(
+        bridge_id="br_market_hot_specific",
+        text="market heat causes the city flood",
+        claim=Claim(
+            content="market heat causes the city flood",
+            method=BRIDGE_METHOD,
+            state=ClaimState.PROPOSED,
+            provenance=Provenance(source="test", run_id="r1"),
+        ),
+        rationale="hand-crafted specific bridge for metaphor test",
+        kind=BridgeKind.SPECIFIC,
     )
     res = BridgeConsilium().deliberate(
-        audit.bridges[0],
-        source_claim_id=audit.audit_id,
-        original_text=audit.text,
+        specific_bridge,
+        source_claim_id="ac_test",
+        original_text=text,
         context="financial_newspaper",
     )
     assert res.bridge_state is BridgeState.CONSILIUM_BLOCKED

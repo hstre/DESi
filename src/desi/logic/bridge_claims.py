@@ -13,11 +13,20 @@ The auditor *generates* the bridge as a candidate; it never accepts
 it on the bridge generator's authority. A subsequent audit cycle (or
 an external operator) must independently support the bridge before
 the original claim can become ``LOGICALLY_SUPPORTED``.
+
+v1.6 directive: every bridge carries a :class:`BridgeKind` so the
+v1.3 consilium can tell *specific* bridges (with substantive
+content tying premise to conclusion) apart from *generic-fallback*
+bridges (the bland ``"(X) implies (Y)"`` template). The LOGICIAN
+and SKEPTIC roles reject GENERIC_FALLBACK by default — the v1.5
+benchmark showed those bridges were the dominant source of
+unjustified acceptances.
 """
 from __future__ import annotations
 
 import hashlib
 from dataclasses import dataclass
+from enum import Enum
 
 from ..memory.claim import Claim, ClaimState, Provenance
 from .gap_detector import Gap, GapKind
@@ -26,6 +35,23 @@ from .premises import ConclusionProposition, Propositions
 
 # v1.2 directive: the only method label that may attach to a bridge.
 BRIDGE_METHOD: str = "logical_bridge"
+
+
+class BridgeKind(str, Enum):
+    """v1.6 — closed classification of how a bridge text was produced.
+
+    * ``SPECIFIC``         — bridge text mentions a concrete
+      relationship (a named subject, a named object, a causal verb).
+      Produced by hand-curated patterns such as the rain/street
+      heuristic in :func:`_bridge_text_for_rain_street`.
+    * ``GENERIC_FALLBACK`` — bridge text uses the ``"(X) implies (Y)"``
+      template emitted by :func:`_generic_bridge_text`. v1.6
+      forbids the consilium from accepting these without explicit
+      adversarial pressure.
+    """
+
+    SPECIFIC = "specific"
+    GENERIC_FALLBACK = "generic_fallback"
 
 
 @dataclass(frozen=True)
@@ -37,12 +63,18 @@ class BridgeClaim:
     :attr:`ClaimState.PROPOSED`, method always
     :data:`BRIDGE_METHOD`). The bridge id is a deterministic hash of
     its text — same gap → same bridge id across processes.
+
+    v1.6 adds the :attr:`kind` field. Existing callers (v1.2 / v1.3
+    tests, hand-constructed bridges in v1.4 ``ScriptedConsilium``)
+    that omit it get :attr:`BridgeKind.SPECIFIC` — the most
+    permissive setting, so backwards-compat tests still pass.
     """
 
     bridge_id: str
     text: str
     claim: Claim
     rationale: str
+    kind: BridgeKind = BridgeKind.SPECIFIC
 
     def to_dict(self) -> dict:
         return {
@@ -51,6 +83,7 @@ class BridgeClaim:
             "rationale": self.rationale,
             "claim_state": self.claim.state.value,
             "claim_method": self.claim.method,
+            "kind": self.kind.value,
         }
 
 
@@ -93,6 +126,10 @@ def propose_bridge(
     :attr:`GapKind.MISSING_BRIDGE` — bridges are only meaningful for
     that gap kind. Authority and unreachable gaps yield
     ``LOGICALLY_REJECTED`` instead.
+
+    v1.6: the returned :class:`BridgeClaim` carries an explicit
+    :class:`BridgeKind` so the v1.3 consilium can apply the
+    generic-fallback gate.
     """
     if gap.kind != GapKind.MISSING_BRIDGE:
         return None
@@ -104,9 +141,12 @@ def propose_bridge(
     candidate_premise = props.premises[0].text
     text = _bridge_text_for_rain_street(candidate_premise,
                                           props.conclusion.text)
-    if not text:
+    if text:
+        kind = BridgeKind.SPECIFIC
+    else:
         text = _generic_bridge_text(candidate_premise,
                                      props.conclusion.text)
+        kind = BridgeKind.GENERIC_FALLBACK
     bridge_id = _bridge_id(text)
     claim = Claim(
         content=text,
@@ -123,11 +163,13 @@ def propose_bridge(
         text=text,
         claim=claim,
         rationale=gap.rationale,
+        kind=kind,
     )
 
 
 __all__ = [
     "BRIDGE_METHOD",
     "BridgeClaim",
+    "BridgeKind",
     "propose_bridge",
 ]

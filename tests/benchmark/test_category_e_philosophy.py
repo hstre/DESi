@@ -27,27 +27,31 @@ def test_category_e_has_ten_cases() -> None:
     assert len(cases_by_category(Category.E_PHILOSOPHICAL_STRESS)) == 10
 
 
-def test_category_e_pinned_blocked_count_is_seven() -> None:
+def test_category_e_pinned_blocked_count_is_ten() -> None:
+    """v1.6 baseline: all 10 philosophical cases correctly block.
+
+    Seven were blocked in v1.5 (questions / no-chain). The three
+    that completed (E4, E5, E10) all rode generic-fallback
+    bridges. v1.6 kills that loophole — DESi no longer invents
+    certainty on philosophical leaps it cannot derive.
+    """
     run = _cat_e_run()
     blocked = sum(
         1 for r in run.results
         if r.final_state is ResolutionState.RESOLUTION_BLOCKED
     )
-    assert blocked == 7
+    assert blocked == 10
 
 
-def test_category_e_pinned_false_positive_count_is_three() -> None:
-    """Documented finding: E4, E5, E10 silently complete.
+def test_category_e_pinned_false_positive_count_is_zero() -> None:
+    """v1.6 pin: zero FP in Category E (down from 3 in v1.5).
 
-    These are the philosophical cases whose 'Premise. Therefore X.'
-    structure produces a clean particular-vs-particular form. The
-    auditor proposes a generic bridge; the consilium has no
-    counter-evidence; the resolver completes at depth 1. DESi
-    invented certainty on three philosophical leaps.
+    E4 (free will → meaninglessness), E5 (finite universe →
+    bounded time), and E10 (cosmological first cause) all blocked.
     """
     run = _cat_e_run()
     fps = sum(1 for r in run.results if r.false_positive)
-    assert fps == 3
+    assert fps == 0
 
 
 def test_questions_block_correctly() -> None:
@@ -59,12 +63,15 @@ def test_questions_block_correctly() -> None:
         assert r.final_state is ResolutionState.RESOLUTION_BLOCKED, case_id
 
 
-def test_e10_first_cause_argument_is_a_known_false_positive() -> None:
-    """E10: the cosmological argument silently completes — the
-    benchmark's single most uncomfortable finding. v1.5 does not
-    patch it; v1.6+ must surface adversarial conditions for these
-    leaps."""
+def test_e10_first_cause_argument_now_blocks() -> None:
+    """v1.6: the cosmological argument no longer silently completes.
+
+    The bridge generated for E10 is :class:`BridgeKind.GENERIC_FALLBACK`,
+    has no causal-mechanism word, and is auto-VETOed by the v1.6
+    SKEPTIC. DESi declines to certify the leap. Closed without a
+    special-case for the case id, without a regex for 'first cause',
+    and without any allowlist."""
     run = BenchmarkRunner().run((case_by_id("E10"),))
     r = run.results[0]
-    assert r.final_state is ResolutionState.RESOLUTION_COMPLETE
-    assert r.false_positive is True
+    assert r.final_state is ResolutionState.RESOLUTION_BLOCKED
+    assert r.false_positive is False

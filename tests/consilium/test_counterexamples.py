@@ -110,14 +110,38 @@ def test_consilium_blocks_on_roof_counterexample() -> None:
 
 
 def test_consilium_returns_needs_more_premises_on_metaphor_context() -> None:
-    from desi.logic import LogicalAuditor
-    aud = LogicalAuditor().audit(
-        "The market is hot. Therefore the city is flooded."
+    """v1.6 strengthening: the auto-generated bridge for the
+    'The market is hot. Therefore the city is flooded.' input is
+    :class:`BridgeKind.GENERIC_FALLBACK`. The v1.6 SKEPTIC and
+    LOGICIAN both auto-VETO it. To exercise the NEEDS_MORE_PREMISES
+    code path under v1.6, we hand-construct a SPECIFIC bridge that
+    carries an explicit causal mechanism word — then only the
+    DOMAIN_EXAMINER's metaphor flag remains active, and the
+    aggregate verdict is NEEDS_MORE_PREMISES.
+    """
+    from desi.logic.bridge_claims import (
+        BRIDGE_METHOD, BridgeClaim, BridgeKind,
+    )
+    from desi.memory.claim import Claim, ClaimState, Provenance
+    text = "The market is hot. Therefore the city is flooded."
+    # Specific bridge with an explicit causal verb so it survives
+    # the v1.6 generic-fallback gate.
+    specific_bridge = BridgeClaim(
+        bridge_id="br_market_hot_specific",
+        text="market heat causes the city flood",
+        claim=Claim(
+            content="market heat causes the city flood",
+            method=BRIDGE_METHOD,
+            state=ClaimState.PROPOSED,
+            provenance=Provenance(source="test", run_id="r1"),
+        ),
+        rationale="hand-crafted specific bridge for metaphor test",
+        kind=BridgeKind.SPECIFIC,
     )
     res = BridgeConsilium().deliberate(
-        aud.bridges[0],
-        source_claim_id=aud.audit_id,
-        original_text=aud.text,
+        specific_bridge,
+        source_claim_id="ac_test",
+        original_text=text,
         context="financial_newspaper",
     )
     assert res.verdict.verdict is Verdict.NEEDS_MORE_PREMISES

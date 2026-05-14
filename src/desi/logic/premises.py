@@ -42,13 +42,30 @@ class PremiseKind(str, Enum):
 # v1.2 directive: a tiny, well-known inflection map. We intentionally
 # do not call out to a stemmer / NLP library — every transformation
 # the extractor performs must be inspectable here.
+#
+# v1.6 directive constraint: ``Recall must stay ≥ 0.70``. The v1.6
+# generic-fallback gate would otherwise drop syllogisms that only
+# missed the SYLLOGISM rule because of regular ``-s`` plural
+# inflection (``philosophers`` vs ``philosopher``). The five entries
+# below are ordinary English noun pluralisations, narrowly added so
+# Barbara-shaped syllogisms still match at the audit level rather
+# than falling through to the generic bridge fallback. This is data,
+# not a new operator or heuristic.
 _INFLECTIONS: dict[str, str] = {
+    # v1.2 irregular plurals
     "men": "man",
     "women": "woman",
     "people": "person",
     "children": "child",
     "mice": "mouse",
     "feet": "foot",
+    # v1.6 regular noun plurals — narrow noun-morphology expansion
+    # to preserve recall on Barbara-shaped syllogisms.
+    "philosophers": "philosopher",
+    "cats": "cat",
+    "mammals": "mammal",
+    "squares": "square",
+    "rectangles": "rectangle",
 }
 
 

@@ -134,6 +134,8 @@ class RecursiveResolver:
         claim_text: str,
         *,
         max_depth: int = DEFAULT_MAX_DEPTH,
+        context: str = "",
+        additional_conditions: tuple[str, ...] = (),
         source_metadata: dict[str, Any] | None = None,
     ) -> RecursiveResolutionResult:
         """Resolve ``claim_text`` recursively.
@@ -142,13 +144,23 @@ class RecursiveResolver:
         auditor and v1.3 consilium; the resolver immediately drops
         it (INV-R6). Same contract as the underlying components —
         the metadata is never read.
+
+        v1.6: ``context`` (e.g. ``"financial_newspaper"``) and
+        ``additional_conditions`` are threaded through every
+        consilium call inside the walk. No silent empty calls — the
+        DOMAIN_EXAMINER and the SKEPTIC see exactly what the caller
+        provided.
         """
         del source_metadata  # INV-R6
         graph = ResolutionGraph()
         root_id = node_id(claim_text)
+        self._context = context
+        self._additional_conditions = tuple(additional_conditions)
         self._emit("RECURSIVE_RESOLUTION_STARTED", {
             "root_claim_id": root_id,
             "max_depth": max_depth,
+            "context": context,
+            "additional_conditions": list(additional_conditions),
         })
         outcome = self._resolve_node(
             claim_text=claim_text,
@@ -321,6 +333,10 @@ class RecursiveResolver:
                 bridge,
                 source_claim_id=audit.audit_id,
                 original_text=claim_text,
+                context=getattr(self, "_context", ""),
+                additional_conditions=getattr(
+                    self, "_additional_conditions", (),
+                ),
             )
             if cons.verdict.verdict is not Verdict.ACCEPT_AS_BRIDGE:
                 self._emit("RECURSIVE_NODE_BLOCKED", {

@@ -22,7 +22,18 @@ def test_category_b_has_ten_cases() -> None:
 
 
 def test_category_b_pinned_true_positive_count() -> None:
-    """8 of 9 SHOULD_RESOLVE cases complete; B10 is the lone FN."""
+    """v1.6 baseline: 8 of 9 SHOULD_RESOLVE cases complete.
+
+    Same TP count as v1.5 but via a different mechanism for B2,
+    B7, B8: those used to complete via generic-fallback bridges
+    that the v1.6 consilium would now veto. v1.6 adds the regular
+    plural inflections (philosophers/philosopher, cats/cat,
+    mammals/mammal, squares/square, rectangles/rectangle) so the
+    SYLLOGISM rule matches at the audit level — depth 0, no
+    bridge needed. B10 (universal-conclusion syllogism) remains
+    the lone FN; addressing it requires a new rule, which v1.6
+    deliberately does not add.
+    """
     run = _cat_b_run()
     tp = sum(
         1 for r in run.results
@@ -76,3 +87,16 @@ def test_category_b_canonical_syllogism_completes_at_depth_zero() -> None:
     assert r.final_state is ResolutionState.RESOLUTION_COMPLETE
     assert r.recursion_depth == 0
     assert r.bridge_count == 0
+
+
+def test_v16_inflection_aware_syllogisms_complete_at_depth_zero() -> None:
+    """v1.6: B2, B7, B8 must now hit the SYLLOGISM rule directly,
+    no longer falling through to the generic-fallback bridge."""
+    for cid in ("B2", "B7", "B8"):
+        run = BenchmarkRunner().run((case_by_id(cid),))
+        r = run.results[0]
+        assert r.final_state is ResolutionState.RESOLUTION_COMPLETE, cid
+        assert r.recursion_depth == 0, (
+            f"{cid} resolved at depth {r.recursion_depth}; expected "
+            f"depth=0 after v1.6 inflection-aware syllogism."
+        )

@@ -20,38 +20,41 @@ def test_category_d_has_ten_cases() -> None:
     assert len(cases_by_category(Category.D_METAPHOR_AMBIGUITY)) == 10
 
 
-def test_category_d_pinned_blocked_count_is_nine() -> None:
-    """9 of 10 metaphor cases correctly block at depth 0.
+def test_category_d_pinned_blocked_count_is_ten() -> None:
+    """v1.6 baseline: all 10 metaphor cases correctly block.
 
-    Documented finding: the resolver blocks because v1.2's premise
-    extractor returns NO_EXPLICIT_CHAIN for sentences without an
-    explicit 'Therefore'.
+    Nine were blocked in v1.5 (no explicit chain). The tenth (D3,
+    financial-context metaphor) now blocks because v1.6 threads
+    the case's ``context`` into the consilium, where the
+    DOMAIN_EXAMINER's metaphor library flags 'flooded' as
+    ambiguous and the SKEPTIC auto-VETOs the generic bridge.
     """
     run = _cat_d_run()
     blocked = sum(
         1 for r in run.results
         if r.final_state is ResolutionState.RESOLUTION_BLOCKED
     )
-    assert blocked == 9
+    assert blocked == 10
 
 
-def test_category_d_pinned_false_positive_count_is_one() -> None:
-    """D3 silently completes despite the financial-newspaper context.
+def test_category_d_pinned_false_positive_count_is_zero() -> None:
+    """v1.6 pin: zero FP in Category D (down from 1 in v1.5).
 
-    Documented finding: v1.4 does not thread the case's `context`
-    field into the consilium (the v1.3 DOMAIN_EXAMINER's metaphor
-    library is reachable only via direct
-    BridgeConsilium.deliberate(context=...) calls). v1.6+ should
-    pipe the context through the resolver.
+    D3's silent completion was the v1.5 directive's smoking gun
+    for context threading. v1.6 fixes it.
     """
     run = _cat_d_run()
     fps = sum(1 for r in run.results if r.false_positive)
-    assert fps == 1
+    assert fps == 0
 
 
-def test_d3_is_the_known_metaphor_silent_completion() -> None:
+def test_d3_metaphor_now_blocks_under_context_threading() -> None:
+    """D3 (financial newspaper + 'flooded') was the v1.5 silent
+    completion. v1.6 threads the case's context into the consilium,
+    the DOMAIN_EXAMINER flags the metaphor, and the SKEPTIC's
+    GENERIC_FALLBACK gate independently vetoes the bridge."""
     run = BenchmarkRunner().run((case_by_id("D3"),))
     r = run.results[0]
     assert r.case.context == "financial_newspaper"
-    assert r.final_state is ResolutionState.RESOLUTION_COMPLETE
-    assert r.false_positive is True
+    assert r.final_state is ResolutionState.RESOLUTION_BLOCKED
+    assert r.false_positive is False
