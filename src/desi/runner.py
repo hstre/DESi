@@ -28,6 +28,7 @@ if TYPE_CHECKING:
 def run_desi(
     trajectory: Trajectory,
     *,
+    config: dict | None = None,
     memory_hook: "MemoryHook | None" = None,
 ) -> DeterministicMetrics:
     """Run DESi diagnostics on ``trajectory``.
@@ -37,12 +38,28 @@ def run_desi(
     its recorder. The hook **must not** affect the result; this
     invariant is tested explicitly in ``tests/test_runner.py``.
 
+    v0.7: ``config`` is an optional flat dict of named knobs. When
+    provided, the memory hook receives it via :meth:`set_active_config`
+    before ``on_run_start``. Exactly one knob is read by v0.7's
+    branch-opening guard:
+    ``guard_thresholds.branch_open_evidence_min`` (default 0.30, range
+    [0.0, 1.0]). Passing ``config=None`` preserves v0.6 behaviour
+    bit-for-bit.
+
     Default (``memory_hook=None``) preserves pre-v0.3 behaviour
     exactly. DESi continues to run without a memory backend and
     without a database.
     """
     if memory_hook is None:
         return compute_all(trajectory)
+
+    # v0.7: hand the config to the hook so its config-aware guards
+    # can read knob values. Hooks that don't implement set_active_config
+    # silently ignore the config — v0.7 stays additive.
+    if config is not None:
+        setter = getattr(memory_hook, "set_active_config", None)
+        if callable(setter):
+            setter(config)
 
     # Hook is opt-in. From here on every memory-side call is wrapped in
     # the hook's _safe shim so that a misbehaving recorder cannot

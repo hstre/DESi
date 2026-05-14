@@ -80,6 +80,20 @@ class MemoryHook:
         self._seen_claim_ids: set[str] = set()
         self._previous_focus: str | None = None
         self._run_started: bool = False
+        # v0.7: optional behaviour-effective configuration passed from
+        # run_desi(config=...). The base MemoryHook stores it and lets
+        # subclasses (notably _SessionHook) consult it to gate
+        # branch-opening decisions on a knob value.
+        self._active_config: dict[str, Any] = {}
+
+    def set_active_config(self, config: dict[str, Any]) -> None:
+        """Receive the v0.7 run_desi config. Stored verbatim."""
+        self._active_config = dict(config)
+
+    @property
+    def active_config(self) -> dict[str, Any]:
+        """Read-only view of the currently active config (or {})."""
+        return dict(self._active_config)
 
     # ------------------------------------------------------------------
     # Safety wrapper

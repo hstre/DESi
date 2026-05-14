@@ -22,7 +22,7 @@ from typing import Any, Iterable, Iterator
 
 
 class LedgerEventType(str, Enum):
-    """The v0.6 ledger event taxonomy."""
+    """The v0.6 + v0.7 ledger event taxonomy."""
 
     REFLECTION = "reflection"
     PROPOSAL = "proposal"
@@ -37,6 +37,11 @@ class LedgerEventType(str, Enum):
     ROLLBACK = "rollback"
     VETO_OBLIGATION = "veto_obligation"
     OBLIGATION_STATUS_CHANGE = "obligation_status_change"
+    # v0.7: behaviour-effective config activation + stable-vs-clone
+    # metrics + per-mutation cycle summary.
+    CONFIG_ACTIVATED = "config_activated"
+    METRICS_DELTA = "metrics_delta"
+    EVOLUTION_CYCLE = "evolution_cycle"
 
 
 @dataclass(frozen=True)
@@ -237,6 +242,97 @@ class EvolutionLedger:
 
 __all__ = [
     "EvolutionLedger",
+    "EvolutionLedgerJSONL",
     "LedgerEntry",
     "LedgerEventType",
 ]
+
+
+# ---------------------------------------------------------------------------
+# v0.7: JSONL file-backed append-only ledger
+# ---------------------------------------------------------------------------
+
+
+class EvolutionLedgerJSONL(EvolutionLedger):
+    """Append-only file-backed ledger persisting to ``ledger.jsonl``.
+
+    One JSON object per line. The file is opened in append mode and
+    never seek-rewinds: a process restart that has the same file is
+    transparent because the on-disk format is line-additive. Reading
+    the persisted ledger back uses :meth:`load_from_disk`, which
+    reconstructs in-memory :class:`LedgerEntry` records without ever
+    modifying the file.
+
+    Properties:
+
+    * deterministic — same payload → same line bytes (canonical JSON,
+      sorted keys, no whitespace)
+    * diffable — one event per line
+    * git-versionable — append-only at the disk level mirrors the
+      in-memory invariant
+    * forensic — entries written are never removed by this class
+    """
+
+    import pathlib  # noqa: PLC0415 — local import to avoid module-level cost
+
+    def __init__(
+        self,
+        path,  # type: pathlib.Path | str
+        *,
+        version: str = "v0.7",
+    ) -> None:
+        import pathlib as _pl
+        super().__init__(version=version)
+        self._path: _pl.Path = _pl.Path(path)
+        if self._path.exists():
+            # Replay existing on-disk entries into memory without
+            # touching the file.
+            for line in self._path.read_text().splitlines():
+                line = line.strip()
+                if not line:
+                    continue
+                rec = json.loads(line)
+                ts = rec["timestamp"]
+                if isinstance(ts, str):
+                    ts = datetime.fromisoformat(ts)
+                self._entries.append(LedgerEntry(
+                    ledger_id=rec["ledger_id"],
+                    event_type=LedgerEventType(rec["event_type"]),
+                    timestamp=ts,
+                    parent_event_id=rec.get("parent_event_id"),
+                    payload_hash=rec["payload_hash"],
+                    payload=dict(rec["payload"]),
+                    actor=rec["actor"],
+                    version=rec["version"],
+                ))
+        else:
+            self._path.parent.mkdir(parents=True, exist_ok=True)
+
+    @property
+    def path(self):
+        return self._path
+
+    def append(
+        self,
+        event_type: LedgerEventType,
+        payload: dict[str, Any],
+        *,
+        actor: str = "desi.evolution",
+        parent_event_id: str | None = None,
+    ) -> LedgerEntry:
+        entry = super().append(
+            event_type, payload, actor=actor,
+            parent_event_id=parent_event_id,
+        )
+        # Persist this entry as one JSON line. Canonical encoding so
+        # the bytes are deterministic for two ledgers given the same
+        # payload + ledger_id + timestamp.
+        line = json.dumps(
+            entry.to_dict(),
+            sort_keys=True,
+            separators=(",", ":"),
+            default=_default,
+        )
+        with self._path.open("a", encoding="utf-8") as fh:
+            fh.write(line + "\n")
+        return entry

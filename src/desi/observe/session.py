@@ -146,14 +146,36 @@ class _SessionHook(MemoryHook):
                 "loop_index": loop,
                 "state": ClaimState.PROPOSED.value,
             })
-            # Branch opened for this focus.
-            self._session._open_branches[focus] = self._session._tick
-            self._session._emit(EventType.BRANCH_OPENED, {
-                "branch_id": f"branch_{focus}",
-                "focus_claim_id": focus,
-                "loop_index": loop,
-            })
-            self._session.take_snapshot(f"after_branch_open_{focus}")
+            # v0.7: the first behaviour-effective config knob. The
+            # branch-opening decision now consults
+            # guard_thresholds.branch_open_evidence_min. When config
+            # carries no such knob (v0.6 and earlier callers), the
+            # threshold defaults to 0.0 — every focus opens a branch,
+            # bit-identical to v0.6.
+            threshold = self._read_branch_threshold()
+            evidence = self._compute_branch_evidence(loop)
+            if evidence >= threshold:
+                self._session._open_branches[focus] = self._session._tick
+                self._session._emit(EventType.BRANCH_OPENED, {
+                    "branch_id": f"branch_{focus}",
+                    "focus_claim_id": focus,
+                    "loop_index": loop,
+                    "evidence": evidence,
+                    "threshold": threshold,
+                })
+                self._session.take_snapshot(f"after_branch_open_{focus}")
+            else:
+                self._session._emit(EventType.GUARD_BLOCKED, {
+                    "operator": "branch_open_guard",
+                    "loop_index": loop,
+                    "focus_claim_id": focus,
+                    "evidence": evidence,
+                    "threshold": threshold,
+                    "reason": (
+                        f"branch suppressed: evidence={evidence:.2f} "
+                        f"< threshold={threshold:.2f}"
+                    ),
+                })
         # Focus-shift → DERIVES_FROM relation event.
         if (focus and self._session._previous_focus
                 and focus != self._session._previous_focus):
@@ -257,6 +279,44 @@ class _SessionHook(MemoryHook):
             "source_branches": list(source_branches),
             "target_branch": target_branch,
         })
+
+    # ------------------------------------------------------------------
+    # v0.7: branch-evidence gate
+    # ------------------------------------------------------------------
+
+    def _read_branch_threshold(self) -> float:
+        """Read the configured branch-open evidence threshold.
+
+        When no config is active (v0.6 callers), returns 0.0 so that
+        every branch opens — bit-identical to v0.6 behaviour.
+        """
+        return float(self._active_config.get(
+            "guard_thresholds.branch_open_evidence_min", 0.0,
+        ))
+
+    def _compute_branch_evidence(self, loop_index: int) -> float:
+        """Per-step branch-opening evidence in [0.0, 0.7].
+
+        Deterministic function of how many branches have been opened
+        in the recent past. Specifically: each open branch already
+        recorded for this session reduces the next branch's evidence
+        by 0.10, floored at 0.0 and capped at 0.7. The first branch
+        of a run scores 0.7; the seventh scores 0.0.
+
+        Rationale: this gives ``branch_open_evidence_min = 0.30`` the
+        same effect as v0.6 on the shipped scenarios (S2 / S5 / S6),
+        and a measurable suppression effect on
+        ADV_BRANCH_EXPLOSION (which opens >= 5 branches in quick
+        succession). The function is intentionally heuristic in v0.7;
+        the contract is reproducibility, not optimality.
+        """
+        opens_so_far = len(self._session._known_claims) - 1
+        evidence = 0.7 - 0.10 * max(0, opens_so_far)
+        if evidence < 0.0:
+            return 0.0
+        if evidence > 1.0:
+            return 1.0
+        return evidence
 
     # ------------------------------------------------------------------
     # Internal: surface non-strict hook errors as timeline events

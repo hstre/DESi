@@ -394,6 +394,51 @@ def _integrator_vote(p, evalrep, refl, round1) -> JuryFinalVote:
             vote=Vote.REVISE,
             rationale="another reviewer raised a structural concern.",
         )
+    # v0.7: when a paired_report is attached, refuse to APPROVE unless
+    # the aggregate verdict reads 'improved'. Neutral and regressed
+    # block; round-2 rationale cites the measurable verdict.
+    pr = getattr(refl, "_paired_report", None)
+    if pr is not None:
+        if pr.aggregate_verdict == "regressed":
+            # Find the first scenario whose verdict regressed for the
+            # ADVERSARIAL role's veto target.
+            failing = next(
+                (o.scenario_id for o in pr.outcomes
+                 if o.delta.verdict == "regressed"),
+                "?",
+            )
+            return JuryFinalVote(
+                role=JuryRole.INTEGRATOR,
+                vote=Vote.VETO,
+                rationale=(
+                    f"paired evaluation aggregate verdict='regressed' "
+                    f"(scenario {failing} regressed)."
+                ),
+                veto=Veto(
+                    role=JuryRole.INTEGRATOR,
+                    affected_claim=p.target.value,
+                    suspected_risk="behavioural regression on a guard scenario",
+                    failure_case=(
+                        f"scenario {failing} shows a verdict=regressed "
+                        f"delta under the clone config."
+                    ),
+                    proposed_test=(
+                        f"hold the mutation; re-run the paired "
+                        f"evaluation with a different seed and require "
+                        f"verdict != 'regressed' on {failing}."
+                    ),
+                ),
+            )
+        if pr.aggregate_verdict == "neutral":
+            return JuryFinalVote(
+                role=JuryRole.INTEGRATOR,
+                vote=Vote.REVISE,
+                rationale=(
+                    "paired evaluation aggregate verdict='neutral'; "
+                    "no measurable improvement yet — revise and re-test."
+                ),
+            )
+        # 'improved' falls through to the standard APPROVE.
     return JuryFinalVote(
         role=JuryRole.INTEGRATOR,
         vote=Vote.APPROVE,
@@ -471,7 +516,25 @@ class DelphiJury:
         proposal: MutationProposal,
         eval_report: MutationEvaluationReport,
         reflection: ReflectionReport,
+        *,
+        paired_report: Any | None = None,
     ) -> JuryDecision:
+        """Run two rounds of review on a proposal.
+
+        v0.7: ``paired_report`` is an optional
+        :class:`desi.evolution.PairedEvaluationReport`. When supplied,
+        it is stapled onto the reflection report so that role
+        functions can consult the per-scenario stable / clone metrics
+        and the aggregate verdict. The directive: round-2 votes must
+        cite measurable arguments — the paired_report is the
+        load-bearing input for that.
+        """
+        # Snapshot the paired report on the reflection object so that
+        # the existing five role functions can read it via getattr
+        # without changing every signature. v0.7 keeps the signatures
+        # stable so v0.6 jury subclasses keep working.
+        if paired_report is not None:
+            object.__setattr__(reflection, "_paired_report", paired_report)
         # Round 1: independent reviews.
         round1 = tuple(
             m.review_fn(proposal, eval_report, reflection)
@@ -483,3 +546,15 @@ class DelphiJury:
             for m in self._members
         )
         return JuryDecision(round1_reviews=round1, round2_votes=round2)
+
+
+def paired_verdict(reflection) -> str | None:
+    """Return the aggregate verdict of the v0.7 paired report, if any.
+
+    Helper for role functions; returns None when no paired_report is
+    attached (v0.6-style call).
+    """
+    pr = getattr(reflection, "_paired_report", None)
+    if pr is None:
+        return None
+    return pr.aggregate_verdict
