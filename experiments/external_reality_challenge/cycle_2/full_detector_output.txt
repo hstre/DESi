@@ -1,0 +1,27 @@
+=== HEURISTIC: DESi full detector output on upstream DES (with H1/H2/H3 synth) ===
+n_steps=35  n_EN=8
+phases:
+  I_EXPOSITION  0-0  conf=medium
+    - dup_rate=0.00 < 0.30
+    - no EN event at loop 0
+    - partial match
+  II_FIRST_SATURATION_MODULATION  1-5  conf=medium
+    - novelty collapse: novel_claims<=2 at loop 1
+    - persistence: novel<=2 at loops 1 and 2
+    - first EN at loop 5 (eni_novelty=0.20)
+  V_TERMINAL_CONVERGENCE  10-11  conf=high
+    - dup_rate=0.67 > 0.50 AND novel_claims=0 <= 1 at loop 10
+    - Phase V trigger no longer holds for >=2 consecutive loops after loop 11; span closed at 11
+composite EN labels:
+  loop 5: eni=0.20  recovered=False  label=genuine_transformation_unconfirmed
+  loop 12: eni=0.20  recovered=False  label=genuine_transformation_unconfirmed
+  loop 16: eni=0.20  recovered=False  label=genuine_transformation_unconfirmed
+  loop 20: eni=0.20  recovered=False  label=genuine_transformation_unconfirmed
+  loop 23: eni=0.20  recovered=False  label=genuine_transformation_unconfirmed
+  loop 27: eni=0.20  recovered=False  label=genuine_transformation_unconfirmed
+  loop 30: eni=0.20  recovered=False  label=genuine_transformation_unconfirmed
+  loop 34: eni=0.20  recovered=False  label=genuine_transformation_unconfirmed
+attractor: []  (tail not saturated: mean_novel=0.0 (>3.0) OR mean_dup=0.00 (<0.3))
+branch_explosion: False
+step_coherence: detected=True (17 of 35 steps)
+borderline_chain: False  (longest borderline run = 0 (< 3))

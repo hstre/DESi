@@ -1,0 +1,70 @@
+[
+  {
+    "trajectory_id": "des_upstream_state_heuristic",
+    "n_en_events": 8,
+    "composite_labels": [
+      "genuine_transformation_unconfirmed",
+      "genuine_transformation_unconfirmed",
+      "genuine_transformation_unconfirmed",
+      "genuine_transformation_unconfirmed",
+      "genuine_transformation_unconfirmed",
+      "genuine_transformation_unconfirmed",
+      "genuine_transformation_unconfirmed",
+      "genuine_transformation_unconfirmed"
+    ],
+    "novelty_recoveries": [
+      {
+        "loop": 5,
+        "dup_delta": 0.0,
+        "novel_next": 1,
+        "recovered": false
+      },
+      {
+        "loop": 12,
+        "dup_delta": 0.0,
+        "novel_next": 1,
+        "recovered": false
+      },
+      {
+        "loop": 16,
+        "dup_delta": 0.0,
+        "novel_next": 1,
+        "recovered": false
+      },
+      {
+        "loop": 20,
+        "dup_delta": 0.0,
+        "novel_next": 1,
+        "recovered": false
+      },
+      {
+        "loop": 23,
+        "dup_delta": 0.0,
+        "novel_next": 1,
+        "recovered": false
+      },
+      {
+        "loop": 27,
+        "dup_delta": 0.0,
+        "novel_next": 1,
+        "recovered": false
+      },
+      {
+        "loop": 30,
+        "dup_delta": 0.0,
+        "novel_next": 1,
+        "recovered": false
+      },
+      {
+        "loop": 34,
+        "dup_delta": 0.0,
+        "novel_next": 0,
+        "recovered": false
+      }
+    ],
+    "phase_iii_present": false,
+    "phase_iii_span": null,
+    "confirmed_count": 0,
+    "confirmed_genuine_en": 0
+  }
+]
