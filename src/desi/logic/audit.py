@@ -33,7 +33,7 @@ from ..memory.claim import Claim, ClaimState, Provenance
 from .bridge_claims import BridgeClaim, propose_bridge
 from .gap_detector import Gap, GapKind, detect_gap
 from .inference import InferenceMatch, InferenceRule, try_each_rule
-from .premises import PremiseExtractor, Propositions
+from .premises import PremiseExtractor, PremiseKind, Propositions
 from .proof_chain import ProofChain
 
 
@@ -132,6 +132,16 @@ class LogicalAuditor:
         })
 
         propositions = self._extractor.extract(text)
+        # v1.8 directive (Aufgabe 4): an AUTHORITY premise — anywhere
+        # in the proposition set, whether or not a "Therefore" chain
+        # follows — short-circuits to LOGICALLY_REJECTED with the
+        # AUTHORITY_CLAIM gap kind. Authority never reaches inference,
+        # never reaches bridge generation, never reaches consilium.
+        # The directive's "Authority darf niemals promoten" is enforced
+        # here as the earliest possible exit.
+        if any(p.kind is PremiseKind.AUTHORITY
+               for p in propositions.premises):
+            return self._reject_authority(ac_id, text, propositions)
         if not propositions.has_explicit_chain:
             return self._classify_gap(ac_id, text, propositions)
 
@@ -167,6 +177,46 @@ class LogicalAuditor:
     # ------------------------------------------------------------------
     # Internals
     # ------------------------------------------------------------------
+
+    def _reject_authority(
+        self,
+        ac_id: str,
+        text: str,
+        props: Propositions,
+    ) -> AuditResult:
+        """v1.8: short-circuit any AUTHORITY-bearing input to
+        ``LOGICALLY_REJECTED`` with the ``AUTHORITY_CLAIM`` gap kind.
+
+        The audit emits ``LOGICAL_PROOF_REJECTED`` (not the v1.2
+        ``LOGICAL_GAP_DETECTED``), because authority is now a
+        principled rejection — not a gap awaiting a bridge.
+        """
+        authority_speakers = tuple(
+            p.speaker for p in props.premises
+            if p.kind is PremiseKind.AUTHORITY
+        )
+        gap = Gap(
+            kind=GapKind.AUTHORITY_CLAIM,
+            rationale=(
+                "speech-act authority premise detected from "
+                f"speaker(s) {list(authority_speakers)}; authority "
+                "is not a valid inference rule and cannot be "
+                "promoted to LOGICALLY_SUPPORTED."
+            ),
+        )
+        self._log("LOGICAL_PROOF_REJECTED", {
+            "audit_id": ac_id,
+            "reason": "authority_claim",
+            "rationale": gap.rationale,
+        })
+        return AuditResult(
+            audit_id=ac_id,
+            text=text,
+            state=LogicalState.LOGICALLY_REJECTED,
+            propositions=props,
+            gap=gap,
+            rationale=gap.rationale,
+        )
 
     def _classify_gap(
         self,

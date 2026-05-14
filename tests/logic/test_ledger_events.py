@@ -65,14 +65,19 @@ def test_rejected_audit_writes_proof_rejected() -> None:
     assert rejected[0].payload["reason"] == "unreachable"
 
 
-def test_authority_audit_writes_gap_detected() -> None:
-    led = EvolutionLedger(version="v1.2")
+def test_authority_audit_writes_proof_rejected() -> None:
+    """v1.8: authority audits are no longer a "gap"; they are an
+    unconditional rejection. The auditor writes
+    LOGICAL_PROOF_REJECTED with reason="authority_claim"."""
+    led = EvolutionLedger(version="v1.8")
     LogicalAuditor(ledger=led).audit(
         "Professor X says quantum gravity is solved."
     )
-    gap = led.filter(LedgerEventType.LOGICAL_GAP_DETECTED)
-    assert len(gap) == 1
-    assert gap[0].payload["kind"] == "authority_claim"
+    rejected = led.filter(LedgerEventType.LOGICAL_PROOF_REJECTED)
+    assert len(rejected) == 1
+    assert rejected[0].payload["reason"] == "authority_claim"
+    # And no GAP_DETECTED was emitted for this audit.
+    assert led.filter(LedgerEventType.LOGICAL_GAP_DETECTED) == []
 
 
 def test_bridge_audit_writes_bridge_created() -> None:

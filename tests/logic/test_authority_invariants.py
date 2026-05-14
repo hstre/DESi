@@ -28,9 +28,15 @@ def test_p1_complete_syllogism_is_logically_supported() -> None:
     assert r.state == LogicalState.LOGICALLY_SUPPORTED
 
 
-def test_p2_authority_trap_is_gap_detected() -> None:
+def test_p2_authority_trap_is_logically_rejected() -> None:
+    """v1.8 strengthening: authority premises are no longer a "gap"
+    waiting for a bridge; they are an unconditional logical
+    rejection. The audit returns LOGICALLY_REJECTED with the
+    AUTHORITY_CLAIM gap kind."""
+    from desi.logic.gap_detector import GapKind
     r = _aud().audit("Professor X says quantum gravity is solved.")
-    assert r.state == LogicalState.GAP_DETECTED
+    assert r.state == LogicalState.LOGICALLY_REJECTED
+    assert r.gap is not None and r.gap.kind == GapKind.AUTHORITY_CLAIM
 
 
 def test_p3_hidden_assumption_is_bridge_required() -> None:
@@ -141,9 +147,9 @@ def test_inv_l3_replay_hash_is_independent_of_metadata() -> None:
 
 def test_p4_multi_source_prestige_trap_via_spl_adapter() -> None:
     """Same authority claim emitted by three different SPL document
-    types yields the same audit verdict (GAP_DETECTED). The SPL
-    metadata is *available* on the Claim's provenance but the
-    auditor never reads it."""
+    types yields the same audit verdict (LOGICALLY_REJECTED under
+    v1.8). The SPL metadata is *available* on the Claim's
+    provenance but the auditor never reads it."""
     adapter = SPLAdapter()
     text = "Professor X says quantum gravity is solved."
     sources = [
@@ -167,7 +173,7 @@ def test_p4_multi_source_prestige_trap_via_spl_adapter() -> None:
                 .state
                 for d in sources]
     assert len(set(verdicts)) == 1
-    assert verdicts[0] == LogicalState.GAP_DETECTED
+    assert verdicts[0] == LogicalState.LOGICALLY_REJECTED
 
 
 # ---------------------------------------------------------------------------

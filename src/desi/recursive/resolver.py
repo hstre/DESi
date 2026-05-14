@@ -547,6 +547,12 @@ def _classify_audit_block(audit) -> BlockingReason:
     reported as INVALID_INFERENCE.
     """
     if audit.state is LogicalState.LOGICALLY_REJECTED:
+        # v1.8: authority premises now reach LOGICALLY_REJECTED via
+        # the early-exit in the auditor. Classify on the gap kind
+        # first so the directive's "AUTHORITY_CLAIM under
+        # LOGICALLY_REJECTED" mapping is honoured.
+        if audit.gap is not None and audit.gap.kind is GapKind.AUTHORITY_CLAIM:
+            return BlockingReason.AUTHORITY_CLAIM
         if audit.gap is not None and audit.gap.kind is GapKind.UNREACHABLE:
             conclusion = audit.propositions.conclusion
             if conclusion is None or conclusion.kind is PremiseKind.ATOMIC:

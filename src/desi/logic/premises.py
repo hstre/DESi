@@ -209,6 +209,48 @@ _RE_AUTHORITY = re.compile(
     r"^(?P<speaker>[\w][\w\s]*?)\s+says\s+(?P<claim>.+?)\.?$",
     re.IGNORECASE,
 )
+# v1.8 directive: a closed authority speech-act library. Every lemma
+# here matches the same "<speaker> <verb> [that] <claim>" shape. The
+# set is closed — extending it requires a code edit, which is
+# itself an audit event. Detection is speech-act based; the
+# directive explicitly forbids special-casing speaker names like
+# "Professor", "Nature", or "Nobel".
+AUTHORITY_SPEECH_ACT_LEMMAS: frozenset[str] = frozenset({
+    "says", "said",
+    "states", "stated",
+    "claims", "claimed",
+    "declares", "declared",
+    "concludes", "concluded",
+    "announces", "announced",
+    "publishes", "published",
+    "proves", "proved",
+    "reports", "reported",
+})
+
+
+def _build_authority_regex() -> "re.Pattern[str]":
+    """Compile the speech-act regex from the closed lemma library.
+
+    Pattern: ``<speaker> <verb> [that] <claim>``. The optional
+    ``that`` connector covers both "X says Y" and "X stated that Y".
+    """
+    verbs = "|".join(sorted(AUTHORITY_SPEECH_ACT_LEMMAS,
+                              key=len, reverse=True))
+    return re.compile(
+        rf"^(?P<speaker>[\w][\w\s]*?)\s+(?:{verbs})\s+"
+        rf"(?:that\s+)?(?P<claim>.+?)\.?$",
+        re.IGNORECASE,
+    )
+
+
+_RE_AUTHORITY_SPEECH_ACT = _build_authority_regex()
+# v1.8: "According to X, Y" / "According to X: Y". Speaker comes
+# *after* the literal "according to" preposition.
+_RE_AUTHORITY_ACCORDING_TO = re.compile(
+    r"^according\s+to\s+(?P<speaker>[\w][\w\s]*?)\s*[,:]\s*"
+    r"(?P<claim>.+?)\.?$",
+    re.IGNORECASE,
+)
 _RE_THEREFORE = re.compile(r"\bTherefore\b", re.IGNORECASE)
 
 
@@ -234,6 +276,29 @@ def _classify(text: str) -> tuple[PremiseKind, dict[str, str]]:
             "antecedent": _normalise_phrase(m.group("ant")),
             "consequent": _normalise_phrase(m.group("con")),
         }
+    # v1.8: "According to X, Y" — speaker comes after preposition.
+    # Tested first so subsequent patterns don't greedy-match into
+    # the "according to" preamble.
+    m = _RE_AUTHORITY_ACCORDING_TO.match(text)
+    if m:
+        return PremiseKind.AUTHORITY, {
+            "speaker": _normalise_phrase(m.group("speaker")),
+            "predicate": _normalise_phrase(m.group("claim")),
+        }
+    # v1.8: full closed-lemma speech-act library. Tested BEFORE the
+    # negation patterns because authority preambles like "Wikipedia
+    # states that Pluto is not a planet" would otherwise be greedy-
+    # captured by the negation regex into a particular with
+    # predicate="not a planet".
+    m = _RE_AUTHORITY_SPEECH_ACT.match(text)
+    if m:
+        return PremiseKind.AUTHORITY, {
+            "speaker": _normalise_phrase(m.group("speaker")),
+            "predicate": _normalise_phrase(m.group("claim")),
+        }
+    # Legacy v1.2 "X says Y" pattern — kept for backwards-compat
+    # determinism even though _RE_AUTHORITY_SPEECH_ACT now matches
+    # the same shape.
     m = _RE_AUTHORITY.match(text)
     if m:
         return PremiseKind.AUTHORITY, {
@@ -352,6 +417,7 @@ class PremiseExtractor:
 
 
 __all__ = [
+    "AUTHORITY_SPEECH_ACT_LEMMAS",
     "ConclusionProposition",
     "Premise",
     "PremiseExtractor",

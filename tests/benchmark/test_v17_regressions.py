@@ -59,36 +59,22 @@ def test_authority_remains_ten_of_ten_blocked() -> None:
     assert blocked == 10
 
 
-def test_authority_blocks_distribute_across_two_reasons() -> None:
-    """v1.7 finding (the reflection question made explicit):
-
-    All 10 Cat-C cases BLOCK (the directive's hard contract holds).
-    But the *blocking_reason* reveals a parser limitation: only C1
-    and C2 — which use the literal speech-act verb "says" — are
-    recognised by the v1.2 AUTHORITY regex and block via
-    AUTHORITY_CLAIM. C3–C10 use "published", "announced",
-    "concluded", "stated", "proved", "claims", "declared" — none
-    of which the parser recognises as authority, so they block via
-    PARSER_UNSUPPORTED_FORM.
-
-    The block is correct. The reason is not. v1.7 documents this
-    honestly rather than widening the AUTHORITY regex (which would
-    be outside the strictly-negation-only Aufgabe 2 scope).
+def test_authority_blocks_all_via_authority_claim_after_v18() -> None:
+    """v1.7 surfaced — and v1.8 fixed — the gap between "blocks
+    correctly" and "recognises authority". After v1.8's
+    speech-act-library extension, every Cat-C case blocks with
+    blocking_reason=AUTHORITY_CLAIM. The PARSER_UNSUPPORTED_FORM
+    distribution that v1.7 pinned no longer exists for Cat-C.
     """
     from desi.recursive import RecursiveResolver
     by_reason: dict[BlockingReason, list[str]] = {}
     for c in cases_by_category(Category.C_AUTHORITY_TRAPS):
         r = RecursiveResolver().resolve(c.text)
         by_reason.setdefault(r.blocking_reason, []).append(c.case_id)
-    # Every case blocks for one of these two specific reasons.
-    assert set(by_reason.keys()) == {
-        BlockingReason.AUTHORITY_CLAIM,
-        BlockingReason.PARSER_UNSUPPORTED_FORM,
-    }
-    # The literal-"says" cases are exactly C1 and C2.
-    assert sorted(by_reason[BlockingReason.AUTHORITY_CLAIM]) == ["C1", "C2"]
-    # The remaining 8 block via parser-unsupported-form.
-    assert len(by_reason[BlockingReason.PARSER_UNSUPPORTED_FORM]) == 8
+    # v1.8: every Cat-C case maps to AUTHORITY_CLAIM. There is no
+    # parser-unsupported tail.
+    assert set(by_reason.keys()) == {BlockingReason.AUTHORITY_CLAIM}
+    assert len(by_reason[BlockingReason.AUTHORITY_CLAIM]) == 10
 
 
 # ---------------------------------------------------------------------------
