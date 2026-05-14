@@ -1,0 +1,12 @@
+[
+  {
+    "trajectory_id": "des_upstream_state_conservative",
+    "n_en_events": 0,
+    "composite_labels": [],
+    "novelty_recoveries": [],
+    "phase_iii_present": false,
+    "phase_iii_span": null,
+    "confirmed_count": 0,
+    "confirmed_genuine_en": 0
+  }
+]

@@ -420,16 +420,35 @@ class StepCoherenceReport:
 
 
 def validate_step_metric_coherence(trajectory: Trajectory) -> StepCoherenceReport:
-    """Flag steps with mutually-impossible metric combinations (RPP-STR P03)."""
+    """Flag steps with mutually-impossible metric combinations (RPP-STR P03).
+
+    Fix 1 (external-reality challenge): a step whose `missing_metrics`
+    list flags `dup_rate` or `novel_claims` as ABSENT from the input is
+    SKIPPED for the coherence rule that triggers on dup<0.05 AND
+    novel==0. Absence is not contradiction. The whole-trajectory
+    schema_mismatch report (separate detector) is the right place to
+    surface missing data.
+    """
     incoherent: list[IncoherentStep] = []
     sorted_steps = sorted(trajectory.steps, key=lambda s: s.loop_index)
     for i, s in enumerate(sorted_steps):
         reasons: list[str] = []
+        # The dup>0.70 AND novel>=5 rule still applies even when the
+        # fields are "missing" — because if both fields were missing
+        # they would both default to 0, which does NOT satisfy this
+        # condition. So this rule is implicitly safe.
         if s.dup_rate > 0.70 and s.novel_claims >= 5:
             reasons.append(
                 f"dup_rate={s.dup_rate:.2f}>0.70 AND novel_claims={s.novel_claims}>=5 (heavy duplication + many novel claims is contradictory)"
             )
-        if i > 0 and s.dup_rate < 0.05 and s.novel_claims == 0:
+        # The dup<0.05 AND novel==0 rule must NOT fire when either
+        # metric was absent from the input. Missing data should not
+        # masquerade as contradictory data.
+        metrics_present = not (
+            "dup_rate" in s.missing_metrics
+            or "novel_claims" in s.missing_metrics
+        )
+        if metrics_present and i > 0 and s.dup_rate < 0.05 and s.novel_claims == 0:
             reasons.append(
                 f"dup_rate={s.dup_rate:.2f}<0.05 AND novel_claims=0 (no exploration and no duplication after loop 0 is impossible)"
             )
@@ -441,6 +460,53 @@ def validate_step_metric_coherence(trajectory: Trajectory) -> StepCoherenceRepor
     else:
         note = "all steps coherent"
     return StepCoherenceReport(detected=detected, incoherent_steps=incoherent, note=note)
+
+
+# --- Schema-mismatch detector (external-reality fix 1) ---------------------
+# Surfaces ABSENT input fields as a distinct diagnostic rather than letting
+# the cycle-6 step_coherence rule mislabel them as contradictory.
+
+
+@dataclass(frozen=True)
+class SchemaMismatchReport:
+    detected: bool
+    steps_with_missing_metrics: list[int]
+    fields_missing: dict[str, int]   # field name -> step count
+    note: str
+
+
+def detect_schema_mismatch(trajectory: Trajectory) -> SchemaMismatchReport:
+    """Detect that input fields are absent (vs explicitly set to 0).
+
+    Counts per-field absences across all steps. A trajectory whose
+    `novel_claims` or `dup_rate` is missing on most steps is almost
+    certainly NOT a hand-authored DESi fixture but rather a translated
+    upstream-DES dump that did not include those metrics. DESi cannot
+    diagnose such a trajectory at the per-loop metric level; this
+    detector exists to make that explicit.
+    """
+    steps_with_missing: list[int] = []
+    counts: dict[str, int] = {}
+    for s in trajectory.steps:
+        if s.missing_metrics:
+            steps_with_missing.append(s.loop_index)
+            for f in s.missing_metrics:
+                counts[f] = counts.get(f, 0) + 1
+    detected = bool(steps_with_missing)
+    if detected:
+        note = (
+            f"{len(steps_with_missing)}/{len(trajectory.steps)} steps have missing metric fields; "
+            f"fields missing: {sorted(counts.items())}. "
+            "Step-level metric diagnostics are unreliable on this trajectory."
+        )
+    else:
+        note = "all steps provide all metric fields"
+    return SchemaMismatchReport(
+        detected=detected,
+        steps_with_missing_metrics=steps_with_missing,
+        fields_missing=counts,
+        note=note,
+    )
 
 
 # --- Convenience aggregator -------------------------------------------------
@@ -461,6 +527,7 @@ class DeterministicMetrics:
     mild_stagnation: MildStagnationReport
     step_coherence: StepCoherenceReport
     borderline_chain: BorderlineChainReport
+    schema_mismatch: SchemaMismatchReport
 
 
 def compute_all(trajectory: Trajectory) -> DeterministicMetrics:
@@ -478,4 +545,5 @@ def compute_all(trajectory: Trajectory) -> DeterministicMetrics:
         mild_stagnation=detect_mild_stagnation(trajectory),
         step_coherence=validate_step_metric_coherence(trajectory),
         borderline_chain=detect_borderline_chain(trajectory),
+        schema_mismatch=detect_schema_mismatch(trajectory),
     )

@@ -285,6 +285,12 @@ class TrajectoryStep(BaseModel):
     dup_rate: float = 0.0
     failure_mode: FailureMode | str | None = None
     claims: list[ClaimState] = Field(default_factory=list)
+    # Fix 1 (external-reality challenge): per-step list of metric names
+    # that were ABSENT from the input dict (vs explicitly set to 0).
+    # Populated by `_normalise` before model construction; consumed by
+    # `validate_step_metric_coherence` to avoid mislabelling missing
+    # data as contradictory.
+    missing_metrics: list[str] = Field(default_factory=list, alias="_missing_metrics")
 
     # DES-canonical extras (preserved when present; not required)
     question: str | None = None
@@ -321,6 +327,22 @@ class TrajectoryStep(BaseModel):
         # canonicalise operator code
         if "operator" in normalised:
             normalised["operator"] = normalize_operator(normalised["operator"])
+        # Fix 1 (external-reality challenge): record which metric fields
+        # were originally absent from the input dict. Cycle-6's
+        # `validate_step_metric_coherence` consults this to distinguish
+        # "missing data" from "self-contradictory data". Without this,
+        # all-zero defaults on schema-impoverished input look identical
+        # to a deliberate dup=0/novel=0 step authored by hand.
+        missing: list[str] = []
+        for key in ("novel_claims", "dup_rate"):
+            # Treat as missing iff the canonical key AND any known DES
+            # alias are all absent from the raw input.
+            present = key in data
+            if key == "dup_rate":
+                present = present or "semantic_duplication_rate" in data
+            if not present:
+                missing.append(key)
+        normalised["_missing_metrics"] = missing
         return normalised
 
 
@@ -350,3 +372,14 @@ class Trajectory(BaseModel):
     steps: list[TrajectoryStep] = Field(default_factory=list)
     en_events: list[ENEvent] = Field(default_factory=list)
     terminal_failure_mode: FailureMode | str | None = None
+    # Fix 3 (external-reality challenge): origin of this trajectory's data.
+    # Canonical values:
+    #   "hand_authored_fixture"     — DESi-side hand-built test fixture
+    #   "translator_heuristic"      — synth fields fabricated by a translator
+    #   "live_DES"                  — native DES output (no DESi-side fields)
+    #   "translated_DES_conservative" — DES output translated with no synth
+    # Default None preserves backward compatibility with pre-fix trajectories;
+    # downstream consumers treat None as "hand_authored_fixture" for the
+    # report-disclaimer test (the existing n=10 and n=20 suites are all
+    # hand-authored).
+    input_origin: str | None = None

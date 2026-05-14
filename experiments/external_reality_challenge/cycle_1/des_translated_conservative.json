@@ -8,8 +8,6 @@
       "loop_index": 0,
       "focus_claim_id": "C001",
       "operator": "T3",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -17,8 +15,6 @@
       "loop_index": 1,
       "focus_claim_id": "C001",
       "operator": "T4",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -26,26 +22,20 @@
       "loop_index": 2,
       "focus_claim_id": "C002",
       "operator": "T3",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
     {
       "loop_index": 3,
-      "focus_claim_id": "C009",
-      "operator": "UNKNOWN",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
+      "focus_claim_id": "C002",
+      "operator": "T6",
       "failure_mode": null,
       "claims": []
     },
     {
       "loop_index": 4,
-      "focus_claim_id": "C009",
-      "operator": "UNKNOWN",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
+      "focus_claim_id": "C002",
+      "operator": "T6",
       "failure_mode": null,
       "claims": []
     },
@@ -53,8 +43,6 @@
       "loop_index": 5,
       "focus_claim_id": "C002",
       "operator": "T8",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -62,26 +50,20 @@
       "loop_index": 6,
       "focus_claim_id": "C003",
       "operator": "T3",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
     {
       "loop_index": 7,
-      "focus_claim_id": "C009",
-      "operator": "UNKNOWN",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
+      "focus_claim_id": "C003",
+      "operator": "T5",
       "failure_mode": null,
       "claims": []
     },
     {
       "loop_index": 8,
-      "focus_claim_id": "C009",
-      "operator": "UNKNOWN",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
+      "focus_claim_id": "C003",
+      "operator": "T5",
       "failure_mode": null,
       "claims": []
     },
@@ -89,26 +71,20 @@
       "loop_index": 9,
       "focus_claim_id": "C003",
       "operator": "T2",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
     {
       "loop_index": 10,
-      "focus_claim_id": "C009",
-      "operator": "UNKNOWN",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
+      "focus_claim_id": "C003",
+      "operator": "T6",
       "failure_mode": null,
       "claims": []
     },
     {
       "loop_index": 11,
-      "focus_claim_id": "C009",
-      "operator": "UNKNOWN",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
+      "focus_claim_id": "C003",
+      "operator": "T6",
       "failure_mode": null,
       "claims": []
     },
@@ -116,8 +92,6 @@
       "loop_index": 12,
       "focus_claim_id": "C003",
       "operator": "T8",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -125,8 +99,6 @@
       "loop_index": 13,
       "focus_claim_id": "C004",
       "operator": "T3",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -134,8 +106,6 @@
       "loop_index": 14,
       "focus_claim_id": "C004",
       "operator": "T7",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -143,8 +113,6 @@
       "loop_index": 15,
       "focus_claim_id": "C004",
       "operator": "T6",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -152,8 +120,6 @@
       "loop_index": 16,
       "focus_claim_id": "C004",
       "operator": "T8",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -161,8 +127,6 @@
       "loop_index": 17,
       "focus_claim_id": "C005",
       "operator": "T3",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -170,8 +134,6 @@
       "loop_index": 18,
       "focus_claim_id": "C005",
       "operator": "T7",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -179,8 +141,6 @@
       "loop_index": 19,
       "focus_claim_id": "C005",
       "operator": "T6",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -188,8 +148,6 @@
       "loop_index": 20,
       "focus_claim_id": "C005",
       "operator": "T8",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -197,8 +155,6 @@
       "loop_index": 21,
       "focus_claim_id": "C006",
       "operator": "T3",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -206,8 +162,6 @@
       "loop_index": 22,
       "focus_claim_id": "C006",
       "operator": "T6",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -215,8 +169,6 @@
       "loop_index": 23,
       "focus_claim_id": "C006",
       "operator": "T8",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -224,8 +176,6 @@
       "loop_index": 24,
       "focus_claim_id": "C007",
       "operator": "T3",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -233,8 +183,6 @@
       "loop_index": 25,
       "focus_claim_id": "C007",
       "operator": "T7",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -242,8 +190,6 @@
       "loop_index": 26,
       "focus_claim_id": "C007",
       "operator": "T6",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -251,8 +197,6 @@
       "loop_index": 27,
       "focus_claim_id": "C007",
       "operator": "T8",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -260,8 +204,6 @@
       "loop_index": 28,
       "focus_claim_id": "C008",
       "operator": "T3",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -269,8 +211,6 @@
       "loop_index": 29,
       "focus_claim_id": "C008",
       "operator": "T6",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -278,8 +218,6 @@
       "loop_index": 30,
       "focus_claim_id": "C008",
       "operator": "T8",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -287,8 +225,6 @@
       "loop_index": 31,
       "focus_claim_id": "C009",
       "operator": "T3",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -296,8 +232,6 @@
       "loop_index": 32,
       "focus_claim_id": "C009",
       "operator": "T7",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -305,8 +239,6 @@
       "loop_index": 33,
       "focus_claim_id": "C009",
       "operator": "T6",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     },
@@ -314,21 +246,22 @@
       "loop_index": 34,
       "focus_claim_id": "C009",
       "operator": "T8",
-      "novel_claims": 0,
-      "dup_rate": 0.0,
       "failure_mode": null,
       "claims": []
     }
   ],
   "en_events": [],
   "terminal_failure_mode": null,
+  "input_origin": "translated_DES_conservative",
   "_provenance": {
     "source": "hstre/DES des_state.json",
     "translation_mode": "conservative",
-    "novel_claims_source": "ZEROED (not derivable from upstream state)",
-    "dup_rate_source": "ZEROED (not derivable from upstream state)",
+    "novel_claims_source": "OMITTED (recorded as missing by DESi)",
+    "dup_rate_source": "OMITTED (recorded as missing by DESi)",
     "en_events_source": "EMPTY (upstream DES does not emit ENI)",
     "claims_per_step": "EMPTY (no per-iteration snapshots in upstream state)",
+    "operator_parse_failures": 0,
+    "operator_failure_token": "OPERATOR_PARSE_FAILURE",
     "upstream_iteration": 32,
     "upstream_focus": "C009",
     "upstream_claim_count": 9,

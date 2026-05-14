@@ -1,0 +1,18 @@
+=== CONSERVATIVE: DESi full detector output on upstream DES ===
+n_steps=35  n_EN=0
+phases:
+  I_EXPOSITION  0-0  conf=medium
+    - dup_rate=0.00 < 0.30
+    - no EN event at loop 0
+    - partial match
+  II_FIRST_SATURATION_MODULATION  1-1  conf=low
+    - novelty collapse: novel_claims<=2 at loop 1
+    - persistence: novel<=2 at loops 1 and 2
+    - no EN events in trajectory (saturation observed without EN probe)
+attractor: []  (tail not saturated: mean_novel=0.0 (>3.0) OR mean_dup=0.00 (<0.3))
+branch_explosion: False  (no branch explosion: distinct_open=0, tail-3 avg_dup=0.00, tail-3 avg_novel=0.0 (tail-windowed in cycle 3 of generalization loop))
+mild_stagnation: False  (no mild stagnation: dup not strictly increasing in tail)
+step_coherence: detected=True (34 of 35 steps)
+   note: 34 incoherent step(s) at loops [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34]; LLM roles should refuse to interpret these steps
+borderline_chain: False  (no EN events)
+penultimate: has_candidate=False  (fewer than 2 EN events; principle not applicable)

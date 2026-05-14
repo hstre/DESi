@@ -37,8 +37,21 @@ def render_report(result: MetaAnalysisResult) -> str:
         f"— EXPLORATORY, small n. Do not generalise without replication._"
     )
 
+    # Fix 3 (external-reality challenge): banner when input is not native.
+    origin = getattr(t, "input_origin", None)
+    _NON_AUTHORITATIVE = {"translator_heuristic", "translated_DES_conservative"}
+    if origin in _NON_AUTHORITATIVE:
+        lines.append("")
+        lines.append(
+            f"> **Input-origin disclaimer** (`input_origin = {origin}`): "
+            f"diagnosis applies to translator-derived metrics, not native "
+            f"DES metrics. DESi diagnoses below describe the translator's "
+            f"reconstruction, not the underlying DES program's behaviour."
+        )
+
     lines.append(_section("Input Summary"))
     lines.append(f"- trajectory_id: `{t.trajectory_id}`")
+    lines.append(f"- input_origin: `{origin or 'hand_authored_fixture (default)'}`")
     lines.append(f"- domain: {t.domain or '-'}")
     lines.append(f"- seed: {t.seed or '-'}")
     lines.append(f"- persona: {t.persona or '-'}")
@@ -109,6 +122,10 @@ def render_report(result: MetaAnalysisResult) -> str:
     bc = m.borderline_chain
     lines.append(f"- **borderline_chain** (gen-cycle 5): detected = **{bc.detected}** — "
                  f"longest run = {bc.longest_run}; {bc.note}")
+    # Fix 1 (external-reality challenge): surface schema_mismatch.
+    sm = m.schema_mismatch
+    lines.append(f"- **schema_mismatch** (external-reality fix 1): detected = **{sm.detected}** — "
+                 f"{sm.note}")
     if m.en_classifications_composite:
         lines.append("- **composite EN classifications** (cycle 7):")
         for c in m.en_classifications_composite:

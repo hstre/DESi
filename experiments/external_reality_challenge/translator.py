@@ -67,43 +67,61 @@ from __future__ import annotations
 import argparse
 import json
 import pathlib
-import re
 import sys
 
 
-OP_PATTERN = re.compile(r"^(T\d)\s+on\s+(\S+)$")
-
-
-def parse_operation(op_str: str) -> tuple[str, str] | None:
-    """Parse 'T3 on C001' -> ('T3', 'C001'). Returns None if unparseable."""
-    m = OP_PATTERN.match(op_str.strip())
-    if not m:
-        return None
-    return m.group(1), m.group(2)
+# Fix 2 (external-reality challenge): use the canonical operator parser
+# instead of a translator-local regex that only handled 'Tn on Cxxx'.
+ROOT = pathlib.Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "src"))
+from desi.operator_parser import (  # noqa: E402
+    parse_des_operation, ParsedOperation, OperatorParseFailure,
+    OPERATOR_PARSE_FAILURE,
+)
 
 
 def translate_conservative(des: dict, source_id: str) -> dict:
-    """Honest, impoverished translation. Records what we know; leaves
-    DESi-side metrics at their identity values.
+    """Honest, impoverished translation.
+
+    Fix 1 (external-reality challenge): steps do NOT include
+    `novel_claims` or `dup_rate` keys at all. DESi's
+    `TrajectoryStep._normalise` records them as missing-metrics, and
+    `validate_step_metric_coherence` will skip the dup<0.05/novel=0
+    rule for these steps. Pre-fix the translator emitted explicit 0
+    values which DESi could not distinguish from "deliberately zero".
+
+    Fix 2: uses `parse_des_operation` which handles both
+    `T3 on C001` and `T6[hypothesis_builder] on C003 -> C008`.
+    Failures emit `OPERATOR_PARSE_FAILURE`, NOT `UNKNOWN`. Focus
+    falls back to the empty string when source_claim cannot be
+    recovered — there is no silent substitution of the upstream
+    global focus_claim_id.
+
+    Fix 3: trajectory carries `input_origin = "translated_DES_conservative"`.
+    `render_report` will prepend the translator-derived disclaimer.
     """
     ops = des.get("operation_history", [])
     steps = []
+    parse_failures = 0
     for i, op_str in enumerate(ops):
-        parsed = parse_operation(op_str)
-        if parsed is None:
-            operator = "UNKNOWN"
-            focus = des.get("focus_claim_id") or "C001"
+        parsed = parse_des_operation(op_str)
+        if isinstance(parsed, OperatorParseFailure):
+            operator = OPERATOR_PARSE_FAILURE
+            focus = ""
+            parse_failures += 1
         else:
-            operator, focus = parsed
-        steps.append({
+            operator = parsed.operator
+            focus = parsed.source_claim
+        step: dict = {
             "loop_index": i,
             "focus_claim_id": focus,
             "operator": operator,
-            "novel_claims": 0,  # NOT IN UPSTREAM DES
-            "dup_rate": 0.0,    # NOT IN UPSTREAM DES
             "failure_mode": None,
-            "claims": [],       # snapshots per-iteration not in upstream state
-        })
+            "claims": [],
+            # novel_claims and dup_rate intentionally omitted — DESi's
+            # model_validator will record them as missing.
+        }
+        steps.append(step)
     return {
         "trajectory_id": f"des_upstream_{source_id}_conservative",
         "domain": "real_des_run",
@@ -112,13 +130,16 @@ def translate_conservative(des: dict, source_id: str) -> dict:
         "steps": steps,
         "en_events": [],         # upstream DES emits no ENI events
         "terminal_failure_mode": None,
+        "input_origin": "translated_DES_conservative",
         "_provenance": {
             "source": "hstre/DES des_state.json",
             "translation_mode": "conservative",
-            "novel_claims_source": "ZEROED (not derivable from upstream state)",
-            "dup_rate_source": "ZEROED (not derivable from upstream state)",
+            "novel_claims_source": "OMITTED (recorded as missing by DESi)",
+            "dup_rate_source": "OMITTED (recorded as missing by DESi)",
             "en_events_source": "EMPTY (upstream DES does not emit ENI)",
             "claims_per_step": "EMPTY (no per-iteration snapshots in upstream state)",
+            "operator_parse_failures": parse_failures,
+            "operator_failure_token": OPERATOR_PARSE_FAILURE,
             "upstream_iteration": des.get("iteration"),
             "upstream_focus": des.get("focus_claim_id"),
             "upstream_claim_count": len(des.get("claims", {})),
@@ -151,9 +172,20 @@ def translate_heuristic(des: dict, source_id: str) -> dict:
     heuristics so anyone reading this can disagree.
     """
     ops = des.get("operation_history", [])
-    parsed = [parse_operation(o) or ("UNKNOWN", "C001") for o in ops]
-    operators = [p[0] for p in parsed]
-    focuses = [p[1] for p in parsed]
+    # Fix 2: explicit-failure parse; OPERATOR_PARSE_FAILURE token for
+    # unparseable strings (no UNKNOWN silent substitution); empty source
+    # claim when not recoverable (no default-focus inheritance).
+    parsed_list: list = []
+    parse_failures = 0
+    for o in ops:
+        r = parse_des_operation(o)
+        if isinstance(r, OperatorParseFailure):
+            parsed_list.append((OPERATOR_PARSE_FAILURE, ""))
+            parse_failures += 1
+        else:
+            parsed_list.append((r.operator, r.source_claim))
+    operators = [p[0] for p in parsed_list]
+    focuses = [p[1] for p in parsed_list]
 
     # H1: novel_claims
     novel = []
@@ -216,6 +248,9 @@ def translate_heuristic(des: dict, source_id: str) -> dict:
         "steps": steps,
         "en_events": en_events,
         "terminal_failure_mode": None,
+        # Fix 3: declared origin so render_report prepends the
+        # translator-derived disclaimer.
+        "input_origin": "translator_heuristic",
         "_provenance": {
             "source": "hstre/DES des_state.json",
             "translation_mode": "heuristic",
@@ -227,6 +262,8 @@ def translate_heuristic(des: dict, source_id: str) -> dict:
                 " heuristics named H1, H2, H3. Any DESi diagnosis from this"
                 " trajectory reflects DESi reading my heuristics, not reading DES."
             ),
+            "operator_parse_failures": parse_failures,
+            "operator_failure_token": OPERATOR_PARSE_FAILURE,
             "upstream_iteration": des.get("iteration"),
             "upstream_focus": des.get("focus_claim_id"),
             "upstream_claim_count": len(des.get("claims", {})),

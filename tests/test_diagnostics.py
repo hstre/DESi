@@ -277,3 +277,125 @@ def test_detect_borderline_chain_does_not_fire_on_mixed_labels():
     )
     r = detect_borderline_chain(traj)
     assert r.detected is False
+
+
+# External-reality fix 1: missing-metric tracking + schema_mismatch + coherence guard
+def test_step_records_missing_metrics_when_fields_absent():
+    from desi.models import TrajectoryStep
+    s = TrajectoryStep.model_validate({"loop_index": 0, "operator": "T3"})
+    assert sorted(s.missing_metrics) == ["dup_rate", "novel_claims"]
+    # Defaults still apply
+    assert s.novel_claims == 0
+    assert s.dup_rate == 0.0
+
+
+def test_step_does_not_flag_present_metrics_as_missing():
+    from desi.models import TrajectoryStep
+    s = TrajectoryStep.model_validate(
+        {"loop_index": 0, "operator": "T3", "novel_claims": 0, "dup_rate": 0.0}
+    )
+    assert s.missing_metrics == []
+
+
+def test_step_coherence_skips_steps_with_missing_metrics():
+    """Pre-fix: 34 of 35 upstream-DES steps were flagged 'incoherent'
+    because their dup/novel defaulted to 0. Post-fix: missing data is
+    not contradiction, so step_coherence does NOT fire."""
+    from desi.diagnostics import validate_step_metric_coherence
+    raw_steps = [
+        {"loop_index": i, "operator": "T3"}  # no novel_claims, no dup_rate
+        for i in range(5)
+    ]
+    traj = Trajectory.model_validate({
+        "trajectory_id": "missing_fields",
+        "steps": raw_steps,
+        "en_events": [],
+    })
+    r = validate_step_metric_coherence(traj)
+    assert r.detected is False, r.note
+
+
+def test_schema_mismatch_detects_missing_input_fields():
+    from desi.diagnostics import detect_schema_mismatch
+    raw_steps = [
+        {"loop_index": i, "operator": "T3"}
+        for i in range(5)
+    ]
+    traj = Trajectory.model_validate({
+        "trajectory_id": "missing_fields",
+        "steps": raw_steps,
+        "en_events": [],
+    })
+    r = detect_schema_mismatch(traj)
+    assert r.detected is True
+    assert r.steps_with_missing_metrics == [0, 1, 2, 3, 4]
+    assert r.fields_missing == {"novel_claims": 5, "dup_rate": 5}
+
+
+def test_step_coherence_still_fires_on_genuine_contradiction():
+    """Cycle-6's dup>0.70 AND novel>=5 rule still applies even when
+    fields are provided (not missing). This is the contradictory case."""
+    from desi.diagnostics import validate_step_metric_coherence
+    traj = Trajectory(
+        trajectory_id="contradictory",
+        steps=[
+            TrajectoryStep(loop_index=0, operator="T3", novel_claims=10, dup_rate=0.05),
+            TrajectoryStep(loop_index=1, operator="T8", novel_claims=10, dup_rate=0.90),
+        ],
+        en_events=[],
+    )
+    r = validate_step_metric_coherence(traj)
+    assert r.detected is True
+
+
+# External-reality fix 2: operator parser
+def test_parse_des_operation_simple_form():
+    from desi.operator_parser import parse_des_operation, ParsedOperation
+    r = parse_des_operation("T3 on C001")
+    assert isinstance(r, ParsedOperation)
+    assert r.operator == "T3"
+    assert r.sub_role is None
+    assert r.source_claim == "C001"
+    assert r.target_claim is None
+
+
+def test_parse_des_operation_rich_form():
+    """Upstream DES emits 'T6[hypothesis_builder] on C003 -> C008'.
+    Pre-fix-2 this fell through to UNKNOWN. Post-fix-2 it parses."""
+    from desi.operator_parser import parse_des_operation, ParsedOperation
+    r = parse_des_operation("T6[hypothesis_builder] on C003 -> C008")
+    assert isinstance(r, ParsedOperation)
+    assert r.operator == "T6"
+    assert r.sub_role == "hypothesis_builder"
+    assert r.source_claim == "C003"
+    assert r.target_claim == "C008"
+
+
+def test_parse_des_operation_returns_explicit_failure_not_unknown():
+    """Failed parse returns OperatorParseFailure with the raw string
+    preserved; caller must emit OPERATOR_PARSE_FAILURE, NOT silently
+    substitute UNKNOWN."""
+    from desi.operator_parser import (
+        parse_des_operation, OperatorParseFailure, OPERATOR_PARSE_FAILURE,
+    )
+    r = parse_des_operation("not a real op")
+    assert isinstance(r, OperatorParseFailure)
+    assert r.raw == "not a real op"
+    assert r.operator == OPERATOR_PARSE_FAILURE
+    assert r.operator != "UNKNOWN"
+
+
+# External-reality fix 3: input_origin
+def test_trajectory_accepts_input_origin():
+    traj = Trajectory(
+        trajectory_id="t",
+        steps=[],
+        en_events=[],
+        input_origin="translator_heuristic",
+    )
+    assert traj.input_origin == "translator_heuristic"
+
+
+def test_trajectory_input_origin_defaults_none():
+    traj = Trajectory(trajectory_id="t", steps=[], en_events=[])
+    assert traj.input_origin is None

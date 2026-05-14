@@ -62,6 +62,7 @@ def evaluate_one(path: pathlib.Path) -> dict:
         "penultimate_en_candidate": metrics.penultimate.has_candidate,
         "attractor_lock": bool(metrics.attractor.candidate_claim_ids),
         "borderline_chain": metrics.borderline_chain.detected,
+        "schema_mismatch": metrics.schema_mismatch.detected,
         "any_genuine_transformation_confirmed":
             "genuine_transformation_confirmed" in composite_labels,
         "any_recovered_after_high_eni":
