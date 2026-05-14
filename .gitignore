@@ -39,3 +39,11 @@ outputs/*.md
 data/generalization/
 outputs/generalization_loop/
 docs/paper1/
+
+# v0.4.1 showcase: per-scenario artefact bundles are regenerable from
+# the ShowcaseRunner. The runner code + the top-level README and
+# baseline_notes.md are tracked; the bundles themselves are noise
+# under git (wall-clock timestamps and per-run UUIDs drift each run).
+docs/showcase/S2/
+docs/showcase/S6/
+docs/showcase/S7/
