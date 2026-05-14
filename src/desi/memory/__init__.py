@@ -24,6 +24,7 @@ from .claim import (
     Provenance,
 )
 from .events import OperatorEvent, Run
+from .hook import HookError, MemoryHook
 from .migrations import (
     OPTIONAL_INDICES,
     REQUIRED_CONSTRAINTS,
@@ -44,7 +45,9 @@ from .view import ReadOnlyMemoryView
 __all__ = [
     "Claim",
     "ClaimState",
+    "HookError",
     "InMemoryStore",
+    "MemoryHook",
     "MemoryRecorder",
     "MemoryStore",
     "Migration",
