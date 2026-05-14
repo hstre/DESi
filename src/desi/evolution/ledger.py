@@ -55,6 +55,14 @@ class LedgerEventType(str, Enum):
     # and metrics so a later audit can reconstruct the path each seed
     # actually took.
     SEED_RUN_RESULT = "seed_run_result"
+    # v1.0: natural-language entry point. Written by SPLAdapter to
+    # document every text → Claim projection. The three events form
+    # a strict order: STARTED on entry, one CANDIDATE_EMITTED per
+    # backend output, REJECTED for every gateway block (and every
+    # backend / cost-guard failure).
+    SEMANTIC_PROJECTION_STARTED = "semantic_projection_started"
+    SEMANTIC_CANDIDATE_EMITTED = "semantic_candidate_emitted"
+    SEMANTIC_PROJECTION_REJECTED = "semantic_projection_rejected"
 
 
 @dataclass(frozen=True)
