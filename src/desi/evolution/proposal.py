@@ -88,6 +88,17 @@ class MutationProposal(BaseModel):
     # proposal.
     motivating_findings: tuple[str, ...] = Field(default_factory=tuple)
 
+    # v0.6: drafts produced by ProposalDraftBuilder are marked as
+    # not-yet-ratified. The PromotionGate refuses to promote a
+    # proposal where this flag is True, even if every other condition
+    # is met.
+    requires_ratification: bool = Field(
+        default=False,
+        description="True for ProposalDraftBuilder-emitted drafts. A "
+                    "human ratifier flips this back to False after "
+                    "reviewing problem / hypothesis / config_delta.",
+    )
+
     def serialise(self) -> dict[str, Any]:
         d = self.model_dump(mode="json")
         return d
