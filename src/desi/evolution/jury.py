@@ -181,6 +181,24 @@ def _replikator_vote(p, evalrep, refl, round1) -> JuryFinalVote:
                 ),
             ),
         )
+    # v0.8: when a multi_seed_report is attached, the Empiriker
+    # answers "Wie hoch ist die Varianz?". High variance on the
+    # candidate scenario blocks APPROVE — robustness is the point.
+    ms = getattr(refl, "_multi_seed_report", None)
+    if ms is not None:
+        max_std = 0.0
+        for agg in ms.aggregates.values():
+            if agg.std_branch_delta > max_std:
+                max_std = agg.std_branch_delta
+        if max_std > 1.0:
+            return JuryFinalVote(
+                role=JuryRole.REPLIKATOR,
+                vote=Vote.REVISE,
+                rationale=(
+                    f"multi-seed branch-delta std={max_std:.2f} > 1.0; "
+                    "variance is too high to call the improvement robust."
+                ),
+            )
     if others_flagged:
         return JuryFinalVote(
             role=JuryRole.REPLIKATOR,
@@ -250,6 +268,27 @@ def _skeptiker_vote(p, evalrep, refl, round1) -> JuryFinalVote:
             rationale="empty config_delta is documentation-only; not "
                       "promotable.",
         )
+    # v0.8: when a multi_seed_report is attached, the Skeptiker
+    # answers "Ist die Verbesserung robust?". A single-seed flicker
+    # is enough to REVISE — robustness is the load-bearing claim.
+    ms = getattr(refl, "_multi_seed_report", None)
+    if ms is not None:
+        from .significance import _evolution_candidate_scenarios
+        candidate_ids = _evolution_candidate_scenarios()
+        for sid in candidate_ids:
+            agg = ms.aggregates.get(sid)
+            if agg is None:
+                continue
+            if agg.improved_seed_count < 4 and agg.n_seeds >= 5:
+                return JuryFinalVote(
+                    role=JuryRole.SKEPTIKER,
+                    vote=Vote.REVISE,
+                    rationale=(
+                        f"candidate {sid} improved on only "
+                        f"{agg.improved_seed_count}/{agg.n_seeds} seeds; "
+                        "improvement is not yet robust."
+                    ),
+                )
     return JuryFinalVote(
         role=JuryRole.SKEPTIKER,
         vote=Vote.APPROVE,
@@ -394,6 +433,60 @@ def _integrator_vote(p, evalrep, refl, round1) -> JuryFinalVote:
             vote=Vote.REVISE,
             rationale="another reviewer raised a structural concern.",
         )
+    # v0.8: when a multi_seed_report is attached, the Integrator
+    # answers "Ist das robust genug für Promotion?". The
+    # SignificanceGate verdict is the load-bearing input. Robust
+    # improvement → APPROVE; regression → VETO; inconclusive → REVISE.
+    ms = getattr(refl, "_multi_seed_report", None)
+    if ms is not None:
+        from .significance import SignificanceGate
+        decision = SignificanceGate().decide(ms)
+        if decision.verdict == "regressed":
+            failing = decision.failing_seeds or ("?",)
+            return JuryFinalVote(
+                role=JuryRole.INTEGRATOR,
+                vote=Vote.VETO,
+                rationale=(
+                    f"multi-seed gate verdict='regressed' "
+                    f"(failing seeds {list(failing)}): {decision.rationale}"
+                ),
+                veto=Veto(
+                    role=JuryRole.INTEGRATOR,
+                    affected_claim=p.target.value,
+                    suspected_risk="multi-seed regression on a guard scenario",
+                    failure_case=(
+                        f"at least one seed regressed: {decision.rationale}"
+                    ),
+                    proposed_test=(
+                        "hold the mutation; re-run the multi-seed paired "
+                        "evaluation on the full default seed list and "
+                        "require zero seeds with verdict='regressed' on "
+                        "every regression guard."
+                    ),
+                ),
+            )
+        if decision.verdict == "inconclusive":
+            return JuryFinalVote(
+                role=JuryRole.INTEGRATOR,
+                vote=Vote.REVISE,
+                rationale=(
+                    "multi-seed gate verdict='inconclusive': "
+                    f"{decision.rationale}"
+                ),
+            )
+        if decision.verdict == "improved":
+            return JuryFinalVote(
+                role=JuryRole.INTEGRATOR,
+                vote=Vote.APPROVE,
+                rationale=(
+                    "multi-seed gate verdict='improved' on supporting "
+                    f"seeds {list(decision.supporting_seeds)}: "
+                    f"{decision.rationale}"
+                ),
+            )
+        # 'neutral' falls through to the v0.7 paired-report path /
+        # default APPROVE.
+
     # v0.7: when a paired_report is attached, refuse to APPROVE unless
     # the aggregate verdict reads 'improved'. Neutral and regressed
     # block; round-2 rationale cites the measurable verdict.
@@ -518,6 +611,7 @@ class DelphiJury:
         reflection: ReflectionReport,
         *,
         paired_report: Any | None = None,
+        multi_seed_report: Any | None = None,
     ) -> JuryDecision:
         """Run two rounds of review on a proposal.
 
@@ -528,6 +622,14 @@ class DelphiJury:
         and the aggregate verdict. The directive: round-2 votes must
         cite measurable arguments — the paired_report is the
         load-bearing input for that.
+
+        v0.8: ``multi_seed_report`` is an optional
+        :class:`desi.evolution.MultiSeedEvaluationReport`. When
+        supplied, it supersedes ``paired_report`` for promotion
+        decisions: the Skeptiker probes robustness, the Replikator
+        (Empiriker) probes variance, and the Integrator consults the
+        :class:`desi.evolution.SignificanceGate` instead of the
+        single-seed aggregate verdict.
         """
         # Snapshot the paired report on the reflection object so that
         # the existing five role functions can read it via getattr
@@ -535,6 +637,9 @@ class DelphiJury:
         # stable so v0.6 jury subclasses keep working.
         if paired_report is not None:
             object.__setattr__(reflection, "_paired_report", paired_report)
+        if multi_seed_report is not None:
+            object.__setattr__(reflection, "_multi_seed_report",
+                               multi_seed_report)
         # Round 1: independent reviews.
         round1 = tuple(
             m.review_fn(proposal, eval_report, reflection)

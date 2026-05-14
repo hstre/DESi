@@ -50,6 +50,13 @@ from .ledger import (
     LedgerEventType,
 )
 from .metrics import MetricsDelta, PathQualityMetrics, compute_path_quality
+from .multi_seed import (
+    DEFAULT_SEEDS,
+    STRESS_SEED,
+    MultiSeedEvaluationReport,
+    MultiSeedMutationEvaluation,
+    ScenarioAggregate,
+)
 from .mutations import NAMED_MUTATIONS, m_001, mutation_by_id
 from .paired_evaluation import (
     EVOLUTION_CANDIDATE_SCENARIOS,
@@ -58,6 +65,12 @@ from .paired_evaluation import (
     PairedMutationEvaluation,
     PairedScenarioOutcome,
     REGRESSION_GUARDS,
+)
+from .significance import (
+    IMPROVED_THRESHOLD,
+    REQUIRED_SEED_COUNT,
+    SignificanceDecision,
+    SignificanceGate,
 )
 from .promotion import (
     PromotionError,
@@ -85,10 +98,12 @@ from .veto_followup import (
 __all__ = [
     "AdversarialPattern",
     "CloneSandbox",
+    "DEFAULT_SEEDS",
     "DelphiJury",
     "EVOLUTION_CANDIDATE_SCENARIOS",
     "EvolutionLedger",
     "EvolutionLedgerJSONL",
+    "IMPROVED_THRESHOLD",
     "JuryDecision",
     "JuryMember",
     "JuryReview",
@@ -96,6 +111,8 @@ __all__ = [
     "LedgerEntry",
     "LedgerEventType",
     "MetricsDelta",
+    "MultiSeedEvaluationReport",
+    "MultiSeedMutationEvaluation",
     "MutationEvaluation",
     "MutationEvaluationReport",
     "MutationProposal",
@@ -112,9 +129,14 @@ __all__ = [
     "PromotionResult",
     "ProposalDraftBuilder",
     "REGRESSION_GUARDS",
+    "REQUIRED_SEED_COUNT",
     "ReflectionEngine",
     "ReflectionFinding",
     "ReflectionReport",
+    "STRESS_SEED",
+    "ScenarioAggregate",
+    "SignificanceDecision",
+    "SignificanceGate",
     "Snapshot",
     "StableConfig",
     "Veto",

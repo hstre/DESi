@@ -42,6 +42,13 @@ class LedgerEventType(str, Enum):
     CONFIG_ACTIVATED = "config_activated"
     METRICS_DELTA = "metrics_delta"
     EVOLUTION_CYCLE = "evolution_cycle"
+    # v0.8: multi-seed evaluation + significance gating. The trio is
+    # always written in this order: STARTED at the top of an N-seed
+    # cycle, one RESULT per scenario after aggregation, and exactly
+    # one DECISION after the SignificanceGate runs.
+    MULTI_SEED_STARTED = "multi_seed_started"
+    MULTI_SEED_RESULT = "multi_seed_result"
+    SIGNIFICANCE_DECISION = "significance_decision"
 
 
 @dataclass(frozen=True)
