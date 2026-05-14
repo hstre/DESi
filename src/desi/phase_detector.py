@@ -72,20 +72,38 @@ def _consecutive_low_eni_run(events: list[ENEvent]) -> tuple[int, int] | None:
 
 
 def detect_phase_i(trajectory: Trajectory) -> PhaseSpan | None:
-    """Phase I: loop 0, novel >= 10, dup < 0.30, no EN."""
+    """Phase I: loop 0, novel >= 10, dup < 0.30, no EN.
+
+    External-reality fix (next cycle): if step 0's `novel_claims` or
+    `dup_rate` is in `missing_metrics`, that metric is NOT evaluable
+    and is NOT counted as evidence. Pre-fix the detector treated
+    "field absent, defaulted to 0" identically to "field explicitly
+    set to 0", producing spurious medium-confidence Phase I on null
+    translator output (the conservative DES-translation case).
+    """
     if not trajectory.steps:
         return None
     step0 = next((s for s in trajectory.steps if s.loop_index == 0), None)
     if step0 is None:
         return None
     en_at_zero = any(e.loop_index == 0 for e in trajectory.en_events)
+    novel_missing = "novel_claims" in step0.missing_metrics
+    dup_missing = "dup_rate" in step0.missing_metrics
     evidence: list[str] = []
-    if step0.novel_claims >= 10:
+    if not novel_missing and step0.novel_claims >= 10:
         evidence.append(f"novel_claims={step0.novel_claims} >= 10")
-    if step0.dup_rate < 0.30:
+    if not dup_missing and step0.dup_rate < 0.30:
         evidence.append(f"dup_rate={step0.dup_rate:.2f} < 0.30")
     if not en_at_zero:
         evidence.append("no EN event at loop 0")
+    # If a metric is missing, treat the corresponding condition as
+    # "INSUFFICIENT_METRICS" — not as passing, not as failing. The
+    # detector requires evidence from BOTH metric channels to fire
+    # at "medium" or "high" confidence.
+    if novel_missing or dup_missing:
+        # The non-metric condition (EN absence) cannot carry Phase I
+        # alone; without either metric we have insufficient evidence.
+        return None
     if len(evidence) == 3:
         return PhaseSpan(name=PHASE_I, start_loop=0, end_loop=0,
                          trigger_evidence=evidence, confidence="high")
@@ -97,7 +115,15 @@ def detect_phase_i(trajectory: Trajectory) -> PhaseSpan | None:
 
 
 def detect_phase_ii(trajectory: Trajectory) -> PhaseSpan | None:
-    """Phase II: cycle-3 dropped EN gate; cycle-9 added persistence; cycle-1 normalised span."""
+    """Phase II: cycle-3 dropped EN gate; cycle-9 added persistence; cycle-1 normalised span.
+
+    External-reality fix (next cycle): the persistence rule requires
+    novel_claims <= 2 on TWO consecutive loops. If `novel_claims` is
+    in either loop's `missing_metrics`, the rule is INSUFFICIENT_METRICS
+    on that pair — the pair is skipped. Pre-fix every all-zero pair
+    counted as collapse-with-persistence, producing low-confidence
+    Phase II on null translator output.
+    """
     if not trajectory.steps:
         return None
     sorted_steps = sorted(trajectory.steps, key=lambda s: s.loop_index)
@@ -105,6 +131,9 @@ def detect_phase_ii(trajectory: Trajectory) -> PhaseSpan | None:
     first_en = sorted_en[0] if sorted_en else None
     collapse_loop: int | None = None
     for a, b in zip(sorted_steps, sorted_steps[1:]):
+        # Skip pairs where novel_claims is missing on either side.
+        if "novel_claims" in a.missing_metrics or "novel_claims" in b.missing_metrics:
+            continue
         if a.loop_index > 0 and a.novel_claims <= 2 and b.novel_claims <= 2:
             collapse_loop = a.loop_index
             break

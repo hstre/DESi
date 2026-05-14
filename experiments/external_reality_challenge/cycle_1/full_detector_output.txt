@@ -1,23 +1,15 @@
-=== CONSERVATIVE (POST-FIX): DESi full detector output on upstream DES ===
+=== CONSERVATIVE (POST Phase-I/II fix): DESi full detector output on upstream DES ===
 input_origin: translated_DES_conservative
 n_steps=35  n_EN=0
 first 3 steps: missing_metrics = [['novel_claims', 'dup_rate'], ['novel_claims', 'dup_rate'], ['novel_claims', 'dup_rate']]
 operator distribution sample: ['T3', 'T4', 'T3', 'T6', 'T6'] ...
 phases:
-  I_EXPOSITION  0-0  conf=medium
-    - dup_rate=0.00 < 0.30
-    - no EN event at loop 0
-    - partial match
-  II_FIRST_SATURATION_MODULATION  1-1  conf=low
-    - novelty collapse: novel_claims<=2 at loop 1
-    - persistence: novel<=2 at loops 1 and 2
-    - no EN events in trajectory (saturation observed without EN probe)
+  (no phase rules triggered)
 schema_mismatch: detected=True
    fields missing: {'novel_claims': 35, 'dup_rate': 35}
    note: 35/35 steps have missing metric fields; fields missing: [('dup_rate', 35), ('novel_claims', 35)]. Step-level metric diagnostics are unreliable on this trajectory.
 step_coherence: detected=False (0 of 35 steps)
-   note: all steps coherent
-attractor: []  (tail not saturated: mean_novel=0.0 (>3.0) OR mean_dup=0.00 (<0.3))
+attractor: []
 branch_explosion: False
 mild_stagnation: False
 borderline_chain: False

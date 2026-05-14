@@ -232,3 +232,64 @@ def test_phase_clip_preserves_non_overlapping_spans():
     phases = detect_phases(traj).phases
     p1 = next(p for p in phases if p.name == PHASE_I)
     assert (p1.start_loop, p1.end_loop) == (0, 0)
+
+
+# Phase I/II missing-metrics guard (next cycle after fixes 1+2+3).
+def test_phase_i_silent_when_loop0_metrics_missing():
+    """Conservative DES-translation case: step 0 has no novel_claims
+    and no dup_rate in the input JSON. Pre-fix Phase I emitted
+    medium-confidence (dup<0.30 passed because dup defaulted to 0).
+    Post-fix it must stay silent."""
+    raw = {
+        "trajectory_id": "missing_loop0",
+        "steps": [
+            {"loop_index": 0, "operator": "T3"},          # both metrics absent
+            {"loop_index": 1, "operator": "T3"},
+        ],
+        "en_events": [],
+    }
+    traj = Trajectory.model_validate(raw)
+    names = [p.name for p in detect_phases(traj).phases]
+    assert PHASE_I not in names
+
+
+def test_phase_i_still_fires_when_metrics_present():
+    """Regression: hand-authored fixtures continue to fire Phase I."""
+    traj = Trajectory(
+        trajectory_id="hand_authored",
+        steps=[_step(0, novel=12, dup=0.05, op="T3")],
+        en_events=[],
+    )
+    assert PHASE_I in [p.name for p in detect_phases(traj).phases]
+
+
+def test_phase_ii_silent_when_novel_claims_missing_across_pair():
+    """Conservative DES-translation case: novel_claims missing on
+    every step. Pre-fix Phase II emitted low-confidence at loop 1.
+    Post-fix it must stay silent."""
+    from desi.phase_detector import PHASE_II
+    raw = {
+        "trajectory_id": "missing_novel",
+        "steps": [
+            {"loop_index": i, "operator": "T3"} for i in range(5)
+        ],
+        "en_events": [],
+    }
+    traj = Trajectory.model_validate(raw)
+    names = [p.name for p in detect_phases(traj).phases]
+    assert PHASE_II not in names
+
+
+def test_phase_ii_still_fires_on_hand_authored_collapse():
+    """Regression: hand-authored fixtures with explicit novel<=2 on
+    two consecutive loops still trigger Phase II."""
+    from desi.phase_detector import PHASE_II
+    traj = Trajectory(
+        trajectory_id="hand_authored_collapse",
+        steps=[_step(0, novel=10, dup=0.05, op="T3"),
+               _step(1, novel=8, dup=0.10),
+               _step(2, novel=2, dup=0.30),
+               _step(3, novel=1, dup=0.40)],
+        en_events=[],
+    )
+    assert PHASE_II in [p.name for p in detect_phases(traj).phases]
