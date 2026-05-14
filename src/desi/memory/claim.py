@@ -42,6 +42,16 @@ class ClaimState(str, Enum):
     BRIDGE_REQUIRED = "bridge_required"
     LOGICALLY_SUPPORTED = "logically_supported"
     LOGICALLY_REJECTED = "logically_rejected"
+    # v1.9: states emitted by the tool-evidence layer. A tool's
+    # output is *evidence*, never authority — the directive
+    # specifically forbids tool results from short-circuiting to
+    # LOGICALLY_SUPPORTED. Tool-supported claims live on a parallel
+    # state track so downstream consumers can quarantine, audit, or
+    # cross-check before promoting further.
+    TOOL_REQUIRED = "tool_required"
+    TOOL_SUPPORTED = "tool_supported"
+    TOOL_REFUTED = "tool_refuted"
+    TOOL_FAILED = "tool_failed"
 
 
 # ---------------------------------------------------------------------------
