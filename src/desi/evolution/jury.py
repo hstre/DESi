@@ -123,6 +123,12 @@ class JuryMember:
     role: JuryRole
     review_fn: JuryReviewFn
     vote_fn: JuryVoteFn
+    # v0.6: declarative metadata that lets a ledger entry document
+    # *which persona* the review purports to come from. v0.6 stays
+    # deterministic — there is no actual LLM behind a label — but the
+    # label is recorded so that v0.7 can wire in real LLM personas
+    # without changing the surrounding code.
+    model_label: str = "deterministic-rule-based"
 
 
 def _replikator_review(p, evalrep, refl) -> JuryReview:
@@ -396,11 +402,16 @@ def _integrator_vote(p, evalrep, refl, round1) -> JuryFinalVote:
 
 
 DEFAULT_MEMBERS: tuple[JuryMember, ...] = (
-    JuryMember(JuryRole.REPLIKATOR, _replikator_review, _replikator_vote),
-    JuryMember(JuryRole.SKEPTIKER, _skeptiker_review, _skeptiker_vote),
-    JuryMember(JuryRole.METHODIKER, _methodiker_review, _methodiker_vote),
-    JuryMember(JuryRole.ADVERSARIAL, _adversarial_review, _adversarial_vote),
-    JuryMember(JuryRole.INTEGRATOR, _integrator_review, _integrator_vote),
+    JuryMember(JuryRole.REPLIKATOR, _replikator_review, _replikator_vote,
+               model_label="deterministic-claude-persona"),
+    JuryMember(JuryRole.SKEPTIKER, _skeptiker_review, _skeptiker_vote,
+               model_label="deterministic-gpt-persona"),
+    JuryMember(JuryRole.METHODIKER, _methodiker_review, _methodiker_vote,
+               model_label="deterministic-gemini-persona"),
+    JuryMember(JuryRole.ADVERSARIAL, _adversarial_review, _adversarial_vote,
+               model_label="deterministic-mistral-persona"),
+    JuryMember(JuryRole.INTEGRATOR, _integrator_review, _integrator_vote,
+               model_label="deterministic-llama-persona"),
 )
 
 
