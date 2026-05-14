@@ -69,8 +69,10 @@ from .paired_evaluation import (
 from .significance import (
     IMPROVED_THRESHOLD,
     REQUIRED_SEED_COUNT,
+    RevisionRequest,
     SignificanceDecision,
     SignificanceGate,
+    build_revision_request,
 )
 from .promotion import (
     PromotionError,
@@ -133,6 +135,7 @@ __all__ = [
     "ReflectionEngine",
     "ReflectionFinding",
     "ReflectionReport",
+    "RevisionRequest",
     "STRESS_SEED",
     "ScenarioAggregate",
     "SignificanceDecision",
@@ -143,6 +146,7 @@ __all__ = [
     "VetoTestObligation",
     "VetoToTestSynthesiser",
     "Vote",
+    "build_revision_request",
     "compute_path_quality",
     "is_resolved",
     "m_001",

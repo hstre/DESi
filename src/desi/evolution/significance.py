@@ -84,6 +84,126 @@ class SignificanceDecision:
         }
 
 
+# ---------------------------------------------------------------------------
+# v0.9: structured revision request
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class RevisionRequest:
+    """Structured follow-up emitted when the gate reads ``inconclusive``.
+
+    v0.8 turned an inconclusive verdict into a bare REVISE vote. v0.9
+    requires the gate to attach a concrete next-action artifact so
+    that REVISE has a path back to evaluation, not just a label.
+
+    Fields:
+
+    * ``request_id``         — short stable hash of (mutation_id, reason,
+                                 failed_scenarios, failed_seeds).
+    * ``mutation_id``        — id of the mutation that triggered the
+                                 inconclusive gate decision.
+    * ``reason``             — short string from a closed taxonomy
+                                 (``not_enough_improved_seeds``,
+                                 ``variance_too_high``,
+                                 ``permutation_coverage_incomplete``,
+                                 ``unknown``).
+    * ``failed_scenarios``   — scenarios that did not clear the gate.
+    * ``failed_seeds``       — seeds that did not produce an improved
+                                 verdict on a candidate scenario.
+    * ``suggested_actions``  — at least one action; free-text guidance
+                                 the next iteration can act on.
+    """
+
+    request_id: str
+    mutation_id: str
+    reason: str
+    failed_scenarios: tuple[str, ...]
+    failed_seeds: tuple[int, ...]
+    suggested_actions: tuple[str, ...]
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "request_id": self.request_id,
+            "mutation_id": self.mutation_id,
+            "reason": self.reason,
+            "failed_scenarios": list(self.failed_scenarios),
+            "failed_seeds": list(self.failed_seeds),
+            "suggested_actions": list(self.suggested_actions),
+        }
+
+
+def _request_id(
+    mutation_id: str,
+    reason: str,
+    failed_scenarios: tuple[str, ...],
+    failed_seeds: tuple[int, ...],
+) -> str:
+    import hashlib
+    raw = (
+        f"{mutation_id}|{reason}|{','.join(failed_scenarios)}|"
+        f"{','.join(str(s) for s in failed_seeds)}"
+    ).encode("utf-8")
+    return "req_" + hashlib.sha256(raw).hexdigest()[:8]
+
+
+_SUGGESTED_ACTIONS: dict[str, tuple[str, ...]] = {
+    "not_enough_improved_seeds": (
+        "inspect the failing seeds' per-step branch evidence",
+        "consider lowering the candidate threshold",
+        "review the variance generator for accidentally common paths",
+    ),
+    "variance_too_high": (
+        "reduce the seed-variant noise magnitude",
+        "inspect branch heuristics for seed-driven instability",
+    ),
+    "permutation_coverage_incomplete": (
+        "expand the seed list",
+        "verify that the variant generator produces distinct permutations",
+    ),
+}
+
+
+def build_revision_request(
+    decision: SignificanceDecision,
+    *,
+    report: Any | None = None,
+) -> RevisionRequest:
+    """Construct a :class:`RevisionRequest` from an inconclusive decision.
+
+    The reason taxonomy is closed. ``report`` is optional and used
+    only to populate ``failed_scenarios`` for the
+    ``not_enough_improved_seeds`` case.
+    """
+    if decision.verdict != "inconclusive":
+        raise ValueError(
+            "RevisionRequest is only built from inconclusive decisions; "
+            f"got verdict={decision.verdict!r}"
+        )
+    reason = "not_enough_improved_seeds"
+    failed_scenarios: tuple[str, ...] = ()
+    if report is not None:
+        candidate_ids = _evolution_candidate_scenarios()
+        failed_scenarios = tuple(
+            sid for sid in report.scenario_ids
+            if sid in candidate_ids
+            and report.aggregates.get(sid) is not None
+            and report.aggregates[sid].improved_seed_count
+            < IMPROVED_THRESHOLD
+        )
+    return RevisionRequest(
+        request_id=_request_id(
+            decision.mutation_id, reason,
+            failed_scenarios, decision.failing_seeds,
+        ),
+        mutation_id=decision.mutation_id,
+        reason=reason,
+        failed_scenarios=failed_scenarios,
+        failed_seeds=decision.failing_seeds,
+        suggested_actions=_SUGGESTED_ACTIONS[reason],
+    )
+
+
 class SignificanceGate:
     """Decide promotion fitness from a :class:`MultiSeedEvaluationReport`."""
 
@@ -268,6 +388,8 @@ class SignificanceGate:
 __all__ = [
     "IMPROVED_THRESHOLD",
     "REQUIRED_SEED_COUNT",
+    "RevisionRequest",
     "SignificanceDecision",
     "SignificanceGate",
+    "build_revision_request",
 ]

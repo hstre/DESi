@@ -18,9 +18,26 @@ from ..eval import EvaluationResult
 class PathQualityMetrics:
     """Raw, deterministic per-run metrics.
 
-    All six fields are integer counts derived directly from the
+    The first six fields are integer counts derived directly from the
     evaluation result's timeline and end-state snapshot. Identical
     input + identical seed yields identical metrics (tested).
+
+    v0.9 adds three signature fields so two runs over the same
+    scenario can be compared by *path*, not just by count:
+
+    * ``unique_claim_order_hash`` — 16-char hash of the ordered list of
+      newly-introduced claim_ids over the run.
+    * ``branch_signature`` — 16-char hash of the ordered list of
+      ``(focus_claim_id, evidence, threshold)`` triples on every
+      BRANCH_OPENED event. Two runs with identical branch decisions
+      share this signature; two runs that opened different branches
+      do not.
+    * ``merge_signature`` — 16-char hash of the ordered list of
+      ``(source, target)`` pairs on every MERGED_INTO relation in
+      the end snapshot.
+
+    These fields default to ``""`` so v0.7 / v0.8 constructors that
+    pass only the original six counts keep working unchanged.
     """
 
     scenario_id: str
@@ -30,6 +47,10 @@ class PathQualityMetrics:
     contradicts_count: int
     merged_into_count: int
     hook_error_count: int
+    # v0.9: structural signatures
+    unique_claim_order_hash: str = ""
+    branch_signature: str = ""
+    merge_signature: str = ""
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -40,7 +61,16 @@ class PathQualityMetrics:
             "contradicts_count": self.contradicts_count,
             "merged_into_count": self.merged_into_count,
             "hook_error_count": self.hook_error_count,
+            "unique_claim_order_hash": self.unique_claim_order_hash,
+            "branch_signature": self.branch_signature,
+            "merge_signature": self.merge_signature,
         }
+
+
+def _short_hash(payload: Any) -> str:
+    import hashlib
+    raw = repr(payload).encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()[:16]
 
 
 def compute_path_quality(result: EvaluationResult) -> PathQualityMetrics:
@@ -60,6 +90,7 @@ def compute_path_quality(result: EvaluationResult) -> PathQualityMetrics:
     if end_snap is None:
         contradicts = 0
         merged_into = 0
+        merge_pairs: tuple = ()
     else:
         contradicts = sum(
             1 for r in end_snap.relations
@@ -69,6 +100,26 @@ def compute_path_quality(result: EvaluationResult) -> PathQualityMetrics:
             1 for r in end_snap.relations
             if r.get("rel_type") == "MERGED_INTO"
         )
+        merge_pairs = tuple(
+            (r.get("source"), r.get("target"))
+            for r in end_snap.relations
+            if r.get("rel_type") == "MERGED_INTO"
+        )
+    # v0.9 signatures.
+    claim_order = tuple(
+        e.payload.get("claim_id")
+        for e in result.timeline
+        if e.event_type.value == "claim_created"
+    )
+    branch_triples = tuple(
+        (
+            e.payload.get("focus_claim_id"),
+            round(float(e.payload.get("evidence", 0.0)), 4),
+            round(float(e.payload.get("threshold", 0.0)), 4),
+        )
+        for e in result.timeline
+        if e.event_type.value == "branch_opened"
+    )
     return PathQualityMetrics(
         scenario_id=result.scenario_id,
         timeline_length=len(result.timeline),
@@ -77,6 +128,9 @@ def compute_path_quality(result: EvaluationResult) -> PathQualityMetrics:
         contradicts_count=contradicts,
         merged_into_count=merged_into,
         hook_error_count=len(result.hook_errors),
+        unique_claim_order_hash=_short_hash(claim_order),
+        branch_signature=_short_hash(branch_triples),
+        merge_signature=_short_hash(merge_pairs),
     )
 
 

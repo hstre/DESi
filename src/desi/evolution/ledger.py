@@ -49,6 +49,12 @@ class LedgerEventType(str, Enum):
     MULTI_SEED_STARTED = "multi_seed_started"
     MULTI_SEED_RESULT = "multi_seed_result"
     SIGNIFICANCE_DECISION = "significance_decision"
+    # v0.9: per-(scenario, seed) audit record. Written once per
+    # individual seed run, in addition to the v0.8 per-scenario
+    # aggregate. Carries scenario_id, seed, permutation_id, verdict,
+    # and metrics so a later audit can reconstruct the path each seed
+    # actually took.
+    SEED_RUN_RESULT = "seed_run_result"
 
 
 @dataclass(frozen=True)

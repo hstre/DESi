@@ -29,10 +29,20 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Any, Iterable
 
+from ..eval.seeded import (
+    GenerationMetadata,
+    InstantiatedScenario,
+    SeededScenarioEngine,
+    seed_variant_scenarios,
+)
 from .paired_evaluation import (
     PairedEvaluationReport,
     PairedMutationEvaluation,
     PairedScenarioOutcome,
+    _ConfiguredHarness,
+    EVOLUTION_CANDIDATE_SCENARIOS,
+    PFLICHT_ADVERSARIAL,
+    REGRESSION_GUARDS,
 )
 from .sandbox import CloneSandbox
 
@@ -181,6 +191,18 @@ class MultiSeedEvaluationReport:
     The actual promotion decision lives in
     :class:`SignificanceGate`; ``aggregate_verdict`` is the
     informational summary the ledger records.
+
+    v0.9 fields:
+
+    * ``generation_metadata`` — per-(scenario, seed) ``GenerationMetadata``;
+      empty when the static (non-seeded) runner was used.
+    * ``permutation_coverage`` — per-scenario count of *distinct*
+      permutation_ids that appeared across the seed list. ``1`` for
+      static scenarios; ``N`` for fully-covered seed-variant ones.
+    * ``unique_path_count`` — per-scenario count of *distinct* clone
+      branch_signatures across the seed list. Less than
+      ``permutation_coverage`` means "variance generated, but the runs
+      converged on the same path".
     """
 
     mutation_id: str
@@ -196,6 +218,13 @@ class MultiSeedEvaluationReport:
     # Optional stress-seed outcome (ADV_BRANCH_EXPLOSION only, never
     # promotion-relevant).
     stress_outcome: PairedScenarioOutcome | None = None
+    # v0.9: per-(scenario, seed) generation metadata (empty if static).
+    generation_metadata: dict[tuple[str, int], GenerationMetadata] = field(
+        default_factory=dict,
+    )
+    # v0.9: per-scenario permutation coverage + unique-path counts.
+    permutation_coverage: dict[str, int] = field(default_factory=dict)
+    unique_path_count: dict[str, int] = field(default_factory=dict)
 
     @property
     def aggregate_verdict(self) -> str:
@@ -258,6 +287,11 @@ class MultiSeedMutationEvaluation:
     sixth run on ``ADV_BRANCH_EXPLOSION`` *only*; that run is logged
     on the report but is **not** used by the
     :class:`SignificanceGate`.
+
+    v0.9: pass an :class:`SeededScenarioEngine` instance to ``engine``
+    to switch each (scenario, seed) pair to its seed-variant
+    instantiation. Without an engine, behaviour is bit-identical to
+    v0.8.
     """
 
     def __init__(
@@ -266,6 +300,7 @@ class MultiSeedMutationEvaluation:
         seeds: tuple[int, ...] = DEFAULT_SEEDS,
         model: str = "claude-opus-4-7",
         include_stress: bool = False,
+        engine: SeededScenarioEngine | None = None,
     ) -> None:
         if not seeds:
             raise ValueError("seeds must be non-empty")
@@ -274,10 +309,15 @@ class MultiSeedMutationEvaluation:
         self._seeds = tuple(seeds)
         self._model = model
         self._include_stress = include_stress
+        self._engine = engine
 
     @property
     def seeds(self) -> tuple[int, ...]:
         return self._seeds
+
+    @property
+    def engine(self) -> SeededScenarioEngine | None:
+        return self._engine
 
     def run(
         self,
@@ -285,6 +325,16 @@ class MultiSeedMutationEvaluation:
         mutation_id: str,
     ) -> MultiSeedEvaluationReport:
         """Execute one paired evaluation per seed; aggregate the result."""
+        if self._engine is not None:
+            return self._run_seeded(clone, mutation_id)
+        return self._run_static(clone, mutation_id)
+
+    def _run_static(
+        self,
+        clone: CloneSandbox,
+        mutation_id: str,
+    ) -> MultiSeedEvaluationReport:
+        """v0.8 path: each seed runs the static scenario set."""
         per_seed_reports: list[PairedEvaluationReport] = []
         for seed in self._seeds:
             paired = PairedMutationEvaluation(
@@ -292,7 +342,6 @@ class MultiSeedMutationEvaluation:
             ).run(clone, mutation_id)
             per_seed_reports.append(paired)
 
-        # Group outcomes by scenario_id across seeds.
         scenario_ids = tuple(o.scenario_id for o in per_seed_reports[0].outcomes)
         aggregates: dict[str, ScenarioAggregate] = {}
         for sid in scenario_ids:
@@ -304,7 +353,7 @@ class MultiSeedMutationEvaluation:
 
         stress_outcome: PairedScenarioOutcome | None = None
         if self._include_stress:
-            from .evaluation import AdversarialPattern  # local to avoid cycle
+            from .evaluation import AdversarialPattern
             stress_id = f"ADV_{AdversarialPattern.BRANCH_EXPLOSION.name}"
             paired_stress = PairedMutationEvaluation(
                 model=self._model, seed=STRESS_SEED,
@@ -312,6 +361,121 @@ class MultiSeedMutationEvaluation:
             stress_outcome = next(
                 (o for o in paired_stress.outcomes if o.scenario_id == stress_id),
                 None,
+            )
+
+        # Without the engine, every (scenario, seed) shares
+        # permutation_id="static" → coverage=1 per scenario.
+        permutation_coverage = {sid: 1 for sid in scenario_ids}
+        unique_path_count: dict[str, int] = {}
+        for sid in scenario_ids:
+            sigs = {
+                next(o for o in rep.outcomes if o.scenario_id == sid)
+                    .clone_metrics.branch_signature
+                for rep in per_seed_reports
+            }
+            unique_path_count[sid] = len(sigs) if any(sigs) else 1
+
+        return MultiSeedEvaluationReport(
+            mutation_id=mutation_id,
+            clone_id=clone.clone_id,
+            parent_version=clone.stable.version,
+            timestamp=datetime.now(timezone.utc),
+            scenario_ids=scenario_ids,
+            seeds=self._seeds,
+            per_seed_reports=tuple(per_seed_reports),
+            aggregates=aggregates,
+            stress_outcome=stress_outcome,
+            generation_metadata={},
+            permutation_coverage=permutation_coverage,
+            unique_path_count=unique_path_count,
+        )
+
+    def _run_seeded(
+        self,
+        clone: CloneSandbox,
+        mutation_id: str,
+    ) -> MultiSeedEvaluationReport:
+        """v0.9 path: each (scenario, seed) is instantiated via the engine."""
+        from .metrics import compute_path_quality, MetricsDelta
+        scenario_ids = self._seeded_scenario_ids()
+        per_seed_reports: list[PairedEvaluationReport] = []
+        generation_metadata: dict[tuple[str, int], GenerationMetadata] = {}
+
+        for seed in self._seeds:
+            outcomes: list[PairedScenarioOutcome] = []
+            for sid in scenario_ids:
+                inst = self._engine.instantiate(sid, seed)
+                generation_metadata[(sid, seed)] = inst.generation_metadata
+                stable_result = _ConfiguredHarness(
+                    model=self._model, seed=seed,
+                    config=clone.stable.as_dict,
+                ).run_scenario(inst)
+                clone_result = _ConfiguredHarness(
+                    model=self._model, seed=seed,
+                    config=clone.config,
+                ).run_scenario(inst)
+                stable_metrics = compute_path_quality(stable_result)
+                clone_metrics = compute_path_quality(clone_result)
+                outcomes.append(PairedScenarioOutcome(
+                    scenario_id=sid,
+                    stable_result=stable_result,
+                    clone_result=clone_result,
+                    stable_metrics=stable_metrics,
+                    clone_metrics=clone_metrics,
+                    delta=MetricsDelta(
+                        stable=stable_metrics, clone=clone_metrics,
+                    ),
+                ))
+            per_seed_reports.append(PairedEvaluationReport(
+                mutation_id=mutation_id,
+                clone_id=clone.clone_id,
+                stable_version=clone.stable.version,
+                timestamp=datetime.now(timezone.utc),
+                stable_config=dict(clone.stable.as_dict),
+                clone_config=dict(clone.config),
+                outcomes=outcomes,
+            ))
+
+        aggregates: dict[str, ScenarioAggregate] = {}
+        permutation_coverage: dict[str, int] = {}
+        unique_path_count: dict[str, int] = {}
+        for sid in scenario_ids:
+            outcomes_for_sid = [
+                next(o for o in rep.outcomes if o.scenario_id == sid)
+                for rep in per_seed_reports
+            ]
+            aggregates[sid] = _aggregate_one_scenario(sid, outcomes_for_sid)
+            perms = {
+                generation_metadata[(sid, seed)].permutation_id
+                for seed in self._seeds
+            }
+            permutation_coverage[sid] = len(perms)
+            sigs = {o.clone_metrics.branch_signature for o in outcomes_for_sid}
+            unique_path_count[sid] = len(sigs)
+
+        stress_outcome: PairedScenarioOutcome | None = None
+        if self._include_stress:
+            from .evaluation import AdversarialPattern
+            stress_id = f"ADV_{AdversarialPattern.BRANCH_EXPLOSION.name}"
+            inst = self._engine.instantiate(stress_id, STRESS_SEED)
+            generation_metadata[(stress_id, STRESS_SEED)] = inst.generation_metadata
+            stable_result = _ConfiguredHarness(
+                model=self._model, seed=STRESS_SEED,
+                config=clone.stable.as_dict,
+            ).run_scenario(inst)
+            clone_result = _ConfiguredHarness(
+                model=self._model, seed=STRESS_SEED,
+                config=clone.config,
+            ).run_scenario(inst)
+            sm = compute_path_quality(stable_result)
+            cm = compute_path_quality(clone_result)
+            stress_outcome = PairedScenarioOutcome(
+                scenario_id=stress_id,
+                stable_result=stable_result,
+                clone_result=clone_result,
+                stable_metrics=sm,
+                clone_metrics=cm,
+                delta=MetricsDelta(stable=sm, clone=cm),
             )
 
         return MultiSeedEvaluationReport(
@@ -324,7 +488,22 @@ class MultiSeedMutationEvaluation:
             per_seed_reports=tuple(per_seed_reports),
             aggregates=aggregates,
             stress_outcome=stress_outcome,
+            generation_metadata=generation_metadata,
+            permutation_coverage=permutation_coverage,
+            unique_path_count=unique_path_count,
         )
+
+    def _seeded_scenario_ids(self) -> tuple[str, ...]:
+        """Closed scenario id list used in the seeded (v0.9) path."""
+        from .evaluation import AdversarialPattern
+        ids: list[str] = []
+        for sid in EVOLUTION_CANDIDATE_SCENARIOS:
+            ids.append(sid)
+        for pat in PFLICHT_ADVERSARIAL:
+            ids.append(f"ADV_{pat.name}")
+        for sid in REGRESSION_GUARDS:
+            ids.append(sid)
+        return tuple(ids)
 
 
 __all__ = [

@@ -23,14 +23,24 @@ from .scenarios import (
     list_scenarios,
     scenario_by_id,
 )
+from .seeded import (
+    GenerationMetadata,
+    InstantiatedScenario,
+    SeededScenarioEngine,
+    seed_variant_scenarios,
+)
 
 __all__ = [
     "EvaluationHarness",
     "EvaluationResult",
+    "GenerationMetadata",
+    "InstantiatedScenario",
     "SCENARIOS",
     "Scenario",
     "ScenarioExpectation",
+    "SeededScenarioEngine",
     "config_hash",
     "list_scenarios",
     "scenario_by_id",
+    "seed_variant_scenarios",
 ]

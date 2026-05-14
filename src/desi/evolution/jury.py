@@ -49,6 +49,12 @@ class Vote(str, Enum):
     APPROVE = "approve"
     REVISE = "revise"
     VETO = "veto"
+    # v0.9: stress-seed soft veto. CONCERN is neither APPROVE nor
+    # VETO; it records that the stress seed (typically 999)
+    # regressed while the mandatory seed list did not. Promotion is
+    # not hard-blocked; the rationale and structured artifact must
+    # be logged for review.
+    CONCERN = "concern"
 
 
 class Veto(BaseModel):
@@ -199,6 +205,24 @@ def _replikator_vote(p, evalrep, refl, round1) -> JuryFinalVote:
                     "variance is too high to call the improvement robust."
                 ),
             )
+        # v0.9: "are we reproducing behaviour, or one hidden path?"
+        # If a scenario was instantiated with variance (>1 unique
+        # permutation) but every seed walked the same path
+        # (unique_path_count == 1), the multi-seed report is misleading.
+        coverage = getattr(ms, "permutation_coverage", {})
+        unique_paths = getattr(ms, "unique_path_count", {})
+        for sid, perms in coverage.items():
+            if perms > 1 and unique_paths.get(sid, 0) <= 1:
+                return JuryFinalVote(
+                    role=JuryRole.REPLIKATOR,
+                    vote=Vote.REVISE,
+                    rationale=(
+                        f"scenario {sid} carried {perms} distinct "
+                        f"permutations but only 1 unique path was "
+                        f"actually walked — variance is not being "
+                        f"exercised."
+                    ),
+                )
     if others_flagged:
         return JuryFinalVote(
             role=JuryRole.REPLIKATOR,
@@ -475,6 +499,21 @@ def _integrator_vote(p, evalrep, refl, round1) -> JuryFinalVote:
                 ),
             )
         if decision.verdict == "improved":
+            # v0.9 stress-seed soft veto. The stress seed is logged on
+            # the report; if it regressed while the mandatory seeds did
+            # not, the Integrator records CONCERN instead of APPROVE.
+            stress = getattr(ms, "stress_outcome", None)
+            if stress is not None and stress.delta.verdict == "regressed":
+                return JuryFinalVote(
+                    role=JuryRole.INTEGRATOR,
+                    vote=Vote.CONCERN,
+                    rationale=(
+                        f"multi-seed gate verdict='improved' on the "
+                        f"mandatory seeds, but the stress seed regressed "
+                        f"on scenario {stress.scenario_id}; promotion "
+                        f"proceeds with a recorded concern."
+                    ),
+                )
             return JuryFinalVote(
                 role=JuryRole.INTEGRATOR,
                 vote=Vote.APPROVE,
