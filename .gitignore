@@ -31,3 +31,11 @@ htmlcov/
 # Generated reports (keep folder, ignore content)
 outputs/*.md
 !outputs/.gitkeep
+
+# Cross-branch working-tree leftovers. These directories are owned by
+# other branches (release/paper1-representation-gap, experiment/desi-
+# generalization-loop-12) and have their own tracking rules there. On
+# feature/claim-object-memory they are not part of the feature surface.
+data/generalization/
+outputs/generalization_loop/
+docs/paper1/
