@@ -281,6 +281,13 @@ class TrajectoryStep(BaseModel):
     # DESi-charter convenience fields
     focus_claim_id: str | None = None
     operator: str  # canonical T-code (e.g. "T3") or method-operator slug
+    # External-reality EN-reconstruction cycle 1: when the input operator
+    # string carries a sub-role annotation (DES upstream emits forms like
+    # `T6[hypothesis_builder] on C003 -> C008`), expose the structured
+    # parts here. The translator populates these from
+    # `parse_des_operation`. Hand-authored fixtures leave them None.
+    operator_sub_role: str | None = None
+    operator_target: str | None = None
     novel_claims: int = 0
     dup_rate: float = 0.0
     failure_mode: FailureMode | str | None = None

@@ -8,6 +8,8 @@
       "loop_index": 0,
       "focus_claim_id": "C001",
       "operator": "T3",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -15,6 +17,8 @@
       "loop_index": 1,
       "focus_claim_id": "C001",
       "operator": "T4",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -22,6 +26,8 @@
       "loop_index": 2,
       "focus_claim_id": "C002",
       "operator": "T3",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -29,6 +35,8 @@
       "loop_index": 3,
       "focus_claim_id": "C002",
       "operator": "T6",
+      "operator_sub_role": "hypothesis_builder",
+      "operator_target": "C004",
       "failure_mode": null,
       "claims": []
     },
@@ -36,6 +44,8 @@
       "loop_index": 4,
       "focus_claim_id": "C002",
       "operator": "T6",
+      "operator_sub_role": "falsifier",
+      "operator_target": "C005",
       "failure_mode": null,
       "claims": []
     },
@@ -43,6 +53,8 @@
       "loop_index": 5,
       "focus_claim_id": "C002",
       "operator": "T8",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -50,6 +62,8 @@
       "loop_index": 6,
       "focus_claim_id": "C003",
       "operator": "T3",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -57,6 +71,8 @@
       "loop_index": 7,
       "focus_claim_id": "C003",
       "operator": "T5",
+      "operator_sub_role": "hypothesis_builder",
+      "operator_target": "C006",
       "failure_mode": null,
       "claims": []
     },
@@ -64,6 +80,8 @@
       "loop_index": 8,
       "focus_claim_id": "C003",
       "operator": "T5",
+      "operator_sub_role": "falsifier",
+      "operator_target": "C007",
       "failure_mode": null,
       "claims": []
     },
@@ -71,6 +89,8 @@
       "loop_index": 9,
       "focus_claim_id": "C003",
       "operator": "T2",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -78,6 +98,8 @@
       "loop_index": 10,
       "focus_claim_id": "C003",
       "operator": "T6",
+      "operator_sub_role": "hypothesis_builder",
+      "operator_target": "C008",
       "failure_mode": null,
       "claims": []
     },
@@ -85,6 +107,8 @@
       "loop_index": 11,
       "focus_claim_id": "C003",
       "operator": "T6",
+      "operator_sub_role": "falsifier",
+      "operator_target": "C009",
       "failure_mode": null,
       "claims": []
     },
@@ -92,6 +116,8 @@
       "loop_index": 12,
       "focus_claim_id": "C003",
       "operator": "T8",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -99,6 +125,8 @@
       "loop_index": 13,
       "focus_claim_id": "C004",
       "operator": "T3",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -106,6 +134,8 @@
       "loop_index": 14,
       "focus_claim_id": "C004",
       "operator": "T7",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -113,6 +143,8 @@
       "loop_index": 15,
       "focus_claim_id": "C004",
       "operator": "T6",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -120,6 +152,8 @@
       "loop_index": 16,
       "focus_claim_id": "C004",
       "operator": "T8",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -127,6 +161,8 @@
       "loop_index": 17,
       "focus_claim_id": "C005",
       "operator": "T3",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -134,6 +170,8 @@
       "loop_index": 18,
       "focus_claim_id": "C005",
       "operator": "T7",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -141,6 +179,8 @@
       "loop_index": 19,
       "focus_claim_id": "C005",
       "operator": "T6",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -148,6 +188,8 @@
       "loop_index": 20,
       "focus_claim_id": "C005",
       "operator": "T8",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -155,6 +197,8 @@
       "loop_index": 21,
       "focus_claim_id": "C006",
       "operator": "T3",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -162,6 +206,8 @@
       "loop_index": 22,
       "focus_claim_id": "C006",
       "operator": "T6",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -169,6 +215,8 @@
       "loop_index": 23,
       "focus_claim_id": "C006",
       "operator": "T8",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -176,6 +224,8 @@
       "loop_index": 24,
       "focus_claim_id": "C007",
       "operator": "T3",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -183,6 +233,8 @@
       "loop_index": 25,
       "focus_claim_id": "C007",
       "operator": "T7",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -190,6 +242,8 @@
       "loop_index": 26,
       "focus_claim_id": "C007",
       "operator": "T6",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -197,6 +251,8 @@
       "loop_index": 27,
       "focus_claim_id": "C007",
       "operator": "T8",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -204,6 +260,8 @@
       "loop_index": 28,
       "focus_claim_id": "C008",
       "operator": "T3",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -211,6 +269,8 @@
       "loop_index": 29,
       "focus_claim_id": "C008",
       "operator": "T6",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -218,6 +278,8 @@
       "loop_index": 30,
       "focus_claim_id": "C008",
       "operator": "T8",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -225,6 +287,8 @@
       "loop_index": 31,
       "focus_claim_id": "C009",
       "operator": "T3",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -232,6 +296,8 @@
       "loop_index": 32,
       "focus_claim_id": "C009",
       "operator": "T7",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -239,6 +305,8 @@
       "loop_index": 33,
       "focus_claim_id": "C009",
       "operator": "T6",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     },
@@ -246,6 +314,8 @@
       "loop_index": 34,
       "focus_claim_id": "C009",
       "operator": "T8",
+      "operator_sub_role": null,
+      "operator_target": null,
       "failure_mode": null,
       "claims": []
     }

@@ -399,3 +399,76 @@ def test_trajectory_accepts_input_origin():
 def test_trajectory_input_origin_defaults_none():
     traj = Trajectory(trajectory_id="t", steps=[], en_events=[])
     assert traj.input_origin is None
+
+
+# EN-reconstruction cycle 1: hypothesis_builder + target -> EN candidate
+def test_reconstruct_en_candidates_fires_on_hypothesis_builder_with_target():
+    from desi.diagnostics import reconstruct_en_candidates
+    traj = Trajectory(
+        trajectory_id="hb",
+        steps=[
+            TrajectoryStep(loop_index=0, operator="T3", focus_claim_id="C001"),
+            TrajectoryStep(loop_index=1, operator="T6", focus_claim_id="C001",
+                           operator_sub_role="hypothesis_builder",
+                           operator_target="C002"),
+        ],
+        en_events=[],
+    )
+    r = reconstruct_en_candidates(traj)
+    assert r.count == 1
+    c = r.candidates[0]
+    assert c.loop_index == 1
+    assert c.operator == "T6"
+    assert c.source_claim == "C001"
+    assert c.target_claim == "C002"
+    assert c.rule_id == "cycle1_hypothesis_builder_with_target"
+
+
+def test_reconstruct_en_candidates_silent_on_hand_authored_fixtures():
+    """Hand-authored fixtures don't carry sub-role/target; rule must
+    emit zero candidates. Crucial: no false positives on the 30
+    fixtures of the n=10 + n=20 suites."""
+    from desi.diagnostics import reconstruct_en_candidates
+    traj = Trajectory(
+        trajectory_id="hand_authored",
+        steps=[
+            TrajectoryStep(loop_index=0, operator="T3", focus_claim_id="C001",
+                           novel_claims=10, dup_rate=0.05),
+            TrajectoryStep(loop_index=1, operator="T8", focus_claim_id="C001",
+                           novel_claims=1, dup_rate=0.55),
+        ],
+        en_events=[],
+    )
+    assert reconstruct_en_candidates(traj).count == 0
+
+
+def test_reconstruct_en_candidates_does_not_fire_on_falsifier():
+    """Cycle 1 is deliberately limited to hypothesis_builder; falsifier
+    is also a structural extension but lies in a deferred future cycle."""
+    from desi.diagnostics import reconstruct_en_candidates
+    traj = Trajectory(
+        trajectory_id="falsifier_only",
+        steps=[
+            TrajectoryStep(loop_index=0, operator="T6", focus_claim_id="C001",
+                           operator_sub_role="falsifier",
+                           operator_target="C002"),
+        ],
+        en_events=[],
+    )
+    assert reconstruct_en_candidates(traj).count == 0
+
+
+def test_reconstruct_en_candidates_requires_target_claim():
+    """A hypothesis_builder op without a target_claim is not a
+    structural extension — no new claim was created. Don't fire."""
+    from desi.diagnostics import reconstruct_en_candidates
+    traj = Trajectory(
+        trajectory_id="no_target",
+        steps=[
+            TrajectoryStep(loop_index=0, operator="T6", focus_claim_id="C001",
+                           operator_sub_role="hypothesis_builder",
+                           operator_target=None),
+        ],
+        en_events=[],
+    )
+    assert reconstruct_en_candidates(traj).count == 0

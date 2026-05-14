@@ -108,14 +108,20 @@ def translate_conservative(des: dict, source_id: str) -> dict:
         if isinstance(parsed, OperatorParseFailure):
             operator = OPERATOR_PARSE_FAILURE
             focus = ""
+            sub_role = None
+            target = None
             parse_failures += 1
         else:
             operator = parsed.operator
             focus = parsed.source_claim
+            sub_role = parsed.sub_role
+            target = parsed.target_claim
         step: dict = {
             "loop_index": i,
             "focus_claim_id": focus,
             "operator": operator,
+            "operator_sub_role": sub_role,
+            "operator_target": target,
             "failure_mode": None,
             "claims": [],
             # novel_claims and dup_rate intentionally omitted — DESi's
@@ -175,17 +181,20 @@ def translate_heuristic(des: dict, source_id: str) -> dict:
     # Fix 2: explicit-failure parse; OPERATOR_PARSE_FAILURE token for
     # unparseable strings (no UNKNOWN silent substitution); empty source
     # claim when not recoverable (no default-focus inheritance).
+    # EN-reconstruction cycle 1: also capture sub_role and target_claim.
     parsed_list: list = []
     parse_failures = 0
     for o in ops:
         r = parse_des_operation(o)
         if isinstance(r, OperatorParseFailure):
-            parsed_list.append((OPERATOR_PARSE_FAILURE, ""))
+            parsed_list.append((OPERATOR_PARSE_FAILURE, "", None, None))
             parse_failures += 1
         else:
-            parsed_list.append((r.operator, r.source_claim))
+            parsed_list.append((r.operator, r.source_claim, r.sub_role, r.target_claim))
     operators = [p[0] for p in parsed_list]
     focuses = [p[1] for p in parsed_list]
+    sub_roles = [p[2] for p in parsed_list]
+    targets = [p[3] for p in parsed_list]
 
     # H1: novel_claims
     novel = []
@@ -213,6 +222,8 @@ def translate_heuristic(des: dict, source_id: str) -> dict:
             "loop_index": i,
             "focus_claim_id": focuses[i],
             "operator": operators[i],
+            "operator_sub_role": sub_roles[i],
+            "operator_target": targets[i],
             "novel_claims": novel[i],
             "dup_rate": dup[i],
             "failure_mode": None,

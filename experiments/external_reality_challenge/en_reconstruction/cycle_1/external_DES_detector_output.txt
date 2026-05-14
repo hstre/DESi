@@ -1,0 +1,20 @@
+=== CONSERVATIVE ===
+  input_origin: translated_DES_conservative
+  phases: []
+  schema_mismatch: True
+  EN reconstruction:
+    candidate @ loop 3: T6[C002 -> C004]
+    candidate @ loop 7: T5[C003 -> C006]
+    candidate @ loop 10: T6[C003 -> C008]
+    note: 3 EN candidate(s) reconstructed under rule cycle1_hypothesis_builder_with_target
+
+=== HEURISTIC ===
+  input_origin: translator_heuristic
+  phases: [('I_EXPOSITION', 0, 0), ('II_FIRST_SATURATION_MODULATION', 1, 5)]
+  schema_mismatch: False
+  EN reconstruction:
+    candidate @ loop 3: T6[C002 -> C004]
+    candidate @ loop 7: T5[C003 -> C006]
+    candidate @ loop 10: T6[C003 -> C008]
+    note: 3 EN candidate(s) reconstructed under rule cycle1_hypothesis_builder_with_target
+

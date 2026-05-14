@@ -512,6 +512,72 @@ def detect_schema_mismatch(trajectory: Trajectory) -> SchemaMismatchReport:
 # --- Convenience aggregator -------------------------------------------------
 
 
+# --- EN-event reconstruction from operation_history (external-reality) ---
+# Goal of this module: when DESi receives a trajectory translated from
+# upstream DES, the en_events list is empty (upstream DES does not emit
+# ENI). Reconstruction inspects each step's operator metadata and emits
+# CANDIDATE EN locations — loops that look like novelty injections.
+# Candidates are NOT eni_novelty measurements. They are structural
+# annotations: "this loop is where DES extended the claim graph."
+#
+# Cycle 1 rule:
+#   candidate iff step.operator_sub_role == "hypothesis_builder"
+#                 AND step.operator_target is not None.
+#
+# That captures `T5[hypothesis_builder] on Cxxx -> Cyyy` and
+# `T6[hypothesis_builder] on Cxxx -> Cyyy`. It deliberately does NOT
+# fire on `T*[falsifier]` operations (the falsifier role is critique,
+# not novelty), nor on plain `Tn on Cxxx` (no sub-role at all).
+
+
+@dataclass(frozen=True)
+class ENCandidate:
+    loop_index: int
+    operator: str
+    source_claim: str | None
+    target_claim: str | None
+    rule_id: str
+    note: str
+
+
+@dataclass(frozen=True)
+class ENReconstructionReport:
+    candidates: list[ENCandidate]
+    rules_applied: list[str]
+    note: str
+
+    @property
+    def count(self) -> int:
+        return len(self.candidates)
+
+
+def reconstruct_en_candidates(trajectory: Trajectory) -> ENReconstructionReport:
+    """Cycle 1 rule: hypothesis_builder + target_claim is an EN candidate."""
+    candidates: list[ENCandidate] = []
+    for s in trajectory.steps:
+        if s.operator_sub_role == "hypothesis_builder" and s.operator_target:
+            candidates.append(ENCandidate(
+                loop_index=s.loop_index,
+                operator=s.operator,
+                source_claim=s.focus_claim_id,
+                target_claim=s.operator_target,
+                rule_id="cycle1_hypothesis_builder_with_target",
+                note=(
+                    f"hypothesis_builder op {s.operator} extended the claim "
+                    f"graph: {s.focus_claim_id} -> {s.operator_target}"
+                ),
+            ))
+    note = (
+        f"{len(candidates)} EN candidate(s) reconstructed under rule "
+        f"cycle1_hypothesis_builder_with_target"
+    )
+    return ENReconstructionReport(
+        candidates=candidates,
+        rules_applied=["cycle1_hypothesis_builder_with_target"],
+        note=note,
+    )
+
+
 @dataclass(frozen=True)
 class DeterministicMetrics:
     trajectory_id: str
@@ -528,6 +594,7 @@ class DeterministicMetrics:
     step_coherence: StepCoherenceReport
     borderline_chain: BorderlineChainReport
     schema_mismatch: SchemaMismatchReport
+    en_reconstruction: ENReconstructionReport
 
 
 def compute_all(trajectory: Trajectory) -> DeterministicMetrics:
@@ -546,4 +613,5 @@ def compute_all(trajectory: Trajectory) -> DeterministicMetrics:
         step_coherence=validate_step_metric_coherence(trajectory),
         borderline_chain=detect_borderline_chain(trajectory),
         schema_mismatch=detect_schema_mismatch(trajectory),
+        en_reconstruction=reconstruct_en_candidates(trajectory),
     )
