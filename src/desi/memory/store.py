@@ -17,6 +17,8 @@ loops. This contract is enforced socially, not technically — see
 """
 from __future__ import annotations
 
+import copy
+from contextlib import contextmanager
 from typing import Any, Iterator, Protocol, runtime_checkable
 
 from .claim import Claim
@@ -63,6 +65,11 @@ class MemoryStore(Protocol):
     def add_event(self, event: OperatorEvent) -> None: ...
     def events_for_run(self, run_id: str) -> Iterator[OperatorEvent]: ...
 
+    # Atomicity. A transaction groups writes that must succeed
+    # together. Exceptions inside the block roll back every write
+    # made during the block.
+    def transaction(self): ...  # context manager
+
     # Lifecycle
     def close(self) -> None: ...
 
@@ -86,6 +93,11 @@ class InMemoryStore:
         self._relations: list[Relation] = []
         self._runs: dict[str, Run] = {}
         self._events: dict[str, OperatorEvent] = {}
+        # Transaction depth and snapshot stack. v0.2 supports flat
+        # transactions plus a no-op for nested calls so that helpers
+        # composing other helpers don't have to branch on depth.
+        self._tx_depth: int = 0
+        self._snapshot: tuple[dict, list, dict, dict] | None = None
 
     # Claims --------------------------------------------------------------
 
@@ -140,6 +152,39 @@ class InMemoryStore:
         for ev in self._events.values():
             if ev.run_id == run_id:
                 yield ev
+
+    # Atomicity -----------------------------------------------------------
+
+    @contextmanager
+    def transaction(self):
+        """Snapshot the store; restore on exception.
+
+        Nested calls re-use the outermost snapshot — the contract is
+        ``all writes since the outermost enter`` roll back together.
+        """
+        if self._tx_depth == 0:
+            self._snapshot = (
+                copy.copy(self._claims),
+                list(self._relations),
+                copy.copy(self._runs),
+                copy.copy(self._events),
+            )
+        self._tx_depth += 1
+        try:
+            yield self
+        except Exception:
+            if self._tx_depth == 1 and self._snapshot is not None:
+                self._claims, self._relations, self._runs, self._events = (
+                    self._snapshot[0],
+                    list(self._snapshot[1]),
+                    self._snapshot[2],
+                    self._snapshot[3],
+                )
+            raise
+        finally:
+            self._tx_depth -= 1
+            if self._tx_depth == 0:
+                self._snapshot = None
 
     # Lifecycle -----------------------------------------------------------
 
@@ -202,6 +247,23 @@ class Neo4jStore:
             driver = GraphDatabase.driver(uri, auth=auth)
         self._driver = driver
         self._database = database
+        # When set by ``transaction()``, every internal write goes
+        # through this Neo4j transaction handle instead of a fresh
+        # autocommit session.
+        self._active_tx: Any | None = None
+
+    @contextmanager
+    def _runner(self):
+        """Yield an object with ``.run(cypher, **params)``.
+
+        Routes through the active transaction when one is open; falls
+        back to a one-shot session otherwise.
+        """
+        if self._active_tx is not None:
+            yield self._active_tx
+            return
+        with self._driver.session(database=self._database) as s:
+            yield s
 
     # Claims --------------------------------------------------------------
 
@@ -211,7 +273,7 @@ class Neo4jStore:
             f"MERGE (c:{self.NODE_CLAIM} {{claim_id: $claim_id}}) "
             "SET c += $props"
         )
-        with self._driver.session(database=self._database) as s:
+        with self._runner() as s:
             s.run(cypher, claim_id=claim.claim_id, props=rec)
 
     def get_claim(self, claim_id: str) -> Claim | None:
@@ -219,7 +281,7 @@ class Neo4jStore:
             f"MATCH (c:{self.NODE_CLAIM} {{claim_id: $claim_id}}) "
             "RETURN c"
         )
-        with self._driver.session(database=self._database) as s:
+        with self._runner() as s:
             result = s.run(cypher, claim_id=claim_id)
             row = result.single()
         if row is None:
@@ -232,7 +294,7 @@ class Neo4jStore:
 
     def all_claims(self) -> Iterator[Claim]:
         cypher = f"MATCH (c:{self.NODE_CLAIM}) RETURN c"
-        with self._driver.session(database=self._database) as s:
+        with self._runner() as s:
             result = s.run(cypher)
             rows = list(result)
         for row in rows:
@@ -250,7 +312,7 @@ class Neo4jStore:
             "SET r.weight = $weight, r.created_at = $created_at"
         )
         rec = rel.to_record()
-        with self._driver.session(database=self._database) as s:
+        with self._runner() as s:
             s.run(
                 cypher,
                 source_id=rel.source_claim_id,
@@ -287,7 +349,7 @@ class Neo4jStore:
             )
         cypher = pat + " RETURN s.claim_id AS s, t.claim_id AS t, " \
                        "type(r) AS rt, r.weight AS w, r.created_at AS c"
-        with self._driver.session(database=self._database) as s:
+        with self._runner() as s:
             result = s.run(cypher, cid=claim_id)
             rows = list(result)
         for row in rows:
@@ -306,12 +368,12 @@ class Neo4jStore:
         cypher = (
             f"MERGE (r:{self.NODE_RUN} {{run_id: $run_id}}) SET r += $props"
         )
-        with self._driver.session(database=self._database) as s:
+        with self._runner() as s:
             s.run(cypher, run_id=run.run_id, props=rec)
 
     def get_run(self, run_id: str) -> Run | None:
         cypher = f"MATCH (r:{self.NODE_RUN} {{run_id: $run_id}}) RETURN r"
-        with self._driver.session(database=self._database) as s:
+        with self._runner() as s:
             row = s.run(cypher, run_id=run_id).single()
         if row is None:
             return None
@@ -327,7 +389,7 @@ class Neo4jStore:
             "SET e += $props "
             "MERGE (r)-[:PRODUCED]->(e)"
         )
-        with self._driver.session(database=self._database) as s:
+        with self._runner() as s:
             s.run(
                 cypher,
                 run_id=event.run_id,
@@ -341,12 +403,38 @@ class Neo4jStore:
             f"-[:PRODUCED]->(e:{self.NODE_EVENT}) RETURN e "
             "ORDER BY e.loop_index ASC"
         )
-        with self._driver.session(database=self._database) as s:
+        with self._runner() as s:
             rows = list(s.run(cypher, run_id=run_id))
         for row in rows:
             node = row["e"]
             rec = dict(node) if not isinstance(node, dict) else node
             yield OperatorEvent.from_record(rec)
+
+    # Atomicity -----------------------------------------------------------
+
+    @contextmanager
+    def transaction(self):
+        """Open a Neo4j write transaction.
+
+        Inside the ``transaction()`` block every store-internal write
+        method routes its query through the same Neo4j transaction
+        rather than opening a fresh session per call. Exceptions
+        trigger ``rollback``; clean exit triggers ``commit``.
+        """
+        sess_cm = self._driver.session(database=self._database)
+        sess = sess_cm.__enter__()
+        tx = sess.begin_transaction()
+        self._active_tx = tx
+        try:
+            yield self
+        except Exception:
+            tx.rollback()
+            raise
+        else:
+            tx.commit()
+        finally:
+            self._active_tx = None
+            sess_cm.__exit__(None, None, None)
 
     # Lifecycle -----------------------------------------------------------
 

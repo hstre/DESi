@@ -24,6 +24,14 @@ from .claim import (
     Provenance,
 )
 from .events import OperatorEvent, Run
+from .migrations import (
+    OPTIONAL_INDICES,
+    REQUIRED_CONSTRAINTS,
+    Migration,
+    list_migrations,
+    run_migrations,
+)
+from .recorder import MemoryRecorder, RecorderError
 from .relations import RELATION_TYPES, Relation, RelationType
 from .store import (
     InMemoryStore,
@@ -31,18 +39,27 @@ from .store import (
     Neo4jDriverNotInstalled,
     Neo4jStore,
 )
+from .view import ReadOnlyMemoryView
 
 __all__ = [
     "Claim",
     "ClaimState",
     "InMemoryStore",
+    "MemoryRecorder",
     "MemoryStore",
+    "Migration",
     "Neo4jDriverNotInstalled",
     "Neo4jStore",
+    "OPTIONAL_INDICES",
     "OperatorEvent",
     "Provenance",
+    "REQUIRED_CONSTRAINTS",
+    "ReadOnlyMemoryView",
     "RELATION_TYPES",
+    "RecorderError",
     "Relation",
     "RelationType",
     "Run",
+    "list_migrations",
+    "run_migrations",
 ]
