@@ -20,10 +20,11 @@ def _ext() -> PremiseExtractor:
 # ---------------------------------------------------------------------------
 
 
-def test_inference_rule_enum_has_exactly_five_members() -> None:
+def test_inference_rule_enum_has_exactly_six_members() -> None:
+    """v2.7 added CAUSAL_CHAIN to the original v1.2 set of five."""
     members = {m.value for m in InferenceRule}
     assert members == {"syllogism", "implication", "transitivity",
-                       "contradiction", "equivalence"}
+                       "contradiction", "equivalence", "causal_chain"}
 
 
 def test_inference_rule_value_uses_lowercase_underscore() -> None:

@@ -22,6 +22,11 @@ class AttemptedRule(str, Enum):
     TRANSITIVITY = "transitivity"
     CONTRADICTION = "contradiction"
     EQUIVALENCE = "equivalence"
+    # v2.7 — mirror of the production InferenceRule enum which gained
+    # CAUSAL_CHAIN in v2.7. The v2.5 rule-audit invariant "AttemptedRule
+    # mirrors InferenceRule 1:1" remains enforced by
+    # ``test_attempted_rule_mirrors_v1_2_inference_rule``.
+    CAUSAL_CHAIN = "causal_chain"
 
 
 class MissingRuleClass(str, Enum):

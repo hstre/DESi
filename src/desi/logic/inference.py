@@ -34,6 +34,7 @@ class InferenceRule(str, Enum):
     TRANSITIVITY = "transitivity"
     CONTRADICTION = "contradiction"
     EQUIVALENCE = "equivalence"
+    CAUSAL_CHAIN = "causal_chain"
 
 
 @dataclass(frozen=True)
@@ -251,12 +252,176 @@ def _try_equivalence(
     return None
 
 
+# ---------------------------------------------------------------------------
+# v2.7 — CAUSAL_CHAIN
+# ---------------------------------------------------------------------------
+#
+# The two guards from v2.6's read-only probe are encoded directly in
+# this validator. Both are necessary; both must hold; neither uses a
+# new operator, ClaimState, BridgeKind, or external library.
+#
+# Guard 1 (CONTRADICTION-FIRST): the validator is registered AFTER
+# the v1.2 CONTRADICTION rule in ``_VALIDATORS``, so any premise set
+# the contradiction rule already matches will return its own match
+# before CAUSAL_CHAIN is even tried (``try_each_rule`` short-circuits
+# on the first hit). The validator additionally refuses to fire on
+# any input containing a negation marker so contradictions whose
+# syntactic shape is not captured by the v1.2 CONTRADICTION rule do
+# not slip through here either.
+#
+# Guard 2 (CYCLE-DELEGATION): structural cycles in the premise set
+# are detected by a content-token repetition check — any token
+# appearing in 3+ distinct premises, or any explicit cyclic-
+# reference connective ("because", "depends on", "requires",
+# "relies on", "uses"), defers to the resolver's cycle infrastructure.
+
+_NEGATION_MARKERS: tuple[str, ...] = (
+    " not ", "n't ", " never ", " none ", " no ",
+)
+
+# Universal / quantifier markers in surface text. Their presence
+# signals a logical form (syllogism, contradiction, etc.) that
+# CAUSAL_CHAIN must not shadow.
+_QUANTIFIER_MARKERS: tuple[str, ...] = (
+    " all ", " every ", " some ", " any ", " each ", " no ",
+)
+
+# Explicit cyclic-reference connectives — defer to cycle resolution.
+_CYCLE_CONNECTIVES: tuple[str, ...] = (
+    " because ", " depends on ", " requires ",
+    " relies on ", " uses ",
+)
+
+
+_TOKEN_STOPWORDS: frozenset[str] = frozenset({
+    "the", "a", "an", "this", "that", "these", "those",
+    "it", "they", "he", "she", "we", "you", "i", "him", "her",
+    "his", "hers", "their", "its",
+    "is", "are", "was", "were", "be", "been", "being",
+    "do", "does", "did", "have", "has", "had",
+    "of", "in", "on", "at", "to", "for", "with", "and", "or", "but",
+    "as", "by", "from", "than", "then",
+    "therefore", "thus", "so", "hence",
+    "if", "while", "when", "where",
+    "not", "no", "yes", "all", "some", "any",
+})
+
+
+def _content_tokens(text: str) -> set[str]:
+    """Lowercase content-word set; punctuation stripped. No regex."""
+    s = " " + text.lower() + " "
+    for ch in ",.:;!?'\"":
+        s = s.replace(ch, " ")
+    out: set[str] = set()
+    for tok in s.split():
+        if tok in _TOKEN_STOPWORDS:
+            continue
+        if len(tok) < 3:
+            continue
+        out.add(tok)
+    return out
+
+
+def _contains_marker(text: str, markers: tuple[str, ...]) -> bool:
+    padded = " " + text.lower() + " "
+    return any(m in padded for m in markers)
+
+
+def _try_causal_chain(
+    premises: tuple[Premise, ...],
+    conclusion: ConclusionProposition,
+) -> InferenceMatch | None:
+    """v2.7 — linear cause-effect chain.
+
+    Matches deterministic sequential-cause text such as
+    "A. B. C. Therefore D." when **all** of the following hold:
+
+    1. premise count >= 2 (true chain, not a single fact)
+    2. every premise is ATOMIC or PARTICULAR (no universal /
+       conditional / implication / authority premise — those have
+       their own rules and CAUSAL_CHAIN must not shadow them)
+    3. conclusion is ATOMIC or PARTICULAR
+    4. no premise or conclusion text contains a negation marker
+    5. no premise text contains a universal/quantifier marker
+    6. no premise text contains a cyclic-reference connective
+    7. no content token appears in 3+ distinct premises
+       (structural cycle guard)
+    8. no conclusion content token appears in 2+ distinct premises
+       (recycled-conclusion guard against the
+       v2.3 R4 false-positive shape)
+
+    On match the validator returns an :class:`InferenceMatch` over
+    every premise — the whole chain participated in the verdict.
+    """
+    if conclusion is None or len(premises) < 2:
+        return None
+
+    allowed_kinds = {PremiseKind.ATOMIC, PremiseKind.PARTICULAR}
+    if conclusion.kind not in allowed_kinds:
+        return None
+    if any(p.kind not in allowed_kinds for p in premises):
+        return None
+
+    # Guard 1 (negation): a premise or conclusion negating any term
+    # signals contradiction-shape, not chain-shape.
+    if _contains_marker(conclusion.text, _NEGATION_MARKERS):
+        return None
+    for p in premises:
+        if _contains_marker(p.text, _NEGATION_MARKERS):
+            return None
+
+    # Universal / quantifier guard: a quantified premise belongs to
+    # SYLLOGISM / CONTRADICTION territory, not to CAUSAL_CHAIN.
+    for p in premises:
+        if _contains_marker(p.text, _QUANTIFIER_MARKERS):
+            return None
+    if _contains_marker(conclusion.text, _QUANTIFIER_MARKERS):
+        return None
+
+    # Guard 2 (cycle connective): explicit cycle wiring delegates to
+    # the resolver's cycle infrastructure.
+    for p in premises:
+        if _contains_marker(p.text, _CYCLE_CONNECTIVES):
+            return None
+
+    # Guard 2 (token-repetition cycle): a content token in three or
+    # more distinct premises is a structural cycle.
+    token_to_premises: dict[str, set[int]] = {}
+    premise_tokens: list[set[str]] = []
+    for idx, p in enumerate(premises):
+        toks = _content_tokens(p.text)
+        premise_tokens.append(toks)
+        for t in toks:
+            token_to_premises.setdefault(t, set()).add(idx)
+    if any(len(v) >= 3 for v in token_to_premises.values()):
+        return None
+
+    # Recycled-conclusion guard: no conclusion content token in 2+
+    # distinct premises. R4's "Penguins fly" / "rectangles are
+    # squares" / "light bends in straight lines" shapes are caught
+    # here.
+    concl_tokens = _content_tokens(conclusion.text)
+    for t in concl_tokens:
+        owners = token_to_premises.get(t, set())
+        if len(owners) >= 2:
+            return None
+
+    return InferenceMatch(
+        rule=InferenceRule.CAUSAL_CHAIN,
+        used_premise_ids=tuple(p.premise_id for p in premises),
+    )
+
+
 _VALIDATORS = {
     InferenceRule.SYLLOGISM: _try_syllogism,
     InferenceRule.IMPLICATION: _try_implication,
     InferenceRule.TRANSITIVITY: _try_transitivity,
     InferenceRule.CONTRADICTION: _try_contradiction,
     InferenceRule.EQUIVALENCE: _try_equivalence,
+    # v2.7 — must remain LAST so the four logical rules above get
+    # the first shot at every input. The CONTRADICTION-first
+    # guard depends on this ordering.
+    InferenceRule.CAUSAL_CHAIN: _try_causal_chain,
 }
 
 

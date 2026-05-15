@@ -7,7 +7,7 @@ from desi.rule_audit import AttemptedRule, MissingRuleClass
 
 _EXPECTED_ATTEMPTED = {
     "syllogism", "implication", "transitivity",
-    "contradiction", "equivalence",
+    "contradiction", "equivalence", "causal_chain",
 }
 
 
@@ -18,8 +18,9 @@ _EXPECTED_MISSING = {
 }
 
 
-def test_attempted_rule_has_five_values() -> None:
-    assert len(list(AttemptedRule)) == 5
+def test_attempted_rule_has_six_values() -> None:
+    """v2.7 added CAUSAL_CHAIN; the AttemptedRule mirror follows."""
+    assert len(list(AttemptedRule)) == 6
 
 
 def test_attempted_rule_matches_directive() -> None:
