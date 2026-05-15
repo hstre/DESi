@@ -7,7 +7,7 @@ place.
 | Tinkering pattern | Protocol-enforced replacement |
 | --- | --- |
 | "Patch because it feels right." | Patch only after the previous version's read-only audit produced a quantitative deficit. (DISCOVERY) |
-| "It looks safe; ship it." | Patch only after the v2.6-style probe shows `known_false_positive_reopen_rate = 0.0` and `safe_to_implement = True`. (RISK_PROBE) |
+| "It looks safe; ship it." | Patch only after the v2.6-style probe shows `known_false_positive_reopen_rate = 0.000` and `safe_to_implement = True`. (RISK_PROBE) |  [claim-anchor: artifact=artifacts/v2_6/report.json, field=metrics.known_false_positive_reopen_rate, expected=0.000]
 | "Case-specific fix for case X." | Every guard inspects a closed observable family (`premise_kind`, `premise_text_substring`, etc.). No `case_id` checks permitted. (GUARD_SYNTHESIS) |
 | "Hand-rolled regex over benchmark text." | Forbidden observable tokens (`case_id`, `allowlist`, `whitelist`) cause immediate rejection. (GUARD_SYNTHESIS) |
 | "I'll just touch a couple of files." | `touched_files` is declared up front, every entry must exist, every entry must live under an allowed root. (IMPLEMENTATION) |

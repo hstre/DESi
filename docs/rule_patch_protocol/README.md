@@ -98,7 +98,7 @@ fail with `passed = False` and the failing key in `fail_reason`.
 The eight historical false-positive case ids (A5, A6, A7, A10,
 D3, E4, E5, E10) are pinned in `causal_probe/risk.py` as
 `KNOWN_FALSE_POSITIVE_CASE_IDS`. v2.7 passed the protocol with
-`known_false_positive_reopen_rate = 0.000`.
+`known_false_positive_reopen_rate = 0.000`.  [claim-anchor: artifact=artifacts/v2_6/report.json, field=metrics.known_false_positive_reopen_rate, expected=0.000]
 
 ## 6. Worked example: v2.7
 

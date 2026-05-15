@@ -18,8 +18,8 @@ DISCOVERY required three predecessor artefacts:
 | Artefact | What it provided |
 | --- | --- |
 | `artifacts/v2_4/report.json` | Bridge-entry funnel: 77% of multistep cases die at `PARSER_UNSUPPORTED_FORM` despite `premise_count > 0`. |
-| `artifacts/v2_5/report.json` | Rule-coverage probe: `rule_hit_rate = 0.000`. Dominant missing class = `causal_chain` (20/30). |
-| `artifacts/v2_6/report.json` | Causal-chain coverage probe: `multistep_trigger_rate = 0.733`; `main_trigger_rate = 0.020`; **`known_false_positive_reopen_rate = 0.000`**. |
+| `artifacts/v2_5/report.json` | Rule-coverage probe: `rule_hit_rate = 0.000`. Dominant missing class = `causal_chain` (20/30). |  [claim-anchor: artifact=artifacts/v2_5/report.json, field=rule_hit_rate, expected=0.000]
+| `artifacts/v2_6/report.json` | Causal-chain coverage probe: `multistep_trigger_rate = 0.733`; `main_trigger_rate = 0.020`; **`known_false_positive_reopen_rate = 0.000`**. |  [claim-anchor: artifact=artifacts/v2_6/report.json, field=metrics.main_trigger_rate, expected=0.020]
 
 The v2.7 candidate's `required_artifacts` field declares exactly
 these three. The protocol's DISCOVERY phase hashes each file to
@@ -38,11 +38,11 @@ v2_6/report.json  → sha256[:16]
 | Metric | Value | Gate |
 | --- | ---: | :-: |
 | `multistep_trigger_rate` | 0.733 | informational |
-| `main_trigger_rate` | 0.020 | informational |
-| `known_false_positive_reopen_rate` | **0.000** | ✅ must be 0.0 |
-| `authority_touch_rate` | **0.000** | ✅ must be 0.0 |
-| `philosophy_touch_rate` | **0.000** | ✅ must be 0.0 |
-| `metaphor_touch_rate` | 0.000 | informational |
+| `main_trigger_rate` | 0.020 | informational |  [claim-anchor: artifact=artifacts/v2_6/report.json, field=metrics.main_trigger_rate, expected=0.020]
+| `known_false_positive_reopen_rate` | **0.000** | ✅ must be 0.0 |  [claim-anchor: artifact=artifacts/v2_6/report.json, field=metrics.known_false_positive_reopen_rate, expected=0.000]
+| `authority_touch_rate` | **0.000** | ✅ must be 0.0 |  [claim-anchor: artifact=artifacts/v2_6/report.json, field=metrics.authority_touch_rate, expected=0.000]
+| `philosophy_touch_rate` | **0.000** | ✅ must be 0.0 |  [claim-anchor: artifact=artifacts/v2_6/report.json, field=metrics.philosophy_touch_rate, expected=0.000]
+| `metaphor_touch_rate` | 0.000 | informational |  [claim-anchor: artifact=artifacts/v2_6/report.json, field=metrics.metaphor_touch_rate, expected=0.000]
 | `safe_to_implement` | **true** | ✅ must be true |
 
 All four hard gate conditions met. RISK_PROBE phase returns

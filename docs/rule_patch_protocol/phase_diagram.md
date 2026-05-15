@@ -54,7 +54,7 @@ the terminal sentinel produces `phase = COMPLETE`.
 | --- | --- |
 | Input | `artifact_root` |
 | Reads | `artifacts/v2_6/report.json` |
-| Failure conditions | any of: `known_false_positive_reopen_rate != 0.0`, `authority_touch_rate != 0.0`, `philosophy_touch_rate != 0.0`, `safe_to_implement != true` |
+| Failure conditions | any of: `known_false_positive_reopen_rate != 0.000`, `authority_touch_rate != 0.000`, `philosophy_touch_rate != 0.000`, `safe_to_implement != true` |  [claim-anchor: artifact=artifacts/v2_6/report.json, field=metrics.authority_touch_rate, expected=0.000]
 | Output | `PhaseOutcome.data["safe_to_implement"]`, `["metrics"]` |
 | Fail reason format | `"<failed gate 1>; <failed gate 2>; ..."` |
 
