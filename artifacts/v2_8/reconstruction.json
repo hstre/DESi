@@ -1,0 +1,107 @@
+{
+  "benchmark_hash_after": "aa01151d6e165bf0",
+  "benchmark_hash_before": "aa01151d6e165bf0",
+  "created_guards": [
+    "contradiction_first_by_iteration_order",
+    "premise_kind_atomic_or_particular",
+    "negation_marker_guard",
+    "quantifier_marker_guard",
+    "cycle_connective_guard",
+    "token_in_three_premises_cycle_guard",
+    "recycled_conclusion_token_guard"
+  ],
+  "fail_reason": "",
+  "passed": true,
+  "patch_id": "pp_45ea10a0ffa1d5b5",
+  "phase": "complete",
+  "phase_outcomes": [
+    {
+      "data": {
+        "artefact_hashes": {
+          "v2_4/report.json": "146f8ef47bfcee47",
+          "v2_5/report.json": "9f12e57f257d94e2",
+          "v2_6/report.json": "6f67c0c617540208"
+        }
+      },
+      "passed": true,
+      "phase": "discovery",
+      "reason": "all required artefacts present"
+    },
+    {
+      "data": {
+        "safe_to_implement": true
+      },
+      "passed": true,
+      "phase": "risk_probe",
+      "reason": "probe clean"
+    },
+    {
+      "data": {
+        "guard_names": [
+          "contradiction_first_by_iteration_order",
+          "premise_kind_atomic_or_particular",
+          "negation_marker_guard",
+          "quantifier_marker_guard",
+          "cycle_connective_guard",
+          "token_in_three_premises_cycle_guard",
+          "recycled_conclusion_token_guard"
+        ]
+      },
+      "passed": true,
+      "phase": "guard_synthesis",
+      "reason": "7 guards approved"
+    },
+    {
+      "data": {
+        "touched_count": 8
+      },
+      "passed": true,
+      "phase": "implementation",
+      "reason": "8 declared files present"
+    },
+    {
+      "data": {
+        "hashes": {
+          "v1_5_main": "33ce9eda1d3e06d5",
+          "v1_9_tool": "ed5b75fdb41a12b5",
+          "v2_3_multistep": "9558e30b5cfe2fe7",
+          "v2_4_bridge_audit": "bb154be03357fbf6",
+          "v2_5_rule_audit": "0477bf7f67151f80",
+          "v2_6_causal_probe": "53d90d92daad663c"
+        }
+      },
+      "passed": true,
+      "phase": "regression",
+      "reason": "all six benchmark hashes identical to baseline"
+    },
+    {
+      "data": {
+        "hashes": {
+          "v1_5_main": "33ce9eda1d3e06d5",
+          "v1_9_tool": "ed5b75fdb41a12b5",
+          "v2_3_multistep": "9558e30b5cfe2fe7",
+          "v2_4_bridge_audit": "bb154be03357fbf6",
+          "v2_5_rule_audit": "0477bf7f67151f80",
+          "v2_6_causal_probe": "53d90d92daad663c"
+        }
+      },
+      "passed": true,
+      "phase": "replay_verification",
+      "reason": "two consecutive runs match bit-for-bit"
+    }
+  ],
+  "replay_hash": "1f4d9dfe44cb16e1",
+  "source_branch": "feature/causal-chain-rule-guarded",
+  "target_rule": "causal_chain",
+  "timestamp": "2026-05-15T09:14:14.979374+00:00",
+  "touched_files": [
+    "src/desi/logic/inference.py",
+    "src/desi/rule_audit/categories.py",
+    "tests/logic/test_inference.py",
+    "tests/logic/test_causal_chain.py",
+    "tests/logic/test_causal_chain_regression.py",
+    "tests/rule_audit/test_categories.py",
+    "docs/memory/v2_7.md",
+    "artifacts/v2_7/report.json"
+  ]
+}
