@@ -1,0 +1,731 @@
+{
+  "constraints": {
+    "authority_breach_ids": [
+      "R4_04"
+    ],
+    "cycle_breach_ids": [],
+    "insufficient_depth_ids": [
+      "R1_01",
+      "R1_02",
+      "R1_03",
+      "R1_04",
+      "R1_05",
+      "R1_06",
+      "R2_01",
+      "R2_02",
+      "R2_03",
+      "R2_04",
+      "R2_05",
+      "R2_06",
+      "R3_01",
+      "R3_02",
+      "R3_03",
+      "R3_04",
+      "R3_05",
+      "R3_06"
+    ],
+    "passed": false,
+    "reasons": [
+      "contradiction case R4_04 reached COMPLETE",
+      "R1_01: expected_min_depth > actual depth_reached",
+      "R1_02: expected_min_depth > actual depth_reached",
+      "R1_03: expected_min_depth > actual depth_reached",
+      "R1_04: expected_min_depth > actual depth_reached",
+      "R1_05: expected_min_depth > actual depth_reached",
+      "R1_06: expected_min_depth > actual depth_reached",
+      "R2_01: expected_min_depth > actual depth_reached",
+      "R2_02: expected_min_depth > actual depth_reached",
+      "R2_03: expected_min_depth > actual depth_reached",
+      "R2_04: expected_min_depth > actual depth_reached",
+      "R2_05: expected_min_depth > actual depth_reached",
+      "R2_06: expected_min_depth > actual depth_reached",
+      "R3_01: expected_min_depth > actual depth_reached",
+      "R3_02: expected_min_depth > actual depth_reached",
+      "R3_03: expected_min_depth > actual depth_reached",
+      "R3_04: expected_min_depth > actual depth_reached",
+      "R3_05: expected_min_depth > actual depth_reached",
+      "R3_06: expected_min_depth > actual depth_reached"
+    ],
+    "replay_drift": false
+  },
+  "metrics": {
+    "blocked_propagation_accuracy": 0.366667,
+    "cycle_detection_rate": 0.0,
+    "depth_histogram": [
+      {
+        "count": 29,
+        "depth": 0
+      },
+      {
+        "count": 1,
+        "depth": 1
+      }
+    ],
+    "false_depth_zero_rate": 1.0,
+    "mean_depth_when_complete": 1.0,
+    "per_category_correct": [
+      {
+        "category": "R1_two_step_bridge",
+        "correct": 0,
+        "total": 6
+      },
+      {
+        "category": "R2_three_step_bridge",
+        "correct": 0,
+        "total": 6
+      },
+      {
+        "category": "R3_four_step_closure",
+        "correct": 0,
+        "total": 6
+      },
+      {
+        "category": "R4_hidden_contradiction",
+        "correct": 5,
+        "total": 6
+      },
+      {
+        "category": "R5_cyclic_dependency",
+        "correct": 0,
+        "total": 6
+      }
+    ],
+    "recursion_usage_rate": 0.033333,
+    "total": 30
+  },
+  "run": {
+    "results": [
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R1_01",
+          "category": "R1_two_step_bridge",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 1,
+          "text": "It is raining. Therefore the street is wet. Therefore traffic is slower."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_42d908baa4745758"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R1_02",
+          "category": "R1_two_step_bridge",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 1,
+          "text": "The power is out. Therefore the lights are off. Therefore the workers cannot continue."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_472782944338428d"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R1_03",
+          "category": "R1_two_step_bridge",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 1,
+          "text": "The dam broke. Therefore the valley is flooded. Therefore the crops are destroyed."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_f588baf56e8cea4e"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R1_04",
+          "category": "R1_two_step_bridge",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 1,
+          "text": "He missed the bus. Therefore he arrived late. Therefore the meeting started without him."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_4872351a30f5272b"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R1_05",
+          "category": "R1_two_step_bridge",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 1,
+          "text": "The fire alarm rang. Therefore the people evacuated. Therefore the room is empty."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_fec202f019088f1f"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R1_06",
+          "category": "R1_two_step_bridge",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 1,
+          "text": "Snow fell overnight. Therefore the roads are slick. Therefore driving is dangerous."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_b11db1a57acb8ead"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R2_01",
+          "category": "R2_three_step_bridge",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 2,
+          "text": "It rained. The street is wet. Traffic slowed down. Therefore the delivery arrived late."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_a3bfb24b7d26fd80"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R2_02",
+          "category": "R2_three_step_bridge",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 2,
+          "text": "A drought began. Crops failed. A food shortage followed. Therefore prices rose."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_6ed782e34ad7d063"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R2_03",
+          "category": "R2_three_step_bridge",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 2,
+          "text": "Smoke was detected. The sprinklers activated. The floor flooded. Therefore the office was closed."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_c760a10d3bf57d6f"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R2_04",
+          "category": "R2_three_step_bridge",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 2,
+          "text": "She was promoted. She moved cities. She bought a car. Therefore her daily commute changed."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_f2cbe1bb27c8471f"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R2_05",
+          "category": "R2_three_step_bridge",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 2,
+          "text": "A heatwave struck. Air conditioners ran. The grid was overloaded. Therefore a blackout occurred."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_67e7c4fd9c26717a"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R2_06",
+          "category": "R2_three_step_bridge",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 2,
+          "text": "A trade war began. Tariffs rose. Imports fell. Therefore local prices climbed."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_28397a8c12045f3b"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R3_01",
+          "category": "R3_four_step_closure",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 3,
+          "text": "A storm arrived. Trees fell. Power lines snapped. Houses lost power. Therefore an emergency was declared."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_19b8229510446f6b"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R3_02",
+          "category": "R3_four_step_closure",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 3,
+          "text": "A vaccine was developed. Trials succeeded. Approval was granted. Distribution began. Therefore case counts fell."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_89c391029e333918"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R3_03",
+          "category": "R3_four_step_closure",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 3,
+          "text": "An earthquake struck. Bridges collapsed. Supply routes were cut. Aid was delayed. Therefore survivors remained stranded."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_990c42fa880cd5b8"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R3_04",
+          "category": "R3_four_step_closure",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 3,
+          "text": "The currency was devalued. Imports became expensive. Inflation rose. Wages stagnated. Therefore household savings shrank."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_bac168e74a86de57"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R3_05",
+          "category": "R3_four_step_closure",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 3,
+          "text": "A factory opened. Jobs were created. The population grew. Schools expanded. Therefore tax revenue rose."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_f5d1a1ea3bce2e5d"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R3_06",
+          "category": "R3_four_step_closure",
+          "expected_blocked": false,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_complete",
+          "expected_min_depth": 3,
+          "text": "The algorithm was tuned. Latency dropped. Users returned. Engagement rose. Therefore revenue grew."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": false,
+        "expected_state_met": false,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_33f539bd8baac193"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R4_01",
+          "category": "R4_hidden_contradiction",
+          "expected_blocked": true,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_blocked",
+          "expected_min_depth": 0,
+          "text": "All birds fly. Penguins are birds. Penguins are flightless. Therefore penguins fly."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": true,
+        "expected_cycle_met": true,
+        "expected_depth_met": true,
+        "expected_state_met": true,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_f9cada9c6d5e0234"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R4_02",
+          "category": "R4_hidden_contradiction",
+          "expected_blocked": true,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_blocked",
+          "expected_min_depth": 0,
+          "text": "All metals conduct electricity. Wood is not a metal. Wood is a material. Therefore wood conducts electricity."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": true,
+        "expected_cycle_met": true,
+        "expected_depth_met": true,
+        "expected_state_met": true,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_0730f0cd830cab11"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R4_03",
+          "category": "R4_hidden_contradiction",
+          "expected_blocked": true,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_blocked",
+          "expected_min_depth": 0,
+          "text": "All A are B. No B are C. Therefore some A are C."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": true,
+        "expected_cycle_met": true,
+        "expected_depth_met": true,
+        "expected_state_met": true,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_5f8bc0d6be9be0cd"
+      },
+      {
+        "blocked": false,
+        "blocking_reason": null,
+        "case": {
+          "case_id": "R4_04",
+          "category": "R4_hidden_contradiction",
+          "expected_blocked": true,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_blocked",
+          "expected_min_depth": 0,
+          "text": "If it rains the street is wet. It is not raining. Therefore the street is wet."
+        },
+        "cycle_detected": false,
+        "depth_reached": 1,
+        "expected_blocked_met": false,
+        "expected_cycle_met": true,
+        "expected_depth_met": true,
+        "expected_state_met": false,
+        "final_state": "resolution_complete",
+        "replay_hash": "rr_02766402af9b1c5d"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R4_05",
+          "category": "R4_hidden_contradiction",
+          "expected_blocked": true,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_blocked",
+          "expected_min_depth": 0,
+          "text": "Light travels in straight lines. Lenses bend light. Therefore light bends in straight lines."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": true,
+        "expected_cycle_met": true,
+        "expected_depth_met": true,
+        "expected_state_met": true,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_77011abb3ddc533e"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "invalid_inference",
+        "case": {
+          "case_id": "R4_06",
+          "category": "R4_hidden_contradiction",
+          "expected_blocked": true,
+          "expected_cycle": false,
+          "expected_final_state": "resolution_blocked",
+          "expected_min_depth": 0,
+          "text": "All squares have four sides. All rectangles have four sides. Therefore all rectangles are squares."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": true,
+        "expected_cycle_met": true,
+        "expected_depth_met": true,
+        "expected_state_met": true,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_cb6d741f939b297d"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "parser_unsupported_form",
+        "case": {
+          "case_id": "R5_01",
+          "category": "R5_cyclic_dependency",
+          "expected_blocked": true,
+          "expected_cycle": true,
+          "expected_final_state": "resolution_blocked",
+          "expected_min_depth": 0,
+          "text": "If P then Q. If Q then P. Therefore P."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": true,
+        "expected_cycle_met": false,
+        "expected_depth_met": true,
+        "expected_state_met": true,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_a83b517bbb7cabaa"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "counterexample_found",
+        "case": {
+          "case_id": "R5_02",
+          "category": "R5_cyclic_dependency",
+          "expected_blocked": true,
+          "expected_cycle": true,
+          "expected_final_state": "resolution_blocked",
+          "expected_min_depth": 0,
+          "text": "A depends on B. B depends on C. C depends on A. Therefore A is established."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": true,
+        "expected_cycle_met": false,
+        "expected_depth_met": true,
+        "expected_state_met": true,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_ae7ea5e9eb3b6c42"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "counterexample_found",
+        "case": {
+          "case_id": "R5_03",
+          "category": "R5_cyclic_dependency",
+          "expected_blocked": true,
+          "expected_cycle": true,
+          "expected_final_state": "resolution_blocked",
+          "expected_min_depth": 0,
+          "text": "X requires Y. Y requires Z. Z requires X. Therefore X is established."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": true,
+        "expected_cycle_met": false,
+        "expected_depth_met": true,
+        "expected_state_met": true,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_1c93c0427f778cdd"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "counterexample_found",
+        "case": {
+          "case_id": "R5_04",
+          "category": "R5_cyclic_dependency",
+          "expected_blocked": true,
+          "expected_cycle": true,
+          "expected_final_state": "resolution_blocked",
+          "expected_min_depth": 0,
+          "text": "I trust him because she trusts him. She trusts him because I trust him. Therefore trust is established."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": true,
+        "expected_cycle_met": false,
+        "expected_depth_met": true,
+        "expected_state_met": true,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_e0455f3abf602f90"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "counterexample_found",
+        "case": {
+          "case_id": "R5_05",
+          "category": "R5_cyclic_dependency",
+          "expected_blocked": true,
+          "expected_cycle": true,
+          "expected_final_state": "resolution_blocked",
+          "expected_min_depth": 0,
+          "text": "The proof relies on the lemma. The lemma relies on the theorem. The theorem relies on the proof. Therefore the proof is sound."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": true,
+        "expected_cycle_met": false,
+        "expected_depth_met": true,
+        "expected_state_met": true,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_57de3a1fa230432f"
+      },
+      {
+        "blocked": true,
+        "blocking_reason": "counterexample_found",
+        "case": {
+          "case_id": "R5_06",
+          "category": "R5_cyclic_dependency",
+          "expected_blocked": true,
+          "expected_cycle": true,
+          "expected_final_state": "resolution_blocked",
+          "expected_min_depth": 0,
+          "text": "Definition A uses B. Definition B uses C. Definition C uses A. Therefore A is defined."
+        },
+        "cycle_detected": false,
+        "depth_reached": 0,
+        "expected_blocked_met": true,
+        "expected_cycle_met": false,
+        "expected_depth_met": true,
+        "expected_state_met": true,
+        "final_state": "resolution_blocked",
+        "replay_hash": "rr_d05142982585d793"
+      }
+    ],
+    "timestamp": "2026-05-15T07:53:35.315439+00:00"
+  }
+}
