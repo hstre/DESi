@@ -1,0 +1,988 @@
+{
+  "agreement": {
+    "cases_blocked_by_all_safe": 0,
+    "content_probe_agreement": 0.0,
+    "majority_rescue_clusters": [
+      "DIRECT_CONTRADICTION",
+      "PROPERTY_REVERSAL"
+    ],
+    "safe_probes": [
+      "C1_contradiction_pair_check",
+      "C2_polarity_flip_check",
+      "C3_cause_direction_check"
+    ]
+  },
+  "classification_accuracy": 1.0,
+  "classifications": [
+    {
+      "chain_id": "D1I007",
+      "failure_class": "PROPERTY_REVERSAL",
+      "rationale": "premise asserts a negative-polarity outcome; conclusion asserts the positive-polarity form"
+    },
+    {
+      "chain_id": "X1-V027P1",
+      "failure_class": "PROPERTY_REVERSAL",
+      "rationale": "premise asserts a negative-polarity outcome; conclusion asserts the positive-polarity form"
+    },
+    {
+      "chain_id": "X1-V027P2",
+      "failure_class": "PROPERTY_REVERSAL",
+      "rationale": "premise asserts a negative-polarity outcome; conclusion asserts the positive-polarity form"
+    },
+    {
+      "chain_id": "X1-V027P3",
+      "failure_class": "PROPERTY_REVERSAL",
+      "rationale": "premise asserts a negative-polarity outcome; conclusion asserts the positive-polarity form"
+    },
+    {
+      "chain_id": "X1-V027P4",
+      "failure_class": "PROPERTY_REVERSAL",
+      "rationale": "premise asserts a negative-polarity outcome; conclusion asserts the positive-polarity form"
+    },
+    {
+      "chain_id": "X2-V028P1",
+      "failure_class": "DIRECT_CONTRADICTION",
+      "rationale": "premise asserts X and conclusion asserts the explicit negation of X with no qualifier"
+    },
+    {
+      "chain_id": "X2-V028P2",
+      "failure_class": "DIRECT_CONTRADICTION",
+      "rationale": "premise asserts X and conclusion asserts the explicit negation of X with no qualifier"
+    },
+    {
+      "chain_id": "X2-V028P3",
+      "failure_class": "DIRECT_CONTRADICTION",
+      "rationale": "premise asserts X and conclusion asserts the explicit negation of X with no qualifier"
+    },
+    {
+      "chain_id": "X2-V028P4",
+      "failure_class": "DIRECT_CONTRADICTION",
+      "rationale": "premise asserts X and conclusion asserts the explicit negation of X with no qualifier"
+    }
+  ],
+  "distribution": {
+    "failure_count": {
+      "DIRECT_CONTRADICTION": 4,
+      "PROPERTY_REVERSAL": 5
+    },
+    "failure_entropy": 0.991076,
+    "largest_cluster": 0.555556,
+    "largest_cluster_class": "PROPERTY_REVERSAL",
+    "per_domain": {
+      "legal_reasoning": {
+        "DIRECT_CONTRADICTION": 4
+      },
+      "scientific_abstracts": {
+        "PROPERTY_REVERSAL": 5
+      }
+    },
+    "singleton_count": 0,
+    "total": 9,
+    "unknown_fraction": 0.0
+  },
+  "expected_residue_count": 9,
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "nc_count": 60,
+  "nc_outcomes": [
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-001",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-002",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-003",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-004",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-005",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-006",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-007",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-008",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-009",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-010",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-011",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-012",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-013",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-014",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-015",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-016",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-017",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-018",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-019",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "expected_class": "DIRECT_CONTRADICTION",
+      "nc_id": "NC-DC-020",
+      "predicted_class": "DIRECT_CONTRADICTION"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-001",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-002",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-003",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-004",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-005",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-006",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-007",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-008",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-009",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-010",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-011",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-012",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-013",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-014",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-015",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-016",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-017",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-018",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-019",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "inversion_case",
+      "correct": true,
+      "expected_class": "PROPERTY_REVERSAL",
+      "nc_id": "NC-PR-020",
+      "predicted_class": "PROPERTY_REVERSAL"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-001",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-002",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-003",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-004",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-005",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-006",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-007",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-008",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-009",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-010",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-011",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-012",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-013",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-014",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-015",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-016",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-017",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-018",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-019",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "cohort": "valid_content_preserving",
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-VL-020",
+      "predicted_class": "UNKNOWN"
+    }
+  ],
+  "probe_rescue": [
+    {
+      "contamination_risk": 0,
+      "false_blocks": 0,
+      "probe": "C1_contradiction_pair_check",
+      "rescue_rate": 0.444444,
+      "rescued_cases": 4,
+      "rescued_chain_ids": [
+        "X2-V028P1",
+        "X2-V028P2",
+        "X2-V028P3",
+        "X2-V028P4"
+      ],
+      "unsafe": false
+    },
+    {
+      "contamination_risk": 0,
+      "false_blocks": 0,
+      "probe": "C2_polarity_flip_check",
+      "rescue_rate": 0.555556,
+      "rescued_cases": 5,
+      "rescued_chain_ids": [
+        "D1I007",
+        "X1-V027P1",
+        "X1-V027P2",
+        "X1-V027P3",
+        "X1-V027P4"
+      ],
+      "unsafe": false
+    },
+    {
+      "contamination_risk": 0,
+      "false_blocks": 0,
+      "probe": "C3_cause_direction_check",
+      "rescue_rate": 0.0,
+      "rescued_cases": 0,
+      "rescued_chain_ids": [],
+      "unsafe": false
+    },
+    {
+      "contamination_risk": 5,
+      "false_blocks": 5,
+      "probe": "C4_necessity_sufficiency_check",
+      "rescue_rate": 0.0,
+      "rescued_cases": 0,
+      "rescued_chain_ids": [],
+      "unsafe": true
+    },
+    {
+      "contamination_risk": 528,
+      "false_blocks": 528,
+      "probe": "C5_entity_consistency_check",
+      "rescue_rate": 1.0,
+      "rescued_cases": 9,
+      "rescued_chain_ids": [
+        "D1I007",
+        "X1-V027P1",
+        "X1-V027P2",
+        "X1-V027P3",
+        "X1-V027P4",
+        "X2-V028P1",
+        "X2-V028P2",
+        "X2-V028P3",
+        "X2-V028P4"
+      ],
+      "unsafe": true
+    }
+  ],
+  "recommendation_reason": "largest_cluster=0.555556 (PROPERTY_REVERSAL); unknown_fraction=0.0; failure_entropy=0.991076",
+  "recommended_next": "CONTENT_FAILURE_LOCALIZED",
+  "replay_hash": "d0835b564453cfc0",
+  "replay_records": [
+    {
+      "chain_id": "D1I007",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "capacity",
+          "discharge",
+          "electrodes",
+          "higher",
+          "lost",
+          "rates",
+          "stress-test"
+        ],
+        [
+          "imaging",
+          "lithium",
+          "plating",
+          "post-mortem",
+          "showed"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X1-V027P1",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2018",
+          "capacity",
+          "discharge",
+          "electrodes",
+          "higher",
+          "lost",
+          "rates",
+          "series",
+          "stress-test"
+        ],
+        [
+          "imaging",
+          "lithium",
+          "plating",
+          "post-mortem",
+          "showed"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X1-V027P2",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2015",
+          "capacity",
+          "discharge",
+          "electrodes",
+          "higher",
+          "lost",
+          "peer-reviewed",
+          "rates",
+          "report",
+          "stress-test"
+        ],
+        [
+          "imaging",
+          "lithium",
+          "plating",
+          "post-mortem",
+          "showed"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X1-V027P3",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2020",
+          "capacity",
+          "cohort",
+          "discharge",
+          "electrodes",
+          "higher",
+          "lost",
+          "rates",
+          "stress-test"
+        ],
+        [
+          "imaging",
+          "lithium",
+          "plating",
+          "post-mortem",
+          "showed"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X1-V027P4",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2012",
+          "capacity",
+          "discharge",
+          "electrodes",
+          "higher",
+          "lost",
+          "multi-centre",
+          "rates",
+          "stress-test",
+          "study"
+        ],
+        [
+          "imaging",
+          "lithium",
+          "plating",
+          "post-mortem",
+          "showed"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X2-V028P1",
+      "conclusion_tokens": [
+        "claim",
+        "time-barred"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "originating_strategy": [
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2018",
+          "bars",
+          "claims",
+          "filed",
+          "late",
+          "limitations",
+          "series",
+          "statute"
+        ],
+        [
+          "filed",
+          "limitation",
+          "period",
+          "plaintiff",
+          "within"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X2-V028P2",
+      "conclusion_tokens": [
+        "claim",
+        "time-barred"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "originating_strategy": [
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2015",
+          "bars",
+          "claims",
+          "filed",
+          "late",
+          "limitations",
+          "peer-reviewed",
+          "report",
+          "statute"
+        ],
+        [
+          "filed",
+          "limitation",
+          "period",
+          "plaintiff",
+          "within"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X2-V028P3",
+      "conclusion_tokens": [
+        "claim",
+        "time-barred"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "originating_strategy": [
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2020",
+          "bars",
+          "claims",
+          "cohort",
+          "filed",
+          "late",
+          "limitations",
+          "statute"
+        ],
+        [
+          "filed",
+          "limitation",
+          "period",
+          "plaintiff",
+          "within"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X2-V028P4",
+      "conclusion_tokens": [
+        "claim",
+        "time-barred"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "originating_strategy": [
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2012",
+          "bars",
+          "claims",
+          "filed",
+          "late",
+          "limitations",
+          "multi-centre",
+          "statute",
+          "study"
+        ],
+        [
+          "filed",
+          "limitation",
+          "period",
+          "plaintiff",
+          "within"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    }
+  ],
+  "residue_count": 9,
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "total_contamination": 0,
+  "v40_pre_v43_replay_hash": "aefa8f1e3429225a",
+  "v41_pre_v43_replay_hash": "f7ec695f17aa341b",
+  "v42_pre_v43_replay_hash": "181ec3cb1febf62f",
+  "v43_replay_hash": "7c63bcae4cf3fb37",
+  "v44_replay_hash": "bf4147b89f398224",
+  "v45_replay_hash": "86418c9d976cc147",
+  "v46_replay_hash": "58268fd9c4437e49",
+  "v47_replay_hash": "2774818766a8035a"
+}
