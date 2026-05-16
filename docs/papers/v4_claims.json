@@ -3,9 +3,12 @@
     {
       "artifact": "v4_0",
       "claim_id": "C001",
+      "environment_scope": "frozen+drift",
       "expected_value": "aefa8f1e3429225a",
       "field_path": "replay_hash",
       "replay_hash": "aefa8f1e3429225a",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v4.0 replay_hash pinned"
     },
     {
@@ -115,9 +118,12 @@
     {
       "artifact": "v4_1",
       "claim_id": "C015",
+      "environment_scope": "frozen+drift",
       "expected_value": "f7ec695f17aa341b",
       "field_path": "replay_hash",
       "replay_hash": "f7ec695f17aa341b",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v4.1 replay_hash pinned"
     },
     {
@@ -187,9 +193,12 @@
     {
       "artifact": "v4_2",
       "claim_id": "C024",
+      "environment_scope": "frozen+drift",
       "expected_value": "181ec3cb1febf62f",
       "field_path": "replay_hash",
       "replay_hash": "181ec3cb1febf62f",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v4.2 replay_hash pinned"
     },
     {
@@ -283,9 +292,12 @@
     {
       "artifact": "v4_3",
       "claim_id": "C036",
+      "environment_scope": "frozen+drift",
       "expected_value": "7c63bcae4cf3fb37",
       "field_path": "replay_hash",
       "replay_hash": "7c63bcae4cf3fb37",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v4.3 replay_hash pinned"
     },
     {
@@ -387,9 +399,12 @@
     {
       "artifact": "v4_4",
       "claim_id": "C049",
+      "environment_scope": "frozen+drift",
       "expected_value": "bf4147b89f398224",
       "field_path": "replay_hash",
       "replay_hash": "bf4147b89f398224",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v4.4 replay_hash pinned"
     },
     {
@@ -467,9 +482,12 @@
     {
       "artifact": "v4_5",
       "claim_id": "C059",
+      "environment_scope": "frozen+drift",
       "expected_value": "86418c9d976cc147",
       "field_path": "replay_hash",
       "replay_hash": "86418c9d976cc147",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v4.5 replay_hash pinned"
     },
     {
@@ -571,9 +589,12 @@
     {
       "artifact": "v4_6",
       "claim_id": "C072",
+      "environment_scope": "frozen+drift",
       "expected_value": "58268fd9c4437e49",
       "field_path": "replay_hash",
       "replay_hash": "58268fd9c4437e49",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v4.6 replay_hash pinned"
     },
     {
@@ -651,9 +672,12 @@
     {
       "artifact": "v4_7",
       "claim_id": "C082",
+      "environment_scope": "frozen+drift",
       "expected_value": "2774818766a8035a",
       "field_path": "replay_hash",
       "replay_hash": "2774818766a8035a",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v4.7 replay_hash pinned"
     },
     {
@@ -731,9 +755,12 @@
     {
       "artifact": "v4_8",
       "claim_id": "C092",
+      "environment_scope": "frozen+drift",
       "expected_value": "d0835b564453cfc0",
       "field_path": "replay_hash",
       "replay_hash": "d0835b564453cfc0",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v4.8 replay_hash pinned"
     },
     {
@@ -811,9 +838,12 @@
     {
       "artifact": "v4_9",
       "claim_id": "C102",
+      "environment_scope": "frozen+live-stable",
       "expected_value": "51122b802bd257dc",
       "field_path": "replay_hash",
       "replay_hash": "51122b802bd257dc",
+      "repro_class": "LIVE_REPLAY_STABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v4.9 replay_hash pinned"
     },
     {
@@ -923,99 +953,135 @@
     {
       "artifact": "v3_11",
       "claim_id": "C116",
+      "environment_scope": "frozen-only",
       "expected_value": "1c8e6d0e0b90905c",
       "field_path": "replay_hash",
       "replay_hash": "1c8e6d0e0b90905c",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v3_11 replay_hash unchanged (carried forward from v3.24)"
     },
     {
       "artifact": "v3_13",
       "claim_id": "C117",
+      "environment_scope": "frozen-only",
       "expected_value": "733032cc30a0cc2e",
       "field_path": "replay_hash",
       "replay_hash": "733032cc30a0cc2e",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v3_13 replay_hash unchanged (carried forward from v3.24)"
     },
     {
       "artifact": "v3_14",
       "claim_id": "C118",
+      "environment_scope": "frozen-only",
       "expected_value": "94be5611fc9bd336",
       "field_path": "replay_hash",
       "replay_hash": "94be5611fc9bd336",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v3_14 replay_hash unchanged (carried forward from v3.24)"
     },
     {
       "artifact": "v3_15",
       "claim_id": "C119",
+      "environment_scope": "frozen-only",
       "expected_value": "a6edfa9a53914bcc",
       "field_path": "replay_hash",
       "replay_hash": "a6edfa9a53914bcc",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v3_15 replay_hash unchanged (carried forward from v3.24)"
     },
     {
       "artifact": "v3_16",
       "claim_id": "C120",
+      "environment_scope": "frozen-only",
       "expected_value": "1f4e5f85c085d32f",
       "field_path": "replay_hash",
       "replay_hash": "1f4e5f85c085d32f",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v3_16 replay_hash unchanged (carried forward from v3.24)"
     },
     {
       "artifact": "v3_17",
       "claim_id": "C121",
+      "environment_scope": "frozen-only",
       "expected_value": "a01b6edaa9e1a086",
       "field_path": "replay_hash",
       "replay_hash": "a01b6edaa9e1a086",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v3_17 replay_hash unchanged (carried forward from v3.24)"
     },
     {
       "artifact": "v3_18",
       "claim_id": "C122",
+      "environment_scope": "frozen-only",
       "expected_value": "7829ae1e1750f00d",
       "field_path": "replay_hash",
       "replay_hash": "7829ae1e1750f00d",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v3_18 replay_hash unchanged (carried forward from v3.24)"
     },
     {
       "artifact": "v3_19",
       "claim_id": "C123",
+      "environment_scope": "frozen-only",
       "expected_value": "3cbde141b5d90a46",
       "field_path": "replay_hash",
       "replay_hash": "3cbde141b5d90a46",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v3_19 replay_hash unchanged (carried forward from v3.24)"
     },
     {
       "artifact": "v3_20",
       "claim_id": "C124",
+      "environment_scope": "frozen-only",
       "expected_value": "02eb32df1f51b761",
       "field_path": "replay_hash",
       "replay_hash": "02eb32df1f51b761",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v3_20 replay_hash unchanged (carried forward from v3.24)"
     },
     {
       "artifact": "v3_21",
       "claim_id": "C125",
+      "environment_scope": "frozen-only",
       "expected_value": "f570c9e94770dfbc",
       "field_path": "replay_hash",
       "replay_hash": "f570c9e94770dfbc",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v3_21 replay_hash unchanged (carried forward from v3.24)"
     },
     {
       "artifact": "v3_22",
       "claim_id": "C126",
+      "environment_scope": "frozen-only",
       "expected_value": "be039cd52c3de9b5",
       "field_path": "replay_hash",
       "replay_hash": "be039cd52c3de9b5",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v3_22 replay_hash unchanged (carried forward from v3.24)"
     },
     {
       "artifact": "v3_23",
       "claim_id": "C127",
+      "environment_scope": "frozen-only",
       "expected_value": "0246444ccd8f96ef",
       "field_path": "replay_hash",
       "replay_hash": "0246444ccd8f96ef",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
       "text": "v3_23 replay_hash unchanged (carried forward from v3.24)"
     }
   ],
-  "schema_version": "v4.10.1"
+  "schema_version": "v4.12.1"
 }

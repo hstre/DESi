@@ -244,20 +244,85 @@ Four runtime patches were deployed across the v4 line
 
 * changed only `src/desi/logic/inference.py`,
 * added only guards inside `_try_causal_chain`,
-* preserved every pinned hash from the v2.x and v3.x line
-  (`v2.7` reconstruction `1f4d9dfe44cb16e1`; `v2.7`
-  fail-case `d83d81ab8417c022`; twelve `v3.11`-`v3.23`
-  hashes),
+* preserved the frozen artifact files for every prior
+  pinned version on disk (`v2.7` reconstruction
+  `1f4d9dfe44cb16e1`; `v2.7` fail-case
+  `d83d81ab8417c022`; twelve `v3.11`-`v3.23` hashes),
 * preserved the `v1.5` main benchmark at precision 1.000 /
   recall 1.000 and the `v2.3` multistep at thirty
   results,
 * preserved every historical artifact file on disk
   (v4.0-v4.8 `.json` are pre-v4.9 snapshots; their
-  hashes are pinned by the v4.9 regression test).
+  *frozen-file* hashes are pinned by the v4.9 regression
+  test).
 
-No artifact was rewritten. No `InferenceRule`, `ClaimState`,
-`Frame`, or `LedgerEvent` was added across the entire v4
-line.
+No artifact file was rewritten. No `InferenceRule`,
+`ClaimState`, `Frame`, or `LedgerEvent` was added across
+the entire v4 line.
+
+**Frozen file vs live rebuild.** The bullets above pin
+the *frozen artifact files*, not their live re-execution.
+v4.0-v4.8 reports were authored against earlier
+auditor states; a live rebuild of any of them under the
+v4.9-patched runtime produces a *different* hash. The
+distinction between frozen-file pinning and live-replay
+stability is made explicit per-version in the v4.11
+replay matrix
+(`artifacts/v4_11/replay_matrix.json`) and machine-checked
+in `tests/repro_audit/test_replay_matrix.py`. The
+``Reproducibility Classes`` subsection below names the
+six possibilities and assigns each pinned version
+exactly one.
+
+### Reproducibility Classes
+
+v4.11 introduced a closed `ReproducibilityClass`
+taxonomy. Every pinned version in this paper carries one
+of its six values, sourced from
+`artifacts/v4_11/replay_matrix.json`:
+
+* **R001** v3.11-v3.23 → `FROZEN_ARTIFACT_REPLAYABLE`.
+  Twelve versions whose canonical record is the frozen
+  artifact file. No live builder is exposed; the v3.24
+  consolidation pinned these as historical record.
+* **R002** v4.0-v4.8 → `HISTORICAL_RUNTIME_DRIFT`.
+  Nine versions whose frozen files remain pinned to
+  their v4.x-era hashes, while a live rebuild under the
+  v4.9-patched runtime produces a different hash. The
+  drift is the documented downstream effect of v4.3 /
+  v4.5 / v4.7 / v4.9 runtime patches; it is reported,
+  not hidden.
+* **R003** v4.9 → `LIVE_REPLAY_STABLE`. The most recent
+  runtime patch; its frozen file and live rebuild
+  produce the same hash in the current environment.
+* **R004** v4.10 → `NON_REPLAYABLE_BY_DESIGN`. The
+  consolidation paper artifact was assembled by a
+  one-off generator script in v4.10; no live builder
+  is exposed.
+* **R005** v1.9 tool benchmark → `ENVIRONMENT_DEPENDENT`.
+  The four `B_symbolic_math` cases carry
+  `SHOULD_TOOL_FAIL` ground truth. With SymPy absent
+  the benchmark scores 20/20; with SymPy present it
+  scores 16/20. v4.11 declares
+  `TOOL_REPRO_POLICY = ENVIRONMENT_CONDITIONAL` and
+  pins the expected count *as a function* of
+  `sympy_available`
+  (`src/desi/repro_audit/tool_policy.py`).
+* **R006** v2.8 reconstruction → environment-dependent:
+  `LIVE_REPLAY_STABLE` when the current runtime
+  reproduces the frozen hash `1f4d9dfe44cb16e1`, else
+  `HISTORICAL_RUNTIME_DRIFT`. Both halves of the
+  contract are surfaced by the v4.11 matrix; the
+  frozen pin is asserted from
+  `artifacts/v2_8/reconstruction.json` regardless of
+  runtime state.
+
+No claim in `docs/papers/v4_claims.json` asserts
+`frozen == live` unless the replay matrix declares
+`LIVE_REPLAY_STABLE` for the corresponding version.
+Twenty-two replay-hash claims now carry their
+`repro_class`, `repro_source`, and `environment_scope`
+annotations explicitly.
 
 ## 13. Falsified Hypotheses
 
@@ -337,12 +402,27 @@ future runtime patch to `_try_causal_chain`:
    / v3.16 / v4.0-VALID protected pool that previously
    audited as `LOGICALLY_SUPPORTED`.
 4. **Reversibility.** Adding the patch must preserve every
-   prior pinned hash (v2.x and v3.x) and every prior
-   protected-benchmark metric. If any of these regresses,
-   the patch must be reverted.
+   prior pinned *frozen-file* hash (v2.x and v3.x) and
+   every prior protected-benchmark metric. *Live-replay*
+   stability is reported separately per version by the
+   v4.11 replay matrix and is not required for
+   reversibility; live drift on v4.0-v4.8 is permitted iff
+   it is classified as `HISTORICAL_RUNTIME_DRIFT` and the
+   frozen files remain unchanged. If any frozen-file hash
+   or protected-benchmark metric regresses, the patch must
+   be reverted.
+5. **Reproducibility class declared.** Every artifact the
+   patch produces, and every prior artifact whose
+   classification the patch perturbs, must be assigned
+   exactly one closed `ReproducibilityClass` value in
+   `artifacts/v4_11/replay_matrix.json`. No test may
+   claim live-replay stability unless the matrix declares
+   `LIVE_REPLAY_STABLE`. No test may silently depend on
+   an optional dependency; the v4.11 `tool_repro_policy`
+   is the template (`ENVIRONMENT_CONDITIONAL`).
 
 The four v4-line runtime patches (v4.3, v4.5, v4.7, v4.9)
-each satisfy all four criteria.
+each satisfy all five criteria.
 
 ## 15. Conclusion
 
