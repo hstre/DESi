@@ -1,0 +1,62 @@
+"""v4.4 — counterfactual probes + safe-probe contamination."""
+from __future__ import annotations
+
+from desi.residual_semantic_probe import (
+    SemanticProbe, collect_residue_cases,
+    semantic_probe_evaluate_all,
+)
+from desi.residual_semantic_probe.rescue import analyse
+from desi.residual_semantic_probe.classifier import classify_all
+from desi.residual_semantic_probe.replay import replay_all
+
+
+def _bundle():
+    cases = collect_residue_cases()
+    records = replay_all(cases)
+    text_index = {c.chain_id: c.text for c in cases}
+    classes = classify_all(records, text_index)
+    return cases, classes
+
+
+def test_each_probe_evaluated_on_every_case() -> None:
+    cases = collect_residue_cases()
+    out = semantic_probe_evaluate_all(cases)
+    by_probe: dict[str, list] = {}
+    for o in out:
+        by_probe.setdefault(o.probe, []).append(o)
+    assert len(by_probe) == len(SemanticProbe)
+    for probe in SemanticProbe:
+        assert len(by_probe[probe.value]) == len(cases)
+
+
+def test_s5_bidirectional_link_check_is_safe() -> None:
+    cases, classes = _bundle()
+    per_probe, _ = analyse(cases, classes)
+    s5 = next(
+        p for p in per_probe
+        if p.probe == SemanticProbe.S5_BIDIRECTIONAL_LINK_CHECK.value
+    )
+    assert s5.contamination_risk == 0
+    assert s5.unsafe is False
+
+
+def test_aggressive_probes_have_contamination() -> None:
+    cases, classes = _bundle()
+    per_probe, _ = analyse(cases, classes)
+    aggressive = {
+        SemanticProbe.S2_INNER_ONLY_ROUTE.value,
+        SemanticProbe.S3_MANDATORY_CONSILIUM.value,
+    }
+    for p in per_probe:
+        if p.probe in aggressive:
+            assert p.contamination_risk > 0, p.probe
+
+
+def test_majority_rescue_clusters_match_safe_probes() -> None:
+    cases, classes = _bundle()
+    _, agreement = analyse(cases, classes)
+    # Only the safe probe (S5) handles BIDIRECTIONAL_CYCLE; no
+    # safe probe covers the remaining classes.
+    assert agreement.majority_rescue_clusters == (
+        "BIDIRECTIONAL_CYCLE",
+    )
