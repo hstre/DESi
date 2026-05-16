@@ -52,6 +52,15 @@ class ClaimState(str, Enum):
     TOOL_SUPPORTED = "tool_supported"
     TOOL_REFUTED = "tool_refuted"
     TOOL_FAILED = "tool_failed"
+    # v3.4: pre-audit frame-declaration states. These are NOT
+    # truth verdicts — they describe whether a frame has been
+    # declared, is undeclared, conflicts, or mismatches the
+    # downstream audit's required frame. They must never replace
+    # LOGICALLY_SUPPORTED / LOGICALLY_REJECTED.
+    FRAME_DECLARED = "frame_declared"
+    FRAME_UNDECLARED = "frame_undeclared"
+    FRAME_CONFLICT = "frame_conflict"
+    FRAME_MISMATCH = "frame_mismatch"
 
 
 # ---------------------------------------------------------------------------
