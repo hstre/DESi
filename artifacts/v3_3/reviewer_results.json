@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "reviewer_prompt_hash": "e9cb2a08e69614bc",
+  "questions_hash": "9ba65995e07e2282",
+  "reviewers": [
+    {
+      "reviewer_id": "grok",
+      "model_name": "grok (simulated; deterministic literal-minded persona)",
+      "timestamp": "2026-05-15T13:00:00+00:00",
+      "hash_verified": true,
+      "replay_verified": true,
+      "unverifiable_claims": [
+        {
+          "claim_text": "DESi does not use an LLM at runtime.",
+          "doc_path": "docs/cross_review/reviewer_prompt.md",
+          "why_unverifiable": "negative claim; no artefact directly proves absence"
+        }
+      ],
+      "hidden_assumptions": [
+        {
+          "assumption_text": "The v1.5 main benchmark ground truth itself is correct.",
+          "consequence_if_false": "precision=1.000 becomes circular self-agreement.",
+          "where_observed": "src/desi/benchmark/cases.py"
+        }
+      ],
+      "contamination_risks": [
+        {
+          "risk_text": "v2.6 trigger derived from same v2.3 cases v2.7 resolves",
+          "affected_benchmark": "v2.3 multistep",
+          "evidence_path": "artifacts/v2_6/report.json",
+          "severity": "medium"
+        }
+      ],
+      "falsifiability_score": 8,
+      "raw_output_hash": "27a90df1b6dbe91a"
+    },
+    {
+      "reviewer_id": "claude",
+      "model_name": "claude (simulated; deterministic process-focused persona)",
+      "timestamp": "2026-05-15T13:00:00+00:00",
+      "hash_verified": true,
+      "replay_verified": true,
+      "unverifiable_claims": [
+        {
+          "claim_text": "v3.1 doc-anchor pass reduced the self_deception_rate from 0.314 to 0.05144.",
+          "doc_path": "docs/cross_review/reviewer_prompt.md",
+          "why_unverifiable": "before-snapshot not preserved in artefact tree; only current state observable"
+        }
+      ],
+      "hidden_assumptions": [
+        {
+          "assumption_text": "The v1.5 main benchmark ground truth itself is correct.",
+          "consequence_if_false": "no-regression claims measure author-internal agreement only.",
+          "where_observed": "src/desi/benchmark/cases.py"
+        }
+      ],
+      "contamination_risks": [
+        {
+          "risk_text": "in-distribution guard derivation: v2.6 probe + v2.7 rule both read v2.3 cases",
+          "affected_benchmark": "v2.3 multistep",
+          "evidence_path": "artifacts/v2_6/report.json",
+          "severity": "medium"
+        }
+      ],
+      "falsifiability_score": 8,
+      "raw_output_hash": "b373d74c3ae4fd85"
+    },
+    {
+      "reviewer_id": "gemini",
+      "model_name": "gemini (simulated; deterministic contamination-focused persona)",
+      "timestamp": "2026-05-15T13:00:00+00:00",
+      "hash_verified": true,
+      "replay_verified": true,
+      "unverifiable_claims": [
+        {
+          "claim_text": "v2.7 changes only one production file (src/desi/logic/inference.py).",
+          "doc_path": "docs/reviewer_bundle/README.md",
+          "why_unverifiable": "diff history not in artefact tree; verifiable only via git log"
+        }
+      ],
+      "hidden_assumptions": [
+        {
+          "assumption_text": "benchmark hashes are stable across Python interpreter and JSON encoder versions",
+          "consequence_if_false": "third-party reproduction may see different hashes without any logic change.",
+          "where_observed": "src/desi/rule_patch_protocol/runners.py"
+        }
+      ],
+      "contamination_risks": [
+        {
+          "risk_text": "v2.6 trigger pattern selected after inspecting v2.3 cases; guard set ships against same shapes",
+          "affected_benchmark": "v2.3 multistep",
+          "evidence_path": "artifacts/v2_6/report.json",
+          "severity": "medium"
+        }
+      ],
+      "falsifiability_score": 7,
+      "raw_output_hash": "259720721c8f09ae"
+    }
+  ]
+}
