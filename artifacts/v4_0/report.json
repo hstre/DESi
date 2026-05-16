@@ -1,0 +1,94 @@
+{
+  "chain_count": 800,
+  "contamination": {
+    "checked_count": 800,
+    "desi_corpus_count": 754,
+    "exact_overlap_count": 0,
+    "hits": [],
+    "semantic_overlap_count": 0
+  },
+  "document_count": 800,
+  "domain_metrics": {
+    "adversarial_real_world": {
+      "correct": 45,
+      "domain": "adversarial_real_world",
+      "false_block": 0,
+      "false_support": 0,
+      "precision": 1.0,
+      "recall": 0.0,
+      "total": 140,
+      "undecidable_count": 95
+    },
+    "legal_reasoning": {
+      "correct": 26,
+      "domain": "legal_reasoning",
+      "false_block": 45,
+      "false_support": 0,
+      "precision": 1.0,
+      "recall": 0.0,
+      "total": 140,
+      "undecidable_count": 69
+    },
+    "mathematical_proofs": {
+      "correct": 15,
+      "domain": "mathematical_proofs",
+      "false_block": 29,
+      "false_support": 0,
+      "precision": 1.0,
+      "recall": 0.0,
+      "total": 140,
+      "undecidable_count": 96
+    },
+    "medical_case_reports": {
+      "correct": 1,
+      "domain": "medical_case_reports",
+      "false_block": 6,
+      "false_support": 0,
+      "precision": 1.0,
+      "recall": 0.0,
+      "total": 140,
+      "undecidable_count": 133
+    },
+    "negative_control": {
+      "correct": 72,
+      "domain": "negative_control",
+      "false_block": 0,
+      "false_support": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "total": 100,
+      "undecidable_count": 28
+    },
+    "scientific_abstracts": {
+      "correct": 15,
+      "domain": "scientific_abstracts",
+      "false_block": 10,
+      "false_support": 0,
+      "precision": 1.0,
+      "recall": 0.0,
+      "total": 140,
+      "undecidable_count": 115
+    }
+  },
+  "failure_class_counts": {
+    "CHAIN_FAILURE": 90,
+    "FRAME_FAILURE": 536
+  },
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "global_metrics": {
+    "domain_variance": 0.0,
+    "external_false_block": 90,
+    "external_false_support": 0,
+    "external_precision": 1.0,
+    "external_recall": 0.0,
+    "external_undecidable_rate": 0.67
+  },
+  "nc_detected": 100,
+  "nc_detection_rate": 1.0,
+  "nc_total": 100,
+  "recommendation_reason": "external_recall=0.0 < 0.8",
+  "recommended_next": "EXTERNAL_GENERALIZATION_PARTIAL",
+  "replay_hash": "aefa8f1e3429225a",
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "transition_count": 3200
+}
