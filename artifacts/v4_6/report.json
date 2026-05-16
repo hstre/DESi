@@ -1,0 +1,1509 @@
+{
+  "agreement": {
+    "cases_blocked_by_all_safe": 0,
+    "majority_rescue_clusters": [
+      "CORRELATION_TO_CAUSATION",
+      "SAMPLE_TO_UNIVERSAL"
+    ],
+    "safe_probes": [
+      "W2_universal_quantifier_guard",
+      "W3_modality_consistency_check"
+    ],
+    "warrant_probe_agreement": 0.0
+  },
+  "classification_accuracy": 0.983333,
+  "classifications": [
+    {
+      "chain_id": "D1I007",
+      "failure_class": "MISSING_BRIDGE_RULE",
+      "rationale": "premise asserts X and conclusion asserts the negation of X with no bridging rule"
+    },
+    {
+      "chain_id": "X1-V027P1",
+      "failure_class": "MISSING_BRIDGE_RULE",
+      "rationale": "premise asserts X and conclusion asserts the negation of X with no bridging rule"
+    },
+    {
+      "chain_id": "X1-V027P2",
+      "failure_class": "MISSING_BRIDGE_RULE",
+      "rationale": "premise asserts X and conclusion asserts the negation of X with no bridging rule"
+    },
+    {
+      "chain_id": "X1-V027P3",
+      "failure_class": "MISSING_BRIDGE_RULE",
+      "rationale": "premise asserts X and conclusion asserts the negation of X with no bridging rule"
+    },
+    {
+      "chain_id": "X1-V027P4",
+      "failure_class": "MISSING_BRIDGE_RULE",
+      "rationale": "premise asserts X and conclusion asserts the negation of X with no bridging rule"
+    },
+    {
+      "chain_id": "X2-V028P1",
+      "failure_class": "MISSING_BRIDGE_RULE",
+      "rationale": "premise asserts X and conclusion asserts the negation of X with no bridging rule"
+    },
+    {
+      "chain_id": "X2-V028P2",
+      "failure_class": "MISSING_BRIDGE_RULE",
+      "rationale": "premise asserts X and conclusion asserts the negation of X with no bridging rule"
+    },
+    {
+      "chain_id": "X2-V028P3",
+      "failure_class": "MISSING_BRIDGE_RULE",
+      "rationale": "premise asserts X and conclusion asserts the negation of X with no bridging rule"
+    },
+    {
+      "chain_id": "X2-V028P4",
+      "failure_class": "MISSING_BRIDGE_RULE",
+      "rationale": "premise asserts X and conclusion asserts the negation of X with no bridging rule"
+    },
+    {
+      "chain_id": "D5I003",
+      "failure_class": "SAMPLE_TO_UNIVERSAL",
+      "rationale": "incapacity / categorical generalisation from limited observation"
+    },
+    {
+      "chain_id": "D5I018",
+      "failure_class": "CORRELATION_TO_CAUSATION",
+      "rationale": "correlation premise + future-causal conclusion"
+    },
+    {
+      "chain_id": "X5-V003P1",
+      "failure_class": "SAMPLE_TO_UNIVERSAL",
+      "rationale": "incapacity / categorical generalisation from limited observation"
+    },
+    {
+      "chain_id": "X5-V003P2",
+      "failure_class": "SAMPLE_TO_UNIVERSAL",
+      "rationale": "incapacity / categorical generalisation from limited observation"
+    },
+    {
+      "chain_id": "X5-V003P3",
+      "failure_class": "SAMPLE_TO_UNIVERSAL",
+      "rationale": "incapacity / categorical generalisation from limited observation"
+    },
+    {
+      "chain_id": "X5-V003P4",
+      "failure_class": "SAMPLE_TO_UNIVERSAL",
+      "rationale": "incapacity / categorical generalisation from limited observation"
+    },
+    {
+      "chain_id": "X5-V018P1",
+      "failure_class": "CORRELATION_TO_CAUSATION",
+      "rationale": "correlation premise + future-causal conclusion"
+    },
+    {
+      "chain_id": "X5-V018P2",
+      "failure_class": "CORRELATION_TO_CAUSATION",
+      "rationale": "correlation premise + future-causal conclusion"
+    },
+    {
+      "chain_id": "X5-V018P3",
+      "failure_class": "CORRELATION_TO_CAUSATION",
+      "rationale": "correlation premise + future-causal conclusion"
+    },
+    {
+      "chain_id": "X5-V018P4",
+      "failure_class": "CORRELATION_TO_CAUSATION",
+      "rationale": "correlation premise + future-causal conclusion"
+    }
+  ],
+  "distribution": {
+    "failure_count": {
+      "CORRELATION_TO_CAUSATION": 5,
+      "MISSING_BRIDGE_RULE": 9,
+      "SAMPLE_TO_UNIVERSAL": 5
+    },
+    "failure_entropy": 1.524317,
+    "largest_cluster": 0.473684,
+    "largest_cluster_class": "MISSING_BRIDGE_RULE",
+    "per_domain": {
+      "adversarial_real_world": {
+        "CORRELATION_TO_CAUSATION": 5,
+        "SAMPLE_TO_UNIVERSAL": 5
+      },
+      "legal_reasoning": {
+        "MISSING_BRIDGE_RULE": 4
+      },
+      "scientific_abstracts": {
+        "MISSING_BRIDGE_RULE": 5
+      }
+    },
+    "singleton_count": 0,
+    "total": 19,
+    "unknown_fraction": 0.0
+  },
+  "expected_residue_count": 19,
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "nc_count": 60,
+  "nc_outcomes": [
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-001",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-002",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-003",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-004",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-005",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-006",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-007",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-008",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-009",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-010",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-011",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-012",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-013",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-014",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-015",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-016",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-017",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-018",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-019",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "missing_bridge",
+      "expected_class": "MISSING_BRIDGE_RULE",
+      "nc_id": "NC-MB-020",
+      "predicted_class": "MISSING_BRIDGE_RULE"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-001",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": false,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-002",
+      "predicted_class": "CORRELATION_TO_CAUSATION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-003",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-004",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-005",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-006",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-007",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-008",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-009",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-010",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-011",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-012",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-013",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-014",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-015",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-016",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-017",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-018",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-019",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "scope_extension",
+      "expected_class": "SCOPE_EXTENSION",
+      "nc_id": "NC-SE-020",
+      "predicted_class": "SCOPE_EXTENSION"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "SAMPLE_TO_UNIVERSAL",
+      "nc_id": "NC-GL-001",
+      "predicted_class": "SAMPLE_TO_UNIVERSAL"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "SAMPLE_TO_UNIVERSAL",
+      "nc_id": "NC-GL-002",
+      "predicted_class": "SAMPLE_TO_UNIVERSAL"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "SAMPLE_TO_UNIVERSAL",
+      "nc_id": "NC-GL-003",
+      "predicted_class": "SAMPLE_TO_UNIVERSAL"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "SAMPLE_TO_UNIVERSAL",
+      "nc_id": "NC-GL-004",
+      "predicted_class": "SAMPLE_TO_UNIVERSAL"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "SAMPLE_TO_UNIVERSAL",
+      "nc_id": "NC-GL-005",
+      "predicted_class": "SAMPLE_TO_UNIVERSAL"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "SAMPLE_TO_UNIVERSAL",
+      "nc_id": "NC-GL-006",
+      "predicted_class": "SAMPLE_TO_UNIVERSAL"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "SAMPLE_TO_UNIVERSAL",
+      "nc_id": "NC-GL-007",
+      "predicted_class": "SAMPLE_TO_UNIVERSAL"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "SAMPLE_TO_UNIVERSAL",
+      "nc_id": "NC-GL-008",
+      "predicted_class": "SAMPLE_TO_UNIVERSAL"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "SAMPLE_TO_UNIVERSAL",
+      "nc_id": "NC-GL-009",
+      "predicted_class": "SAMPLE_TO_UNIVERSAL"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "SAMPLE_TO_UNIVERSAL",
+      "nc_id": "NC-GL-010",
+      "predicted_class": "SAMPLE_TO_UNIVERSAL"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "CORRELATION_TO_CAUSATION",
+      "nc_id": "NC-GL-011",
+      "predicted_class": "CORRELATION_TO_CAUSATION"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "CORRELATION_TO_CAUSATION",
+      "nc_id": "NC-GL-012",
+      "predicted_class": "CORRELATION_TO_CAUSATION"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "CORRELATION_TO_CAUSATION",
+      "nc_id": "NC-GL-013",
+      "predicted_class": "CORRELATION_TO_CAUSATION"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "CORRELATION_TO_CAUSATION",
+      "nc_id": "NC-GL-014",
+      "predicted_class": "CORRELATION_TO_CAUSATION"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "CORRELATION_TO_CAUSATION",
+      "nc_id": "NC-GL-015",
+      "predicted_class": "CORRELATION_TO_CAUSATION"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "CORRELATION_TO_CAUSATION",
+      "nc_id": "NC-GL-016",
+      "predicted_class": "CORRELATION_TO_CAUSATION"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "CORRELATION_TO_CAUSATION",
+      "nc_id": "NC-GL-017",
+      "predicted_class": "CORRELATION_TO_CAUSATION"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "CORRELATION_TO_CAUSATION",
+      "nc_id": "NC-GL-018",
+      "predicted_class": "CORRELATION_TO_CAUSATION"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "CORRELATION_TO_CAUSATION",
+      "nc_id": "NC-GL-019",
+      "predicted_class": "CORRELATION_TO_CAUSATION"
+    },
+    {
+      "correct": true,
+      "directive_family": "generalization_leap",
+      "expected_class": "CORRELATION_TO_CAUSATION",
+      "nc_id": "NC-GL-020",
+      "predicted_class": "CORRELATION_TO_CAUSATION"
+    }
+  ],
+  "probe_rescue": [
+    {
+      "contamination_risk": 356,
+      "false_blocks": 356,
+      "probe": "W1_explicit_bridge_required",
+      "rescue_rate": 1.0,
+      "rescued_cases": 19,
+      "rescued_chain_ids": [
+        "D1I007",
+        "X1-V027P1",
+        "X1-V027P2",
+        "X1-V027P3",
+        "X1-V027P4",
+        "X2-V028P1",
+        "X2-V028P2",
+        "X2-V028P3",
+        "X2-V028P4",
+        "D5I003",
+        "D5I018",
+        "X5-V003P1",
+        "X5-V003P2",
+        "X5-V003P3",
+        "X5-V003P4",
+        "X5-V018P1",
+        "X5-V018P2",
+        "X5-V018P3",
+        "X5-V018P4"
+      ],
+      "unsafe": true
+    },
+    {
+      "contamination_risk": 0,
+      "false_blocks": 0,
+      "probe": "W2_universal_quantifier_guard",
+      "rescue_rate": 0.0,
+      "rescued_cases": 0,
+      "rescued_chain_ids": [],
+      "unsafe": false
+    },
+    {
+      "contamination_risk": 0,
+      "false_blocks": 0,
+      "probe": "W3_modality_consistency_check",
+      "rescue_rate": 0.526316,
+      "rescued_cases": 10,
+      "rescued_chain_ids": [
+        "D5I003",
+        "D5I018",
+        "X5-V003P1",
+        "X5-V003P2",
+        "X5-V003P3",
+        "X5-V003P4",
+        "X5-V018P1",
+        "X5-V018P2",
+        "X5-V018P3",
+        "X5-V018P4"
+      ],
+      "unsafe": false
+    },
+    {
+      "contamination_risk": 110,
+      "false_blocks": 110,
+      "probe": "W4_exception_trace_required",
+      "rescue_rate": 0.736842,
+      "rescued_cases": 14,
+      "rescued_chain_ids": [
+        "X2-V028P1",
+        "X2-V028P2",
+        "X2-V028P3",
+        "X2-V028P4",
+        "D5I003",
+        "D5I018",
+        "X5-V003P1",
+        "X5-V003P2",
+        "X5-V003P3",
+        "X5-V003P4",
+        "X5-V018P1",
+        "X5-V018P2",
+        "X5-V018P3",
+        "X5-V018P4"
+      ],
+      "unsafe": true
+    },
+    {
+      "contamination_risk": 2,
+      "false_blocks": 2,
+      "probe": "W5_premise_conclusion_nonidentity",
+      "rescue_rate": 0.0,
+      "rescued_cases": 0,
+      "rescued_chain_ids": [],
+      "unsafe": true
+    }
+  ],
+  "recommendation_reason": "largest_cluster=0.473684 (MISSING_BRIDGE_RULE); unknown_fraction=0.0; failure_entropy=1.524317",
+  "recommended_next": "WARRANT_FAILURE_LOCALIZED",
+  "replay_hash": "58268fd9c4437e49",
+  "replay_records": [
+    {
+      "chain_id": "D1I007",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "capacity",
+          "discharge",
+          "electrodes",
+          "higher",
+          "lost",
+          "rates",
+          "stress-test"
+        ],
+        [
+          "imaging",
+          "lithium",
+          "plating",
+          "post-mortem",
+          "showed"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X1-V027P1",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2018",
+          "capacity",
+          "discharge",
+          "electrodes",
+          "higher",
+          "lost",
+          "rates",
+          "series",
+          "stress-test"
+        ],
+        [
+          "imaging",
+          "lithium",
+          "plating",
+          "post-mortem",
+          "showed"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X1-V027P2",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2015",
+          "capacity",
+          "discharge",
+          "electrodes",
+          "higher",
+          "lost",
+          "peer-reviewed",
+          "rates",
+          "report",
+          "stress-test"
+        ],
+        [
+          "imaging",
+          "lithium",
+          "plating",
+          "post-mortem",
+          "showed"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X1-V027P3",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2020",
+          "capacity",
+          "cohort",
+          "discharge",
+          "electrodes",
+          "higher",
+          "lost",
+          "rates",
+          "stress-test"
+        ],
+        [
+          "imaging",
+          "lithium",
+          "plating",
+          "post-mortem",
+          "showed"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X1-V027P4",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2012",
+          "capacity",
+          "discharge",
+          "electrodes",
+          "higher",
+          "lost",
+          "multi-centre",
+          "rates",
+          "stress-test",
+          "study"
+        ],
+        [
+          "imaging",
+          "lithium",
+          "plating",
+          "post-mortem",
+          "showed"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X2-V028P1",
+      "conclusion_tokens": [
+        "claim",
+        "time-barred"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "originating_strategy": [
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2018",
+          "bars",
+          "claims",
+          "filed",
+          "late",
+          "limitations",
+          "series",
+          "statute"
+        ],
+        [
+          "filed",
+          "limitation",
+          "period",
+          "plaintiff",
+          "within"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X2-V028P2",
+      "conclusion_tokens": [
+        "claim",
+        "time-barred"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "originating_strategy": [
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2015",
+          "bars",
+          "claims",
+          "filed",
+          "late",
+          "limitations",
+          "peer-reviewed",
+          "report",
+          "statute"
+        ],
+        [
+          "filed",
+          "limitation",
+          "period",
+          "plaintiff",
+          "within"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X2-V028P3",
+      "conclusion_tokens": [
+        "claim",
+        "time-barred"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "originating_strategy": [
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2020",
+          "bars",
+          "claims",
+          "cohort",
+          "filed",
+          "late",
+          "limitations",
+          "statute"
+        ],
+        [
+          "filed",
+          "limitation",
+          "period",
+          "plaintiff",
+          "within"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X2-V028P4",
+      "conclusion_tokens": [
+        "claim",
+        "time-barred"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "originating_strategy": [
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2012",
+          "bars",
+          "claims",
+          "filed",
+          "late",
+          "limitations",
+          "multi-centre",
+          "statute",
+          "study"
+        ],
+        [
+          "filed",
+          "limitation",
+          "period",
+          "plaintiff",
+          "within"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "D5I003",
+      "conclusion_tokens": [
+        "candidate",
+        "cannot",
+        "demands",
+        "office",
+        "withstand"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:candidate",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "appeared",
+          "candidate",
+          "debate",
+          "during",
+          "tired"
+        ],
+        [
+          "analysts",
+          "body",
+          "distress",
+          "identified",
+          "language",
+          "signs"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "D5I018",
+      "conclusion_tokens": [
+        "coffee",
+        "drinking",
+        "extend",
+        "lifespan",
+        "person",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "between",
+          "coffee",
+          "correlation",
+          "life",
+          "longer",
+          "showed",
+          "study"
+        ],
+        [
+          "controlled",
+          "lifestyle",
+          "several",
+          "study",
+          "variables"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X5-V003P1",
+      "conclusion_tokens": [
+        "candidate",
+        "cannot",
+        "demands",
+        "office",
+        "withstand"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:candidate",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2018",
+          "appeared",
+          "candidate",
+          "debate",
+          "during",
+          "series",
+          "tired"
+        ],
+        [
+          "analysts",
+          "body",
+          "distress",
+          "identified",
+          "language",
+          "signs"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X5-V003P2",
+      "conclusion_tokens": [
+        "candidate",
+        "cannot",
+        "demands",
+        "office",
+        "withstand"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:candidate",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2015",
+          "appeared",
+          "candidate",
+          "debate",
+          "during",
+          "peer-reviewed",
+          "report",
+          "tired"
+        ],
+        [
+          "analysts",
+          "body",
+          "distress",
+          "identified",
+          "language",
+          "signs"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X5-V003P3",
+      "conclusion_tokens": [
+        "candidate",
+        "cannot",
+        "demands",
+        "office",
+        "withstand"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:candidate",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2020",
+          "appeared",
+          "candidate",
+          "cohort",
+          "debate",
+          "during",
+          "tired"
+        ],
+        [
+          "analysts",
+          "body",
+          "distress",
+          "identified",
+          "language",
+          "signs"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X5-V003P4",
+      "conclusion_tokens": [
+        "candidate",
+        "cannot",
+        "demands",
+        "office",
+        "withstand"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:candidate",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2012",
+          "appeared",
+          "candidate",
+          "debate",
+          "during",
+          "multi-centre",
+          "study",
+          "tired"
+        ],
+        [
+          "analysts",
+          "body",
+          "distress",
+          "identified",
+          "language",
+          "signs"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X5-V018P1",
+      "conclusion_tokens": [
+        "coffee",
+        "drinking",
+        "extend",
+        "lifespan",
+        "person",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2018",
+          "between",
+          "coffee",
+          "correlation",
+          "life",
+          "longer",
+          "series",
+          "showed",
+          "study"
+        ],
+        [
+          "controlled",
+          "lifestyle",
+          "several",
+          "study",
+          "variables"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X5-V018P2",
+      "conclusion_tokens": [
+        "coffee",
+        "drinking",
+        "extend",
+        "lifespan",
+        "person",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2015",
+          "between",
+          "coffee",
+          "correlation",
+          "life",
+          "longer",
+          "peer-reviewed",
+          "report",
+          "showed",
+          "study"
+        ],
+        [
+          "controlled",
+          "lifestyle",
+          "several",
+          "study",
+          "variables"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X5-V018P3",
+      "conclusion_tokens": [
+        "coffee",
+        "drinking",
+        "extend",
+        "lifespan",
+        "person",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2020",
+          "between",
+          "coffee",
+          "cohort",
+          "correlation",
+          "life",
+          "longer",
+          "showed",
+          "study"
+        ],
+        [
+          "controlled",
+          "lifestyle",
+          "several",
+          "study",
+          "variables"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X5-V018P4",
+      "conclusion_tokens": [
+        "coffee",
+        "drinking",
+        "extend",
+        "lifespan",
+        "person",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "overlap_tokens": [],
+      "premise_tokens": [
+        [
+          "2012",
+          "between",
+          "coffee",
+          "correlation",
+          "life",
+          "longer",
+          "multi-centre",
+          "showed",
+          "study"
+        ],
+        [
+          "controlled",
+          "lifestyle",
+          "several",
+          "study",
+          "variables"
+        ]
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    }
+  ],
+  "residue_count": 19,
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "total_contamination": 0,
+  "v40_pre_v43_replay_hash": "aefa8f1e3429225a",
+  "v41_pre_v43_replay_hash": "f7ec695f17aa341b",
+  "v42_pre_v43_replay_hash": "181ec3cb1febf62f",
+  "v43_replay_hash": "7c63bcae4cf3fb37",
+  "v44_replay_hash": "bf4147b89f398224",
+  "v45_replay_hash": "86418c9d976cc147"
+}
