@@ -1,0 +1,6822 @@
+{
+  "case_count": 143,
+  "classification_accuracy": 1.0,
+  "classifications": [
+    {
+      "chain_id": "D1I002",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "reduced the desired"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "D1I003",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "accelerated disease"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "D1I004",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "suppressed cell growth"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "D1I005",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "forgotten"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "D1I007",
+      "failure_class": "SEMANTIC_NON_SEQUITUR",
+      "matched_surface_tokens": [],
+      "rationale": "no surface anomaly; conclusion does not follow from premises by content"
+    },
+    {
+      "chain_id": "X1-V022P1",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "reduced the desired"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X1-V022P2",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "reduced the desired"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X1-V022P3",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "reduced the desired"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X1-V022P4",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "reduced the desired"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X1-V023P1",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "accelerated disease"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X1-V023P2",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "accelerated disease"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X1-V023P3",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "accelerated disease"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X1-V023P4",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "accelerated disease"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X1-V024P1",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "suppressed cell growth"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X1-V024P2",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "suppressed cell growth"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X1-V024P3",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "suppressed cell growth"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X1-V024P4",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "suppressed cell growth"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X1-V025P1",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "forgotten"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X1-V025P2",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "forgotten"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X1-V025P3",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "forgotten"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X1-V025P4",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "forgotten"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X1-V027P1",
+      "failure_class": "SEMANTIC_NON_SEQUITUR",
+      "matched_surface_tokens": [],
+      "rationale": "no surface anomaly; conclusion does not follow from premises by content"
+    },
+    {
+      "chain_id": "X1-V027P2",
+      "failure_class": "SEMANTIC_NON_SEQUITUR",
+      "matched_surface_tokens": [],
+      "rationale": "no surface anomaly; conclusion does not follow from premises by content"
+    },
+    {
+      "chain_id": "X1-V027P3",
+      "failure_class": "SEMANTIC_NON_SEQUITUR",
+      "matched_surface_tokens": [],
+      "rationale": "no surface anomaly; conclusion does not follow from premises by content"
+    },
+    {
+      "chain_id": "X1-V027P4",
+      "failure_class": "SEMANTIC_NON_SEQUITUR",
+      "matched_surface_tokens": [],
+      "rationale": "no surface anomaly; conclusion does not follow from premises by content"
+    },
+    {
+      "chain_id": "D2I007",
+      "failure_class": "CYCLE_DISGUISE",
+      "matched_surface_tokens": [
+        "clause",
+        "law",
+        "matter"
+      ],
+      "rationale": "conclusion token shared with >=2 premises"
+    },
+    {
+      "chain_id": "X2-V027P1",
+      "failure_class": "CYCLE_DISGUISE",
+      "matched_surface_tokens": [
+        "clause",
+        "law",
+        "matter"
+      ],
+      "rationale": "conclusion token shared with >=2 premises"
+    },
+    {
+      "chain_id": "X2-V027P2",
+      "failure_class": "CYCLE_DISGUISE",
+      "matched_surface_tokens": [
+        "clause",
+        "law",
+        "matter"
+      ],
+      "rationale": "conclusion token shared with >=2 premises"
+    },
+    {
+      "chain_id": "X2-V027P3",
+      "failure_class": "CYCLE_DISGUISE",
+      "matched_surface_tokens": [
+        "clause",
+        "law",
+        "matter"
+      ],
+      "rationale": "conclusion token shared with >=2 premises"
+    },
+    {
+      "chain_id": "X2-V027P4",
+      "failure_class": "CYCLE_DISGUISE",
+      "matched_surface_tokens": [
+        "clause",
+        "law",
+        "matter"
+      ],
+      "rationale": "conclusion token shared with >=2 premises"
+    },
+    {
+      "chain_id": "X2-V028P1",
+      "failure_class": "SEMANTIC_NON_SEQUITUR",
+      "matched_surface_tokens": [],
+      "rationale": "no surface anomaly; conclusion does not follow from premises by content"
+    },
+    {
+      "chain_id": "X2-V028P2",
+      "failure_class": "SEMANTIC_NON_SEQUITUR",
+      "matched_surface_tokens": [],
+      "rationale": "no surface anomaly; conclusion does not follow from premises by content"
+    },
+    {
+      "chain_id": "X2-V028P3",
+      "failure_class": "SEMANTIC_NON_SEQUITUR",
+      "matched_surface_tokens": [],
+      "rationale": "no surface anomaly; conclusion does not follow from premises by content"
+    },
+    {
+      "chain_id": "X2-V028P4",
+      "failure_class": "SEMANTIC_NON_SEQUITUR",
+      "matched_surface_tokens": [],
+      "rationale": "no surface anomaly; conclusion does not follow from premises by content"
+    },
+    {
+      "chain_id": "D3I001",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "rules out"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "D3I003",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is excluded",
+        "excluded by",
+        "excluded",
+        "excluded by the",
+        "excluded by"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "D3I004",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "safely deferred",
+        "can be safely"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "D3I005",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is excluded",
+        "excluded"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "D3I006",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "ruled out",
+        "has been ruled out"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "D3I007",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is excluded",
+        "excluded by",
+        "excluded",
+        "excluded by the",
+        "excluded by"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "D3I008",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "ruled out",
+        "ruled out by"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V021P1",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "rules out"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V021P2",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "rules out"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V021P3",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "rules out"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V021P4",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "rules out"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V022P1",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "rules out"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V022P2",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "rules out"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V022P3",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "rules out"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V022P4",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "rules out"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V023P1",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is excluded",
+        "excluded by",
+        "excluded",
+        "excluded by the",
+        "excluded by"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V023P2",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is excluded",
+        "excluded by",
+        "excluded",
+        "excluded by the",
+        "excluded by"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V023P3",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is excluded",
+        "excluded by",
+        "excluded",
+        "excluded by the",
+        "excluded by"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V023P4",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is excluded",
+        "excluded by",
+        "excluded",
+        "excluded by the",
+        "excluded by"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V024P1",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "safely deferred",
+        "can be safely"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V024P2",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "safely deferred",
+        "can be safely"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V024P3",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "safely deferred",
+        "can be safely"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V024P4",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "safely deferred",
+        "can be safely"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V025P1",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is excluded",
+        "excluded"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V025P2",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is excluded",
+        "excluded"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V025P3",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is excluded",
+        "excluded"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V025P4",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is excluded",
+        "excluded"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V026P1",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "ruled out",
+        "has been ruled out"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V026P2",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "ruled out",
+        "has been ruled out"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V026P3",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "ruled out",
+        "has been ruled out"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V026P4",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "ruled out",
+        "has been ruled out"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V027P1",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is excluded",
+        "excluded by",
+        "excluded",
+        "excluded by the",
+        "excluded by"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V027P2",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is excluded",
+        "excluded by",
+        "excluded",
+        "excluded by the",
+        "excluded by"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V027P3",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is excluded",
+        "excluded by",
+        "excluded",
+        "excluded by the",
+        "excluded by"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V027P4",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is excluded",
+        "excluded by",
+        "excluded",
+        "excluded by the",
+        "excluded by"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V028P1",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "ruled out",
+        "ruled out by"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V028P2",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "ruled out",
+        "ruled out by"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V028P3",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "ruled out",
+        "ruled out by"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X3-V028P4",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "ruled out",
+        "ruled out by"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "D4I002",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "only at"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "D4I005",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is singular"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "D4I006",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "are supplementary"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X4-V022P1",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "only at"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X4-V022P2",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "only at"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X4-V022P3",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "only at"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X4-V022P4",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "only at"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X4-V025P1",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is singular"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X4-V025P2",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is singular"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X4-V025P3",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is singular"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X4-V025P4",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "is singular"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X4-V026P1",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "are supplementary"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X4-V026P2",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "are supplementary"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X4-V026P3",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "are supplementary"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "X4-V026P4",
+      "failure_class": "HIDDEN_NEGATION",
+      "matched_surface_tokens": [
+        "are supplementary"
+      ],
+      "rationale": "negation surface form not in v3.16 marker set"
+    },
+    {
+      "chain_id": "D5I001",
+      "failure_class": "AUTHORITY_CONTAMINATION",
+      "matched_surface_tokens": [
+        "reportedly"
+      ],
+      "rationale": "authority-grounding verb in chain text"
+    },
+    {
+      "chain_id": "D5I003",
+      "failure_class": "FRAME_SWITCH",
+      "matched_surface_tokens": [
+        "cannot withstand"
+      ],
+      "rationale": "frame switches between premise and conclusion"
+    },
+    {
+      "chain_id": "D5I005",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "guaranteed"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "D5I006",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "alone",
+        "entire decline",
+        "entire"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "D5I007",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "for a decade"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "D5I011",
+      "failure_class": "AUTHORITY_CONTAMINATION",
+      "matched_surface_tokens": [
+        "endorsed",
+        "validated"
+      ],
+      "rationale": "authority-grounding verb in chain text"
+    },
+    {
+      "chain_id": "D5I013",
+      "failure_class": "AUTHORITY_CONTAMINATION",
+      "matched_surface_tokens": [
+        "established"
+      ],
+      "rationale": "authority-grounding verb in chain text"
+    },
+    {
+      "chain_id": "D5I014",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "alone"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "D5I015",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "single-handedly"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "D5I018",
+      "failure_class": "FRAME_SWITCH",
+      "matched_surface_tokens": [
+        "will extend"
+      ],
+      "rationale": "frame switches between premise and conclusion"
+    },
+    {
+      "chain_id": "D5I020",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "sole",
+        "sole cause"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V001P1",
+      "failure_class": "AUTHORITY_CONTAMINATION",
+      "matched_surface_tokens": [
+        "reportedly"
+      ],
+      "rationale": "authority-grounding verb in chain text"
+    },
+    {
+      "chain_id": "X5-V001P2",
+      "failure_class": "AUTHORITY_CONTAMINATION",
+      "matched_surface_tokens": [
+        "reportedly"
+      ],
+      "rationale": "authority-grounding verb in chain text"
+    },
+    {
+      "chain_id": "X5-V001P3",
+      "failure_class": "AUTHORITY_CONTAMINATION",
+      "matched_surface_tokens": [
+        "reportedly"
+      ],
+      "rationale": "authority-grounding verb in chain text"
+    },
+    {
+      "chain_id": "X5-V001P4",
+      "failure_class": "AUTHORITY_CONTAMINATION",
+      "matched_surface_tokens": [
+        "reportedly"
+      ],
+      "rationale": "authority-grounding verb in chain text"
+    },
+    {
+      "chain_id": "X5-V003P1",
+      "failure_class": "FRAME_SWITCH",
+      "matched_surface_tokens": [
+        "cannot withstand"
+      ],
+      "rationale": "frame switches between premise and conclusion"
+    },
+    {
+      "chain_id": "X5-V003P2",
+      "failure_class": "FRAME_SWITCH",
+      "matched_surface_tokens": [
+        "cannot withstand"
+      ],
+      "rationale": "frame switches between premise and conclusion"
+    },
+    {
+      "chain_id": "X5-V003P3",
+      "failure_class": "FRAME_SWITCH",
+      "matched_surface_tokens": [
+        "cannot withstand"
+      ],
+      "rationale": "frame switches between premise and conclusion"
+    },
+    {
+      "chain_id": "X5-V003P4",
+      "failure_class": "FRAME_SWITCH",
+      "matched_surface_tokens": [
+        "cannot withstand"
+      ],
+      "rationale": "frame switches between premise and conclusion"
+    },
+    {
+      "chain_id": "X5-V005P1",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "guaranteed"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V005P2",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "guaranteed"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V005P3",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "guaranteed"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V005P4",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "guaranteed"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V006P1",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "alone",
+        "entire decline",
+        "entire"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V006P2",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "alone",
+        "entire decline",
+        "entire"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V006P3",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "alone",
+        "entire decline",
+        "entire"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V006P4",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "alone",
+        "entire decline",
+        "entire"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V007P1",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "for a decade"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V007P2",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "for a decade"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V007P3",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "for a decade"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V007P4",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "for a decade"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V011P1",
+      "failure_class": "AUTHORITY_CONTAMINATION",
+      "matched_surface_tokens": [
+        "endorsed",
+        "validated"
+      ],
+      "rationale": "authority-grounding verb in chain text"
+    },
+    {
+      "chain_id": "X5-V011P2",
+      "failure_class": "AUTHORITY_CONTAMINATION",
+      "matched_surface_tokens": [
+        "endorsed",
+        "validated"
+      ],
+      "rationale": "authority-grounding verb in chain text"
+    },
+    {
+      "chain_id": "X5-V011P3",
+      "failure_class": "AUTHORITY_CONTAMINATION",
+      "matched_surface_tokens": [
+        "endorsed",
+        "validated"
+      ],
+      "rationale": "authority-grounding verb in chain text"
+    },
+    {
+      "chain_id": "X5-V011P4",
+      "failure_class": "AUTHORITY_CONTAMINATION",
+      "matched_surface_tokens": [
+        "endorsed",
+        "validated"
+      ],
+      "rationale": "authority-grounding verb in chain text"
+    },
+    {
+      "chain_id": "X5-V013P1",
+      "failure_class": "AUTHORITY_CONTAMINATION",
+      "matched_surface_tokens": [
+        "established"
+      ],
+      "rationale": "authority-grounding verb in chain text"
+    },
+    {
+      "chain_id": "X5-V013P2",
+      "failure_class": "AUTHORITY_CONTAMINATION",
+      "matched_surface_tokens": [
+        "established"
+      ],
+      "rationale": "authority-grounding verb in chain text"
+    },
+    {
+      "chain_id": "X5-V013P3",
+      "failure_class": "AUTHORITY_CONTAMINATION",
+      "matched_surface_tokens": [
+        "established"
+      ],
+      "rationale": "authority-grounding verb in chain text"
+    },
+    {
+      "chain_id": "X5-V013P4",
+      "failure_class": "AUTHORITY_CONTAMINATION",
+      "matched_surface_tokens": [
+        "established"
+      ],
+      "rationale": "authority-grounding verb in chain text"
+    },
+    {
+      "chain_id": "X5-V014P1",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "alone"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V014P2",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "alone"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V014P3",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "alone"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V014P4",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "alone"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V015P1",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "single-handedly"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V015P2",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "single-handedly"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V015P3",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "single-handedly"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V015P4",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "single-handedly"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V018P1",
+      "failure_class": "FRAME_SWITCH",
+      "matched_surface_tokens": [
+        "will extend"
+      ],
+      "rationale": "frame switches between premise and conclusion"
+    },
+    {
+      "chain_id": "X5-V018P2",
+      "failure_class": "FRAME_SWITCH",
+      "matched_surface_tokens": [
+        "will extend"
+      ],
+      "rationale": "frame switches between premise and conclusion"
+    },
+    {
+      "chain_id": "X5-V018P3",
+      "failure_class": "FRAME_SWITCH",
+      "matched_surface_tokens": [
+        "will extend"
+      ],
+      "rationale": "frame switches between premise and conclusion"
+    },
+    {
+      "chain_id": "X5-V018P4",
+      "failure_class": "FRAME_SWITCH",
+      "matched_surface_tokens": [
+        "will extend"
+      ],
+      "rationale": "frame switches between premise and conclusion"
+    },
+    {
+      "chain_id": "X5-V020P1",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "sole",
+        "sole cause"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V020P2",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "sole",
+        "sole cause"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V020P3",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "sole",
+        "sole cause"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    },
+    {
+      "chain_id": "X5-V020P4",
+      "failure_class": "QUANTIFIER_DRIFT",
+      "matched_surface_tokens": [
+        "sole",
+        "sole cause"
+      ],
+      "rationale": "universal-like quantifier in conclusion or premise not captured by v3.16 extensions"
+    }
+  ],
+  "counterfactuals": [
+    {
+      "bucket": "v316_negation_extensions",
+      "candidate_tokens": [
+        "reduced the desired",
+        "accelerated disease",
+        "suppressed cell growth",
+        "forgotten",
+        "rules out",
+        "is excluded",
+        "excluded by",
+        "excluded",
+        "excluded by the",
+        "safely deferred",
+        "can be safely",
+        "ruled out",
+        "has been ruled out",
+        "ruled out by",
+        "is singular",
+        "are supplementary"
+      ],
+      "cluster": "HIDDEN_NEGATION",
+      "contamination_risk": 0,
+      "counterfactual_reduction": 69,
+      "per_token": {
+        "accelerated disease": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "are supplementary": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "can be safely": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "excluded": {
+          "benchmark_hits": 0,
+          "cases_reduced": 15
+        },
+        "excluded by": {
+          "benchmark_hits": 0,
+          "cases_reduced": 10
+        },
+        "excluded by the": {
+          "benchmark_hits": 0,
+          "cases_reduced": 10
+        },
+        "forgotten": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "has been ruled out": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "is excluded": {
+          "benchmark_hits": 0,
+          "cases_reduced": 15
+        },
+        "is singular": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "reduced the desired": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "ruled out": {
+          "benchmark_hits": 0,
+          "cases_reduced": 10
+        },
+        "ruled out by": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "rules out": {
+          "benchmark_hits": 0,
+          "cases_reduced": 9
+        },
+        "safely deferred": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "suppressed cell growth": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        }
+      },
+      "unsafe": false
+    },
+    {
+      "bucket": "v316_quantifier_extensions",
+      "candidate_tokens": [
+        "only at",
+        "guaranteed",
+        "alone",
+        "entire decline",
+        "entire",
+        "for a decade",
+        "single-handedly",
+        "sole",
+        "sole cause"
+      ],
+      "cluster": "QUANTIFIER_DRIFT",
+      "contamination_risk": 0,
+      "counterfactual_reduction": 35,
+      "per_token": {
+        "alone": {
+          "benchmark_hits": 0,
+          "cases_reduced": 10
+        },
+        "entire": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "entire decline": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "for a decade": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "guaranteed": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "only at": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "single-handedly": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "sole": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "sole cause": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        }
+      },
+      "unsafe": false
+    },
+    {
+      "bucket": "v316_authority_like_verbs",
+      "candidate_tokens": [
+        "reportedly",
+        "endorsed",
+        "validated",
+        "established"
+      ],
+      "cluster": "AUTHORITY_CONTAMINATION",
+      "contamination_risk": 0,
+      "counterfactual_reduction": 15,
+      "per_token": {
+        "endorsed": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "established": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "reportedly": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "validated": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        }
+      },
+      "unsafe": false
+    },
+    {
+      "bucket": "v316_metaphor_markers",
+      "candidate_tokens": [],
+      "cluster": "METAPHOR_CONTAMINATION",
+      "contamination_risk": 0,
+      "counterfactual_reduction": 0,
+      "per_token": {},
+      "unsafe": false
+    },
+    {
+      "bucket": "v316_number_words",
+      "candidate_tokens": [],
+      "cluster": "TOOL_CONTAMINATION",
+      "contamination_risk": 0,
+      "counterfactual_reduction": 0,
+      "per_token": {},
+      "unsafe": false
+    },
+    {
+      "bucket": "v316_cycle_ref_extensions",
+      "candidate_tokens": [
+        "clause",
+        "law",
+        "matter"
+      ],
+      "cluster": "CYCLE_DISGUISE",
+      "contamination_risk": 0,
+      "counterfactual_reduction": 5,
+      "per_token": {
+        "clause": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "law": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        },
+        "matter": {
+          "benchmark_hits": 0,
+          "cases_reduced": 5
+        }
+      },
+      "unsafe": false
+    }
+  ],
+  "distribution": {
+    "cross_strategy_agreement": 0.265734,
+    "failure_count": {
+      "AUTHORITY_CONTAMINATION": 15,
+      "CYCLE_DISGUISE": 5,
+      "FRAME_SWITCH": 10,
+      "HIDDEN_NEGATION": 69,
+      "QUANTIFIER_DRIFT": 35,
+      "SEMANTIC_NON_SEQUITUR": 9
+    },
+    "failure_entropy": 2.034174,
+    "largest_cluster": 0.482517,
+    "largest_cluster_class": "HIDDEN_NEGATION",
+    "per_domain": {
+      "adversarial_real_world": {
+        "AUTHORITY_CONTAMINATION": 15,
+        "FRAME_SWITCH": 10,
+        "QUANTIFIER_DRIFT": 30
+      },
+      "legal_reasoning": {
+        "CYCLE_DISGUISE": 5,
+        "SEMANTIC_NON_SEQUITUR": 4
+      },
+      "mathematical_proofs": {
+        "HIDDEN_NEGATION": 10,
+        "QUANTIFIER_DRIFT": 5
+      },
+      "medical_case_reports": {
+        "HIDDEN_NEGATION": 39
+      },
+      "scientific_abstracts": {
+        "HIDDEN_NEGATION": 20,
+        "SEMANTIC_NON_SEQUITUR": 5
+      }
+    },
+    "singleton_count": 0,
+    "total": 143
+  },
+  "expected_case_count": 143,
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "guard_pressure": {
+    "actual_bucket_counts": {},
+    "actual_firing_rate": 0.0,
+    "cases_with_zero_guard_hits": 59,
+    "shadow_firing_rate": 0.587413,
+    "total": 143
+  },
+  "guard_records": [
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D1I002",
+      "shadow_guard_hits": [
+        "AUTH:confirmed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D1I003",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D1I004",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D1I005",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:forgotten"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D1I007",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V022P1",
+      "shadow_guard_hits": [
+        "AUTH:confirmed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V022P2",
+      "shadow_guard_hits": [
+        "AUTH:confirmed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V022P3",
+      "shadow_guard_hits": [
+        "AUTH:confirmed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V022P4",
+      "shadow_guard_hits": [
+        "AUTH:confirmed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V023P1",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V023P2",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V023P3",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V023P4",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V024P1",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V024P2",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V024P3",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V024P4",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V025P1",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:forgotten"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V025P2",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:forgotten"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V025P3",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:forgotten"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V025P4",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:forgotten"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V027P1",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V027P2",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V027P3",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X1-V027P4",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D2I007",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X2-V027P1",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X2-V027P2",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X2-V027P3",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X2-V027P4",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X2-V028P1",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X2-V028P2",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X2-V028P3",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X2-V028P4",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D3I001",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D3I003",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D3I004",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:safely deferred"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D3I005",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D3I006",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D3I007",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded",
+        "TOOL:degrees"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D3I008",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:ruled out"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V021P1",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V021P2",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V021P3",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V021P4",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V022P1",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V022P2",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V022P3",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V022P4",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V023P1",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V023P2",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V023P3",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V023P4",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V024P1",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:safely deferred"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V024P2",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:safely deferred"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V024P3",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:safely deferred"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V024P4",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:safely deferred"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V025P1",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V025P2",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V025P3",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V025P4",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V026P1",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V026P2",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V026P3",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V026P4",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V027P1",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded",
+        "TOOL:degrees"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V027P2",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded",
+        "TOOL:degrees"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V027P3",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded",
+        "TOOL:degrees"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V027P4",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded",
+        "TOOL:degrees"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V028P1",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:ruled out"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V028P2",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:ruled out"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V028P3",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:ruled out"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X3-V028P4",
+      "shadow_guard_hits": [
+        "HIDDEN_NEG:ruled out"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D4I002",
+      "shadow_guard_hits": [
+        "QUANT:only"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D4I005",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D4I006",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X4-V022P1",
+      "shadow_guard_hits": [
+        "QUANT:only"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X4-V022P2",
+      "shadow_guard_hits": [
+        "QUANT:only"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X4-V022P3",
+      "shadow_guard_hits": [
+        "QUANT:only"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X4-V022P4",
+      "shadow_guard_hits": [
+        "QUANT:only"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X4-V025P1",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X4-V025P2",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X4-V025P3",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X4-V025P4",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X4-V026P1",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X4-V026P2",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X4-V026P3",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X4-V026P4",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D5I001",
+      "shadow_guard_hits": [
+        "AUTH:reportedly"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D5I003",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D5I005",
+      "shadow_guard_hits": [
+        "QUANT:guaranteed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D5I006",
+      "shadow_guard_hits": [
+        "QUANT:alone",
+        "QUANT:entire",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D5I007",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D5I011",
+      "shadow_guard_hits": [
+        "AUTH:endorsed"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D5I013",
+      "shadow_guard_hits": [
+        "QUANT:conclusively"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D5I014",
+      "shadow_guard_hits": [
+        "QUANT:alone"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D5I015",
+      "shadow_guard_hits": [
+        "QUANT:single-handedly"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D5I018",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "D5I020",
+      "shadow_guard_hits": [
+        "QUANT:sole"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V001P1",
+      "shadow_guard_hits": [
+        "AUTH:reportedly"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V001P2",
+      "shadow_guard_hits": [
+        "AUTH:reportedly"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V001P3",
+      "shadow_guard_hits": [
+        "AUTH:reportedly"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V001P4",
+      "shadow_guard_hits": [
+        "AUTH:reportedly"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V003P1",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V003P2",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V003P3",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V003P4",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V005P1",
+      "shadow_guard_hits": [
+        "QUANT:guaranteed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V005P2",
+      "shadow_guard_hits": [
+        "QUANT:guaranteed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V005P3",
+      "shadow_guard_hits": [
+        "QUANT:guaranteed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V005P4",
+      "shadow_guard_hits": [
+        "QUANT:guaranteed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V006P1",
+      "shadow_guard_hits": [
+        "QUANT:alone",
+        "QUANT:entire",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V006P2",
+      "shadow_guard_hits": [
+        "QUANT:alone",
+        "QUANT:entire",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V006P3",
+      "shadow_guard_hits": [
+        "QUANT:alone",
+        "QUANT:entire",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V006P4",
+      "shadow_guard_hits": [
+        "QUANT:alone",
+        "QUANT:entire",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V007P1",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V007P2",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V007P3",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V007P4",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V011P1",
+      "shadow_guard_hits": [
+        "AUTH:endorsed"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V011P2",
+      "shadow_guard_hits": [
+        "AUTH:endorsed"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V011P3",
+      "shadow_guard_hits": [
+        "AUTH:endorsed"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V011P4",
+      "shadow_guard_hits": [
+        "AUTH:endorsed"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V013P1",
+      "shadow_guard_hits": [
+        "QUANT:conclusively"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V013P2",
+      "shadow_guard_hits": [
+        "QUANT:conclusively"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V013P3",
+      "shadow_guard_hits": [
+        "QUANT:conclusively"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V013P4",
+      "shadow_guard_hits": [
+        "QUANT:conclusively"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V014P1",
+      "shadow_guard_hits": [
+        "QUANT:alone"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V014P2",
+      "shadow_guard_hits": [
+        "QUANT:alone"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V014P3",
+      "shadow_guard_hits": [
+        "QUANT:alone"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V014P4",
+      "shadow_guard_hits": [
+        "QUANT:alone"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V015P1",
+      "shadow_guard_hits": [
+        "QUANT:single-handedly"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V015P2",
+      "shadow_guard_hits": [
+        "QUANT:single-handedly"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V015P3",
+      "shadow_guard_hits": [
+        "QUANT:single-handedly"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V015P4",
+      "shadow_guard_hits": [
+        "QUANT:single-handedly"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V018P1",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V018P2",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V018P3",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V018P4",
+      "shadow_guard_hits": []
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V020P1",
+      "shadow_guard_hits": [
+        "QUANT:sole"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V020P2",
+      "shadow_guard_hits": [
+        "QUANT:sole"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V020P3",
+      "shadow_guard_hits": [
+        "QUANT:sole"
+      ]
+    },
+    {
+      "actual_guard_hits": [],
+      "chain_id": "X5-V020P4",
+      "shadow_guard_hits": [
+        "QUANT:sole"
+      ]
+    }
+  ],
+  "nc_count": 50,
+  "nc_outcomes": [
+    {
+      "correct": true,
+      "expected_class": "HIDDEN_NEGATION",
+      "nc_id": "NC-HN-001",
+      "predicted_class": "HIDDEN_NEGATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "HIDDEN_NEGATION",
+      "nc_id": "NC-HN-002",
+      "predicted_class": "HIDDEN_NEGATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "HIDDEN_NEGATION",
+      "nc_id": "NC-HN-003",
+      "predicted_class": "HIDDEN_NEGATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "HIDDEN_NEGATION",
+      "nc_id": "NC-HN-004",
+      "predicted_class": "HIDDEN_NEGATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "HIDDEN_NEGATION",
+      "nc_id": "NC-HN-005",
+      "predicted_class": "HIDDEN_NEGATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "QUANTIFIER_DRIFT",
+      "nc_id": "NC-QD-001",
+      "predicted_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "correct": true,
+      "expected_class": "QUANTIFIER_DRIFT",
+      "nc_id": "NC-QD-002",
+      "predicted_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "correct": true,
+      "expected_class": "QUANTIFIER_DRIFT",
+      "nc_id": "NC-QD-003",
+      "predicted_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "correct": true,
+      "expected_class": "QUANTIFIER_DRIFT",
+      "nc_id": "NC-QD-004",
+      "predicted_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "correct": true,
+      "expected_class": "QUANTIFIER_DRIFT",
+      "nc_id": "NC-QD-005",
+      "predicted_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "correct": true,
+      "expected_class": "AUTHORITY_CONTAMINATION",
+      "nc_id": "NC-AC-001",
+      "predicted_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "AUTHORITY_CONTAMINATION",
+      "nc_id": "NC-AC-002",
+      "predicted_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "AUTHORITY_CONTAMINATION",
+      "nc_id": "NC-AC-003",
+      "predicted_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "AUTHORITY_CONTAMINATION",
+      "nc_id": "NC-AC-004",
+      "predicted_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "AUTHORITY_CONTAMINATION",
+      "nc_id": "NC-AC-005",
+      "predicted_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "METAPHOR_CONTAMINATION",
+      "nc_id": "NC-MC-001",
+      "predicted_class": "METAPHOR_CONTAMINATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "METAPHOR_CONTAMINATION",
+      "nc_id": "NC-MC-002",
+      "predicted_class": "METAPHOR_CONTAMINATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "METAPHOR_CONTAMINATION",
+      "nc_id": "NC-MC-003",
+      "predicted_class": "METAPHOR_CONTAMINATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "METAPHOR_CONTAMINATION",
+      "nc_id": "NC-MC-004",
+      "predicted_class": "METAPHOR_CONTAMINATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "METAPHOR_CONTAMINATION",
+      "nc_id": "NC-MC-005",
+      "predicted_class": "METAPHOR_CONTAMINATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "TOOL_CONTAMINATION",
+      "nc_id": "NC-TC-001",
+      "predicted_class": "TOOL_CONTAMINATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "TOOL_CONTAMINATION",
+      "nc_id": "NC-TC-002",
+      "predicted_class": "TOOL_CONTAMINATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "TOOL_CONTAMINATION",
+      "nc_id": "NC-TC-003",
+      "predicted_class": "TOOL_CONTAMINATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "TOOL_CONTAMINATION",
+      "nc_id": "NC-TC-004",
+      "predicted_class": "TOOL_CONTAMINATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "TOOL_CONTAMINATION",
+      "nc_id": "NC-TC-005",
+      "predicted_class": "TOOL_CONTAMINATION"
+    },
+    {
+      "correct": true,
+      "expected_class": "CYCLE_DISGUISE",
+      "nc_id": "NC-CY-001",
+      "predicted_class": "CYCLE_DISGUISE"
+    },
+    {
+      "correct": true,
+      "expected_class": "CYCLE_DISGUISE",
+      "nc_id": "NC-CY-002",
+      "predicted_class": "CYCLE_DISGUISE"
+    },
+    {
+      "correct": true,
+      "expected_class": "CYCLE_DISGUISE",
+      "nc_id": "NC-CY-003",
+      "predicted_class": "CYCLE_DISGUISE"
+    },
+    {
+      "correct": true,
+      "expected_class": "CYCLE_DISGUISE",
+      "nc_id": "NC-CY-004",
+      "predicted_class": "CYCLE_DISGUISE"
+    },
+    {
+      "correct": true,
+      "expected_class": "CYCLE_DISGUISE",
+      "nc_id": "NC-CY-005",
+      "predicted_class": "CYCLE_DISGUISE"
+    },
+    {
+      "correct": true,
+      "expected_class": "FRAME_SWITCH",
+      "nc_id": "NC-FS-001",
+      "predicted_class": "FRAME_SWITCH"
+    },
+    {
+      "correct": true,
+      "expected_class": "FRAME_SWITCH",
+      "nc_id": "NC-FS-002",
+      "predicted_class": "FRAME_SWITCH"
+    },
+    {
+      "correct": true,
+      "expected_class": "FRAME_SWITCH",
+      "nc_id": "NC-FS-003",
+      "predicted_class": "FRAME_SWITCH"
+    },
+    {
+      "correct": true,
+      "expected_class": "FRAME_SWITCH",
+      "nc_id": "NC-FS-004",
+      "predicted_class": "FRAME_SWITCH"
+    },
+    {
+      "correct": true,
+      "expected_class": "FRAME_SWITCH",
+      "nc_id": "NC-FS-005",
+      "predicted_class": "FRAME_SWITCH"
+    },
+    {
+      "correct": true,
+      "expected_class": "EXTRACTION_COLLAPSE",
+      "nc_id": "NC-EX-001",
+      "predicted_class": "EXTRACTION_COLLAPSE"
+    },
+    {
+      "correct": true,
+      "expected_class": "EXTRACTION_COLLAPSE",
+      "nc_id": "NC-EX-002",
+      "predicted_class": "EXTRACTION_COLLAPSE"
+    },
+    {
+      "correct": true,
+      "expected_class": "EXTRACTION_COLLAPSE",
+      "nc_id": "NC-EX-003",
+      "predicted_class": "EXTRACTION_COLLAPSE"
+    },
+    {
+      "correct": true,
+      "expected_class": "EXTRACTION_COLLAPSE",
+      "nc_id": "NC-EX-004",
+      "predicted_class": "EXTRACTION_COLLAPSE"
+    },
+    {
+      "correct": true,
+      "expected_class": "EXTRACTION_COLLAPSE",
+      "nc_id": "NC-EX-005",
+      "predicted_class": "EXTRACTION_COLLAPSE"
+    },
+    {
+      "correct": true,
+      "expected_class": "SEMANTIC_NON_SEQUITUR",
+      "nc_id": "NC-SN-001",
+      "predicted_class": "SEMANTIC_NON_SEQUITUR"
+    },
+    {
+      "correct": true,
+      "expected_class": "SEMANTIC_NON_SEQUITUR",
+      "nc_id": "NC-SN-002",
+      "predicted_class": "SEMANTIC_NON_SEQUITUR"
+    },
+    {
+      "correct": true,
+      "expected_class": "SEMANTIC_NON_SEQUITUR",
+      "nc_id": "NC-SN-003",
+      "predicted_class": "SEMANTIC_NON_SEQUITUR"
+    },
+    {
+      "correct": true,
+      "expected_class": "SEMANTIC_NON_SEQUITUR",
+      "nc_id": "NC-SN-004",
+      "predicted_class": "SEMANTIC_NON_SEQUITUR"
+    },
+    {
+      "correct": true,
+      "expected_class": "SEMANTIC_NON_SEQUITUR",
+      "nc_id": "NC-SN-005",
+      "predicted_class": "SEMANTIC_NON_SEQUITUR"
+    },
+    {
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-UN-001",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-UN-002",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-UN-003",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-UN-004",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-UN-005",
+      "predicted_class": "UNKNOWN"
+    }
+  ],
+  "recommendation_reason": "largest_cluster=0.482517 (HIDDEN_NEGATION); unknown_fraction=0.0; failure_entropy=2.034174",
+  "recommended_next": "AUDIT_FAILURE_LOCALIZED",
+  "replay_hash": "181ec3cb1febf62f",
+  "replay_records": [
+    {
+      "chain_id": "D1I002",
+      "conclusion_tokens": [
+        "desired",
+        "enantiomer",
+        "low",
+        "reduced",
+        "temperature"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:low,temperature",
+        "p1:enantiomer"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "The reaction yield improved by sixteen percent at low temperature",
+        "Optical rotation confirmed the enantiomer assignment."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "AUTH:confirmed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "chain_id": "D1I003",
+      "conclusion_tokens": [
+        "accelerated",
+        "disease",
+        "inhibitor",
+        "progression"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:inhibitor",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "Patients receiving the test inhibitor showed reduced tumour volume",
+        "Markers fell to baseline within four weeks."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "D1I004",
+      "conclusion_tokens": [
+        "cell",
+        "growth",
+        "suppressed",
+        "vitamin"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:cell,vitamin",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "Cell cultures with the test vitamin doubled in proliferation rate",
+        "Apoptosis markers declined in the same cultures."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "D1I005",
+      "conclusion_tokens": [
+        "day",
+        "forgotten",
+        "learning",
+        "within"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "Lab rats reached criterion in fewer than ten trials on the operant task",
+        "Performance persisted one week without retraining."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:forgotten"
+      ]
+    },
+    {
+      "chain_id": "D1I007",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "Stress-test electrodes lost capacity at higher discharge rates",
+        "Post-mortem imaging showed lithium plating."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X1-V022P1",
+      "conclusion_tokens": [
+        "desired",
+        "enantiomer",
+        "low",
+        "reduced",
+        "temperature"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:low,temperature",
+        "p1:enantiomer"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, the reaction yield improved by sixteen percent at low temperature",
+        "Optical rotation confirmed the enantiomer assignment."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "AUTH:confirmed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "chain_id": "X1-V022P2",
+      "conclusion_tokens": [
+        "desired",
+        "enantiomer",
+        "low",
+        "reduced",
+        "temperature"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:low,temperature",
+        "p1:enantiomer"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, the reaction yield improved by sixteen percent at low temperature",
+        "Optical rotation confirmed the enantiomer assignment."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "AUTH:confirmed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "chain_id": "X1-V022P3",
+      "conclusion_tokens": [
+        "desired",
+        "enantiomer",
+        "low",
+        "reduced",
+        "temperature"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:low,temperature",
+        "p1:enantiomer"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, the reaction yield improved by sixteen percent at low temperature",
+        "Optical rotation confirmed the enantiomer assignment."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "AUTH:confirmed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "chain_id": "X1-V022P4",
+      "conclusion_tokens": [
+        "desired",
+        "enantiomer",
+        "low",
+        "reduced",
+        "temperature"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:low,temperature",
+        "p1:enantiomer"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, the reaction yield improved by sixteen percent at low temperature",
+        "Optical rotation confirmed the enantiomer assignment."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "AUTH:confirmed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "chain_id": "X1-V023P1",
+      "conclusion_tokens": [
+        "accelerated",
+        "disease",
+        "inhibitor",
+        "progression"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:inhibitor",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, patients receiving the test inhibitor showed reduced tumour volume",
+        "Markers fell to baseline within four weeks."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X1-V023P2",
+      "conclusion_tokens": [
+        "accelerated",
+        "disease",
+        "inhibitor",
+        "progression"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:inhibitor",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, patients receiving the test inhibitor showed reduced tumour volume",
+        "Markers fell to baseline within four weeks."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X1-V023P3",
+      "conclusion_tokens": [
+        "accelerated",
+        "disease",
+        "inhibitor",
+        "progression"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:inhibitor",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, patients receiving the test inhibitor showed reduced tumour volume",
+        "Markers fell to baseline within four weeks."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X1-V023P4",
+      "conclusion_tokens": [
+        "accelerated",
+        "disease",
+        "inhibitor",
+        "progression"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:inhibitor",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, patients receiving the test inhibitor showed reduced tumour volume",
+        "Markers fell to baseline within four weeks."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X1-V024P1",
+      "conclusion_tokens": [
+        "cell",
+        "growth",
+        "suppressed",
+        "vitamin"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:cell,vitamin",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, cell cultures with the test vitamin doubled in proliferation rate",
+        "Apoptosis markers declined in the same cultures."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X1-V024P2",
+      "conclusion_tokens": [
+        "cell",
+        "growth",
+        "suppressed",
+        "vitamin"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:cell,vitamin",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, cell cultures with the test vitamin doubled in proliferation rate",
+        "Apoptosis markers declined in the same cultures."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X1-V024P3",
+      "conclusion_tokens": [
+        "cell",
+        "growth",
+        "suppressed",
+        "vitamin"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:cell,vitamin",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, cell cultures with the test vitamin doubled in proliferation rate",
+        "Apoptosis markers declined in the same cultures."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X1-V024P4",
+      "conclusion_tokens": [
+        "cell",
+        "growth",
+        "suppressed",
+        "vitamin"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:cell,vitamin",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, cell cultures with the test vitamin doubled in proliferation rate",
+        "Apoptosis markers declined in the same cultures."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X1-V025P1",
+      "conclusion_tokens": [
+        "day",
+        "forgotten",
+        "learning",
+        "within"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, lab rats reached criterion in fewer than ten trials on the operant task",
+        "Performance persisted one week without retraining."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:forgotten"
+      ]
+    },
+    {
+      "chain_id": "X1-V025P2",
+      "conclusion_tokens": [
+        "day",
+        "forgotten",
+        "learning",
+        "within"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, lab rats reached criterion in fewer than ten trials on the operant task",
+        "Performance persisted one week without retraining."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:forgotten"
+      ]
+    },
+    {
+      "chain_id": "X1-V025P3",
+      "conclusion_tokens": [
+        "day",
+        "forgotten",
+        "learning",
+        "within"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, lab rats reached criterion in fewer than ten trials on the operant task",
+        "Performance persisted one week without retraining."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:forgotten"
+      ]
+    },
+    {
+      "chain_id": "X1-V025P4",
+      "conclusion_tokens": [
+        "day",
+        "forgotten",
+        "learning",
+        "within"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, lab rats reached criterion in fewer than ten trials on the operant task",
+        "Performance persisted one week without retraining."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:forgotten"
+      ]
+    },
+    {
+      "chain_id": "X1-V027P1",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, stress-test electrodes lost capacity at higher discharge rates",
+        "Post-mortem imaging showed lithium plating."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X1-V027P2",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, stress-test electrodes lost capacity at higher discharge rates",
+        "Post-mortem imaging showed lithium plating."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X1-V027P3",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, stress-test electrodes lost capacity at higher discharge rates",
+        "Post-mortem imaging showed lithium plating."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X1-V027P4",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, stress-test electrodes lost capacity at higher discharge rates",
+        "Post-mortem imaging showed lithium plating."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "D2I007",
+      "conclusion_tokens": [
+        "clause",
+        "law",
+        "matter",
+        "unconscionable"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:law,unconscionable",
+        "p1:clause"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "Contract law voids unconscionable terms",
+        "The clause was negotiated freely by sophisticated parties."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X2-V027P1",
+      "conclusion_tokens": [
+        "clause",
+        "law",
+        "matter",
+        "unconscionable"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:law,unconscionable",
+        "p1:clause"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, contract law voids unconscionable terms",
+        "The clause was negotiated freely by sophisticated parties."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X2-V027P2",
+      "conclusion_tokens": [
+        "clause",
+        "law",
+        "matter",
+        "unconscionable"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:law,unconscionable",
+        "p1:clause"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, contract law voids unconscionable terms",
+        "The clause was negotiated freely by sophisticated parties."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X2-V027P3",
+      "conclusion_tokens": [
+        "clause",
+        "law",
+        "matter",
+        "unconscionable"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:law,unconscionable",
+        "p1:clause"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, contract law voids unconscionable terms",
+        "The clause was negotiated freely by sophisticated parties."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X2-V027P4",
+      "conclusion_tokens": [
+        "clause",
+        "law",
+        "matter",
+        "unconscionable"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:law,unconscionable",
+        "p1:clause"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, contract law voids unconscionable terms",
+        "The clause was negotiated freely by sophisticated parties."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X2-V028P1",
+      "conclusion_tokens": [
+        "claim",
+        "time-barred"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, the statute of limitations bars claims filed late",
+        "The plaintiff filed within the limitation period."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X2-V028P2",
+      "conclusion_tokens": [
+        "claim",
+        "time-barred"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, the statute of limitations bars claims filed late",
+        "The plaintiff filed within the limitation period."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X2-V028P3",
+      "conclusion_tokens": [
+        "claim",
+        "time-barred"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, the statute of limitations bars claims filed late",
+        "The plaintiff filed within the limitation period."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X2-V028P4",
+      "conclusion_tokens": [
+        "claim",
+        "time-barred"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, the statute of limitations bars claims filed late",
+        "The plaintiff filed within the limitation period."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "D3I001",
+      "conclusion_tokens": [
+        "acute",
+        "imaging",
+        "infarction",
+        "myocardial",
+        "out",
+        "rules"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:acute",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "The patient developed acute chest pain radiating to the left arm",
+        "Electrocardiogram showed ST elevation in the inferior leads."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "chain_id": "D3I003",
+      "conclusion_tokens": [
+        "excluded",
+        "level",
+        "lithium",
+        "toxicity"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:level,lithium",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "The patient on long-term lithium had a serum level of two point one millimoles per litre",
+        "Tremor and diarrhoea were prominent."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded"
+      ]
+    },
+    {
+      "chain_id": "D3I004",
+      "conclusion_tokens": [
+        "can",
+        "days",
+        "deferred",
+        "endoscopic",
+        "removal",
+        "safely",
+        "several"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "The child swallowed a button battery during play",
+        "Imaging showed the battery lodged in the oesophagus."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:safely deferred"
+      ]
+    },
+    {
+      "chain_id": "D3I005",
+      "conclusion_tokens": [
+        "drug-induced",
+        "excluded",
+        "haemolysis"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "The patient developed dark urine after starting a new antibiotic",
+        "Direct antiglobulin test was strongly positive."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "D3I006",
+      "conclusion_tokens": [
+        "has",
+        "malaria",
+        "out",
+        "ruled"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "The traveller returned from sub-Saharan Africa with cyclic fevers",
+        "Thick blood smears showed Plasmodium falciparum."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "D3I007",
+      "conclusion_tokens": [
+        "excluded",
+        "heat",
+        "stroke",
+        "temperature"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:temperature",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "The marathon runner had core temperature forty-one degrees and confusion",
+        "Mental status deteriorated despite cooling."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded",
+        "TOOL:degrees"
+      ]
+    },
+    {
+      "chain_id": "D3I008",
+      "conclusion_tokens": [
+        "embolism",
+        "imaging",
+        "out",
+        "pulmonary",
+        "ruled"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:pulmonary"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "The patient described pleuritic chest pain after a long flight",
+        "CT pulmonary angiogram showed a filling defect."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:ruled out"
+      ]
+    },
+    {
+      "chain_id": "X3-V021P1",
+      "conclusion_tokens": [
+        "acute",
+        "imaging",
+        "infarction",
+        "myocardial",
+        "out",
+        "rules"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:acute",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, the patient developed acute chest pain radiating to the left arm",
+        "Electrocardiogram showed ST elevation in the inferior leads."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "chain_id": "X3-V021P2",
+      "conclusion_tokens": [
+        "acute",
+        "imaging",
+        "infarction",
+        "myocardial",
+        "out",
+        "rules"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:acute",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, the patient developed acute chest pain radiating to the left arm",
+        "Electrocardiogram showed ST elevation in the inferior leads."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "chain_id": "X3-V021P3",
+      "conclusion_tokens": [
+        "acute",
+        "imaging",
+        "infarction",
+        "myocardial",
+        "out",
+        "rules"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:acute",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, the patient developed acute chest pain radiating to the left arm",
+        "Electrocardiogram showed ST elevation in the inferior leads."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "chain_id": "X3-V021P4",
+      "conclusion_tokens": [
+        "acute",
+        "imaging",
+        "infarction",
+        "myocardial",
+        "out",
+        "rules"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:acute",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, the patient developed acute chest pain radiating to the left arm",
+        "Electrocardiogram showed ST elevation in the inferior leads."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "chain_id": "X3-V022P1",
+      "conclusion_tokens": [
+        "circulation",
+        "imaging",
+        "out",
+        "posterior",
+        "rules",
+        "stroke"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, the patient reported acute onset of vertigo and one-sided weakness",
+        "Computed tomography showed an early ischaemic change."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "chain_id": "X3-V022P2",
+      "conclusion_tokens": [
+        "circulation",
+        "imaging",
+        "out",
+        "posterior",
+        "rules",
+        "stroke"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, the patient reported acute onset of vertigo and one-sided weakness",
+        "Computed tomography showed an early ischaemic change."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "chain_id": "X3-V022P3",
+      "conclusion_tokens": [
+        "circulation",
+        "imaging",
+        "out",
+        "posterior",
+        "rules",
+        "stroke"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, the patient reported acute onset of vertigo and one-sided weakness",
+        "Computed tomography showed an early ischaemic change."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "chain_id": "X3-V022P4",
+      "conclusion_tokens": [
+        "circulation",
+        "imaging",
+        "out",
+        "posterior",
+        "rules",
+        "stroke"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, the patient reported acute onset of vertigo and one-sided weakness",
+        "Computed tomography showed an early ischaemic change."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:rules out"
+      ]
+    },
+    {
+      "chain_id": "X3-V023P1",
+      "conclusion_tokens": [
+        "excluded",
+        "level",
+        "lithium",
+        "toxicity"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:level,lithium",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, the patient on long-term lithium had a serum level of two point one millimoles per litre",
+        "Tremor and diarrhoea were prominent."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded"
+      ]
+    },
+    {
+      "chain_id": "X3-V023P2",
+      "conclusion_tokens": [
+        "excluded",
+        "level",
+        "lithium",
+        "toxicity"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:level,lithium",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, the patient on long-term lithium had a serum level of two point one millimoles per litre",
+        "Tremor and diarrhoea were prominent."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded"
+      ]
+    },
+    {
+      "chain_id": "X3-V023P3",
+      "conclusion_tokens": [
+        "excluded",
+        "level",
+        "lithium",
+        "toxicity"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:level,lithium",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, the patient on long-term lithium had a serum level of two point one millimoles per litre",
+        "Tremor and diarrhoea were prominent."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded"
+      ]
+    },
+    {
+      "chain_id": "X3-V023P4",
+      "conclusion_tokens": [
+        "excluded",
+        "level",
+        "lithium",
+        "toxicity"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:level,lithium",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, the patient on long-term lithium had a serum level of two point one millimoles per litre",
+        "Tremor and diarrhoea were prominent."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded"
+      ]
+    },
+    {
+      "chain_id": "X3-V024P1",
+      "conclusion_tokens": [
+        "can",
+        "days",
+        "deferred",
+        "endoscopic",
+        "removal",
+        "safely",
+        "several"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, the child swallowed a button battery during play",
+        "Imaging showed the battery lodged in the oesophagus."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:safely deferred"
+      ]
+    },
+    {
+      "chain_id": "X3-V024P2",
+      "conclusion_tokens": [
+        "can",
+        "days",
+        "deferred",
+        "endoscopic",
+        "removal",
+        "safely",
+        "several"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, the child swallowed a button battery during play",
+        "Imaging showed the battery lodged in the oesophagus."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:safely deferred"
+      ]
+    },
+    {
+      "chain_id": "X3-V024P3",
+      "conclusion_tokens": [
+        "can",
+        "days",
+        "deferred",
+        "endoscopic",
+        "removal",
+        "safely",
+        "several"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, the child swallowed a button battery during play",
+        "Imaging showed the battery lodged in the oesophagus."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:safely deferred"
+      ]
+    },
+    {
+      "chain_id": "X3-V024P4",
+      "conclusion_tokens": [
+        "can",
+        "days",
+        "deferred",
+        "endoscopic",
+        "removal",
+        "safely",
+        "several"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, the child swallowed a button battery during play",
+        "Imaging showed the battery lodged in the oesophagus."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:safely deferred"
+      ]
+    },
+    {
+      "chain_id": "X3-V025P1",
+      "conclusion_tokens": [
+        "drug-induced",
+        "excluded",
+        "haemolysis"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, the patient developed dark urine after starting a new antibiotic",
+        "Direct antiglobulin test was strongly positive."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X3-V025P2",
+      "conclusion_tokens": [
+        "drug-induced",
+        "excluded",
+        "haemolysis"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, the patient developed dark urine after starting a new antibiotic",
+        "Direct antiglobulin test was strongly positive."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X3-V025P3",
+      "conclusion_tokens": [
+        "drug-induced",
+        "excluded",
+        "haemolysis"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, the patient developed dark urine after starting a new antibiotic",
+        "Direct antiglobulin test was strongly positive."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X3-V025P4",
+      "conclusion_tokens": [
+        "drug-induced",
+        "excluded",
+        "haemolysis"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, the patient developed dark urine after starting a new antibiotic",
+        "Direct antiglobulin test was strongly positive."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X3-V026P1",
+      "conclusion_tokens": [
+        "has",
+        "malaria",
+        "out",
+        "ruled"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, the traveller returned from sub-Saharan Africa with cyclic fevers",
+        "Thick blood smears showed Plasmodium falciparum."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X3-V026P2",
+      "conclusion_tokens": [
+        "has",
+        "malaria",
+        "out",
+        "ruled"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, the traveller returned from sub-Saharan Africa with cyclic fevers",
+        "Thick blood smears showed Plasmodium falciparum."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X3-V026P3",
+      "conclusion_tokens": [
+        "has",
+        "malaria",
+        "out",
+        "ruled"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, the traveller returned from sub-Saharan Africa with cyclic fevers",
+        "Thick blood smears showed Plasmodium falciparum."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X3-V026P4",
+      "conclusion_tokens": [
+        "has",
+        "malaria",
+        "out",
+        "ruled"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, the traveller returned from sub-Saharan Africa with cyclic fevers",
+        "Thick blood smears showed Plasmodium falciparum."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X3-V027P1",
+      "conclusion_tokens": [
+        "excluded",
+        "heat",
+        "stroke",
+        "temperature"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:temperature",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, the marathon runner had core temperature forty-one degrees and confusion",
+        "Mental status deteriorated despite cooling."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded",
+        "TOOL:degrees"
+      ]
+    },
+    {
+      "chain_id": "X3-V027P2",
+      "conclusion_tokens": [
+        "excluded",
+        "heat",
+        "stroke",
+        "temperature"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:temperature",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, the marathon runner had core temperature forty-one degrees and confusion",
+        "Mental status deteriorated despite cooling."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded",
+        "TOOL:degrees"
+      ]
+    },
+    {
+      "chain_id": "X3-V027P3",
+      "conclusion_tokens": [
+        "excluded",
+        "heat",
+        "stroke",
+        "temperature"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:temperature",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, the marathon runner had core temperature forty-one degrees and confusion",
+        "Mental status deteriorated despite cooling."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded",
+        "TOOL:degrees"
+      ]
+    },
+    {
+      "chain_id": "X3-V027P4",
+      "conclusion_tokens": [
+        "excluded",
+        "heat",
+        "stroke",
+        "temperature"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:temperature",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, the marathon runner had core temperature forty-one degrees and confusion",
+        "Mental status deteriorated despite cooling."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:excluded",
+        "HIDDEN_NEG:is excluded",
+        "TOOL:degrees"
+      ]
+    },
+    {
+      "chain_id": "X3-V028P1",
+      "conclusion_tokens": [
+        "embolism",
+        "imaging",
+        "out",
+        "pulmonary",
+        "ruled"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:pulmonary"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, the patient described pleuritic chest pain after a long flight",
+        "CT pulmonary angiogram showed a filling defect."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:ruled out"
+      ]
+    },
+    {
+      "chain_id": "X3-V028P2",
+      "conclusion_tokens": [
+        "embolism",
+        "imaging",
+        "out",
+        "pulmonary",
+        "ruled"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:pulmonary"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, the patient described pleuritic chest pain after a long flight",
+        "CT pulmonary angiogram showed a filling defect."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:ruled out"
+      ]
+    },
+    {
+      "chain_id": "X3-V028P3",
+      "conclusion_tokens": [
+        "embolism",
+        "imaging",
+        "out",
+        "pulmonary",
+        "ruled"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:pulmonary"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, the patient described pleuritic chest pain after a long flight",
+        "CT pulmonary angiogram showed a filling defect."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:ruled out"
+      ]
+    },
+    {
+      "chain_id": "X3-V028P4",
+      "conclusion_tokens": [
+        "embolism",
+        "imaging",
+        "out",
+        "pulmonary",
+        "ruled"
+      ],
+      "domain": "medical_case_reports",
+      "extracted_links": [
+        "p0:-",
+        "p1:pulmonary"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, the patient described pleuritic chest pain after a long flight",
+        "CT pulmonary angiogram showed a filling defect."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "HIDDEN_NEG:ruled out"
+      ]
+    },
+    {
+      "chain_id": "D4I002",
+      "conclusion_tokens": [
+        "attains",
+        "maximum",
+        "midpoint",
+        "only"
+      ],
+      "domain": "mathematical_proofs",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "Let f be continuous on a closed interval",
+        "The extreme value theorem applies."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:only"
+      ]
+    },
+    {
+      "chain_id": "D4I005",
+      "conclusion_tokens": [
+        "singular"
+      ],
+      "domain": "mathematical_proofs",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "Let M be a square matrix with nonzero determinant",
+        "Invertibility is equivalent to nonzero determinant."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "D4I006",
+      "conclusion_tokens": [
+        "angles",
+        "corresponding",
+        "supplementary"
+      ],
+      "domain": "mathematical_proofs",
+      "extracted_links": [
+        "p0:-",
+        "p1:angles"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "Suppose two parallel lines are crossed by a transversal",
+        "Alternate interior angles are equal."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X4-V022P1",
+      "conclusion_tokens": [
+        "attains",
+        "maximum",
+        "midpoint",
+        "only"
+      ],
+      "domain": "mathematical_proofs",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, let f be continuous on a closed interval",
+        "The extreme value theorem applies."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:only"
+      ]
+    },
+    {
+      "chain_id": "X4-V022P2",
+      "conclusion_tokens": [
+        "attains",
+        "maximum",
+        "midpoint",
+        "only"
+      ],
+      "domain": "mathematical_proofs",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, let f be continuous on a closed interval",
+        "The extreme value theorem applies."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:only"
+      ]
+    },
+    {
+      "chain_id": "X4-V022P3",
+      "conclusion_tokens": [
+        "attains",
+        "maximum",
+        "midpoint",
+        "only"
+      ],
+      "domain": "mathematical_proofs",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, let f be continuous on a closed interval",
+        "The extreme value theorem applies."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:only"
+      ]
+    },
+    {
+      "chain_id": "X4-V022P4",
+      "conclusion_tokens": [
+        "attains",
+        "maximum",
+        "midpoint",
+        "only"
+      ],
+      "domain": "mathematical_proofs",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, let f be continuous on a closed interval",
+        "The extreme value theorem applies."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:only"
+      ]
+    },
+    {
+      "chain_id": "X4-V025P1",
+      "conclusion_tokens": [
+        "singular"
+      ],
+      "domain": "mathematical_proofs",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, let M be a square matrix with nonzero determinant",
+        "Invertibility is equivalent to nonzero determinant."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X4-V025P2",
+      "conclusion_tokens": [
+        "singular"
+      ],
+      "domain": "mathematical_proofs",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, let M be a square matrix with nonzero determinant",
+        "Invertibility is equivalent to nonzero determinant."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X4-V025P3",
+      "conclusion_tokens": [
+        "singular"
+      ],
+      "domain": "mathematical_proofs",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, let M be a square matrix with nonzero determinant",
+        "Invertibility is equivalent to nonzero determinant."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X4-V025P4",
+      "conclusion_tokens": [
+        "singular"
+      ],
+      "domain": "mathematical_proofs",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, let M be a square matrix with nonzero determinant",
+        "Invertibility is equivalent to nonzero determinant."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X4-V026P1",
+      "conclusion_tokens": [
+        "angles",
+        "corresponding",
+        "supplementary"
+      ],
+      "domain": "mathematical_proofs",
+      "extracted_links": [
+        "p0:-",
+        "p1:angles"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, suppose two parallel lines are crossed by a transversal",
+        "Alternate interior angles are equal."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X4-V026P2",
+      "conclusion_tokens": [
+        "angles",
+        "corresponding",
+        "supplementary"
+      ],
+      "domain": "mathematical_proofs",
+      "extracted_links": [
+        "p0:-",
+        "p1:angles"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, suppose two parallel lines are crossed by a transversal",
+        "Alternate interior angles are equal."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X4-V026P3",
+      "conclusion_tokens": [
+        "angles",
+        "corresponding",
+        "supplementary"
+      ],
+      "domain": "mathematical_proofs",
+      "extracted_links": [
+        "p0:-",
+        "p1:angles"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, suppose two parallel lines are crossed by a transversal",
+        "Alternate interior angles are equal."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X4-V026P4",
+      "conclusion_tokens": [
+        "angles",
+        "corresponding",
+        "supplementary"
+      ],
+      "domain": "mathematical_proofs",
+      "extracted_links": [
+        "p0:-",
+        "p1:angles"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, suppose two parallel lines are crossed by a transversal",
+        "Alternate interior angles are equal."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "D5I001",
+      "conclusion_tokens": [
+        "end",
+        "fail",
+        "policy",
+        "will",
+        "year"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:policy",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "Markets fell on the day the policy was announced",
+        "Investors are reportedly anxious about implementation."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "AUTH:reportedly"
+      ]
+    },
+    {
+      "chain_id": "D5I003",
+      "conclusion_tokens": [
+        "candidate",
+        "cannot",
+        "demands",
+        "office",
+        "withstand"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:candidate",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "The candidate appeared tired during the debate",
+        "Body language analysts identified signs of distress."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "D5I005",
+      "conclusion_tokens": [
+        "altitude",
+        "causes",
+        "gains",
+        "guaranteed",
+        "performance",
+        "training"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:altitude",
+        "p1:performance"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "The athlete trained at altitude before competition",
+        "Performance improved by two percent over baseline."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:guaranteed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "chain_id": "D5I006",
+      "conclusion_tokens": [
+        "alone",
+        "caused",
+        "decline",
+        "entire",
+        "regulation"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:regulation",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "Industry voices warned the regulation would cost jobs",
+        "Employment in the sector declined by three percent the next quarter."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:alone",
+        "QUANT:entire",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "chain_id": "D5I007",
+      "conclusion_tokens": [
+        "decade",
+        "device",
+        "dominate",
+        "market",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:device",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "Sales of the new device exceeded forecasts",
+        "Online reviews trended positive in the launch month."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "D5I011",
+      "conclusion_tokens": [
+        "medically",
+        "supplement",
+        "validated"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:supplement",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "A celebrity endorsed the supplement on social media",
+        "Sales jumped in the week of the post."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "AUTH:endorsed"
+      ]
+    },
+    {
+      "chain_id": "D5I013",
+      "conclusion_tokens": [
+        "cited",
+        "conclusively",
+        "established",
+        "interpretation"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:cited",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "The historian cited two primary sources in the lecture",
+        "The lecture was attended by senior academics."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:conclusively"
+      ]
+    },
+    {
+      "chain_id": "D5I014",
+      "conclusion_tokens": [
+        "alone",
+        "explains",
+        "health",
+        "outcomes",
+        "supplementation"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:-",
+        "p1:supplementation"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "Sun exposure increased in the survey week",
+        "Vitamin D supplementation also rose during the same period."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:alone"
+      ]
+    },
+    {
+      "chain_id": "D5I015",
+      "conclusion_tokens": [
+        "base",
+        "grew",
+        "redesign",
+        "single-handedly",
+        "user"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:grew,redesign",
+        "p1:user"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "Engagement metrics on the platform grew after the redesign",
+        "User session length increased by eight percent."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:single-handedly"
+      ]
+    },
+    {
+      "chain_id": "D5I018",
+      "conclusion_tokens": [
+        "coffee",
+        "drinking",
+        "extend",
+        "lifespan",
+        "more",
+        "person",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "A study showed correlation between coffee and longer life",
+        "The study controlled for several lifestyle variables."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "D5I020",
+      "conclusion_tokens": [
+        "cause",
+        "coffee",
+        "prices",
+        "property",
+        "rising",
+        "shops",
+        "sole"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee,shops",
+        "p1:property"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "The neighbourhood saw a rise in coffee shops",
+        "Property values in the area increased simultaneously."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:sole"
+      ]
+    },
+    {
+      "chain_id": "X5-V001P1",
+      "conclusion_tokens": [
+        "end",
+        "fail",
+        "policy",
+        "will",
+        "year"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:policy",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, markets fell on the day the policy was announced",
+        "Investors are reportedly anxious about implementation."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "AUTH:reportedly"
+      ]
+    },
+    {
+      "chain_id": "X5-V001P2",
+      "conclusion_tokens": [
+        "end",
+        "fail",
+        "policy",
+        "will",
+        "year"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:policy",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, markets fell on the day the policy was announced",
+        "Investors are reportedly anxious about implementation."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "AUTH:reportedly"
+      ]
+    },
+    {
+      "chain_id": "X5-V001P3",
+      "conclusion_tokens": [
+        "end",
+        "fail",
+        "policy",
+        "will",
+        "year"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:policy",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, markets fell on the day the policy was announced",
+        "Investors are reportedly anxious about implementation."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "AUTH:reportedly"
+      ]
+    },
+    {
+      "chain_id": "X5-V001P4",
+      "conclusion_tokens": [
+        "end",
+        "fail",
+        "policy",
+        "will",
+        "year"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:policy",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, markets fell on the day the policy was announced",
+        "Investors are reportedly anxious about implementation."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "AUTH:reportedly"
+      ]
+    },
+    {
+      "chain_id": "X5-V003P1",
+      "conclusion_tokens": [
+        "candidate",
+        "cannot",
+        "demands",
+        "office",
+        "withstand"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:candidate",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, the candidate appeared tired during the debate",
+        "Body language analysts identified signs of distress."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X5-V003P2",
+      "conclusion_tokens": [
+        "candidate",
+        "cannot",
+        "demands",
+        "office",
+        "withstand"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:candidate",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, the candidate appeared tired during the debate",
+        "Body language analysts identified signs of distress."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X5-V003P3",
+      "conclusion_tokens": [
+        "candidate",
+        "cannot",
+        "demands",
+        "office",
+        "withstand"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:candidate",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, the candidate appeared tired during the debate",
+        "Body language analysts identified signs of distress."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X5-V003P4",
+      "conclusion_tokens": [
+        "candidate",
+        "cannot",
+        "demands",
+        "office",
+        "withstand"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:candidate",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, the candidate appeared tired during the debate",
+        "Body language analysts identified signs of distress."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X5-V005P1",
+      "conclusion_tokens": [
+        "altitude",
+        "causes",
+        "gains",
+        "guaranteed",
+        "performance",
+        "training"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:altitude",
+        "p1:performance"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, the athlete trained at altitude before competition",
+        "Performance improved by two percent over baseline."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:guaranteed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "chain_id": "X5-V005P2",
+      "conclusion_tokens": [
+        "altitude",
+        "causes",
+        "gains",
+        "guaranteed",
+        "performance",
+        "training"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:altitude",
+        "p1:performance"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, the athlete trained at altitude before competition",
+        "Performance improved by two percent over baseline."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:guaranteed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "chain_id": "X5-V005P3",
+      "conclusion_tokens": [
+        "altitude",
+        "causes",
+        "gains",
+        "guaranteed",
+        "performance",
+        "training"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:altitude",
+        "p1:performance"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, the athlete trained at altitude before competition",
+        "Performance improved by two percent over baseline."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:guaranteed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "chain_id": "X5-V005P4",
+      "conclusion_tokens": [
+        "altitude",
+        "causes",
+        "gains",
+        "guaranteed",
+        "performance",
+        "training"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:altitude",
+        "p1:performance"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, the athlete trained at altitude before competition",
+        "Performance improved by two percent over baseline."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:guaranteed",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "chain_id": "X5-V006P1",
+      "conclusion_tokens": [
+        "alone",
+        "caused",
+        "decline",
+        "entire",
+        "regulation"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:regulation",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, industry voices warned the regulation would cost jobs",
+        "Employment in the sector declined by three percent the next quarter."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:alone",
+        "QUANT:entire",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "chain_id": "X5-V006P2",
+      "conclusion_tokens": [
+        "alone",
+        "caused",
+        "decline",
+        "entire",
+        "regulation"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:regulation",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, industry voices warned the regulation would cost jobs",
+        "Employment in the sector declined by three percent the next quarter."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:alone",
+        "QUANT:entire",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "chain_id": "X5-V006P3",
+      "conclusion_tokens": [
+        "alone",
+        "caused",
+        "decline",
+        "entire",
+        "regulation"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:regulation",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, industry voices warned the regulation would cost jobs",
+        "Employment in the sector declined by three percent the next quarter."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:alone",
+        "QUANT:entire",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "chain_id": "X5-V006P4",
+      "conclusion_tokens": [
+        "alone",
+        "caused",
+        "decline",
+        "entire",
+        "regulation"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:regulation",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_strategy_origin": [
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, industry voices warned the regulation would cost jobs",
+        "Employment in the sector declined by three percent the next quarter."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:alone",
+        "QUANT:entire",
+        "TOOL:percent"
+      ]
+    },
+    {
+      "chain_id": "X5-V007P1",
+      "conclusion_tokens": [
+        "decade",
+        "device",
+        "dominate",
+        "market",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:device",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, sales of the new device exceeded forecasts",
+        "Online reviews trended positive in the launch month."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X5-V007P2",
+      "conclusion_tokens": [
+        "decade",
+        "device",
+        "dominate",
+        "market",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:device",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, sales of the new device exceeded forecasts",
+        "Online reviews trended positive in the launch month."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X5-V007P3",
+      "conclusion_tokens": [
+        "decade",
+        "device",
+        "dominate",
+        "market",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:device",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, sales of the new device exceeded forecasts",
+        "Online reviews trended positive in the launch month."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X5-V007P4",
+      "conclusion_tokens": [
+        "decade",
+        "device",
+        "dominate",
+        "market",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:device",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, sales of the new device exceeded forecasts",
+        "Online reviews trended positive in the launch month."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X5-V011P1",
+      "conclusion_tokens": [
+        "medically",
+        "supplement",
+        "validated"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:supplement",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, a celebrity endorsed the supplement on social media",
+        "Sales jumped in the week of the post."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "AUTH:endorsed"
+      ]
+    },
+    {
+      "chain_id": "X5-V011P2",
+      "conclusion_tokens": [
+        "medically",
+        "supplement",
+        "validated"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:supplement",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, a celebrity endorsed the supplement on social media",
+        "Sales jumped in the week of the post."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "AUTH:endorsed"
+      ]
+    },
+    {
+      "chain_id": "X5-V011P3",
+      "conclusion_tokens": [
+        "medically",
+        "supplement",
+        "validated"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:supplement",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, a celebrity endorsed the supplement on social media",
+        "Sales jumped in the week of the post."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "AUTH:endorsed"
+      ]
+    },
+    {
+      "chain_id": "X5-V011P4",
+      "conclusion_tokens": [
+        "medically",
+        "supplement",
+        "validated"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:supplement",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, a celebrity endorsed the supplement on social media",
+        "Sales jumped in the week of the post."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "AUTH:endorsed"
+      ]
+    },
+    {
+      "chain_id": "X5-V013P1",
+      "conclusion_tokens": [
+        "cited",
+        "conclusively",
+        "established",
+        "interpretation"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:cited",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, the historian cited two primary sources in the lecture",
+        "The lecture was attended by senior academics."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:conclusively"
+      ]
+    },
+    {
+      "chain_id": "X5-V013P2",
+      "conclusion_tokens": [
+        "cited",
+        "conclusively",
+        "established",
+        "interpretation"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:cited",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, the historian cited two primary sources in the lecture",
+        "The lecture was attended by senior academics."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:conclusively"
+      ]
+    },
+    {
+      "chain_id": "X5-V013P3",
+      "conclusion_tokens": [
+        "cited",
+        "conclusively",
+        "established",
+        "interpretation"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:cited",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, the historian cited two primary sources in the lecture",
+        "The lecture was attended by senior academics."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:conclusively"
+      ]
+    },
+    {
+      "chain_id": "X5-V013P4",
+      "conclusion_tokens": [
+        "cited",
+        "conclusively",
+        "established",
+        "interpretation"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:cited",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, the historian cited two primary sources in the lecture",
+        "The lecture was attended by senior academics."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:conclusively"
+      ]
+    },
+    {
+      "chain_id": "X5-V014P1",
+      "conclusion_tokens": [
+        "alone",
+        "explains",
+        "health",
+        "outcomes",
+        "supplementation"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:-",
+        "p1:supplementation"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, sun exposure increased in the survey week",
+        "Vitamin D supplementation also rose during the same period."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:alone"
+      ]
+    },
+    {
+      "chain_id": "X5-V014P2",
+      "conclusion_tokens": [
+        "alone",
+        "explains",
+        "health",
+        "outcomes",
+        "supplementation"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:-",
+        "p1:supplementation"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, sun exposure increased in the survey week",
+        "Vitamin D supplementation also rose during the same period."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:alone"
+      ]
+    },
+    {
+      "chain_id": "X5-V014P3",
+      "conclusion_tokens": [
+        "alone",
+        "explains",
+        "health",
+        "outcomes",
+        "supplementation"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:-",
+        "p1:supplementation"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, sun exposure increased in the survey week",
+        "Vitamin D supplementation also rose during the same period."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:alone"
+      ]
+    },
+    {
+      "chain_id": "X5-V014P4",
+      "conclusion_tokens": [
+        "alone",
+        "explains",
+        "health",
+        "outcomes",
+        "supplementation"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:-",
+        "p1:supplementation"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, sun exposure increased in the survey week",
+        "Vitamin D supplementation also rose during the same period."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:alone"
+      ]
+    },
+    {
+      "chain_id": "X5-V015P1",
+      "conclusion_tokens": [
+        "base",
+        "grew",
+        "redesign",
+        "single-handedly",
+        "user"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:grew,redesign",
+        "p1:user"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, engagement metrics on the platform grew after the redesign",
+        "User session length increased by eight percent."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:single-handedly"
+      ]
+    },
+    {
+      "chain_id": "X5-V015P2",
+      "conclusion_tokens": [
+        "base",
+        "grew",
+        "redesign",
+        "single-handedly",
+        "user"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:grew,redesign",
+        "p1:user"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, engagement metrics on the platform grew after the redesign",
+        "User session length increased by eight percent."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:single-handedly"
+      ]
+    },
+    {
+      "chain_id": "X5-V015P3",
+      "conclusion_tokens": [
+        "base",
+        "grew",
+        "redesign",
+        "single-handedly",
+        "user"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:grew,redesign",
+        "p1:user"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, engagement metrics on the platform grew after the redesign",
+        "User session length increased by eight percent."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:single-handedly"
+      ]
+    },
+    {
+      "chain_id": "X5-V015P4",
+      "conclusion_tokens": [
+        "base",
+        "grew",
+        "redesign",
+        "single-handedly",
+        "user"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:grew,redesign",
+        "p1:user"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, engagement metrics on the platform grew after the redesign",
+        "User session length increased by eight percent."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:single-handedly"
+      ]
+    },
+    {
+      "chain_id": "X5-V018P1",
+      "conclusion_tokens": [
+        "coffee",
+        "drinking",
+        "extend",
+        "lifespan",
+        "more",
+        "person",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, a study showed correlation between coffee and longer life",
+        "The study controlled for several lifestyle variables."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X5-V018P2",
+      "conclusion_tokens": [
+        "coffee",
+        "drinking",
+        "extend",
+        "lifespan",
+        "more",
+        "person",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, a study showed correlation between coffee and longer life",
+        "The study controlled for several lifestyle variables."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X5-V018P3",
+      "conclusion_tokens": [
+        "coffee",
+        "drinking",
+        "extend",
+        "lifespan",
+        "more",
+        "person",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, a study showed correlation between coffee and longer life",
+        "The study controlled for several lifestyle variables."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X5-V018P4",
+      "conclusion_tokens": [
+        "coffee",
+        "drinking",
+        "extend",
+        "lifespan",
+        "more",
+        "person",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, a study showed correlation between coffee and longer life",
+        "The study controlled for several lifestyle variables."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": []
+    },
+    {
+      "chain_id": "X5-V020P1",
+      "conclusion_tokens": [
+        "cause",
+        "coffee",
+        "prices",
+        "property",
+        "rising",
+        "shops",
+        "sole"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee,shops",
+        "p1:property"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2018 series, the neighbourhood saw a rise in coffee shops",
+        "Property values in the area increased simultaneously."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:sole"
+      ]
+    },
+    {
+      "chain_id": "X5-V020P2",
+      "conclusion_tokens": [
+        "cause",
+        "coffee",
+        "prices",
+        "property",
+        "rising",
+        "shops",
+        "sole"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee,shops",
+        "p1:property"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a peer-reviewed 2015 report, the neighbourhood saw a rise in coffee shops",
+        "Property values in the area increased simultaneously."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:sole"
+      ]
+    },
+    {
+      "chain_id": "X5-V020P3",
+      "conclusion_tokens": [
+        "cause",
+        "coffee",
+        "prices",
+        "property",
+        "rising",
+        "shops",
+        "sole"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee,shops",
+        "p1:property"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2020 cohort, the neighbourhood saw a rise in coffee shops",
+        "Property values in the area increased simultaneously."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:sole"
+      ]
+    },
+    {
+      "chain_id": "X5-V020P4",
+      "conclusion_tokens": [
+        "cause",
+        "coffee",
+        "prices",
+        "property",
+        "rising",
+        "shops",
+        "sole"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee,shops",
+        "p1:property"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_strategy_origin": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "matched_premises": [
+        "In a 2012 multi-centre study, the neighbourhood saw a rise in coffee shops",
+        "Property values in the area increased simultaneously."
+      ],
+      "routing_decision": "frame_routing_marker_required",
+      "support_state": "logically_supported",
+      "suspension_markers": [
+        "QUANT:sole"
+      ]
+    }
+  ],
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "total_contamination": 0,
+  "v40_replay_hash": "aefa8f1e3429225a",
+  "v41_replay_hash": "f7ec695f17aa341b"
+}
