@@ -37,14 +37,18 @@ def test_pre_v44_hashes_referenced() -> None:
 
 def test_v44_invariants_under_live_audit() -> None:
     """Invariants that survive every subsequent runtime patch:
-    the live residue distribution is still localised (largest
-    cluster >= MIN_LARGEST_CLUSTER and unknown_fraction <=
-    MAX_UNKNOWN_FRACTION). The recommendation label itself
-    drifts after v4.5 (residue_count != 24); we assert the
-    classifier discipline, not the exact label."""
+    the closed recommendation enum stays valid. Once v4.9
+    retires every residue case the largest_cluster /
+    unknown_fraction discipline is undefined, so we only
+    assert it conditionally."""
     r = _build()
-    assert r.distribution.largest_cluster >= MIN_LARGEST_CLUSTER
-    assert r.distribution.unknown_fraction <= MAX_UNKNOWN_FRACTION
+    if r.residue_count > 0:
+        assert r.distribution.largest_cluster >= (
+            MIN_LARGEST_CLUSTER
+        )
+        assert r.distribution.unknown_fraction <= (
+            MAX_UNKNOWN_FRACTION
+        )
     # Recommendation label may flip to UNKNOWN once
     # residue_count != EXPECTED_RESIDUE_COUNT; the label set
     # remains closed-enum either way.

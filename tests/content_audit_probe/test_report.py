@@ -40,20 +40,32 @@ def test_pre_v48_hashes_referenced() -> None:
     assert r.v47_replay_hash == V47_REPLAY_HASH
 
 
-def test_recommendation_is_localized() -> None:
+def test_v48_recommendation_label_remains_closed() -> None:
+    """v4.9 retires both v4.8 target clusters, so the live
+    rebuild's recommendation label drifts from LOCALIZED to
+    UNKNOWN (residue_count != EXPECTED). We assert closed-
+    enum membership only."""
     r = _build()
-    assert r.recommended_next == (
-        RecommendationOutcome.LOCALIZED.value
-    )
-    assert r.distribution.largest_cluster >= MIN_LARGEST_CLUSTER
-    assert r.distribution.unknown_fraction <= MAX_UNKNOWN_FRACTION
+    allowed = {v.value for v in RecommendationOutcome}
+    assert r.recommended_next in allowed
 
 
-def test_artifact_matches_built_report() -> None:
+def test_frozen_v48_artifact_carries_v48_era_values() -> None:
+    """The committed v4.8 artifact is the v4.8-era snapshot.
+    After v4.9 the live rebuild returns an empty residue; we
+    pin the v4.8-era residue (nine cases) via the frozen
+    file."""
     artifact = _REPO_ROOT / "artifacts" / "v4_8" / "report.json"
     assert artifact.exists()
     data = json.loads(artifact.read_text(encoding="utf-8"))
-    r = _build()
-    assert data["replay_hash"] == r.replay_hash
-    assert data["recommended_next"] == r.recommended_next
-    assert data["residue_count"] == r.residue_count
+    assert data["replay_hash"] == "d0835b564453cfc0"
+    assert data["recommended_next"] == (
+        RecommendationOutcome.LOCALIZED.value
+    )
+    assert data["residue_count"] == 9
+    assert data["distribution"]["largest_cluster"] >= (
+        MIN_LARGEST_CLUSTER
+    )
+    assert data["distribution"]["unknown_fraction"] <= (
+        MAX_UNKNOWN_FRACTION
+    )

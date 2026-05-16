@@ -40,16 +40,22 @@ def test_pre_v46_hashes_referenced() -> None:
 
 def test_v46_invariants_under_live_audit() -> None:
     """Invariants that survive any later runtime patch:
-    largest_cluster discipline and unknown_fraction
-    discipline. The recommendation label drifts after v4.7
-    (residue_count != EXPECTED_RESIDUE_COUNT will trigger
-    UNKNOWN); we assert closed-enum membership."""
+    the closed recommendation enum stays valid even when the
+    live residue is empty. The largest_cluster /
+    unknown_fraction discipline only applies when residue is
+    non-empty; once v4.9 retires every case those metrics
+    are undefined and we only assert the closed-enum label."""
     r = _build()
-    assert r.distribution.largest_cluster >= MIN_LARGEST_CLUSTER
-    assert r.distribution.unknown_fraction <= MAX_UNKNOWN_FRACTION
     assert r.recommended_next in {
         v.value for v in RecommendationOutcome
     }
+    if r.residue_count > 0:
+        assert r.distribution.largest_cluster >= (
+            MIN_LARGEST_CLUSTER
+        )
+        assert r.distribution.unknown_fraction <= (
+            MAX_UNKNOWN_FRACTION
+        )
 
 
 def test_frozen_v46_artifact_carries_v46_era_values() -> None:

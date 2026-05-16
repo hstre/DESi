@@ -24,9 +24,14 @@ def test_each_probe_evaluated_on_every_case() -> None:
     by_probe: dict[str, list] = {}
     for o in out:
         by_probe.setdefault(o.probe, []).append(o)
-    assert len(by_probe) == len(SemanticProbe)
-    for probe in SemanticProbe:
-        assert len(by_probe[probe.value]) == len(cases)
+    if cases:
+        assert len(by_probe) == len(SemanticProbe)
+        for probe in SemanticProbe:
+            assert len(by_probe[probe.value]) == len(cases)
+    else:
+        # After v4.5/v4.7/v4.9 the live residue may be empty;
+        # evaluate_all returns no outcomes.
+        assert by_probe == {}
 
 
 def test_s5_bidirectional_link_check_is_safe() -> None:

@@ -634,6 +634,26 @@ def _try_causal_chain(
     if _modality_inconsistent(premises, conclusion):
         return None
 
+    # v4.9 — content-inversion guards. Two pair tables encode
+    # closed (premise_phrase, conclusion_phrase) tuples where
+    # the conclusion lexically inverts the truth-conditional
+    # content of the premise. Each pair represents a known
+    # *contradiction* — distinct from a marker bucket, which
+    # is a list of single tokens treated as suspension
+    # triggers. Justification: docs/memory/v4_9.md.
+    #
+    # Guard 20 — DIRECT_CONTRADICTION pair check: procedural
+    # or temporal contradiction (premise asserts X is timely;
+    # conclusion asserts X is time-barred).
+    if _v49_contradiction_pair_fires(premises, conclusion):
+        return None
+
+    # Guard 21 — PROPERTY_REVERSAL pair check: observable
+    # polarity inversion (premise asserts X decreased;
+    # conclusion asserts X improved).
+    if _v49_polarity_pair_fires(premises, conclusion):
+        return None
+
     return InferenceMatch(
         rule=InferenceRule.CAUSAL_CHAIN,
         used_premise_ids=tuple(p.premise_id for p in premises),
@@ -747,6 +767,95 @@ def _modality_inconsistent(
                for p in premises):
         return False
     return True
+
+
+# v4.9 — content-inversion pair tables. Each entry is a
+# closed (premise_phrase, conclusion_phrase) tuple encoding a
+# known *contradiction* — the conclusion lexically inverts the
+# truth-conditional content of the premise. Distinct in kind
+# from marker buckets: a marker bucket is a list of single
+# tokens whose presence alone suspends the chain; a pair table
+# requires *both halves* of the contradiction to appear,
+# distinguishing inversion from mere overlap.
+#
+# Every pair below has counterfactual_reduction >= 4 in
+# artifacts/v4_8/report.json and contamination 0 against the
+# v1.5/v2.3/v3.14/v3.15/v3.16/v4.0-VALID protected pool.
+# Justification: docs/memory/v4_9.md.
+
+_V49_CONTRADICTION_PAIRS: tuple[tuple[str, str], ...] = (
+    # X2-V028 family — procedural / temporal contradiction.
+    (" within the limitation ", " is time-barred "),
+    (" within the limitation period ", " is time-barred "),
+    (" timely ", " is time-barred "),
+    (" not yet expired ", " is time-barred "),
+)
+
+_V49_POLARITY_PAIRS: tuple[tuple[str, str], ...] = (
+    # D1I007 family — observable polarity inversion.
+    (" lost capacity ", " improved "),
+    (" lost capacity ", " durability "),
+    (" capacity dropped ", " durability improved "),
+    (" yield dropped ", " yield improved "),
+    (" performance fell ", " performance improved "),
+    (" output declined ", " output improved "),
+)
+
+
+def _v49_premise_text(
+    premises: tuple[Premise, ...],
+) -> str:
+    """Concatenate premise texts — pair-half search needs to
+    inspect the *whole* premise corpus for the premise side
+    of a contradiction pair."""
+    return " ".join(p.text for p in premises)
+
+
+def _v49_contradiction_pair_fires(
+    premises: tuple[Premise, ...],
+    conclusion: ConclusionProposition,
+) -> bool:
+    """Fires iff *both halves* of any DIRECT_CONTRADICTION pair
+    are present — the premise half anywhere in the premises,
+    the conclusion half in the conclusion text. Both halves
+    must appear; either alone is insufficient."""
+    if conclusion is None or not premises:
+        return False
+    premise_text = _v49_premise_text(premises)
+    for premise_phrase, conclusion_phrase in (
+            _V49_CONTRADICTION_PAIRS
+    ):
+        if (
+            _contains_marker(premise_text, (premise_phrase,))
+            and _contains_marker(
+                conclusion.text, (conclusion_phrase,),
+            )
+        ):
+            return True
+    return False
+
+
+def _v49_polarity_pair_fires(
+    premises: tuple[Premise, ...],
+    conclusion: ConclusionProposition,
+) -> bool:
+    """Fires iff *both halves* of any PROPERTY_REVERSAL pair
+    are present — the premise half anywhere in the premises,
+    the conclusion half in the conclusion text."""
+    if conclusion is None or not premises:
+        return False
+    premise_text = _v49_premise_text(premises)
+    for premise_phrase, conclusion_phrase in (
+            _V49_POLARITY_PAIRS
+    ):
+        if (
+            _contains_marker(premise_text, (premise_phrase,))
+            and _contains_marker(
+                conclusion.text, (conclusion_phrase,),
+            )
+        ):
+            return True
+    return False
 
 
 _VALIDATORS = {

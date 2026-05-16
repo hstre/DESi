@@ -1,0 +1,477 @@
+{
+  "contamination": {
+    "c1_contamination_count": 0,
+    "c2_contamination_count": 0,
+    "contaminating_texts": [],
+    "contamination_count": 0,
+    "protected_pool_size": 740
+  },
+  "contradiction_pair_count": 4,
+  "effect": {
+    "false_support_after": 0,
+    "false_support_before": 9,
+    "non_target_relabel_count": 0,
+    "per_class": [
+      {
+        "after_count": 0,
+        "before_count": 4,
+        "cluster": "DIRECT_CONTRADICTION",
+        "reduction": 4,
+        "targeted": true
+      },
+      {
+        "after_count": 0,
+        "before_count": 5,
+        "cluster": "PROPERTY_REVERSAL",
+        "reduction": 5,
+        "targeted": true
+      }
+    ],
+    "reduction": 9,
+    "reduction_rate": 1.0
+  },
+  "false_inversion_rate": 0.0,
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "nc_count": 60,
+  "nc_detection_rate": 1.0,
+  "nc_outcomes": [
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-001"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-002"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-003"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-004"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-005"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-006"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-007"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-008"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-009"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-010"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-011"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-012"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-013"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-014"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-015"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-016"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-017"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-018"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-019"
+    },
+    {
+      "cohort": "contradiction_pair",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-DC-020"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-001"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-002"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-003"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-004"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-005"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-006"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-007"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-008"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-009"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-010"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-011"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-012"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-013"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-014"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-015"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-016"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-017"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-018"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-019"
+    },
+    {
+      "cohort": "polarity_reversal",
+      "correct": true,
+      "fired": true,
+      "is_inversion": true,
+      "nc_id": "NC-PR-020"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-001"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-002"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-003"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-004"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-005"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-006"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-007"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-008"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-009"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-010"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-011"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-012"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-013"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-014"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-015"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-016"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-017"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-018"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-019"
+    },
+    {
+      "cohort": "content_preserving",
+      "correct": true,
+      "fired": false,
+      "is_inversion": false,
+      "nc_id": "NC-CP-020"
+    }
+  ],
+  "polarity_pair_count": 6,
+  "recommendation_reason": "false_support_before=9 -> after=0 (reduction=9); contamination=0; nc_detection_rate=1.0; false_inversion_rate=0.0",
+  "recommended_next": "CONTENT_INVERSION_PATCH_CONFIRMED",
+  "replay_hash": "51122b802bd257dc",
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "target_clusters": [
+    "DIRECT_CONTRADICTION",
+    "PROPERTY_REVERSAL"
+  ],
+  "v40_pre_v43_replay_hash": "aefa8f1e3429225a",
+  "v41_pre_v43_replay_hash": "f7ec695f17aa341b",
+  "v42_pre_v43_replay_hash": "181ec3cb1febf62f",
+  "v43_replay_hash": "7c63bcae4cf3fb37",
+  "v44_replay_hash": "bf4147b89f398224",
+  "v45_replay_hash": "86418c9d976cc147",
+  "v46_replay_hash": "58268fd9c4437e49",
+  "v47_replay_hash": "2774818766a8035a",
+  "v48_replay_hash": "d0835b564453cfc0"
+}

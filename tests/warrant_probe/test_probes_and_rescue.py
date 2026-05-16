@@ -25,9 +25,16 @@ def test_each_probe_evaluated_on_every_case() -> None:
     by_probe: dict[str, list] = {}
     for o in out:
         by_probe.setdefault(o.probe, []).append(o)
-    assert len(by_probe) == len(WarrantProbe)
-    for probe in WarrantProbe:
-        assert len(by_probe[probe.value]) == len(cases)
+    if cases:
+        # When the live residue is non-empty every probe must
+        # be applied to every case.
+        assert len(by_probe) == len(WarrantProbe)
+        for probe in WarrantProbe:
+            assert len(by_probe[probe.value]) == len(cases)
+    else:
+        # After downstream patches (v4.7/v4.9) the residue may
+        # be empty; evaluate_all returns no outcomes.
+        assert by_probe == {}
 
 
 def test_safe_probes_have_zero_contamination() -> None:

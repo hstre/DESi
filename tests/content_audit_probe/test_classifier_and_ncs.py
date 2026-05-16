@@ -22,16 +22,27 @@ def test_classifier_assigns_one_closed_class_per_case() -> None:
         assert c.failure_class in allowed
 
 
-def test_residue_distribution_only_two_classes() -> None:
-    """The 9 residue cases split exactly between
-    PROPERTY_REVERSAL and DIRECT_CONTRADICTION."""
-    cases = collect_residue_cases()
-    records = replay_all(cases)
-    cls = classify_all(records, {c.chain_id: c.text for c in cases})
-    counts = Counter(c.failure_class for c in cls)
-    assert counts[ContentFailure.PROPERTY_REVERSAL.value] == 5
-    assert counts[ContentFailure.DIRECT_CONTRADICTION.value] == 4
-    assert counts[ContentFailure.UNKNOWN.value] == 0
+def test_v48_residue_distribution_pinned_in_frozen_artifact() -> None:
+    """At v4.8 time the residue split exactly between
+    PROPERTY_REVERSAL (5) and DIRECT_CONTRADICTION (4).
+    After v4.9 the live residue is empty. We pin the v4.8-era
+    distribution via the frozen artifact."""
+    import json, pathlib
+    p = (
+        pathlib.Path(__file__).resolve().parents[2]
+        / "artifacts" / "v4_8" / "report.json"
+    )
+    data = json.loads(p.read_text(encoding="utf-8"))
+    counts = data["distribution"]["failure_count"]
+    assert counts.get(
+        ContentFailure.PROPERTY_REVERSAL.value, 0,
+    ) == 5
+    assert counts.get(
+        ContentFailure.DIRECT_CONTRADICTION.value, 0,
+    ) == 4
+    assert counts.get(
+        ContentFailure.UNKNOWN.value, 0,
+    ) == 0
 
 
 def test_nc_count_meets_directive_minima() -> None:

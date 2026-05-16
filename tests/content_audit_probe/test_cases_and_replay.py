@@ -6,11 +6,22 @@ from desi.content_audit_probe import (
 )
 
 
-def test_residue_count_matches_v47_target() -> None:
-    """v4.3 + v4.5 + v4.7 cumulatively retire 134/143; the
-    surviving residue is exactly 9, all MISSING_BRIDGE_RULE."""
+def test_v48_historical_residue_count_pinned() -> None:
+    """The v4.8 frozen artifact pins the pre-v4.9 residue
+    count of 9. After v4.9 the live ``collect_residue_cases``
+    returns an empty set (the v4.9 patch retires both v4.8
+    target clusters); we pin the historical v4.8 count via
+    the frozen artifact and check the live count has strictly
+    dropped. See docs/memory/v4_9.md."""
+    import json, pathlib
+    p = (
+        pathlib.Path(__file__).resolve().parents[2]
+        / "artifacts" / "v4_8" / "report.json"
+    )
+    data = json.loads(p.read_text(encoding="utf-8"))
+    assert data["residue_count"] == EXPECTED_RESIDUE_COUNT == 9
     cases = collect_residue_cases()
-    assert len(cases) == EXPECTED_RESIDUE_COUNT == 9
+    assert len(cases) < EXPECTED_RESIDUE_COUNT
 
 
 def test_collect_is_deterministic() -> None:
