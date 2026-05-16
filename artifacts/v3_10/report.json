@@ -1,0 +1,289 @@
+{
+  "cluster_summary": {
+    "cluster_count": 1,
+    "dominant_failure_cause": "polysemy_collision",
+    "dominant_frame_pair": [
+      "information_theoretic",
+      "metaphorical"
+    ],
+    "largest_cluster_size": 1
+  },
+  "clusters": [
+    {
+      "case_ids": [
+        "B.v35-swap:N02-info-vs-metaphor.b-with-a"
+      ],
+      "cluster_id": "K_information_theoretic__metaphorical__polysemy_collision",
+      "failure_cause": "polysemy_collision",
+      "inner_frame": "metaphorical",
+      "outer_frame": "information_theoretic",
+      "size": 1
+    }
+  ],
+  "contaminations": [
+    {
+      "absorbed_manipulation_ids": [],
+      "cluster_id": "K_information_theoretic__metaphorical__polysemy_collision",
+      "contamination_risk": 0.00565,
+      "manipulation_absorption_risk": 0.0,
+      "pool_hits": {
+        "v1_5_main": 0,
+        "v3_4_frame_benchmark": 0,
+        "v3_5_invariance": 0,
+        "v3_8_false_inheritance": 3,
+        "v3_9_corpus_tension": 0,
+        "v3_9_manipulation_set": 0
+      }
+    }
+  ],
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "metrics": {
+    "ambiguous_tension_count": 1,
+    "ambiguous_tension_rate": 0.0625,
+    "false_tension_count": 0,
+    "false_tension_rate": 0.0,
+    "tension_precision": 0.9375,
+    "total_tension_cases": 16,
+    "true_tension_count": 15
+  },
+  "outcomes": [
+    {
+      "audit_class": "true_tension",
+      "failure_cause": null,
+      "target": {
+        "case_id": "B.v38fn:FN03",
+        "consistency_score": 0.5,
+        "ground_truth_relation": "frame_tension",
+        "inner_frame": "thermodynamic",
+        "outer_frame": "information_theoretic",
+        "source_benchmark": "outer_neq_inner",
+        "source_group": "corpus_outcomes",
+        "text": "Entropy of an isolated system never decreases."
+      }
+    },
+    {
+      "audit_class": "true_tension",
+      "failure_cause": null,
+      "target": {
+        "case_id": "B.v38fn:FN04",
+        "consistency_score": 0.5,
+        "ground_truth_relation": "frame_tension",
+        "inner_frame": "information_theoretic",
+        "outer_frame": "thermodynamic",
+        "source_benchmark": "outer_neq_inner",
+        "source_group": "corpus_outcomes",
+        "text": "The Shannon entropy of a fair coin is exactly one bit."
+      }
+    },
+    {
+      "audit_class": "true_tension",
+      "failure_cause": null,
+      "target": {
+        "case_id": "B.v38fn:FN05",
+        "consistency_score": 0.5,
+        "ground_truth_relation": "frame_tension",
+        "inner_frame": "thermodynamic",
+        "outer_frame": "metaphorical",
+        "source_benchmark": "outer_neq_inner",
+        "source_group": "corpus_outcomes",
+        "text": "Heat flows from hot to cold by the second law."
+      }
+    },
+    {
+      "audit_class": "true_tension",
+      "failure_cause": null,
+      "target": {
+        "case_id": "B.v38fn:FN07",
+        "consistency_score": 0.5,
+        "ground_truth_relation": "frame_tension",
+        "inner_frame": "formal_logic",
+        "outer_frame": "empirical_causal",
+        "source_benchmark": "outer_neq_inner",
+        "source_group": "corpus_outcomes",
+        "text": "All swans are white; therefore the next swan is white."
+      }
+    },
+    {
+      "audit_class": "true_tension",
+      "failure_cause": null,
+      "target": {
+        "case_id": "B.v38fn:FN08",
+        "consistency_score": 0.5,
+        "ground_truth_relation": "frame_tension",
+        "inner_frame": "authority_speech",
+        "outer_frame": "empirical_causal",
+        "source_benchmark": "outer_neq_inner",
+        "source_group": "corpus_outcomes",
+        "text": "The minister stated that the bill will reduce inflation."
+      }
+    },
+    {
+      "audit_class": "true_tension",
+      "failure_cause": null,
+      "target": {
+        "case_id": "B.v35-swap:N01-thermo-vs-info.a-with-b",
+        "consistency_score": 0.5,
+        "ground_truth_relation": "frame_tension",
+        "inner_frame": "thermodynamic",
+        "outer_frame": "information_theoretic",
+        "source_benchmark": "outer_neq_inner",
+        "source_group": "corpus_outcomes",
+        "text": "Frame: thermodynamic. Entropy increases in a closed physical system."
+      }
+    },
+    {
+      "audit_class": "true_tension",
+      "failure_cause": null,
+      "target": {
+        "case_id": "B.v35-swap:N01-thermo-vs-info.b-with-a",
+        "consistency_score": 0.5,
+        "ground_truth_relation": "frame_tension",
+        "inner_frame": "information_theoretic",
+        "outer_frame": "thermodynamic",
+        "source_benchmark": "outer_neq_inner",
+        "source_group": "corpus_outcomes",
+        "text": "Frame: information-theoretic. Entropy of a message distribution is one bit."
+      }
+    },
+    {
+      "audit_class": "true_tension",
+      "failure_cause": null,
+      "target": {
+        "case_id": "B.v35-swap:N02-info-vs-metaphor.a-with-b",
+        "consistency_score": 0.5,
+        "ground_truth_relation": "frame_tension",
+        "inner_frame": "information_theoretic",
+        "outer_frame": "metaphorical",
+        "source_benchmark": "outer_neq_inner",
+        "source_group": "corpus_outcomes",
+        "text": "Shannon entropy bounds compression in bits."
+      }
+    },
+    {
+      "audit_class": "ambiguous_tension",
+      "failure_cause": "polysemy_collision",
+      "target": {
+        "case_id": "B.v35-swap:N02-info-vs-metaphor.b-with-a",
+        "consistency_score": 0.5,
+        "ground_truth_relation": "frame_tension",
+        "inner_frame": "metaphorical",
+        "outer_frame": "information_theoretic",
+        "source_benchmark": "outer_neq_inner",
+        "source_group": "corpus_outcomes",
+        "text": "Loosely speaking, the brain compresses memories like a poet."
+      }
+    },
+    {
+      "audit_class": "true_tension",
+      "failure_cause": null,
+      "target": {
+        "case_id": "B.v35-swap:N05-formal-vs-causal.a-with-b",
+        "consistency_score": 0.5,
+        "ground_truth_relation": "frame_tension",
+        "inner_frame": "formal_logic",
+        "outer_frame": "empirical_causal",
+        "source_benchmark": "outer_neq_inner",
+        "source_group": "corpus_outcomes",
+        "text": "Frame: formal logic. Modus ponens preserves truth."
+      }
+    },
+    {
+      "audit_class": "true_tension",
+      "failure_cause": null,
+      "target": {
+        "case_id": "B.v35-swap:N05-formal-vs-causal.b-with-a",
+        "consistency_score": 0.5,
+        "ground_truth_relation": "frame_tension",
+        "inner_frame": "empirical_causal",
+        "outer_frame": "formal_logic",
+        "source_benchmark": "outer_neq_inner",
+        "source_group": "corpus_outcomes",
+        "text": "Drought resulted in crop failure last summer."
+      }
+    },
+    {
+      "audit_class": "true_tension",
+      "failure_cause": null,
+      "target": {
+        "case_id": "manip:M01",
+        "consistency_score": 0.5,
+        "ground_truth_relation": "frame_tension",
+        "inner_frame": "information_theoretic",
+        "outer_frame": "thermodynamic",
+        "source_benchmark": "manipulation:M01",
+        "source_group": "manipulation_outcomes",
+        "text": "Shannon entropy of the message distribution is one bit."
+      }
+    },
+    {
+      "audit_class": "true_tension",
+      "failure_cause": null,
+      "target": {
+        "case_id": "manip:M04",
+        "consistency_score": 0.5,
+        "ground_truth_relation": "frame_tension",
+        "inner_frame": "thermodynamic",
+        "outer_frame": "information_theoretic",
+        "source_benchmark": "manipulation:M04",
+        "source_group": "manipulation_outcomes",
+        "text": "Heat flow in joules per second drives the engine."
+      }
+    },
+    {
+      "audit_class": "true_tension",
+      "failure_cause": null,
+      "target": {
+        "case_id": "manip:M05",
+        "consistency_score": 0.5,
+        "ground_truth_relation": "frame_tension",
+        "inner_frame": "authority_speech",
+        "outer_frame": "empirical_causal",
+        "source_benchmark": "manipulation:M05",
+        "source_group": "manipulation_outcomes",
+        "text": "The minister stated the bridge collapsed yesterday."
+      }
+    },
+    {
+      "audit_class": "true_tension",
+      "failure_cause": null,
+      "target": {
+        "case_id": "manip:M06",
+        "consistency_score": 0.5,
+        "ground_truth_relation": "frame_tension",
+        "inner_frame": "formal_logic",
+        "outer_frame": "empirical_causal",
+        "source_benchmark": "manipulation:M06",
+        "source_group": "manipulation_outcomes",
+        "text": "Every raven observed has been black; therefore the next raven observed is black by universal instantiation."
+      }
+    },
+    {
+      "audit_class": "true_tension",
+      "failure_cause": null,
+      "target": {
+        "case_id": "manip:M10",
+        "consistency_score": 0.5,
+        "ground_truth_relation": "frame_tension",
+        "inner_frame": "information_theoretic",
+        "outer_frame": "thermodynamic",
+        "source_benchmark": "manipulation:M10",
+        "source_group": "manipulation_outcomes",
+        "text": "A loaded coin's Shannon entropy in bits drops as the bias grows toward unity."
+      }
+    }
+  ],
+  "patchability": [
+    {
+      "cluster_id": "K_information_theoretic__metaphorical__polysemy_collision",
+      "cluster_size": 1,
+      "contamination_risk": 0.00565,
+      "manipulation_absorption_risk": 0.0,
+      "patchable": false,
+      "reason": "cluster_size=1 < 3; contamination_risk=0.00565 > 0.0"
+    }
+  ],
+  "recommendation_reason": "no cluster satisfies all four patchability conditions",
+  "recommended_next": "NONE",
+  "replay_hash": "26bd447ace08c0ac",
+  "started_at": "2026-05-16T00:00:00+00:00"
+}
