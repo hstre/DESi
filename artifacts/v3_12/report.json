@@ -1,0 +1,3179 @@
+{
+  "corpus_adversarial": 65,
+  "corpus_by_origin": {
+    "v310_tension_audit": 16,
+    "v311_runtime": 40,
+    "v38_inheritance": 10,
+    "v39_manipulation": 20
+  },
+  "corpus_total": 86,
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "per_point_metrics": {
+    "post_frame_pre_routing": {
+      "adversarial": 65,
+      "benign": 21,
+      "contamination_risk": 0.0,
+      "false_block_rate": 0.0,
+      "insertion_point": "post_frame_pre_routing",
+      "integration_score": 0.764687,
+      "late_block_rate": 0.0,
+      "manipulation_block_rate": 1.0,
+      "recovered_manipulations": 0,
+      "tension_detection_rate": 0.276923,
+      "total": 86,
+      "undecidable_rate": 0.453488
+    },
+    "post_routing": {
+      "adversarial": 65,
+      "benign": 21,
+      "contamination_risk": 0.755814,
+      "false_block_rate": 0.0,
+      "insertion_point": "post_routing",
+      "integration_score": 0.613524,
+      "late_block_rate": 0.883721,
+      "manipulation_block_rate": 1.0,
+      "recovered_manipulations": 65,
+      "tension_detection_rate": 0.276923,
+      "total": 86,
+      "undecidable_rate": 0.453488
+    },
+    "post_spl_pre_frame": {
+      "adversarial": 65,
+      "benign": 21,
+      "contamination_risk": 0.0,
+      "false_block_rate": 0.0,
+      "insertion_point": "post_spl_pre_frame",
+      "integration_score": 0.764687,
+      "late_block_rate": 0.0,
+      "manipulation_block_rate": 1.0,
+      "recovered_manipulations": 0,
+      "tension_detection_rate": 0.276923,
+      "total": 86,
+      "undecidable_rate": 0.453488
+    },
+    "pre_spl": {
+      "adversarial": 65,
+      "benign": 21,
+      "contamination_risk": 0.0,
+      "false_block_rate": 0.0,
+      "insertion_point": "pre_spl",
+      "integration_score": 0.593775,
+      "late_block_rate": 0.0,
+      "manipulation_block_rate": 0.015385,
+      "recovered_manipulations": 0,
+      "tension_detection_rate": 0.0,
+      "total": 86,
+      "undecidable_rate": 0.046512
+    }
+  },
+  "per_point_outcomes": {
+    "post_frame_pre_routing": [
+      {
+        "case_id": "v311:CF01",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF02",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF03",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF04",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF05",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF06",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF07",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF08",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF09",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF10",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:TN01",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN02",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN03",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN04",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN05",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN06",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN07",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN08",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN09",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN10",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:CO01",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO02",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO03",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO04",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO05",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO06",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO07",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO08",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO09",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO10",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:UD01",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD02",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD03",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD04",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD05",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD06",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD07",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD08",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD09",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD10",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M01",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M02",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M03",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M04",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v39manip:M05",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v39manip:M06",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v39manip:M07",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M08",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M09",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M10",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M11",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M12",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M13",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M14",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M15",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M16",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M17",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M18",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M19",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M20",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN01",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN02",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN03",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN04",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN05",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v38fn:FN06",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN07",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v38fn:FN08",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v38fn:FN09",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN10",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN03",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN04",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN05",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN07",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN08",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N01-thermo-vs-info.a-with-b",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N01-thermo-vs-info.b-with-a",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N02-info-vs-metaphor.a-with-b",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N02-info-vs-metaphor.b-with-a",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N05-formal-vs-causal.a-with-b",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N05-formal-vs-causal.b-with-a",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:manip:M01",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:manip:M04",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:manip:M05",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:manip:M06",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:manip:M10",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_frame_pre_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      }
+    ],
+    "post_routing": [
+      {
+        "case_id": "v311:CF01",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF02",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF03",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF04",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF05",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF06",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF07",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF08",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF09",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF10",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:TN01",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN02",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN03",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN04",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN05",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN06",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN07",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN08",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN09",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN10",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:CO01",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO02",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO03",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO04",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO05",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO06",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO07",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO08",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO09",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO10",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:UD01",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD02",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD03",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD04",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD05",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD06",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD07",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD08",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD09",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD10",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M01",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M02",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M03",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M04",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v39manip:M05",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v39manip:M06",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v39manip:M07",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M08",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M09",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M10",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M11",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M12",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M13",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M14",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M15",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M16",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M17",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M18",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M19",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M20",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN01",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN02",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN03",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN04",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN05",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v38fn:FN06",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN07",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v38fn:FN08",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v38fn:FN09",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN10",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN03",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN04",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN05",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN07",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN08",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N01-thermo-vs-info.a-with-b",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N01-thermo-vs-info.b-with-a",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N02-info-vs-metaphor.a-with-b",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N02-info-vs-metaphor.b-with-a",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N05-formal-vs-causal.a-with-b",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N05-formal-vs-causal.b-with-a",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:manip:M01",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:manip:M04",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:manip:M05",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:manip:M06",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:manip:M10",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_routing",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      }
+    ],
+    "post_spl_pre_frame": [
+      {
+        "case_id": "v311:CF01",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF02",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF03",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF04",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF05",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF06",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF07",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF08",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF09",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF10",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:TN01",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN02",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN03",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN04",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN05",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN06",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN07",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN08",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN09",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:TN10",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v311:CO01",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO02",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO03",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO04",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO05",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO06",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO07",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO08",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO09",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:CO10",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": "conflict",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v311:UD01",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD02",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD03",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD04",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD05",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD06",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD07",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD08",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD09",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD10",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M01",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M02",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M03",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M04",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v39manip:M05",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v39manip:M06",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v39manip:M07",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M08",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M09",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M10",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M11",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M12",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M13",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M14",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M15",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M16",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M17",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M18",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M19",
+        "event": "frame_conflict_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "conflict"
+      },
+      {
+        "case_id": "v39manip:M20",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN01",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN02",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN03",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN04",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN05",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v38fn:FN06",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN07",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v38fn:FN08",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v38fn:FN09",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v38fn:FN10",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": null,
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN03",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN04",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN05",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN07",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN08",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N01-thermo-vs-info.a-with-b",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N01-thermo-vs-info.b-with-a",
+        "event": "frame_inheritance_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "tension"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N02-info-vs-metaphor.a-with-b",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N02-info-vs-metaphor.b-with-a",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N05-formal-vs-causal.a-with-b",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N05-formal-vs-causal.b-with-a",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:manip:M01",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:manip:M04",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:manip:M05",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:manip:M06",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:manip:M10",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "post_spl_pre_frame",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      }
+    ],
+    "pre_spl": [
+      {
+        "case_id": "v311:CF01",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF02",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF03",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF04",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF05",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF06",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF07",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF08",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF09",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CF10",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "confirmed",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:TN01",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:TN02",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:TN03",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:TN04",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:TN05",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:TN06",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:TN07",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:TN08",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:TN09",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:TN10",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CO01",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "conflict",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CO02",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "conflict",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CO03",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "conflict",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CO04",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "conflict",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CO05",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "conflict",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CO06",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "conflict",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CO07",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "conflict",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CO08",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "conflict",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CO09",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "conflict",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:CO10",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "conflict",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:UD01",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:UD02",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:UD03",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD04",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:UD05",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v311:UD06",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:UD07",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:UD08",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:UD09",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v311:UD10",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "undecidable",
+        "inherited_allowed": false,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v39manip:M01",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M02",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M03",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M04",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M05",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M06",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M07",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M08",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M09",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M10",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M11",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M12",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M13",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M14",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M15",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M16",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M17",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M18",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M19",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v39manip:M20",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v38fn:FN01",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v38fn:FN02",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v38fn:FN03",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v38fn:FN04",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v38fn:FN05",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v38fn:FN06",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v38fn:FN07",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v38fn:FN08",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v38fn:FN09",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v38fn:FN10",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": null,
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN03",
+        "event": "frame_undecidable_blocked",
+        "expected_consistency": "tension",
+        "inherited_allowed": false,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "undecidable"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN04",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN05",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN07",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v310:B.v38fn:FN08",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N01-thermo-vs-info.a-with-b",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N01-thermo-vs-info.b-with-a",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N02-info-vs-metaphor.a-with-b",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N02-info-vs-metaphor.b-with-a",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": false,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N05-formal-vs-causal.a-with-b",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v310:B.v35-swap:N05-formal-vs-causal.b-with-a",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v310:manip:M01",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v310:manip:M04",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v310:manip:M05",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v310:manip:M06",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      },
+      {
+        "case_id": "v310:manip:M10",
+        "event": "frame_inheritance_allowed",
+        "expected_consistency": "tension",
+        "inherited_allowed": true,
+        "insertion_point": "pre_spl",
+        "is_adversarial": true,
+        "observed_consistency": "confirmed"
+      }
+    ]
+  },
+  "recommendation_reason": "highest integration_score (0.764687) with zero contamination, manipulation_block_rate=1.0, false_block_rate=0.0",
+  "recommended_next": "post_frame_pre_routing",
+  "replay_hash": "86d0d72251f7d589",
+  "started_at": "2026-05-16T00:00:00+00:00"
+}
