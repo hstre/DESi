@@ -1,0 +1,262 @@
+{
+  "best_strategy": null,
+  "chain_count": 800,
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "nc_contamination_count": 0,
+  "nc_count": 100,
+  "recommendation_reason": "no valid strategy; F1_marker_lexical: external_false_support=115 > 0, frame_false_assignment=0.471429 > 0.05; F2_nearest_neighbor: external_false_support=69 > 0; F3_sentence_cooccurrence: external_false_support=55 > 0; F4_context_window: external_false_support=135 > 0, frame_false_assignment=0.054286 > 0.05",
+  "recommended_next": "IMPLICIT_FRAME_INGRESS_FAILED",
+  "replay_hash": "f7ec695f17aa341b",
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "strategy_reports": [
+    {
+      "failure_class_counts": {
+        "FALSE_FRAME": 458,
+        "NO_FRAME": 105
+      },
+      "frame_metrics": {
+        "abstentions": 105,
+        "assignments": 595,
+        "correct": 265,
+        "frame_false_assignment": 0.471429,
+        "frame_precision": 0.445378,
+        "frame_recall": 0.378571,
+        "frame_undecidable_rate": 0.15,
+        "total": 700,
+        "wrong": 330
+      },
+      "invalid_reasons": [
+        "external_false_support=115 > 0",
+        "frame_false_assignment=0.471429 > 0.05"
+      ],
+      "nc_metrics": {
+        "by_family": {
+          "authority_in_science": {
+            "detected": 1,
+            "total": 15
+          },
+          "context_poison": {
+            "detected": 22,
+            "total": 25
+          },
+          "entropy_collision": {
+            "detected": 15,
+            "total": 15
+          },
+          "legal_quantifier_drift": {
+            "detected": 10,
+            "total": 15
+          },
+          "mathematical_flourish": {
+            "detected": 5,
+            "total": 15
+          },
+          "metaphorised_equation": {
+            "detected": 7,
+            "total": 15
+          }
+        },
+        "detected": 60,
+        "nc_detection_rate": 0.6,
+        "total": 100
+      },
+      "pipeline_metrics": {
+        "external_false_block": 90,
+        "external_false_support": 115,
+        "external_precision": 0.705882,
+        "external_recall": 0.627273,
+        "external_undecidable_rate": 0.167143
+      },
+      "strategy": "F1_marker_lexical",
+      "valid": false
+    },
+    {
+      "failure_class_counts": {
+        "DOMAIN_SHIFT": 7,
+        "FALSE_FRAME": 57,
+        "NO_FRAME": 328
+      },
+      "frame_metrics": {
+        "abstentions": 328,
+        "assignments": 372,
+        "correct": 361,
+        "frame_false_assignment": 0.015714,
+        "frame_precision": 0.97043,
+        "frame_recall": 0.515714,
+        "frame_undecidable_rate": 0.468571,
+        "total": 700,
+        "wrong": 11
+      },
+      "invalid_reasons": [
+        "external_false_support=69 > 0"
+      ],
+      "nc_metrics": {
+        "by_family": {
+          "authority_in_science": {
+            "detected": 12,
+            "total": 15
+          },
+          "context_poison": {
+            "detected": 19,
+            "total": 25
+          },
+          "entropy_collision": {
+            "detected": 11,
+            "total": 15
+          },
+          "legal_quantifier_drift": {
+            "detected": 8,
+            "total": 15
+          },
+          "mathematical_flourish": {
+            "detected": 13,
+            "total": 15
+          },
+          "metaphorised_equation": {
+            "detected": 8,
+            "total": 15
+          }
+        },
+        "detected": 71,
+        "nc_detection_rate": 0.71,
+        "total": 100
+      },
+      "pipeline_metrics": {
+        "external_false_block": 90,
+        "external_false_support": 69,
+        "external_precision": 0.687783,
+        "external_recall": 0.345455,
+        "external_undecidable_rate": 0.41
+      },
+      "strategy": "F2_nearest_neighbor",
+      "valid": false
+    },
+    {
+      "failure_class_counts": {
+        "DOMAIN_SHIFT": 7,
+        "FALSE_FRAME": 33,
+        "NO_FRAME": 319
+      },
+      "frame_metrics": {
+        "abstentions": 319,
+        "assignments": 381,
+        "correct": 363,
+        "frame_false_assignment": 0.025714,
+        "frame_precision": 0.952756,
+        "frame_recall": 0.518571,
+        "frame_undecidable_rate": 0.455714,
+        "total": 700,
+        "wrong": 18
+      },
+      "invalid_reasons": [
+        "external_false_support=55 > 0"
+      ],
+      "nc_metrics": {
+        "by_family": {
+          "authority_in_science": {
+            "detected": 15,
+            "total": 15
+          },
+          "context_poison": {
+            "detected": 25,
+            "total": 25
+          },
+          "entropy_collision": {
+            "detected": 15,
+            "total": 15
+          },
+          "legal_quantifier_drift": {
+            "detected": 15,
+            "total": 15
+          },
+          "mathematical_flourish": {
+            "detected": 15,
+            "total": 15
+          },
+          "metaphorised_equation": {
+            "detected": 15,
+            "total": 15
+          }
+        },
+        "detected": 100,
+        "nc_detection_rate": 1.0,
+        "total": 100
+      },
+      "pipeline_metrics": {
+        "external_false_block": 90,
+        "external_false_support": 55,
+        "external_precision": 0.751131,
+        "external_recall": 0.377273,
+        "external_undecidable_rate": 0.41
+      },
+      "strategy": "F3_sentence_cooccurrence",
+      "valid": false
+    },
+    {
+      "failure_class_counts": {
+        "CONTEXT_LEAK": 55,
+        "DOMAIN_SHIFT": 14,
+        "FALSE_FRAME": 125,
+        "NO_FRAME": 33
+      },
+      "frame_metrics": {
+        "abstentions": 33,
+        "assignments": 667,
+        "correct": 629,
+        "frame_false_assignment": 0.054286,
+        "frame_precision": 0.943028,
+        "frame_recall": 0.898571,
+        "frame_undecidable_rate": 0.047143,
+        "total": 700,
+        "wrong": 38
+      },
+      "invalid_reasons": [
+        "external_false_support=135 > 0",
+        "frame_false_assignment=0.054286 > 0.05"
+      ],
+      "nc_metrics": {
+        "by_family": {
+          "authority_in_science": {
+            "detected": 0,
+            "total": 15
+          },
+          "context_poison": {
+            "detected": 9,
+            "total": 25
+          },
+          "entropy_collision": {
+            "detected": 3,
+            "total": 15
+          },
+          "legal_quantifier_drift": {
+            "detected": 1,
+            "total": 15
+          },
+          "mathematical_flourish": {
+            "detected": 0,
+            "total": 15
+          },
+          "metaphorised_equation": {
+            "detected": 3,
+            "total": 15
+          }
+        },
+        "detected": 16,
+        "nc_detection_rate": 0.16,
+        "total": 100
+      },
+      "pipeline_metrics": {
+        "external_false_block": 90,
+        "external_false_support": 135,
+        "external_precision": 0.6875,
+        "external_recall": 0.675,
+        "external_undecidable_rate": 0.108571
+      },
+      "strategy": "F4_context_window",
+      "valid": false
+    }
+  ],
+  "transition_count": 3200,
+  "v40_baseline_recall": 0.0,
+  "v40_replay_hash": "aefa8f1e3429225a"
+}
