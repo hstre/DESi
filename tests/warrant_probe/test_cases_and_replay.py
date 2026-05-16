@@ -6,11 +6,23 @@ from desi.warrant_probe import (
 )
 
 
-def test_residue_count_matches_v45_target() -> None:
-    """v4.3 retired 119; v4.5 retired 5 more; the surviving
-    residue is exactly 19."""
+def test_v46_historical_residue_count_pinned() -> None:
+    """The v4.6 frozen artifact holds the pre-v4.7 residue
+    count of 19. After v4.7 the live ``collect_residue_cases``
+    returns a smaller set (the v4.7 patch retires the
+    CORRELATION_TO_CAUSATION and SAMPLE_TO_UNIVERSAL clusters
+    v4.6 left untouched); we pin the historical v4.6 count
+    via the frozen artifact and check that the live count has
+    strictly dropped. See docs/memory/v4_7.md."""
+    import json, pathlib
+    p = (
+        pathlib.Path(__file__).resolve().parents[2]
+        / "artifacts" / "v4_6" / "report.json"
+    )
+    data = json.loads(p.read_text(encoding="utf-8"))
+    assert data["residue_count"] == EXPECTED_RESIDUE_COUNT == 19
     cases = collect_residue_cases()
-    assert len(cases) == EXPECTED_RESIDUE_COUNT == 19
+    assert len(cases) < EXPECTED_RESIDUE_COUNT
 
 
 def test_collect_is_deterministic() -> None:

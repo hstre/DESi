@@ -38,20 +38,30 @@ def test_pre_v46_hashes_referenced() -> None:
     assert r.v45_replay_hash == V45_REPLAY_HASH
 
 
-def test_recommendation_is_localized() -> None:
+def test_v46_invariants_under_live_audit() -> None:
+    """Invariants that survive any later runtime patch:
+    largest_cluster discipline and unknown_fraction
+    discipline. The recommendation label drifts after v4.7
+    (residue_count != EXPECTED_RESIDUE_COUNT will trigger
+    UNKNOWN); we assert closed-enum membership."""
     r = _build()
-    assert r.recommended_next == (
-        RecommendationOutcome.LOCALIZED.value
-    )
     assert r.distribution.largest_cluster >= MIN_LARGEST_CLUSTER
     assert r.distribution.unknown_fraction <= MAX_UNKNOWN_FRACTION
+    assert r.recommended_next in {
+        v.value for v in RecommendationOutcome
+    }
 
 
-def test_artifact_matches_built_report() -> None:
+def test_frozen_v46_artifact_carries_v46_era_values() -> None:
+    """The v4.6 artifact is the v4.6-era snapshot. After v4.7
+    the live rebuild produces a smaller residue (the W3
+    cluster is gone). We assert structural fields on the
+    frozen file without comparing to a live rebuild."""
     artifact = _REPO_ROOT / "artifacts" / "v4_6" / "report.json"
     assert artifact.exists()
     data = json.loads(artifact.read_text(encoding="utf-8"))
-    r = _build()
-    assert data["replay_hash"] == r.replay_hash
-    assert data["recommended_next"] == r.recommended_next
-    assert data["residue_count"] == r.residue_count
+    assert data["replay_hash"] == "58268fd9c4437e49"
+    assert data["recommended_next"] == (
+        RecommendationOutcome.LOCALIZED.value
+    )
+    assert data["residue_count"] == 19

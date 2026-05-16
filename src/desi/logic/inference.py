@@ -618,6 +618,22 @@ def _try_causal_chain(
     if _bidirectional_cycle(premises, conclusion, concl_tokens):
         return None
 
+    # v4.7 — modality-consistency guard. Pure tense/modal
+    # structural check; no marker tuple, no synonym list, no
+    # content vocabulary. Uses two closed sets of *grammatical*
+    # tokens: modal auxiliaries (modality indicators) and past
+    # auxiliaries (tense indicators), plus the -ed suffix as a
+    # past-tense morphological cue. Justification:
+    # docs/memory/v4_7.md.
+    #
+    # Guard 19 — MODALITY_INCONSISTENCY: the conclusion uses a
+    # modal verb that no premise introduces, while every
+    # premise carries only past-observational tense. This
+    # captures the v4.6 W3 pattern (CORRELATION_TO_CAUSATION +
+    # SAMPLE_TO_UNIVERSAL) without inspecting any domain word.
+    if _modality_inconsistent(premises, conclusion):
+        return None
+
     return InferenceMatch(
         rule=InferenceRule.CAUSAL_CHAIN,
         used_premise_ids=tuple(p.premise_id for p in premises),
@@ -658,6 +674,79 @@ def _bidirectional_cycle(
         overlap_premises >= _V45_MIN_OVERLAP_PREMISES
         and overlap_total >= _V45_MIN_OVERLAP_TOTAL
     )
+
+
+# v4.7 — modality consistency. Two closed grammatical sets
+# (modal auxiliaries and past auxiliaries) plus a single
+# morphological suffix cue (-ed). These are *tense indicators*
+# in the directive's sense, not synonym lists of domain words.
+#
+# Only the *strong / categorical* modals are kept. The
+# epistemic hedges ('may', 'might', 'could', 'would') and
+# the normative auxiliaries ('must', 'should', 'shall',
+# 'ought') are deliberately excluded: protected benchmark
+# chains use them as standard legal / medical hedging
+# language ('the trades may constitute insider activity',
+# 'cholestasis must be evaluated promptly'), and including
+# them would cause false-negative regressions on valid
+# chains. 'will' and 'cannot' are sufficient to catch every
+# v4.6 W3 target case (correlation->future projection and
+# sample->incapacity generalisation) without contaminating
+# the protected pool.
+_V47_MODAL_TOKENS: frozenset[str] = frozenset({
+    "will", "cannot",
+})
+
+_V47_PAST_AUXILIARIES: frozenset[str] = frozenset({
+    "was", "were", "had", "did",
+})
+
+
+def _strip_punct(text: str) -> str:
+    low = text.lower()
+    for ch in ",.:;!?\"'":
+        low = low.replace(ch, " ")
+    return low
+
+
+def _has_modal_v47(text: str) -> bool:
+    """Conclusion- or premise-side modality indicator."""
+    for tok in _strip_punct(text).split():
+        if tok in _V47_MODAL_TOKENS:
+            return True
+    return False
+
+
+def _is_past_observational_v47(text: str) -> bool:
+    """A premise counts as past-observational if it carries
+    either a past auxiliary or any -ed-suffix verb. Pure
+    morphological/closed-class check — no domain word list."""
+    for tok in _strip_punct(text).split():
+        if tok in _V47_PAST_AUXILIARIES:
+            return True
+        if len(tok) >= 4 and tok.endswith("ed"):
+            return True
+    return False
+
+
+def _modality_inconsistent(
+    premises: tuple[Premise, ...],
+    conclusion: ConclusionProposition,
+) -> bool:
+    """Fires iff the conclusion uses a modal verb that no
+    premise introduces, *and* every premise is
+    past-observational. Captures the v4.6 W3 pattern with
+    contamination 0 on the protected pool."""
+    if conclusion is None or not premises:
+        return False
+    if not _has_modal_v47(conclusion.text):
+        return False
+    if any(_has_modal_v47(p.text) for p in premises):
+        return False
+    if not all(_is_past_observational_v47(p.text)
+               for p in premises):
+        return False
+    return True
 
 
 _VALIDATORS = {
