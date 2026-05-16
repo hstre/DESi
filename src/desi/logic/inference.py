@@ -293,6 +293,88 @@ _CYCLE_CONNECTIVES: tuple[str, ...] = (
 )
 
 
+# v3.16 — adversarial suspension extensions. v3.15's red-team probe
+# demonstrated that the v2.7 marker tuples above are bypassable by
+# synonyms. The constants below close those gaps for the families
+# v3.15 identified. They are intentionally kept as separate tuples
+# so reviewers can see the v2.7 baseline and the v3.16 increment
+# side-by-side. Justification: docs/memory/v3_16.md.
+_V316_NEGATION_EXTENSIONS: tuple[str, ...] = (
+    " lacked ", " lacks ", " lacking ", " lack ",
+    " absent ", " vanished ", " vanishes ", " vanish ",
+    " missing ", " ceased ", " ceases ", " cease ",
+    " infertile ", " ran out ", " gone ",
+    # Note: "failed/broke/destroyed/shattered/torn" intentionally
+    # *omitted* — they appear in v2.3 R1 / R2_02 chains as
+    # legitimate cause-effect verbs. Treating them as negations
+    # would break the v2.3 multistep benchmark.
+)
+
+_V316_QUANTIFIER_EXTENSIONS: tuple[str, ...] = (
+    " consistently ", " universally ", " throughout ",
+    " invariably ", " always ", " globally ",
+    " perpetually ", " continuously ", " everywhere ",
+    " constantly ",
+)
+
+# Authority-like verbs OUTSIDE the v1.8 closed lemma library. These
+# bypass PremiseExtractor's AUTHORITY classification and therefore
+# would slip through as ATOMIC premises. We block them inside the
+# chain rule's own guard instead of touching PremiseExtractor.
+_V316_AUTHORITY_LIKE_VERBS: tuple[str, ...] = (
+    " wrote ", " writes ", " argued ", " argues ",
+    " noted ", " notes ", " observed ", " observes ",
+    " thought ", " thinks ", " felt ", " feels ",
+    " suggested ", " suggests ", " believed ", " believes ",
+)
+
+# X-is-Y metaphor markers. The metaphor-as-claim shape is caught
+# by the v3.4 FrameDetector elsewhere, but inside an unframed
+# CAUSAL_CHAIN candidate the same shape slips through. We block
+# the chain when any premise looks like a category-identification
+# metaphor ("Time is a river"). Syllogisms ("Socrates is a man")
+# carry an explicit "All ..." premise which lets the SYLLOGISM
+# rule match first.
+_V316_METAPHOR_MARKERS: tuple[str, ...] = (
+    " is a ", " is an ", " are a ", " are an ",
+)
+
+# Cycle-reference synonyms beyond the v2.7 list. Same defer-to-
+# cycle-resolver semantics as v2.7's _CYCLE_CONNECTIVES.
+_V316_CYCLE_REF_EXTENSIONS: tuple[str, ...] = (
+    " rests on ", " rest on ", " follows from ",
+    " stems from ", " comes from ", " stands on ",
+    " leans against ", " emerges from ", " grows from ",
+    " grow from ",
+)
+
+# Number-word vocabulary for tool-contamination detection. A chain
+# whose premises *and* conclusion both quote numeric quantities is
+# an arithmetic claim disguised as a causal chain — it belongs to
+# the tool-computable pipeline, not the chain rule.
+_V316_NUMBER_WORDS: frozenset[str] = frozenset({
+    "one", "two", "three", "four", "five", "six", "seven",
+    "eight", "nine", "ten", "eleven", "twelve", "thirteen",
+    "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
+    "nineteen", "twenty", "thirty", "forty", "fifty", "sixty",
+    "seventy", "eighty", "ninety", "hundred", "thousand",
+})
+
+
+def _has_number_word(text: str) -> bool:
+    padded = " " + text.lower() + " "
+    # Hyphenated compounds like "thirty-one" / "twenty-five" must
+    # split so their parts are checked against the number-word set.
+    for ch in ",.:;!?'\"-":
+        padded = padded.replace(ch, " ")
+    for tok in padded.split():
+        if tok in _V316_NUMBER_WORDS:
+            return True
+        if any(c.isdigit() for c in tok):
+            return True
+    return False
+
+
 _TOKEN_STOPWORDS: frozenset[str] = frozenset({
     "the", "a", "an", "this", "that", "these", "those",
     "it", "they", "he", "she", "we", "you", "i", "him", "her",
@@ -405,6 +487,48 @@ def _try_causal_chain(
         owners = token_to_premises.get(t, set())
         if len(owners) >= 2:
             return None
+
+    # v3.16 — adversarial suspension guards. Synthesised from the
+    # v3.15 red-team families. Any hit returns None, which lets the
+    # existing auditor pipeline route via _classify_gap → an
+    # existing ClaimState (no new states introduced).
+
+    # Guard 9 — extended negation (synonym bypass).
+    if _contains_marker(conclusion.text, _V316_NEGATION_EXTENSIONS):
+        return None
+    for p in premises:
+        if _contains_marker(p.text, _V316_NEGATION_EXTENSIONS):
+            return None
+
+    # Guard 10 — extended quantifier drift.
+    if _contains_marker(conclusion.text, _V316_QUANTIFIER_EXTENSIONS):
+        return None
+    for p in premises:
+        if _contains_marker(p.text, _V316_QUANTIFIER_EXTENSIONS):
+            return None
+
+    # Guard 11 — authority-like verbs (PremiseExtractor lemma bypass).
+    for p in premises:
+        if _contains_marker(p.text, _V316_AUTHORITY_LIKE_VERBS):
+            return None
+
+    # Guard 12 — X-is-Y metaphor markers in any premise.
+    for p in premises:
+        if _contains_marker(p.text, _V316_METAPHOR_MARKERS):
+            return None
+    if _contains_marker(conclusion.text, _V316_METAPHOR_MARKERS):
+        return None
+
+    # Guard 13 — extended cycle-reference synonyms.
+    for p in premises:
+        if _contains_marker(p.text, _V316_CYCLE_REF_EXTENSIONS):
+            return None
+
+    # Guard 14 — tool contamination: numbers in *both* premise and
+    # conclusion mean the claim is arithmetic, not causal.
+    if (any(_has_number_word(p.text) for p in premises)
+            and _has_number_word(conclusion.text)):
+        return None
 
     return InferenceMatch(
         rule=InferenceRule.CAUSAL_CHAIN,
