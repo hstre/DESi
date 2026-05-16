@@ -1,0 +1,559 @@
+{
+  "adversarial_detection_rate": 0.708333,
+  "contamination_count": 105,
+  "distributions": {
+    "v23_multistep": {
+      "chain_count": 60,
+      "corpus": "v23_multistep",
+      "link_count": 168,
+      "mean_feature_vector": [
+        0.160378,
+        0.083442,
+        0.257005,
+        0.138889,
+        0.02847,
+        0.136111,
+        0.630556,
+        0.231241
+      ]
+    },
+    "v314_heldout": {
+      "chain_count": 120,
+      "corpus": "v314_heldout",
+      "link_count": 250,
+      "mean_feature_vector": [
+        0.055602,
+        0.033333,
+        0.205564,
+        0.041667,
+        0.029091,
+        0.144444,
+        0.536111,
+        0.074606
+      ]
+    },
+    "v315_adversarial": {
+      "chain_count": 200,
+      "corpus": "v315_adversarial",
+      "link_count": 400,
+      "mean_feature_vector": [
+        0.075312,
+        0.02,
+        0.163416,
+        0.05,
+        0.026151,
+        0.295,
+        0.305,
+        0.121258
+      ]
+    },
+    "v316_suspended": {
+      "chain_count": 100,
+      "corpus": "v316_suspended",
+      "link_count": 200,
+      "mean_feature_vector": [
+        0.075312,
+        0.02,
+        0.163416,
+        0.05,
+        0.026151,
+        0.295,
+        0.305,
+        0.121258
+      ]
+    }
+  },
+  "false_alarm_rate": 0.2,
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "heldout_survival": 0.966667,
+  "manifold": {
+    "feature_names": [
+      "marker_density",
+      "marker_entropy",
+      "lexical_redundancy",
+      "synonym_stacking",
+      "transition_variance",
+      "frame_switch_frequency",
+      "unknown_link_ratio",
+      "explicitness_score"
+    ],
+    "medians": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.5,
+      0.0
+    ],
+    "p10": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "p90": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.5,
+      1.0,
+      0.0
+    ],
+    "p90_abs_deviation": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.5,
+      0.5,
+      0.0
+    ],
+    "sample_size": 60
+  },
+  "nc_per_shape": {
+    "natural_but_false": {
+      "correct": 8,
+      "total": 12
+    },
+    "over_explained_but_true": {
+      "correct": 13,
+      "total": 13
+    },
+    "valid_but_sparse": {
+      "correct": 16,
+      "total": 16
+    },
+    "weird_marker_free": {
+      "correct": 0,
+      "total": 13
+    }
+  },
+  "nc_results": [
+    {
+      "case_id": "NBF01",
+      "correct": false,
+      "expected_natural": true,
+      "is_anomalous": true,
+      "shape": "natural_but_false"
+    },
+    {
+      "case_id": "NBF02",
+      "correct": false,
+      "expected_natural": true,
+      "is_anomalous": true,
+      "shape": "natural_but_false"
+    },
+    {
+      "case_id": "NBF03",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "natural_but_false"
+    },
+    {
+      "case_id": "NBF04",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "natural_but_false"
+    },
+    {
+      "case_id": "NBF05",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "natural_but_false"
+    },
+    {
+      "case_id": "NBF06",
+      "correct": false,
+      "expected_natural": true,
+      "is_anomalous": true,
+      "shape": "natural_but_false"
+    },
+    {
+      "case_id": "NBF07",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "natural_but_false"
+    },
+    {
+      "case_id": "NBF08",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "natural_but_false"
+    },
+    {
+      "case_id": "NBF09",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "natural_but_false"
+    },
+    {
+      "case_id": "NBF10",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "natural_but_false"
+    },
+    {
+      "case_id": "NBF11",
+      "correct": false,
+      "expected_natural": true,
+      "is_anomalous": true,
+      "shape": "natural_but_false"
+    },
+    {
+      "case_id": "NBF12",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "natural_but_false"
+    },
+    {
+      "case_id": "VBS01",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "valid_but_sparse"
+    },
+    {
+      "case_id": "VBS02",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "valid_but_sparse"
+    },
+    {
+      "case_id": "VBS03",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "valid_but_sparse"
+    },
+    {
+      "case_id": "VBS04",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "valid_but_sparse"
+    },
+    {
+      "case_id": "VBS05",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "valid_but_sparse"
+    },
+    {
+      "case_id": "VBS06",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "valid_but_sparse"
+    },
+    {
+      "case_id": "VBS07",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "valid_but_sparse"
+    },
+    {
+      "case_id": "VBS08",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "valid_but_sparse"
+    },
+    {
+      "case_id": "VBS09",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "valid_but_sparse"
+    },
+    {
+      "case_id": "VBS10",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "valid_but_sparse"
+    },
+    {
+      "case_id": "VBS11",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "valid_but_sparse"
+    },
+    {
+      "case_id": "VBS12",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "valid_but_sparse"
+    },
+    {
+      "case_id": "VBS13",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "valid_but_sparse"
+    },
+    {
+      "case_id": "VBS14",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "valid_but_sparse"
+    },
+    {
+      "case_id": "VBS15",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "valid_but_sparse"
+    },
+    {
+      "case_id": "VBS16",
+      "correct": true,
+      "expected_natural": true,
+      "is_anomalous": false,
+      "shape": "valid_but_sparse"
+    },
+    {
+      "case_id": "OET01",
+      "correct": true,
+      "expected_natural": false,
+      "is_anomalous": true,
+      "shape": "over_explained_but_true"
+    },
+    {
+      "case_id": "OET02",
+      "correct": true,
+      "expected_natural": false,
+      "is_anomalous": true,
+      "shape": "over_explained_but_true"
+    },
+    {
+      "case_id": "OET03",
+      "correct": true,
+      "expected_natural": false,
+      "is_anomalous": true,
+      "shape": "over_explained_but_true"
+    },
+    {
+      "case_id": "OET04",
+      "correct": true,
+      "expected_natural": false,
+      "is_anomalous": true,
+      "shape": "over_explained_but_true"
+    },
+    {
+      "case_id": "OET05",
+      "correct": true,
+      "expected_natural": false,
+      "is_anomalous": true,
+      "shape": "over_explained_but_true"
+    },
+    {
+      "case_id": "OET06",
+      "correct": true,
+      "expected_natural": false,
+      "is_anomalous": true,
+      "shape": "over_explained_but_true"
+    },
+    {
+      "case_id": "OET07",
+      "correct": true,
+      "expected_natural": false,
+      "is_anomalous": true,
+      "shape": "over_explained_but_true"
+    },
+    {
+      "case_id": "OET08",
+      "correct": true,
+      "expected_natural": false,
+      "is_anomalous": true,
+      "shape": "over_explained_but_true"
+    },
+    {
+      "case_id": "OET09",
+      "correct": true,
+      "expected_natural": false,
+      "is_anomalous": true,
+      "shape": "over_explained_but_true"
+    },
+    {
+      "case_id": "OET10",
+      "correct": true,
+      "expected_natural": false,
+      "is_anomalous": true,
+      "shape": "over_explained_but_true"
+    },
+    {
+      "case_id": "OET11",
+      "correct": true,
+      "expected_natural": false,
+      "is_anomalous": true,
+      "shape": "over_explained_but_true"
+    },
+    {
+      "case_id": "OET12",
+      "correct": true,
+      "expected_natural": false,
+      "is_anomalous": true,
+      "shape": "over_explained_but_true"
+    },
+    {
+      "case_id": "OET13",
+      "correct": true,
+      "expected_natural": false,
+      "is_anomalous": true,
+      "shape": "over_explained_but_true"
+    },
+    {
+      "case_id": "WMF01",
+      "correct": false,
+      "expected_natural": false,
+      "is_anomalous": false,
+      "shape": "weird_marker_free"
+    },
+    {
+      "case_id": "WMF02",
+      "correct": false,
+      "expected_natural": false,
+      "is_anomalous": false,
+      "shape": "weird_marker_free"
+    },
+    {
+      "case_id": "WMF03",
+      "correct": false,
+      "expected_natural": false,
+      "is_anomalous": false,
+      "shape": "weird_marker_free"
+    },
+    {
+      "case_id": "WMF04",
+      "correct": false,
+      "expected_natural": false,
+      "is_anomalous": false,
+      "shape": "weird_marker_free"
+    },
+    {
+      "case_id": "WMF05",
+      "correct": false,
+      "expected_natural": false,
+      "is_anomalous": false,
+      "shape": "weird_marker_free"
+    },
+    {
+      "case_id": "WMF06",
+      "correct": false,
+      "expected_natural": false,
+      "is_anomalous": false,
+      "shape": "weird_marker_free"
+    },
+    {
+      "case_id": "WMF07",
+      "correct": false,
+      "expected_natural": false,
+      "is_anomalous": false,
+      "shape": "weird_marker_free"
+    },
+    {
+      "case_id": "WMF08",
+      "correct": false,
+      "expected_natural": false,
+      "is_anomalous": false,
+      "shape": "weird_marker_free"
+    },
+    {
+      "case_id": "WMF09",
+      "correct": false,
+      "expected_natural": false,
+      "is_anomalous": false,
+      "shape": "weird_marker_free"
+    },
+    {
+      "case_id": "WMF10",
+      "correct": false,
+      "expected_natural": false,
+      "is_anomalous": false,
+      "shape": "weird_marker_free"
+    },
+    {
+      "case_id": "WMF11",
+      "correct": false,
+      "expected_natural": false,
+      "is_anomalous": false,
+      "shape": "weird_marker_free"
+    },
+    {
+      "case_id": "WMF12",
+      "correct": false,
+      "expected_natural": false,
+      "is_anomalous": false,
+      "shape": "weird_marker_free"
+    },
+    {
+      "case_id": "WMF13",
+      "correct": false,
+      "expected_natural": false,
+      "is_anomalous": false,
+      "shape": "weird_marker_free"
+    }
+  ],
+  "recommendation_reason": "valid_accept_rate=0.8 < 0.9; adversarial_detection_rate=0.708333 < 0.85; false_alarm_rate=0.2 > 0.05; contamination_count=105 != 0",
+  "recommended_next": "NONE",
+  "replay_hash": "7829ae1e1750f00d",
+  "separability": [
+    {
+      "a": "v23_multistep",
+      "b": "v314_heldout",
+      "centroid_distance": 0.243128
+    },
+    {
+      "a": "v23_multistep",
+      "b": "v315_adversarial",
+      "centroid_distance": 0.41383
+    },
+    {
+      "a": "v23_multistep",
+      "b": "v316_suspended",
+      "centroid_distance": 0.41383
+    },
+    {
+      "a": "v314_heldout",
+      "b": "v315_adversarial",
+      "centroid_distance": 0.284036
+    },
+    {
+      "a": "v314_heldout",
+      "b": "v316_suspended",
+      "centroid_distance": 0.284036
+    },
+    {
+      "a": "v315_adversarial",
+      "b": "v316_suspended",
+      "centroid_distance": 0.0
+    }
+  ],
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "total_chain_count": 480,
+  "total_link_count": 1018,
+  "valid_accept_rate": 0.8
+}
