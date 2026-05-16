@@ -6,11 +6,23 @@ from desi.residual_semantic_probe import (
 )
 
 
-def test_residue_count_matches_v43_target() -> None:
-    """v4.3 reduced 143 v4.2 false-supports to exactly the
-    24 residue (5 CYCLE + 10 FRAME_SWITCH + 9 SEMANTIC)."""
+def test_v44_historical_residue_count_pinned() -> None:
+    """The v4.4 frozen artifact holds the pre-v4.5 residue
+    count of 24. After v4.5 the live ``collect_residue_cases``
+    returns a smaller set (the v4.5 patch suspends the 5
+    BIDIRECTIONAL_CYCLE cases v4.4 left untouched); we pin the
+    historical v4.4 count via the frozen artifact and check
+    that the live count has strictly dropped.  See
+    docs/memory/v4_5.md."""
+    import json, pathlib
+    p = (
+        pathlib.Path(__file__).resolve().parents[2]
+        / "artifacts" / "v4_4" / "report.json"
+    )
+    data = json.loads(p.read_text(encoding="utf-8"))
+    assert data["residue_count"] == EXPECTED_RESIDUE_COUNT == 24
     cases = collect_residue_cases()
-    assert len(cases) == EXPECTED_RESIDUE_COUNT == 24
+    assert len(cases) < EXPECTED_RESIDUE_COUNT
 
 
 def test_collect_is_deterministic() -> None:

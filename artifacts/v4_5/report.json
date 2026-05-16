@@ -1,0 +1,362 @@
+{
+  "contamination": {
+    "contaminating_texts": [],
+    "contamination_count": 0,
+    "protected_pool_size": 385
+  },
+  "effect": {
+    "false_support_after": 19,
+    "false_support_before": 24,
+    "non_target_relabel_count": 0,
+    "per_class": [
+      {
+        "after_count": 0,
+        "before_count": 5,
+        "cluster": "BIDIRECTIONAL_CYCLE",
+        "reduction": 5,
+        "targeted": true
+      },
+      {
+        "after_count": 5,
+        "before_count": 5,
+        "cluster": "CONCLUSION_LEAP",
+        "reduction": 0,
+        "targeted": false
+      },
+      {
+        "after_count": 9,
+        "before_count": 9,
+        "cluster": "SEMANTIC_SCOPE_COLLAPSE",
+        "reduction": 0,
+        "targeted": false
+      },
+      {
+        "after_count": 5,
+        "before_count": 5,
+        "cluster": "UNJUSTIFIED_GENERALIZATION",
+        "reduction": 0,
+        "targeted": false
+      }
+    ],
+    "reduction": 5,
+    "reduction_rate": 0.208333
+  },
+  "false_cycle_rate": 0.04,
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "min_overlap_premises": 2,
+  "min_overlap_total": 3,
+  "nc_count": 50,
+  "nc_detection_rate": 1.0,
+  "nc_outcomes": [
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-001"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-002"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-003"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-004"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-005"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-006"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-007"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-008"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-009"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-010"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-011"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-012"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-013"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-014"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-015"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-016"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-017"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-018"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-019"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-020"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-021"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-022"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-023"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-024"
+    },
+    {
+      "correct": true,
+      "fired": true,
+      "is_cycle": true,
+      "nc_id": "NC-CY-025"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-001"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-002"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-003"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-004"
+    },
+    {
+      "correct": false,
+      "fired": true,
+      "is_cycle": false,
+      "nc_id": "NC-NX-005"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-006"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-007"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-008"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-009"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-010"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-011"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-012"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-013"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-014"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-015"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-016"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-017"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-018"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-019"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-020"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-021"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-022"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-023"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-024"
+    },
+    {
+      "correct": true,
+      "fired": false,
+      "is_cycle": false,
+      "nc_id": "NC-NX-025"
+    }
+  ],
+  "recommendation_reason": "false_support_before=24 -> after=19 (reduction=5); contamination=0; nc_detection_rate=1.0; false_cycle_rate=0.04",
+  "recommended_next": "BIDIRECTIONAL_CYCLE_PATCH_CONFIRMED",
+  "replay_hash": "86418c9d976cc147",
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "target_cluster": "BIDIRECTIONAL_CYCLE",
+  "v40_pre_v43_replay_hash": "aefa8f1e3429225a",
+  "v41_pre_v43_replay_hash": "f7ec695f17aa341b",
+  "v42_pre_v43_replay_hash": "181ec3cb1febf62f",
+  "v43_replay_hash": "7c63bcae4cf3fb37",
+  "v44_replay_hash": "bf4147b89f398224"
+}

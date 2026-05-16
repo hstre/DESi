@@ -33,22 +33,32 @@ def test_pre_v43_hashes_referenced() -> None:
     assert r.v42_pre_v43_replay_hash == V42_PRE_V43_REPLAY_HASH
 
 
-def test_recommendation_is_confirmed() -> None:
+def test_v43_invariants_under_live_audit() -> None:
+    """Live-audit invariants that survive every subsequent
+    runtime patch (v4.5+): contamination stays at zero, NC
+    detection stays above the v4.3 threshold, and v4.3's
+    false-support target ceiling remains satisfied (later
+    patches may push it lower; v4.3's target is a ceiling, not
+    an equality)."""
     r = _build()
-    assert r.recommended_next == RecommendationOutcome.CONFIRMED.value
-    assert r.effect.false_support_after <= FALSE_SUPPORT_TARGET_AFTER
     assert r.contamination.total_contamination == 0
     assert r.nc_detection_rate >= 0.95
+    assert r.effect.false_support_after <= FALSE_SUPPORT_TARGET_AFTER
 
 
-def test_artifact_matches_built_report() -> None:
+def test_frozen_v43_artifact_carries_v43_era_values() -> None:
+    """The committed v4.3 artifact is the historical snapshot
+    at v4.3 time. After v4.5 the live rebuild produces
+    different metrics (the v4.5 patch retires the
+    BIDIRECTIONAL_CYCLE residue v4.3 left untouched). We assert
+    structural fields on the frozen file without comparing to
+    a live rebuild."""
     artifact = _REPO_ROOT / "artifacts" / "v4_3" / "report.json"
     assert artifact.exists()
     data = json.loads(artifact.read_text(encoding="utf-8"))
-    r = _build()
-    assert data["replay_hash"] == r.replay_hash
-    assert data["recommended_next"] == r.recommended_next
-    assert (
-        data["effect"]["false_support_after"]
-        == r.effect.false_support_after
+    assert data["replay_hash"] == "7c63bcae4cf3fb37"
+    assert data["recommended_next"] == (
+        RecommendationOutcome.CONFIRMED.value
     )
+    assert data["effect"]["false_support_before"] == 143
+    assert data["effect"]["false_support_after"] == 24

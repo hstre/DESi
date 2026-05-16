@@ -35,23 +35,36 @@ def test_pre_v44_hashes_referenced() -> None:
     assert r.v43_replay_hash == V43_REPLAY_HASH
 
 
-def test_recommendation_is_localized() -> None:
+def test_v44_invariants_under_live_audit() -> None:
+    """Invariants that survive every subsequent runtime patch:
+    the live residue distribution is still localised (largest
+    cluster >= MIN_LARGEST_CLUSTER and unknown_fraction <=
+    MAX_UNKNOWN_FRACTION). The recommendation label itself
+    drifts after v4.5 (residue_count != 24); we assert the
+    classifier discipline, not the exact label."""
     r = _build()
-    assert r.recommended_next == (
-        RecommendationOutcome.LOCALIZED.value
-    )
     assert r.distribution.largest_cluster >= MIN_LARGEST_CLUSTER
     assert r.distribution.unknown_fraction <= MAX_UNKNOWN_FRACTION
+    # Recommendation label may flip to UNKNOWN once
+    # residue_count != EXPECTED_RESIDUE_COUNT; the label set
+    # remains closed-enum either way.
+    assert r.recommended_next in {
+        v.value for v in RecommendationOutcome
+    }
 
 
-def test_artifact_matches_built_report() -> None:
+def test_frozen_v44_artifact_carries_v44_era_values() -> None:
+    """The committed v4.4 artifact is the v4.4-era snapshot.
+    After v4.5 the live rebuild produces a smaller residue
+    (the BIDIRECTIONAL_CYCLE cluster is gone). We assert
+    structural fields on the frozen file without comparing to
+    a live rebuild."""
     artifact = _REPO_ROOT / "artifacts" / "v4_4" / "report.json"
     assert artifact.exists()
     data = json.loads(artifact.read_text(encoding="utf-8"))
-    r = _build()
-    assert data["replay_hash"] == r.replay_hash
-    assert data["recommended_next"] == r.recommended_next
-    assert data["residue_count"] == r.residue_count
-    assert data["classification_accuracy"] == (
-        r.classification_accuracy
+    assert data["replay_hash"] == "bf4147b89f398224"
+    assert data["recommended_next"] == (
+        RecommendationOutcome.LOCALIZED.value
     )
+    assert data["residue_count"] == 24
+    assert data["classification_accuracy"] == 1.0

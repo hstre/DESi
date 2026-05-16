@@ -52,11 +52,17 @@ def test_aggressive_probes_have_contamination() -> None:
             assert p.contamination_risk > 0, p.probe
 
 
-def test_majority_rescue_clusters_match_safe_probes() -> None:
-    cases, classes = _bundle()
-    _, agreement = analyse(cases, classes)
-    # Only the safe probe (S5) handles BIDIRECTIONAL_CYCLE; no
-    # safe probe covers the remaining classes.
-    assert agreement.majority_rescue_clusters == (
-        "BIDIRECTIONAL_CYCLE",
+def test_v44_majority_rescue_clusters_pinned_in_frozen_artifact() -> None:
+    """At v4.4 time the only majority rescue cluster was
+    BIDIRECTIONAL_CYCLE — the v4.5 patch then absorbed exactly
+    that cluster, so the live residue no longer contains it.
+    We pin the v4.4-era result against the frozen artifact."""
+    import json, pathlib
+    p = (
+        pathlib.Path(__file__).resolve().parents[2]
+        / "artifacts" / "v4_4" / "report.json"
     )
+    data = json.loads(p.read_text(encoding="utf-8"))
+    assert tuple(
+        data["agreement"]["majority_rescue_clusters"],
+    ) == ("BIDIRECTIONAL_CYCLE",)

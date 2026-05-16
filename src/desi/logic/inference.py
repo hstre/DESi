@@ -601,9 +601,62 @@ def _try_causal_chain(
         if _contains_marker(p.text, _V43_AUTHORITY_LIKE_VERBS):
             return None
 
+    # v4.5 — bidirectional-cycle structural guard. Pure graph
+    # check; no marker tuple, no synonym list, no content
+    # vocabulary. Reuses ``_content_tokens`` and the v2.7
+    # token-to-premise index already built above. Justification:
+    # docs/memory/v4_5.md.
+    #
+    # Guard 18 — BIDIRECTIONAL_CYCLE: the conclusion content
+    # tokens overlap with at least two distinct premises, with
+    # total cross-premise overlap of at least three tokens.
+    # The v2.7 recycled-conclusion guard (Guard 8 above) catches
+    # the case where one conclusion token spans 2+ premises;
+    # this guard catches the complementary shape — *different*
+    # conclusion tokens spread across multiple premises with
+    # no single premise carrying the warrant.
+    if _bidirectional_cycle(premises, conclusion, concl_tokens):
+        return None
+
     return InferenceMatch(
         rule=InferenceRule.CAUSAL_CHAIN,
         used_premise_ids=tuple(p.premise_id for p in premises),
+    )
+
+
+_V45_MIN_OVERLAP_PREMISES: int = 2
+_V45_MIN_OVERLAP_TOTAL:    int = 3
+
+
+def _bidirectional_cycle(
+    premises: tuple[Premise, ...],
+    conclusion: ConclusionProposition,
+    concl_tokens: set[str],
+) -> bool:
+    """Pure structural test for the BIDIRECTIONAL_CYCLE shape
+    isolated by v4.4. Fires when the conclusion's content
+    tokens overlap with at least ``_V45_MIN_OVERLAP_PREMISES``
+    distinct premises and the total overlap reaches
+    ``_V45_MIN_OVERLAP_TOTAL`` tokens. Operates only on the
+    already-extracted link cardinality; no lexical heuristic,
+    no token marker, no synonym list. ``concl_tokens`` is the
+    same set computed for Guard 8 above and is passed in so
+    the check costs one extra pass over the premise list.
+    """
+    if conclusion is None or len(premises) < 2:
+        return False
+    if not concl_tokens:
+        return False
+    overlap_premises = 0
+    overlap_total = 0
+    for p in premises:
+        shared = concl_tokens & _content_tokens(p.text)
+        if shared:
+            overlap_premises += 1
+            overlap_total += len(shared)
+    return (
+        overlap_premises >= _V45_MIN_OVERLAP_PREMISES
+        and overlap_total >= _V45_MIN_OVERLAP_TOTAL
     )
 
 
