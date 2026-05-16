@@ -1,0 +1,19 @@
+{
+  "branch": "feature/reproducibility-hardening-audit",
+  "env_vars": {
+    "DESI_ENV": "",
+    "PYTHONDONTWRITEBYTECODE": "",
+    "PYTHONHASHSEED": "",
+    "PYTHONPATH": "src"
+  },
+  "git_commit": "b288a520e7be0b8f2e36fe8e9c28a0e893c8544a",
+  "installed_optional_dependencies": [],
+  "package_versions": {
+    "numpy": null,
+    "scipy": null,
+    "sympy": null
+  },
+  "platform": "Linux",
+  "python_version": "3.11",
+  "sympy_available": false
+}

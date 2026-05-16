@@ -1,0 +1,92 @@
+"""v4.11 — read-only invariants + historical pins."""
+from __future__ import annotations
+
+import json
+import pathlib
+import re
+
+
+_REPO_ROOT = pathlib.Path(__file__).resolve().parents[2]
+
+
+def test_no_runtime_module_imports_repro_audit() -> None:
+    root = _REPO_ROOT / "src" / "desi"
+    forbidden = (
+        "logic", "consilium", "recursive", "tools",
+        "memory", "evolution", "spl_adapter",
+        "benchmark", "benchmark_multistep",
+        "bridge_audit", "causal_probe", "rule_audit",
+        "sandbox", "diagnostic", "rule_patch_protocol",
+        "self_audit", "doc_anchors",
+        "frames", "frame_benchmark", "frame_invariance",
+        "frame_failure_audit", "frame_disambiguator_probe",
+        "frame_context_probe", "frame_consistency_probe",
+        "frame_tension_audit", "frame_tension",
+        "frame_tension_integration", "heldout_causal",
+        "causal_redteam", "causal_suspension",
+        "causal_link_typing", "causal_naturalness",
+        "epistemic_trajectory", "premise_audit",
+        "gate_ablation", "gate_order", "gate_latency",
+        "external_probe", "frame_inference",
+        "external_audit_probe", "external_audit_patch",
+        "residual_semantic_probe",
+        "bidirectional_cycle_patch",
+        "warrant_probe", "modality_patch",
+        "content_audit_probe", "content_inversion_patch",
+    )
+    pattern = re.compile(r"repro_audit")
+    for sub in forbidden:
+        sub_path = root / sub
+        if not sub_path.exists():
+            continue
+        for p in sub_path.rglob("*.py"):
+            text = p.read_text(encoding="utf-8")
+            assert not pattern.search(text), (
+                f"{p} mentions repro_audit"
+            )
+
+
+def test_v40_to_v49_historical_artifacts_preserved() -> None:
+    """v4.11 must not rewrite any historical artifact
+    file."""
+    for name, expected in (
+        ("v4_0", "aefa8f1e3429225a"),
+        ("v4_1", "f7ec695f17aa341b"),
+        ("v4_2", "181ec3cb1febf62f"),
+        ("v4_3", "7c63bcae4cf3fb37"),
+        ("v4_4", "bf4147b89f398224"),
+        ("v4_5", "86418c9d976cc147"),
+        ("v4_6", "58268fd9c4437e49"),
+        ("v4_7", "2774818766a8035a"),
+        ("v4_8", "d0835b564453cfc0"),
+        ("v4_9", "51122b802bd257dc"),
+    ):
+        p = _REPO_ROOT / "artifacts" / name / "report.json"
+        actual = json.loads(
+            p.read_text(encoding="utf-8")
+        )["replay_hash"]
+        assert actual == expected, (name, actual)
+
+
+def test_v3_artifact_hashes_pinned() -> None:
+    expected = {
+        "v3_11": "1c8e6d0e0b90905c",
+        "v3_13": "733032cc30a0cc2e",
+        "v3_14": "94be5611fc9bd336",
+        "v3_15": "a6edfa9a53914bcc",
+        "v3_16": "1f4e5f85c085d32f",
+        "v3_17": "a01b6edaa9e1a086",
+        "v3_18": "7829ae1e1750f00d",
+        "v3_19": "3cbde141b5d90a46",
+        "v3_20": "02eb32df1f51b761",
+        "v3_21": "f570c9e94770dfbc",
+        "v3_22": "be039cd52c3de9b5",
+        "v3_23": "0246444ccd8f96ef",
+    }
+    actual: dict[str, str] = {}
+    for name in expected:
+        p = _REPO_ROOT / "artifacts" / name / "report.json"
+        actual[name] = json.loads(
+            p.read_text(encoding="utf-8")
+        )["replay_hash"]
+    assert actual == expected
