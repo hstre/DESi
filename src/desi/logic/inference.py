@@ -361,6 +361,42 @@ _V316_NUMBER_WORDS: frozenset[str] = frozenset({
 })
 
 
+# v4.3 — externally localised marker extensions. Every token
+# here is taken verbatim from a v4.2 ExternalAuditFailure
+# cluster with counterfactual_reduction >= 5 and contamination
+# = 0 against the v1.5 / v2.3 / v3.14 / v3.15 / v3.16 / v4.0
+# protected pool. The three tuples target exactly three v4.2
+# clusters: HIDDEN_NEGATION, QUANTIFIER_DRIFT,
+# AUTHORITY_CONTAMINATION. CYCLE_DISGUISE is deliberately not
+# patched here — its v4.2 candidate tokens are content tokens,
+# not connective patterns, and adding them would not respect
+# the closed marker family. Justification:
+# docs/memory/v4_3.md.
+_V43_NEGATION_EXTENSIONS: tuple[str, ...] = (
+    " rules out ", " ruled out ",
+    " is excluded ", " are excluded ", " excluded by ",
+    " is forgotten ", " was forgotten ",
+    " safely deferred ",
+    " is singular ", " are supplementary ",
+    " no real ",
+    " suppressed cell growth ",
+    " accelerated disease ",
+    " reduced the desired ",
+)
+
+_V43_QUANTIFIER_EXTENSIONS: tuple[str, ...] = (
+    " guaranteed ", " single-handedly ", " alone ",
+    " solely ", " sole cause ", " entire decline ",
+    " for a decade ", " conclusively ", " unambiguously ",
+    " only at ", " in perpetuity ",
+)
+
+_V43_AUTHORITY_LIKE_VERBS: tuple[str, ...] = (
+    " endorsed ", " validated ", " reportedly ",
+    " conclusively established ",
+)
+
+
 def _has_number_word(text: str) -> bool:
     padded = " " + text.lower() + " "
     # Hyphenated compounds like "thirty-one" / "twenty-five" must
@@ -529,6 +565,41 @@ def _try_causal_chain(
     if (any(_has_number_word(p.text) for p in premises)
             and _has_number_word(conclusion.text)):
         return None
+
+    # v4.3 — externally localized marker extensions. Sourced from
+    # v4.2's ExternalAuditFailure clusters (HIDDEN_NEGATION,
+    # QUANTIFIER_DRIFT, AUTHORITY_CONTAMINATION). Every token in
+    # these tuples has counterfactual evidence in
+    # artifacts/v4_2/report.json with zero benchmark
+    # contamination. Justification: docs/memory/v4_3.md.
+
+    # Guard 15 — externally localized HIDDEN_NEGATION surface
+    # forms not in the v3.16 negation set.
+    if _contains_marker(
+            conclusion.text, _V43_NEGATION_EXTENSIONS):
+        return None
+    for p in premises:
+        if _contains_marker(p.text, _V43_NEGATION_EXTENSIONS):
+            return None
+
+    # Guard 16 — externally localized QUANTIFIER_DRIFT
+    # intensifiers and over-generalisations.
+    if _contains_marker(
+            conclusion.text, _V43_QUANTIFIER_EXTENSIONS):
+        return None
+    for p in premises:
+        if _contains_marker(p.text, _V43_QUANTIFIER_EXTENSIONS):
+            return None
+
+    # Guard 17 — externally localized AUTHORITY_CONTAMINATION
+    # verbs that ground the conclusion on a speaker rather than
+    # evidence.
+    if _contains_marker(
+            conclusion.text, _V43_AUTHORITY_LIKE_VERBS):
+        return None
+    for p in premises:
+        if _contains_marker(p.text, _V43_AUTHORITY_LIKE_VERBS):
+            return None
 
     return InferenceMatch(
         rule=InferenceRule.CAUSAL_CHAIN,

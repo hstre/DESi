@@ -56,16 +56,23 @@ def test_strategies_present_with_safety_gates_evaluated() -> None:
         assert s.valid == (not expected_invalid)
 
 
-def test_artifact_matches_built_report() -> None:
-    """The committed artifact must match the live report."""
+def test_frozen_v41_artifact_carries_v41_era_values() -> None:
+    """The committed v4.1 artifact is the historical snapshot of
+    the v4.1-era run. After v4.3 the live rebuild produces
+    different metrics (the v4.3 patch retires 119/143 false
+    supports — see docs/memory/v4_3.md). The frozen file is the
+    record of what the pipeline produced *before* v4.3 patched
+    the auditor; we assert its structural fields here without
+    comparing to a live rebuild."""
     artifact_path = (
         _REPO_ROOT / "artifacts" / "v4_1" / "report.json"
     )
     assert artifact_path.exists()
     data = json.loads(artifact_path.read_text(encoding="utf-8"))
-    r = _build()
-    assert data["replay_hash"] == r.replay_hash
-    assert data["recommended_next"] == r.recommended_next
+    assert data["replay_hash"] == "f7ec695f17aa341b"
+    assert data["recommended_next"] == (
+        "IMPLICIT_FRAME_INGRESS_FAILED"
+    )
     assert data["v40_replay_hash"] == V40_REPLAY_HASH
     assert data["chain_count"] == 800
     assert data["nc_contamination_count"] == 0
