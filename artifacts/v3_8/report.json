@@ -1,0 +1,2797 @@
+{
+  "contamination_phrase_count": 57,
+  "contamination_results": [
+    {
+      "contamination_risk": 0.098148,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 3,
+        "v3_5_invariance": 50
+      },
+      "phrase": "frame: thermodynamic",
+      "signal": "explicit_frame"
+    },
+    {
+      "contamination_risk": 0.003704,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 2,
+        "v3_5_invariance": 0
+      },
+      "phrase": "frame: information-theoretic",
+      "signal": "explicit_frame"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "frame: information theoretic",
+      "signal": "explicit_frame"
+    },
+    {
+      "contamination_risk": 0.048148,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 1,
+        "v3_5_invariance": 25
+      },
+      "phrase": "frame: ontological distinguishability",
+      "signal": "explicit_frame"
+    },
+    {
+      "contamination_risk": 0.011111,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 1,
+        "v3_5_invariance": 5
+      },
+      "phrase": "frame: metaphorical",
+      "signal": "explicit_frame"
+    },
+    {
+      "contamination_risk": 0.101852,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 5,
+        "v3_5_invariance": 50
+      },
+      "phrase": "frame: formal logic",
+      "signal": "explicit_frame"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "frame: empirical causal",
+      "signal": "explicit_frame"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "frame: authority",
+      "signal": "explicit_frame"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "frame: tool computable",
+      "signal": "explicit_frame"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "frame: undeclared",
+      "signal": "explicit_frame"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "section: thermodynamics",
+      "signal": "section_header"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "section: information theory",
+      "signal": "section_header"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "section: ontology",
+      "signal": "section_header"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "section: rhetorical devices",
+      "signal": "section_header"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "section: formal logic",
+      "signal": "section_header"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "section: empirical causality",
+      "signal": "section_header"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "section: speech acts",
+      "signal": "section_header"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "section: computation",
+      "signal": "section_header"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "section: unframed",
+      "signal": "section_header"
+    },
+    {
+      "contamination_risk": 0.062963,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 1,
+        "v3_4_frame": 2,
+        "v3_5_invariance": 31
+      },
+      "phrase": "heat",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.02037,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 1,
+        "v3_5_invariance": 10
+      },
+      "phrase": "kelvin",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.016667,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 9
+      },
+      "phrase": "joule",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.098148,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 3,
+        "v3_5_invariance": 50
+      },
+      "phrase": "thermodynamic",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.001852,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 1,
+        "v3_5_invariance": 0
+      },
+      "phrase": "isolated system",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.02963,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 1,
+        "v3_5_invariance": 15
+      },
+      "phrase": "shannon",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.085185,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 1,
+        "v3_5_invariance": 45
+      },
+      "phrase": "bit",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.061111,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 33
+      },
+      "phrase": "bits",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.033333,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 18
+      },
+      "phrase": "channel",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.009259,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 5
+      },
+      "phrase": "coding",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.022222,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 2,
+        "v3_5_invariance": 10
+      },
+      "phrase": "mutual information",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.02037,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 1,
+        "v3_5_invariance": 10
+      },
+      "phrase": "metaphor",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "poem",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "poet",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "rhetorical",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.011111,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 1,
+        "v3_5_invariance": 5
+      },
+      "phrase": "as if",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.022222,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 1,
+        "v3_5_invariance": 11
+      },
+      "phrase": "like a",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.011111,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 1,
+        "v3_5_invariance": 5
+      },
+      "phrase": "modus ponens",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "axiom",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.012963,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 1,
+        "v3_4_frame": 1,
+        "v3_5_invariance": 5
+      },
+      "phrase": "proof",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.005556,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 1,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 2
+      },
+      "phrase": "theorem",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.001852,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 1,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "lemma",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.016667,
+      "per_benchmark_hits": {
+        "v1_5_main": 1,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 8
+      },
+      "phrase": "caused",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "cause-effect",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.001852,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 1
+      },
+      "phrase": "observed",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.011111,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 2,
+        "v3_5_invariance": 4
+      },
+      "phrase": "experiment",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.016667,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 1,
+        "v3_5_invariance": 8
+      },
+      "phrase": "report",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.012963,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 7
+      },
+      "phrase": "stated",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.012963,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 1,
+        "v3_5_invariance": 6
+      },
+      "phrase": "according to",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "third-party",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.025926,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 2,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 1,
+        "v3_5_invariance": 11
+      },
+      "phrase": "compute",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "arithmetic",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "calculator",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.011111,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 1,
+        "v3_5_invariance": 5
+      },
+      "phrase": "numerical",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.02037,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 1,
+        "v3_5_invariance": 10
+      },
+      "phrase": "identity",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.005556,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 3
+      },
+      "phrase": "reference",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.0,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 0,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "referential",
+      "signal": "domain_repetition"
+    },
+    {
+      "contamination_risk": 0.001852,
+      "per_benchmark_hits": {
+        "v1_5_main": 0,
+        "v1_9_tools": 1,
+        "v2_3_multistep": 0,
+        "v3_4_frame": 0,
+        "v3_5_invariance": 0
+      },
+      "phrase": "distinct",
+      "signal": "domain_repetition"
+    }
+  ],
+  "contamination_summary": {
+    "by_signal": {
+      "domain_repetition": {
+        "nonzero": 29,
+        "total": 38,
+        "zero": 9
+      },
+      "explicit_frame": {
+        "nonzero": 5,
+        "total": 10,
+        "zero": 5
+      },
+      "section_header": {
+        "nonzero": 0,
+        "total": 9,
+        "zero": 9
+      }
+    },
+    "max_contamination_risk": 0.101852,
+    "nonzero_risk_phrases": 34,
+    "total_phrases": 57,
+    "zero_risk_phrases": 23
+  },
+  "false_inheritance_count": 10,
+  "false_inheritance_outcomes": [
+    {
+      "absorbed_misleading_frame": true,
+      "case_id": "FN01",
+      "correct_against_ground_truth": false,
+      "ground_truth_frame": "metaphorical",
+      "inheritance": {
+        "case_id": "fn:FN01",
+        "correct": false,
+        "expected_frame": "metaphorical",
+        "inherited_frame": "information_theoretic",
+        "traces": [
+          {
+            "inferred_frame": "information_theoretic",
+            "layer": "ctx_0",
+            "signal": "domain_repetition"
+          },
+          {
+            "inferred_frame": "information_theoretic",
+            "layer": "ctx_1",
+            "signal": "domain_repetition"
+          },
+          {
+            "inferred_frame": "information_theoretic",
+            "layer": "ctx_2",
+            "signal": "section_header"
+          },
+          {
+            "inferred_frame": "information_theoretic",
+            "layer": "ctx_3",
+            "signal": "explicit_frame"
+          }
+        ],
+        "winning_layer": "ctx_3",
+        "winning_signal": "explicit_frame"
+      },
+      "misleading_frame": "information_theoretic"
+    },
+    {
+      "absorbed_misleading_frame": true,
+      "case_id": "FN02",
+      "correct_against_ground_truth": false,
+      "ground_truth_frame": "metaphorical",
+      "inheritance": {
+        "case_id": "fn:FN02",
+        "correct": false,
+        "expected_frame": "metaphorical",
+        "inherited_frame": "information_theoretic",
+        "traces": [
+          {
+            "inferred_frame": null,
+            "layer": "ctx_0",
+            "signal": "none"
+          },
+          {
+            "inferred_frame": "information_theoretic",
+            "layer": "ctx_1",
+            "signal": "domain_repetition"
+          },
+          {
+            "inferred_frame": "information_theoretic",
+            "layer": "ctx_2",
+            "signal": "section_header"
+          },
+          {
+            "inferred_frame": "information_theoretic",
+            "layer": "ctx_3",
+            "signal": "explicit_frame"
+          }
+        ],
+        "winning_layer": "ctx_3",
+        "winning_signal": "explicit_frame"
+      },
+      "misleading_frame": "information_theoretic"
+    },
+    {
+      "absorbed_misleading_frame": true,
+      "case_id": "FN03",
+      "correct_against_ground_truth": false,
+      "ground_truth_frame": "thermodynamic",
+      "inheritance": {
+        "case_id": "fn:FN03",
+        "correct": false,
+        "expected_frame": "thermodynamic",
+        "inherited_frame": "information_theoretic",
+        "traces": [
+          {
+            "inferred_frame": null,
+            "layer": "ctx_0",
+            "signal": "none"
+          },
+          {
+            "inferred_frame": "information_theoretic",
+            "layer": "ctx_1",
+            "signal": "domain_repetition"
+          },
+          {
+            "inferred_frame": "information_theoretic",
+            "layer": "ctx_2",
+            "signal": "section_header"
+          },
+          {
+            "inferred_frame": "information_theoretic",
+            "layer": "ctx_3",
+            "signal": "explicit_frame"
+          }
+        ],
+        "winning_layer": "ctx_3",
+        "winning_signal": "explicit_frame"
+      },
+      "misleading_frame": "information_theoretic"
+    },
+    {
+      "absorbed_misleading_frame": true,
+      "case_id": "FN04",
+      "correct_against_ground_truth": false,
+      "ground_truth_frame": "information_theoretic",
+      "inheritance": {
+        "case_id": "fn:FN04",
+        "correct": false,
+        "expected_frame": "information_theoretic",
+        "inherited_frame": "thermodynamic",
+        "traces": [
+          {
+            "inferred_frame": "information_theoretic",
+            "layer": "ctx_0",
+            "signal": "domain_repetition"
+          },
+          {
+            "inferred_frame": "thermodynamic",
+            "layer": "ctx_1",
+            "signal": "domain_repetition"
+          },
+          {
+            "inferred_frame": "thermodynamic",
+            "layer": "ctx_2",
+            "signal": "section_header"
+          },
+          {
+            "inferred_frame": "thermodynamic",
+            "layer": "ctx_3",
+            "signal": "explicit_frame"
+          }
+        ],
+        "winning_layer": "ctx_3",
+        "winning_signal": "explicit_frame"
+      },
+      "misleading_frame": "thermodynamic"
+    },
+    {
+      "absorbed_misleading_frame": true,
+      "case_id": "FN05",
+      "correct_against_ground_truth": false,
+      "ground_truth_frame": "thermodynamic",
+      "inheritance": {
+        "case_id": "fn:FN05",
+        "correct": false,
+        "expected_frame": "thermodynamic",
+        "inherited_frame": "metaphorical",
+        "traces": [
+          {
+            "inferred_frame": null,
+            "layer": "ctx_0",
+            "signal": "none"
+          },
+          {
+            "inferred_frame": null,
+            "layer": "ctx_1",
+            "signal": "none"
+          },
+          {
+            "inferred_frame": "metaphorical",
+            "layer": "ctx_2",
+            "signal": "section_header"
+          },
+          {
+            "inferred_frame": "metaphorical",
+            "layer": "ctx_3",
+            "signal": "explicit_frame"
+          }
+        ],
+        "winning_layer": "ctx_3",
+        "winning_signal": "explicit_frame"
+      },
+      "misleading_frame": "metaphorical"
+    },
+    {
+      "absorbed_misleading_frame": true,
+      "case_id": "FN06",
+      "correct_against_ground_truth": false,
+      "ground_truth_frame": "metaphorical",
+      "inheritance": {
+        "case_id": "fn:FN06",
+        "correct": false,
+        "expected_frame": "metaphorical",
+        "inherited_frame": "information_theoretic",
+        "traces": [
+          {
+            "inferred_frame": null,
+            "layer": "ctx_0",
+            "signal": "none"
+          },
+          {
+            "inferred_frame": "information_theoretic",
+            "layer": "ctx_1",
+            "signal": "domain_repetition"
+          },
+          {
+            "inferred_frame": "information_theoretic",
+            "layer": "ctx_2",
+            "signal": "section_header"
+          },
+          {
+            "inferred_frame": "information_theoretic",
+            "layer": "ctx_3",
+            "signal": "explicit_frame"
+          }
+        ],
+        "winning_layer": "ctx_3",
+        "winning_signal": "explicit_frame"
+      },
+      "misleading_frame": "information_theoretic"
+    },
+    {
+      "absorbed_misleading_frame": true,
+      "case_id": "FN07",
+      "correct_against_ground_truth": false,
+      "ground_truth_frame": "formal_logic",
+      "inheritance": {
+        "case_id": "fn:FN07",
+        "correct": false,
+        "expected_frame": "formal_logic",
+        "inherited_frame": "empirical_causal",
+        "traces": [
+          {
+            "inferred_frame": null,
+            "layer": "ctx_0",
+            "signal": "none"
+          },
+          {
+            "inferred_frame": "empirical_causal",
+            "layer": "ctx_1",
+            "signal": "domain_repetition"
+          },
+          {
+            "inferred_frame": "empirical_causal",
+            "layer": "ctx_2",
+            "signal": "section_header"
+          },
+          {
+            "inferred_frame": "empirical_causal",
+            "layer": "ctx_3",
+            "signal": "explicit_frame"
+          }
+        ],
+        "winning_layer": "ctx_3",
+        "winning_signal": "explicit_frame"
+      },
+      "misleading_frame": "empirical_causal"
+    },
+    {
+      "absorbed_misleading_frame": true,
+      "case_id": "FN08",
+      "correct_against_ground_truth": false,
+      "ground_truth_frame": "authority_speech",
+      "inheritance": {
+        "case_id": "fn:FN08",
+        "correct": false,
+        "expected_frame": "authority_speech",
+        "inherited_frame": "empirical_causal",
+        "traces": [
+          {
+            "inferred_frame": null,
+            "layer": "ctx_0",
+            "signal": "none"
+          },
+          {
+            "inferred_frame": "empirical_causal",
+            "layer": "ctx_1",
+            "signal": "domain_repetition"
+          },
+          {
+            "inferred_frame": "empirical_causal",
+            "layer": "ctx_2",
+            "signal": "section_header"
+          },
+          {
+            "inferred_frame": "empirical_causal",
+            "layer": "ctx_3",
+            "signal": "explicit_frame"
+          }
+        ],
+        "winning_layer": "ctx_3",
+        "winning_signal": "explicit_frame"
+      },
+      "misleading_frame": "empirical_causal"
+    },
+    {
+      "absorbed_misleading_frame": true,
+      "case_id": "FN09",
+      "correct_against_ground_truth": false,
+      "ground_truth_frame": "tool_computable",
+      "inheritance": {
+        "case_id": "fn:FN09",
+        "correct": false,
+        "expected_frame": "tool_computable",
+        "inherited_frame": "authority_speech",
+        "traces": [
+          {
+            "inferred_frame": null,
+            "layer": "ctx_0",
+            "signal": "none"
+          },
+          {
+            "inferred_frame": "authority_speech",
+            "layer": "ctx_1",
+            "signal": "domain_repetition"
+          },
+          {
+            "inferred_frame": "authority_speech",
+            "layer": "ctx_2",
+            "signal": "section_header"
+          },
+          {
+            "inferred_frame": "authority_speech",
+            "layer": "ctx_3",
+            "signal": "explicit_frame"
+          }
+        ],
+        "winning_layer": "ctx_3",
+        "winning_signal": "explicit_frame"
+      },
+      "misleading_frame": "authority_speech"
+    },
+    {
+      "absorbed_misleading_frame": true,
+      "case_id": "FN10",
+      "correct_against_ground_truth": false,
+      "ground_truth_frame": "ontological_distinguishability",
+      "inheritance": {
+        "case_id": "fn:FN10",
+        "correct": false,
+        "expected_frame": "ontological_distinguishability",
+        "inherited_frame": "thermodynamic",
+        "traces": [
+          {
+            "inferred_frame": null,
+            "layer": "ctx_0",
+            "signal": "none"
+          },
+          {
+            "inferred_frame": "thermodynamic",
+            "layer": "ctx_1",
+            "signal": "domain_repetition"
+          },
+          {
+            "inferred_frame": "thermodynamic",
+            "layer": "ctx_2",
+            "signal": "section_header"
+          },
+          {
+            "inferred_frame": "thermodynamic",
+            "layer": "ctx_3",
+            "signal": "explicit_frame"
+          }
+        ],
+        "winning_layer": "ctx_3",
+        "winning_signal": "explicit_frame"
+      },
+      "misleading_frame": "thermodynamic"
+    }
+  ],
+  "false_inheritance_summary": {
+    "absorbed_misleading": 10,
+    "absorption_rate": 1.0,
+    "correct_against_ground_truth": 0,
+    "ground_truth_precision": 0.0,
+    "total": 10
+  },
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "inheritance_results": [
+    {
+      "case_id": "v34:FA_01",
+      "correct": true,
+      "expected_frame": "thermodynamic",
+      "inherited_frame": "thermodynamic",
+      "traces": [
+        {
+          "inferred_frame": "thermodynamic",
+          "layer": "ctx_0",
+          "signal": "explicit_frame"
+        },
+        {
+          "inferred_frame": "thermodynamic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "thermodynamic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "thermodynamic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_0",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v34:FA_03",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "explicit_frame"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_0",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v34:FH_01",
+      "correct": true,
+      "expected_frame": "frame_undeclared",
+      "inherited_frame": "frame_undeclared",
+      "traces": [
+        {
+          "inferred_frame": null,
+          "layer": "ctx_0",
+          "signal": "none"
+        },
+        {
+          "inferred_frame": null,
+          "layer": "ctx_1",
+          "signal": "none"
+        },
+        {
+          "inferred_frame": "frame_undeclared",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "frame_undeclared",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v34:FH_04",
+      "correct": true,
+      "expected_frame": "frame_undeclared",
+      "inherited_frame": "frame_undeclared",
+      "traces": [
+        {
+          "inferred_frame": null,
+          "layer": "ctx_0",
+          "signal": "none"
+        },
+        {
+          "inferred_frame": null,
+          "layer": "ctx_1",
+          "signal": "none"
+        },
+        {
+          "inferred_frame": "frame_undeclared",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "frame_undeclared",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35:I01:p0",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35:I01:p1",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35:I01:p2",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35:I01:p3",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35:I01:p4",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35:I04:p0",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35:I04:p1",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35:I04:p2",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35:I04:p3",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35:I04:p4",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35:I08:p0",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35:I08:p1",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35:I08:p2",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35:I08:p3",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35:I10:p1",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35-nc:N01-thermo-vs-info.a",
+      "correct": true,
+      "expected_frame": "thermodynamic",
+      "inherited_frame": "thermodynamic",
+      "traces": [
+        {
+          "inferred_frame": "thermodynamic",
+          "layer": "ctx_0",
+          "signal": "explicit_frame"
+        },
+        {
+          "inferred_frame": "thermodynamic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "thermodynamic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "thermodynamic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_0",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35-nc:N01-thermo-vs-info.b",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "explicit_frame"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_0",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v35-nc:N02-info-vs-metaphor.a",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v36-nc:NC01",
+      "correct": true,
+      "expected_frame": "metaphorical",
+      "inherited_frame": "metaphorical",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": null,
+          "layer": "ctx_1",
+          "signal": "none"
+        },
+        {
+          "inferred_frame": "metaphorical",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "metaphorical",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v36-nc:NC02",
+      "correct": true,
+      "expected_frame": "metaphorical",
+      "inherited_frame": "metaphorical",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": null,
+          "layer": "ctx_1",
+          "signal": "none"
+        },
+        {
+          "inferred_frame": "metaphorical",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "metaphorical",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v36-fail:I01:p0",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v36-fail:I01:p1",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v36-fail:I01:p2",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v36-fail:I01:p3",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v36-fail:I01:p4",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v36-fail:I04:p0",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v36-fail:I04:p1",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v36-fail:I04:p2",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v36-fail:I04:p3",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v36-fail:I04:p4",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v36-fail:I08:p0",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v36-fail:I08:p1",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v36-fail:I08:p2",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v36-fail:I08:p3",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    },
+    {
+      "case_id": "v36-fail:I10:p1",
+      "correct": true,
+      "expected_frame": "information_theoretic",
+      "inherited_frame": "information_theoretic",
+      "traces": [
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_0",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_1",
+          "signal": "domain_repetition"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_2",
+          "signal": "section_header"
+        },
+        {
+          "inferred_frame": "information_theoretic",
+          "layer": "ctx_3",
+          "signal": "explicit_frame"
+        }
+      ],
+      "winning_layer": "ctx_3",
+      "winning_signal": "explicit_frame"
+    }
+  ],
+  "inheritance_summary": {
+    "accuracy": 1.0,
+    "by_frame_accuracy": {
+      "frame_undeclared": 1.0,
+      "information_theoretic": 1.0,
+      "metaphorical": 1.0,
+      "thermodynamic": 1.0
+    },
+    "by_layer": {
+      "ctx_0": 4,
+      "ctx_3": 35
+    },
+    "by_signal": {
+      "explicit_frame": 39
+    },
+    "correct": 39,
+    "total": 39
+  },
+  "recommendation_reason": "false_inheritance_absorption_rate=1.0 > 0.1; contamination: 34 of 57 phrases overlap protected pools",
+  "recommended_next": "NONE",
+  "replay_hash": "84eb20223fea09e0",
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "target_count": 39,
+  "targets": [
+    {
+      "case_id": "v34:FA_01",
+      "context_window": {
+        "ctx_0": "Frame: thermodynamic. Entropy of an isolated system never decreases.",
+        "ctx_1": "We measure heat flow in joules per second.",
+        "ctx_2": "Section: Thermodynamics \u2014 Heat and Energy",
+        "ctx_3": "Frame: thermodynamic"
+      },
+      "detected_frame": null,
+      "expected_frame": "thermodynamic",
+      "source_benchmark": "v3.4 frame benchmark",
+      "text": "Frame: thermodynamic. Entropy of an isolated system never decreases."
+    },
+    {
+      "case_id": "v34:FA_03",
+      "context_window": {
+        "ctx_0": "Frame: information-theoretic. The Shannon entropy of a fair coin is 1 bit.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.4 frame benchmark",
+      "text": "Frame: information-theoretic. The Shannon entropy of a fair coin is 1 bit."
+    },
+    {
+      "case_id": "v34:FH_01",
+      "context_window": {
+        "ctx_0": "Entropy increases in any closed system over time.",
+        "ctx_1": "Context for the following claim is unspecified.",
+        "ctx_2": "Section: Unframed \u2014 No frame declared",
+        "ctx_3": "Frame: undeclared"
+      },
+      "detected_frame": null,
+      "expected_frame": "frame_undeclared",
+      "source_benchmark": "v3.4 frame benchmark",
+      "text": "Entropy increases in any closed system over time."
+    },
+    {
+      "case_id": "v34:FH_04",
+      "context_window": {
+        "ctx_0": "Mutual information about heat suggests new entropy bounds.",
+        "ctx_1": "Context for the following claim is unspecified.",
+        "ctx_2": "Section: Unframed \u2014 No frame declared",
+        "ctx_3": "Frame: undeclared"
+      },
+      "detected_frame": null,
+      "expected_frame": "frame_undeclared",
+      "source_benchmark": "v3.4 frame benchmark",
+      "text": "Mutual information about heat suggests new entropy bounds."
+    },
+    {
+      "case_id": "v35:I01:p0",
+      "context_window": {
+        "ctx_0": "Shannon entropy of a fair coin is exactly one bit.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.5 invariance",
+      "text": "Shannon entropy of a fair coin is exactly one bit."
+    },
+    {
+      "case_id": "v35:I01:p1",
+      "context_window": {
+        "ctx_0": "A fair coin carries one bit of Shannon entropy.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.5 invariance",
+      "text": "A fair coin carries one bit of Shannon entropy."
+    },
+    {
+      "case_id": "v35:I01:p2",
+      "context_window": {
+        "ctx_0": "Shannon entropy equals one bit for a fair coin.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.5 invariance",
+      "text": "Shannon entropy equals one bit for a fair coin."
+    },
+    {
+      "case_id": "v35:I01:p3",
+      "context_window": {
+        "ctx_0": "Fair coins have one-bit Shannon entropy.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.5 invariance",
+      "text": "Fair coins have one-bit Shannon entropy."
+    },
+    {
+      "case_id": "v35:I01:p4",
+      "context_window": {
+        "ctx_0": "One bit of Shannon entropy per fair coin flip.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.5 invariance",
+      "text": "One bit of Shannon entropy per fair coin flip."
+    },
+    {
+      "case_id": "v35:I04:p0",
+      "context_window": {
+        "ctx_0": "Compression ratio is bounded by Shannon entropy in bits.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.5 invariance",
+      "text": "Compression ratio is bounded by Shannon entropy in bits."
+    },
+    {
+      "case_id": "v35:I04:p1",
+      "context_window": {
+        "ctx_0": "Shannon entropy bounds achievable compression bits-per-symbol.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.5 invariance",
+      "text": "Shannon entropy bounds achievable compression bits-per-symbol."
+    },
+    {
+      "case_id": "v35:I04:p2",
+      "context_window": {
+        "ctx_0": "Optimal compression in bits matches Shannon entropy.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.5 invariance",
+      "text": "Optimal compression in bits matches Shannon entropy."
+    },
+    {
+      "case_id": "v35:I04:p3",
+      "context_window": {
+        "ctx_0": "No compression beats the Shannon entropy bound in bits.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.5 invariance",
+      "text": "No compression beats the Shannon entropy bound in bits."
+    },
+    {
+      "case_id": "v35:I04:p4",
+      "context_window": {
+        "ctx_0": "Compression bits are lower-bounded by Shannon's entropy.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.5 invariance",
+      "text": "Compression bits are lower-bounded by Shannon's entropy."
+    },
+    {
+      "case_id": "v35:I08:p0",
+      "context_window": {
+        "ctx_0": "Channel capacity for a binary symmetric channel is 1 minus binary entropy in bits.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.5 invariance",
+      "text": "Channel capacity for a binary symmetric channel is 1 minus binary entropy in bits."
+    },
+    {
+      "case_id": "v35:I08:p1",
+      "context_window": {
+        "ctx_0": "BSC channel capacity equals one bit minus binary entropy.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.5 invariance",
+      "text": "BSC channel capacity equals one bit minus binary entropy."
+    },
+    {
+      "case_id": "v35:I08:p2",
+      "context_window": {
+        "ctx_0": "For a binary symmetric channel the bits-per-use capacity is one minus binary entropy.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.5 invariance",
+      "text": "For a binary symmetric channel the bits-per-use capacity is one minus binary entropy."
+    },
+    {
+      "case_id": "v35:I08:p3",
+      "context_window": {
+        "ctx_0": "The bits-per-use BSC capacity is the complement of binary entropy.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.5 invariance",
+      "text": "The bits-per-use BSC capacity is the complement of binary entropy."
+    },
+    {
+      "case_id": "v35:I10:p1",
+      "context_window": {
+        "ctx_0": "Source coding bounds the expected bits per symbol by Shannon entropy.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.5 invariance",
+      "text": "Source coding bounds the expected bits per symbol by Shannon entropy."
+    },
+    {
+      "case_id": "v35-nc:N01-thermo-vs-info.a",
+      "context_window": {
+        "ctx_0": "Frame: thermodynamic. Entropy increases in a closed physical system.",
+        "ctx_1": "We measure heat flow in joules per second.",
+        "ctx_2": "Section: Thermodynamics \u2014 Heat and Energy",
+        "ctx_3": "Frame: thermodynamic"
+      },
+      "detected_frame": null,
+      "expected_frame": "thermodynamic",
+      "source_benchmark": "v3.5 invariance NC",
+      "text": "Frame: thermodynamic. Entropy increases in a closed physical system."
+    },
+    {
+      "case_id": "v35-nc:N01-thermo-vs-info.b",
+      "context_window": {
+        "ctx_0": "Frame: information-theoretic. Entropy of a message distribution is one bit.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.5 invariance NC",
+      "text": "Frame: information-theoretic. Entropy of a message distribution is one bit."
+    },
+    {
+      "case_id": "v35-nc:N02-info-vs-metaphor.a",
+      "context_window": {
+        "ctx_0": "Shannon entropy bounds compression in bits.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": null,
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.5 invariance NC",
+      "text": "Shannon entropy bounds compression in bits."
+    },
+    {
+      "case_id": "v36-nc:NC01",
+      "context_window": {
+        "ctx_0": "Like a poet, my brain processes Shannon entropy in bits of fleeting memory.",
+        "ctx_1": "We will speak loosely in the next paragraph.",
+        "ctx_2": "Section: Rhetorical Devices \u2014 Metaphor and Simile",
+        "ctx_3": "Frame: metaphorical"
+      },
+      "detected_frame": null,
+      "expected_frame": "metaphorical",
+      "source_benchmark": "v3.6 failure-audit NC",
+      "text": "Like a poet, my brain processes Shannon entropy in bits of fleeting memory."
+    },
+    {
+      "case_id": "v36-nc:NC02",
+      "context_window": {
+        "ctx_0": "Metaphorically, the brain has channel capacity for Shannon entropy.",
+        "ctx_1": "We will speak loosely in the next paragraph.",
+        "ctx_2": "Section: Rhetorical Devices \u2014 Metaphor and Simile",
+        "ctx_3": "Frame: metaphorical"
+      },
+      "detected_frame": null,
+      "expected_frame": "metaphorical",
+      "source_benchmark": "v3.6 failure-audit NC",
+      "text": "Metaphorically, the brain has channel capacity for Shannon entropy."
+    },
+    {
+      "case_id": "v36-fail:I01:p0",
+      "context_window": {
+        "ctx_0": "Shannon entropy of a fair coin is exactly one bit.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.6 failure-audit",
+      "text": "Shannon entropy of a fair coin is exactly one bit."
+    },
+    {
+      "case_id": "v36-fail:I01:p1",
+      "context_window": {
+        "ctx_0": "A fair coin carries one bit of Shannon entropy.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.6 failure-audit",
+      "text": "A fair coin carries one bit of Shannon entropy."
+    },
+    {
+      "case_id": "v36-fail:I01:p2",
+      "context_window": {
+        "ctx_0": "Shannon entropy equals one bit for a fair coin.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.6 failure-audit",
+      "text": "Shannon entropy equals one bit for a fair coin."
+    },
+    {
+      "case_id": "v36-fail:I01:p3",
+      "context_window": {
+        "ctx_0": "Fair coins have one-bit Shannon entropy.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.6 failure-audit",
+      "text": "Fair coins have one-bit Shannon entropy."
+    },
+    {
+      "case_id": "v36-fail:I01:p4",
+      "context_window": {
+        "ctx_0": "One bit of Shannon entropy per fair coin flip.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.6 failure-audit",
+      "text": "One bit of Shannon entropy per fair coin flip."
+    },
+    {
+      "case_id": "v36-fail:I04:p0",
+      "context_window": {
+        "ctx_0": "Compression ratio is bounded by Shannon entropy in bits.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.6 failure-audit",
+      "text": "Compression ratio is bounded by Shannon entropy in bits."
+    },
+    {
+      "case_id": "v36-fail:I04:p1",
+      "context_window": {
+        "ctx_0": "Shannon entropy bounds achievable compression bits-per-symbol.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.6 failure-audit",
+      "text": "Shannon entropy bounds achievable compression bits-per-symbol."
+    },
+    {
+      "case_id": "v36-fail:I04:p2",
+      "context_window": {
+        "ctx_0": "Optimal compression in bits matches Shannon entropy.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.6 failure-audit",
+      "text": "Optimal compression in bits matches Shannon entropy."
+    },
+    {
+      "case_id": "v36-fail:I04:p3",
+      "context_window": {
+        "ctx_0": "No compression beats the Shannon entropy bound in bits.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.6 failure-audit",
+      "text": "No compression beats the Shannon entropy bound in bits."
+    },
+    {
+      "case_id": "v36-fail:I04:p4",
+      "context_window": {
+        "ctx_0": "Compression bits are lower-bounded by Shannon's entropy.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.6 failure-audit",
+      "text": "Compression bits are lower-bounded by Shannon's entropy."
+    },
+    {
+      "case_id": "v36-fail:I08:p0",
+      "context_window": {
+        "ctx_0": "Channel capacity for a binary symmetric channel is 1 minus binary entropy in bits.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.6 failure-audit",
+      "text": "Channel capacity for a binary symmetric channel is 1 minus binary entropy in bits."
+    },
+    {
+      "case_id": "v36-fail:I08:p1",
+      "context_window": {
+        "ctx_0": "BSC channel capacity equals one bit minus binary entropy.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.6 failure-audit",
+      "text": "BSC channel capacity equals one bit minus binary entropy."
+    },
+    {
+      "case_id": "v36-fail:I08:p2",
+      "context_window": {
+        "ctx_0": "For a binary symmetric channel the bits-per-use capacity is one minus binary entropy.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.6 failure-audit",
+      "text": "For a binary symmetric channel the bits-per-use capacity is one minus binary entropy."
+    },
+    {
+      "case_id": "v36-fail:I08:p3",
+      "context_window": {
+        "ctx_0": "The bits-per-use BSC capacity is the complement of binary entropy.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.6 failure-audit",
+      "text": "The bits-per-use BSC capacity is the complement of binary entropy."
+    },
+    {
+      "case_id": "v36-fail:I10:p1",
+      "context_window": {
+        "ctx_0": "Source coding bounds the expected bits per symbol by Shannon entropy.",
+        "ctx_1": "Channel capacity is measured in bits per use.",
+        "ctx_2": "Section: Information Theory \u2014 Coding and Bits",
+        "ctx_3": "Frame: information-theoretic"
+      },
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "source_benchmark": "v3.6 failure-audit",
+      "text": "Source coding bounds the expected bits per symbol by Shannon entropy."
+    }
+  ]
+}
