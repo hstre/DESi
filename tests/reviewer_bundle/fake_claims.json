@@ -1,0 +1,25 @@
+{
+  "fake_claims": [
+    {
+      "id": "FAKE-001-wrong-hash",
+      "artifact_path": "artifacts/v2_8/reconstruction.json",
+      "field_path": "replay_hash",
+      "expected_value": "deadbeefdeadbeef",
+      "expected_verdict": "value_mismatch"
+    },
+    {
+      "id": "FAKE-002-wrong-value",
+      "artifact_path": "artifacts/v2_7/report.json",
+      "field_path": "r2_r3_gain_count",
+      "expected_value": 99,
+      "expected_verdict": "value_mismatch"
+    },
+    {
+      "id": "FAKE-003-missing-artifact",
+      "artifact_path": "artifacts/v9_9/imaginary_report.json",
+      "field_path": "anything",
+      "expected_value": "anything",
+      "expected_verdict": "missing_artifact"
+    }
+  ]
+}
