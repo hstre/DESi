@@ -1,0 +1,341 @@
+{
+  "cross_family_pair_count": 90,
+  "entangled_family_ids": [
+    "G_v316susp",
+    "E_v317h"
+  ],
+  "family_signatures": [
+    {
+      "family_id": "G_v316susp",
+      "rise_index_by_dim": [
+        2,
+        -1,
+        -1,
+        -1,
+        1,
+        2,
+        1,
+        4,
+        -1
+      ]
+    },
+    {
+      "family_id": "E_v317h",
+      "rise_index_by_dim": [
+        2,
+        -1,
+        -1,
+        -1,
+        1,
+        2,
+        1,
+        4,
+        -1
+      ]
+    }
+  ],
+  "halt": false,
+  "member_signatures": [
+    {
+      "family_id": "G_v316susp",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v316-susp:G01"
+    },
+    {
+      "family_id": "G_v316susp",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v316-susp:G02"
+    },
+    {
+      "family_id": "G_v316susp",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v316-susp:G03"
+    },
+    {
+      "family_id": "G_v316susp",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v316-susp:G04"
+    },
+    {
+      "family_id": "G_v316susp",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v316-susp:G05"
+    },
+    {
+      "family_id": "G_v316susp",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v316-susp:G06"
+    },
+    {
+      "family_id": "G_v316susp",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v316-susp:G07"
+    },
+    {
+      "family_id": "G_v316susp",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v316-susp:G08"
+    },
+    {
+      "family_id": "G_v316susp",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v316-susp:G09"
+    },
+    {
+      "family_id": "E_v317h",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": -1,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v317-h:E01"
+    },
+    {
+      "family_id": "E_v317h",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v317-h:E02"
+    },
+    {
+      "family_id": "E_v317h",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v317-h:E03"
+    },
+    {
+      "family_id": "E_v317h",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v317-h:E04"
+    },
+    {
+      "family_id": "E_v317h",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v317-h:E05"
+    },
+    {
+      "family_id": "E_v317h",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v317-h:E06"
+    },
+    {
+      "family_id": "E_v317h",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v317-h:E07"
+    },
+    {
+      "family_id": "E_v317h",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v317-h:E08"
+    },
+    {
+      "family_id": "E_v317h",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v317-h:E09"
+    },
+    {
+      "family_id": "E_v317h",
+      "rise_index_by_dim": {
+        "anchor_density": -1,
+        "branch_cost": 1,
+        "confidence": 2,
+        "contradiction_load": -1,
+        "frame_id": 2,
+        "novelty": 1,
+        "routing_state": -1,
+        "source_quality": -1,
+        "support_state": 4
+      },
+      "trajectory_id": "v317-h:E10"
+    }
+  ],
+  "method_overlap": 1.0,
+  "path_distance": 0,
+  "rationale": [
+    "INFO: entangled_family_ids ['G_v316susp', 'E_v317h']",
+    "INFO: temporal_pair_count 171 (same=81, cross=90)",
+    "PASS: method_overlap 1.0 (threshold 0.9)",
+    "INFO: path_distance 0 (differing dim majorities)",
+    "FAIL: temporal_separability 0.494444 (threshold 0.7)",
+    "INFO: family_signatures [{'family_id': 'G_v316susp', 'rise_index_by_dim': [2, -1, -1, -1, 1, 2, 1, 4, -1]}, {'family_id': 'E_v317h', 'rise_index_by_dim': [2, -1, -1, -1, 1, 2, 1, 4, -1]}]",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "METHOD_DOPPELGAENGER_CONFIRMED",
+  "replay_stability": 1.0,
+  "same_family_pair_count": 81,
+  "temporal_pair_count": 171,
+  "temporal_separability": 0.494444
+}
