@@ -17,12 +17,17 @@ from desi.trajectory_control.state import (
 )
 
 
-def test_observer_makes_no_intervention_in_v3_25() -> None:
-    """v3.25 is observation only — there is no
-    Controller / action module in this sprint."""
+def test_v3_25_report_records_no_interventions() -> None:
+    """v3.25 is observation only — its report carries no
+    intervention field. v3.26 introduces the controller
+    in a separate module / artifact."""
     import desi.trajectory_control as pkg
-    assert not hasattr(pkg, "Controller")
-    assert not hasattr(pkg, "Action")
+    rep = pkg.build_report().to_dict()
+    for forbidden in (
+        "interventions", "applied_actions",
+        "false_interventions", "missed_cliffs",
+    ):
+        assert forbidden not in rep, forbidden
 
 
 def test_two_step_warning_rate_meets_gate() -> None:
