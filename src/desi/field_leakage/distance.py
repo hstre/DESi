@@ -23,13 +23,19 @@ def manifold_distance(
 ) -> tuple[float, int]:
     """Minimum Euclidean distance from ``point`` to any
     vector in ``manifold``. Returns ``(distance,
-    nearest_index)``. ``nearest_index = -1`` when
-    ``manifold`` is empty."""
+    nearest_index)``. Trajectories of different length
+    contribute ``+inf`` (so a corpus with ragged
+    trajectory lengths still computes safely; the
+    point is simply "outside" the fixed-shape
+    manifold). ``nearest_index = -1`` when ``manifold``
+    is empty or no anchor matches the point's shape."""
     if not manifold:
         return float("inf"), -1
     best_d = float("inf")
     best_i = -1
     for i, m in enumerate(manifold):
+        if len(point) != len(m):
+            continue
         d = euclidean(point, m)
         if d < best_d:
             best_d = d
