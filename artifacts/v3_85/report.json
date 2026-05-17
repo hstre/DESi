@@ -1,0 +1,166 @@
+{
+  "anchor_count": 38,
+  "families": [
+    {
+      "anchor_count": 11,
+      "corpus": "v315",
+      "family_centroid_norm": 10.384453,
+      "family_id": "A_v315",
+      "family_max_intra": 10.247504,
+      "family_variance": 3.934703,
+      "letter": "A",
+      "members": [
+        "v315:A01",
+        "v315:A02",
+        "v315:A04",
+        "v315:A06",
+        "v315:A08",
+        "v315:A09",
+        "v315:A10",
+        "v315:A11",
+        "v315:A12",
+        "v315:A13",
+        "v315:A15"
+      ],
+      "overlap_with_prior": 0,
+      "rationale": "v315 letter-A: never sampled by plateau/leakage/bridge audits, high intra-family variance."
+    },
+    {
+      "anchor_count": 8,
+      "corpus": "v314",
+      "family_centroid_norm": 11.369751,
+      "family_id": "D_v314",
+      "family_max_intra": 10.251929,
+      "family_variance": 3.513634,
+      "letter": "D",
+      "members": [
+        "v314:D01",
+        "v314:D03",
+        "v314:D04",
+        "v314:D06",
+        "v314:D07",
+        "v314:D08",
+        "v314:D09",
+        "v314:D10"
+      ],
+      "overlap_with_prior": 0,
+      "rationale": "v314 letter-D (minus plateau D02/D05): never sampled outside the plateau probe, high intra-family variance."
+    },
+    {
+      "anchor_count": 10,
+      "corpus": "v317-h",
+      "family_centroid_norm": 10.920619,
+      "family_id": "E_v317h",
+      "family_max_intra": 10.001479,
+      "family_variance": 2.08003,
+      "letter": "E",
+      "members": [
+        "v317-h:E01",
+        "v317-h:E02",
+        "v317-h:E03",
+        "v317-h:E04",
+        "v317-h:E05",
+        "v317-h:E06",
+        "v317-h:E07",
+        "v317-h:E08",
+        "v317-h:E09",
+        "v317-h:E10"
+      ],
+      "overlap_with_prior": 0,
+      "rationale": "v317-h letter-E: untouched corpus fragment, moderate variance, distinct letter from prior sprints."
+    },
+    {
+      "anchor_count": 9,
+      "corpus": "v316-susp",
+      "family_centroid_norm": 11.758303,
+      "family_id": "G_v316susp",
+      "family_max_intra": 0.263067,
+      "family_variance": 0.131533,
+      "letter": "G",
+      "members": [
+        "v316-susp:G01",
+        "v316-susp:G02",
+        "v316-susp:G03",
+        "v316-susp:G04",
+        "v316-susp:G05",
+        "v316-susp:G06",
+        "v316-susp:G07",
+        "v316-susp:G08",
+        "v316-susp:G09"
+      ],
+      "overlap_with_prior": 0,
+      "rationale": "v316-susp letter-G (minus plateau G10): untouched, low intra-family variance - tests the doppelganger signal under tight cohesion."
+    }
+  ],
+  "family_count": 4,
+  "family_variance": 2.414975,
+  "family_variance_by_family": [
+    {
+      "family_id": "A_v315",
+      "family_variance": 3.934703
+    },
+    {
+      "family_id": "D_v314",
+      "family_variance": 3.513634
+    },
+    {
+      "family_id": "E_v317h",
+      "family_variance": 2.08003
+    },
+    {
+      "family_id": "G_v316susp",
+      "family_variance": 0.131533
+    }
+  ],
+  "halt": false,
+  "overlap_with_prior": 0,
+  "pairwise_separations": [
+    {
+      "family_a_id": "A_v315",
+      "family_b_id": "D_v314",
+      "mean_distance": 4.52117,
+      "min_distance": 0.0
+    },
+    {
+      "family_a_id": "A_v315",
+      "family_b_id": "E_v317h",
+      "mean_distance": 3.810099,
+      "min_distance": 0.0
+    },
+    {
+      "family_a_id": "A_v315",
+      "family_b_id": "G_v316susp",
+      "mean_distance": 3.282858,
+      "min_distance": 0.0
+    },
+    {
+      "family_a_id": "D_v314",
+      "family_b_id": "E_v317h",
+      "mean_distance": 3.133215,
+      "min_distance": 0.0
+    },
+    {
+      "family_a_id": "D_v314",
+      "family_b_id": "G_v316susp",
+      "mean_distance": 2.465521,
+      "min_distance": 0.0
+    },
+    {
+      "family_a_id": "E_v317h",
+      "family_b_id": "G_v316susp",
+      "mean_distance": 1.106493,
+      "min_distance": 0.0
+    }
+  ],
+  "rationale": [
+    "INFO: family_count 4",
+    "INFO: anchor_count 38",
+    "PASS: overlap_with_prior 0 (stop rule triggers if > 0)",
+    "INFO: family_variance 2.414975 (mean over families)",
+    "INFO: families [{'family_id': 'A_v315', 'corpus': 'v315', 'letter': 'A', 'rationale': 'v315 letter-A: never sampled by plateau/leakage/bridge audits, high intra-family variance.', 'members': ['v315:A01', 'v315:A02', 'v315:A04', 'v315:A06', 'v315:A08', 'v315:A09', 'v315:A10', 'v315:A11', 'v315:A12', 'v315:A13', 'v315:A15'], 'anchor_count': 11, 'overlap_with_prior': 0, 'family_variance': 3.934703, 'family_max_intra': 10.247504, 'family_centroid_norm': 10.384453}, {'family_id': 'D_v314', 'corpus': 'v314', 'letter': 'D', 'rationale': 'v314 letter-D (minus plateau D02/D05): never sampled outside the plateau probe, high intra-family variance.', 'members': ['v314:D01', 'v314:D03', 'v314:D04', 'v314:D06', 'v314:D07', 'v314:D08', 'v314:D09', 'v314:D10'], 'anchor_count': 8, 'overlap_with_prior': 0, 'family_variance': 3.513634, 'family_max_intra': 10.251929, 'family_centroid_norm': 11.369751}, {'family_id': 'E_v317h', 'corpus': 'v317-h', 'letter': 'E', 'rationale': 'v317-h letter-E: untouched corpus fragment, moderate variance, distinct letter from prior sprints.', 'members': ['v317-h:E01', 'v317-h:E02', 'v317-h:E03', 'v317-h:E04', 'v317-h:E05', 'v317-h:E06', 'v317-h:E07', 'v317-h:E08', 'v317-h:E09', 'v317-h:E10'], 'anchor_count': 10, 'overlap_with_prior': 0, 'family_variance': 2.08003, 'family_max_intra': 10.001479, 'family_centroid_norm': 10.920619}, {'family_id': 'G_v316susp', 'corpus': 'v316-susp', 'letter': 'G', 'rationale': 'v316-susp letter-G (minus plateau G10): untouched, low intra-family variance - tests the doppelganger signal under tight cohesion.', 'members': ['v316-susp:G01', 'v316-susp:G02', 'v316-susp:G03', 'v316-susp:G04', 'v316-susp:G05', 'v316-susp:G06', 'v316-susp:G07', 'v316-susp:G08', 'v316-susp:G09'], 'anchor_count': 9, 'overlap_with_prior': 0, 'family_variance': 0.131533, 'family_max_intra': 0.263067, 'family_centroid_norm': 11.758303}]",
+    "INFO: pairwise_separations [{'family_a_id': 'A_v315', 'family_b_id': 'D_v314', 'min_distance': 0.0, 'mean_distance': 4.52117}, {'family_a_id': 'A_v315', 'family_b_id': 'E_v317h', 'min_distance': 0.0, 'mean_distance': 3.810099}, {'family_a_id': 'A_v315', 'family_b_id': 'G_v316susp', 'min_distance': 0.0, 'mean_distance': 3.282858}, {'family_a_id': 'D_v314', 'family_b_id': 'E_v317h', 'min_distance': 0.0, 'mean_distance': 3.133215}, {'family_a_id': 'D_v314', 'family_b_id': 'G_v316susp', 'min_distance': 0.0, 'mean_distance': 2.465521}, {'family_a_id': 'E_v317h', 'family_b_id': 'G_v316susp', 'min_distance': 0.0, 'mean_distance': 1.106493}]",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "NOVEL_FAMILIES_ISOLATED",
+  "replay_stability": 1.0
+}
