@@ -1,0 +1,132 @@
+{
+  "baseline_full_purity": 0.289474,
+  "feature_stability": 0.605263,
+  "full_clusters": [
+    {
+      "cluster_id": 0,
+      "max_intra_distance": 3.16407,
+      "mean_intra_distance": 1.226904,
+      "members": [
+        "v314:D01",
+        "v314:D03",
+        "v314:D04",
+        "v314:D06",
+        "v314:D07",
+        "v314:D08",
+        "v314:D10",
+        "v315:A01",
+        "v315:A02",
+        "v315:A04",
+        "v315:A06",
+        "v315:A09",
+        "v315:A10",
+        "v315:A11",
+        "v315:A12",
+        "v315:A13",
+        "v316-susp:G01",
+        "v316-susp:G02",
+        "v316-susp:G03",
+        "v316-susp:G04",
+        "v316-susp:G05",
+        "v316-susp:G06",
+        "v316-susp:G07",
+        "v316-susp:G08",
+        "v316-susp:G09",
+        "v317-h:E02",
+        "v317-h:E03",
+        "v317-h:E04",
+        "v317-h:E05",
+        "v317-h:E06",
+        "v317-h:E07",
+        "v317-h:E08",
+        "v317-h:E09",
+        "v317-h:E10"
+      ]
+    },
+    {
+      "cluster_id": 1,
+      "max_intra_distance": 3.162278,
+      "mean_intra_distance": 2.048628,
+      "members": [
+        "v314:D09",
+        "v315:A08",
+        "v315:A15",
+        "v317-h:E01"
+      ]
+    }
+  ],
+  "new_informative_dims": [
+    {
+      "delta_purity": -0.315789,
+      "dim": "frame_id"
+    }
+  ],
+  "proxy_accuracy": 0.605263,
+  "proxy_clusters": [
+    {
+      "cluster_id": 0,
+      "max_intra_distance": 0.0,
+      "mean_intra_distance": 0.0,
+      "members": [
+        "v314:D01",
+        "v314:D03",
+        "v314:D04",
+        "v315:A08",
+        "v315:A10",
+        "v315:A12",
+        "v316-susp:G01",
+        "v316-susp:G02",
+        "v316-susp:G03",
+        "v316-susp:G04",
+        "v316-susp:G05",
+        "v316-susp:G06",
+        "v316-susp:G07",
+        "v316-susp:G08",
+        "v316-susp:G09",
+        "v317-h:E01",
+        "v317-h:E02",
+        "v317-h:E03",
+        "v317-h:E04",
+        "v317-h:E05",
+        "v317-h:E06",
+        "v317-h:E07",
+        "v317-h:E08",
+        "v317-h:E09",
+        "v317-h:E10"
+      ]
+    },
+    {
+      "cluster_id": 1,
+      "max_intra_distance": 0.0,
+      "mean_intra_distance": 0.0,
+      "members": [
+        "v315:A01",
+        "v315:A02",
+        "v315:A04",
+        "v315:A06",
+        "v315:A09",
+        "v315:A11",
+        "v315:A13",
+        "v315:A15"
+      ]
+    },
+    {
+      "cluster_id": 2,
+      "max_intra_distance": 0.0,
+      "mean_intra_distance": 0.0,
+      "members": [
+        "v314:D06",
+        "v314:D07",
+        "v314:D08",
+        "v314:D09",
+        "v314:D10"
+      ]
+    }
+  ],
+  "proxy_dims": [
+    "branch_cost",
+    "contradiction_load"
+  ],
+  "proxy_gap": -0.315789,
+  "schema_version": "v3_87_novel_family_proxy"
+}
