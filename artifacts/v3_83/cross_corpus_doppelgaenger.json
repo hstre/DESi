@@ -1,0 +1,98 @@
+{
+  "class_stability": 1.0,
+  "cross_corpus_classes": 2,
+  "cross_corpus_pair_count": 10,
+  "joint_clusters": [
+    {
+      "cluster_id": 0,
+      "max_intra_distance": 0.279508,
+      "mean_intra_distance": 0.118015,
+      "members": [
+        "v23:R5_04",
+        "v314:D02",
+        "v314:D05",
+        "v315:G10",
+        "v316-susp:G10"
+      ]
+    },
+    {
+      "cluster_id": 1,
+      "max_intra_distance": 0.516015,
+      "mean_intra_distance": 0.327885,
+      "members": [
+        "v23:R5_02",
+        "v23:R5_03",
+        "v23:R5_05",
+        "v23:R5_06"
+      ]
+    },
+    {
+      "cluster_id": 2,
+      "max_intra_distance": 0.019966,
+      "mean_intra_distance": 0.019966,
+      "members": [
+        "v23:R4_04",
+        "v314:C02"
+      ]
+    }
+  ],
+  "per_corpus_summaries": [
+    {
+      "anchor_count": 6,
+      "cluster_count": 3,
+      "cluster_sizes": [
+        4,
+        1,
+        1
+      ],
+      "corpus": "v23"
+    },
+    {
+      "anchor_count": 3,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        2,
+        1
+      ],
+      "corpus": "v314"
+    },
+    {
+      "anchor_count": 1,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        1
+      ],
+      "corpus": "v315"
+    },
+    {
+      "anchor_count": 1,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        1
+      ],
+      "corpus": "v316"
+    }
+  ],
+  "probe_radius": 3.5,
+  "restricted_v3_79_classes": [
+    [
+      "v23:R5_04",
+      "v314:D02",
+      "v314:D05",
+      "v315:G10",
+      "v316-susp:G10"
+    ],
+    [
+      "v23:R5_02",
+      "v23:R5_03",
+      "v23:R5_05",
+      "v23:R5_06"
+    ],
+    [
+      "v23:R4_04",
+      "v314:C02"
+    ]
+  ],
+  "schema_version": "v3_83_cross_corpus_doppelgaenger",
+  "transfer_accuracy": 1.0
+}
