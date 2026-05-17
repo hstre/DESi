@@ -1,0 +1,6015 @@
+{
+  "baseline_auc": 0.711887,
+  "baseline_fpr": 0.395176,
+  "best_cluster_count": 1,
+  "best_cluster_sizes": [
+    19
+  ],
+  "best_feature_set": {
+    "residual_dims": [
+      "anchor_density"
+    ],
+    "temporal_dims": []
+  },
+  "candidate_spec_count": 348,
+  "resolution_outcomes": [
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "novelty"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_contradiction_load"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load",
+          "frame_id"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "frame_id"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "novelty"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "frame_id"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "frame_id"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.503704,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "contradiction_load"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load",
+          "novelty"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "contradiction_load"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "contradiction_load"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "novelty"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "confidence"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.491358,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.5,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "branch_cost"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "novelty",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "source_quality",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "routing_state",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "novelty"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "novelty"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "novelty",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "novelty",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "confidence"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "routing_state",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_contradiction_load",
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_frame_id",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_frame_id",
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_frame_id",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_frame_id",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_contradiction_load"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_contradiction_load",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_contradiction_load",
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_contradiction_load"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_contradiction_load"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_contradiction_load",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_contradiction_load",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_confidence"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_branch_cost"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_novelty",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_source_quality",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_routing_state",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_novelty",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_novelty",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_confidence"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_routing_state",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.503704,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "contradiction_load",
+          "frame_id"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load",
+          "frame_id",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load",
+          "frame_id",
+          "novelty"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "contradiction_load",
+          "frame_id"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "contradiction_load",
+          "frame_id"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load",
+          "frame_id",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load",
+          "frame_id",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "frame_id",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "frame_id",
+          "novelty"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "confidence",
+          "frame_id"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.491358,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.5,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "branch_cost",
+          "frame_id"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "frame_id",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "frame_id",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "novelty",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "frame_id",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "frame_id",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "source_quality",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "routing_state",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "frame_id",
+          "novelty"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "frame_id",
+          "novelty"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "novelty",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "novelty",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "confidence",
+          "frame_id"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "frame_id",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "frame_id",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "frame_id",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "frame_id",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "routing_state",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.503704,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "contradiction_load",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.503704,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "contradiction_load",
+          "novelty"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.503704,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "confidence",
+          "contradiction_load"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.491358,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.566667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "branch_cost",
+          "contradiction_load"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.503704,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "contradiction_load",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.503704,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "contradiction_load",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load",
+          "novelty",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "contradiction_load",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "contradiction_load",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load",
+          "source_quality",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load",
+          "routing_state",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "contradiction_load",
+          "novelty"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "contradiction_load",
+          "novelty"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load",
+          "novelty",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load",
+          "novelty",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "confidence",
+          "contradiction_load"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "contradiction_load",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "contradiction_load",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "contradiction_load",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "contradiction_load",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load",
+          "routing_state",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "novelty",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "confidence",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.491358,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.5,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "branch_cost",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "source_quality",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "routing_state",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "confidence",
+          "novelty"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.491358,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.5,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "branch_cost",
+          "novelty"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "novelty",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "novelty",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.491358,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.5,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "branch_cost",
+          "confidence"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "confidence",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "confidence",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.491358,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.5,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "branch_cost",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.491358,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.5,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "branch_cost",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density",
+          "routing_state",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "novelty",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "novelty",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "novelty",
+          "source_quality",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "novelty",
+          "routing_state",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "confidence",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "source_quality",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "routing_state",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "source_quality",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "routing_state",
+          "source_quality"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "routing_state",
+          "source_quality",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "confidence",
+          "novelty"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "novelty",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "novelty",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "novelty",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "novelty",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "novelty",
+          "routing_state",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "confidence",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "confidence",
+          "routing_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence",
+          "routing_state",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost",
+          "routing_state",
+          "support_state"
+        ],
+        "temporal_dims": []
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_contradiction_load",
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_contradiction_load",
+          "temporal_frame_id",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_contradiction_load",
+          "temporal_frame_id",
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_contradiction_load",
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_contradiction_load",
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_contradiction_load",
+          "temporal_frame_id",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_contradiction_load",
+          "temporal_frame_id",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_frame_id",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_frame_id",
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_confidence",
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_branch_cost",
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_frame_id",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_frame_id",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_frame_id",
+          "temporal_novelty",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_frame_id",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_frame_id",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_frame_id",
+          "temporal_source_quality",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_frame_id",
+          "temporal_routing_state",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_frame_id",
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_frame_id",
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_frame_id",
+          "temporal_novelty",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_frame_id",
+          "temporal_novelty",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_confidence",
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_frame_id",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_frame_id",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_frame_id",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_frame_id",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_frame_id",
+          "temporal_routing_state",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_contradiction_load",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_contradiction_load",
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_confidence",
+          "temporal_contradiction_load"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_branch_cost",
+          "temporal_contradiction_load"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_contradiction_load",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_contradiction_load",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_contradiction_load",
+          "temporal_novelty",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_contradiction_load",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_contradiction_load",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_contradiction_load",
+          "temporal_source_quality",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_contradiction_load",
+          "temporal_routing_state",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_contradiction_load",
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_contradiction_load",
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_contradiction_load",
+          "temporal_novelty",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_contradiction_load",
+          "temporal_novelty",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_confidence",
+          "temporal_contradiction_load"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_contradiction_load",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_contradiction_load",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_contradiction_load",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_contradiction_load",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_contradiction_load",
+          "temporal_routing_state",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_novelty",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_confidence",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_branch_cost",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_source_quality",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_routing_state",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_confidence",
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_branch_cost",
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_novelty",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_novelty",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_branch_cost",
+          "temporal_confidence"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_confidence",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_confidence",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_branch_cost",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_branch_cost",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_anchor_density",
+          "temporal_routing_state",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_novelty",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_novelty",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_novelty",
+          "temporal_source_quality",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_novelty",
+          "temporal_routing_state",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_confidence",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_source_quality",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_routing_state",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_source_quality",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_routing_state",
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_routing_state",
+          "temporal_source_quality",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_confidence",
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_novelty",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_novelty",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_novelty",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_novelty",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_novelty",
+          "temporal_routing_state",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_confidence",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_confidence",
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_confidence",
+          "temporal_routing_state",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [],
+        "temporal_dims": [
+          "temporal_branch_cost",
+          "temporal_routing_state",
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id"
+        ],
+        "temporal_dims": [
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id"
+        ],
+        "temporal_dims": [
+          "temporal_contradiction_load"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id"
+        ],
+        "temporal_dims": [
+          "temporal_anchor_density"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id"
+        ],
+        "temporal_dims": [
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id"
+        ],
+        "temporal_dims": [
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id"
+        ],
+        "temporal_dims": [
+          "temporal_confidence"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id"
+        ],
+        "temporal_dims": [
+          "temporal_branch_cost"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id"
+        ],
+        "temporal_dims": [
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id"
+        ],
+        "temporal_dims": [
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load"
+        ],
+        "temporal_dims": [
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load"
+        ],
+        "temporal_dims": [
+          "temporal_contradiction_load"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load"
+        ],
+        "temporal_dims": [
+          "temporal_anchor_density"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load"
+        ],
+        "temporal_dims": [
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load"
+        ],
+        "temporal_dims": [
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load"
+        ],
+        "temporal_dims": [
+          "temporal_confidence"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load"
+        ],
+        "temporal_dims": [
+          "temporal_branch_cost"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load"
+        ],
+        "temporal_dims": [
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "contradiction_load"
+        ],
+        "temporal_dims": [
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.490535,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density"
+        ],
+        "temporal_dims": [
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density"
+        ],
+        "temporal_dims": [
+          "temporal_contradiction_load"
+        ]
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density"
+        ],
+        "temporal_dims": [
+          "temporal_anchor_density"
+        ]
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density"
+        ],
+        "temporal_dims": [
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density"
+        ],
+        "temporal_dims": [
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density"
+        ],
+        "temporal_dims": [
+          "temporal_confidence"
+        ]
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density"
+        ],
+        "temporal_dims": [
+          "temporal_branch_cost"
+        ]
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density"
+        ],
+        "temporal_dims": [
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.505761,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.466667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "anchor_density"
+        ],
+        "temporal_dims": [
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "source_quality"
+        ],
+        "temporal_dims": [
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "source_quality"
+        ],
+        "temporal_dims": [
+          "temporal_contradiction_load"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "source_quality"
+        ],
+        "temporal_dims": [
+          "temporal_anchor_density"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "source_quality"
+        ],
+        "temporal_dims": [
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "source_quality"
+        ],
+        "temporal_dims": [
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "source_quality"
+        ],
+        "temporal_dims": [
+          "temporal_confidence"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "source_quality"
+        ],
+        "temporal_dims": [
+          "temporal_branch_cost"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "source_quality"
+        ],
+        "temporal_dims": [
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "source_quality"
+        ],
+        "temporal_dims": [
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "novelty"
+        ],
+        "temporal_dims": [
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "novelty"
+        ],
+        "temporal_dims": [
+          "temporal_contradiction_load"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "novelty"
+        ],
+        "temporal_dims": [
+          "temporal_anchor_density"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "novelty"
+        ],
+        "temporal_dims": [
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "novelty"
+        ],
+        "temporal_dims": [
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "novelty"
+        ],
+        "temporal_dims": [
+          "temporal_confidence"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "novelty"
+        ],
+        "temporal_dims": [
+          "temporal_branch_cost"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "novelty"
+        ],
+        "temporal_dims": [
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "novelty"
+        ],
+        "temporal_dims": [
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence"
+        ],
+        "temporal_dims": [
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence"
+        ],
+        "temporal_dims": [
+          "temporal_contradiction_load"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence"
+        ],
+        "temporal_dims": [
+          "temporal_anchor_density"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence"
+        ],
+        "temporal_dims": [
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence"
+        ],
+        "temporal_dims": [
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence"
+        ],
+        "temporal_dims": [
+          "temporal_confidence"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence"
+        ],
+        "temporal_dims": [
+          "temporal_branch_cost"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence"
+        ],
+        "temporal_dims": [
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "confidence"
+        ],
+        "temporal_dims": [
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost"
+        ],
+        "temporal_dims": [
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost"
+        ],
+        "temporal_dims": [
+          "temporal_contradiction_load"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost"
+        ],
+        "temporal_dims": [
+          "temporal_anchor_density"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost"
+        ],
+        "temporal_dims": [
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost"
+        ],
+        "temporal_dims": [
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost"
+        ],
+        "temporal_dims": [
+          "temporal_confidence"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost"
+        ],
+        "temporal_dims": [
+          "temporal_branch_cost"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost"
+        ],
+        "temporal_dims": [
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "branch_cost"
+        ],
+        "temporal_dims": [
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "support_state"
+        ],
+        "temporal_dims": [
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "support_state"
+        ],
+        "temporal_dims": [
+          "temporal_contradiction_load"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "support_state"
+        ],
+        "temporal_dims": [
+          "temporal_anchor_density"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "support_state"
+        ],
+        "temporal_dims": [
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "support_state"
+        ],
+        "temporal_dims": [
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "support_state"
+        ],
+        "temporal_dims": [
+          "temporal_confidence"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "support_state"
+        ],
+        "temporal_dims": [
+          "temporal_branch_cost"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "support_state"
+        ],
+        "temporal_dims": [
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "support_state"
+        ],
+        "temporal_dims": [
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.494444,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_contradiction_load"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_anchor_density"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_confidence"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_branch_cost"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.5,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 1.0,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_routing_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.490535,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        18,
+        1
+      ],
+      "fpr": 0.9,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "contradiction_load",
+          "anchor_density",
+          "source_quality",
+          "novelty",
+          "confidence",
+          "branch_cost",
+          "support_state",
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_frame_id"
+        ]
+      }
+    },
+    {
+      "auc": 0.491358,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.566667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "contradiction_load",
+          "anchor_density",
+          "source_quality",
+          "novelty",
+          "confidence",
+          "branch_cost",
+          "support_state",
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_contradiction_load"
+        ]
+      }
+    },
+    {
+      "auc": 0.491358,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.566667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "contradiction_load",
+          "anchor_density",
+          "source_quality",
+          "novelty",
+          "confidence",
+          "branch_cost",
+          "support_state",
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_anchor_density"
+        ]
+      }
+    },
+    {
+      "auc": 0.491358,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.566667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "contradiction_load",
+          "anchor_density",
+          "source_quality",
+          "novelty",
+          "confidence",
+          "branch_cost",
+          "support_state",
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_source_quality"
+        ]
+      }
+    },
+    {
+      "auc": 0.491358,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.566667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "contradiction_load",
+          "anchor_density",
+          "source_quality",
+          "novelty",
+          "confidence",
+          "branch_cost",
+          "support_state",
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_novelty"
+        ]
+      }
+    },
+    {
+      "auc": 0.491358,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.566667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "contradiction_load",
+          "anchor_density",
+          "source_quality",
+          "novelty",
+          "confidence",
+          "branch_cost",
+          "support_state",
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_confidence"
+        ]
+      }
+    },
+    {
+      "auc": 0.491358,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.566667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "contradiction_load",
+          "anchor_density",
+          "source_quality",
+          "novelty",
+          "confidence",
+          "branch_cost",
+          "support_state",
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_branch_cost"
+        ]
+      }
+    },
+    {
+      "auc": 0.491358,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.566667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "contradiction_load",
+          "anchor_density",
+          "source_quality",
+          "novelty",
+          "confidence",
+          "branch_cost",
+          "support_state",
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_support_state"
+        ]
+      }
+    },
+    {
+      "auc": 0.491358,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "fpr": 0.566667,
+      "purity": 0.526316,
+      "spec": {
+        "residual_dims": [
+          "frame_id",
+          "contradiction_load",
+          "anchor_density",
+          "source_quality",
+          "novelty",
+          "confidence",
+          "branch_cost",
+          "support_state",
+          "routing_state"
+        ],
+        "temporal_dims": [
+          "temporal_routing_state"
+        ]
+      }
+    }
+  ],
+  "resolved_auc": 0.505761,
+  "resolved_fpr": 0.466667,
+  "resolved_purity": 0.526316,
+  "schema_version": "v3_96_entangled_resolution"
+}
