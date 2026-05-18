@@ -17,7 +17,20 @@ from __future__ import annotations
 import json
 import pathlib
 from dataclasses import dataclass
+from hashlib import sha256
 from typing import Any
+
+
+def _stable_frame_id(operator: str) -> int:
+    """Seed-independent integer in [0, 9) derived
+    from a sha256 hash of the operator string. The
+    earlier version called Python's built-in
+    ``hash()`` which is salted per-process via
+    PYTHONHASHSEED, producing the v3.96a jitter
+    on sample trajectory frame_id values. Fixed in
+    v3.96c."""
+    digest = sha256(operator.encode("utf-8")).digest()
+    return int.from_bytes(digest[:8], "big") % 9
 
 from ..benchmark_multistep import ALL_MULTISTEP_CASES
 from ..causal_naturalness.negative_control import (
@@ -233,7 +246,11 @@ def _sample_trajectories() -> tuple[Trajectory, ...]:
             fm = s.get("failure_mode")
             sup = 4.0 if fm is None else 1.0
             states.append(StateVector(
-                frame_id=float(hash(s.get("operator", "")) % 9),
+                frame_id=float(
+                    _stable_frame_id(
+                        s.get("operator", ""),
+                    ),
+                ),
                 contradiction_load=0.0,
                 anchor_density=dup,
                 source_quality=0.0,

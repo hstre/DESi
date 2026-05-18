@@ -1,0 +1,123 @@
+{
+  "artifact_diff_count": 0,
+  "artifact_diffs": [
+    {
+      "matches": true,
+      "path": "v3_85/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_85/novel_claim_families.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_86/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_86/novel_family_clusters.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_87/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_87/novel_family_proxy.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_88/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_88/novel_family_predictive.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_89/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_89/frame_contribution_audit.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_90/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_90/frame_normalized_clusters.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_91/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_91/frame_normalized_minimal_features.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_92/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_92/frame_normalized_prediction.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_93/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_93/entangled_dimensions.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_94/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_94/entangled_ablation.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_95/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_95/entangled_method_signal.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_96/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_96/entangled_resolution.json"
+    }
+  ],
+  "halt": false,
+  "jittery_trajectories_post_patch": [],
+  "numerical_delta": 6.0,
+  "patch_fix_kind": "stable_hash",
+  "patch_helper_added": "_stable_frame_id",
+  "patch_line_number": 236,
+  "patch_path": "src/desi/epistemic_trajectory/extractor.py",
+  "post_patch_jitter_rate": 0.0,
+  "rationale": [
+    "INFO: patch_path src/desi/epistemic_trajectory/extractor.py line 236",
+    "INFO: patch_fix_kind stable_hash",
+    "INFO: patch_helper_added _stable_frame_id",
+    "PASS: post_patch_jitter_rate 0.0",
+    "INFO: jittery_trajectories_post_patch []",
+    "INFO: artifact_diff_count 0",
+    "INFO: regression_breakage 0",
+    "INFO: numerical_delta 6.0 (seed-0 frame_id max abs change vs Python hash() reference)",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "DETERMINISM_RESTORED",
+  "regression_breakage": 0,
+  "replay_stability": 1.0
+}
