@@ -1,0 +1,24 @@
+{
+  "architecture_roi": 27.591403,
+  "base_state_dim_count": 9,
+  "complexity_cost": 0.07037,
+  "compression_delta": 0.111111,
+  "halt": false,
+  "overfitting_risk": 0.0,
+  "rationale": [
+    "INFO: base_state_dim_count 9",
+    "INFO: state_dim_cost 0.1 (1 / (N+1))",
+    "INFO: tail_vector_cost 0.021739 (1 / augmented_dim)",
+    "INFO: compression_delta 0.111111 (loss of v3.100 compression_gain)",
+    "INFO: overfitting_risk 0.0 (binary feature collapses to 2 buckets)",
+    "INFO: recovery_gain 1.941607 (sum of beneficial deltas across v3.94, v3.96, v3.100)",
+    "INFO: complexity_cost 0.07037 (mean of three cost components)",
+    "INFO: architecture_roi 27.591403",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "ARCHITECTURE_EXPANSION_WORTH_IT",
+  "recovery_gain": 1.941607,
+  "replay_stability": 1.0,
+  "state_dim_cost": 0.1,
+  "tail_vector_cost": 0.021739
+}
