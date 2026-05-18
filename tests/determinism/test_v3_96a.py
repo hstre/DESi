@@ -54,22 +54,24 @@ def test_run_with_seed_returns_states() -> None:
     assert len(snap) > 0
 
 
-def test_two_seeds_may_differ_on_sample_traj() -> None:
-    """The classic mozart trajectory drifts under
-    PYTHONHASHSEED; under at least one alternate
-    seed the frame_id of state 0 differs from the
-    seed-0 baseline."""
+def test_two_seeds_now_agree_on_sample_traj() -> None:
+    """Pre-v3.96c the mozart trajectory drifted
+    across PYTHONHASHSEED. Post-patch the two
+    seeds must agree byte-for-byte - the patch's
+    primary success criterion at the source. The
+    persisted v3.96a artifact still records the
+    pre-patch drift; this live probe documents
+    the post-patch fix."""
     snap_a, _ = run_with_seed(0)
     snap_b, _ = run_with_seed(1)
     a = snap_a.get("sample:n03_mozart")
     b = snap_b.get("sample:n03_mozart")
     assert a is not None and b is not None
-    # frame_id is index 0 in each state row.
     diffs = sum(
         1 for sa, sb in zip(a, b)
         if sa[0] != sb[0]
     )
-    assert diffs > 0
+    assert diffs == 0
 
 
 def test_affected_packages_listed() -> None:

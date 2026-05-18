@@ -88,6 +88,18 @@ class TraceHit:
         }
 
 
+# The determinism* packages exist solely to
+# discuss, fix and verify the very pattern the
+# trace is looking for. Their docstrings and
+# diagnostic code legitimately mention or
+# reproduce hash() calls; including them would
+# produce documentation-derived false positives
+# that hide the production-code state.
+_EXCLUDED_DIR_PREFIXES: tuple[str, ...] = (
+    "determinism",
+)
+
+
 def _iter_source_files() -> list[pathlib.Path]:
     out: list[pathlib.Path] = []
     for p in sorted(_SRC_ROOT.rglob("*.py")):
@@ -97,6 +109,15 @@ def _iter_source_files() -> list[pathlib.Path]:
         ):
             continue
         if p.name in _EXCLUDED_NAMES:
+            continue
+        # Skip determinism* meta-tooling packages.
+        rel_parts = p.relative_to(
+            _SRC_ROOT,
+        ).parts
+        if rel_parts and any(
+            rel_parts[0].startswith(prefix)
+            for prefix in _EXCLUDED_DIR_PREFIXES
+        ):
             continue
         out.append(p)
     return out
