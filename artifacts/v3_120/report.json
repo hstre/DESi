@@ -1,0 +1,24 @@
+{
+  "allowed_pool_count": 18,
+  "blindness_check_threshold": 0.541667,
+  "blocked_pool_count": 34,
+  "false_activation_rate": 0.111111,
+  "halt": false,
+  "historical_gate_flip_count": 0,
+  "pool_count": 52,
+  "rationale": [
+    "INFO: blindness_check_threshold 0.541667",
+    "INFO: pool_count 52",
+    "INFO: allowed_pool_count 18",
+    "INFO: blocked_pool_count 34",
+    "FAIL: false_activation_rate 0.111111 (ceiling 0.1)",
+    "PASS: true_case_recall 1.0 (floor 1.0)",
+    "INFO: historical_gate_flip_count 0",
+    "INFO: rule_roi 8.256888",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "PRE_T10_RULE_OVERPERMISSIVE",
+  "replay_stability": 1.0,
+  "rule_roi": 8.256888,
+  "true_case_recall": 1.0
+}
