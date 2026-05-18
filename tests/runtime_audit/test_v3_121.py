@@ -117,9 +117,19 @@ def test_artifact_has_hardware_and_runtime() -> None:
 
 
 def test_artifact_report_matches_live_build() -> None:
-    """The reality snapshot is sampled live; we
-    only compare the stable fields against the
-    persisted artifact."""
+    """The reality snapshot is sampled live, so
+    most fields are intentionally per-host
+    fingerprints (``cpu_model``, ``load*``,
+    ``mean_*_utilization``) or per-host sizing
+    (``cpu_count``, ``ram_gb``, ``kernel``,
+    ``cgroup_*``). Only the DERIVED /
+    classification fields are guaranteed to be
+    stable across replays on any sufficiently
+    similar Linux VM: ``runner_type`` (closed
+    enum), ``ci_env`` (env-var fingerprint, empty
+    off CI), ``machine`` (target arch),
+    ``recommendation``, ``halt``, and
+    ``replay_stability``."""
     root = pathlib.Path(
         __file__,
     ).resolve().parents[2]
@@ -130,12 +140,9 @@ def test_artifact_report_matches_live_build() -> None:
     )
     live = build_report().to_dict()
     stable_keys = {
-        "cpu_count", "cpu_model", "ram_gb",
-        "cgroup_cpu_quota",
-        "cgroup_memory_limit_gb",
-        "kernel", "machine", "runner_type",
-        "ci_env",
-        "replay_stability",
+        "ci_env", "halt", "machine",
+        "recommendation", "replay_stability",
+        "runner_type",
     }
     for k in stable_keys:
         assert art[k] == live[k], k
