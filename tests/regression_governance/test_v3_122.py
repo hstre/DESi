@@ -127,7 +127,25 @@ def test_artifact_report_matches_live_build() -> None:
         )
     )
     live = build_report().to_dict()
-    volatile = {"rationale"}
+    # `commit_count`, `classification_counts`,
+    # `avoidable_full_runs`, and
+    # `wasted_cpu_hours` are derived from the
+    # live `git log` and drift by design whenever
+    # new commits are added after the artifact
+    # was pinned; `rationale` includes the same
+    # counts in prose form. The remaining keys
+    # (schema_version, historical_risk_level,
+    # recommendation, replay_stability,
+    # full_regression_cost_minutes, halt) MUST
+    # stay stable across replays.
+    volatile = {
+        "avoidable_full_runs",
+        "classification_counts",
+        "classified_commits",
+        "commit_count",
+        "rationale",
+        "wasted_cpu_hours",
+    }
     art_stable = {
         k: v for k, v in art.items()
         if k not in volatile
