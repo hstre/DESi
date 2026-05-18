@@ -1,0 +1,34 @@
+{
+  "ambiguous_dims": [],
+  "classifications": [
+    {
+      "dim": "contradiction_type",
+      "in_collapsed_candidates": true,
+      "verdict": "epistemic"
+    },
+    {
+      "dim": "corpus_hash",
+      "in_collapsed_candidates": true,
+      "verdict": "proxy"
+    },
+    {
+      "dim": "letter_prefix_hash",
+      "in_collapsed_candidates": false,
+      "verdict": "proxy"
+    }
+  ],
+  "epistemic_dims": [
+    "contradiction_type"
+  ],
+  "proxy_dims": [
+    "corpus_hash",
+    "letter_prefix_hash"
+  ],
+  "schema_version": "v3_112_t10_proxy_verdict",
+  "small_vocab_dims": [
+    "contradiction_type",
+    "corpus_hash",
+    "letter_prefix_hash"
+  ],
+  "validated_vocab_size": 1
+}
