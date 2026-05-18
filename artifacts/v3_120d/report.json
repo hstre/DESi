@@ -1,0 +1,32 @@
+{
+  "adverse_flips": 0,
+  "calibration_window_exists": false,
+  "failing_conditions": [
+    "final_far",
+    "threshold_drift"
+  ],
+  "false_negative_rate": 0.0,
+  "final_far": 0.111111,
+  "final_threshold": 0.541667,
+  "final_tpr": 1.0,
+  "gate_passes_all": false,
+  "halt": false,
+  "historical_gate_flip_count": 0,
+  "rationale": [
+    "INFO: final_threshold 0.541667",
+    "INFO: final_far 0.111111",
+    "INFO: final_tpr 1.0",
+    "INFO: threshold_drift 0.230228",
+    "INFO: adverse_flips 0",
+    "INFO: false_negative_rate 0.0",
+    "INFO: rule_roi 8.256888",
+    "INFO: historical_gate_flip_count 0",
+    "INFO: calibration_window_exists False",
+    "FAIL: gate_passes_all (failing=['final_far', 'threshold_drift'])",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "PRE_T10_EXPERIMENTAL",
+  "replay_stability": 1.0,
+  "rule_roi": 8.256888,
+  "threshold_drift": 0.230228
+}

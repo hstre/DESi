@@ -1,0 +1,17 @@
+{
+  "adverse_flips": 0,
+  "calibration_window_exists": false,
+  "failing_conditions": [
+    "final_far",
+    "threshold_drift"
+  ],
+  "false_negative_rate": 0.0,
+  "final_far": 0.111111,
+  "final_threshold": 0.541667,
+  "final_tpr": 1.0,
+  "gate_passes_all": false,
+  "historical_gate_flip_count": 0,
+  "rule_roi": 8.256888,
+  "schema_version": "v3_120d_pre_t10_final_rule",
+  "threshold_drift": 0.230228
+}
