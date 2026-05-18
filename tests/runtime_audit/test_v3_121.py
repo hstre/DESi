@@ -1,0 +1,141 @@
+"""v3.121 - runtime reality audit tests."""
+from __future__ import annotations
+
+import json
+import pathlib
+
+from desi.runtime_audit.hardware import (
+    detected_ci_env,
+    hardware_snapshot,
+    runner_type,
+)
+from desi.runtime_audit.report import (
+    build_report,
+    build_runtime_reality_audit_artifact,
+)
+from desi.runtime_audit.runner import (
+    bottleneck,
+    cpu_utilisation,
+    load_average,
+    memory_utilisation,
+    snapshot,
+)
+
+
+def test_cpu_count_positive() -> None:
+    hs = hardware_snapshot()
+    assert hs.cpu_count >= 1
+
+
+def test_ram_total_positive() -> None:
+    hs = hardware_snapshot()
+    assert hs.ram_total_bytes > 0
+
+
+def test_kernel_non_empty() -> None:
+    assert hardware_snapshot().kernel != ""
+
+
+def test_machine_non_empty() -> None:
+    assert hardware_snapshot().machine != ""
+
+
+def test_runner_type_in_closed_set() -> None:
+    allowed = {
+        "github_hosted_runner",
+        "ci_unknown",
+        "non_ci_vm",
+    }
+    assert runner_type() in allowed
+
+
+def test_ci_env_keys_present() -> None:
+    env = detected_ci_env()
+    for k in (
+        "GITHUB_ACTIONS", "RUNNER_NAME",
+        "RUNNER_OS", "CI", "GITHUB_RUN_ID",
+    ):
+        assert k in env
+
+
+def test_cpu_utilisation_in_unit_interval() -> None:
+    u = cpu_utilisation(window_seconds=0.05)
+    assert 0.0 <= u <= 1.0
+
+
+def test_memory_utilisation_in_unit_interval() -> None:
+    u = memory_utilisation()
+    assert 0.0 <= u <= 1.0
+
+
+def test_load_average_returns_three_floats() -> None:
+    la = load_average()
+    assert len(la) == 3
+    for v in la:
+        assert isinstance(v, float)
+
+
+def test_bottleneck_in_closed_set() -> None:
+    allowed = {
+        "cpu", "memory", "balanced", "idle",
+    }
+    s = snapshot(window_seconds=0.05)
+    assert bottleneck(s) in allowed
+
+
+def test_replay_stability_is_one() -> None:
+    assert build_report().replay_stability == 1.0
+
+
+def test_recommendation_in_closed_set() -> None:
+    allowed = {
+        "CPU_CONSTRAINED",
+        "CPU_SATURATED",
+        "MEMORY_SATURATED",
+        "HEADROOM_AVAILABLE",
+        "HALT_REPLAY_DRIFT",
+    }
+    assert build_report().recommendation in allowed
+
+
+def test_cgroup_memory_unlimited_normalised() -> None:
+    """Cgroup limits >= 1 TiB are reported as
+    -1.0 (unlimited) rather than the kernel
+    sentinel value."""
+    r = build_report()
+    if r.cgroup_memory_limit_gb >= 0:
+        # If a real limit was set, it must be
+        # below 1 TiB (otherwise normalised).
+        assert r.cgroup_memory_limit_gb < 1024
+
+
+def test_artifact_has_hardware_and_runtime() -> None:
+    art = build_runtime_reality_audit_artifact()
+    assert "hardware" in art
+    assert "runtime" in art
+    assert "runner_type" in art
+
+
+def test_artifact_report_matches_live_build() -> None:
+    """The reality snapshot is sampled live; we
+    only compare the stable fields against the
+    persisted artifact."""
+    root = pathlib.Path(
+        __file__,
+    ).resolve().parents[2]
+    art = json.loads(
+        (root / "artifacts" / "v3_121" / "report.json").read_text(
+            encoding="utf-8",
+        )
+    )
+    live = build_report().to_dict()
+    stable_keys = {
+        "cpu_count", "cpu_model", "ram_gb",
+        "cgroup_cpu_quota",
+        "cgroup_memory_limit_gb",
+        "kernel", "machine", "runner_type",
+        "ci_env",
+        "replay_stability",
+    }
+    for k in stable_keys:
+        assert art[k] == live[k], k
