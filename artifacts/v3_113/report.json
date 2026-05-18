@@ -1,0 +1,108 @@
+{
+  "candidate_count": 12,
+  "halt": false,
+  "rationale": [
+    "INFO: candidate_count 12",
+    "INFO: signal_candidate_count 0",
+    "INFO: signal_candidates []",
+    "INFO: top_candidate support_propagation_length",
+    "FAIL: top_candidate_auc 0.5 (threshold 0.7)",
+    "INFO: top_candidate_purity 0.667229",
+    "INFO: top_candidate_margin 0.0",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "NO_STRUCTURAL_SIGNAL",
+  "replay_stability": 1.0,
+  "signal_candidate_count": 0,
+  "signal_candidates": [],
+  "structural_outcomes": [
+    {
+      "candidate": "inference_depth",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "premise_fanout",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "dependency_graph_shape",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "operator_transition_pattern",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "contradiction_scope",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "support_graph_entropy",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "claim_dependency_cycle",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "argument_reuse_pattern",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "premise_resolution_order",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "causal_directionality",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "branch_reconvergence",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "support_propagation_length",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    }
+  ],
+  "top_candidate": "support_propagation_length",
+  "top_candidate_auc": 0.5,
+  "top_candidate_margin": 0.0,
+  "top_candidate_purity": 0.667229
+}
