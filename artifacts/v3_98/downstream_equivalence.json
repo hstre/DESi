@@ -1,0 +1,504 @@
+{
+  "axis_overlaps": [
+    {
+      "axis": "final_verdict",
+      "overlap": 1.0
+    },
+    {
+      "axis": "rescue_eligible",
+      "overlap": 1.0
+    },
+    {
+      "axis": "intervention_kind",
+      "overlap": 1.0
+    },
+    {
+      "axis": "failure_class",
+      "overlap": 1.0
+    },
+    {
+      "axis": "audit_outcome",
+      "overlap": 1.0
+    },
+    {
+      "axis": "branch_path",
+      "overlap": 1.0
+    },
+    {
+      "axis": "support_path",
+      "overlap": 1.0
+    },
+    {
+      "axis": "rollback_required",
+      "overlap": 1.0
+    }
+  ],
+  "downstream_signatures": [
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "G_v316susp",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v316-susp:G01"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "G_v316susp",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v316-susp:G02"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "G_v316susp",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v316-susp:G03"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "G_v316susp",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v316-susp:G04"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "G_v316susp",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v316-susp:G05"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "G_v316susp",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v316-susp:G06"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "G_v316susp",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v316-susp:G07"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "G_v316susp",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v316-susp:G08"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "G_v316susp",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v316-susp:G09"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "E_v317h",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v317-h:E01"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "E_v317h",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v317-h:E02"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "E_v317h",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v317-h:E03"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "E_v317h",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v317-h:E04"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "E_v317h",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v317-h:E05"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "E_v317h",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v317-h:E06"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "E_v317h",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v317-h:E07"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "E_v317h",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v317-h:E08"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "E_v317h",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v317-h:E09"
+    },
+    {
+      "audit_outcome": "rejected",
+      "branch_path": [
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "failure_class": "audit_loss",
+      "family_id": "E_v317h",
+      "final_verdict": "logically_rejected",
+      "intervention_kind": "reject",
+      "rescue_eligible": false,
+      "rollback_required": false,
+      "support_path": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      "trajectory_id": "v317-h:E10"
+    }
+  ],
+  "entangled_family_ids": [
+    "G_v316susp",
+    "E_v317h"
+  ],
+  "failure_class_overlap": 1.0,
+  "intervention_overlap": 1.0,
+  "outcome_divergence": 0.0,
+  "path_overlap": 1.0,
+  "schema_version": "v3_98_downstream_equivalence",
+  "verdict_overlap": 1.0
+}
