@@ -1,0 +1,435 @@
+{
+  "outcomes": [
+    {
+      "digests": [
+        "6a3a30a6163db5c13b8c160f180f10f0c769932c472f766f84c5eb8937f1b174",
+        "6a3a30a6163db5c13b8c160f180f10f0c769932c472f766f84c5eb8937f1b174",
+        "6a3a30a6163db5c13b8c160f180f10f0c769932c472f766f84c5eb8937f1b174",
+        "6a3a30a6163db5c13b8c160f180f10f0c769932c472f766f84c5eb8937f1b174",
+        "6a3a30a6163db5c13b8c160f180f10f0c769932c472f766f84c5eb8937f1b174"
+      ],
+      "family": "mozart",
+      "sprint_id": "v3_69",
+      "stable": true
+    },
+    {
+      "digests": [
+        "ff784551b8d57b8619a2a4c1e866fa4671a9eb1e3b7a57523ad2b8b11bbbd231",
+        "ff784551b8d57b8619a2a4c1e866fa4671a9eb1e3b7a57523ad2b8b11bbbd231",
+        "ff784551b8d57b8619a2a4c1e866fa4671a9eb1e3b7a57523ad2b8b11bbbd231",
+        "ff784551b8d57b8619a2a4c1e866fa4671a9eb1e3b7a57523ad2b8b11bbbd231",
+        "ff784551b8d57b8619a2a4c1e866fa4671a9eb1e3b7a57523ad2b8b11bbbd231"
+      ],
+      "family": "mozart",
+      "sprint_id": "v3_70",
+      "stable": true
+    },
+    {
+      "digests": [
+        "60258418ac5dbdcb44fc973c64c2e4a3959555d20bfbd56817cb98afd542b7f4",
+        "60258418ac5dbdcb44fc973c64c2e4a3959555d20bfbd56817cb98afd542b7f4",
+        "60258418ac5dbdcb44fc973c64c2e4a3959555d20bfbd56817cb98afd542b7f4",
+        "60258418ac5dbdcb44fc973c64c2e4a3959555d20bfbd56817cb98afd542b7f4",
+        "60258418ac5dbdcb44fc973c64c2e4a3959555d20bfbd56817cb98afd542b7f4"
+      ],
+      "family": "mozart",
+      "sprint_id": "v3_71",
+      "stable": true
+    },
+    {
+      "digests": [
+        "0f31225027b85751d80c3be126f040ed94c483cb9bd6f9c0a9028727cd174834",
+        "0f31225027b85751d80c3be126f040ed94c483cb9bd6f9c0a9028727cd174834",
+        "0f31225027b85751d80c3be126f040ed94c483cb9bd6f9c0a9028727cd174834",
+        "0f31225027b85751d80c3be126f040ed94c483cb9bd6f9c0a9028727cd174834",
+        "0f31225027b85751d80c3be126f040ed94c483cb9bd6f9c0a9028727cd174834"
+      ],
+      "family": "mozart",
+      "sprint_id": "v3_72",
+      "stable": true
+    },
+    {
+      "digests": [
+        "213d81b4e5c1903e7045d65a1fa09ccc1b9a4c83fcd3e472dbd127d351689d87",
+        "213d81b4e5c1903e7045d65a1fa09ccc1b9a4c83fcd3e472dbd127d351689d87",
+        "213d81b4e5c1903e7045d65a1fa09ccc1b9a4c83fcd3e472dbd127d351689d87",
+        "213d81b4e5c1903e7045d65a1fa09ccc1b9a4c83fcd3e472dbd127d351689d87",
+        "213d81b4e5c1903e7045d65a1fa09ccc1b9a4c83fcd3e472dbd127d351689d87"
+      ],
+      "family": "neptun",
+      "sprint_id": "v3_73",
+      "stable": true
+    },
+    {
+      "digests": [
+        "afc04c81688c89710ac6022631bf33b87c70d1785bcb54ef632f88df42c04946",
+        "afc04c81688c89710ac6022631bf33b87c70d1785bcb54ef632f88df42c04946",
+        "afc04c81688c89710ac6022631bf33b87c70d1785bcb54ef632f88df42c04946",
+        "afc04c81688c89710ac6022631bf33b87c70d1785bcb54ef632f88df42c04946",
+        "afc04c81688c89710ac6022631bf33b87c70d1785bcb54ef632f88df42c04946"
+      ],
+      "family": "neptun",
+      "sprint_id": "v3_74",
+      "stable": true
+    },
+    {
+      "digests": [
+        "122fe9f832ea211946d46b188f00757815b80e0e363c893abdd3bef993abb677",
+        "122fe9f832ea211946d46b188f00757815b80e0e363c893abdd3bef993abb677",
+        "122fe9f832ea211946d46b188f00757815b80e0e363c893abdd3bef993abb677",
+        "122fe9f832ea211946d46b188f00757815b80e0e363c893abdd3bef993abb677",
+        "122fe9f832ea211946d46b188f00757815b80e0e363c893abdd3bef993abb677"
+      ],
+      "family": "neptun",
+      "sprint_id": "v3_75",
+      "stable": true
+    },
+    {
+      "digests": [
+        "e791bd6abd58540ce6dd9ec246801672d31946693875cbebc4956d0ff4209f71",
+        "e791bd6abd58540ce6dd9ec246801672d31946693875cbebc4956d0ff4209f71",
+        "e791bd6abd58540ce6dd9ec246801672d31946693875cbebc4956d0ff4209f71",
+        "e791bd6abd58540ce6dd9ec246801672d31946693875cbebc4956d0ff4209f71",
+        "e791bd6abd58540ce6dd9ec246801672d31946693875cbebc4956d0ff4209f71"
+      ],
+      "family": "neptun",
+      "sprint_id": "v3_76",
+      "stable": true
+    },
+    {
+      "digests": [
+        "4d4703d6f8dec03a1f721238df026c3710379404abcf95bd764ee1eb438f2fe5",
+        "4d4703d6f8dec03a1f721238df026c3710379404abcf95bd764ee1eb438f2fe5",
+        "4d4703d6f8dec03a1f721238df026c3710379404abcf95bd764ee1eb438f2fe5",
+        "4d4703d6f8dec03a1f721238df026c3710379404abcf95bd764ee1eb438f2fe5",
+        "4d4703d6f8dec03a1f721238df026c3710379404abcf95bd764ee1eb438f2fe5"
+      ],
+      "family": "neptun",
+      "sprint_id": "v3_77",
+      "stable": true
+    },
+    {
+      "digests": [
+        "b2b4ec30b875293f9f8352f9ed5b24d53d81f9a86803f07460e6962e7a1cb94f",
+        "b2b4ec30b875293f9f8352f9ed5b24d53d81f9a86803f07460e6962e7a1cb94f",
+        "b2b4ec30b875293f9f8352f9ed5b24d53d81f9a86803f07460e6962e7a1cb94f",
+        "b2b4ec30b875293f9f8352f9ed5b24d53d81f9a86803f07460e6962e7a1cb94f",
+        "b2b4ec30b875293f9f8352f9ed5b24d53d81f9a86803f07460e6962e7a1cb94f"
+      ],
+      "family": "neptun",
+      "sprint_id": "v3_80",
+      "stable": true
+    },
+    {
+      "digests": [
+        "6a873c12e38c592b0d1c143acf15f98688cbe98db331c2cf70f86547d372960d",
+        "6a873c12e38c592b0d1c143acf15f98688cbe98db331c2cf70f86547d372960d",
+        "6a873c12e38c592b0d1c143acf15f98688cbe98db331c2cf70f86547d372960d",
+        "6a873c12e38c592b0d1c143acf15f98688cbe98db331c2cf70f86547d372960d",
+        "6a873c12e38c592b0d1c143acf15f98688cbe98db331c2cf70f86547d372960d"
+      ],
+      "family": "doppelganger",
+      "sprint_id": "v3_81",
+      "stable": true
+    },
+    {
+      "digests": [
+        "ddd8ccb4caeecc1f55d9fb05cd265c9e5e6219d2dc523bf864fce0d25234677a",
+        "ddd8ccb4caeecc1f55d9fb05cd265c9e5e6219d2dc523bf864fce0d25234677a",
+        "ddd8ccb4caeecc1f55d9fb05cd265c9e5e6219d2dc523bf864fce0d25234677a",
+        "ddd8ccb4caeecc1f55d9fb05cd265c9e5e6219d2dc523bf864fce0d25234677a",
+        "ddd8ccb4caeecc1f55d9fb05cd265c9e5e6219d2dc523bf864fce0d25234677a"
+      ],
+      "family": "doppelganger",
+      "sprint_id": "v3_82",
+      "stable": true
+    },
+    {
+      "digests": [
+        "82efe9f4750b87dbf57193d93fda3061f204755fd1df3d4d2c2ba3b05d623e55",
+        "82efe9f4750b87dbf57193d93fda3061f204755fd1df3d4d2c2ba3b05d623e55",
+        "82efe9f4750b87dbf57193d93fda3061f204755fd1df3d4d2c2ba3b05d623e55",
+        "82efe9f4750b87dbf57193d93fda3061f204755fd1df3d4d2c2ba3b05d623e55",
+        "82efe9f4750b87dbf57193d93fda3061f204755fd1df3d4d2c2ba3b05d623e55"
+      ],
+      "family": "doppelganger",
+      "sprint_id": "v3_83",
+      "stable": true
+    },
+    {
+      "digests": [
+        "343777ad3a89bfc360bb9814157cb928ac5e52dff9204251a821bd3a25556873",
+        "343777ad3a89bfc360bb9814157cb928ac5e52dff9204251a821bd3a25556873",
+        "343777ad3a89bfc360bb9814157cb928ac5e52dff9204251a821bd3a25556873",
+        "343777ad3a89bfc360bb9814157cb928ac5e52dff9204251a821bd3a25556873",
+        "343777ad3a89bfc360bb9814157cb928ac5e52dff9204251a821bd3a25556873"
+      ],
+      "family": "doppelganger",
+      "sprint_id": "v3_84",
+      "stable": true
+    },
+    {
+      "digests": [
+        "48cf774b90efffdafd3de8b17c8d2ccb72b3ebdb361e81be111f3dccc8cde894",
+        "48cf774b90efffdafd3de8b17c8d2ccb72b3ebdb361e81be111f3dccc8cde894",
+        "48cf774b90efffdafd3de8b17c8d2ccb72b3ebdb361e81be111f3dccc8cde894",
+        "48cf774b90efffdafd3de8b17c8d2ccb72b3ebdb361e81be111f3dccc8cde894",
+        "48cf774b90efffdafd3de8b17c8d2ccb72b3ebdb361e81be111f3dccc8cde894"
+      ],
+      "family": "novel_family",
+      "sprint_id": "v3_85",
+      "stable": true
+    },
+    {
+      "digests": [
+        "7728e57004a9024a352dc921e3b005361526544574f96e0b29b196c2fb49585c",
+        "7728e57004a9024a352dc921e3b005361526544574f96e0b29b196c2fb49585c",
+        "7728e57004a9024a352dc921e3b005361526544574f96e0b29b196c2fb49585c",
+        "7728e57004a9024a352dc921e3b005361526544574f96e0b29b196c2fb49585c",
+        "7728e57004a9024a352dc921e3b005361526544574f96e0b29b196c2fb49585c"
+      ],
+      "family": "novel_family",
+      "sprint_id": "v3_86",
+      "stable": true
+    },
+    {
+      "digests": [
+        "2bfe8ddfb599b16ee8e2ff511dd9e9fd95af74e612ea6d6e7e1d743e9069cfc1",
+        "2bfe8ddfb599b16ee8e2ff511dd9e9fd95af74e612ea6d6e7e1d743e9069cfc1",
+        "2bfe8ddfb599b16ee8e2ff511dd9e9fd95af74e612ea6d6e7e1d743e9069cfc1",
+        "2bfe8ddfb599b16ee8e2ff511dd9e9fd95af74e612ea6d6e7e1d743e9069cfc1",
+        "2bfe8ddfb599b16ee8e2ff511dd9e9fd95af74e612ea6d6e7e1d743e9069cfc1"
+      ],
+      "family": "novel_family",
+      "sprint_id": "v3_87",
+      "stable": true
+    },
+    {
+      "digests": [
+        "ec4db3aae4f1635d893ee95e9e9544d4de347572cb589de339f6e96a87dc3f57",
+        "ec4db3aae4f1635d893ee95e9e9544d4de347572cb589de339f6e96a87dc3f57",
+        "ec4db3aae4f1635d893ee95e9e9544d4de347572cb589de339f6e96a87dc3f57",
+        "ec4db3aae4f1635d893ee95e9e9544d4de347572cb589de339f6e96a87dc3f57",
+        "ec4db3aae4f1635d893ee95e9e9544d4de347572cb589de339f6e96a87dc3f57"
+      ],
+      "family": "novel_family",
+      "sprint_id": "v3_88",
+      "stable": true
+    },
+    {
+      "digests": [
+        "6adffc2ba5b7b5bda7712bfc135a62c5c08f786f3866e427aa5c4de14e9770de",
+        "6adffc2ba5b7b5bda7712bfc135a62c5c08f786f3866e427aa5c4de14e9770de",
+        "6adffc2ba5b7b5bda7712bfc135a62c5c08f786f3866e427aa5c4de14e9770de",
+        "6adffc2ba5b7b5bda7712bfc135a62c5c08f786f3866e427aa5c4de14e9770de",
+        "6adffc2ba5b7b5bda7712bfc135a62c5c08f786f3866e427aa5c4de14e9770de"
+      ],
+      "family": "frame_normalization",
+      "sprint_id": "v3_89",
+      "stable": true
+    },
+    {
+      "digests": [
+        "c9aa0c36cce4d483ea64d93b5611cc7d3667da6dcb0eac0f1bf61eb8174f9f69",
+        "c9aa0c36cce4d483ea64d93b5611cc7d3667da6dcb0eac0f1bf61eb8174f9f69",
+        "c9aa0c36cce4d483ea64d93b5611cc7d3667da6dcb0eac0f1bf61eb8174f9f69",
+        "c9aa0c36cce4d483ea64d93b5611cc7d3667da6dcb0eac0f1bf61eb8174f9f69",
+        "c9aa0c36cce4d483ea64d93b5611cc7d3667da6dcb0eac0f1bf61eb8174f9f69"
+      ],
+      "family": "frame_normalization",
+      "sprint_id": "v3_90",
+      "stable": true
+    },
+    {
+      "digests": [
+        "88284b86cdbda08b4afa15dd7ac6a3b1cadf0ce954b55086d3ef2af8df414b47",
+        "88284b86cdbda08b4afa15dd7ac6a3b1cadf0ce954b55086d3ef2af8df414b47",
+        "88284b86cdbda08b4afa15dd7ac6a3b1cadf0ce954b55086d3ef2af8df414b47",
+        "88284b86cdbda08b4afa15dd7ac6a3b1cadf0ce954b55086d3ef2af8df414b47",
+        "88284b86cdbda08b4afa15dd7ac6a3b1cadf0ce954b55086d3ef2af8df414b47"
+      ],
+      "family": "frame_normalization",
+      "sprint_id": "v3_91",
+      "stable": true
+    },
+    {
+      "digests": [
+        "a81d798628725d0fecab12d7c092f079b4729ca783f40ddc62297b736cda91a9",
+        "a81d798628725d0fecab12d7c092f079b4729ca783f40ddc62297b736cda91a9",
+        "a81d798628725d0fecab12d7c092f079b4729ca783f40ddc62297b736cda91a9",
+        "a81d798628725d0fecab12d7c092f079b4729ca783f40ddc62297b736cda91a9",
+        "a81d798628725d0fecab12d7c092f079b4729ca783f40ddc62297b736cda91a9"
+      ],
+      "family": "frame_normalization",
+      "sprint_id": "v3_92",
+      "stable": true
+    },
+    {
+      "digests": [
+        "f91b8c364e7c2af80d8aa7b605c2ab1b03e6deafa3e7a77ff33630db12b25042",
+        "f91b8c364e7c2af80d8aa7b605c2ab1b03e6deafa3e7a77ff33630db12b25042",
+        "f91b8c364e7c2af80d8aa7b605c2ab1b03e6deafa3e7a77ff33630db12b25042",
+        "f91b8c364e7c2af80d8aa7b605c2ab1b03e6deafa3e7a77ff33630db12b25042",
+        "f91b8c364e7c2af80d8aa7b605c2ab1b03e6deafa3e7a77ff33630db12b25042"
+      ],
+      "family": "entangled",
+      "sprint_id": "v3_93",
+      "stable": true
+    },
+    {
+      "digests": [
+        "98c0d0b1ae89e708e51e713a165046ce5adb7f47404d38d86f25e08b35bfc321",
+        "98c0d0b1ae89e708e51e713a165046ce5adb7f47404d38d86f25e08b35bfc321",
+        "98c0d0b1ae89e708e51e713a165046ce5adb7f47404d38d86f25e08b35bfc321",
+        "98c0d0b1ae89e708e51e713a165046ce5adb7f47404d38d86f25e08b35bfc321",
+        "98c0d0b1ae89e708e51e713a165046ce5adb7f47404d38d86f25e08b35bfc321"
+      ],
+      "family": "entangled",
+      "sprint_id": "v3_94",
+      "stable": true
+    },
+    {
+      "digests": [
+        "0945619348ac65ad460f3cb6d1a42f9c0d227f1e113972d861e194ae49bd8aa1",
+        "0945619348ac65ad460f3cb6d1a42f9c0d227f1e113972d861e194ae49bd8aa1",
+        "0945619348ac65ad460f3cb6d1a42f9c0d227f1e113972d861e194ae49bd8aa1",
+        "0945619348ac65ad460f3cb6d1a42f9c0d227f1e113972d861e194ae49bd8aa1",
+        "0945619348ac65ad460f3cb6d1a42f9c0d227f1e113972d861e194ae49bd8aa1"
+      ],
+      "family": "entangled",
+      "sprint_id": "v3_95",
+      "stable": true
+    }
+  ],
+  "schema_version": "v3_96d_historical_replay_audit",
+  "seed_count": 5,
+  "sprint_count": 25,
+  "sprints": [
+    {
+      "family": "mozart",
+      "module_path": "desi.mozart_probe.report",
+      "sprint_id": "v3_69"
+    },
+    {
+      "family": "mozart",
+      "module_path": "desi.mozart_counterfactual.report",
+      "sprint_id": "v3_70"
+    },
+    {
+      "family": "mozart",
+      "module_path": "desi.mozart_coverage_source.report",
+      "sprint_id": "v3_71"
+    },
+    {
+      "family": "mozart",
+      "module_path": "desi.mozart_forecast.report",
+      "sprint_id": "v3_72"
+    },
+    {
+      "family": "neptun",
+      "module_path": "desi.missing_claim.report",
+      "sprint_id": "v3_73"
+    },
+    {
+      "family": "neptun",
+      "module_path": "desi.missing_localization.report",
+      "sprint_id": "v3_74"
+    },
+    {
+      "family": "neptun",
+      "module_path": "desi.missing_candidate.report",
+      "sprint_id": "v3_75"
+    },
+    {
+      "family": "neptun",
+      "module_path": "desi.missing_blind.report",
+      "sprint_id": "v3_76"
+    },
+    {
+      "family": "neptun",
+      "module_path": "desi.missing_negative_controls.report",
+      "sprint_id": "v3_77"
+    },
+    {
+      "family": "neptun",
+      "module_path": "desi.redundancy_aware_neptun.report",
+      "sprint_id": "v3_80"
+    },
+    {
+      "family": "doppelganger",
+      "module_path": "desi.doppelgaenger.report",
+      "sprint_id": "v3_81"
+    },
+    {
+      "family": "doppelganger",
+      "module_path": "desi.minimal_features.report",
+      "sprint_id": "v3_82"
+    },
+    {
+      "family": "doppelganger",
+      "module_path": "desi.cross_corpus_doppelgaenger.report",
+      "sprint_id": "v3_83"
+    },
+    {
+      "family": "doppelganger",
+      "module_path": "desi.predictive_degeneracy.report",
+      "sprint_id": "v3_84"
+    },
+    {
+      "family": "novel_family",
+      "module_path": "desi.novel_families.report",
+      "sprint_id": "v3_85"
+    },
+    {
+      "family": "novel_family",
+      "module_path": "desi.novel_family_cluster.report",
+      "sprint_id": "v3_86"
+    },
+    {
+      "family": "novel_family",
+      "module_path": "desi.novel_minimal_features.report",
+      "sprint_id": "v3_87"
+    },
+    {
+      "family": "novel_family",
+      "module_path": "desi.novel_predictive.report",
+      "sprint_id": "v3_88"
+    },
+    {
+      "family": "frame_normalization",
+      "module_path": "desi.frame_normalization.report",
+      "sprint_id": "v3_89"
+    },
+    {
+      "family": "frame_normalization",
+      "module_path": "desi.frame_normalized_cluster.report",
+      "sprint_id": "v3_90"
+    },
+    {
+      "family": "frame_normalization",
+      "module_path": "desi.frame_normalized_minimal.report",
+      "sprint_id": "v3_91"
+    },
+    {
+      "family": "frame_normalization",
+      "module_path": "desi.frame_normalized_predictive.report",
+      "sprint_id": "v3_92"
+    },
+    {
+      "family": "entangled",
+      "module_path": "desi.entangled.report",
+      "sprint_id": "v3_93"
+    },
+    {
+      "family": "entangled",
+      "module_path": "desi.entangled_ablation.report",
+      "sprint_id": "v3_94"
+    },
+    {
+      "family": "entangled",
+      "module_path": "desi.entangled_method.report",
+      "sprint_id": "v3_95"
+    }
+  ],
+  "total_replay_count": 125
+}
