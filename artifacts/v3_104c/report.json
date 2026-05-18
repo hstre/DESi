@@ -1,0 +1,211 @@
+{
+  "halt": false,
+  "order_invariance": 1.0,
+  "permutation_count": 10,
+  "rationale": [
+    "INFO: seed_count 10",
+    "INFO: total_cell_count 23",
+    "PASS: stress_adverse_flips_max 0",
+    "INFO: stress_beneficial_flips min=4 max=4",
+    "PASS: seed_invariance 1.0",
+    "PASS: order_invariance 1.0",
+    "INFO: reimport_invariance 1.0",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "STRESS_STABLE",
+  "reimport_count": 3,
+  "reimport_invariance": 1.0,
+  "replay_stability": 1.0,
+  "seed_count": 10,
+  "seed_invariance": 1.0,
+  "stress_adverse_flips_max": 0,
+  "stress_beneficial_flips_max": 4,
+  "stress_beneficial_flips_min": 4,
+  "stress_outcomes": [
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.494239,
+      "beneficial_flip_count": 4,
+      "cell_id": "seed_0",
+      "kind": "seed_reshuffle"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.494239,
+      "beneficial_flip_count": 4,
+      "cell_id": "seed_1",
+      "kind": "seed_reshuffle"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.494239,
+      "beneficial_flip_count": 4,
+      "cell_id": "seed_2",
+      "kind": "seed_reshuffle"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.494239,
+      "beneficial_flip_count": 4,
+      "cell_id": "seed_3",
+      "kind": "seed_reshuffle"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.494239,
+      "beneficial_flip_count": 4,
+      "cell_id": "seed_4",
+      "kind": "seed_reshuffle"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.494239,
+      "beneficial_flip_count": 4,
+      "cell_id": "seed_5",
+      "kind": "seed_reshuffle"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.494239,
+      "beneficial_flip_count": 4,
+      "cell_id": "seed_6",
+      "kind": "seed_reshuffle"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.494239,
+      "beneficial_flip_count": 4,
+      "cell_id": "seed_7",
+      "kind": "seed_reshuffle"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.494239,
+      "beneficial_flip_count": 4,
+      "cell_id": "seed_8",
+      "kind": "seed_reshuffle"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.494239,
+      "beneficial_flip_count": 4,
+      "cell_id": "seed_9",
+      "kind": "seed_reshuffle"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.0,
+      "beneficial_flip_count": 4,
+      "cell_id": "perm_0",
+      "kind": "outcome_permutation"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.0,
+      "beneficial_flip_count": 4,
+      "cell_id": "perm_1",
+      "kind": "outcome_permutation"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.0,
+      "beneficial_flip_count": 4,
+      "cell_id": "perm_2",
+      "kind": "outcome_permutation"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.0,
+      "beneficial_flip_count": 4,
+      "cell_id": "perm_3",
+      "kind": "outcome_permutation"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.0,
+      "beneficial_flip_count": 4,
+      "cell_id": "perm_4",
+      "kind": "outcome_permutation"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.0,
+      "beneficial_flip_count": 4,
+      "cell_id": "perm_5",
+      "kind": "outcome_permutation"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.0,
+      "beneficial_flip_count": 4,
+      "cell_id": "perm_6",
+      "kind": "outcome_permutation"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.0,
+      "beneficial_flip_count": 4,
+      "cell_id": "perm_7",
+      "kind": "outcome_permutation"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.0,
+      "beneficial_flip_count": 4,
+      "cell_id": "perm_8",
+      "kind": "outcome_permutation"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.0,
+      "beneficial_flip_count": 4,
+      "cell_id": "perm_9",
+      "kind": "outcome_permutation"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.494239,
+      "beneficial_flip_count": 4,
+      "cell_id": "reimport_0",
+      "kind": "isolated_module_reimport"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.494239,
+      "beneficial_flip_count": 4,
+      "cell_id": "reimport_1",
+      "kind": "isolated_module_reimport"
+    },
+    {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.494239,
+      "beneficial_flip_count": 4,
+      "cell_id": "reimport_2",
+      "kind": "isolated_module_reimport"
+    }
+  ],
+  "total_cell_count": 23
+}
