@@ -1,0 +1,266 @@
+{
+  "complexity_delta": 0.3,
+  "instance_count": 31,
+  "outcomes": [
+    {
+      "best_auc": 0.520339,
+      "best_candidate": "",
+      "best_purity": 0.666667,
+      "family_a": "v314:A",
+      "family_b": "v314:B",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.653681,
+      "best_candidate": "",
+      "best_purity": 0.75,
+      "family_a": "v314:A",
+      "family_b": "v315:H",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.521772,
+      "best_candidate": "",
+      "best_purity": 0.789474,
+      "family_a": "v314:A",
+      "family_b": "v316-surv:A",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.653681,
+      "best_candidate": "",
+      "best_purity": 0.75,
+      "family_a": "v314:A",
+      "family_b": "v316-surv:H",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.520339,
+      "best_candidate": "",
+      "best_purity": 0.666667,
+      "family_a": "v314:A",
+      "family_b": "v317-h:B",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.51219,
+      "best_candidate": "",
+      "best_purity": 0.5,
+      "family_a": "v314:B",
+      "family_b": "v315:E",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.619652,
+      "best_candidate": "",
+      "best_purity": 0.8,
+      "family_a": "v314:B",
+      "family_b": "v315:H",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.527327,
+      "best_candidate": "",
+      "best_purity": 0.789474,
+      "family_a": "v314:B",
+      "family_b": "v316-surv:A",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.51219,
+      "best_candidate": "",
+      "best_purity": 0.5,
+      "family_a": "v314:B",
+      "family_b": "v316-surv:E",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.619652,
+      "best_candidate": "",
+      "best_purity": 0.8,
+      "family_a": "v314:B",
+      "family_b": "v316-surv:H",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.520339,
+      "best_candidate": "",
+      "best_purity": 0.666667,
+      "family_a": "v314:B",
+      "family_b": "v317-h:A",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.7146,
+      "best_candidate": "unique_token_count",
+      "best_purity": 0.857143,
+      "family_a": "v314:B",
+      "family_b": "v318-wmf:WMF",
+      "rescued": true
+    },
+    {
+      "best_auc": 0.622609,
+      "best_candidate": "",
+      "best_purity": 0.75,
+      "family_a": "v315:E",
+      "family_b": "v315:H",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.5,
+      "best_candidate": "",
+      "best_purity": 0.789474,
+      "family_a": "v315:E",
+      "family_b": "v316-surv:A",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.622609,
+      "best_candidate": "",
+      "best_purity": 0.75,
+      "family_a": "v315:E",
+      "family_b": "v316-surv:H",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.51219,
+      "best_candidate": "",
+      "best_purity": 0.5,
+      "family_a": "v315:E",
+      "family_b": "v317-h:B",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.514062,
+      "best_candidate": "",
+      "best_purity": 0.555556,
+      "family_a": "v315:H",
+      "family_b": "v316-surv:A",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.622609,
+      "best_candidate": "",
+      "best_purity": 0.75,
+      "family_a": "v315:H",
+      "family_b": "v316-surv:E",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.653681,
+      "best_candidate": "",
+      "best_purity": 0.75,
+      "family_a": "v315:H",
+      "family_b": "v317-h:A",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.619652,
+      "best_candidate": "",
+      "best_purity": 0.8,
+      "family_a": "v315:H",
+      "family_b": "v317-h:B",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.5,
+      "best_candidate": "",
+      "best_purity": 0.789474,
+      "family_a": "v316-surv:A",
+      "family_b": "v316-surv:E",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.514062,
+      "best_candidate": "",
+      "best_purity": 0.555556,
+      "family_a": "v316-surv:A",
+      "family_b": "v316-surv:H",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.521772,
+      "best_candidate": "",
+      "best_purity": 0.789474,
+      "family_a": "v316-surv:A",
+      "family_b": "v317-h:A",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.527327,
+      "best_candidate": "",
+      "best_purity": 0.789474,
+      "family_a": "v316-surv:A",
+      "family_b": "v317-h:B",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.6163,
+      "best_candidate": "",
+      "best_purity": 0.882353,
+      "family_a": "v316-surv:A",
+      "family_b": "v318-wmf:WMF",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.622609,
+      "best_candidate": "",
+      "best_purity": 0.75,
+      "family_a": "v316-surv:E",
+      "family_b": "v316-surv:H",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.51219,
+      "best_candidate": "",
+      "best_purity": 0.5,
+      "family_a": "v316-surv:E",
+      "family_b": "v317-h:B",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.653681,
+      "best_candidate": "",
+      "best_purity": 0.75,
+      "family_a": "v316-surv:H",
+      "family_b": "v317-h:A",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.619652,
+      "best_candidate": "",
+      "best_purity": 0.8,
+      "family_a": "v316-surv:H",
+      "family_b": "v317-h:B",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.520339,
+      "best_candidate": "",
+      "best_purity": 0.666667,
+      "family_a": "v317-h:A",
+      "family_b": "v317-h:B",
+      "rescued": false
+    },
+    {
+      "best_auc": 0.7146,
+      "best_candidate": "unique_token_count",
+      "best_purity": 0.857143,
+      "family_a": "v317-h:B",
+      "family_b": "v318-wmf:WMF",
+      "rescued": true
+    }
+  ],
+  "schema_version": "v3_111_t10_semantic_substitution",
+  "semantic_auc": 0.576958,
+  "semantic_candidates": [
+    "mean_word_length",
+    "unique_token_count",
+    "consonant_vowel_ratio",
+    "bigram_diversity",
+    "first_noun_hash",
+    "capital_ratio"
+  ],
+  "semantic_purity": 0.719718,
+  "semantic_recovery": 0.064516
+}
