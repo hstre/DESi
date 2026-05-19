@@ -1,0 +1,23 @@
+{
+  "baseline_nodes": 4300,
+  "compute_saving": 0.532558,
+  "governed_branch_count": 43,
+  "guided_nodes": 2010,
+  "halt": false,
+  "node_reduction": 0.532558,
+  "pv_stability": 1.0,
+  "rationale": [
+    "INFO: governed_branch_count 43",
+    "INFO: action_counts {'search': 22, 'skip': 6, 'replay': 15}",
+    "INFO: baseline_nodes 4300",
+    "INFO: guided_nodes 2010",
+    "PASS: node_reduction 0.532558 >= 0.30",
+    "PASS: tactical_recall 1.0",
+    "PASS: pv_stability 1.0 >= 0.90",
+    "PASS: compute_saving 0.532558 >= 0.30",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "GUIDED_COMPRESSED",
+  "replay_stability": 1.0,
+  "tactical_recall": 1.0
+}
