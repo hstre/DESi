@@ -1,0 +1,28 @@
+{
+  "branch_count": 43,
+  "critical_branch_count": 3,
+  "forced_line_detection": 1.0,
+  "halt": false,
+  "low_information_rate": 0.488372,
+  "mean_branching_factor": 4.3,
+  "no_critical_dropped": true,
+  "position_count": 10,
+  "rationale": [
+    "INFO: position_count 10",
+    "INFO: branch_count 43",
+    "INFO: kind_counts {'tactical': 2, 'quiet': 2, 'middlegame': 2, 'endgame': 2, 'strategic': 2}",
+    "INFO: mean_branching_factor 4.3",
+    "INFO: verdict_distribution {'keep': 17, 'low_info': 6, 'redundant': 15, 'forced': 5}",
+    "INFO: critical_branch_count 3",
+    "PASS: redundant_branch_rate 0.882353 >= 0.80",
+    "INFO: low_information_rate 0.488372",
+    "PASS: forced_line_detection 1.0 >= 0.90",
+    "INFO: replay_reuse 0.488372",
+    "PASS: no_critical_branch_dropped",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "REDUNDANCY_AUDITED",
+  "redundant_branch_rate": 0.882353,
+  "replay_reuse": 0.488372,
+  "replay_stability": 1.0
+}
