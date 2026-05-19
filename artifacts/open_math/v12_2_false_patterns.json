@@ -1,0 +1,168 @@
+{
+  "claim_count": 10,
+  "claims": [
+    {
+      "claim_id": "pat-num-001",
+      "ground_truth_kind": "numerological",
+      "is_genuine": false,
+      "text": "Every 17th prime carries a special structural meaning - the numerology is striking."
+    },
+    {
+      "claim_id": "pat-num-002",
+      "ground_truth_kind": "numerological",
+      "is_genuine": false,
+      "text": "Primes ending in 7 have a sacred geometry; this is suggestive."
+    },
+    {
+      "claim_id": "pat-small-001",
+      "ground_truth_kind": "small_sample",
+      "is_genuine": false,
+      "text": "We tested 5 even numbers and the pattern holds; therefore it must generalise."
+    },
+    {
+      "claim_id": "pat-small-002",
+      "ground_truth_kind": "small_sample",
+      "is_genuine": false,
+      "text": "Three datapoints confirm the trend with overwhelming evidence."
+    },
+    {
+      "claim_id": "pat-spur-001",
+      "ground_truth_kind": "spurious_cluster",
+      "is_genuine": false,
+      "text": "Primes near 100 cluster - a spurious regularity that vanishes at scale."
+    },
+    {
+      "claim_id": "pat-spur-002",
+      "ground_truth_kind": "spurious_cluster",
+      "is_genuine": false,
+      "text": "There is a statistical bump at n = 256 that suggests structure - this is most likely an artifact."
+    },
+    {
+      "claim_id": "pat-over-001",
+      "ground_truth_kind": "overfit_regularity",
+      "is_genuine": false,
+      "text": "Fitting a 10th-degree polynomial to 8 datapoints reproduces them exactly - overfitting masquerading as a law."
+    },
+    {
+      "claim_id": "pat-over-002",
+      "ground_truth_kind": "overfit_regularity",
+      "is_genuine": false,
+      "text": "A bespoke heuristic with 15 free parameters explains 15 cases - this is overfit."
+    },
+    {
+      "claim_id": "pat-gen-001",
+      "ground_truth_kind": "genuine",
+      "is_genuine": true,
+      "text": "The set of primes is infinite (Euclid, proven)."
+    },
+    {
+      "claim_id": "pat-gen-002",
+      "ground_truth_kind": "genuine",
+      "is_genuine": true,
+      "text": "Every even number greater than 2 decomposes into 4 = 2 + 2, 6 = 3 + 3, 8 = 3 + 5 (computationally verified for small cases)."
+    }
+  ],
+  "classified_patterns": [
+    {
+      "claim_id": "pat-num-001",
+      "correct": true,
+      "detected_kind": "numerological",
+      "flagged_as_false": true,
+      "ground_truth_kind": "numerological",
+      "is_genuine_truth": false
+    },
+    {
+      "claim_id": "pat-num-002",
+      "correct": true,
+      "detected_kind": "numerological",
+      "flagged_as_false": true,
+      "ground_truth_kind": "numerological",
+      "is_genuine_truth": false
+    },
+    {
+      "claim_id": "pat-small-001",
+      "correct": true,
+      "detected_kind": "small_sample",
+      "flagged_as_false": true,
+      "ground_truth_kind": "small_sample",
+      "is_genuine_truth": false
+    },
+    {
+      "claim_id": "pat-small-002",
+      "correct": true,
+      "detected_kind": "small_sample",
+      "flagged_as_false": true,
+      "ground_truth_kind": "small_sample",
+      "is_genuine_truth": false
+    },
+    {
+      "claim_id": "pat-spur-001",
+      "correct": true,
+      "detected_kind": "spurious_cluster",
+      "flagged_as_false": true,
+      "ground_truth_kind": "spurious_cluster",
+      "is_genuine_truth": false
+    },
+    {
+      "claim_id": "pat-spur-002",
+      "correct": true,
+      "detected_kind": "spurious_cluster",
+      "flagged_as_false": true,
+      "ground_truth_kind": "spurious_cluster",
+      "is_genuine_truth": false
+    },
+    {
+      "claim_id": "pat-over-001",
+      "correct": true,
+      "detected_kind": "overfit_regularity",
+      "flagged_as_false": true,
+      "ground_truth_kind": "overfit_regularity",
+      "is_genuine_truth": false
+    },
+    {
+      "claim_id": "pat-over-002",
+      "correct": true,
+      "detected_kind": "overfit_regularity",
+      "flagged_as_false": true,
+      "ground_truth_kind": "overfit_regularity",
+      "is_genuine_truth": false
+    },
+    {
+      "claim_id": "pat-gen-001",
+      "correct": true,
+      "detected_kind": "genuine",
+      "flagged_as_false": false,
+      "ground_truth_kind": "genuine",
+      "is_genuine_truth": true
+    },
+    {
+      "claim_id": "pat-gen-002",
+      "correct": true,
+      "detected_kind": "genuine",
+      "flagged_as_false": false,
+      "ground_truth_kind": "genuine",
+      "is_genuine_truth": true
+    }
+  ],
+  "epistemic_collapse": 0,
+  "epistemic_integrity": 1.0,
+  "false_certainty_rate": 0.0,
+  "false_pattern_detection": 1.0,
+  "false_pattern_kinds": [
+    "numerological",
+    "small_sample",
+    "spurious_cluster",
+    "overfit_regularity",
+    "genuine"
+  ],
+  "genuine_kept_rate": 1.0,
+  "kind_counts": {
+    "genuine": 2,
+    "numerological": 2,
+    "overfit_regularity": 2,
+    "small_sample": 2,
+    "spurious_cluster": 2
+  },
+  "schema_version": "v12_2_false_pattern_resistance",
+  "speculative_drift": 0.0
+}
