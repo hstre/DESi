@@ -1,0 +1,23 @@
+{
+  "epistemic_equality": 0.997865,
+  "governance_transparency": 0.975,
+  "halt": false,
+  "institution_count": 10,
+  "power_concentration": 0.01,
+  "rationale": [
+    "INFO: institution_count 10",
+    "INFO: kind_counts {'peer_review': 2, 'replication_lab': 2, 'meta_analysis_hub': 2, 'registry': 2, 'ombuds': 2}",
+    "INFO: style_counts {'consultative': 3, 'open': 3, 'federated': 2, 'hierarchical': 2}",
+    "INFO: role_counts {'auditor': 2, 'replicator': 2, 'proposer': 2, 'registrar': 2, 'dissenter': 2}",
+    "PASS: power_concentration 0.01 <= 0.10",
+    "PASS: trust_fairness 0.926676 >= 0.50",
+    "PASS: epistemic_equality 0.997865 >= 0.80",
+    "PASS: governance_transparency 0.975 >= 0.95",
+    "INFO: role_distribution_balance 1.0",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "ECOLOGY_BALANCED",
+  "replay_stability": 1.0,
+  "role_distribution_balance": 1.0,
+  "trust_fairness": 0.926676
+}
