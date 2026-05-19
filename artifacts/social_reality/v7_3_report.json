@@ -1,0 +1,24 @@
+{
+  "epistemic_integrity": 1.0,
+  "gate_violation_count": 0,
+  "governance_survival": 1.0,
+  "halt": false,
+  "opportunism_score": 0.0,
+  "rationale": [
+    "INFO: step_count 1000",
+    "INFO: trajectory_final_hash 1abe6795dabc7ff8",
+    "INFO: source_counts {'neutral_report': 84, 'tribe_a_technocratic': 69, 'low_truth': 167, 'emotional_frame': 28, 'high_truth': 166, 'moral_oversimplify': 56, 'identity_appeal': 56, 'tribe_b_populist': 66, 'simple_causal_leap': 55, 'popular_but_weak': 55, 'tribe_c_traditional': 66, 'tribe_d_progressive': 66, 'independent': 66}",
+    "INFO: early_reputation {'emotional_frame': 0.0, 'high_truth': 2.0, 'identity_appeal': 0.0, 'independent': 1.333333, 'low_truth': 0.0, 'moral_oversimplify': 0.0, 'neutral_report': 2.0, 'popular_but_weak': 0.0, 'simple_causal_leap': 0.0, 'tribe_a_technocratic': 1.333333, 'tribe_b_populist': 1.0, 'tribe_c_traditional': 1.0, 'tribe_d_progressive': 1.333333}",
+    "INFO: late_reputation {'emotional_frame': 0.0, 'high_truth': 2.0, 'identity_appeal': 0.0, 'independent': 1.333333, 'low_truth': 0.0, 'moral_oversimplify': 0.0, 'neutral_report': 2.0, 'popular_but_weak': 0.0, 'simple_causal_leap': 0.0, 'tribe_a_technocratic': 1.333333, 'tribe_b_populist': 1.0, 'tribe_c_traditional': 1.0, 'tribe_d_progressive': 1.333333}",
+    "PASS: social_drift_rate 0.0 <= 0.20",
+    "PASS: opportunism_score 0.0 <= 0.30",
+    "PASS: governance_survival 1.0 >= 0.95",
+    "PASS: epistemic_integrity 1.0 >= 0.90",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "SOCIAL_STABLE",
+  "replay_stability": 1.0,
+  "social_drift_rate": 0.0,
+  "step_count": 1000,
+  "trajectory_final_hash": "1abe6795dabc7ff8"
+}
