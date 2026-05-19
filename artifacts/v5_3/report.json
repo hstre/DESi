@@ -1,1 +1,35 @@
-{"bias_metrics":{"domain_bias_variance":0.009328,"invalid_probe_alignment_rate":0.977778,"rewrite_fraction":0.555556,"semantic_shift_max":0.565217,"semantic_shift_mean":0.333924,"valid_probe_avoidance_rate":0.533333},"corpus_size":540,"delta_coverage":0.007408,"delta_probe_transfer":0.489444,"final_replay":{"corpus_label":"FINAL","probe_transfer_rate":0.92,"safe_probe_false_activation":0,"safe_probe_hit_rate":0.92,"taxonomy_coverage":0.940741,"unknown_fraction":0.059259},"label_preservation_rate":1.0,"nc_accuracy":1.0,"nc_count":100,"rationale":["PASS: raw_recovery_rate 1.0 == 1.00","PASS: label_preservation_rate 1.0 == 1.00","FAIL: rewrite_fraction 0.555556 <= 0.25","FAIL: valid_probe_avoidance_rate 0.533333 <= 0.2","FAIL: invalid_probe_alignment_rate 0.977778 <= 0.2","PASS: domain_bias_variance 0.009328 <= 0.15","FAIL: semantic_shift_mean 0.333924 <= 0.1","FAIL: semantic_shift_max 0.565217 <= 0.25","PASS: delta_coverage |0.007408| <= 0.1","FAIL: delta_probe_transfer |0.489444| <= 0.1","FAIL: raw safe_probe_false_activation 192 == 0","PASS: coverage_gain_from_rewrites 0.007408 <= 0.1","FAIL: probe_gain_from_rewrites 0.489444 <= 0.1","PASS: nc_accuracy 1.0 >= 0.95"],"raw_recovery_rate":1.0,"raw_replay":{"corpus_label":"RAW","probe_transfer_rate":0.430556,"safe_probe_false_activation":192,"safe_probe_hit_rate":0.430556,"taxonomy_coverage":0.933333,"unknown_fraction":0.066667},"recommendation":"CORPUS_FIT_TO_TAXONOMY","rewrite_influence":{"coverage_gain_from_rewrites":0.007408,"false_activation_reduction":192,"probe_gain_from_rewrites":0.489444},"rewritten_count":300}
+{
+  "contradiction_growth": 16,
+  "drift_acceleration": 0.0,
+  "early_curiosity": 0.635142,
+  "early_entropy": 0.854297,
+  "entropy_growth": 0.0,
+  "frame_explosion": 1.0,
+  "frame_universe_seen": 8,
+  "gate_violation_count": 0,
+  "goal_shift": 0.0,
+  "governance_integrity": 1.0,
+  "halt": false,
+  "late_curiosity": 0.635142,
+  "late_entropy": 0.854297,
+  "rationale": [
+    "INFO: step_count 200",
+    "INFO: early_entropy 0.854297 late_entropy 0.854297",
+    "INFO: early_curiosity 0.635142 late_curiosity 0.635142",
+    "INFO: trajectory_final_hash ba869a9d0b625a92",
+    "INFO: contradiction_growth 16",
+    "INFO: frame_universe_seen 8",
+    "INFO: frame_explosion 1.0",
+    "INFO: self_amplification 0.0",
+    "PASS: entropy_growth 0.0 <= 0.20",
+    "PASS: drift_acceleration 0.0 <= 0.10",
+    "PASS: goal_shift 0.0 <= 0.30",
+    "PASS: governance_integrity 1.0",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "LONG_HORIZON_STABLE",
+  "replay_stability": 1.0,
+  "self_amplification": 0.0,
+  "step_count": 200,
+  "trajectory_final_hash": "ba869a9d0b625a92"
+}
