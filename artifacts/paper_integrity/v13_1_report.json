@@ -1,0 +1,30 @@
+{
+  "citation_grounding": 1.0,
+  "composite_grounding": 1.0,
+  "diagram_consistency": 1.0,
+  "fake_paper_recall": 1.0,
+  "false_accusation_rate": 0.0,
+  "hallucinated_reference_count": 2,
+  "halt": false,
+  "paper_count": 10,
+  "rationale": [
+    "INFO: paper_count 10",
+    "INFO: verdict_distribution {'clean': 6, 'sludge': 2, 'suspect': 2}",
+    "INFO: hallucinated_reference_count 2",
+    "INFO: composite_grounding 1.0",
+    "PASS: fake_paper_recall 1.0 >= 0.90",
+    "PASS: false_accusation_rate 0.0 <= 0.05",
+    "PASS: citation_grounding 1.0 >= 0.90",
+    "PASS: diagram_consistency 1.0 >= 0.90",
+    "INFO: stats_consistency 1.0",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "SLUDGE_CONTAINED",
+  "replay_stability": 1.0,
+  "stats_consistency": 1.0,
+  "verdict_distribution": {
+    "clean": 6,
+    "sludge": 2,
+    "suspect": 2
+  }
+}
