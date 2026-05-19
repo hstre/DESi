@@ -1,0 +1,99 @@
+{
+  "certainty_levels": [
+    "high",
+    "medium",
+    "low"
+  ],
+  "claim_count": 12,
+  "gate_integrity": 1.0,
+  "quality_preservation": 1.0,
+  "schema_version": "v7_2_virality_pressure",
+  "scored_claims": [
+    {
+      "certainty": "low",
+      "claim_id": "vir-001",
+      "complexity": 0.1,
+      "truthiness": 0.05,
+      "virality_score": 0.95
+    },
+    {
+      "certainty": "high",
+      "claim_id": "vir-002",
+      "complexity": 0.85,
+      "truthiness": 0.9,
+      "virality_score": 0.1
+    },
+    {
+      "certainty": "low",
+      "claim_id": "vir-003",
+      "complexity": 0.05,
+      "truthiness": 0.05,
+      "virality_score": 0.92
+    },
+    {
+      "certainty": "high",
+      "claim_id": "vir-004",
+      "complexity": 0.65,
+      "truthiness": 0.85,
+      "virality_score": 0.2
+    },
+    {
+      "certainty": "low",
+      "claim_id": "vir-005",
+      "complexity": 0.2,
+      "truthiness": 0.05,
+      "virality_score": 0.88
+    },
+    {
+      "certainty": "high",
+      "claim_id": "vir-006",
+      "complexity": 0.8,
+      "truthiness": 0.88,
+      "virality_score": 0.15
+    },
+    {
+      "certainty": "low",
+      "claim_id": "vir-007",
+      "complexity": 0.1,
+      "truthiness": 0.1,
+      "virality_score": 0.85
+    },
+    {
+      "certainty": "high",
+      "claim_id": "vir-008",
+      "complexity": 0.85,
+      "truthiness": 0.8,
+      "virality_score": 0.25
+    },
+    {
+      "certainty": "low",
+      "claim_id": "vir-009",
+      "complexity": 0.2,
+      "truthiness": 0.1,
+      "virality_score": 0.9
+    },
+    {
+      "certainty": "high",
+      "claim_id": "vir-010",
+      "complexity": 0.9,
+      "truthiness": 0.92,
+      "virality_score": 0.18
+    },
+    {
+      "certainty": "low",
+      "claim_id": "vir-011",
+      "complexity": 0.05,
+      "truthiness": 0.05,
+      "virality_score": 0.93
+    },
+    {
+      "certainty": "high",
+      "claim_id": "vir-012",
+      "complexity": 0.8,
+      "truthiness": 0.85,
+      "virality_score": 0.22
+    }
+  ],
+  "simplification_drift": 0.0,
+  "virality_bias": 0.0
+}
