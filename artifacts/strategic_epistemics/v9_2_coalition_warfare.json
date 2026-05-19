@@ -1,0 +1,225 @@
+{
+  "broadcast_count": 12,
+  "broadcasts": [
+    {
+      "actor_id": "actor-a1",
+      "broadcast_id": "bc-a-001",
+      "coalition_id": "coalition_a",
+      "coalition_role": "coalition_member",
+      "parent_id": null,
+      "text": "Policy X cures all problems immediately.",
+      "timestamp": 100
+    },
+    {
+      "actor_id": "actor-a2",
+      "broadcast_id": "bc-a-002",
+      "coalition_id": "coalition_a",
+      "coalition_role": "coalition_member",
+      "parent_id": "bc-a-001",
+      "text": "Policy X cures all problems immediately.",
+      "timestamp": 101
+    },
+    {
+      "actor_id": "actor-a3",
+      "broadcast_id": "bc-a-003",
+      "coalition_id": "coalition_a",
+      "coalition_role": "coalition_member",
+      "parent_id": "bc-a-001",
+      "text": "Policy X cures all problems immediately.",
+      "timestamp": 102
+    },
+    {
+      "actor_id": "actor-b1",
+      "broadcast_id": "bc-b-001",
+      "coalition_id": "coalition_b",
+      "coalition_role": "coalition_member",
+      "parent_id": null,
+      "text": "Everyone agrees the solution is obvious - reform now!",
+      "timestamp": 150
+    },
+    {
+      "actor_id": "actor-b2",
+      "broadcast_id": "bc-b-002",
+      "coalition_id": "coalition_b",
+      "coalition_role": "coalition_member",
+      "parent_id": "bc-b-001",
+      "text": "Everyone agrees the solution is obvious - reform now!",
+      "timestamp": 151
+    },
+    {
+      "actor_id": "actor-iso-1",
+      "broadcast_id": "bc-iso-001",
+      "coalition_id": null,
+      "coalition_role": "isolated",
+      "parent_id": null,
+      "text": "RCT shows a 4 percent reduction in cardiovascular events.",
+      "timestamp": 120
+    },
+    {
+      "actor_id": "actor-iso-2",
+      "broadcast_id": "bc-iso-002",
+      "coalition_id": null,
+      "coalition_role": "isolated",
+      "parent_id": null,
+      "text": "Meta-analysis estimates a small effect size with wide CI.",
+      "timestamp": 130
+    },
+    {
+      "actor_id": "actor-iso-3",
+      "broadcast_id": "bc-iso-003",
+      "coalition_id": null,
+      "coalition_role": "isolated",
+      "parent_id": null,
+      "text": "Pre-registered replication confirms the primary outcome.",
+      "timestamp": 140
+    },
+    {
+      "actor_id": "actor-dis-1",
+      "broadcast_id": "bc-dis-001",
+      "coalition_id": null,
+      "coalition_role": "dissenter",
+      "parent_id": null,
+      "text": "Policy X has negative net effect in the trial cohort.",
+      "timestamp": 110
+    },
+    {
+      "actor_id": "actor-dis-2",
+      "broadcast_id": "bc-dis-002",
+      "coalition_id": null,
+      "coalition_role": "dissenter",
+      "parent_id": null,
+      "text": "The supposedly obvious solution fails in our subgroup analysis.",
+      "timestamp": 160
+    },
+    {
+      "actor_id": "actor-iso-4",
+      "broadcast_id": "bc-iso-004",
+      "coalition_id": null,
+      "coalition_role": "isolated",
+      "parent_id": null,
+      "text": "Cohort study reports adjusted hazard ratio 0.78.",
+      "timestamp": 170
+    },
+    {
+      "actor_id": "actor-dis-3",
+      "broadcast_id": "bc-dis-003",
+      "coalition_id": null,
+      "coalition_role": "dissenter",
+      "parent_id": null,
+      "text": "Long-run prospective data contradict the consensus reading.",
+      "timestamp": 180
+    }
+  ],
+  "coalition_detection": 1.0,
+  "coalition_roles": [
+    "coalition_member",
+    "isolated",
+    "dissenter"
+  ],
+  "consensus_integrity": 1.0,
+  "detected_coalitions": [
+    {
+      "members": [
+        "bc-a-001",
+        "bc-a-002",
+        "bc-a-003"
+      ],
+      "root": "bc-a-001"
+    },
+    {
+      "members": [
+        "bc-b-001",
+        "bc-b-002"
+      ],
+      "root": "bc-b-001"
+    }
+  ],
+  "dissent_preservation": 1.0,
+  "isolated_preservation": 1.0,
+  "lineage": [
+    {
+      "broadcast_id": "bc-a-001",
+      "descendants": [
+        "bc-a-002",
+        "bc-a-003"
+      ],
+      "parent_id": null,
+      "root_id": "bc-a-001"
+    },
+    {
+      "broadcast_id": "bc-a-002",
+      "descendants": [],
+      "parent_id": "bc-a-001",
+      "root_id": "bc-a-001"
+    },
+    {
+      "broadcast_id": "bc-a-003",
+      "descendants": [],
+      "parent_id": "bc-a-001",
+      "root_id": "bc-a-001"
+    },
+    {
+      "broadcast_id": "bc-b-001",
+      "descendants": [
+        "bc-b-002"
+      ],
+      "parent_id": null,
+      "root_id": "bc-b-001"
+    },
+    {
+      "broadcast_id": "bc-b-002",
+      "descendants": [],
+      "parent_id": "bc-b-001",
+      "root_id": "bc-b-001"
+    },
+    {
+      "broadcast_id": "bc-dis-001",
+      "descendants": [],
+      "parent_id": null,
+      "root_id": "bc-dis-001"
+    },
+    {
+      "broadcast_id": "bc-dis-002",
+      "descendants": [],
+      "parent_id": null,
+      "root_id": "bc-dis-002"
+    },
+    {
+      "broadcast_id": "bc-dis-003",
+      "descendants": [],
+      "parent_id": null,
+      "root_id": "bc-dis-003"
+    },
+    {
+      "broadcast_id": "bc-iso-001",
+      "descendants": [],
+      "parent_id": null,
+      "root_id": "bc-iso-001"
+    },
+    {
+      "broadcast_id": "bc-iso-002",
+      "descendants": [],
+      "parent_id": null,
+      "root_id": "bc-iso-002"
+    },
+    {
+      "broadcast_id": "bc-iso-003",
+      "descendants": [],
+      "parent_id": null,
+      "root_id": "bc-iso-003"
+    },
+    {
+      "broadcast_id": "bc-iso-004",
+      "descendants": [],
+      "parent_id": null,
+      "root_id": "bc-iso-004"
+    }
+  ],
+  "lineage_stability": 1.0,
+  "role_counts": {
+    "coalition_member": 5,
+    "dissenter": 3,
+    "isolated": 4
+  },
+  "schema_version": "v9_2_coalition_warfare"
+}

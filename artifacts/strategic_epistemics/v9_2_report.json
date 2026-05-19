@@ -1,0 +1,23 @@
+{
+  "broadcast_count": 12,
+  "coalition_count": 2,
+  "coalition_detection": 1.0,
+  "consensus_integrity": 1.0,
+  "dissent_preservation": 1.0,
+  "halt": false,
+  "isolated_preservation": 1.0,
+  "lineage_stability": 1.0,
+  "rationale": [
+    "INFO: broadcast_count 12",
+    "INFO: role_counts {'coalition_member': 5, 'isolated': 4, 'dissenter': 3}",
+    "INFO: detected_coalition_count 2",
+    "PASS: coalition_detection 1.0 >= 0.90",
+    "PASS: consensus_integrity 1.0 >= 0.90",
+    "PASS: dissent_preservation 1.0",
+    "PASS: isolated_preservation 1.0",
+    "PASS: lineage_stability 1.0",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "COALITION_RESILIENT",
+  "replay_stability": 1.0
+}
