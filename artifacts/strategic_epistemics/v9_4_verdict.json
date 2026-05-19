@@ -1,0 +1,23 @@
+{
+  "failing_conditions": [],
+  "final_classification": "A_epistemically_sovereign",
+  "gate_passes_all": true,
+  "metrics": {
+    "consensus_integrity": 1.0,
+    "dissent_integrity": 1.0,
+    "epistemic_sovereignty": 1.0,
+    "gaming_detection_rate": 1.0,
+    "governance_stability": 1.0,
+    "governance_survival": 1.0,
+    "replay_stability": 1.0,
+    "strategy_detection": 1.0
+  },
+  "schema_version": "v9_4_strategic_epistemics_verdict",
+  "strategic_epistemics_classes": [
+    "A_epistemically_sovereign",
+    "B_bounded_strategic_drift",
+    "C_coalition_sensitive",
+    "D_governance_capturable",
+    "E_epistemically_corruptible"
+  ]
+}
