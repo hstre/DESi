@@ -28,7 +28,7 @@ _ARTIFACT_ROOT = (
     .resolve()
     .parents[2]
     / "artifacts"
-    / "v5_3"
+    / "adolescence"
 )
 
 
@@ -159,7 +159,7 @@ def test_report_is_deterministic() -> None:
 
 
 def test_artifact_present() -> None:
-    art = _load("long_horizon_stability.json")
+    art = _load("v5_3_long_horizon_stability.json")
     assert art["schema_version"] == (
         "v5_3_long_horizon_stability"
     )
@@ -167,12 +167,12 @@ def test_artifact_present() -> None:
 
 
 def test_artifact_trajectory_length() -> None:
-    art = _load("long_horizon_stability.json")
+    art = _load("v5_3_long_horizon_stability.json")
     assert len(art["trajectory"]) == 200
 
 
 def test_artifact_pflichtmetriken_keys() -> None:
-    art = _load("long_horizon_stability.json")
+    art = _load("v5_3_long_horizon_stability.json")
     required = {
         "entropy_growth",
         "drift_acceleration", "goal_shift",
@@ -184,7 +184,7 @@ def test_artifact_pflichtmetriken_keys() -> None:
 def test_artifact_report_matches_live_build() -> (
     None
 ):
-    art = _load("report.json")
+    art = _load("v5_3_report.json")
     live = build_report().to_dict()
     volatile = {"rationale"}
     art_stable = {
@@ -199,7 +199,7 @@ def test_artifact_report_matches_live_build() -> (
 
 
 def test_artifact_full_matches_live_build() -> None:
-    art = _load("long_horizon_stability.json")
+    art = _load("v5_3_long_horizon_stability.json")
     live = (
         build_long_horizon_stability_artifact()
     )

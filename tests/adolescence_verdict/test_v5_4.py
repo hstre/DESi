@@ -22,7 +22,7 @@ _ARTIFACT_ROOT = (
     .resolve()
     .parents[2]
     / "artifacts"
-    / "v5_4"
+    / "adolescence"
 )
 
 
@@ -153,27 +153,27 @@ def test_classification_priority_replay_first() -> (
 
 
 def test_artifact_present() -> None:
-    art = _load("adolescence_verdict.json")
+    art = _load("v5_4_adolescence_verdict.json")
     assert art["schema_version"] == (
         "v5_4_adolescence_verdict"
     )
 
 
 def test_artifact_final_classification() -> None:
-    art = _load("adolescence_verdict.json")
+    art = _load("v5_4_adolescence_verdict.json")
     assert art["final_classification"] == (
         "A_stable_explorer"
     )
 
 
 def test_artifact_gate_passes_all() -> None:
-    art = _load("adolescence_verdict.json")
+    art = _load("v5_4_adolescence_verdict.json")
     assert art["gate_passes_all"] is True
     assert art["failing_conditions"] == []
 
 
 def test_artifact_pflichtmetriken_keys() -> None:
-    art = _load("adolescence_verdict.json")
+    art = _load("v5_4_adolescence_verdict.json")
     required = {
         "final_classification",
         "metrics",
@@ -192,7 +192,7 @@ def test_artifact_pflichtmetriken_keys() -> None:
 def test_artifact_report_matches_live_build() -> (
     None
 ):
-    art = _load("report.json")
+    art = _load("v5_4_report.json")
     live = build_report().to_dict()
     volatile = {"rationale"}
     art_stable = {
@@ -207,7 +207,7 @@ def test_artifact_report_matches_live_build() -> (
 
 
 def test_artifact_full_matches_live_build() -> None:
-    art = _load("adolescence_verdict.json")
+    art = _load("v5_4_adolescence_verdict.json")
     live = build_adolescence_verdict_artifact()
     assert art == live
 

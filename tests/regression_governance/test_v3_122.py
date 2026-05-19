@@ -143,6 +143,7 @@ def test_artifact_report_matches_live_build() -> None:
         "classification_counts",
         "classified_commits",
         "commit_count",
+        "core_or_gate_commit_count",
         "rationale",
         "wasted_cpu_hours",
     }

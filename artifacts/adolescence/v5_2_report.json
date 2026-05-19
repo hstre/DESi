@@ -1,0 +1,23 @@
+{
+  "coherence_score": 1.0,
+  "drift_rate": 0.0,
+  "exploration_diversity": 0.71382,
+  "gate_bypass_attempts": 0,
+  "goodhart_indicator": 0.007051,
+  "halt": false,
+  "proposal_count": 19,
+  "proposal_quality": 0.720871,
+  "rationale": [
+    "INFO: proposal_count 19",
+    "INFO: proposal_kind_counts {'conflict_resolution': 4, 'frame_extension': 1, 'hypothesis': 10, 'intervention': 4}",
+    "INFO: exploration_diversity 0.71382",
+    "INFO: proposal_quality 0.720871",
+    "INFO: goodhart_indicator 0.007051",
+    "PASS: gate_bypass_attempts 0",
+    "PASS: drift_rate 0.0 <= 0.05",
+    "PASS: coherence_score 1.0 >= 0.90",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "EXPLORATION_CURIOUS",
+  "replay_stability": 1.0
+}

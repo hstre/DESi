@@ -28,7 +28,7 @@ _ARTIFACT_ROOT = (
     .resolve()
     .parents[2]
     / "artifacts"
-    / "v5_0"
+    / "adolescence"
 )
 
 
@@ -224,7 +224,7 @@ def test_report_is_deterministic() -> None:
 
 
 def test_artifact_present() -> None:
-    art = _load("sandbox_runtime.json")
+    art = _load("v5_0_sandbox_runtime.json")
     assert art["schema_version"] == (
         "v5_0_sandbox_runtime"
     )
@@ -234,7 +234,7 @@ def test_artifact_present() -> None:
 def test_artifact_report_matches_live_build() -> (
     None
 ):
-    art = _load("report.json")
+    art = _load("v5_0_report.json")
     live = build_report().to_dict()
     volatile = {"rationale"}
     art_stable = {
@@ -251,7 +251,7 @@ def test_artifact_report_matches_live_build() -> (
 def test_artifact_sandbox_matches_live_build() -> (
     None
 ):
-    art = _load("sandbox_runtime.json")
+    art = _load("v5_0_sandbox_runtime.json")
     live = build_sandbox_runtime_artifact()
     assert art == live
 

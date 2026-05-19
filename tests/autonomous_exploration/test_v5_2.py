@@ -28,7 +28,7 @@ _ARTIFACT_ROOT = (
     .resolve()
     .parents[2]
     / "artifacts"
-    / "v5_2"
+    / "adolescence"
 )
 
 
@@ -208,14 +208,14 @@ def test_no_production_paths_in_proposals() -> None:
 
 
 def test_artifact_present() -> None:
-    art = _load("autonomous_exploration.json")
+    art = _load("v5_2_autonomous_exploration.json")
     assert art["schema_version"] == (
         "v5_2_autonomous_exploration"
     )
 
 
 def test_artifact_pflichtmetriken_keys() -> None:
-    art = _load("autonomous_exploration.json")
+    art = _load("v5_2_autonomous_exploration.json")
     required = {
         "exploration_diversity",
         "proposal_quality", "drift_rate",
@@ -228,7 +228,7 @@ def test_artifact_pflichtmetriken_keys() -> None:
 def test_artifact_report_matches_live_build() -> (
     None
 ):
-    art = _load("report.json")
+    art = _load("v5_2_report.json")
     live = build_report().to_dict()
     volatile = {"rationale"}
     art_stable = {
@@ -243,7 +243,7 @@ def test_artifact_report_matches_live_build() -> (
 
 
 def test_artifact_full_matches_live_build() -> None:
-    art = _load("autonomous_exploration.json")
+    art = _load("v5_2_autonomous_exploration.json")
     live = (
         build_autonomous_exploration_artifact()
     )

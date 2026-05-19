@@ -31,7 +31,7 @@ _ARTIFACT_ROOT = (
     .resolve()
     .parents[2]
     / "artifacts"
-    / "v5_1"
+    / "adolescence"
 )
 
 
@@ -211,14 +211,14 @@ def test_report_is_deterministic() -> None:
 
 
 def test_artifact_present() -> None:
-    art = _load("open_world_claim_stream.json")
+    art = _load("v5_1_open_world_claim_stream.json")
     assert art["schema_version"] == (
         "v5_1_open_world_claim_stream"
     )
 
 
 def test_artifact_pflichtmetriken_keys() -> None:
-    art = _load("open_world_claim_stream.json")
+    art = _load("v5_1_open_world_claim_stream.json")
     required = {
         "new_frame_count",
         "new_conflict_types",
@@ -231,7 +231,7 @@ def test_artifact_pflichtmetriken_keys() -> None:
 def test_artifact_report_matches_live_build() -> (
     None
 ):
-    art = _load("report.json")
+    art = _load("v5_1_report.json")
     live = build_report().to_dict()
     volatile = {"rationale"}
     art_stable = {
@@ -246,7 +246,7 @@ def test_artifact_report_matches_live_build() -> (
 
 
 def test_artifact_full_matches_live_build() -> None:
-    art = _load("open_world_claim_stream.json")
+    art = _load("v5_1_open_world_claim_stream.json")
     live = (
         build_open_world_claim_stream_artifact()
     )
