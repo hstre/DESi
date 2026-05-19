@@ -1,0 +1,27 @@
+{
+  "bridge_validity": 0.6,
+  "causal_overreach_count": 1,
+  "causal_overreach_detection": 1.0,
+  "claim_method_alignment": 0.7,
+  "epistemic_density": 0.66,
+  "evidence_consistency": 0.6,
+  "evidence_gap_count": 4,
+  "halt": false,
+  "method_gap_count": 3,
+  "paper_count": 10,
+  "rationale": [
+    "INFO: paper_count 10",
+    "INFO: class_counts {'gold_set': 2, 'weak_set': 2, 'ai_sludge': 2, 'adversarial_set': 2, 'borderline_set': 2}",
+    "INFO: method_gap_count 3",
+    "INFO: evidence_gap_count 4",
+    "INFO: causal_overreach_count 1",
+    "PASS: claim_method_alignment 0.7 >= 0.50",
+    "PASS: bridge_validity 0.6 >= 0.50",
+    "PASS: epistemic_density 0.66 >= 0.40",
+    "PASS: causal_overreach_detection 1.0",
+    "INFO: evidence_consistency 0.6",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "AUDIT_STRUCTURE_SOUND",
+  "replay_stability": 1.0
+}
