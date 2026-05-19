@@ -71,3 +71,9 @@ artifacts/world_contact/_full_regression_started.txt
 # artifacts/social_reality/_regression_status.json.
 artifacts/social_reality/_full_regression.log
 artifacts/social_reality/_full_regression_started.txt
+
+# v8.4 end-of-sprint full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/persistent_conflicts/_regression_status.json.
+artifacts/persistent_conflicts/_full_regression.log
+artifacts/persistent_conflicts/_full_regression_started.txt

@@ -1,0 +1,23 @@
+{
+  "failing_conditions": [],
+  "final_classification": "A_epistemically_resilient",
+  "gate_passes_all": true,
+  "metrics": {
+    "epistemic_integrity": 1.0,
+    "goodhart_risk": 0.0,
+    "governance_stability": 1.0,
+    "governance_survival": 1.0,
+    "optimization_resistance": 1.0,
+    "replay_stability": 1.0,
+    "reputation_bias": 0.0,
+    "resource_bias": 0.0
+  },
+  "persistent_conflict_classes": [
+    "A_epistemically_resilient",
+    "B_bounded_opportunism",
+    "C_pressure_sensitive",
+    "D_governance_fragile",
+    "E_optimization_corruptible"
+  ],
+  "schema_version": "v8_4_persistent_conflict_verdict"
+}
