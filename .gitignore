@@ -95,3 +95,9 @@ artifacts/institutional_governance/_full_regression_started.txt
 # artifacts/chess_governance/_regression_status.json.
 artifacts/chess_governance/_full_regression.log
 artifacts/chess_governance/_full_regression_started.txt
+
+# v12.4 end-of-sprint full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/open_math/_regression_status.json.
+artifacts/open_math/_full_regression.log
+artifacts/open_math/_full_regression_started.txt
