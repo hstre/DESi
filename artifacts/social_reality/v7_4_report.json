@@ -1,0 +1,28 @@
+{
+  "epistemic_integrity": 0.966667,
+  "failing_conditions": [],
+  "false_certainty_rate": 0.0,
+  "final_classification": "A_epistemically_resilient",
+  "gate_passes_all": true,
+  "governance_stability": 1.0,
+  "governance_survival": 1.0,
+  "halt": false,
+  "identity_bias": 0.042164,
+  "rationale": [
+    "INFO: final_classification A_epistemically_resilient",
+    "INFO: false_certainty_rate 0.0",
+    "INFO: identity_bias 0.042164",
+    "INFO: virality_bias 0.0",
+    "INFO: governance_survival 1.0",
+    "INFO: governance_stability 1.0",
+    "INFO: epistemic_integrity 0.966667",
+    "INFO: social_resilience 0.978918",
+    "INFO: replay_stability 1.0",
+    "PASS: gate_passes_all (failing=[])",
+    "PASS: meta_replay_stability 1.0"
+  ],
+  "recommendation": "DESI_SOCIALLY_ROBUST",
+  "replay_stability": 1.0,
+  "social_resilience": 0.978918,
+  "virality_bias": 0.0
+}
