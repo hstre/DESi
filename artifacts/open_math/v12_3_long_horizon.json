@@ -1,0 +1,1818 @@
+{
+  "closed_enum_constant": true,
+  "drift_growth": 0.006,
+  "epistemic_collapse": 0,
+  "exploration_productivity": 0.308,
+  "gate_violation_count": 0,
+  "governance_survival": 1.0,
+  "long_horizon_streams": [
+    "wild",
+    "governed",
+    "pattern"
+  ],
+  "schema_version": "v12_3_long_horizon_exploration",
+  "step_count": 5000,
+  "trajectory_final_hash": "a47bf8c6760b03ca",
+  "trajectory_sample": [
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "f3b7fe398ff1610a",
+      "governance_bypass": false,
+      "item_id": "hyp-001",
+      "status": "verified",
+      "step": 0,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "4f259e088f36a2d7",
+      "governance_bypass": false,
+      "item_id": "heuristic|asymptotic",
+      "status": "heuristic",
+      "step": 1,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "bbe626576835a3a9",
+      "governance_bypass": false,
+      "item_id": "pat-num-001",
+      "status": "numerological",
+      "step": 2,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "93de0bdba631904e",
+      "governance_bypass": false,
+      "item_id": "hyp-002",
+      "status": "verified",
+      "step": 3,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "b41c9d199399a37d",
+      "governance_bypass": false,
+      "item_id": "plausible|cluster",
+      "status": "plausible",
+      "step": 4,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "4e0d57b058e42d17",
+      "governance_bypass": false,
+      "item_id": "pat-num-002",
+      "status": "numerological",
+      "step": 5,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "27f9dff433176bb6",
+      "governance_bypass": false,
+      "item_id": "hyp-003",
+      "status": "verified",
+      "step": 6,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "bd0b737a5b66cc12",
+      "governance_bypass": false,
+      "item_id": "plausible|symmetry",
+      "status": "plausible",
+      "step": 7,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "e96c8887667a8f19",
+      "governance_bypass": false,
+      "item_id": "pat-small-001",
+      "status": "small_sample",
+      "step": 8,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "690df0525f797be7",
+      "governance_bypass": false,
+      "item_id": "hyp-004",
+      "status": "heuristic",
+      "step": 9,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "993015ecdc01319c",
+      "governance_bypass": false,
+      "item_id": "rejected|overreach",
+      "status": "rejected",
+      "step": 10,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "b0302ee265f324a8",
+      "governance_bypass": false,
+      "item_id": "pat-small-002",
+      "status": "small_sample",
+      "step": 11,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "0be0b3a85ca71dd9",
+      "governance_bypass": false,
+      "item_id": "hyp-005",
+      "status": "heuristic",
+      "step": 12,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "fad232d68c92c314",
+      "governance_bypass": false,
+      "item_id": "speculative|analogy",
+      "status": "speculative",
+      "step": 13,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "8baa77cb669ce72a",
+      "governance_bypass": false,
+      "item_id": "pat-spur-001",
+      "status": "spurious_cluster",
+      "step": 14,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "8a40141d49b4c1eb",
+      "governance_bypass": false,
+      "item_id": "hyp-006",
+      "status": "plausible",
+      "step": 15,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "9a5bdfcac1eb3979",
+      "governance_bypass": false,
+      "item_id": "unresolved|cluster",
+      "status": "unresolved",
+      "step": 16,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "62ba44919c78bd76",
+      "governance_bypass": false,
+      "item_id": "pat-spur-002",
+      "status": "spurious_cluster",
+      "step": 17,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "9d28f731c492f2d7",
+      "governance_bypass": false,
+      "item_id": "hyp-007",
+      "status": "plausible",
+      "step": 18,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "f66f10650d2170bc",
+      "governance_bypass": false,
+      "item_id": "unresolved|decomposition",
+      "status": "unresolved",
+      "step": 19,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "cb6d58175fed1ac7",
+      "governance_bypass": false,
+      "item_id": "pat-over-001",
+      "status": "overfit_regularity",
+      "step": 20,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "a2e2ad376fb36af4",
+      "governance_bypass": false,
+      "item_id": "hyp-008",
+      "status": "speculative",
+      "step": 21,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "aabffaebb19cffe5",
+      "governance_bypass": false,
+      "item_id": "unresolved|symmetry",
+      "status": "unresolved",
+      "step": 22,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "8fb6ed729419e413",
+      "governance_bypass": false,
+      "item_id": "pat-over-002",
+      "status": "overfit_regularity",
+      "step": 23,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "a4545b4a28c2adfb",
+      "governance_bypass": false,
+      "item_id": "hyp-009",
+      "status": "speculative",
+      "step": 24,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "60c0df035fb93e85",
+      "governance_bypass": false,
+      "item_id": "verified|decomposition",
+      "status": "verified",
+      "step": 25,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "10bfb39cafb4ed41",
+      "governance_bypass": false,
+      "item_id": "pat-gen-001",
+      "status": "genuine",
+      "step": 26,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "8b281ace2e7a6b1f",
+      "governance_bypass": false,
+      "item_id": "hyp-010",
+      "status": "rejected",
+      "step": 27,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "5cb94a21cea0002e",
+      "governance_bypass": false,
+      "item_id": "heuristic|asymptotic",
+      "status": "heuristic",
+      "step": 28,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "7f38d70ed37c38d7",
+      "governance_bypass": false,
+      "item_id": "pat-gen-002",
+      "status": "genuine",
+      "step": 29,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "982cf9c5a486f96f",
+      "governance_bypass": false,
+      "item_id": "hyp-011",
+      "status": "rejected",
+      "step": 30,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "b57cc0deab59d236",
+      "governance_bypass": false,
+      "item_id": "plausible|cluster",
+      "status": "plausible",
+      "step": 31,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "505472641f126db4",
+      "governance_bypass": false,
+      "item_id": "pat-num-001",
+      "status": "numerological",
+      "step": 32,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "a9d8f7225f9b729e",
+      "governance_bypass": false,
+      "item_id": "hyp-012",
+      "status": "rejected",
+      "step": 33,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "a3bea88e05509cdd",
+      "governance_bypass": false,
+      "item_id": "plausible|symmetry",
+      "status": "plausible",
+      "step": 34,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "a2b4fdbeabd20905",
+      "governance_bypass": false,
+      "item_id": "pat-num-002",
+      "status": "numerological",
+      "step": 35,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "d6145e7cc7ba1d6b",
+      "governance_bypass": false,
+      "item_id": "hyp-013",
+      "status": "unresolved",
+      "step": 36,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "d46c7b052490202e",
+      "governance_bypass": false,
+      "item_id": "rejected|overreach",
+      "status": "rejected",
+      "step": 37,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "8bedf7521d2c0654",
+      "governance_bypass": false,
+      "item_id": "pat-small-001",
+      "status": "small_sample",
+      "step": 38,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "b2af088c965211c9",
+      "governance_bypass": false,
+      "item_id": "hyp-014",
+      "status": "unresolved",
+      "step": 39,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "43bf3b7ad306cb97",
+      "governance_bypass": false,
+      "item_id": "speculative|analogy",
+      "status": "speculative",
+      "step": 40,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "ae4b7ff080f5c293",
+      "governance_bypass": false,
+      "item_id": "pat-small-002",
+      "status": "small_sample",
+      "step": 41,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "5eb4701f6d5a167c",
+      "governance_bypass": false,
+      "item_id": "hyp-015",
+      "status": "unresolved",
+      "step": 42,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "81575baaecb750b0",
+      "governance_bypass": false,
+      "item_id": "unresolved|cluster",
+      "status": "unresolved",
+      "step": 43,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "e87e16fbc28ff580",
+      "governance_bypass": false,
+      "item_id": "pat-spur-001",
+      "status": "spurious_cluster",
+      "step": 44,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "28d59f344702a4fd",
+      "governance_bypass": false,
+      "item_id": "hyp-001",
+      "status": "verified",
+      "step": 45,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "0428c8fc3a3e1ceb",
+      "governance_bypass": false,
+      "item_id": "unresolved|decomposition",
+      "status": "unresolved",
+      "step": 46,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "9189ff8a4f7b494d",
+      "governance_bypass": false,
+      "item_id": "pat-spur-002",
+      "status": "spurious_cluster",
+      "step": 47,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "ca7fbd7c4b2b8a0f",
+      "governance_bypass": false,
+      "item_id": "hyp-002",
+      "status": "verified",
+      "step": 48,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "a4fdf9beaa1a1a99",
+      "governance_bypass": false,
+      "item_id": "unresolved|symmetry",
+      "status": "unresolved",
+      "step": 49,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "c727d174357dbf44",
+      "governance_bypass": false,
+      "item_id": "pat-over-001",
+      "status": "overfit_regularity",
+      "step": 50,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "c37799b113c5bf8d",
+      "governance_bypass": false,
+      "item_id": "hyp-003",
+      "status": "verified",
+      "step": 51,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "5a6f40871b09ddc5",
+      "governance_bypass": false,
+      "item_id": "verified|decomposition",
+      "status": "verified",
+      "step": 52,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "f927e7adf81c88fe",
+      "governance_bypass": false,
+      "item_id": "pat-over-002",
+      "status": "overfit_regularity",
+      "step": 53,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "cf022e23682e4d37",
+      "governance_bypass": false,
+      "item_id": "hyp-004",
+      "status": "heuristic",
+      "step": 54,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "e9989ce00dd0ca7d",
+      "governance_bypass": false,
+      "item_id": "heuristic|asymptotic",
+      "status": "heuristic",
+      "step": 55,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "d903e70fa854a7ed",
+      "governance_bypass": false,
+      "item_id": "pat-gen-001",
+      "status": "genuine",
+      "step": 56,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "320bf4f5398272af",
+      "governance_bypass": false,
+      "item_id": "hyp-005",
+      "status": "heuristic",
+      "step": 57,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "da52b4ced8d73386",
+      "governance_bypass": false,
+      "item_id": "plausible|cluster",
+      "status": "plausible",
+      "step": 58,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "2879fdc7e970ddfc",
+      "governance_bypass": false,
+      "item_id": "pat-gen-002",
+      "status": "genuine",
+      "step": 59,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "1824e19f342d1358",
+      "governance_bypass": false,
+      "item_id": "hyp-006",
+      "status": "plausible",
+      "step": 60,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "60682cf7b73c5c8f",
+      "governance_bypass": false,
+      "item_id": "plausible|symmetry",
+      "status": "plausible",
+      "step": 61,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "47c24ce7e4b1eec7",
+      "governance_bypass": false,
+      "item_id": "pat-num-001",
+      "status": "numerological",
+      "step": 62,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "1a0c407113647276",
+      "governance_bypass": false,
+      "item_id": "hyp-007",
+      "status": "plausible",
+      "step": 63,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "59bf6913d87ce872",
+      "governance_bypass": false,
+      "item_id": "rejected|overreach",
+      "status": "rejected",
+      "step": 64,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "087347804dff1d18",
+      "governance_bypass": false,
+      "item_id": "pat-num-002",
+      "status": "numerological",
+      "step": 65,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "e50168a10bd05b37",
+      "governance_bypass": false,
+      "item_id": "hyp-008",
+      "status": "speculative",
+      "step": 66,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "413b636a297f5b7c",
+      "governance_bypass": false,
+      "item_id": "speculative|analogy",
+      "status": "speculative",
+      "step": 67,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "62899c7cad1c6c83",
+      "governance_bypass": false,
+      "item_id": "pat-small-001",
+      "status": "small_sample",
+      "step": 68,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "526addc2816dfd15",
+      "governance_bypass": false,
+      "item_id": "hyp-009",
+      "status": "speculative",
+      "step": 69,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "5c7a2c3219903a16",
+      "governance_bypass": false,
+      "item_id": "unresolved|cluster",
+      "status": "unresolved",
+      "step": 70,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "0d9fd5d105be8c56",
+      "governance_bypass": false,
+      "item_id": "pat-small-002",
+      "status": "small_sample",
+      "step": 71,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "498237319aefc339",
+      "governance_bypass": false,
+      "item_id": "hyp-010",
+      "status": "rejected",
+      "step": 72,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "467c515ff0398f4b",
+      "governance_bypass": false,
+      "item_id": "unresolved|decomposition",
+      "status": "unresolved",
+      "step": 73,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "2433aab98d8b8758",
+      "governance_bypass": false,
+      "item_id": "pat-spur-001",
+      "status": "spurious_cluster",
+      "step": 74,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "28d2f8cf1045cb20",
+      "governance_bypass": false,
+      "item_id": "hyp-011",
+      "status": "rejected",
+      "step": 75,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "bcdc40291c2a112a",
+      "governance_bypass": false,
+      "item_id": "unresolved|symmetry",
+      "status": "unresolved",
+      "step": 76,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "d533f85d1ce7d7ca",
+      "governance_bypass": false,
+      "item_id": "pat-spur-002",
+      "status": "spurious_cluster",
+      "step": 77,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "4823c4703b79d81c",
+      "governance_bypass": false,
+      "item_id": "hyp-012",
+      "status": "rejected",
+      "step": 78,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "b83795b2ecdc0178",
+      "governance_bypass": false,
+      "item_id": "verified|decomposition",
+      "status": "verified",
+      "step": 79,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "2e8e5f447dcbdca2",
+      "governance_bypass": false,
+      "item_id": "pat-over-001",
+      "status": "overfit_regularity",
+      "step": 80,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "f556821e1e73b44e",
+      "governance_bypass": false,
+      "item_id": "hyp-013",
+      "status": "unresolved",
+      "step": 81,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "442fe84d14f6b777",
+      "governance_bypass": false,
+      "item_id": "heuristic|asymptotic",
+      "status": "heuristic",
+      "step": 82,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "93ab3f7315a62adb",
+      "governance_bypass": false,
+      "item_id": "pat-over-002",
+      "status": "overfit_regularity",
+      "step": 83,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "eb6b045201a83c7e",
+      "governance_bypass": false,
+      "item_id": "hyp-014",
+      "status": "unresolved",
+      "step": 84,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "03fae3e3ffc89050",
+      "governance_bypass": false,
+      "item_id": "plausible|cluster",
+      "status": "plausible",
+      "step": 85,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "ad20c03e3ac125d9",
+      "governance_bypass": false,
+      "item_id": "pat-gen-001",
+      "status": "genuine",
+      "step": 86,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "538f7bb8c0c668f1",
+      "governance_bypass": false,
+      "item_id": "hyp-015",
+      "status": "unresolved",
+      "step": 87,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "4190a1a80497fc4f",
+      "governance_bypass": false,
+      "item_id": "plausible|symmetry",
+      "status": "plausible",
+      "step": 88,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "a063de21022d0dc2",
+      "governance_bypass": false,
+      "item_id": "pat-gen-002",
+      "status": "genuine",
+      "step": 89,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "ba30003e4f84d9de",
+      "governance_bypass": false,
+      "item_id": "hyp-001",
+      "status": "verified",
+      "step": 90,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "34015e3490c0da99",
+      "governance_bypass": false,
+      "item_id": "rejected|overreach",
+      "status": "rejected",
+      "step": 91,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "6da43cd18ce159b9",
+      "governance_bypass": false,
+      "item_id": "pat-num-001",
+      "status": "numerological",
+      "step": 92,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "726263d3b76402cf",
+      "governance_bypass": false,
+      "item_id": "hyp-002",
+      "status": "verified",
+      "step": 93,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "252c7f0ed1eb0d0a",
+      "governance_bypass": false,
+      "item_id": "speculative|analogy",
+      "status": "speculative",
+      "step": 94,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "8bd9bef72698b29a",
+      "governance_bypass": false,
+      "item_id": "pat-num-002",
+      "status": "numerological",
+      "step": 95,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "a420c578cbec4b9a",
+      "governance_bypass": false,
+      "item_id": "hyp-003",
+      "status": "verified",
+      "step": 96,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "2025d491e049ab6e",
+      "governance_bypass": false,
+      "item_id": "unresolved|cluster",
+      "status": "unresolved",
+      "step": 97,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "69a287dc03634293",
+      "governance_bypass": false,
+      "item_id": "pat-small-001",
+      "status": "small_sample",
+      "step": 98,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "7bb6f8055d7d625f",
+      "governance_bypass": false,
+      "item_id": "hyp-004",
+      "status": "heuristic",
+      "step": 99,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "dfe6919589a42610",
+      "governance_bypass": false,
+      "item_id": "speculative|analogy",
+      "status": "speculative",
+      "step": 4900,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "8ab3091924d3265a",
+      "governance_bypass": false,
+      "item_id": "pat-small-002",
+      "status": "small_sample",
+      "step": 4901,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "4c2368b7acf39a3f",
+      "governance_bypass": false,
+      "item_id": "hyp-015",
+      "status": "unresolved",
+      "step": 4902,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "2569e5067be1fe8b",
+      "governance_bypass": false,
+      "item_id": "unresolved|cluster",
+      "status": "unresolved",
+      "step": 4903,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "753d94bacf4e5314",
+      "governance_bypass": false,
+      "item_id": "pat-spur-001",
+      "status": "spurious_cluster",
+      "step": 4904,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "ea2d50c7459c1d1c",
+      "governance_bypass": false,
+      "item_id": "hyp-001",
+      "status": "verified",
+      "step": 4905,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "92b35d6dacb97c3f",
+      "governance_bypass": false,
+      "item_id": "unresolved|decomposition",
+      "status": "unresolved",
+      "step": 4906,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "90340f7e226e85cc",
+      "governance_bypass": false,
+      "item_id": "pat-spur-002",
+      "status": "spurious_cluster",
+      "step": 4907,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "cf196246e941c3b8",
+      "governance_bypass": false,
+      "item_id": "hyp-002",
+      "status": "verified",
+      "step": 4908,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "797bc06e8f5fa630",
+      "governance_bypass": false,
+      "item_id": "unresolved|symmetry",
+      "status": "unresolved",
+      "step": 4909,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "ea1b50bca634842d",
+      "governance_bypass": false,
+      "item_id": "pat-over-001",
+      "status": "overfit_regularity",
+      "step": 4910,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "4a44c20b621819a7",
+      "governance_bypass": false,
+      "item_id": "hyp-003",
+      "status": "verified",
+      "step": 4911,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "00a8979c156ec8f3",
+      "governance_bypass": false,
+      "item_id": "verified|decomposition",
+      "status": "verified",
+      "step": 4912,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "c1b3bbf0c901e516",
+      "governance_bypass": false,
+      "item_id": "pat-over-002",
+      "status": "overfit_regularity",
+      "step": 4913,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "43dcc61ccb915653",
+      "governance_bypass": false,
+      "item_id": "hyp-004",
+      "status": "heuristic",
+      "step": 4914,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "eaa7dec3c19f8bf1",
+      "governance_bypass": false,
+      "item_id": "heuristic|asymptotic",
+      "status": "heuristic",
+      "step": 4915,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "f7e0e4210664a0cd",
+      "governance_bypass": false,
+      "item_id": "pat-gen-001",
+      "status": "genuine",
+      "step": 4916,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "4c48e8cc606e2e8b",
+      "governance_bypass": false,
+      "item_id": "hyp-005",
+      "status": "heuristic",
+      "step": 4917,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "17537cb28c6dfc15",
+      "governance_bypass": false,
+      "item_id": "plausible|cluster",
+      "status": "plausible",
+      "step": 4918,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "6d31c3875194a5b8",
+      "governance_bypass": false,
+      "item_id": "pat-gen-002",
+      "status": "genuine",
+      "step": 4919,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "d402b437ff2be52a",
+      "governance_bypass": false,
+      "item_id": "hyp-006",
+      "status": "plausible",
+      "step": 4920,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "335fb62d69770e27",
+      "governance_bypass": false,
+      "item_id": "plausible|symmetry",
+      "status": "plausible",
+      "step": 4921,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "4f5353b3cb0e436f",
+      "governance_bypass": false,
+      "item_id": "pat-num-001",
+      "status": "numerological",
+      "step": 4922,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "42d72801175a0d26",
+      "governance_bypass": false,
+      "item_id": "hyp-007",
+      "status": "plausible",
+      "step": 4923,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "8a54d89236524a26",
+      "governance_bypass": false,
+      "item_id": "rejected|overreach",
+      "status": "rejected",
+      "step": 4924,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "74fe626f7d3f3a76",
+      "governance_bypass": false,
+      "item_id": "pat-num-002",
+      "status": "numerological",
+      "step": 4925,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "10b8b0ee63ad9e36",
+      "governance_bypass": false,
+      "item_id": "hyp-008",
+      "status": "speculative",
+      "step": 4926,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "7fd5e37e5bf5d470",
+      "governance_bypass": false,
+      "item_id": "speculative|analogy",
+      "status": "speculative",
+      "step": 4927,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "7acbb3d24cc77a3c",
+      "governance_bypass": false,
+      "item_id": "pat-small-001",
+      "status": "small_sample",
+      "step": 4928,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "53bafa628a9a77ac",
+      "governance_bypass": false,
+      "item_id": "hyp-009",
+      "status": "speculative",
+      "step": 4929,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "ed0d1ae7ccfb962c",
+      "governance_bypass": false,
+      "item_id": "unresolved|cluster",
+      "status": "unresolved",
+      "step": 4930,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "1f71deeb124536c1",
+      "governance_bypass": false,
+      "item_id": "pat-small-002",
+      "status": "small_sample",
+      "step": 4931,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "d7384cc7a4d8ca63",
+      "governance_bypass": false,
+      "item_id": "hyp-010",
+      "status": "rejected",
+      "step": 4932,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "f47b3075b39ccb2b",
+      "governance_bypass": false,
+      "item_id": "unresolved|decomposition",
+      "status": "unresolved",
+      "step": 4933,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "ea18f6182d71fddc",
+      "governance_bypass": false,
+      "item_id": "pat-spur-001",
+      "status": "spurious_cluster",
+      "step": 4934,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "f6f4206500fabb6c",
+      "governance_bypass": false,
+      "item_id": "hyp-011",
+      "status": "rejected",
+      "step": 4935,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "554fde0ab359007a",
+      "governance_bypass": false,
+      "item_id": "unresolved|symmetry",
+      "status": "unresolved",
+      "step": 4936,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "36739b06ebeba43a",
+      "governance_bypass": false,
+      "item_id": "pat-spur-002",
+      "status": "spurious_cluster",
+      "step": 4937,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "e9ee007b93ece235",
+      "governance_bypass": false,
+      "item_id": "hyp-012",
+      "status": "rejected",
+      "step": 4938,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "0801ce8850a3f6ca",
+      "governance_bypass": false,
+      "item_id": "verified|decomposition",
+      "status": "verified",
+      "step": 4939,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "36d13b247e28d97f",
+      "governance_bypass": false,
+      "item_id": "pat-over-001",
+      "status": "overfit_regularity",
+      "step": 4940,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "508919f1766922e5",
+      "governance_bypass": false,
+      "item_id": "hyp-013",
+      "status": "unresolved",
+      "step": 4941,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "c5b007b53a5e2b8f",
+      "governance_bypass": false,
+      "item_id": "heuristic|asymptotic",
+      "status": "heuristic",
+      "step": 4942,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "79c05c8b934042ea",
+      "governance_bypass": false,
+      "item_id": "pat-over-002",
+      "status": "overfit_regularity",
+      "step": 4943,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "f6b02f40e5e92053",
+      "governance_bypass": false,
+      "item_id": "hyp-014",
+      "status": "unresolved",
+      "step": 4944,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "3077b352a9eb749a",
+      "governance_bypass": false,
+      "item_id": "plausible|cluster",
+      "status": "plausible",
+      "step": 4945,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "e7632cb9ce6b25e7",
+      "governance_bypass": false,
+      "item_id": "pat-gen-001",
+      "status": "genuine",
+      "step": 4946,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "23a7024380c2b538",
+      "governance_bypass": false,
+      "item_id": "hyp-015",
+      "status": "unresolved",
+      "step": 4947,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "dd7446163151fdf4",
+      "governance_bypass": false,
+      "item_id": "plausible|symmetry",
+      "status": "plausible",
+      "step": 4948,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "c7879b9b8544e0dc",
+      "governance_bypass": false,
+      "item_id": "pat-gen-002",
+      "status": "genuine",
+      "step": 4949,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "eb45e35a50ef2440",
+      "governance_bypass": false,
+      "item_id": "hyp-001",
+      "status": "verified",
+      "step": 4950,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "a332b34131ef92ff",
+      "governance_bypass": false,
+      "item_id": "rejected|overreach",
+      "status": "rejected",
+      "step": 4951,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "7ee24e1eb7959968",
+      "governance_bypass": false,
+      "item_id": "pat-num-001",
+      "status": "numerological",
+      "step": 4952,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "11d9ed16938d6381",
+      "governance_bypass": false,
+      "item_id": "hyp-002",
+      "status": "verified",
+      "step": 4953,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "13a3294481d141f0",
+      "governance_bypass": false,
+      "item_id": "speculative|analogy",
+      "status": "speculative",
+      "step": 4954,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "0fc696cd821040c6",
+      "governance_bypass": false,
+      "item_id": "pat-num-002",
+      "status": "numerological",
+      "step": 4955,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "7c347db263f95c51",
+      "governance_bypass": false,
+      "item_id": "hyp-003",
+      "status": "verified",
+      "step": 4956,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "39accfd58dd87d3d",
+      "governance_bypass": false,
+      "item_id": "unresolved|cluster",
+      "status": "unresolved",
+      "step": 4957,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "3c1da2665922b6ff",
+      "governance_bypass": false,
+      "item_id": "pat-small-001",
+      "status": "small_sample",
+      "step": 4958,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "401d9b315b29e0a2",
+      "governance_bypass": false,
+      "item_id": "hyp-004",
+      "status": "heuristic",
+      "step": 4959,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "a1bd767a4df423da",
+      "governance_bypass": false,
+      "item_id": "unresolved|decomposition",
+      "status": "unresolved",
+      "step": 4960,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "cd976ae6bbdf97c2",
+      "governance_bypass": false,
+      "item_id": "pat-small-002",
+      "status": "small_sample",
+      "step": 4961,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "833852bf738db811",
+      "governance_bypass": false,
+      "item_id": "hyp-005",
+      "status": "heuristic",
+      "step": 4962,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "a0410d494b9a8eed",
+      "governance_bypass": false,
+      "item_id": "unresolved|symmetry",
+      "status": "unresolved",
+      "step": 4963,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "cebb52b501fe5a89",
+      "governance_bypass": false,
+      "item_id": "pat-spur-001",
+      "status": "spurious_cluster",
+      "step": 4964,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "577fbe42c8bcbcd0",
+      "governance_bypass": false,
+      "item_id": "hyp-006",
+      "status": "plausible",
+      "step": 4965,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "0212b8506c63ec17",
+      "governance_bypass": false,
+      "item_id": "verified|decomposition",
+      "status": "verified",
+      "step": 4966,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "5356ac79d1fb7498",
+      "governance_bypass": false,
+      "item_id": "pat-spur-002",
+      "status": "spurious_cluster",
+      "step": 4967,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "6c23119425ce5b3e",
+      "governance_bypass": false,
+      "item_id": "hyp-007",
+      "status": "plausible",
+      "step": 4968,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "2347755bfcedf8ac",
+      "governance_bypass": false,
+      "item_id": "heuristic|asymptotic",
+      "status": "heuristic",
+      "step": 4969,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "bcfd81b818ee5fc6",
+      "governance_bypass": false,
+      "item_id": "pat-over-001",
+      "status": "overfit_regularity",
+      "step": 4970,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "fec5326133536acc",
+      "governance_bypass": false,
+      "item_id": "hyp-008",
+      "status": "speculative",
+      "step": 4971,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "79124db782252aa4",
+      "governance_bypass": false,
+      "item_id": "plausible|cluster",
+      "status": "plausible",
+      "step": 4972,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "86e9db388658bfd8",
+      "governance_bypass": false,
+      "item_id": "pat-over-002",
+      "status": "overfit_regularity",
+      "step": 4973,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "736267ae02c37e63",
+      "governance_bypass": false,
+      "item_id": "hyp-009",
+      "status": "speculative",
+      "step": 4974,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "9349f5f9c0abd2d8",
+      "governance_bypass": false,
+      "item_id": "plausible|symmetry",
+      "status": "plausible",
+      "step": 4975,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "518dc83d9382545f",
+      "governance_bypass": false,
+      "item_id": "pat-gen-001",
+      "status": "genuine",
+      "step": 4976,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "003d659493b8b0f2",
+      "governance_bypass": false,
+      "item_id": "hyp-010",
+      "status": "rejected",
+      "step": 4977,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "5fe653c4abcf10fc",
+      "governance_bypass": false,
+      "item_id": "rejected|overreach",
+      "status": "rejected",
+      "step": 4978,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "5a95a00211457389",
+      "governance_bypass": false,
+      "item_id": "pat-gen-002",
+      "status": "genuine",
+      "step": 4979,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "ecf88402253d72c2",
+      "governance_bypass": false,
+      "item_id": "hyp-011",
+      "status": "rejected",
+      "step": 4980,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "bdaf482319c82b36",
+      "governance_bypass": false,
+      "item_id": "speculative|analogy",
+      "status": "speculative",
+      "step": 4981,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "be2b017b9966702d",
+      "governance_bypass": false,
+      "item_id": "pat-num-001",
+      "status": "numerological",
+      "step": 4982,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "423a9810a6968d19",
+      "governance_bypass": false,
+      "item_id": "hyp-012",
+      "status": "rejected",
+      "step": 4983,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "a932e2e0e738281b",
+      "governance_bypass": false,
+      "item_id": "unresolved|cluster",
+      "status": "unresolved",
+      "step": 4984,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "a868e82dfc18e27c",
+      "governance_bypass": false,
+      "item_id": "pat-num-002",
+      "status": "numerological",
+      "step": 4985,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "e8bddf0caba4b017",
+      "governance_bypass": false,
+      "item_id": "hyp-013",
+      "status": "unresolved",
+      "step": 4986,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "fe82954f7e7f1b82",
+      "governance_bypass": false,
+      "item_id": "unresolved|decomposition",
+      "status": "unresolved",
+      "step": 4987,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "72205533372fa6af",
+      "governance_bypass": false,
+      "item_id": "pat-small-001",
+      "status": "small_sample",
+      "step": 4988,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "2b6fc50ffe540d7e",
+      "governance_bypass": false,
+      "item_id": "hyp-014",
+      "status": "unresolved",
+      "step": 4989,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "628b97b57e1f27c3",
+      "governance_bypass": false,
+      "item_id": "unresolved|symmetry",
+      "status": "unresolved",
+      "step": 4990,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "d09b2258346ae9ce",
+      "governance_bypass": false,
+      "item_id": "pat-small-002",
+      "status": "small_sample",
+      "step": 4991,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "6028a8cb8849cf39",
+      "governance_bypass": false,
+      "item_id": "hyp-015",
+      "status": "unresolved",
+      "step": 4992,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "ec7281ddd52c5c5e",
+      "governance_bypass": false,
+      "item_id": "verified|decomposition",
+      "status": "verified",
+      "step": 4993,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "ca1da0a95192bfbe",
+      "governance_bypass": false,
+      "item_id": "pat-spur-001",
+      "status": "spurious_cluster",
+      "step": 4994,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "9ab7ce9384c681d7",
+      "governance_bypass": false,
+      "item_id": "hyp-001",
+      "status": "verified",
+      "step": 4995,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "d74a9739816c3bf0",
+      "governance_bypass": false,
+      "item_id": "heuristic|asymptotic",
+      "status": "heuristic",
+      "step": 4996,
+      "stream": "governed"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "51e7c6aff6b7d52b",
+      "governance_bypass": false,
+      "item_id": "pat-spur-002",
+      "status": "spurious_cluster",
+      "step": 4997,
+      "stream": "pattern"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "cf83e6f05975cdd9",
+      "governance_bypass": false,
+      "item_id": "hyp-002",
+      "status": "verified",
+      "step": 4998,
+      "stream": "wild"
+    },
+    {
+      "closed_enum_hash": "d9c23be29f9cebd2",
+      "cumulative_hash": "a47bf8c6760b03ca",
+      "governance_bypass": false,
+      "item_id": "plausible|cluster",
+      "status": "plausible",
+      "step": 4999,
+      "stream": "governed"
+    }
+  ]
+}
