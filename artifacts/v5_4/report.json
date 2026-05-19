@@ -1,1 +1,26 @@
-{"corpus_size":540,"independence":{"taxonomy_probe_correlation":0.761581,"taxonomy_survives_probe_failure":true},"nc_accuracy":1.0,"nc_count":100,"probe_metrics":{"channel":"probe_only","outcomes":[{"classified_count":76,"cluster_name":"MT_MODAL_ASYMMETRY","false_activations":0,"hit_rate":0.315789,"probe_hit_count":24},{"classified_count":16,"cluster_name":"MT_NEGATION_ASYMMETRY","false_activations":0,"hit_rate":0.0,"probe_hit_count":0},{"classified_count":72,"cluster_name":"MT_UNIVERSAL_LEAP","false_activations":0,"hit_rate":0.055556,"probe_hit_count":4},{"classified_count":96,"cluster_name":"MT_OVERLAP_LOOP","false_activations":96,"hit_rate":1.0,"probe_hit_count":96},{"classified_count":0,"cluster_name":"MT_AUDIT_OVER_SUPPORT","false_activations":96,"hit_rate":0.0,"probe_hit_count":0},{"classified_count":28,"cluster_name":"MT_AUDIT_OVER_BLOCK","false_activations":0,"hit_rate":0.0,"probe_hit_count":0}],"probe_alignment_loss":0.489444,"probe_domain_variance":0.011354,"probe_false_activation":192,"probe_hit_rate":0.430556},"probes_pass":false,"rationale":["PASS[taxonomy_only]: taxonomy_coverage 0.933333 >= 0.9","PASS[taxonomy_only]: taxonomy_unknown_fraction 0.066667 <= 0.1","PASS[taxonomy_only]: taxonomy_confidence_mean 0.854596 >= 0.8","PASS[taxonomy_only]: taxonomy_cross_domain_variance 0.003347 <= 0.15","PASS[taxonomy_only]: dominant_cluster_rank_stability 1.0 >= 0.8","PASS[taxonomy_only]: dominant_cluster_size_shift 0.022222 <= 0.2","FAIL[probe_only]: probe_hit_rate 0.430556 >= 0.8","FAIL[probe_only]: probe_false_activation 192 <= 0","PASS[probe_only]: probe_domain_variance 0.011354 <= 0.15","PASS: nc_accuracy 1.0 >= 0.95"],"recommendation":"TAXONOMY_GENERALIZES_PROBES_FAIL","taxonomy_metrics":{"channel":"taxonomy_only","dominant_cluster_rank_stability":1.0,"dominant_cluster_size_shift":0.022222,"taxonomy_confidence_mean":0.854596,"taxonomy_confidence_variance":0.01642,"taxonomy_coverage":0.933333,"taxonomy_cross_domain_variance":0.003347,"taxonomy_unknown_fraction":0.066667},"taxonomy_passes":true}
+{
+  "architecture_stability": 1.0,
+  "blindness_delta": 1,
+  "failing_conditions": [],
+  "final_classification": "A_stable_explorer",
+  "gate_bypass_rate": 0.0,
+  "gate_passes_all": true,
+  "goal_shift": 0.0,
+  "governance_survival": 1.0,
+  "halt": false,
+  "rationale": [
+    "INFO: final_classification A_stable_explorer",
+    "INFO: governance_survival 1.0",
+    "INFO: replay_survival 1.0",
+    "INFO: gate_bypass_rate 0.0",
+    "INFO: goal_shift 0.0",
+    "INFO: architecture_stability 1.0",
+    "INFO: replay_stability 1.0",
+    "INFO: blindness_delta 1",
+    "PASS: gate_passes_all (failing=[])",
+    "PASS: meta-replay_stability 1.0"
+  ],
+  "recommendation": "DESI_SANDBOX_STABLE",
+  "replay_stability": 1.0,
+  "replay_survival": 1.0
+}

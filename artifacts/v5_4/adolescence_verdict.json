@@ -1,0 +1,22 @@
+{
+  "adolescence_classes": [
+    "A_stable_explorer",
+    "B_bounded_drift",
+    "C_governance_erosion",
+    "D_epistemic_collapse",
+    "E_replay_collapse"
+  ],
+  "failing_conditions": [],
+  "final_classification": "A_stable_explorer",
+  "gate_passes_all": true,
+  "metrics": {
+    "architecture_stability": 1.0,
+    "blindness_delta": 1,
+    "gate_bypass_rate": 0.0,
+    "goal_shift": 0.0,
+    "governance_survival": 1.0,
+    "replay_stability": 1.0,
+    "replay_survival": 1.0
+  },
+  "schema_version": "v5_4_adolescence_verdict"
+}
