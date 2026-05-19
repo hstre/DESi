@@ -1,0 +1,1501 @@
+{
+  "rollback_success": 1.0,
+  "schema_version": "v5_0_sandbox_runtime",
+  "seed_invariance": 1.0,
+  "session_count": 10,
+  "session_replay_rate": 1.0,
+  "sessions": [
+    {
+      "config": {
+        "checkpoint_every": 5,
+        "seed": 0,
+        "session_id": "sess_00",
+        "step_count": 20
+      },
+      "final_hash": "373e99a164801ba4",
+      "initial_hash": "0c69c3ce1c932028",
+      "snapshots": [
+        {
+          "label": "checkpoint@6",
+          "state_hash": "5ec7be2c9ba879ac",
+          "step": 6
+        },
+        {
+          "label": "checkpoint@11",
+          "state_hash": "cc343bc5f373006b",
+          "step": 11
+        },
+        {
+          "label": "checkpoint@16",
+          "state_hash": "216832a2dbe624a4",
+          "step": 16
+        }
+      ],
+      "trajectory": [
+        {
+          "action": "observe",
+          "payload": "observe:7a810fc6",
+          "state_hash": "a63aa3d69b336740",
+          "step": 1
+        },
+        {
+          "action": "observe",
+          "payload": "observe:fedea94b",
+          "state_hash": "32743238b13de03d",
+          "step": 2
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:c7b3781b",
+          "state_hash": "f323b6e9b8f65773",
+          "step": 3
+        },
+        {
+          "action": "observe",
+          "payload": "observe:ba382739",
+          "state_hash": "051bca393ea839e7",
+          "step": 4
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:a1e1ba59",
+          "state_hash": "66276bae624f1474",
+          "step": 5
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:cf26a606",
+          "state_hash": "5ec7be2c9ba879ac",
+          "step": 6
+        },
+        {
+          "action": "observe",
+          "payload": "observe:88d9636b",
+          "state_hash": "dad4e9d050d45893",
+          "step": 7
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:57511f64",
+          "state_hash": "08b58555c8186a51",
+          "step": 8
+        },
+        {
+          "action": "observe",
+          "payload": "observe:d6ad3a4e",
+          "state_hash": "0c53682982f81195",
+          "step": 9
+        },
+        {
+          "action": "observe",
+          "payload": "observe:4c5092c9",
+          "state_hash": "9625844bcc286e98",
+          "step": 10
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:83b86e8c",
+          "state_hash": "cc343bc5f373006b",
+          "step": 11
+        },
+        {
+          "action": "observe",
+          "payload": "observe:007f75e3",
+          "state_hash": "853fe71ffc6c91f3",
+          "step": 12
+        },
+        {
+          "action": "observe",
+          "payload": "observe:f24b705b",
+          "state_hash": "b7cf17b9a54cc261",
+          "step": 13
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:eb960948",
+          "state_hash": "ce5d2c45361153a0",
+          "step": 14
+        },
+        {
+          "action": "observe",
+          "payload": "observe:c431568e",
+          "state_hash": "e5cb21613c3b19f3",
+          "step": 15
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:63705823",
+          "state_hash": "216832a2dbe624a4",
+          "step": 16
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:ed4d0e45",
+          "state_hash": "57e10013a660cd91",
+          "step": 17
+        },
+        {
+          "action": "observe",
+          "payload": "observe:30332cb7",
+          "state_hash": "661eb278b56e5493",
+          "step": 18
+        },
+        {
+          "action": "observe",
+          "payload": "observe:c0e8ebdc",
+          "state_hash": "76f28a508d8baa25",
+          "step": 19
+        },
+        {
+          "action": "observe",
+          "payload": "observe:026527b0",
+          "state_hash": "373e99a164801ba4",
+          "step": 20
+        }
+      ]
+    },
+    {
+      "config": {
+        "checkpoint_every": 5,
+        "seed": 1,
+        "session_id": "sess_01",
+        "step_count": 20
+      },
+      "final_hash": "1b038878d9b70e16",
+      "initial_hash": "0c69c3ce1c932028",
+      "snapshots": [
+        {
+          "label": "checkpoint@6",
+          "state_hash": "6b3350b96c04d108",
+          "step": 6
+        },
+        {
+          "label": "checkpoint@11",
+          "state_hash": "1da7124a7169beba",
+          "step": 11
+        },
+        {
+          "label": "checkpoint@16",
+          "state_hash": "3cac238e4e706251",
+          "step": 16
+        }
+      ],
+      "trajectory": [
+        {
+          "action": "observe",
+          "payload": "observe:7e95dea4",
+          "state_hash": "ec1f1b7b75e5e403",
+          "step": 1
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:c7f9283b",
+          "state_hash": "32b065aa1c6623ce",
+          "step": 2
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:279a0399",
+          "state_hash": "4fb17ec2c8c1974c",
+          "step": 3
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:53c86d75",
+          "state_hash": "8dcbf25adee95340",
+          "step": 4
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:ad1f90a2",
+          "state_hash": "a85c99d54af84d65",
+          "step": 5
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:d859bc61",
+          "state_hash": "6b3350b96c04d108",
+          "step": 6
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:178f29d4",
+          "state_hash": "5fa649016d08f9db",
+          "step": 7
+        },
+        {
+          "action": "observe",
+          "payload": "observe:fc24223c",
+          "state_hash": "87d5975e810e77a0",
+          "step": 8
+        },
+        {
+          "action": "observe",
+          "payload": "observe:1454bce0",
+          "state_hash": "374bf376a4a859a1",
+          "step": 9
+        },
+        {
+          "action": "observe",
+          "payload": "observe:60a0b215",
+          "state_hash": "97a1103e2a4b3774",
+          "step": 10
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:eea8f6f6",
+          "state_hash": "1da7124a7169beba",
+          "step": 11
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:97f1766d",
+          "state_hash": "fe3fc941547f75d7",
+          "step": 12
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:4f7dfa83",
+          "state_hash": "057b30a4ab042c81",
+          "step": 13
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:81c02e87",
+          "state_hash": "f07f0947983680ea",
+          "step": 14
+        },
+        {
+          "action": "observe",
+          "payload": "observe:e28c35c8",
+          "state_hash": "0698761c6577e4f5",
+          "step": 15
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:771390f5",
+          "state_hash": "3cac238e4e706251",
+          "step": 16
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:bd95fa3f",
+          "state_hash": "191f158731ad176e",
+          "step": 17
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:f14ab689",
+          "state_hash": "23d9bb4a7b0e7377",
+          "step": 18
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:6d299d87",
+          "state_hash": "80d36772601e24bf",
+          "step": 19
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:991b4e8a",
+          "state_hash": "1b038878d9b70e16",
+          "step": 20
+        }
+      ]
+    },
+    {
+      "config": {
+        "checkpoint_every": 5,
+        "seed": 2,
+        "session_id": "sess_02",
+        "step_count": 20
+      },
+      "final_hash": "26710e0e52816fd0",
+      "initial_hash": "0c69c3ce1c932028",
+      "snapshots": [
+        {
+          "label": "checkpoint@6",
+          "state_hash": "352515e1a6e04488",
+          "step": 6
+        },
+        {
+          "label": "checkpoint@11",
+          "state_hash": "d850cef97b351d11",
+          "step": 11
+        },
+        {
+          "label": "checkpoint@16",
+          "state_hash": "d493aa80331de0c6",
+          "step": 16
+        }
+      ],
+      "trajectory": [
+        {
+          "action": "observe",
+          "payload": "observe:284c2870",
+          "state_hash": "bf9a0994819f3272",
+          "step": 1
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:e5bc49fa",
+          "state_hash": "331b98e83b910587",
+          "step": 2
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:21a19b53",
+          "state_hash": "d1cd2a0678502759",
+          "step": 3
+        },
+        {
+          "action": "observe",
+          "payload": "observe:ea4d24d4",
+          "state_hash": "2339366eb2ea963e",
+          "step": 4
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:edbcc7f2",
+          "state_hash": "5cc55a98f2446bad",
+          "step": 5
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:30840f22",
+          "state_hash": "352515e1a6e04488",
+          "step": 6
+        },
+        {
+          "action": "observe",
+          "payload": "observe:fc4a29d9",
+          "state_hash": "a8111765b1dce808",
+          "step": 7
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:65857e74",
+          "state_hash": "389ecbee5ae558a8",
+          "step": 8
+        },
+        {
+          "action": "observe",
+          "payload": "observe:3411c28f",
+          "state_hash": "72e7d10e4d3f5d67",
+          "step": 9
+        },
+        {
+          "action": "observe",
+          "payload": "observe:c07650a2",
+          "state_hash": "8c2166d0c38c668b",
+          "step": 10
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:a8d976a6",
+          "state_hash": "d850cef97b351d11",
+          "step": 11
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:a5f8cb82",
+          "state_hash": "50a1425b1dfd164b",
+          "step": 12
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:c3f941ca",
+          "state_hash": "9b3beccf158a1eb2",
+          "step": 13
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:11041f30",
+          "state_hash": "e300369787bfb412",
+          "step": 14
+        },
+        {
+          "action": "observe",
+          "payload": "observe:ceea7f21",
+          "state_hash": "3c0fd1d8cc5c291c",
+          "step": 15
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:4ebc0e25",
+          "state_hash": "d493aa80331de0c6",
+          "step": 16
+        },
+        {
+          "action": "observe",
+          "payload": "observe:6eb150ba",
+          "state_hash": "463814fceef9f4df",
+          "step": 17
+        },
+        {
+          "action": "observe",
+          "payload": "observe:12b0c431",
+          "state_hash": "fbb6796d7a424e1a",
+          "step": 18
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:db3c7380",
+          "state_hash": "1a99a628ad83e0a8",
+          "step": 19
+        },
+        {
+          "action": "observe",
+          "payload": "observe:dc17499d",
+          "state_hash": "26710e0e52816fd0",
+          "step": 20
+        }
+      ]
+    },
+    {
+      "config": {
+        "checkpoint_every": 5,
+        "seed": 3,
+        "session_id": "sess_03",
+        "step_count": 20
+      },
+      "final_hash": "fbfce9cbdd45143f",
+      "initial_hash": "0c69c3ce1c932028",
+      "snapshots": [
+        {
+          "label": "checkpoint@6",
+          "state_hash": "36ab4a57ac5bb621",
+          "step": 6
+        },
+        {
+          "label": "checkpoint@11",
+          "state_hash": "e017b9b904a0f17c",
+          "step": 11
+        },
+        {
+          "label": "checkpoint@16",
+          "state_hash": "46e296381c5e0526",
+          "step": 16
+        }
+      ],
+      "trajectory": [
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:3ff1fed3",
+          "state_hash": "99c59fff31d04f59",
+          "step": 1
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:c566718e",
+          "state_hash": "61214d01eb2891a2",
+          "step": 2
+        },
+        {
+          "action": "observe",
+          "payload": "observe:4e6394fd",
+          "state_hash": "a605c12667e44b6c",
+          "step": 3
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:818efbfb",
+          "state_hash": "ced40c8f07bf2d7a",
+          "step": 4
+        },
+        {
+          "action": "observe",
+          "payload": "observe:822633e6",
+          "state_hash": "0b38a6376f5b3a25",
+          "step": 5
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:2bb9e284",
+          "state_hash": "36ab4a57ac5bb621",
+          "step": 6
+        },
+        {
+          "action": "observe",
+          "payload": "observe:6cf713ca",
+          "state_hash": "64e8b0a389cdc020",
+          "step": 7
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:9380953f",
+          "state_hash": "f0ed77775fe5bc88",
+          "step": 8
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:f1fe4e24",
+          "state_hash": "a3d83f340c2b09df",
+          "step": 9
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:055aea2b",
+          "state_hash": "0073004bdbd96f85",
+          "step": 10
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:50419d9d",
+          "state_hash": "e017b9b904a0f17c",
+          "step": 11
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:7574df3f",
+          "state_hash": "a9d6082a4d62840c",
+          "step": 12
+        },
+        {
+          "action": "observe",
+          "payload": "observe:665d3e5c",
+          "state_hash": "35ca2c2406aec839",
+          "step": 13
+        },
+        {
+          "action": "observe",
+          "payload": "observe:f218f659",
+          "state_hash": "67fed490b60f7b21",
+          "step": 14
+        },
+        {
+          "action": "observe",
+          "payload": "observe:a89dbd01",
+          "state_hash": "30bacb7e3fdcf384",
+          "step": 15
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:c98fb17e",
+          "state_hash": "46e296381c5e0526",
+          "step": 16
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:6d7c7c78",
+          "state_hash": "428a41ab356a1ec0",
+          "step": 17
+        },
+        {
+          "action": "observe",
+          "payload": "observe:b472a0f6",
+          "state_hash": "5a9cf572497a9d99",
+          "step": 18
+        },
+        {
+          "action": "observe",
+          "payload": "observe:aa347c11",
+          "state_hash": "3774f536c88e87db",
+          "step": 19
+        },
+        {
+          "action": "observe",
+          "payload": "observe:020e4525",
+          "state_hash": "fbfce9cbdd45143f",
+          "step": 20
+        }
+      ]
+    },
+    {
+      "config": {
+        "checkpoint_every": 5,
+        "seed": 4,
+        "session_id": "sess_04",
+        "step_count": 20
+      },
+      "final_hash": "ad6fdc3d54660d7e",
+      "initial_hash": "0c69c3ce1c932028",
+      "snapshots": [
+        {
+          "label": "checkpoint@6",
+          "state_hash": "3b72a6bd6fab6630",
+          "step": 6
+        },
+        {
+          "label": "checkpoint@11",
+          "state_hash": "830baf1b68953f4b",
+          "step": 11
+        },
+        {
+          "label": "checkpoint@16",
+          "state_hash": "fa4bb8e165c13656",
+          "step": 16
+        }
+      ],
+      "trajectory": [
+        {
+          "action": "observe",
+          "payload": "observe:82726995",
+          "state_hash": "555793f3281790d8",
+          "step": 1
+        },
+        {
+          "action": "observe",
+          "payload": "observe:cab105a6",
+          "state_hash": "d867e7804b257125",
+          "step": 2
+        },
+        {
+          "action": "observe",
+          "payload": "observe:c29333d5",
+          "state_hash": "5af23de3679013a9",
+          "step": 3
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:0f5e434e",
+          "state_hash": "74ee2d89fb01f399",
+          "step": 4
+        },
+        {
+          "action": "observe",
+          "payload": "observe:fa177a71",
+          "state_hash": "8d1858bff9020eb8",
+          "step": 5
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:c947d83f",
+          "state_hash": "3b72a6bd6fab6630",
+          "step": 6
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:0f141618",
+          "state_hash": "59947563f2bf1d65",
+          "step": 7
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:ab212433",
+          "state_hash": "fb4e0ca6746281ab",
+          "step": 8
+        },
+        {
+          "action": "observe",
+          "payload": "observe:6c1f4e4b",
+          "state_hash": "b4b8d15dacb2cac0",
+          "step": 9
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:95f5f2f0",
+          "state_hash": "ac95c670958c057b",
+          "step": 10
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:f1338316",
+          "state_hash": "830baf1b68953f4b",
+          "step": 11
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:6b29beb0",
+          "state_hash": "7eb7daf8431fa3a0",
+          "step": 12
+        },
+        {
+          "action": "observe",
+          "payload": "observe:4807bad1",
+          "state_hash": "0d182f96d1ed5ec0",
+          "step": 13
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:f542d52f",
+          "state_hash": "7ee3fef37d007ef7",
+          "step": 14
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:4967e0ca",
+          "state_hash": "95a57f8c19aa8401",
+          "step": 15
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:ba17dc0a",
+          "state_hash": "fa4bb8e165c13656",
+          "step": 16
+        },
+        {
+          "action": "observe",
+          "payload": "observe:002311ed",
+          "state_hash": "5d47058c721af4ca",
+          "step": 17
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:dffae899",
+          "state_hash": "0aefca4e42b4da6a",
+          "step": 18
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:b75be3c2",
+          "state_hash": "30fc341665061cbd",
+          "step": 19
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:cfffaae1",
+          "state_hash": "ad6fdc3d54660d7e",
+          "step": 20
+        }
+      ]
+    },
+    {
+      "config": {
+        "checkpoint_every": 5,
+        "seed": 5,
+        "session_id": "sess_05",
+        "step_count": 20
+      },
+      "final_hash": "e598dde4e74dee81",
+      "initial_hash": "0c69c3ce1c932028",
+      "snapshots": [
+        {
+          "label": "checkpoint@6",
+          "state_hash": "1b04f8ad237ff30f",
+          "step": 6
+        },
+        {
+          "label": "checkpoint@11",
+          "state_hash": "e6aab6d825d51ce5",
+          "step": 11
+        },
+        {
+          "label": "checkpoint@16",
+          "state_hash": "c23397e8ab57b87e",
+          "step": 16
+        }
+      ],
+      "trajectory": [
+        {
+          "action": "observe",
+          "payload": "observe:9c156e0e",
+          "state_hash": "c6c7a3458d0f35a0",
+          "step": 1
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:dd4785d6",
+          "state_hash": "dd264486814b3a32",
+          "step": 2
+        },
+        {
+          "action": "observe",
+          "payload": "observe:2a400373",
+          "state_hash": "59ad05b17bc0ad06",
+          "step": 3
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:597f676f",
+          "state_hash": "d55e3cbef76b312b",
+          "step": 4
+        },
+        {
+          "action": "observe",
+          "payload": "observe:e80e52ec",
+          "state_hash": "231d6e3ce8a56236",
+          "step": 5
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:c5c9c06a",
+          "state_hash": "1b04f8ad237ff30f",
+          "step": 6
+        },
+        {
+          "action": "observe",
+          "payload": "observe:a8721f4f",
+          "state_hash": "0bd75d95c4522735",
+          "step": 7
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:69a2ba11",
+          "state_hash": "c5a7fffa361024ac",
+          "step": 8
+        },
+        {
+          "action": "observe",
+          "payload": "observe:52afc69e",
+          "state_hash": "d757f12082d45fd2",
+          "step": 9
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:a5b86927",
+          "state_hash": "55532b0c7fefc326",
+          "step": 10
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:502bd8a2",
+          "state_hash": "e6aab6d825d51ce5",
+          "step": 11
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:b10e17f7",
+          "state_hash": "6fbcb064c3a7bea6",
+          "step": 12
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:f3753b8b",
+          "state_hash": "aadc68c307721439",
+          "step": 13
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:656e88ff",
+          "state_hash": "691bdafb30ad0515",
+          "step": 14
+        },
+        {
+          "action": "observe",
+          "payload": "observe:6ed248f4",
+          "state_hash": "c4e15c1a2a4a508e",
+          "step": 15
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:9c9ff190",
+          "state_hash": "c23397e8ab57b87e",
+          "step": 16
+        },
+        {
+          "action": "observe",
+          "payload": "observe:9a2be874",
+          "state_hash": "bd6c8e4163b82b5f",
+          "step": 17
+        },
+        {
+          "action": "observe",
+          "payload": "observe:f84956c8",
+          "state_hash": "cae0702ee9f2ddc8",
+          "step": 18
+        },
+        {
+          "action": "observe",
+          "payload": "observe:c8f656d4",
+          "state_hash": "a7171d9a583e55b0",
+          "step": 19
+        },
+        {
+          "action": "observe",
+          "payload": "observe:5a18670b",
+          "state_hash": "e598dde4e74dee81",
+          "step": 20
+        }
+      ]
+    },
+    {
+      "config": {
+        "checkpoint_every": 5,
+        "seed": 6,
+        "session_id": "sess_06",
+        "step_count": 20
+      },
+      "final_hash": "d977f4f63ae9f18c",
+      "initial_hash": "0c69c3ce1c932028",
+      "snapshots": [
+        {
+          "label": "checkpoint@6",
+          "state_hash": "c3cb598d63bacd30",
+          "step": 6
+        },
+        {
+          "label": "checkpoint@11",
+          "state_hash": "538b23191a036822",
+          "step": 11
+        },
+        {
+          "label": "checkpoint@16",
+          "state_hash": "f3b1d5539852e115",
+          "step": 16
+        }
+      ],
+      "trajectory": [
+        {
+          "action": "observe",
+          "payload": "observe:021dca85",
+          "state_hash": "16755dd082f5563f",
+          "step": 1
+        },
+        {
+          "action": "observe",
+          "payload": "observe:78986d90",
+          "state_hash": "1d4a8a9840b17366",
+          "step": 2
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:c9d88d79",
+          "state_hash": "0894e88db58d52d1",
+          "step": 3
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:2973583d",
+          "state_hash": "3b19157dcdbe8fe1",
+          "step": 4
+        },
+        {
+          "action": "observe",
+          "payload": "observe:527f6a01",
+          "state_hash": "88b0dbd9ea38e1d9",
+          "step": 5
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:a40ada03",
+          "state_hash": "c3cb598d63bacd30",
+          "step": 6
+        },
+        {
+          "action": "observe",
+          "payload": "observe:68b30b60",
+          "state_hash": "6061a3fd946fd563",
+          "step": 7
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:af045a54",
+          "state_hash": "e22df38b1f0019fc",
+          "step": 8
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:33f4436e",
+          "state_hash": "71684473c2dbcf2d",
+          "step": 9
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:051582c8",
+          "state_hash": "855563e715a6c99a",
+          "step": 10
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:2957b74a",
+          "state_hash": "538b23191a036822",
+          "step": 11
+        },
+        {
+          "action": "observe",
+          "payload": "observe:f4f948d3",
+          "state_hash": "254f110002cf2573",
+          "step": 12
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:c3f723dd",
+          "state_hash": "809301aae45f0d50",
+          "step": 13
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:2983ba07",
+          "state_hash": "975e1692948515fa",
+          "step": 14
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:db6ebe67",
+          "state_hash": "4ef1dda00fb93cb5",
+          "step": 15
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:0e885817",
+          "state_hash": "f3b1d5539852e115",
+          "step": 16
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:174388e3",
+          "state_hash": "5f6b3a0bc0fcc5b3",
+          "step": 17
+        },
+        {
+          "action": "observe",
+          "payload": "observe:5a36c7e7",
+          "state_hash": "370069863f84729e",
+          "step": 18
+        },
+        {
+          "action": "observe",
+          "payload": "observe:108d8e10",
+          "state_hash": "dff5ee12bfce8658",
+          "step": 19
+        },
+        {
+          "action": "observe",
+          "payload": "observe:4e10cd47",
+          "state_hash": "d977f4f63ae9f18c",
+          "step": 20
+        }
+      ]
+    },
+    {
+      "config": {
+        "checkpoint_every": 5,
+        "seed": 7,
+        "session_id": "sess_07",
+        "step_count": 20
+      },
+      "final_hash": "da875a0750660f6a",
+      "initial_hash": "0c69c3ce1c932028",
+      "snapshots": [
+        {
+          "label": "checkpoint@6",
+          "state_hash": "782ff7e486331ac9",
+          "step": 6
+        },
+        {
+          "label": "checkpoint@11",
+          "state_hash": "2446699c2417621a",
+          "step": 11
+        },
+        {
+          "label": "checkpoint@16",
+          "state_hash": "2d8db5f47ebd53b0",
+          "step": 16
+        }
+      ],
+      "trajectory": [
+        {
+          "action": "observe",
+          "payload": "observe:6214ee7e",
+          "state_hash": "9e738db0fef34f77",
+          "step": 1
+        },
+        {
+          "action": "observe",
+          "payload": "observe:e874f3ad",
+          "state_hash": "a09f8b38686deff9",
+          "step": 2
+        },
+        {
+          "action": "observe",
+          "payload": "observe:666aad0e",
+          "state_hash": "1693c57e3cbfcec1",
+          "step": 3
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:ebd76642",
+          "state_hash": "a258cc2b287fa51e",
+          "step": 4
+        },
+        {
+          "action": "observe",
+          "payload": "observe:0c671d15",
+          "state_hash": "414d0031bc90d0be",
+          "step": 5
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:3683855f",
+          "state_hash": "782ff7e486331ac9",
+          "step": 6
+        },
+        {
+          "action": "observe",
+          "payload": "observe:52e4f31b",
+          "state_hash": "6b749369650abbb7",
+          "step": 7
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:3b3a89b4",
+          "state_hash": "0a3067a1f56aee49",
+          "step": 8
+        },
+        {
+          "action": "observe",
+          "payload": "observe:06f27cad",
+          "state_hash": "a3135cb889238ae0",
+          "step": 9
+        },
+        {
+          "action": "observe",
+          "payload": "observe:ec3a6b6f",
+          "state_hash": "14d81ab30cd02aff",
+          "step": 10
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:8f6f8f4f",
+          "state_hash": "2446699c2417621a",
+          "step": 11
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:ed3b1f48",
+          "state_hash": "6ec665792333e313",
+          "step": 12
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:75826dae",
+          "state_hash": "e431b83850c990d4",
+          "step": 13
+        },
+        {
+          "action": "observe",
+          "payload": "observe:58eb37ed",
+          "state_hash": "d0019a8a92ae6fbc",
+          "step": 14
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:179f848b",
+          "state_hash": "4a31777f087e6074",
+          "step": 15
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:b38fd13a",
+          "state_hash": "2d8db5f47ebd53b0",
+          "step": 16
+        },
+        {
+          "action": "observe",
+          "payload": "observe:92c1cf7f",
+          "state_hash": "d20baa4d99a19910",
+          "step": 17
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:c3a94400",
+          "state_hash": "ea548ed94d1da5f1",
+          "step": 18
+        },
+        {
+          "action": "observe",
+          "payload": "observe:a298f712",
+          "state_hash": "5e09df4cea2f9ce5",
+          "step": 19
+        },
+        {
+          "action": "observe",
+          "payload": "observe:54d59cce",
+          "state_hash": "da875a0750660f6a",
+          "step": 20
+        }
+      ]
+    },
+    {
+      "config": {
+        "checkpoint_every": 5,
+        "seed": 8,
+        "session_id": "sess_08",
+        "step_count": 20
+      },
+      "final_hash": "aeff39fd22fdac4e",
+      "initial_hash": "0c69c3ce1c932028",
+      "snapshots": [
+        {
+          "label": "checkpoint@6",
+          "state_hash": "220642bb48023efb",
+          "step": 6
+        },
+        {
+          "label": "checkpoint@11",
+          "state_hash": "10dc2908cf6528cd",
+          "step": 11
+        },
+        {
+          "label": "checkpoint@16",
+          "state_hash": "c50a1e3b14358b40",
+          "step": 16
+        }
+      ],
+      "trajectory": [
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:8f15254a",
+          "state_hash": "6307c64a39cdcdc9",
+          "step": 1
+        },
+        {
+          "action": "observe",
+          "payload": "observe:b2145823",
+          "state_hash": "5d057e2e83da27e9",
+          "step": 2
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:e925312a",
+          "state_hash": "0f48ff5c0a783975",
+          "step": 3
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:f5cd3591",
+          "state_hash": "3b67370a38972219",
+          "step": 4
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:118ea015",
+          "state_hash": "c61e239621b3b4f2",
+          "step": 5
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:e77525d2",
+          "state_hash": "220642bb48023efb",
+          "step": 6
+        },
+        {
+          "action": "observe",
+          "payload": "observe:606a76af",
+          "state_hash": "78ab6857dd27f02a",
+          "step": 7
+        },
+        {
+          "action": "observe",
+          "payload": "observe:4a345227",
+          "state_hash": "dcbb7484c8dce0d2",
+          "step": 8
+        },
+        {
+          "action": "observe",
+          "payload": "observe:5614e3c3",
+          "state_hash": "e81261a6e7d6489a",
+          "step": 9
+        },
+        {
+          "action": "observe",
+          "payload": "observe:da147c31",
+          "state_hash": "39ffef55b1008611",
+          "step": 10
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:2a30a02f",
+          "state_hash": "10dc2908cf6528cd",
+          "step": 11
+        },
+        {
+          "action": "observe",
+          "payload": "observe:7c99edf5",
+          "state_hash": "3f26ded254d106b3",
+          "step": 12
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:f575c500",
+          "state_hash": "b365b4ac3ed0d88d",
+          "step": 13
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:0504a7e4",
+          "state_hash": "1d44c3dd4a41dc8c",
+          "step": 14
+        },
+        {
+          "action": "observe",
+          "payload": "observe:dae733e1",
+          "state_hash": "6af6ef76670e6788",
+          "step": 15
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:a54c0fef",
+          "state_hash": "c50a1e3b14358b40",
+          "step": 16
+        },
+        {
+          "action": "observe",
+          "payload": "observe:6a6da7ca",
+          "state_hash": "dcc8da5703818042",
+          "step": 17
+        },
+        {
+          "action": "observe",
+          "payload": "observe:440dd4e0",
+          "state_hash": "1a3e5d0cc50fd6be",
+          "step": 18
+        },
+        {
+          "action": "observe",
+          "payload": "observe:26b252ae",
+          "state_hash": "921b66a51cc22560",
+          "step": 19
+        },
+        {
+          "action": "observe",
+          "payload": "observe:94923b23",
+          "state_hash": "aeff39fd22fdac4e",
+          "step": 20
+        }
+      ]
+    },
+    {
+      "config": {
+        "checkpoint_every": 5,
+        "seed": 9,
+        "session_id": "sess_09",
+        "step_count": 20
+      },
+      "final_hash": "1e2fa41f7a2b42a2",
+      "initial_hash": "0c69c3ce1c932028",
+      "snapshots": [
+        {
+          "label": "checkpoint@6",
+          "state_hash": "da58f6a8ba469201",
+          "step": 6
+        },
+        {
+          "label": "checkpoint@11",
+          "state_hash": "0e64a94217886258",
+          "step": 11
+        },
+        {
+          "label": "checkpoint@16",
+          "state_hash": "1bf2d1396652719a",
+          "step": 16
+        }
+      ],
+      "trajectory": [
+        {
+          "action": "observe",
+          "payload": "observe:cc9ccdcb",
+          "state_hash": "7b28035a3c40adf7",
+          "step": 1
+        },
+        {
+          "action": "observe",
+          "payload": "observe:3c048e9e",
+          "state_hash": "853c2dda0a9af9ea",
+          "step": 2
+        },
+        {
+          "action": "observe",
+          "payload": "observe:1c195092",
+          "state_hash": "c64b203cf8a073a5",
+          "step": 3
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:8166ea41",
+          "state_hash": "248e046e8480a87e",
+          "step": 4
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:1742cca9",
+          "state_hash": "5e7ece1171f00691",
+          "step": 5
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:52ec0dc3",
+          "state_hash": "da58f6a8ba469201",
+          "step": 6
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:47015f14",
+          "state_hash": "9936d73288fd4a13",
+          "step": 7
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:67fa5e56",
+          "state_hash": "8415e2bca751a9df",
+          "step": 8
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:73f5d4e9",
+          "state_hash": "297ff6956949eaac",
+          "step": 9
+        },
+        {
+          "action": "observe",
+          "payload": "observe:fc746953",
+          "state_hash": "8dae354ead63e1ac",
+          "step": 10
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:1defb453",
+          "state_hash": "0e64a94217886258",
+          "step": 11
+        },
+        {
+          "action": "observe",
+          "payload": "observe:08149490",
+          "state_hash": "2c26e294cfc8777f",
+          "step": 12
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:2321f13d",
+          "state_hash": "eaabeb781d02294b",
+          "step": 13
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:a763b78b",
+          "state_hash": "366a219cb5abb268",
+          "step": 14
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:b18c7116",
+          "state_hash": "bb617d2278b00466",
+          "step": 15
+        },
+        {
+          "action": "checkpoint",
+          "payload": "checkpoint:12075230",
+          "state_hash": "1bf2d1396652719a",
+          "step": 16
+        },
+        {
+          "action": "hypothesize",
+          "payload": "hypothesize:2fd20c86",
+          "state_hash": "a41132e7dcf92e56",
+          "step": 17
+        },
+        {
+          "action": "observe",
+          "payload": "observe:88d169f4",
+          "state_hash": "099959e2259e3473",
+          "step": 18
+        },
+        {
+          "action": "observe",
+          "payload": "observe:d4f99f12",
+          "state_hash": "f0c132b8f09f2fbc",
+          "step": 19
+        },
+        {
+          "action": "observe",
+          "payload": "observe:180bb275",
+          "state_hash": "1e2fa41f7a2b42a2",
+          "step": 20
+        }
+      ]
+    }
+  ],
+  "snapshot_count": 30,
+  "snapshot_integrity": 1.0
+}
