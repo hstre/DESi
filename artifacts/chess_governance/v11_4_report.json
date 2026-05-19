@@ -1,0 +1,26 @@
+{
+  "compute_efficiency_gain": 0.540698,
+  "compute_reduction": 0.540698,
+  "failing_conditions": [],
+  "final_classification": "A_epistemic_search_compressor",
+  "gate_passes_all": true,
+  "halt": false,
+  "pv_stability": 1.0,
+  "quality_preservation": 1.0,
+  "rationale": [
+    "INFO: final_classification A_epistemic_search_compressor",
+    "INFO: compute_reduction 0.540698",
+    "INFO: quality_preservation 1.0",
+    "INFO: tactical_miss_rate 0.0",
+    "INFO: pv_stability 1.0",
+    "INFO: search_governance_integrity 1.0",
+    "INFO: compute_efficiency_gain 0.540698",
+    "INFO: replay_stability 1.0",
+    "PASS: gate_passes_all (failing=[])",
+    "PASS: meta_replay_stability 1.0"
+  ],
+  "recommendation": "DESI_SEARCH_COMPRESSOR",
+  "replay_stability": 1.0,
+  "search_governance_integrity": 1.0,
+  "tactical_miss_rate": 0.0
+}
