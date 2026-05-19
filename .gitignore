@@ -59,3 +59,9 @@ artifacts/v3_124/_full_regression_started.txt
 # artifacts/v5_4/_regression_status.json.
 artifacts/v5_4/_full_regression.log
 artifacts/v5_4/_full_regression_started.txt
+
+# v6.4 end-of-sprint full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/world_contact/_regression_status.json.
+artifacts/world_contact/_full_regression.log
+artifacts/world_contact/_full_regression_started.txt
