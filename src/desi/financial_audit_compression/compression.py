@@ -14,6 +14,8 @@ Reads no post-hoc label.
 """
 from __future__ import annotations
 
+from functools import lru_cache
+
 from .audit_priority import (
     CRITICAL_THRESHOLD, audit_universe,
     critical_cells,
@@ -26,6 +28,7 @@ def _round(x: float, n: int = 6) -> float:
     return round(x, n)
 
 
+@lru_cache(maxsize=None)
 def _rep_covers(firm_id: str, axis: str) -> bool:
     """True if the firm's pool representative carries
     the same axis above the critical threshold -
@@ -46,6 +49,7 @@ def _is_preserved(firm_id: str, axis: str) -> bool:
     return _rep_covers(firm_id, axis)
 
 
+@lru_cache(maxsize=1)
 def preserved_critical() -> tuple[
     tuple[str, str], ...
 ]:
@@ -56,6 +60,7 @@ def preserved_critical() -> tuple[
     )
 
 
+@lru_cache(maxsize=1)
 def suppressed_critical() -> tuple[
     tuple[str, str], ...
 ]:

@@ -13,6 +13,7 @@ Reads no post-hoc label.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from functools import lru_cache
 
 from desi.financial_blindness import (
     SIGNATURE_AXES, signatures,
@@ -44,6 +45,7 @@ class AuditCell:
         }
 
 
+@lru_cache(maxsize=1)
 def audit_universe() -> tuple[AuditCell, ...]:
     """Every (firm, axis) cell, in a fixed,
     deterministic order."""

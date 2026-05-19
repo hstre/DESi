@@ -13,6 +13,7 @@ Reads no post-hoc label.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from functools import lru_cache
 
 from .trajectory_similarity import (
     distance, signature, signatures,
@@ -97,6 +98,7 @@ def _centroid(members: list[str]) -> tuple[float, ...]:
     )
 
 
+@lru_cache(maxsize=1)
 def pools() -> tuple[BlindnessPool, ...]:
     out: list[BlindnessPool] = []
     for idx, members in enumerate(_pool_ids()):

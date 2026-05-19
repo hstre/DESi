@@ -16,6 +16,8 @@ Reads no post-hoc label.
 """
 from __future__ import annotations
 
+from functools import lru_cache
+
 from .audit_priority import audit_universe, universe_size
 from .risk_ranking import RankedCell, ranked_cells
 
@@ -35,6 +37,7 @@ def budget_size() -> int:
     return round(BUDGET_FRACTION * universe_size())
 
 
+@lru_cache(maxsize=1)
 def selected_cells() -> tuple[RankedCell, ...]:
     """Top cells within budget, ignoring cells that
     the discount has driven to zero priority (no
@@ -47,6 +50,7 @@ def selected_cells() -> tuple[RankedCell, ...]:
     return tuple(positive[:budget])
 
 
+@lru_cache(maxsize=1)
 def selected_keys() -> frozenset[tuple[str, str]]:
     return frozenset(
         (r.firm_id, r.axis) for r in selected_cells()

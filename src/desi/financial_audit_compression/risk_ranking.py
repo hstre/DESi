@@ -74,6 +74,7 @@ class RankedCell:
         }
 
 
+@lru_cache(maxsize=1)
 def ranked_cells() -> tuple[RankedCell, ...]:
     rows: list[RankedCell] = []
     for c in audit_universe():

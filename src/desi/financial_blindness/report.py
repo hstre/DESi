@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
+from functools import lru_cache
 
 from desi.financial_governance import (
     ADVERSE_POST_HOC, AUDIT_PRIORITIES,
@@ -102,6 +103,7 @@ def _pool_id_of(firm_id: str) -> int:
     return -1
 
 
+@lru_cache(maxsize=1)
 def firm_pool_verdicts() -> tuple[FirmPoolVerdict, ...]:
     out: list[FirmPoolVerdict] = []
     for sig in signatures():
