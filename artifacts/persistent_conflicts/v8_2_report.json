@@ -1,0 +1,20 @@
+{
+  "goal_balance": 1.0,
+  "goodhart_risk": 0.0,
+  "halt": false,
+  "hidden_reweighting": 0.0,
+  "item_count": 8,
+  "rationale": [
+    "INFO: item_count 8",
+    "INFO: goal_weights {'accuracy_max': 1.0, 'cost_min': 1.0, 'speed_max': 1.0, 'conflict_min': 1.0, 'coherence_max': 1.0, 'exploration_max': 1.0}",
+    "INFO: top_3 ['g-006', 'g-005', 'g-003']",
+    "PASS: goal_balance 1.0 >= 0.80",
+    "PASS: goodhart_risk 0.0 <= 0.10",
+    "PASS: hidden_reweighting 0.0 == 0.0",
+    "PASS: tradeoff_transparency 1.0 >= 0.90",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "GOAL_BALANCED",
+  "replay_stability": 1.0,
+  "tradeoff_transparency": 1.0
+}
