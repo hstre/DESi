@@ -1,0 +1,1009 @@
+{
+  "blindness_growth": 1,
+  "blindness_pools": [
+    {
+      "claim_ids": [
+        "synthetic_adversarial:00",
+        "synthetic_adversarial:01",
+        "synthetic_adversarial:02",
+        "synthetic_adversarial:03",
+        "synthetic_adversarial:04"
+      ],
+      "pool_id": "blind:synthetic_adversarial",
+      "source": "synthetic_adversarial"
+    }
+  ],
+  "claim_count": 30,
+  "claim_diversity": 1.0,
+  "claim_sources": [
+    "wikipedia",
+    "arxiv",
+    "ssrn",
+    "github_issue",
+    "news",
+    "synthetic_adversarial"
+  ],
+  "claims": [
+    {
+      "claim_id": "wikipedia:00",
+      "frame": "definitional",
+      "source": "wikipedia",
+      "text": "the Hawthorne effect, in the standard definition, refers to a property of theories."
+    },
+    {
+      "claim_id": "wikipedia:01",
+      "frame": "definitional",
+      "source": "wikipedia",
+      "text": "the falsifiability criterion is a concept in epistemology."
+    },
+    {
+      "claim_id": "wikipedia:02",
+      "frame": "definitional",
+      "source": "wikipedia",
+      "text": "reproducibility crisis, in the standard definition, refers to a property of theories."
+    },
+    {
+      "claim_id": "wikipedia:03",
+      "frame": "definitional",
+      "source": "wikipedia",
+      "text": "moral hazard is a concept in epistemology."
+    },
+    {
+      "claim_id": "wikipedia:04",
+      "frame": "definitional",
+      "source": "wikipedia",
+      "text": "supply chain attacks, in the standard definition, refers to a property of theories."
+    },
+    {
+      "claim_id": "arxiv:00",
+      "frame": "causal",
+      "source": "arxiv",
+      "text": "We show that moral hazard was misunderstood until the 1980s, contradicting prior work."
+    },
+    {
+      "claim_id": "arxiv:01",
+      "frame": "causal",
+      "source": "arxiv",
+      "text": "We prove that the falsifiability criterion should be deprecated by 2030 under mild assumptions."
+    },
+    {
+      "claim_id": "arxiv:02",
+      "frame": "causal",
+      "source": "arxiv",
+      "text": "We show that p-value misuse should be deprecated by 2030, contradicting prior work."
+    },
+    {
+      "claim_id": "arxiv:03",
+      "frame": "causal",
+      "source": "arxiv",
+      "text": "We show that p-value misuse produces non-replayable artifacts, contradicting prior work."
+    },
+    {
+      "claim_id": "arxiv:04",
+      "frame": "causal",
+      "source": "arxiv",
+      "text": "We show that the precautionary principle is a special case of variational inference, contradicting prior work."
+    },
+    {
+      "claim_id": "ssrn:00",
+      "frame": "causal",
+      "source": "ssrn",
+      "text": "Empirical evidence suggests the Hawthorne effect produces non-replayable artifacts."
+    },
+    {
+      "claim_id": "ssrn:01",
+      "frame": "causal",
+      "source": "ssrn",
+      "text": "Empirical evidence suggests the precautionary principle should be deprecated by 2030."
+    },
+    {
+      "claim_id": "ssrn:02",
+      "frame": "evaluative",
+      "source": "ssrn",
+      "text": "This paper argues that open peer review was misunderstood until the 1980s, with policy implications."
+    },
+    {
+      "claim_id": "ssrn:03",
+      "frame": "causal",
+      "source": "ssrn",
+      "text": "Empirical evidence suggests p-value misuse is a special case of variational inference."
+    },
+    {
+      "claim_id": "ssrn:04",
+      "frame": "evaluative",
+      "source": "ssrn",
+      "text": "This paper argues that double-blind review was misunderstood until the 1980s, with policy implications."
+    },
+    {
+      "claim_id": "github_issue:00",
+      "frame": "bug_report",
+      "source": "github_issue",
+      "text": "feature request: handle the case where model collapse is necessary for scientific progress."
+    },
+    {
+      "claim_id": "github_issue:01",
+      "frame": "bug_report",
+      "source": "github_issue",
+      "text": "feature request: handle the case where double-blind review is necessary for scientific progress."
+    },
+    {
+      "claim_id": "github_issue:02",
+      "frame": "bug_report",
+      "source": "github_issue",
+      "text": "feature request: handle the case where the Hawthorne effect was misunderstood until the 1980s."
+    },
+    {
+      "claim_id": "github_issue:03",
+      "frame": "bug_report",
+      "source": "github_issue",
+      "text": "feature request: handle the case where reproducibility crisis produces non-replayable artifacts."
+    },
+    {
+      "claim_id": "github_issue:04",
+      "frame": "bug_report",
+      "source": "github_issue",
+      "text": "BUG: data poisoning produces non-replayable artifacts - cannot reproduce in CI."
+    },
+    {
+      "claim_id": "news:00",
+      "frame": "normative",
+      "source": "news",
+      "text": "Sources confirm: moral hazard is morally required for funding bodies."
+    },
+    {
+      "claim_id": "news:01",
+      "frame": "report",
+      "source": "news",
+      "text": "Sources confirm: regulatory capture produces non-replayable artifacts."
+    },
+    {
+      "claim_id": "news:02",
+      "frame": "predictive",
+      "source": "news",
+      "text": "Sources confirm: the Hawthorne effect predicts collapse within five years."
+    },
+    {
+      "claim_id": "news:03",
+      "frame": "predictive",
+      "source": "news",
+      "text": "Sources confirm: regulatory capture predicts collapse within five years."
+    },
+    {
+      "claim_id": "news:04",
+      "frame": "report",
+      "source": "news",
+      "text": "Sources confirm: category theory is necessary for scientific progress."
+    },
+    {
+      "claim_id": "synthetic_adversarial:00",
+      "frame": "unknown",
+      "source": "synthetic_adversarial",
+      "text": "Trust me bro: p-value misuse is a special case of variational inference because reasons."
+    },
+    {
+      "claim_id": "synthetic_adversarial:01",
+      "frame": "unknown",
+      "source": "synthetic_adversarial",
+      "text": "Trust me bro: double-blind review cannot exist alongside open science because reasons."
+    },
+    {
+      "claim_id": "synthetic_adversarial:02",
+      "frame": "unknown",
+      "source": "synthetic_adversarial",
+      "text": "Trust me bro: regulatory capture produces non-replayable artifacts because reasons."
+    },
+    {
+      "claim_id": "synthetic_adversarial:03",
+      "frame": "unknown",
+      "source": "synthetic_adversarial",
+      "text": "Trust me bro: the Hawthorne effect always fails in practice because reasons."
+    },
+    {
+      "claim_id": "synthetic_adversarial:04",
+      "frame": "unknown",
+      "source": "synthetic_adversarial",
+      "text": "data poisoning is logically equivalent to its negation AND data poisoning does not is logically equivalent to its negation - both at once."
+    }
+  ],
+  "conflict_kind_counts": {
+    "contradiction": 16,
+    "domain_clash": 36,
+    "modal_clash": 22,
+    "temporal_clash": 28
+  },
+  "conflict_kinds": [
+    "contradiction",
+    "modal_clash",
+    "temporal_clash",
+    "domain_clash"
+  ],
+  "conflicts": [
+    {
+      "claim_a": "arxiv:00",
+      "claim_b": "github_issue:02",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "arxiv:00",
+      "claim_b": "news:01",
+      "kind": "contradiction"
+    },
+    {
+      "claim_a": "arxiv:00",
+      "claim_b": "news:02",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "arxiv:00",
+      "claim_b": "news:03",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "arxiv:00",
+      "claim_b": "news:04",
+      "kind": "contradiction"
+    },
+    {
+      "claim_a": "arxiv:00",
+      "claim_b": "ssrn:02",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "arxiv:00",
+      "claim_b": "ssrn:04",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "arxiv:01",
+      "claim_b": "github_issue:00",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "arxiv:01",
+      "claim_b": "github_issue:01",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "arxiv:01",
+      "claim_b": "github_issue:02",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "arxiv:01",
+      "claim_b": "github_issue:04",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "arxiv:01",
+      "claim_b": "news:00",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "arxiv:01",
+      "claim_b": "news:01",
+      "kind": "contradiction"
+    },
+    {
+      "claim_a": "arxiv:01",
+      "claim_b": "news:02",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "arxiv:01",
+      "claim_b": "news:03",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "arxiv:01",
+      "claim_b": "news:04",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "arxiv:01",
+      "claim_b": "ssrn:02",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "arxiv:01",
+      "claim_b": "ssrn:04",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "arxiv:02",
+      "claim_b": "github_issue:00",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "arxiv:02",
+      "claim_b": "github_issue:01",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "arxiv:02",
+      "claim_b": "github_issue:02",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "arxiv:02",
+      "claim_b": "github_issue:04",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "arxiv:02",
+      "claim_b": "news:00",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "arxiv:02",
+      "claim_b": "news:01",
+      "kind": "contradiction"
+    },
+    {
+      "claim_a": "arxiv:02",
+      "claim_b": "news:02",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "arxiv:02",
+      "claim_b": "news:03",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "arxiv:02",
+      "claim_b": "news:04",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "arxiv:02",
+      "claim_b": "ssrn:02",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "arxiv:02",
+      "claim_b": "ssrn:04",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "arxiv:03",
+      "claim_b": "news:01",
+      "kind": "contradiction"
+    },
+    {
+      "claim_a": "arxiv:03",
+      "claim_b": "news:04",
+      "kind": "contradiction"
+    },
+    {
+      "claim_a": "arxiv:04",
+      "claim_b": "github_issue:00",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "arxiv:04",
+      "claim_b": "github_issue:01",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "arxiv:04",
+      "claim_b": "github_issue:03",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "arxiv:04",
+      "claim_b": "github_issue:04",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "arxiv:04",
+      "claim_b": "news:01",
+      "kind": "contradiction"
+    },
+    {
+      "claim_a": "arxiv:04",
+      "claim_b": "news:04",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "arxiv:04",
+      "claim_b": "ssrn:02",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "arxiv:04",
+      "claim_b": "ssrn:04",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "github_issue:00",
+      "claim_b": "news:00",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "github_issue:00",
+      "claim_b": "news:04",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "github_issue:01",
+      "claim_b": "news:00",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "github_issue:01",
+      "claim_b": "news:04",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "github_issue:02",
+      "claim_b": "news:02",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "github_issue:02",
+      "claim_b": "news:03",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "github_issue:03",
+      "claim_b": "news:04",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "github_issue:04",
+      "claim_b": "news:00",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "github_issue:04",
+      "claim_b": "news:04",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "news:00",
+      "claim_b": "news:04",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "ssrn:00",
+      "claim_b": "news:01",
+      "kind": "contradiction"
+    },
+    {
+      "claim_a": "ssrn:00",
+      "claim_b": "news:04",
+      "kind": "contradiction"
+    },
+    {
+      "claim_a": "ssrn:01",
+      "claim_b": "github_issue:00",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "ssrn:01",
+      "claim_b": "github_issue:01",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "ssrn:01",
+      "claim_b": "github_issue:02",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "ssrn:01",
+      "claim_b": "github_issue:03",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "ssrn:01",
+      "claim_b": "github_issue:04",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "ssrn:01",
+      "claim_b": "news:00",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "ssrn:01",
+      "claim_b": "news:01",
+      "kind": "contradiction"
+    },
+    {
+      "claim_a": "ssrn:01",
+      "claim_b": "news:02",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "ssrn:01",
+      "claim_b": "news:03",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "ssrn:01",
+      "claim_b": "news:04",
+      "kind": "modal_clash"
+    },
+    {
+      "claim_a": "ssrn:01",
+      "claim_b": "ssrn:02",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "ssrn:01",
+      "claim_b": "ssrn:04",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "ssrn:02",
+      "claim_b": "github_issue:00",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "ssrn:02",
+      "claim_b": "github_issue:01",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "ssrn:02",
+      "claim_b": "github_issue:02",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "ssrn:02",
+      "claim_b": "github_issue:03",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "ssrn:02",
+      "claim_b": "github_issue:04",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "ssrn:02",
+      "claim_b": "news:02",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "ssrn:02",
+      "claim_b": "news:03",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "ssrn:02",
+      "claim_b": "news:04",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "ssrn:02",
+      "claim_b": "ssrn:03",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "ssrn:03",
+      "claim_b": "github_issue:00",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "ssrn:03",
+      "claim_b": "github_issue:01",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "ssrn:03",
+      "claim_b": "github_issue:03",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "ssrn:03",
+      "claim_b": "github_issue:04",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "ssrn:03",
+      "claim_b": "news:01",
+      "kind": "contradiction"
+    },
+    {
+      "claim_a": "ssrn:03",
+      "claim_b": "news:04",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "ssrn:03",
+      "claim_b": "ssrn:04",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "ssrn:04",
+      "claim_b": "github_issue:00",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "ssrn:04",
+      "claim_b": "github_issue:01",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "ssrn:04",
+      "claim_b": "github_issue:02",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "ssrn:04",
+      "claim_b": "github_issue:03",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "ssrn:04",
+      "claim_b": "github_issue:04",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "ssrn:04",
+      "claim_b": "news:02",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "ssrn:04",
+      "claim_b": "news:03",
+      "kind": "temporal_clash"
+    },
+    {
+      "claim_a": "ssrn:04",
+      "claim_b": "news:04",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "wikipedia:00",
+      "claim_b": "news:00",
+      "kind": "contradiction"
+    },
+    {
+      "claim_a": "wikipedia:01",
+      "claim_b": "news:00",
+      "kind": "contradiction"
+    },
+    {
+      "claim_a": "wikipedia:02",
+      "claim_b": "arxiv:04",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "wikipedia:02",
+      "claim_b": "github_issue:00",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "wikipedia:02",
+      "claim_b": "github_issue:01",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "wikipedia:02",
+      "claim_b": "github_issue:03",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "wikipedia:02",
+      "claim_b": "github_issue:04",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "wikipedia:02",
+      "claim_b": "news:00",
+      "kind": "contradiction"
+    },
+    {
+      "claim_a": "wikipedia:02",
+      "claim_b": "news:04",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "wikipedia:02",
+      "claim_b": "ssrn:01",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "wikipedia:02",
+      "claim_b": "ssrn:02",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "wikipedia:02",
+      "claim_b": "ssrn:03",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "wikipedia:02",
+      "claim_b": "ssrn:04",
+      "kind": "domain_clash"
+    },
+    {
+      "claim_a": "wikipedia:03",
+      "claim_b": "news:00",
+      "kind": "contradiction"
+    },
+    {
+      "claim_a": "wikipedia:04",
+      "claim_b": "news:00",
+      "kind": "contradiction"
+    }
+  ],
+  "frame_counts": {
+    "bug_report": 5,
+    "causal": 8,
+    "definitional": 5,
+    "evaluative": 2,
+    "normative": 1,
+    "predictive": 2,
+    "report": 2,
+    "unknown": 5
+  },
+  "frame_types": [
+    "definitional",
+    "causal",
+    "evaluative",
+    "predictive",
+    "normative",
+    "report",
+    "bug_report",
+    "unknown"
+  ],
+  "injection": {
+    "final_hash": "ce604be70b75d43e",
+    "initial_hash": "0c69c3ce1c932028",
+    "steps": [
+      {
+        "action": "observe",
+        "claim_id": "wikipedia:00",
+        "frame": "definitional",
+        "source": "wikipedia",
+        "state_hash": "7bfceb2b9fea4bac",
+        "step": 1
+      },
+      {
+        "action": "observe",
+        "claim_id": "wikipedia:01",
+        "frame": "definitional",
+        "source": "wikipedia",
+        "state_hash": "16f64c80644ee678",
+        "step": 2
+      },
+      {
+        "action": "observe",
+        "claim_id": "wikipedia:02",
+        "frame": "definitional",
+        "source": "wikipedia",
+        "state_hash": "6f7b5cbca3eff583",
+        "step": 3
+      },
+      {
+        "action": "observe",
+        "claim_id": "wikipedia:03",
+        "frame": "definitional",
+        "source": "wikipedia",
+        "state_hash": "34c9578c549b1c27",
+        "step": 4
+      },
+      {
+        "action": "observe",
+        "claim_id": "wikipedia:04",
+        "frame": "definitional",
+        "source": "wikipedia",
+        "state_hash": "36e5e8cf9505e975",
+        "step": 5
+      },
+      {
+        "action": "observe",
+        "claim_id": "arxiv:00",
+        "frame": "causal",
+        "source": "arxiv",
+        "state_hash": "5142caefa9f02982",
+        "step": 6
+      },
+      {
+        "action": "observe",
+        "claim_id": "arxiv:01",
+        "frame": "causal",
+        "source": "arxiv",
+        "state_hash": "40ca9781a819ad26",
+        "step": 7
+      },
+      {
+        "action": "observe",
+        "claim_id": "arxiv:02",
+        "frame": "causal",
+        "source": "arxiv",
+        "state_hash": "02dcead5c7775534",
+        "step": 8
+      },
+      {
+        "action": "observe",
+        "claim_id": "arxiv:03",
+        "frame": "causal",
+        "source": "arxiv",
+        "state_hash": "ae61c321ad7e6ed2",
+        "step": 9
+      },
+      {
+        "action": "observe",
+        "claim_id": "arxiv:04",
+        "frame": "causal",
+        "source": "arxiv",
+        "state_hash": "2e972743952a3eae",
+        "step": 10
+      },
+      {
+        "action": "observe",
+        "claim_id": "ssrn:00",
+        "frame": "causal",
+        "source": "ssrn",
+        "state_hash": "cf8d87831136b510",
+        "step": 11
+      },
+      {
+        "action": "observe",
+        "claim_id": "ssrn:01",
+        "frame": "causal",
+        "source": "ssrn",
+        "state_hash": "72a967fdd7d83c88",
+        "step": 12
+      },
+      {
+        "action": "observe",
+        "claim_id": "ssrn:02",
+        "frame": "evaluative",
+        "source": "ssrn",
+        "state_hash": "e6dcdcf08064a42c",
+        "step": 13
+      },
+      {
+        "action": "observe",
+        "claim_id": "ssrn:03",
+        "frame": "causal",
+        "source": "ssrn",
+        "state_hash": "8de67674128a3a22",
+        "step": 14
+      },
+      {
+        "action": "observe",
+        "claim_id": "ssrn:04",
+        "frame": "evaluative",
+        "source": "ssrn",
+        "state_hash": "4716f04c57a704e7",
+        "step": 15
+      },
+      {
+        "action": "observe",
+        "claim_id": "github_issue:00",
+        "frame": "bug_report",
+        "source": "github_issue",
+        "state_hash": "38efb3f6a1f5f2c7",
+        "step": 16
+      },
+      {
+        "action": "observe",
+        "claim_id": "github_issue:01",
+        "frame": "bug_report",
+        "source": "github_issue",
+        "state_hash": "7a26d18ac1dc454a",
+        "step": 17
+      },
+      {
+        "action": "observe",
+        "claim_id": "github_issue:02",
+        "frame": "bug_report",
+        "source": "github_issue",
+        "state_hash": "b4774668907a1bdd",
+        "step": 18
+      },
+      {
+        "action": "observe",
+        "claim_id": "github_issue:03",
+        "frame": "bug_report",
+        "source": "github_issue",
+        "state_hash": "91cd5d118b5d9629",
+        "step": 19
+      },
+      {
+        "action": "observe",
+        "claim_id": "github_issue:04",
+        "frame": "bug_report",
+        "source": "github_issue",
+        "state_hash": "49bd55a89e970607",
+        "step": 20
+      },
+      {
+        "action": "observe",
+        "claim_id": "news:00",
+        "frame": "normative",
+        "source": "news",
+        "state_hash": "1d3e107abf9b3422",
+        "step": 21
+      },
+      {
+        "action": "observe",
+        "claim_id": "news:01",
+        "frame": "report",
+        "source": "news",
+        "state_hash": "e53e0839638fdc53",
+        "step": 22
+      },
+      {
+        "action": "observe",
+        "claim_id": "news:02",
+        "frame": "predictive",
+        "source": "news",
+        "state_hash": "eac8da1ed5687607",
+        "step": 23
+      },
+      {
+        "action": "observe",
+        "claim_id": "news:03",
+        "frame": "predictive",
+        "source": "news",
+        "state_hash": "238e8a3faf1c2c32",
+        "step": 24
+      },
+      {
+        "action": "observe",
+        "claim_id": "news:04",
+        "frame": "report",
+        "source": "news",
+        "state_hash": "e04311ce235024ea",
+        "step": 25
+      },
+      {
+        "action": "noop",
+        "claim_id": "synthetic_adversarial:00",
+        "frame": "unknown",
+        "source": "synthetic_adversarial",
+        "state_hash": "f5ccdbc40a278fa1",
+        "step": 26
+      },
+      {
+        "action": "noop",
+        "claim_id": "synthetic_adversarial:01",
+        "frame": "unknown",
+        "source": "synthetic_adversarial",
+        "state_hash": "f8b66c9c8251d98e",
+        "step": 27
+      },
+      {
+        "action": "noop",
+        "claim_id": "synthetic_adversarial:02",
+        "frame": "unknown",
+        "source": "synthetic_adversarial",
+        "state_hash": "8edba894f9384f84",
+        "step": 28
+      },
+      {
+        "action": "noop",
+        "claim_id": "synthetic_adversarial:03",
+        "frame": "unknown",
+        "source": "synthetic_adversarial",
+        "state_hash": "86a0c07b655befb5",
+        "step": 29
+      },
+      {
+        "action": "noop",
+        "claim_id": "synthetic_adversarial:04",
+        "frame": "unknown",
+        "source": "synthetic_adversarial",
+        "state_hash": "ce604be70b75d43e",
+        "step": 30
+      }
+    ]
+  },
+  "new_conflict_types": 4,
+  "new_frame_count": 7,
+  "schema_version": "v5_1_open_world_claim_stream",
+  "source_counts": {
+    "arxiv": 5,
+    "github_issue": 5,
+    "news": 5,
+    "ssrn": 5,
+    "synthetic_adversarial": 5,
+    "wikipedia": 5
+  }
+}
