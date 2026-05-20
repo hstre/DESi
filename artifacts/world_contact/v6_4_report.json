@@ -1,0 +1,28 @@
+{
+  "coherence_score": 0.981111,
+  "epistemic_integrity": 1.0,
+  "failing_conditions": [],
+  "false_certainty_rate": 0.0,
+  "final_classification": "A_epistemically_stable",
+  "gate_passes_all": true,
+  "governance_stability": 1.0,
+  "governance_survival": 1.0,
+  "hallucination_rate": 0.0,
+  "hallucination_resistance": 1.0,
+  "halt": false,
+  "rationale": [
+    "INFO: final_classification A_epistemically_stable",
+    "INFO: hallucination_rate 0.0",
+    "INFO: hallucination_resistance 1.0",
+    "INFO: false_certainty_rate 0.0",
+    "INFO: governance_survival 1.0",
+    "INFO: governance_stability 1.0",
+    "INFO: coherence_score 0.981111",
+    "INFO: epistemic_integrity 1.0",
+    "INFO: replay_stability 1.0",
+    "PASS: gate_passes_all (failing=[])",
+    "PASS: meta_replay_stability 1.0"
+  ],
+  "recommendation": "DESI_WORLD_CONTACT_STABLE",
+  "replay_stability": 1.0
+}

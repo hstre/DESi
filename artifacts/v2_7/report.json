@@ -1,0 +1,206 @@
+{
+  "cases_complete_via_causal_chain": [
+    "R2_01",
+    "R2_02",
+    "R2_03",
+    "R2_04",
+    "R2_05",
+    "R2_06",
+    "R3_01",
+    "R3_02",
+    "R3_03",
+    "R3_04",
+    "R3_05",
+    "R3_06"
+  ],
+  "main_benchmark": {
+    "false_positives": 0,
+    "precision": 1.0,
+    "recall": 1.0
+  },
+  "multistep": {
+    "R1_01": {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "category": "R1_two_step_bridge",
+      "final_state": "resolution_blocked"
+    },
+    "R1_02": {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "category": "R1_two_step_bridge",
+      "final_state": "resolution_blocked"
+    },
+    "R1_03": {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "category": "R1_two_step_bridge",
+      "final_state": "resolution_blocked"
+    },
+    "R1_04": {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "category": "R1_two_step_bridge",
+      "final_state": "resolution_blocked"
+    },
+    "R1_05": {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "category": "R1_two_step_bridge",
+      "final_state": "resolution_blocked"
+    },
+    "R1_06": {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "category": "R1_two_step_bridge",
+      "final_state": "resolution_blocked"
+    },
+    "R2_01": {
+      "audit_rule": "causal_chain",
+      "audit_state": "logically_supported",
+      "category": "R2_three_step_bridge",
+      "final_state": "resolution_complete"
+    },
+    "R2_02": {
+      "audit_rule": "causal_chain",
+      "audit_state": "logically_supported",
+      "category": "R2_three_step_bridge",
+      "final_state": "resolution_complete"
+    },
+    "R2_03": {
+      "audit_rule": "causal_chain",
+      "audit_state": "logically_supported",
+      "category": "R2_three_step_bridge",
+      "final_state": "resolution_complete"
+    },
+    "R2_04": {
+      "audit_rule": "causal_chain",
+      "audit_state": "logically_supported",
+      "category": "R2_three_step_bridge",
+      "final_state": "resolution_complete"
+    },
+    "R2_05": {
+      "audit_rule": "causal_chain",
+      "audit_state": "logically_supported",
+      "category": "R2_three_step_bridge",
+      "final_state": "resolution_complete"
+    },
+    "R2_06": {
+      "audit_rule": "causal_chain",
+      "audit_state": "logically_supported",
+      "category": "R2_three_step_bridge",
+      "final_state": "resolution_complete"
+    },
+    "R3_01": {
+      "audit_rule": "causal_chain",
+      "audit_state": "logically_supported",
+      "category": "R3_four_step_closure",
+      "final_state": "resolution_complete"
+    },
+    "R3_02": {
+      "audit_rule": "causal_chain",
+      "audit_state": "logically_supported",
+      "category": "R3_four_step_closure",
+      "final_state": "resolution_complete"
+    },
+    "R3_03": {
+      "audit_rule": "causal_chain",
+      "audit_state": "logically_supported",
+      "category": "R3_four_step_closure",
+      "final_state": "resolution_complete"
+    },
+    "R3_04": {
+      "audit_rule": "causal_chain",
+      "audit_state": "logically_supported",
+      "category": "R3_four_step_closure",
+      "final_state": "resolution_complete"
+    },
+    "R3_05": {
+      "audit_rule": "causal_chain",
+      "audit_state": "logically_supported",
+      "category": "R3_four_step_closure",
+      "final_state": "resolution_complete"
+    },
+    "R3_06": {
+      "audit_rule": "causal_chain",
+      "audit_state": "logically_supported",
+      "category": "R3_four_step_closure",
+      "final_state": "resolution_complete"
+    },
+    "R4_01": {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "category": "R4_hidden_contradiction",
+      "final_state": "resolution_blocked"
+    },
+    "R4_02": {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "category": "R4_hidden_contradiction",
+      "final_state": "resolution_blocked"
+    },
+    "R4_03": {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "category": "R4_hidden_contradiction",
+      "final_state": "resolution_blocked"
+    },
+    "R4_04": {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "category": "R4_hidden_contradiction",
+      "final_state": "resolution_complete"
+    },
+    "R4_05": {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "category": "R4_hidden_contradiction",
+      "final_state": "resolution_blocked"
+    },
+    "R4_06": {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "category": "R4_hidden_contradiction",
+      "final_state": "resolution_blocked"
+    },
+    "R5_01": {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "category": "R5_cyclic_dependency",
+      "final_state": "resolution_blocked"
+    },
+    "R5_02": {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "category": "R5_cyclic_dependency",
+      "final_state": "resolution_blocked"
+    },
+    "R5_03": {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "category": "R5_cyclic_dependency",
+      "final_state": "resolution_blocked"
+    },
+    "R5_04": {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "category": "R5_cyclic_dependency",
+      "final_state": "resolution_blocked"
+    },
+    "R5_05": {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "category": "R5_cyclic_dependency",
+      "final_state": "resolution_blocked"
+    },
+    "R5_06": {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "category": "R5_cyclic_dependency",
+      "final_state": "resolution_blocked"
+    }
+  },
+  "r2_r3_gain_count": 12,
+  "r4_regression_count": 0,
+  "r5_regression_count": 0
+}

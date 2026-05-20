@@ -1,0 +1,544 @@
+{
+  "blindness_prediction_auc": 0.993056,
+  "false_negative_rate": 0.0,
+  "false_positive_rate": 0.055556,
+  "halt": false,
+  "pool_count": 52,
+  "pool_recoverability": [
+    {
+      "best_candidate_auc": 0.926687,
+      "family_count": 11,
+      "member_count": 121,
+      "pool_id": 0,
+      "rescuable": true,
+      "state_variance": 0.0,
+      "text_jaccard": 0.077676,
+      "text_variance": 0.922324
+    },
+    {
+      "best_candidate_auc": 0.938952,
+      "family_count": 16,
+      "member_count": 78,
+      "pool_id": 1,
+      "rescuable": true,
+      "state_variance": 0.0,
+      "text_jaccard": 0.103154,
+      "text_variance": 0.896846
+    },
+    {
+      "best_candidate_auc": 1.0,
+      "family_count": 2,
+      "member_count": 12,
+      "pool_id": 2,
+      "rescuable": true,
+      "state_variance": 0.0,
+      "text_jaccard": 0.215454,
+      "text_variance": 0.784546
+    },
+    {
+      "best_candidate_auc": 1.0,
+      "family_count": 2,
+      "member_count": 12,
+      "pool_id": 3,
+      "rescuable": true,
+      "state_variance": 0.0,
+      "text_jaccard": 0.163244,
+      "text_variance": 0.836756
+    },
+    {
+      "best_candidate_auc": 1.0,
+      "family_count": 2,
+      "member_count": 12,
+      "pool_id": 4,
+      "rescuable": true,
+      "state_variance": 0.0,
+      "text_jaccard": 0.176574,
+      "text_variance": 0.823426
+    },
+    {
+      "best_candidate_auc": 1.0,
+      "family_count": 2,
+      "member_count": 12,
+      "pool_id": 5,
+      "rescuable": true,
+      "state_variance": 0.0,
+      "text_jaccard": 0.192658,
+      "text_variance": 0.807342
+    },
+    {
+      "best_candidate_auc": 0.939394,
+      "family_count": 4,
+      "member_count": 10,
+      "pool_id": 6,
+      "rescuable": true,
+      "state_variance": 0.0,
+      "text_jaccard": 0.202571,
+      "text_variance": 0.797429
+    },
+    {
+      "best_candidate_auc": 1.0,
+      "family_count": 2,
+      "member_count": 10,
+      "pool_id": 7,
+      "rescuable": true,
+      "state_variance": 0.0,
+      "text_jaccard": 0.184317,
+      "text_variance": 0.815683
+    },
+    {
+      "best_candidate_auc": 1.0,
+      "family_count": 2,
+      "member_count": 8,
+      "pool_id": 8,
+      "rescuable": true,
+      "state_variance": 0.0,
+      "text_jaccard": 0.21324,
+      "text_variance": 0.78676
+    },
+    {
+      "best_candidate_auc": 0.931818,
+      "family_count": 4,
+      "member_count": 8,
+      "pool_id": 9,
+      "rescuable": true,
+      "state_variance": 0.0,
+      "text_jaccard": 0.230287,
+      "text_variance": 0.769713
+    },
+    {
+      "best_candidate_auc": 1.0,
+      "family_count": 2,
+      "member_count": 8,
+      "pool_id": 10,
+      "rescuable": true,
+      "state_variance": 0.0,
+      "text_jaccard": 0.228105,
+      "text_variance": 0.771895
+    },
+    {
+      "best_candidate_auc": 1.0,
+      "family_count": 2,
+      "member_count": 6,
+      "pool_id": 11,
+      "rescuable": true,
+      "state_variance": 0.0,
+      "text_jaccard": 0.361111,
+      "text_variance": 0.638889
+    },
+    {
+      "best_candidate_auc": 1.0,
+      "family_count": 2,
+      "member_count": 6,
+      "pool_id": 12,
+      "rescuable": true,
+      "state_variance": 0.0,
+      "text_jaccard": 0.263179,
+      "text_variance": 0.736821
+    },
+    {
+      "best_candidate_auc": 1.0,
+      "family_count": 2,
+      "member_count": 6,
+      "pool_id": 13,
+      "rescuable": true,
+      "state_variance": 0.0,
+      "text_jaccard": 0.285556,
+      "text_variance": 0.714444
+    },
+    {
+      "best_candidate_auc": 1.0,
+      "family_count": 2,
+      "member_count": 4,
+      "pool_id": 14,
+      "rescuable": true,
+      "state_variance": 0.0,
+      "text_jaccard": 0.4,
+      "text_variance": 0.6
+    },
+    {
+      "best_candidate_auc": 1.0,
+      "family_count": 2,
+      "member_count": 4,
+      "pool_id": 15,
+      "rescuable": true,
+      "state_variance": 0.0,
+      "text_jaccard": 0.458333,
+      "text_variance": 0.541667
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 4,
+      "member_count": 4,
+      "pool_id": 16,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 0.368421,
+      "text_variance": 0.631579
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 4,
+      "member_count": 4,
+      "pool_id": 17,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 0.365079,
+      "text_variance": 0.634921
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 18,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 19,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 20,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 21,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 22,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 23,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 24,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 25,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 26,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 27,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 28,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 29,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 30,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 31,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 32,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 33,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 34,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 35,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 36,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 37,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 38,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 39,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 40,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 41,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 42,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 43,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 44,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 45,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 46,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 47,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 48,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 49,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 50,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    },
+    {
+      "best_candidate_auc": 0.5,
+      "family_count": 2,
+      "member_count": 2,
+      "pool_id": 51,
+      "rescuable": false,
+      "state_variance": 0.0,
+      "text_jaccard": 1.0,
+      "text_variance": 0.0
+    }
+  ],
+  "rationale": [
+    "INFO: pool_count 52",
+    "INFO: rescuable_pool_count 16",
+    "INFO: unrescuable_pool_count 36",
+    "INFO: recoverability_threshold 0.541667",
+    "PASS: blindness_prediction_auc 0.993056 (threshold 0.7)",
+    "INFO: false_positive_rate 0.055556",
+    "INFO: false_negative_rate 0.0",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "BOUNDARY_PREDICTABLE",
+  "recoverability_threshold": 0.541667,
+  "replay_stability": 1.0,
+  "rescuable_pool_count": 16,
+  "unrescuable_pool_count": 36
+}

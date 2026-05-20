@@ -1,0 +1,10 @@
+{
+  "allowed_pool_count": 18,
+  "blindness_check_threshold": 0.541667,
+  "blocked_pool_count": 34,
+  "false_activation_rate": 0.111111,
+  "historical_gate_flip_count": 0,
+  "rule_roi": 8.256888,
+  "schema_version": "v3_120_pre_t10_rule",
+  "true_case_recall": 1.0
+}

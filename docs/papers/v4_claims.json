@@ -1,0 +1,1087 @@
+{
+  "claims": [
+    {
+      "artifact": "v4_0",
+      "claim_id": "C001",
+      "environment_scope": "frozen+drift",
+      "expected_value": "aefa8f1e3429225a",
+      "field_path": "replay_hash",
+      "replay_hash": "aefa8f1e3429225a",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v4.0 replay_hash pinned"
+    },
+    {
+      "artifact": "v4_0",
+      "claim_id": "C002",
+      "expected_value": "EXTERNAL_GENERALIZATION_PARTIAL",
+      "field_path": "recommended_next",
+      "replay_hash": "aefa8f1e3429225a",
+      "text": "v4.0 recommended_next is EXTERNAL_GENERALIZATION_PARTIAL"
+    },
+    {
+      "artifact": "v4_0",
+      "claim_id": "C003",
+      "expected_value": 800,
+      "field_path": "chain_count",
+      "replay_hash": "aefa8f1e3429225a",
+      "text": "v4.0 chain_count equals 800"
+    },
+    {
+      "artifact": "v4_0",
+      "claim_id": "C004",
+      "expected_value": 800,
+      "field_path": "document_count",
+      "replay_hash": "aefa8f1e3429225a",
+      "text": "v4.0 document_count equals 800"
+    },
+    {
+      "artifact": "v4_0",
+      "claim_id": "C005",
+      "expected_value": 3200,
+      "field_path": "transition_count",
+      "replay_hash": "aefa8f1e3429225a",
+      "text": "v4.0 transition_count equals 3200"
+    },
+    {
+      "artifact": "v4_0",
+      "claim_id": "C006",
+      "expected_value": 0,
+      "field_path": "contamination.exact_overlap_count",
+      "replay_hash": "aefa8f1e3429225a",
+      "text": "v4.0 contamination.exact_overlap_count equals 0"
+    },
+    {
+      "artifact": "v4_0",
+      "claim_id": "C007",
+      "expected_value": 0,
+      "field_path": "contamination.semantic_overlap_count",
+      "replay_hash": "aefa8f1e3429225a",
+      "text": "v4.0 contamination.semantic_overlap_count equals 0"
+    },
+    {
+      "artifact": "v4_0",
+      "claim_id": "C008",
+      "expected_value": 1.0,
+      "field_path": "nc_detection_rate",
+      "replay_hash": "aefa8f1e3429225a",
+      "text": "v4.0 nc_detection_rate equals 1.0"
+    },
+    {
+      "artifact": "v4_0",
+      "claim_id": "C009",
+      "expected_value": 100,
+      "field_path": "nc_total",
+      "replay_hash": "aefa8f1e3429225a",
+      "text": "v4.0 nc_total equals 100"
+    },
+    {
+      "artifact": "v4_0",
+      "claim_id": "C010",
+      "expected_value": 100,
+      "field_path": "nc_detected",
+      "replay_hash": "aefa8f1e3429225a",
+      "text": "v4.0 nc_detected equals 100"
+    },
+    {
+      "artifact": "v4_0",
+      "claim_id": "C011",
+      "expected_value": 1.0,
+      "field_path": "global_metrics.external_precision",
+      "replay_hash": "aefa8f1e3429225a",
+      "text": "v4.0 external_precision equals 1.0"
+    },
+    {
+      "artifact": "v4_0",
+      "claim_id": "C012",
+      "expected_value": 0.0,
+      "field_path": "global_metrics.external_recall",
+      "replay_hash": "aefa8f1e3429225a",
+      "text": "v4.0 external_recall equals 0.0"
+    },
+    {
+      "artifact": "v4_0",
+      "claim_id": "C013",
+      "expected_value": 0,
+      "field_path": "global_metrics.external_false_support",
+      "replay_hash": "aefa8f1e3429225a",
+      "text": "v4.0 external_false_support equals 0"
+    },
+    {
+      "artifact": "v4_0",
+      "claim_id": "C014",
+      "expected_value": 0.0,
+      "field_path": "global_metrics.domain_variance",
+      "replay_hash": "aefa8f1e3429225a",
+      "text": "v4.0 domain_variance equals 0.0"
+    },
+    {
+      "artifact": "v4_1",
+      "claim_id": "C015",
+      "environment_scope": "frozen+drift",
+      "expected_value": "f7ec695f17aa341b",
+      "field_path": "replay_hash",
+      "replay_hash": "f7ec695f17aa341b",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v4.1 replay_hash pinned"
+    },
+    {
+      "artifact": "v4_1",
+      "claim_id": "C016",
+      "expected_value": "IMPLICIT_FRAME_INGRESS_FAILED",
+      "field_path": "recommended_next",
+      "replay_hash": "f7ec695f17aa341b",
+      "text": "v4.1 recommended_next is IMPLICIT_FRAME_INGRESS_FAILED"
+    },
+    {
+      "artifact": "v4_1",
+      "claim_id": "C017",
+      "expected_value": 800,
+      "field_path": "chain_count",
+      "replay_hash": "f7ec695f17aa341b",
+      "text": "v4.1 chain_count equals 800"
+    },
+    {
+      "artifact": "v4_1",
+      "claim_id": "C018",
+      "expected_value": 3200,
+      "field_path": "transition_count",
+      "replay_hash": "f7ec695f17aa341b",
+      "text": "v4.1 transition_count equals 3200"
+    },
+    {
+      "artifact": "v4_1",
+      "claim_id": "C019",
+      "expected_value": 100,
+      "field_path": "nc_count",
+      "replay_hash": "f7ec695f17aa341b",
+      "text": "v4.1 nc_count equals 100"
+    },
+    {
+      "artifact": "v4_1",
+      "claim_id": "C020",
+      "expected_value": 0,
+      "field_path": "nc_contamination_count",
+      "replay_hash": "f7ec695f17aa341b",
+      "text": "v4.1 nc_contamination_count equals 0"
+    },
+    {
+      "artifact": "v4_1",
+      "claim_id": "C021",
+      "expected_value": "aefa8f1e3429225a",
+      "field_path": "v40_replay_hash",
+      "replay_hash": "f7ec695f17aa341b",
+      "text": "v4.1 v40_replay_hash pin"
+    },
+    {
+      "artifact": "v4_1",
+      "claim_id": "C022",
+      "expected_value": 0.0,
+      "field_path": "v40_baseline_recall",
+      "replay_hash": "f7ec695f17aa341b",
+      "text": "v4.1 v40_baseline_recall equals 0.0"
+    },
+    {
+      "artifact": "v4_1",
+      "claim_id": "C023",
+      "expected_value": null,
+      "field_path": "best_strategy",
+      "replay_hash": "f7ec695f17aa341b",
+      "text": "v4.1 best_strategy is None"
+    },
+    {
+      "artifact": "v4_2",
+      "claim_id": "C024",
+      "environment_scope": "frozen+drift",
+      "expected_value": "181ec3cb1febf62f",
+      "field_path": "replay_hash",
+      "replay_hash": "181ec3cb1febf62f",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v4.2 replay_hash pinned"
+    },
+    {
+      "artifact": "v4_2",
+      "claim_id": "C025",
+      "expected_value": "AUDIT_FAILURE_LOCALIZED",
+      "field_path": "recommended_next",
+      "replay_hash": "181ec3cb1febf62f",
+      "text": "v4.2 recommended_next is AUDIT_FAILURE_LOCALIZED"
+    },
+    {
+      "artifact": "v4_2",
+      "claim_id": "C026",
+      "expected_value": 143,
+      "field_path": "case_count",
+      "replay_hash": "181ec3cb1febf62f",
+      "text": "v4.2 case_count equals 143"
+    },
+    {
+      "artifact": "v4_2",
+      "claim_id": "C027",
+      "expected_value": 143,
+      "field_path": "expected_case_count",
+      "replay_hash": "181ec3cb1febf62f",
+      "text": "v4.2 expected_case_count equals 143"
+    },
+    {
+      "artifact": "v4_2",
+      "claim_id": "C028",
+      "expected_value": 50,
+      "field_path": "nc_count",
+      "replay_hash": "181ec3cb1febf62f",
+      "text": "v4.2 nc_count equals 50"
+    },
+    {
+      "artifact": "v4_2",
+      "claim_id": "C029",
+      "expected_value": 1.0,
+      "field_path": "classification_accuracy",
+      "replay_hash": "181ec3cb1febf62f",
+      "text": "v4.2 classification_accuracy equals 1.0"
+    },
+    {
+      "artifact": "v4_2",
+      "claim_id": "C030",
+      "expected_value": 0,
+      "field_path": "total_contamination",
+      "replay_hash": "181ec3cb1febf62f",
+      "text": "v4.2 total_contamination equals 0"
+    },
+    {
+      "artifact": "v4_2",
+      "claim_id": "C031",
+      "expected_value": 143,
+      "field_path": "distribution.total",
+      "replay_hash": "181ec3cb1febf62f",
+      "text": "v4.2 distribution.total equals 143"
+    },
+    {
+      "artifact": "v4_2",
+      "claim_id": "C032",
+      "expected_value": 0,
+      "field_path": "distribution.singleton_count",
+      "replay_hash": "181ec3cb1febf62f",
+      "text": "v4.2 distribution.singleton_count equals 0"
+    },
+    {
+      "artifact": "v4_2",
+      "claim_id": "C033",
+      "expected_value": "HIDDEN_NEGATION",
+      "field_path": "distribution.largest_cluster_class",
+      "replay_hash": "181ec3cb1febf62f",
+      "text": "v4.2 distribution.largest_cluster_class is HIDDEN_NEGATION"
+    },
+    {
+      "artifact": "v4_2",
+      "claim_id": "C034",
+      "expected_value": "aefa8f1e3429225a",
+      "field_path": "v40_replay_hash",
+      "replay_hash": "181ec3cb1febf62f",
+      "text": "v4.2 v40_replay_hash pin"
+    },
+    {
+      "artifact": "v4_2",
+      "claim_id": "C035",
+      "expected_value": "f7ec695f17aa341b",
+      "field_path": "v41_replay_hash",
+      "replay_hash": "181ec3cb1febf62f",
+      "text": "v4.2 v41_replay_hash pin"
+    },
+    {
+      "artifact": "v4_3",
+      "claim_id": "C036",
+      "environment_scope": "frozen+drift",
+      "expected_value": "7c63bcae4cf3fb37",
+      "field_path": "replay_hash",
+      "replay_hash": "7c63bcae4cf3fb37",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v4.3 replay_hash pinned"
+    },
+    {
+      "artifact": "v4_3",
+      "claim_id": "C037",
+      "expected_value": "EXTERNAL_AUDIT_PATCH_CONFIRMED",
+      "field_path": "recommended_next",
+      "replay_hash": "7c63bcae4cf3fb37",
+      "text": "v4.3 recommended_next is EXTERNAL_AUDIT_PATCH_CONFIRMED"
+    },
+    {
+      "artifact": "v4_3",
+      "claim_id": "C038",
+      "expected_value": 29,
+      "field_path": "extension_token_count",
+      "replay_hash": "7c63bcae4cf3fb37",
+      "text": "v4.3 extension_token_count equals 29"
+    },
+    {
+      "artifact": "v4_3",
+      "claim_id": "C039",
+      "expected_value": 143,
+      "field_path": "effect.false_support_before",
+      "replay_hash": "7c63bcae4cf3fb37",
+      "text": "v4.3 effect.false_support_before equals 143"
+    },
+    {
+      "artifact": "v4_3",
+      "claim_id": "C040",
+      "expected_value": 24,
+      "field_path": "effect.false_support_after",
+      "replay_hash": "7c63bcae4cf3fb37",
+      "text": "v4.3 effect.false_support_after equals 24"
+    },
+    {
+      "artifact": "v4_3",
+      "claim_id": "C041",
+      "expected_value": 119,
+      "field_path": "effect.false_support_reduction",
+      "replay_hash": "7c63bcae4cf3fb37",
+      "text": "v4.3 effect.false_support_reduction equals 119"
+    },
+    {
+      "artifact": "v4_3",
+      "claim_id": "C042",
+      "expected_value": 0,
+      "field_path": "effect.non_target_relabel_count",
+      "replay_hash": "7c63bcae4cf3fb37",
+      "text": "v4.3 effect.non_target_relabel_count equals 0"
+    },
+    {
+      "artifact": "v4_3",
+      "claim_id": "C043",
+      "expected_value": 0,
+      "field_path": "contamination.total_contamination",
+      "replay_hash": "7c63bcae4cf3fb37",
+      "text": "v4.3 contamination.total_contamination equals 0"
+    },
+    {
+      "artifact": "v4_3",
+      "claim_id": "C044",
+      "expected_value": 80,
+      "field_path": "nc_count",
+      "replay_hash": "7c63bcae4cf3fb37",
+      "text": "v4.3 nc_count equals 80"
+    },
+    {
+      "artifact": "v4_3",
+      "claim_id": "C045",
+      "expected_value": 1.0,
+      "field_path": "nc_detection_rate",
+      "replay_hash": "7c63bcae4cf3fb37",
+      "text": "v4.3 nc_detection_rate equals 1.0"
+    },
+    {
+      "artifact": "v4_3",
+      "claim_id": "C046",
+      "expected_value": "aefa8f1e3429225a",
+      "field_path": "v40_pre_v43_replay_hash",
+      "replay_hash": "7c63bcae4cf3fb37",
+      "text": "v4.3 v40_pre_v43_replay_hash pin"
+    },
+    {
+      "artifact": "v4_3",
+      "claim_id": "C047",
+      "expected_value": "f7ec695f17aa341b",
+      "field_path": "v41_pre_v43_replay_hash",
+      "replay_hash": "7c63bcae4cf3fb37",
+      "text": "v4.3 v41_pre_v43_replay_hash pin"
+    },
+    {
+      "artifact": "v4_3",
+      "claim_id": "C048",
+      "expected_value": "181ec3cb1febf62f",
+      "field_path": "v42_pre_v43_replay_hash",
+      "replay_hash": "7c63bcae4cf3fb37",
+      "text": "v4.3 v42_pre_v43_replay_hash pin"
+    },
+    {
+      "artifact": "v4_4",
+      "claim_id": "C049",
+      "environment_scope": "frozen+drift",
+      "expected_value": "bf4147b89f398224",
+      "field_path": "replay_hash",
+      "replay_hash": "bf4147b89f398224",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v4.4 replay_hash pinned"
+    },
+    {
+      "artifact": "v4_4",
+      "claim_id": "C050",
+      "expected_value": "SEMANTIC_FAILURE_LOCALIZED",
+      "field_path": "recommended_next",
+      "replay_hash": "bf4147b89f398224",
+      "text": "v4.4 recommended_next is SEMANTIC_FAILURE_LOCALIZED"
+    },
+    {
+      "artifact": "v4_4",
+      "claim_id": "C051",
+      "expected_value": 24,
+      "field_path": "residue_count",
+      "replay_hash": "bf4147b89f398224",
+      "text": "v4.4 residue_count equals 24"
+    },
+    {
+      "artifact": "v4_4",
+      "claim_id": "C052",
+      "expected_value": 24,
+      "field_path": "expected_residue_count",
+      "replay_hash": "bf4147b89f398224",
+      "text": "v4.4 expected_residue_count equals 24"
+    },
+    {
+      "artifact": "v4_4",
+      "claim_id": "C053",
+      "expected_value": 61,
+      "field_path": "nc_count",
+      "replay_hash": "bf4147b89f398224",
+      "text": "v4.4 nc_count equals 61"
+    },
+    {
+      "artifact": "v4_4",
+      "claim_id": "C054",
+      "expected_value": 1.0,
+      "field_path": "classification_accuracy",
+      "replay_hash": "bf4147b89f398224",
+      "text": "v4.4 classification_accuracy equals 1.0"
+    },
+    {
+      "artifact": "v4_4",
+      "claim_id": "C055",
+      "expected_value": 1023,
+      "field_path": "total_contamination",
+      "replay_hash": "bf4147b89f398224",
+      "text": "v4.4 total_contamination equals 1023 (sum across all five semantic probes; safe-probes-only metric is reported in probe_rescue)"
+    },
+    {
+      "artifact": "v4_4",
+      "claim_id": "C056",
+      "expected_value": 24,
+      "field_path": "distribution.total",
+      "replay_hash": "bf4147b89f398224",
+      "text": "v4.4 distribution.total equals 24"
+    },
+    {
+      "artifact": "v4_4",
+      "claim_id": "C057",
+      "expected_value": "SEMANTIC_SCOPE_COLLAPSE",
+      "field_path": "distribution.largest_cluster_class",
+      "replay_hash": "bf4147b89f398224",
+      "text": "v4.4 distribution.largest_cluster_class is SEMANTIC_SCOPE_COLLAPSE"
+    },
+    {
+      "artifact": "v4_4",
+      "claim_id": "C058",
+      "expected_value": 0.0,
+      "field_path": "distribution.unknown_fraction",
+      "replay_hash": "bf4147b89f398224",
+      "text": "v4.4 distribution.unknown_fraction equals 0.0"
+    },
+    {
+      "artifact": "v4_5",
+      "claim_id": "C059",
+      "environment_scope": "frozen+drift",
+      "expected_value": "86418c9d976cc147",
+      "field_path": "replay_hash",
+      "replay_hash": "86418c9d976cc147",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v4.5 replay_hash pinned"
+    },
+    {
+      "artifact": "v4_5",
+      "claim_id": "C060",
+      "expected_value": "BIDIRECTIONAL_CYCLE_PATCH_CONFIRMED",
+      "field_path": "recommended_next",
+      "replay_hash": "86418c9d976cc147",
+      "text": "v4.5 recommended_next is BIDIRECTIONAL_CYCLE_PATCH_CONFIRMED"
+    },
+    {
+      "artifact": "v4_5",
+      "claim_id": "C061",
+      "expected_value": 24,
+      "field_path": "effect.false_support_before",
+      "replay_hash": "86418c9d976cc147",
+      "text": "v4.5 effect.false_support_before equals 24"
+    },
+    {
+      "artifact": "v4_5",
+      "claim_id": "C062",
+      "expected_value": 19,
+      "field_path": "effect.false_support_after",
+      "replay_hash": "86418c9d976cc147",
+      "text": "v4.5 effect.false_support_after equals 19"
+    },
+    {
+      "artifact": "v4_5",
+      "claim_id": "C063",
+      "expected_value": 5,
+      "field_path": "effect.reduction",
+      "replay_hash": "86418c9d976cc147",
+      "text": "v4.5 effect.reduction equals 5"
+    },
+    {
+      "artifact": "v4_5",
+      "claim_id": "C064",
+      "expected_value": 0,
+      "field_path": "effect.non_target_relabel_count",
+      "replay_hash": "86418c9d976cc147",
+      "text": "v4.5 effect.non_target_relabel_count equals 0"
+    },
+    {
+      "artifact": "v4_5",
+      "claim_id": "C065",
+      "expected_value": 0,
+      "field_path": "contamination.contamination_count",
+      "replay_hash": "86418c9d976cc147",
+      "text": "v4.5 contamination.contamination_count equals 0"
+    },
+    {
+      "artifact": "v4_5",
+      "claim_id": "C066",
+      "expected_value": 2,
+      "field_path": "min_overlap_premises",
+      "replay_hash": "86418c9d976cc147",
+      "text": "v4.5 min_overlap_premises equals 2"
+    },
+    {
+      "artifact": "v4_5",
+      "claim_id": "C067",
+      "expected_value": 3,
+      "field_path": "min_overlap_total",
+      "replay_hash": "86418c9d976cc147",
+      "text": "v4.5 min_overlap_total equals 3"
+    },
+    {
+      "artifact": "v4_5",
+      "claim_id": "C068",
+      "expected_value": 50,
+      "field_path": "nc_count",
+      "replay_hash": "86418c9d976cc147",
+      "text": "v4.5 nc_count equals 50"
+    },
+    {
+      "artifact": "v4_5",
+      "claim_id": "C069",
+      "expected_value": 1.0,
+      "field_path": "nc_detection_rate",
+      "replay_hash": "86418c9d976cc147",
+      "text": "v4.5 nc_detection_rate equals 1.0"
+    },
+    {
+      "artifact": "v4_5",
+      "claim_id": "C070",
+      "expected_value": 0.04,
+      "field_path": "false_cycle_rate",
+      "replay_hash": "86418c9d976cc147",
+      "text": "v4.5 false_cycle_rate equals 0.04"
+    },
+    {
+      "artifact": "v4_5",
+      "claim_id": "C071",
+      "expected_value": "BIDIRECTIONAL_CYCLE",
+      "field_path": "target_cluster",
+      "replay_hash": "86418c9d976cc147",
+      "text": "v4.5 target_cluster is BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "artifact": "v4_6",
+      "claim_id": "C072",
+      "environment_scope": "frozen+drift",
+      "expected_value": "58268fd9c4437e49",
+      "field_path": "replay_hash",
+      "replay_hash": "58268fd9c4437e49",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v4.6 replay_hash pinned"
+    },
+    {
+      "artifact": "v4_6",
+      "claim_id": "C073",
+      "expected_value": "WARRANT_FAILURE_LOCALIZED",
+      "field_path": "recommended_next",
+      "replay_hash": "58268fd9c4437e49",
+      "text": "v4.6 recommended_next is WARRANT_FAILURE_LOCALIZED"
+    },
+    {
+      "artifact": "v4_6",
+      "claim_id": "C074",
+      "expected_value": 19,
+      "field_path": "residue_count",
+      "replay_hash": "58268fd9c4437e49",
+      "text": "v4.6 residue_count equals 19"
+    },
+    {
+      "artifact": "v4_6",
+      "claim_id": "C075",
+      "expected_value": 19,
+      "field_path": "expected_residue_count",
+      "replay_hash": "58268fd9c4437e49",
+      "text": "v4.6 expected_residue_count equals 19"
+    },
+    {
+      "artifact": "v4_6",
+      "claim_id": "C076",
+      "expected_value": 60,
+      "field_path": "nc_count",
+      "replay_hash": "58268fd9c4437e49",
+      "text": "v4.6 nc_count equals 60"
+    },
+    {
+      "artifact": "v4_6",
+      "claim_id": "C077",
+      "expected_value": 0.983333,
+      "field_path": "classification_accuracy",
+      "replay_hash": "58268fd9c4437e49",
+      "text": "v4.6 classification_accuracy equals 0.983333"
+    },
+    {
+      "artifact": "v4_6",
+      "claim_id": "C078",
+      "expected_value": 0,
+      "field_path": "total_contamination",
+      "replay_hash": "58268fd9c4437e49",
+      "text": "v4.6 total_contamination equals 0"
+    },
+    {
+      "artifact": "v4_6",
+      "claim_id": "C079",
+      "expected_value": 19,
+      "field_path": "distribution.total",
+      "replay_hash": "58268fd9c4437e49",
+      "text": "v4.6 distribution.total equals 19"
+    },
+    {
+      "artifact": "v4_6",
+      "claim_id": "C080",
+      "expected_value": "MISSING_BRIDGE_RULE",
+      "field_path": "distribution.largest_cluster_class",
+      "replay_hash": "58268fd9c4437e49",
+      "text": "v4.6 distribution.largest_cluster_class is MISSING_BRIDGE_RULE"
+    },
+    {
+      "artifact": "v4_6",
+      "claim_id": "C081",
+      "expected_value": 0.0,
+      "field_path": "distribution.unknown_fraction",
+      "replay_hash": "58268fd9c4437e49",
+      "text": "v4.6 distribution.unknown_fraction equals 0.0"
+    },
+    {
+      "artifact": "v4_7",
+      "claim_id": "C082",
+      "environment_scope": "frozen+drift",
+      "expected_value": "2774818766a8035a",
+      "field_path": "replay_hash",
+      "replay_hash": "2774818766a8035a",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v4.7 replay_hash pinned"
+    },
+    {
+      "artifact": "v4_7",
+      "claim_id": "C083",
+      "expected_value": "MODALITY_PATCH_CONFIRMED",
+      "field_path": "recommended_next",
+      "replay_hash": "2774818766a8035a",
+      "text": "v4.7 recommended_next is MODALITY_PATCH_CONFIRMED"
+    },
+    {
+      "artifact": "v4_7",
+      "claim_id": "C084",
+      "expected_value": 19,
+      "field_path": "effect.false_support_before",
+      "replay_hash": "2774818766a8035a",
+      "text": "v4.7 effect.false_support_before equals 19"
+    },
+    {
+      "artifact": "v4_7",
+      "claim_id": "C085",
+      "expected_value": 9,
+      "field_path": "effect.false_support_after",
+      "replay_hash": "2774818766a8035a",
+      "text": "v4.7 effect.false_support_after equals 9"
+    },
+    {
+      "artifact": "v4_7",
+      "claim_id": "C086",
+      "expected_value": 10,
+      "field_path": "effect.reduction",
+      "replay_hash": "2774818766a8035a",
+      "text": "v4.7 effect.reduction equals 10"
+    },
+    {
+      "artifact": "v4_7",
+      "claim_id": "C087",
+      "expected_value": 0,
+      "field_path": "effect.non_target_relabel_count",
+      "replay_hash": "2774818766a8035a",
+      "text": "v4.7 effect.non_target_relabel_count equals 0"
+    },
+    {
+      "artifact": "v4_7",
+      "claim_id": "C088",
+      "expected_value": 0,
+      "field_path": "contamination.contamination_count",
+      "replay_hash": "2774818766a8035a",
+      "text": "v4.7 contamination.contamination_count equals 0"
+    },
+    {
+      "artifact": "v4_7",
+      "claim_id": "C089",
+      "expected_value": 60,
+      "field_path": "nc_count",
+      "replay_hash": "2774818766a8035a",
+      "text": "v4.7 nc_count equals 60"
+    },
+    {
+      "artifact": "v4_7",
+      "claim_id": "C090",
+      "expected_value": 0.975,
+      "field_path": "nc_detection_rate",
+      "replay_hash": "2774818766a8035a",
+      "text": "v4.7 nc_detection_rate equals 0.975"
+    },
+    {
+      "artifact": "v4_7",
+      "claim_id": "C091",
+      "expected_value": 0.0,
+      "field_path": "false_modality_rate",
+      "replay_hash": "2774818766a8035a",
+      "text": "v4.7 false_modality_rate equals 0.0"
+    },
+    {
+      "artifact": "v4_8",
+      "claim_id": "C092",
+      "environment_scope": "frozen+drift",
+      "expected_value": "d0835b564453cfc0",
+      "field_path": "replay_hash",
+      "replay_hash": "d0835b564453cfc0",
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v4.8 replay_hash pinned"
+    },
+    {
+      "artifact": "v4_8",
+      "claim_id": "C093",
+      "expected_value": "CONTENT_FAILURE_LOCALIZED",
+      "field_path": "recommended_next",
+      "replay_hash": "d0835b564453cfc0",
+      "text": "v4.8 recommended_next is CONTENT_FAILURE_LOCALIZED"
+    },
+    {
+      "artifact": "v4_8",
+      "claim_id": "C094",
+      "expected_value": 9,
+      "field_path": "residue_count",
+      "replay_hash": "d0835b564453cfc0",
+      "text": "v4.8 residue_count equals 9"
+    },
+    {
+      "artifact": "v4_8",
+      "claim_id": "C095",
+      "expected_value": 9,
+      "field_path": "expected_residue_count",
+      "replay_hash": "d0835b564453cfc0",
+      "text": "v4.8 expected_residue_count equals 9"
+    },
+    {
+      "artifact": "v4_8",
+      "claim_id": "C096",
+      "expected_value": 60,
+      "field_path": "nc_count",
+      "replay_hash": "d0835b564453cfc0",
+      "text": "v4.8 nc_count equals 60"
+    },
+    {
+      "artifact": "v4_8",
+      "claim_id": "C097",
+      "expected_value": 1.0,
+      "field_path": "classification_accuracy",
+      "replay_hash": "d0835b564453cfc0",
+      "text": "v4.8 classification_accuracy equals 1.0"
+    },
+    {
+      "artifact": "v4_8",
+      "claim_id": "C098",
+      "expected_value": 0,
+      "field_path": "total_contamination",
+      "replay_hash": "d0835b564453cfc0",
+      "text": "v4.8 total_contamination equals 0"
+    },
+    {
+      "artifact": "v4_8",
+      "claim_id": "C099",
+      "expected_value": 9,
+      "field_path": "distribution.total",
+      "replay_hash": "d0835b564453cfc0",
+      "text": "v4.8 distribution.total equals 9"
+    },
+    {
+      "artifact": "v4_8",
+      "claim_id": "C100",
+      "expected_value": "PROPERTY_REVERSAL",
+      "field_path": "distribution.largest_cluster_class",
+      "replay_hash": "d0835b564453cfc0",
+      "text": "v4.8 distribution.largest_cluster_class is PROPERTY_REVERSAL"
+    },
+    {
+      "artifact": "v4_8",
+      "claim_id": "C101",
+      "expected_value": 0.0,
+      "field_path": "distribution.unknown_fraction",
+      "replay_hash": "d0835b564453cfc0",
+      "text": "v4.8 distribution.unknown_fraction equals 0.0"
+    },
+    {
+      "artifact": "v4_9",
+      "claim_id": "C102",
+      "environment_scope": "frozen+live-stable",
+      "expected_value": "51122b802bd257dc",
+      "field_path": "replay_hash",
+      "replay_hash": "51122b802bd257dc",
+      "repro_class": "LIVE_REPLAY_STABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v4.9 replay_hash pinned"
+    },
+    {
+      "artifact": "v4_9",
+      "claim_id": "C103",
+      "expected_value": "CONTENT_INVERSION_PATCH_CONFIRMED",
+      "field_path": "recommended_next",
+      "replay_hash": "51122b802bd257dc",
+      "text": "v4.9 recommended_next is CONTENT_INVERSION_PATCH_CONFIRMED"
+    },
+    {
+      "artifact": "v4_9",
+      "claim_id": "C104",
+      "expected_value": 9,
+      "field_path": "effect.false_support_before",
+      "replay_hash": "51122b802bd257dc",
+      "text": "v4.9 effect.false_support_before equals 9"
+    },
+    {
+      "artifact": "v4_9",
+      "claim_id": "C105",
+      "expected_value": 0,
+      "field_path": "effect.false_support_after",
+      "replay_hash": "51122b802bd257dc",
+      "text": "v4.9 effect.false_support_after equals 0"
+    },
+    {
+      "artifact": "v4_9",
+      "claim_id": "C106",
+      "expected_value": 9,
+      "field_path": "effect.reduction",
+      "replay_hash": "51122b802bd257dc",
+      "text": "v4.9 effect.reduction equals 9"
+    },
+    {
+      "artifact": "v4_9",
+      "claim_id": "C107",
+      "expected_value": 0,
+      "field_path": "effect.non_target_relabel_count",
+      "replay_hash": "51122b802bd257dc",
+      "text": "v4.9 effect.non_target_relabel_count equals 0"
+    },
+    {
+      "artifact": "v4_9",
+      "claim_id": "C108",
+      "expected_value": 0,
+      "field_path": "contamination.contamination_count",
+      "replay_hash": "51122b802bd257dc",
+      "text": "v4.9 contamination.contamination_count equals 0"
+    },
+    {
+      "artifact": "v4_9",
+      "claim_id": "C109",
+      "expected_value": 0,
+      "field_path": "contamination.c1_contamination_count",
+      "replay_hash": "51122b802bd257dc",
+      "text": "v4.9 contamination.c1_contamination_count equals 0"
+    },
+    {
+      "artifact": "v4_9",
+      "claim_id": "C110",
+      "expected_value": 0,
+      "field_path": "contamination.c2_contamination_count",
+      "replay_hash": "51122b802bd257dc",
+      "text": "v4.9 contamination.c2_contamination_count equals 0"
+    },
+    {
+      "artifact": "v4_9",
+      "claim_id": "C111",
+      "expected_value": 4,
+      "field_path": "contradiction_pair_count",
+      "replay_hash": "51122b802bd257dc",
+      "text": "v4.9 contradiction_pair_count equals 4"
+    },
+    {
+      "artifact": "v4_9",
+      "claim_id": "C112",
+      "expected_value": 6,
+      "field_path": "polarity_pair_count",
+      "replay_hash": "51122b802bd257dc",
+      "text": "v4.9 polarity_pair_count equals 6"
+    },
+    {
+      "artifact": "v4_9",
+      "claim_id": "C113",
+      "expected_value": 60,
+      "field_path": "nc_count",
+      "replay_hash": "51122b802bd257dc",
+      "text": "v4.9 nc_count equals 60"
+    },
+    {
+      "artifact": "v4_9",
+      "claim_id": "C114",
+      "expected_value": 1.0,
+      "field_path": "nc_detection_rate",
+      "replay_hash": "51122b802bd257dc",
+      "text": "v4.9 nc_detection_rate equals 1.0"
+    },
+    {
+      "artifact": "v4_9",
+      "claim_id": "C115",
+      "expected_value": 0.0,
+      "field_path": "false_inversion_rate",
+      "replay_hash": "51122b802bd257dc",
+      "text": "v4.9 false_inversion_rate equals 0.0"
+    },
+    {
+      "artifact": "v3_11",
+      "claim_id": "C116",
+      "environment_scope": "frozen-only",
+      "expected_value": "1c8e6d0e0b90905c",
+      "field_path": "replay_hash",
+      "replay_hash": "1c8e6d0e0b90905c",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v3_11 replay_hash unchanged (carried forward from v3.24)"
+    },
+    {
+      "artifact": "v3_13",
+      "claim_id": "C117",
+      "environment_scope": "frozen-only",
+      "expected_value": "733032cc30a0cc2e",
+      "field_path": "replay_hash",
+      "replay_hash": "733032cc30a0cc2e",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v3_13 replay_hash unchanged (carried forward from v3.24)"
+    },
+    {
+      "artifact": "v3_14",
+      "claim_id": "C118",
+      "environment_scope": "frozen-only",
+      "expected_value": "94be5611fc9bd336",
+      "field_path": "replay_hash",
+      "replay_hash": "94be5611fc9bd336",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v3_14 replay_hash unchanged (carried forward from v3.24)"
+    },
+    {
+      "artifact": "v3_15",
+      "claim_id": "C119",
+      "environment_scope": "frozen-only",
+      "expected_value": "a6edfa9a53914bcc",
+      "field_path": "replay_hash",
+      "replay_hash": "a6edfa9a53914bcc",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v3_15 replay_hash unchanged (carried forward from v3.24)"
+    },
+    {
+      "artifact": "v3_16",
+      "claim_id": "C120",
+      "environment_scope": "frozen-only",
+      "expected_value": "1f4e5f85c085d32f",
+      "field_path": "replay_hash",
+      "replay_hash": "1f4e5f85c085d32f",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v3_16 replay_hash unchanged (carried forward from v3.24)"
+    },
+    {
+      "artifact": "v3_17",
+      "claim_id": "C121",
+      "environment_scope": "frozen-only",
+      "expected_value": "a01b6edaa9e1a086",
+      "field_path": "replay_hash",
+      "replay_hash": "a01b6edaa9e1a086",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v3_17 replay_hash unchanged (carried forward from v3.24)"
+    },
+    {
+      "artifact": "v3_18",
+      "claim_id": "C122",
+      "environment_scope": "frozen-only",
+      "expected_value": "7829ae1e1750f00d",
+      "field_path": "replay_hash",
+      "replay_hash": "7829ae1e1750f00d",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v3_18 replay_hash unchanged (carried forward from v3.24)"
+    },
+    {
+      "artifact": "v3_19",
+      "claim_id": "C123",
+      "environment_scope": "frozen-only",
+      "expected_value": "3cbde141b5d90a46",
+      "field_path": "replay_hash",
+      "replay_hash": "3cbde141b5d90a46",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v3_19 replay_hash unchanged (carried forward from v3.24)"
+    },
+    {
+      "artifact": "v3_20",
+      "claim_id": "C124",
+      "environment_scope": "frozen-only",
+      "expected_value": "02eb32df1f51b761",
+      "field_path": "replay_hash",
+      "replay_hash": "02eb32df1f51b761",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v3_20 replay_hash unchanged (carried forward from v3.24)"
+    },
+    {
+      "artifact": "v3_21",
+      "claim_id": "C125",
+      "environment_scope": "frozen-only",
+      "expected_value": "f570c9e94770dfbc",
+      "field_path": "replay_hash",
+      "replay_hash": "f570c9e94770dfbc",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v3_21 replay_hash unchanged (carried forward from v3.24)"
+    },
+    {
+      "artifact": "v3_22",
+      "claim_id": "C126",
+      "environment_scope": "frozen-only",
+      "expected_value": "be039cd52c3de9b5",
+      "field_path": "replay_hash",
+      "replay_hash": "be039cd52c3de9b5",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v3_22 replay_hash unchanged (carried forward from v3.24)"
+    },
+    {
+      "artifact": "v3_23",
+      "claim_id": "C127",
+      "environment_scope": "frozen-only",
+      "expected_value": "0246444ccd8f96ef",
+      "field_path": "replay_hash",
+      "replay_hash": "0246444ccd8f96ef",
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "repro_source": "artifacts/v4_11/replay_matrix.json",
+      "text": "v3_23 replay_hash unchanged (carried forward from v3.24)"
+    }
+  ],
+  "schema_version": "v4.12.1"
+}

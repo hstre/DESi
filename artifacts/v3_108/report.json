@@ -1,0 +1,61 @@
+{
+  "architecture_roi": 3.333333,
+  "best_strategy": "small_vocab",
+  "best_strategy_dims": [
+    "contradiction_type",
+    "corpus_hash",
+    "letter_prefix_hash"
+  ],
+  "complexity_score": 0.3,
+  "halt": false,
+  "rationale": [
+    "INFO: best_strategy small_vocab",
+    "INFO: best_strategy_dims ['contradiction_type', 'corpus_hash', 'letter_prefix_hash']",
+    "INFO: recovery_score 1.0",
+    "INFO: complexity_score 0.3",
+    "INFO: stability_score 1.0",
+    "INFO: architecture_roi 3.333333",
+    "INFO: strategy_outcomes [{'strategy': 'single_universal', 'dims': ['contradiction_type'], 'recovery_score': 0.515625, 'complexity_score': 0.1, 'stability_score': 1.0, 'architecture_roi': 5.15625}, {'strategy': 'small_vocab', 'dims': ['contradiction_type', 'corpus_hash', 'letter_prefix_hash'], 'recovery_score': 1.0, 'complexity_score': 0.3, 'stability_score': 1.0, 'architecture_roi': 3.333333}, {'strategy': 'case_specific', 'dims': ['contradiction_type', 'corpus_hash', 'letter_prefix_hash'], 'recovery_score': 1.0, 'complexity_score': 0.3, 'stability_score': 1.0, 'architecture_roi': 3.333333}]",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "T10_IS_SMALL_ALPHABET",
+  "recovery_score": 1.0,
+  "replay_stability": 1.0,
+  "stability_score": 1.0,
+  "strategy_outcomes": [
+    {
+      "architecture_roi": 5.15625,
+      "complexity_score": 0.1,
+      "dims": [
+        "contradiction_type"
+      ],
+      "recovery_score": 0.515625,
+      "stability_score": 1.0,
+      "strategy": "single_universal"
+    },
+    {
+      "architecture_roi": 3.333333,
+      "complexity_score": 0.3,
+      "dims": [
+        "contradiction_type",
+        "corpus_hash",
+        "letter_prefix_hash"
+      ],
+      "recovery_score": 1.0,
+      "stability_score": 1.0,
+      "strategy": "small_vocab"
+    },
+    {
+      "architecture_roi": 3.333333,
+      "complexity_score": 0.3,
+      "dims": [
+        "contradiction_type",
+        "corpus_hash",
+        "letter_prefix_hash"
+      ],
+      "recovery_score": 1.0,
+      "stability_score": 1.0,
+      "strategy": "case_specific"
+    }
+  ]
+}

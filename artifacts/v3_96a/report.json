@@ -1,0 +1,158 @@
+{
+  "affected_dims": [
+    "frame_id"
+  ],
+  "affected_packages": [
+    "epistemic_trajectory"
+  ],
+  "halt": false,
+  "jitter_rate": 0.005063,
+  "jittery_trajectory_count": 2,
+  "jittery_trajectory_ids": [
+    "sample:n03_darwin",
+    "sample:n03_mozart"
+  ],
+  "max_state_delta": 8.0,
+  "rationale": [
+    "INFO: seed_count 100 (SEED_CENSUS = range 0..100)",
+    "INFO: shuffle_seed_count 20 (SHUFFLE_SEEDS = range 0..20)",
+    "INFO: trajectory_count 395",
+    "INFO: jittery_trajectory_count 2",
+    "INFO: jittery_trajectory_ids ['sample:n03_darwin', 'sample:n03_mozart']",
+    "INFO: jitter_rate 0.005063 (jittery / total)",
+    "INFO: affected_packages ['epistemic_trajectory']",
+    "INFO: affected_dims ['frame_id']",
+    "INFO: max_state_delta 8.0",
+    "INFO: shuffle_failure_rate 0.5",
+    "INFO: shuffle_outcomes [{'seed': 0, 'passed': 20, 'failed': 0, 'exit_code': 0}, {'seed': 1, 'passed': 18, 'failed': 2, 'exit_code': 1}, {'seed': 2, 'passed': 20, 'failed': 0, 'exit_code': 0}, {'seed': 3, 'passed': 20, 'failed': 0, 'exit_code': 0}, {'seed': 4, 'passed': 18, 'failed': 2, 'exit_code': 1}, {'seed': 5, 'passed': 20, 'failed': 0, 'exit_code': 0}, {'seed': 6, 'passed': 20, 'failed': 0, 'exit_code': 0}, {'seed': 7, 'passed': 20, 'failed': 0, 'exit_code': 0}, {'seed': 8, 'passed': 20, 'failed': 0, 'exit_code': 0}, {'seed': 9, 'passed': 1, 'failed': 19, 'exit_code': 1}, {'seed': 10, 'passed': 1, 'failed': 19, 'exit_code': 1}, {'seed': 11, 'passed': 1, 'failed': 19, 'exit_code': 1}, {'seed': 12, 'passed': 1, 'failed': 19, 'exit_code': 1}, {'seed': 13, 'passed': 1, 'failed': 19, 'exit_code': 1}, {'seed': 14, 'passed': 1, 'failed': 19, 'exit_code': 1}, {'seed': 15, 'passed': 1, 'failed': 19, 'exit_code': 1}, {'seed': 16, 'passed': 1, 'failed': 19, 'exit_code': 1}, {'seed': 17, 'passed': 20, 'failed': 0, 'exit_code': 0}, {'seed': 18, 'passed': 20, 'failed': 0, 'exit_code': 0}, {'seed': 19, 'passed': 20, 'failed': 0, 'exit_code': 0}]",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "JITTER_CONFIRMED",
+  "replay_stability": 1.0,
+  "seed_count": 100,
+  "shuffle_failure_rate": 0.5,
+  "shuffle_outcomes": [
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 0
+    },
+    {
+      "exit_code": 1,
+      "failed": 2,
+      "passed": 18,
+      "seed": 1
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 2
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 3
+    },
+    {
+      "exit_code": 1,
+      "failed": 2,
+      "passed": 18,
+      "seed": 4
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 5
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 6
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 7
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 8
+    },
+    {
+      "exit_code": 1,
+      "failed": 19,
+      "passed": 1,
+      "seed": 9
+    },
+    {
+      "exit_code": 1,
+      "failed": 19,
+      "passed": 1,
+      "seed": 10
+    },
+    {
+      "exit_code": 1,
+      "failed": 19,
+      "passed": 1,
+      "seed": 11
+    },
+    {
+      "exit_code": 1,
+      "failed": 19,
+      "passed": 1,
+      "seed": 12
+    },
+    {
+      "exit_code": 1,
+      "failed": 19,
+      "passed": 1,
+      "seed": 13
+    },
+    {
+      "exit_code": 1,
+      "failed": 19,
+      "passed": 1,
+      "seed": 14
+    },
+    {
+      "exit_code": 1,
+      "failed": 19,
+      "passed": 1,
+      "seed": 15
+    },
+    {
+      "exit_code": 1,
+      "failed": 19,
+      "passed": 1,
+      "seed": 16
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 17
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 18
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 19
+    }
+  ],
+  "shuffle_seed_count": 20,
+  "trajectory_count": 395
+}

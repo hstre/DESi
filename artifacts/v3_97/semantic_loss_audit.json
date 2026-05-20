@@ -1,0 +1,166 @@
+{
+  "concept_assignments": [
+    {
+      "concept": "circular_reasoning",
+      "family_id": "G_v316susp",
+      "text": "The argument rests on the lemma. The lemma rests on the argument. Therefore the conclusion stands firm.",
+      "trajectory_id": "v316-susp:G01"
+    },
+    {
+      "concept": "circular_reasoning",
+      "family_id": "G_v316susp",
+      "text": "The proof follows from the axiom. The axiom follows from the proof. Therefore the result holds.",
+      "trajectory_id": "v316-susp:G02"
+    },
+    {
+      "concept": "circular_reasoning",
+      "family_id": "G_v316susp",
+      "text": "Faith leans against scripture. Scripture leans against faith. Therefore both endure.",
+      "trajectory_id": "v316-susp:G03"
+    },
+    {
+      "concept": "circular_reasoning",
+      "family_id": "G_v316susp",
+      "text": "The plan stems from the budget. The budget stems from the plan. Therefore the project moves ahead.",
+      "trajectory_id": "v316-susp:G04"
+    },
+    {
+      "concept": "circular_reasoning",
+      "family_id": "G_v316susp",
+      "text": "Definition A comes from term B. Term B comes from definition A. Therefore both terms are clear.",
+      "trajectory_id": "v316-susp:G05"
+    },
+    {
+      "concept": "circular_reasoning",
+      "family_id": "G_v316susp",
+      "text": "The theorem stands on the corollary. The corollary stands on the theorem. Therefore mathematics advances.",
+      "trajectory_id": "v316-susp:G06"
+    },
+    {
+      "concept": "circular_reasoning",
+      "family_id": "G_v316susp",
+      "text": "Reputation follows from trust. Trust follows from reputation. Therefore the firm prospered.",
+      "trajectory_id": "v316-susp:G07"
+    },
+    {
+      "concept": "circular_reasoning",
+      "family_id": "G_v316susp",
+      "text": "The melody emerges from the harmony. The harmony emerges from the melody. Therefore the piece sounds whole.",
+      "trajectory_id": "v316-susp:G08"
+    },
+    {
+      "concept": "circular_reasoning",
+      "family_id": "G_v316susp",
+      "text": "Confidence grows from experience. Experience grows from confidence. Therefore the climber summits.",
+      "trajectory_id": "v316-susp:G09"
+    },
+    {
+      "concept": "universal_syllogism",
+      "family_id": "E_v317h",
+      "text": "All crowing roosters precede sunrise. A rooster crowed. Therefore the rooster caused dawn.",
+      "trajectory_id": "v317-h:E01"
+    },
+    {
+      "concept": "universal_syllogism",
+      "family_id": "E_v317h",
+      "text": "Some butterflies migrate. A monarch traveled south. Therefore the monarch led the migration.",
+      "trajectory_id": "v317-h:E02"
+    },
+    {
+      "concept": "universal_syllogism",
+      "family_id": "E_v317h",
+      "text": "Every dancer takes lessons. She danced beautifully. Therefore she took lessons.",
+      "trajectory_id": "v317-h:E03"
+    },
+    {
+      "concept": "post_hoc_narrative",
+      "family_id": "E_v317h",
+      "text": "The lighthouse beacon flashed brightly. The lighthouse keeper logged a warning. Therefore the lighthouse guided ships safely.",
+      "trajectory_id": "v317-h:E04"
+    },
+    {
+      "concept": "post_hoc_narrative",
+      "family_id": "E_v317h",
+      "text": "The kitten purred contentedly. The kitten napped in sunshine. Therefore the kitten enjoyed an afternoon.",
+      "trajectory_id": "v317-h:E05"
+    },
+    {
+      "concept": "post_hoc_narrative",
+      "family_id": "E_v317h",
+      "text": "The runner trained hard daily. The runner improved weekly. Therefore the runner won the race.",
+      "trajectory_id": "v317-h:E06"
+    },
+    {
+      "concept": "universal_syllogism",
+      "family_id": "E_v317h",
+      "text": "All easy desserts use sugar. A chef chose easy desserts. Therefore the chef used sugar.",
+      "trajectory_id": "v317-h:E07"
+    },
+    {
+      "concept": "post_hoc_narrative",
+      "family_id": "E_v317h",
+      "text": "The mountain stood tall. The mountain attracted climbers. Therefore the mountain became famous.",
+      "trajectory_id": "v317-h:E08"
+    },
+    {
+      "concept": "universal_syllogism",
+      "family_id": "E_v317h",
+      "text": "Every wave breaks on shore. A surfer caught a wave. Therefore the surfer rode the wave.",
+      "trajectory_id": "v317-h:E09"
+    },
+    {
+      "concept": "universal_syllogism",
+      "family_id": "E_v317h",
+      "text": "Some clouds bring rain. The sky filled with clouds. Therefore the clouds promised rain.",
+      "trajectory_id": "v317-h:E10"
+    }
+  ],
+  "concept_distribution_by_family": {
+    "E_v317h": {
+      "circular_reasoning": 0,
+      "post_hoc_narrative": 4,
+      "unclassified": 0,
+      "universal_syllogism": 6
+    },
+    "G_v316susp": {
+      "circular_reasoning": 9,
+      "post_hoc_narrative": 0,
+      "unclassified": 0,
+      "universal_syllogism": 0
+    }
+  },
+  "concept_divergence": 1.0,
+  "dominant_concept_per_family": {
+    "E_v317h": "universal_syllogism",
+    "G_v316susp": "circular_reasoning"
+  },
+  "entangled_family_ids": [
+    "G_v316susp",
+    "E_v317h"
+  ],
+  "family_token_stats": [
+    {
+      "family_id": "G_v316susp",
+      "member_count": 9,
+      "total_unigrams": 126,
+      "unique_bigrams": 86,
+      "unique_unigrams": 50
+    },
+    {
+      "family_id": "E_v317h",
+      "member_count": 10,
+      "total_unigrams": 133,
+      "unique_bigrams": 106,
+      "unique_unigrams": 79
+    }
+  ],
+  "family_uniqueness": {
+    "E_v317h": 0.974684,
+    "G_v316susp": 0.96
+  },
+  "jaccard_bigrams": 0.005236,
+  "jaccard_unigrams": 0.015748,
+  "schema_version": "v3_97_semantic_loss_audit",
+  "semantic_distance": 0.989508,
+  "semantic_overlap": 0.010492
+}

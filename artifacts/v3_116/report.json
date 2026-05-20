@@ -1,0 +1,60 @@
+{
+  "architecture_roi": 1.079136,
+  "best_strategy": "proxy_alphabet",
+  "best_strategy_dims": [
+    "contradiction_type",
+    "corpus_hash",
+    "letter_prefix_hash"
+  ],
+  "canonical_score": 0.0,
+  "halt": false,
+  "proxy_score": 1.079136,
+  "rationale": [
+    "INFO: canonical_score 0.0",
+    "INFO: proxy_score 1.079136",
+    "INFO: structural_score 0.0",
+    "INFO: best_strategy proxy_alphabet",
+    "INFO: best_strategy_dims ['contradiction_type', 'corpus_hash', 'letter_prefix_hash']",
+    "INFO: architecture_roi 1.079136",
+    "INFO: strategy_outcomes [{'strategy': 'canonical_9d', 'dims': [], 'recovery_score': 0.0, 'complexity_score': 0.0, 'proxy_score': 0.0, 'historical_score': 1.0, 'architecture_roi': 0.0}, {'strategy': 'proxy_alphabet', 'dims': ['contradiction_type', 'corpus_hash', 'letter_prefix_hash'], 'recovery_score': 1.0, 'complexity_score': 0.25, 'proxy_score': 0.666667, 'historical_score': 1.0, 'architecture_roi': 1.079136}, {'strategy': 'structural_alphabet', 'dims': ['support_propagation_length'], 'recovery_score': 0.0, 'complexity_score': 0.083333, 'proxy_score': 0.0, 'historical_score': 1.0, 'architecture_roi': 0.0}]",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "PROXY_RETAINED",
+  "replay_stability": 1.0,
+  "strategy_outcomes": [
+    {
+      "architecture_roi": 0.0,
+      "complexity_score": 0.0,
+      "dims": [],
+      "historical_score": 1.0,
+      "proxy_score": 0.0,
+      "recovery_score": 0.0,
+      "strategy": "canonical_9d"
+    },
+    {
+      "architecture_roi": 1.079136,
+      "complexity_score": 0.25,
+      "dims": [
+        "contradiction_type",
+        "corpus_hash",
+        "letter_prefix_hash"
+      ],
+      "historical_score": 1.0,
+      "proxy_score": 0.666667,
+      "recovery_score": 1.0,
+      "strategy": "proxy_alphabet"
+    },
+    {
+      "architecture_roi": 0.0,
+      "complexity_score": 0.083333,
+      "dims": [
+        "support_propagation_length"
+      ],
+      "historical_score": 1.0,
+      "proxy_score": 0.0,
+      "recovery_score": 0.0,
+      "strategy": "structural_alphabet"
+    }
+  ],
+  "structural_score": 0.0
+}

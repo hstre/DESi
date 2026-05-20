@@ -1,0 +1,28 @@
+{
+  "baseline_energy": 4300.0,
+  "baseline_nodes": 4300,
+  "baseline_time_ms": 4300.0,
+  "branch_compression": 0.532558,
+  "compute_reduction": 0.540698,
+  "elo_delta_proxy": -0.0,
+  "guided_energy": 1905.0,
+  "guided_nodes": 2010,
+  "guided_time_ms": 2010.0,
+  "halt": false,
+  "quality_preservation": 1.0,
+  "rationale": [
+    "INFO: baseline_nodes 4300",
+    "INFO: guided_nodes 2010",
+    "INFO: baseline_time_ms 4300.0",
+    "INFO: guided_time_ms 2010.0",
+    "INFO: baseline_energy 4300.0",
+    "INFO: guided_energy 1905.0",
+    "PASS: compute_reduction 0.540698 >= 0.50",
+    "PASS: quality_preservation 1.0 >= 0.95",
+    "INFO: elo_delta_proxy -0.0",
+    "PASS: branch_compression 0.532558 >= 0.50",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "EFFICIENCY_COMPRESSED",
+  "replay_stability": 1.0
+}

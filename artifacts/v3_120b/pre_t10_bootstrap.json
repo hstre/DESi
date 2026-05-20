@@ -1,0 +1,213 @@
+{
+  "bootstrap_draws": [
+    {
+      "seed": 0,
+      "threshold": 0.6
+    },
+    {
+      "seed": 1,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 2,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 3,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 4,
+      "threshold": 0.736821
+    },
+    {
+      "seed": 5,
+      "threshold": 0.638889
+    },
+    {
+      "seed": 6,
+      "threshold": 0.638889
+    },
+    {
+      "seed": 7,
+      "threshold": 0.6
+    },
+    {
+      "seed": 8,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 9,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 10,
+      "threshold": 0.6
+    },
+    {
+      "seed": 11,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 12,
+      "threshold": 0.771895
+    },
+    {
+      "seed": 13,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 14,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 15,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 16,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 17,
+      "threshold": 0.714444
+    },
+    {
+      "seed": 18,
+      "threshold": 0.6
+    },
+    {
+      "seed": 19,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 20,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 21,
+      "threshold": 0.6
+    },
+    {
+      "seed": 22,
+      "threshold": 0.714444
+    },
+    {
+      "seed": 23,
+      "threshold": 0.638889
+    },
+    {
+      "seed": 24,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 25,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 26,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 27,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 28,
+      "threshold": 0.714444
+    },
+    {
+      "seed": 29,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 30,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 31,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 32,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 33,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 34,
+      "threshold": 0.6
+    },
+    {
+      "seed": 35,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 36,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 37,
+      "threshold": 0.6
+    },
+    {
+      "seed": 38,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 39,
+      "threshold": 0.6
+    },
+    {
+      "seed": 40,
+      "threshold": 0.6
+    },
+    {
+      "seed": 41,
+      "threshold": 0.6
+    },
+    {
+      "seed": 42,
+      "threshold": 0.6
+    },
+    {
+      "seed": 43,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 44,
+      "threshold": 0.6
+    },
+    {
+      "seed": 45,
+      "threshold": 0.736821
+    },
+    {
+      "seed": 46,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 47,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 48,
+      "threshold": 0.541667
+    },
+    {
+      "seed": 49,
+      "threshold": 0.638889
+    }
+  ],
+  "bootstrap_seed_count": 50,
+  "schema_version": "v3_120b_pre_t10_bootstrap",
+  "seed_invariance": 0.56,
+  "threshold_ci": [
+    0.541667,
+    0.736821
+  ],
+  "threshold_drift": 0.230228,
+  "threshold_mean": 0.586222
+}

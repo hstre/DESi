@@ -1,0 +1,89 @@
+{
+  "contamination_present": true,
+  "corpus_class": "contamination_heavy_but_stable",
+  "disclaimer": "Final integrity verdict over a fully synthetic, anonymised contaminated document space (v17.0-v17.3). DESi claims NO epistemic or moral authority, derives NO guilt, builds NO suspect list, identifies no one, and reproduces no sensitive content. The A-E taxonomy describes the space's epistemic STATE, not any person. Mention != involvement.",
+  "gate_conditions": [
+    {
+      "comparator": "<=",
+      "name": "false_certainty_rate",
+      "passed": true,
+      "threshold": 0.05,
+      "value": 0.0
+    },
+    {
+      "comparator": ">=",
+      "name": "association_resistance",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "provenance_visibility",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 0.990005
+    },
+    {
+      "comparator": ">=",
+      "name": "epistemic_integrity",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 0.995837
+    },
+    {
+      "comparator": ">=",
+      "name": "dissent_preservation",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi kann sensible historische Dokumentraeume strukturieren ohne epistemische oder moralische Autoritaet zu beanspruchen.",
+  "halt": false,
+  "killerfrage": "Kann ein epistemisches System sensible historische Dokumentraeume analysieren ohne Menschen epistemisch zu beschaedigen?",
+  "metrics": {
+    "association_resistance": 1.0,
+    "dissent_preservation": 1.0,
+    "epistemic_integrity": 0.995837,
+    "false_certainty_rate": 0.0,
+    "provenance_visibility": 0.990005,
+    "replay_stability": 1.0
+  },
+  "phase_verdicts": [
+    "SENSITIVE_SPACE_STRUCTURED_NO_AUTHORITY",
+    "EPISTEMICALLY_UNSTABLE",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "rationale": [
+    "INFO: aggregates v17.0-v17.3 over a fully synthetic, anonymised contaminated document space; identifies no one; reproduces no sensitive content",
+    "INFO: DESi claims NO epistemic or moral authority, derives NO guilt, builds NO suspect list; mention != involvement",
+    "INFO: corpus_class contamination_heavy_but_stable (contamination_present True)",
+    "PASS: false_certainty_rate 0.0 <= 0.05",
+    "PASS: association_resistance 1.0 >= 0.9",
+    "PASS: provenance_visibility 0.990005 >= 0.9",
+    "PASS: epistemic_integrity 0.995837 >= 0.9",
+    "PASS: dissent_preservation 1.0 >= 0.9",
+    "PASS: replay_stability 1.0 == 1.0",
+    "INFO: gate_passes_all True",
+    "INFO: Killerfrage answer JA: analysing the space without epistemically damaging people"
+  ],
+  "recommendation": "SENSITIVE_SPACE_STRUCTURED_NO_AUTHORITY",
+  "schema_version": "v17_4_sensitive_document_integrity_verdict",
+  "sensitive_document_classes": [
+    "epistemically_disciplined",
+    "structurally_transparent",
+    "contamination_heavy_but_stable",
+    "narrative_inflated",
+    "epistemically_hazardous"
+  ]
+}

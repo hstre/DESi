@@ -1,0 +1,252 @@
+{
+  "bridge_pressure": 0.571429,
+  "bridge_pressure_by_narrative": {
+    "alternative_reconstruction": 0.571429,
+    "institutional": 0.142857,
+    "lone_gunman": 0.285714,
+    "multi_actor": 0.428571
+  },
+  "cross_narrative_overlap": 0.285714,
+  "disclaimer": "Compares PUBLICLY DOCUMENTED framings of a historical case (lone-gunman, institutional, multi-actor, alternative reconstruction). DESi prefers NO narrative, ranks NONE as true, crowns NO winner, and makes no new factual claim. High bridge pressure / source dependency / speculative growth are structural descriptions, never verdicts of truth or falsehood. There is by design no 'true_narrative' output.",
+  "narrative_ids": [
+    "lone_gunman",
+    "institutional",
+    "multi_actor",
+    "alternative_reconstruction"
+  ],
+  "narratives": [
+    {
+      "bridges": [
+        {
+          "dst": "C02",
+          "src": "C01",
+          "supported": true
+        },
+        {
+          "dst": "C03",
+          "src": "C02",
+          "supported": true
+        },
+        {
+          "dst": "C04",
+          "src": "C01",
+          "supported": true
+        },
+        {
+          "dst": "C05",
+          "src": "C01",
+          "supported": true
+        },
+        {
+          "dst": "C06",
+          "src": "C05",
+          "supported": true
+        },
+        {
+          "dst": "C07",
+          "src": "C05",
+          "supported": false
+        },
+        {
+          "dst": "C08",
+          "src": "C07",
+          "supported": false
+        }
+      ],
+      "claim_ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C13"
+      ],
+      "conclusion": "C08",
+      "narrative_id": "lone_gunman"
+    },
+    {
+      "bridges": [
+        {
+          "dst": "C02",
+          "src": "C01",
+          "supported": true
+        },
+        {
+          "dst": "C03",
+          "src": "C02",
+          "supported": true
+        },
+        {
+          "dst": "C04",
+          "src": "C01",
+          "supported": true
+        },
+        {
+          "dst": "C05",
+          "src": "C01",
+          "supported": true
+        },
+        {
+          "dst": "C06",
+          "src": "C05",
+          "supported": true
+        },
+        {
+          "dst": "C15",
+          "src": "C05",
+          "supported": true
+        },
+        {
+          "dst": "C07",
+          "src": "C05",
+          "supported": false
+        }
+      ],
+      "claim_ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C07",
+        "C15"
+      ],
+      "conclusion": "C07",
+      "narrative_id": "institutional"
+    },
+    {
+      "bridges": [
+        {
+          "dst": "C02",
+          "src": "C01",
+          "supported": true
+        },
+        {
+          "dst": "C03",
+          "src": "C02",
+          "supported": true
+        },
+        {
+          "dst": "C04",
+          "src": "C01",
+          "supported": true
+        },
+        {
+          "dst": "C05",
+          "src": "C01",
+          "supported": true
+        },
+        {
+          "dst": "C09",
+          "src": "C05",
+          "supported": false
+        },
+        {
+          "dst": "C10",
+          "src": "C09",
+          "supported": false
+        },
+        {
+          "dst": "C10",
+          "src": "C14",
+          "supported": false
+        }
+      ],
+      "claim_ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C09",
+        "C10",
+        "C14"
+      ],
+      "conclusion": "C10",
+      "narrative_id": "multi_actor"
+    },
+    {
+      "bridges": [
+        {
+          "dst": "C02",
+          "src": "C01",
+          "supported": true
+        },
+        {
+          "dst": "C03",
+          "src": "C02",
+          "supported": true
+        },
+        {
+          "dst": "C04",
+          "src": "C01",
+          "supported": true
+        },
+        {
+          "dst": "C09",
+          "src": "C14",
+          "supported": false
+        },
+        {
+          "dst": "C10",
+          "src": "C09",
+          "supported": false
+        },
+        {
+          "dst": "C11",
+          "src": "C10",
+          "supported": false
+        },
+        {
+          "dst": "C11",
+          "src": "C14",
+          "supported": false
+        }
+      ],
+      "claim_ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C09",
+        "C10",
+        "C11",
+        "C14"
+      ],
+      "conclusion": "C11",
+      "narrative_id": "alternative_reconstruction"
+    }
+  ],
+  "no_preferred_narrative": true,
+  "recommendation": "NARRATIVES_STRUCTURED_NO_PREFERENCE",
+  "report_verdicts": [
+    "NARRATIVES_STRUCTURED_NO_PREFERENCE",
+    "NARRATIVE_PREFERENCE_DETECTED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "robust_claims": [
+    "C01",
+    "C02",
+    "C03",
+    "C04"
+  ],
+  "schema_version": "v16_1_narrative_competition",
+  "source_dependency": 0.5,
+  "source_dependency_by_narrative": {
+    "alternative_reconstruction": 0.5,
+    "institutional": 0.0,
+    "lone_gunman": 0.111111,
+    "multi_actor": 0.375
+  },
+  "speculative_growth": 0.666667,
+  "speculative_growth_by_narrative": {
+    "alternative_reconstruction": 0.666667,
+    "institutional": 0.428571,
+    "lone_gunman": 0.444444,
+    "multi_actor": 0.466667
+  }
+}

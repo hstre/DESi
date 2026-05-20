@@ -1,0 +1,289 @@
+{
+  "blindness_pools_added": 1,
+  "bridge_audit_coverage": 1.0,
+  "claim_extraction_accuracy": 0.944444,
+  "extractions": [
+    {
+      "paper_id": "arxiv:2401.0001",
+      "units": [
+        {
+          "kind": "claim",
+          "paper_id": "arxiv:2401.0001",
+          "sentence": "We show that attention-based language models converge to a stable representation under sparse supervision."
+        },
+        {
+          "kind": "bridge",
+          "paper_id": "arxiv:2401.0001",
+          "sentence": "Empirical evidence on three benchmark datasets supports the claim."
+        },
+        {
+          "kind": "leap",
+          "paper_id": "arxiv:2401.0001",
+          "sentence": "We further argue that this implies general intelligence."
+        }
+      ]
+    },
+    {
+      "paper_id": "ssrn:2024-4501",
+      "units": [
+        {
+          "kind": "claim",
+          "paper_id": "ssrn:2024-4501",
+          "sentence": "This paper argues that mandatory regulatory disclosure improves market efficiency."
+        },
+        {
+          "kind": "claim",
+          "paper_id": "ssrn:2024-4501",
+          "sentence": "Empirical evidence suggests a 12 percent reduction in bid-ask spreads after the 2018 reform."
+        },
+        {
+          "kind": "leap",
+          "paper_id": "ssrn:2024-4501",
+          "sentence": "We conclude that disclosure is morally required."
+        }
+      ]
+    },
+    {
+      "paper_id": "pubmed:38901234",
+      "units": [
+        {
+          "kind": "bridge",
+          "paper_id": "pubmed:38901234",
+          "sentence": "Randomised controlled trial of Vitamin D supplementation in elderly cohort."
+        },
+        {
+          "kind": "claim",
+          "paper_id": "pubmed:38901234",
+          "sentence": "We show that Vitamin D reduces the relative risk of cardiovascular events by 8 percent."
+        },
+        {
+          "kind": "leap",
+          "paper_id": "pubmed:38901234",
+          "sentence": "This proves that Vitamin D prevents heart disease."
+        }
+      ]
+    },
+    {
+      "paper_id": "acl:2024.naacl.117",
+      "units": [
+        {
+          "kind": "claim",
+          "paper_id": "acl:2024.naacl.117",
+          "sentence": "We prove that cross-lingual transfer improves morphological tagging accuracy on five low-resource languages."
+        },
+        {
+          "kind": "claim",
+          "paper_id": "acl:2024.naacl.117",
+          "sentence": "Empirical evidence suggests the gain is robust to typological distance."
+        },
+        {
+          "kind": "leap",
+          "paper_id": "acl:2024.naacl.117",
+          "sentence": "Trust me bro: this generalises to all languages."
+        }
+      ]
+    },
+    {
+      "paper_id": "nature:2024.05.789",
+      "units": [
+        {
+          "kind": "claim",
+          "paper_id": "nature:2024.05.789",
+          "sentence": "We report a phase transition in magnesium diboride at 39 Kelvin, consistent with phonon-mediated pairing."
+        },
+        {
+          "kind": "bridge",
+          "paper_id": "nature:2024.05.789",
+          "sentence": "Empirical evidence supports the BCS mechanism."
+        }
+      ]
+    },
+    {
+      "paper_id": "arxiv:2402.0042",
+      "units": [
+        {
+          "kind": "claim",
+          "paper_id": "arxiv:2402.0042",
+          "sentence": "BUG: speculative decoding fails silently on long-context inputs \u2014 cannot reproduce in CI."
+        },
+        {
+          "kind": "claim",
+          "paper_id": "arxiv:2402.0042",
+          "sentence": "We show that the failure rate exceeds 4 percent on the validation set."
+        },
+        {
+          "kind": "leap",
+          "paper_id": "arxiv:2402.0042",
+          "sentence": "Sources confirm the regression."
+        }
+      ]
+    }
+  ],
+  "frame_distribution": {
+    "bug_report": 1,
+    "causal": 6,
+    "evaluative": 1,
+    "unknown": 1
+  },
+  "frame_diversity": 0.482206,
+  "hallucination_rate": 0.0,
+  "paper_count": 6,
+  "papers": [
+    {
+      "abstract": "We show that attention-based language models converge to a stable representation under sparse supervision. Empirical evidence on three benchmark datasets supports the claim. We further argue that this implies general intelligence.",
+      "paper_id": "arxiv:2401.0001",
+      "stated_claims": [
+        "attention-based language models converge to a stable representation under sparse supervision"
+      ],
+      "title": "Convergence of attention-based language models under sparse supervision",
+      "unsupported_leaps": [
+        "this implies general intelligence"
+      ],
+      "valid_bridges": [
+        "empirical evidence on three benchmark datasets supports the claim"
+      ],
+      "venue": "arxiv"
+    },
+    {
+      "abstract": "This paper argues that mandatory regulatory disclosure improves market efficiency. Empirical evidence suggests a 12 percent reduction in bid-ask spreads after the 2018 reform. We conclude that disclosure is morally required.",
+      "paper_id": "ssrn:2024-4501",
+      "stated_claims": [
+        "mandatory regulatory disclosure improves market efficiency",
+        "a 12 percent reduction in bid-ask spreads after the 2018 reform"
+      ],
+      "title": "Regulatory disclosure and market efficiency",
+      "unsupported_leaps": [
+        "disclosure is morally required"
+      ],
+      "valid_bridges": [],
+      "venue": "ssrn"
+    },
+    {
+      "abstract": "Randomised controlled trial of Vitamin D supplementation in elderly cohort. We show that Vitamin D reduces the relative risk of cardiovascular events by 8 percent. This proves that Vitamin D prevents heart disease.",
+      "paper_id": "pubmed:38901234",
+      "stated_claims": [
+        "Vitamin D reduces the relative risk of cardiovascular events by 8 percent"
+      ],
+      "title": "Vitamin D supplementation and cardiovascular outcomes",
+      "unsupported_leaps": [
+        "this proves that Vitamin D prevents heart disease"
+      ],
+      "valid_bridges": [
+        "randomised controlled trial"
+      ],
+      "venue": "pubmed"
+    },
+    {
+      "abstract": "We prove that cross-lingual transfer improves morphological tagging accuracy on five low-resource languages. Empirical evidence suggests the gain is robust to typological distance. Trust me bro: this generalises to all languages.",
+      "paper_id": "acl:2024.naacl.117",
+      "stated_claims": [
+        "cross-lingual transfer improves morphological tagging accuracy on five low-resource languages"
+      ],
+      "title": "Cross-lingual transfer in low-resource morphology",
+      "unsupported_leaps": [
+        "trust me bro: this generalises to all languages"
+      ],
+      "valid_bridges": [],
+      "venue": "acl"
+    },
+    {
+      "abstract": "We report a phase transition in magnesium diboride at 39 Kelvin, consistent with phonon-mediated pairing. Empirical evidence supports the BCS mechanism.",
+      "paper_id": "nature:2024.05.789",
+      "stated_claims": [
+        "a phase transition in magnesium diboride at 39 Kelvin",
+        "consistent with phonon-mediated pairing"
+      ],
+      "title": "Phase transition in superconducting magnesium diboride",
+      "unsupported_leaps": [],
+      "valid_bridges": [
+        "empirical evidence supports"
+      ],
+      "venue": "nature"
+    },
+    {
+      "abstract": "BUG: speculative decoding fails silently on long-context inputs - cannot reproduce in CI. We show that the failure rate exceeds 4 percent on the validation set. Sources confirm the regression.",
+      "paper_id": "arxiv:2402.0042",
+      "stated_claims": [
+        "the failure rate exceeds 4 percent on the validation set"
+      ],
+      "title": "Failure modes of speculative decoding",
+      "unsupported_leaps": [
+        "sources confirm the regression"
+      ],
+      "valid_bridges": [],
+      "venue": "arxiv"
+    }
+  ],
+  "schema_version": "v6_0_scientific_paper_audit",
+  "scores": [
+    {
+      "bridge_hit": 1,
+      "bridge_total": 1,
+      "leap_hit": 1,
+      "leap_total": 1,
+      "paper_id": "arxiv:2401.0001",
+      "stated_hit": 1,
+      "stated_total": 1
+    },
+    {
+      "bridge_hit": 0,
+      "bridge_total": 0,
+      "leap_hit": 1,
+      "leap_total": 1,
+      "paper_id": "ssrn:2024-4501",
+      "stated_hit": 2,
+      "stated_total": 2
+    },
+    {
+      "bridge_hit": 1,
+      "bridge_total": 1,
+      "leap_hit": 1,
+      "leap_total": 1,
+      "paper_id": "pubmed:38901234",
+      "stated_hit": 1,
+      "stated_total": 1
+    },
+    {
+      "bridge_hit": 0,
+      "bridge_total": 0,
+      "leap_hit": 1,
+      "leap_total": 1,
+      "paper_id": "acl:2024.naacl.117",
+      "stated_hit": 1,
+      "stated_total": 1
+    },
+    {
+      "bridge_hit": 1,
+      "bridge_total": 1,
+      "leap_hit": 0,
+      "leap_total": 0,
+      "paper_id": "nature:2024.05.789",
+      "stated_hit": 2,
+      "stated_total": 2
+    },
+    {
+      "bridge_hit": 0,
+      "bridge_total": 0,
+      "leap_hit": 1,
+      "leap_total": 1,
+      "paper_id": "arxiv:2402.0042",
+      "stated_hit": 1,
+      "stated_total": 1
+    }
+  ],
+  "unsupported_leap_detection": 1.0,
+  "venue_counts": {
+    "acl": 1,
+    "arxiv": 2,
+    "nature": 1,
+    "pubmed": 1,
+    "ssrn": 1
+  },
+  "venues": [
+    "arxiv",
+    "ssrn",
+    "pubmed",
+    "acl",
+    "nature"
+  ]
+}

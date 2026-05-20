@@ -1,0 +1,28 @@
+{
+  "citation_grounding": 1.0,
+  "epistemic_integrity": 1.0,
+  "failing_conditions": [],
+  "fake_paper_recall": 1.0,
+  "false_accusation_rate": 0.0,
+  "final_classification": "A_epistemically_rigorous",
+  "gate_passes_all": true,
+  "halt": false,
+  "rationale": [
+    "INFO: final_classification A_epistemically_rigorous",
+    "INFO: fake_paper_recall 1.0",
+    "INFO: false_accusation_rate 0.0",
+    "INFO: citation_grounding 1.0",
+    "INFO: epistemic_integrity 1.0",
+    "INFO: sludge_propagation 0.0",
+    "INFO: sludge_resistance 1.0",
+    "INFO: scientific_integrity_score 1.0",
+    "INFO: replay_stability 1.0",
+    "PASS: gate_passes_all (failing=[])",
+    "PASS: meta_replay_stability 1.0"
+  ],
+  "recommendation": "DESI_INTEGRITY_DEFENDER",
+  "replay_stability": 1.0,
+  "scientific_integrity_score": 1.0,
+  "sludge_propagation": 0.0,
+  "sludge_resistance": 1.0
+}

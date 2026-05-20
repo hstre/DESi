@@ -1,0 +1,489 @@
+{
+  "contamination": {
+    "contaminating_texts": [],
+    "contamination_count": 0,
+    "predicate_firings_on_already_killed": 6,
+    "protected_pool_size": 740
+  },
+  "effect": {
+    "false_support_after": 9,
+    "false_support_before": 19,
+    "non_target_relabel_count": 0,
+    "per_class": [
+      {
+        "after_count": 0,
+        "before_count": 5,
+        "cluster": "CORRELATION_TO_CAUSATION",
+        "reduction": 5,
+        "targeted": true
+      },
+      {
+        "after_count": 9,
+        "before_count": 9,
+        "cluster": "MISSING_BRIDGE_RULE",
+        "reduction": 0,
+        "targeted": false
+      },
+      {
+        "after_count": 0,
+        "before_count": 5,
+        "cluster": "SAMPLE_TO_UNIVERSAL",
+        "reduction": 5,
+        "targeted": true
+      }
+    ],
+    "reduction": 10,
+    "reduction_rate": 0.526316
+  },
+  "false_modality_rate": 0.0,
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "modal_tokens": [
+    "cannot",
+    "will"
+  ],
+  "nc_count": 60,
+  "nc_detection_rate": 0.975,
+  "nc_outcomes": [
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-001"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-002"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-003"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-004"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-005"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-006"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-007"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-008"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-009"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-010"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-011"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-012"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-013"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-014"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-015"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-016"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-017"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-018"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-019"
+    },
+    {
+      "cohort": "tense_consistent_valid",
+      "correct": true,
+      "fired": false,
+      "is_inconsistent": false,
+      "nc_id": "NC-TC-020"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-001"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-002"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-003"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-004"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-005"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-006"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-007"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-008"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-009"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-010"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-011"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-012"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-013"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-014"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-015"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-016"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-017"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-018"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-019"
+    },
+    {
+      "cohort": "correlation_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-CL-020"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-001"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-002"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-003"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-004"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-005"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-006"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-007"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-008"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-009"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-010"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-011"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-012"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-013"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-014"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-015"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-016"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": false,
+      "fired": false,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-017"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-018"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-019"
+    },
+    {
+      "cohort": "sample_to_universal_leap",
+      "correct": true,
+      "fired": true,
+      "is_inconsistent": true,
+      "nc_id": "NC-SU-020"
+    }
+  ],
+  "past_auxiliaries": [
+    "did",
+    "had",
+    "was",
+    "were"
+  ],
+  "recommendation_reason": "false_support_before=19 -> after=9 (reduction=10); contamination=0; nc_detection_rate=0.975; false_modality_rate=0.0",
+  "recommended_next": "MODALITY_PATCH_CONFIRMED",
+  "replay_hash": "2774818766a8035a",
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "target_clusters": [
+    "CORRELATION_TO_CAUSATION",
+    "SAMPLE_TO_UNIVERSAL"
+  ],
+  "v40_pre_v43_replay_hash": "aefa8f1e3429225a",
+  "v41_pre_v43_replay_hash": "f7ec695f17aa341b",
+  "v42_pre_v43_replay_hash": "181ec3cb1febf62f",
+  "v43_replay_hash": "7c63bcae4cf3fb37",
+  "v44_replay_hash": "bf4147b89f398224",
+  "v45_replay_hash": "86418c9d976cc147",
+  "v46_replay_hash": "58268fd9c4437e49"
+}

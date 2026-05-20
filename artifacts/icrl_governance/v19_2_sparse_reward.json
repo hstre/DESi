@@ -1,0 +1,179 @@
+{
+  "collapse_detection": 1.0,
+  "collapsed_ids": [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E06",
+    "E07"
+  ],
+  "dead_fraction": 0.166667,
+  "dead_trajectory_detection": 1.0,
+  "disclaimer": "Synthetic sparse-reward collapse fixtures. DESi makes exploration collapse visible, flags dead trajectories, preserves the rare novelty, and deprioritises (never deletes) repetition. It injects NO reward, replaces NO policy, claims NO optimal strategy, and takes NO hidden authority. Replay-exact.",
+  "episodes": [
+    {
+      "ep_id": "E01",
+      "episode_class": "LOOPING",
+      "goal_reached": false,
+      "reward": 0.0,
+      "states": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "ep_id": "E02",
+      "episode_class": "REDUNDANT",
+      "goal_reached": false,
+      "reward": 0.0,
+      "states": [
+        2,
+        3,
+        2,
+        3
+      ]
+    },
+    {
+      "ep_id": "E03",
+      "episode_class": "LOOPING",
+      "goal_reached": false,
+      "reward": 0.0,
+      "states": [
+        4,
+        5,
+        4,
+        5,
+        4
+      ]
+    },
+    {
+      "ep_id": "E04",
+      "episode_class": "DEAD_END",
+      "goal_reached": false,
+      "reward": 0.0,
+      "states": [
+        1,
+        2
+      ]
+    },
+    {
+      "ep_id": "E05",
+      "episode_class": "LOOPING",
+      "goal_reached": false,
+      "reward": 0.0,
+      "states": [
+        7,
+        8,
+        7,
+        8,
+        7
+      ]
+    },
+    {
+      "ep_id": "E06",
+      "episode_class": "DEAD_END",
+      "goal_reached": false,
+      "reward": 0.0,
+      "states": [
+        4,
+        5
+      ]
+    },
+    {
+      "ep_id": "E07",
+      "episode_class": "LOOPING",
+      "goal_reached": false,
+      "reward": 0.0,
+      "states": [
+        3,
+        4,
+        3,
+        4,
+        3,
+        4
+      ]
+    },
+    {
+      "ep_id": "E08",
+      "episode_class": "NOVEL_FRONTIER",
+      "goal_reached": true,
+      "reward": 1.0,
+      "states": [
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "ep_id": "E09",
+      "episode_class": "NOVEL_FRONTIER",
+      "goal_reached": false,
+      "reward": 0.0,
+      "states": [
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "ep_id": "E10",
+      "episode_class": "NOVEL_FRONTIER",
+      "goal_reached": true,
+      "reward": 1.0,
+      "states": [
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "ep_id": "E11",
+      "episode_class": "NOVEL_FRONTIER",
+      "goal_reached": false,
+      "reward": 0.0,
+      "states": [
+        9,
+        21,
+        22
+      ]
+    },
+    {
+      "ep_id": "E12",
+      "episode_class": "NOVEL_FRONTIER",
+      "goal_reached": true,
+      "reward": 1.0,
+      "states": [
+        23,
+        24,
+        25,
+        26
+      ]
+    }
+  ],
+  "exploration_collapse": 0.583333,
+  "goal_visibility": 0.25,
+  "novel_ids": [
+    "E08",
+    "E09",
+    "E10",
+    "E11",
+    "E12"
+  ],
+  "novelty_preservation": 1.0,
+  "recommendation": "SPARSE_EXPLORATION_STABILISED",
+  "recovery_support": 1.0,
+  "repetition_reduction": 0.9,
+  "report_verdicts": [
+    "SPARSE_EXPLORATION_STABILISED",
+    "SPARSE_EXPLORATION_COLLAPSED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "reward_sparsity": 0.75,
+  "schema_version": "v19_2_sparse_reward_exploration_stress",
+  "signature": "d4d85baf57105f28892baa15420594fa69303dbaa940e2489b395041d90d2aad"
+}

@@ -1,0 +1,2898 @@
+{
+  "cross_frame_outcomes": [
+    {
+      "case_id": "A01",
+      "chain_only_supported": true,
+      "combined_false_support": true,
+      "routing_allowed": true,
+      "routing_event": "frame_routing_allowed",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "A02",
+      "chain_only_supported": true,
+      "combined_false_support": true,
+      "routing_allowed": true,
+      "routing_event": "frame_routing_allowed",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "A03",
+      "chain_only_supported": true,
+      "combined_false_support": true,
+      "routing_allowed": true,
+      "routing_event": "frame_routing_allowed",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "A04",
+      "chain_only_supported": true,
+      "combined_false_support": true,
+      "routing_allowed": true,
+      "routing_event": "frame_routing_allowed",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "A05",
+      "chain_only_supported": true,
+      "combined_false_support": true,
+      "routing_allowed": true,
+      "routing_event": "frame_routing_allowed",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "A06",
+      "chain_only_supported": true,
+      "combined_false_support": true,
+      "routing_allowed": true,
+      "routing_event": "frame_routing_allowed",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "A07",
+      "chain_only_supported": true,
+      "combined_false_support": true,
+      "routing_allowed": true,
+      "routing_event": "frame_routing_allowed",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "A08",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_marker_required",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "A09",
+      "chain_only_supported": false,
+      "combined_false_support": false,
+      "routing_allowed": true,
+      "routing_event": "frame_routing_allowed",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "A10",
+      "chain_only_supported": true,
+      "combined_false_support": true,
+      "routing_allowed": true,
+      "routing_event": "frame_routing_allowed",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "A11",
+      "chain_only_supported": true,
+      "combined_false_support": true,
+      "routing_allowed": true,
+      "routing_event": "frame_routing_allowed",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "A12",
+      "chain_only_supported": true,
+      "combined_false_support": true,
+      "routing_allowed": true,
+      "routing_event": "frame_routing_allowed",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "A13",
+      "chain_only_supported": true,
+      "combined_false_support": true,
+      "routing_allowed": true,
+      "routing_event": "frame_routing_allowed",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "A14",
+      "chain_only_supported": true,
+      "combined_false_support": true,
+      "routing_allowed": true,
+      "routing_event": "frame_routing_allowed",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "A15",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_marker_required",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "B01",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_marker_required",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "B02",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "B03",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "B04",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "B05",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "B06",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "B07",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "B08",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "B09",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "B10",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "B11",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "B12",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "B13",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "B14",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "B15",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "C01",
+      "chain_only_supported": false,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_marker_required",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "C02",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "C03",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "C04",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "C05",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "C06",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "C07",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "C08",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "C09",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "C10",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "C11",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "C12",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "C13",
+      "chain_only_supported": false,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_marker_required",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "C14",
+      "chain_only_supported": false,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "C15",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "D01",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "D02",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "D03",
+      "chain_only_supported": false,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "D04",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "D05",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "D06",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "D07",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "D08",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "D09",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "D10",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "D11",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "D12",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "D13",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "D14",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "D15",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "E01",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "E02",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "E03",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "E04",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "E05",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "E06",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "E07",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "E08",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "E09",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "E10",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "E11",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "E12",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "E13",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "E14",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "E15",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "F01",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "F02",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "F03",
+      "chain_only_supported": false,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "F04",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "F05",
+      "chain_only_supported": false,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": false
+    },
+    {
+      "case_id": "F06",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "F07",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "F08",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "F09",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "F10",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "G01",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "G02",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "G03",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "G04",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "G05",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "G06",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "G07",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "G08",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "G09",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "G10",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_inner_only",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "H01",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "H02",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "H03",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "H04",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    },
+    {
+      "case_id": "H05",
+      "chain_only_supported": true,
+      "combined_false_support": false,
+      "routing_allowed": false,
+      "routing_event": "frame_routing_blocked",
+      "routing_prevented_attack": true
+    }
+  ],
+  "cross_frame_summary": {
+    "chain_only_attacks": 93,
+    "combined_false_support": 12,
+    "routing_prevented_attacks": 81,
+    "total": 100
+  },
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "independence": {
+    "adversarial_total": 100,
+    "exact_overlap": 0,
+    "guard_shape_overlap": 1.0,
+    "independence_passed": true,
+    "lexical_overlap_max": 0.615385,
+    "lexical_overlap_mean": 0.137744,
+    "reason": "all gates clear",
+    "structural_overlap": 1.0,
+    "v23_count": 30,
+    "v26_count": 50,
+    "v314_count": 60
+  },
+  "metrics": {
+    "attack_success_count": 93,
+    "attack_success_rate": 0.93,
+    "failure_class_counts": {
+      "authority_bypass": 12,
+      "cycle_bypass": 10,
+      "frame_switch_bypass": 15,
+      "metaphor_bypass": 14,
+      "negation_bypass": 14,
+      "quantifier_bypass": 15,
+      "semantic_leap": 5,
+      "tool_contamination": 8
+    },
+    "false_support_count": 93,
+    "guard_activation_rate": 0.02,
+    "guard_bypass_rate": 0.93,
+    "per_family": {
+      "A_hidden_negation": {
+        "blocked": 1,
+        "succeeded": 14,
+        "total": 15
+      },
+      "B_quantifier_drift": {
+        "blocked": 0,
+        "succeeded": 15,
+        "total": 15
+      },
+      "C_authority_insertion": {
+        "blocked": 3,
+        "succeeded": 12,
+        "total": 15
+      },
+      "D_metaphor_insertion": {
+        "blocked": 1,
+        "succeeded": 14,
+        "total": 15
+      },
+      "E_frame_switch": {
+        "blocked": 0,
+        "succeeded": 15,
+        "total": 15
+      },
+      "F_tool_contamination": {
+        "blocked": 2,
+        "succeeded": 8,
+        "total": 10
+      },
+      "G_cycle_disguise": {
+        "blocked": 0,
+        "succeeded": 10,
+        "total": 10
+      },
+      "H_semantic_leap": {
+        "blocked": 0,
+        "succeeded": 5,
+        "total": 5
+      }
+    },
+    "total": 100,
+    "trap_block_rate": 0.07
+  },
+  "outcomes": [
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "contradict via lexical absence (lacks/fails/vanished/absent/without)",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "A01",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "negation_bypass",
+      "family": "A_hidden_negation",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_d710b46cd8920f76",
+      "text": "The bread lacked yeast. The dough rose quickly anyway. Therefore the loaf came out exactly as expected."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "contradict via lexical absence (lacks/fails/vanished/absent/without)",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "A02",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "negation_bypass",
+      "family": "A_hidden_negation",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_3cb7057e60961e2e",
+      "text": "Steam vanished from the kettle. The cup was poured boiling hot. Therefore tea warmed cold hands."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "contradict via lexical absence (lacks/fails/vanished/absent/without)",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "A03",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "negation_bypass",
+      "family": "A_hidden_negation",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_7ee25fc161e47ea9",
+      "text": "Frost destroyed the buds. The orchard bloomed lavishly. Therefore the harvest exceeded last year."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "contradict via lexical absence (lacks/fails/vanished/absent/without)",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "A04",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "negation_bypass",
+      "family": "A_hidden_negation",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_f7a7d7c711f903c9",
+      "text": "Salt was absent from the broth. The soup tasted perfectly seasoned. Therefore guests praised the dish."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "contradict via lexical absence (lacks/fails/vanished/absent/without)",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "A05",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "negation_bypass",
+      "family": "A_hidden_negation",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_1ffba7eee34d17e7",
+      "text": "Light failed in the studio. The film captured a vivid portrait. Therefore the exhibit opened on time."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "contradict via lexical absence (lacks/fails/vanished/absent/without)",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "A06",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "negation_bypass",
+      "family": "A_hidden_negation",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_f2cc585edac37eb0",
+      "text": "Wind was absent at the regatta. The sails filled with a stiff breeze. Therefore the yacht reached the buoy first."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "contradict via lexical absence (lacks/fails/vanished/absent/without)",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "A07",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "negation_bypass",
+      "family": "A_hidden_negation",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_31eb18d9021da08a",
+      "text": "The string broke before the recital. A pure tone rang across the hall. Therefore the audience applauded warmly."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "contradict via lexical absence (lacks/fails/vanished/absent/without)",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "A08",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "negation_bypass",
+      "family": "A_hidden_negation",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_ce70798c7f2e4aa1",
+      "text": "Rain ceased entirely overnight. The reservoir filled to capacity by dawn. Therefore drinking water remained plentiful."
+    },
+    {
+      "actual_final_state": "logically_rejected",
+      "actual_rule": null,
+      "attack_goal": "contradict via lexical absence (lacks/fails/vanished/absent/without)",
+      "attack_succeeded": false,
+      "blocked_reason": "unreachable",
+      "case_id": "A09",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": null,
+      "family": "A_hidden_negation",
+      "matched_guard": "unreachable",
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": true
+      },
+      "replay_hash": null,
+      "text": "The compass lacked a needle. The hiker chose the correct trail at every fork. Therefore the summit was reached by noon."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "contradict via lexical absence (lacks/fails/vanished/absent/without)",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "A10",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "negation_bypass",
+      "family": "A_hidden_negation",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_9cffc13b34e17ea0",
+      "text": "Fuel ran out before liftoff. The rocket climbed steadily toward orbit. Therefore the satellite separated as planned."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "contradict via lexical absence (lacks/fails/vanished/absent/without)",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "A11",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "negation_bypass",
+      "family": "A_hidden_negation",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_667929c69a00ea37",
+      "text": "Ink was missing from the press. A clean broadsheet rolled off the cylinder. Therefore subscribers got the morning paper."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "contradict via lexical absence (lacks/fails/vanished/absent/without)",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "A12",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "negation_bypass",
+      "family": "A_hidden_negation",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_a04075657c07e8f8",
+      "text": "The pollen was infertile. The fruit set abundantly on the branches. Therefore the harvest filled the cellars."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "contradict via lexical absence (lacks/fails/vanished/absent/without)",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "A13",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "negation_bypass",
+      "family": "A_hidden_negation",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_e20934dedc3803dc",
+      "text": "Power vanished from the substation. The hospital operated under bright lights. Therefore surgeries finished on schedule."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "contradict via lexical absence (lacks/fails/vanished/absent/without)",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "A14",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "negation_bypass",
+      "family": "A_hidden_negation",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_67f2a97b406460d8",
+      "text": "Yeast died in the starter. The sourdough rose to triple volume. Therefore the bakery opened with full shelves."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "contradict via lexical absence (lacks/fails/vanished/absent/without)",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "A15",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "negation_bypass",
+      "family": "A_hidden_negation",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_d53259cd76b428ee",
+      "text": "Heat vanished from the kiln. The glaze fired to a glossy finish. Therefore the gallery accepted the work."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "introduce universal scope via 'always'/'throughout'/'universally'",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "B01",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "quantifier_bypass",
+      "family": "B_quantifier_drift",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_c2feef47a9d98745",
+      "text": "Roosters consistently crow before dawn. The rooster crowed at five. Therefore the rooster caused sunrise."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "introduce universal scope via 'always'/'throughout'/'universally'",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "B02",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "quantifier_bypass",
+      "family": "B_quantifier_drift",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_cba581f6ad79aa46",
+      "text": "Migrating monarchs travel south universally. A monarch drifted along the coast. Therefore the monarch led the flock."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "introduce universal scope via 'always'/'throughout'/'universally'",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "B03",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "quantifier_bypass",
+      "family": "B_quantifier_drift",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_b26d86f6fac4cf74",
+      "text": "Lessons are taken throughout her career. She danced tonight. Therefore she took lessons today."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "introduce universal scope via 'always'/'throughout'/'universally'",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "B04",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "quantifier_bypass",
+      "family": "B_quantifier_drift",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_ee87712800565238",
+      "text": "Easy desserts contain sugar invariably. The chef chose shortcake. Therefore the chef used sugar."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "introduce universal scope via 'always'/'throughout'/'universally'",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "B05",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "quantifier_bypass",
+      "family": "B_quantifier_drift",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_f9fa2578c81a37e6",
+      "text": "Waves break at the shoreline always. The surfer caught a swell. Therefore the surfer rode broken water."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "introduce universal scope via 'always'/'throughout'/'universally'",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "B06",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "quantifier_bypass",
+      "family": "B_quantifier_drift",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_4f9f6253f49717c5",
+      "text": "Clouds bring rain universally. The sky turned grey. Therefore the clouds promised rainfall."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "introduce universal scope via 'always'/'throughout'/'universally'",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "B07",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "quantifier_bypass",
+      "family": "B_quantifier_drift",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_8bdd01ff0f72ea0a",
+      "text": "Apples ripen in autumn invariably. The orchard fruited in October. Therefore the apples were ripe today."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "introduce universal scope via 'always'/'throughout'/'universally'",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "B08",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "quantifier_bypass",
+      "family": "B_quantifier_drift",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_603bc4e0feef6deb",
+      "text": "Wines mature with age consistently. The bottle was old. Therefore the wine had matured well."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "introduce universal scope via 'always'/'throughout'/'universally'",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "B09",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "quantifier_bypass",
+      "family": "B_quantifier_drift",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_1e4bc72785fbaf9c",
+      "text": "Toddlers wake before dawn invariably. A toddler stirred at six. Therefore the toddler woke before dawn."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "introduce universal scope via 'always'/'throughout'/'universally'",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "B10",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "quantifier_bypass",
+      "family": "B_quantifier_drift",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_8f4d17d92eb17124",
+      "text": "Stars rise in the east always. Sirius appeared at twilight. Therefore Sirius rose from the east."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "introduce universal scope via 'always'/'throughout'/'universally'",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "B11",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "quantifier_bypass",
+      "family": "B_quantifier_drift",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_e0d79bea9d0c357d",
+      "text": "Marble polishes to a sheen consistently. The sculptor buffed the bust. Therefore the bust gleamed under lights."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "introduce universal scope via 'always'/'throughout'/'universally'",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "B12",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "quantifier_bypass",
+      "family": "B_quantifier_drift",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_b6cc9e0fa4929eeb",
+      "text": "Lemons are sour throughout. The chef bit a slice. Therefore the slice tasted sour to him."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "introduce universal scope via 'always'/'throughout'/'universally'",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "B13",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "quantifier_bypass",
+      "family": "B_quantifier_drift",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_9fdeb5072ef601b6",
+      "text": "Caterpillars become butterflies universally. The caterpillar pupated. Therefore the caterpillar emerged as a butterfly."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "introduce universal scope via 'always'/'throughout'/'universally'",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "B14",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "quantifier_bypass",
+      "family": "B_quantifier_drift",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_e931e1467196fee5",
+      "text": "Iron rusts in damp air invariably. The hinge sat outside. Therefore the hinge corroded over winter."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "introduce universal scope via 'always'/'throughout'/'universally'",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "B15",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "quantifier_bypass",
+      "family": "B_quantifier_drift",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_f8e67a484ceac71d",
+      "text": "Bees follow flowers consistently. A hive faced a meadow. Therefore the bees worked the meadow blooms."
+    },
+    {
+      "actual_final_state": "logically_rejected",
+      "actual_rule": null,
+      "attack_goal": "smuggle authority via verbs not in the lemma set",
+      "attack_succeeded": false,
+      "blocked_reason": "unreachable",
+      "case_id": "C01",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": null,
+      "family": "C_authority_insertion",
+      "matched_guard": "unreachable",
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": null,
+      "text": "The expert wrote that the bridge was unsafe. Pedestrians crossed it anyway. Therefore the bridge proved sound."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle authority via verbs not in the lemma set",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "C02",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "authority_bypass",
+      "family": "C_authority_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_53c7f70e669de9ab",
+      "text": "A historian noted that the dynasty collapsed early. The annals stretched another century. Therefore the dynasty endured longer."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle authority via verbs not in the lemma set",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "C03",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "authority_bypass",
+      "family": "C_authority_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_49381c9532d51e55",
+      "text": "The auditor argued the books were balanced. Receipts showed steady deficit. Therefore the company stayed in the black."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle authority via verbs not in the lemma set",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "C04",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "authority_bypass",
+      "family": "C_authority_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_badb149f64544f01",
+      "text": "A critic thought the play would flop. Audiences packed the theatre nightly. Therefore the play turned a modest loss."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle authority via verbs not in the lemma set",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "C05",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "authority_bypass",
+      "family": "C_authority_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_758199178899af9b",
+      "text": "The judge wrote a stern dissent. The majority opinion prevailed unchanged. Therefore the dissent overturned the ruling."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle authority via verbs not in the lemma set",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "C06",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "authority_bypass",
+      "family": "C_authority_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_6add4045c0ece75e",
+      "text": "An astronomer observed an unusual transit. Telescopes elsewhere caught nothing. Therefore the transit was globally seen."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle authority via verbs not in the lemma set",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "C07",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "authority_bypass",
+      "family": "C_authority_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_3c090928b1082ceb",
+      "text": "A consultant suggested the merger would fail. Earnings doubled within a quarter. Therefore the merger collapsed the firm."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle authority via verbs not in the lemma set",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "C08",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "authority_bypass",
+      "family": "C_authority_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_e638bbb1613e88ba",
+      "text": "The doctor wrote a cautious prognosis. The patient recovered fully within a week. Therefore the prognosis was accurate."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle authority via verbs not in the lemma set",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "C09",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "authority_bypass",
+      "family": "C_authority_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_cbb506192c2cef32",
+      "text": "A coach felt the team was overtrained. The players set personal records on race day. Therefore the team underperformed."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle authority via verbs not in the lemma set",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "C10",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "authority_bypass",
+      "family": "C_authority_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_a9a6c7597f1735e6",
+      "text": "The detective thought the alibi was solid. New evidence placed the suspect at the scene. Therefore the alibi held up in court."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle authority via verbs not in the lemma set",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "C11",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "authority_bypass",
+      "family": "C_authority_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_932003b0a6111dec",
+      "text": "An author argued that print was dying. Bookshops opened across the city. Therefore print collapsed nationally."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle authority via verbs not in the lemma set",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "C12",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "authority_bypass",
+      "family": "C_authority_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_e8c981fdeeee270e",
+      "text": "The engineer wrote a memo about overheating. The reactor ran cool for years. Therefore the reactor overheated last month."
+    },
+    {
+      "actual_final_state": "logically_rejected",
+      "actual_rule": null,
+      "attack_goal": "smuggle authority via verbs not in the lemma set",
+      "attack_succeeded": false,
+      "blocked_reason": "unreachable",
+      "case_id": "C13",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": null,
+      "family": "C_authority_insertion",
+      "matched_guard": "unreachable",
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": null,
+      "text": "A pilot felt the runway was too short. The aircraft took off with room to spare. Therefore the runway proved inadequate."
+    },
+    {
+      "actual_final_state": "logically_rejected",
+      "actual_rule": null,
+      "attack_goal": "smuggle authority via verbs not in the lemma set",
+      "attack_succeeded": false,
+      "blocked_reason": "unreachable",
+      "case_id": "C14",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": null,
+      "family": "C_authority_insertion",
+      "matched_guard": "unreachable",
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": null,
+      "text": "A teacher noted the student was struggling. The student scored top marks on the exam. Therefore the student needed remedial help."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle authority via verbs not in the lemma set",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "C15",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "authority_bypass",
+      "family": "C_authority_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_c73d9b154a379fdd",
+      "text": "An architect wrote that the foundation was solid. Cracks appeared within a month. Therefore the foundation was indeed solid."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle metaphor via X-is-Y form, no 'like a'/'as if'.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "D01",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "metaphor_bypass",
+      "family": "D_metaphor_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_446a7e7d498d72c0",
+      "text": "The city is a beehive. Workers buzz through avenues. Therefore honey flows from the pavement."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle metaphor via X-is-Y form, no 'like a'/'as if'.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "D02",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "metaphor_bypass",
+      "family": "D_metaphor_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_12c99e01b131d619",
+      "text": "Time is a river. The hours drift past the window. Therefore minutes pool in the corners of the room."
+    },
+    {
+      "actual_final_state": "logically_rejected",
+      "actual_rule": null,
+      "attack_goal": "smuggle metaphor via X-is-Y form, no 'like a'/'as if'.",
+      "attack_succeeded": false,
+      "blocked_reason": "unreachable",
+      "case_id": "D03",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": null,
+      "family": "D_metaphor_insertion",
+      "matched_guard": "unreachable",
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": true
+      },
+      "replay_hash": null,
+      "text": "Memory is a garden. New flowers bloom each spring. Therefore old roots produce new fragrances annually."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle metaphor via X-is-Y form, no 'like a'/'as if'.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "D04",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "metaphor_bypass",
+      "family": "D_metaphor_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_d746303e15cd972a",
+      "text": "The mind is a fortress. Thoughts patrol the walls. Therefore feelings besiege the gates at midnight."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle metaphor via X-is-Y form, no 'like a'/'as if'.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "D05",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "metaphor_bypass",
+      "family": "D_metaphor_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_b00f7455f300a1f1",
+      "text": "Truth is a mountain. Climbers reach for higher ledges. Therefore facts ice over above the cloud line."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle metaphor via X-is-Y form, no 'like a'/'as if'.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "D06",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "metaphor_bypass",
+      "family": "D_metaphor_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_20402a6448994036",
+      "text": "Justice is a scale. Weight settles on either pan. Therefore guilt tips the balance toward the bench."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle metaphor via X-is-Y form, no 'like a'/'as if'.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "D07",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "metaphor_bypass",
+      "family": "D_metaphor_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_5b12dd81d672ce71",
+      "text": "Hope is an anchor. Lines drop into deep water. Therefore the boat steadies against the swell."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle metaphor via X-is-Y form, no 'like a'/'as if'.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "D08",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "metaphor_bypass",
+      "family": "D_metaphor_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_2dccb45ad78bc936",
+      "text": "Anger is a fire. Flames lick along dry timber. Therefore reason chars at the edges of conversation."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle metaphor via X-is-Y form, no 'like a'/'as if'.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "D09",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "metaphor_bypass",
+      "family": "D_metaphor_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_9b2cfc9dc2d3de89",
+      "text": "Knowledge is a tree. Branches spread above the canopy. Therefore roots tap aquifers deep below the city."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle metaphor via X-is-Y form, no 'like a'/'as if'.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "D10",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "metaphor_bypass",
+      "family": "D_metaphor_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_91b03c3b81fcdb66",
+      "text": "Love is a tide. Water sweeps across smooth sand. Therefore footprints dissolve into the receding wash."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle metaphor via X-is-Y form, no 'like a'/'as if'.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "D11",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "metaphor_bypass",
+      "family": "D_metaphor_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_9a53a93811d1e0ad",
+      "text": "The economy is a machine. Gears mesh under heavy oil. Therefore profits drip into the underfloor tank."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle metaphor via X-is-Y form, no 'like a'/'as if'.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "D12",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "metaphor_bypass",
+      "family": "D_metaphor_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_f99900f5ddf4d30d",
+      "text": "Language is a bridge. Planks stretch across silent water. Therefore conversations carry over the railing."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle metaphor via X-is-Y form, no 'like a'/'as if'.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "D13",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "metaphor_bypass",
+      "family": "D_metaphor_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_04692656383def55",
+      "text": "The brain is a city. Trams thread between districts. Therefore decisions queue at marked crossings."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle metaphor via X-is-Y form, no 'like a'/'as if'.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "D14",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "metaphor_bypass",
+      "family": "D_metaphor_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_afe94c813f431969",
+      "text": "Faith is a candle. Wax pools at the rim. Therefore doubt smokes toward the shaded ceiling."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "smuggle metaphor via X-is-Y form, no 'like a'/'as if'.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "D15",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "metaphor_bypass",
+      "family": "D_metaphor_insertion",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_37f1475442ceb408",
+      "text": "Music is a sea. Waves rise and fall under moonlight. Therefore silence drifts ashore at the end of the set."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "mid-chain frame switch \u2014 semantic non-sequitur across domains.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "E01",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "frame_switch_bypass",
+      "family": "E_frame_switch",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_d5e4b67b90a537f3",
+      "text": "The kettle whistled sharply. Steam filled the kitchen. Therefore the bond market rallied that afternoon."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "mid-chain frame switch \u2014 semantic non-sequitur across domains.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "E02",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "frame_switch_bypass",
+      "family": "E_frame_switch",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_d0e2452b14170247",
+      "text": "A bonsai was pruned carefully. New buds appeared on the leader. Therefore the parliament passed new tariffs."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "mid-chain frame switch \u2014 semantic non-sequitur across domains.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "E03",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "frame_switch_bypass",
+      "family": "E_frame_switch",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_45cdb2ebce03a1a3",
+      "text": "The painter mixed cobalt blue. Pigment thinned with oil. Therefore the comet returned to the inner system."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "mid-chain frame switch \u2014 semantic non-sequitur across domains.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "E04",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "frame_switch_bypass",
+      "family": "E_frame_switch",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_9f21d537939caeb0",
+      "text": "Strings were tuned to perfect fifths. The cellist drew a long note. Therefore arctic ice melted faster that summer."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "mid-chain frame switch \u2014 semantic non-sequitur across domains.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "E05",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "frame_switch_bypass",
+      "family": "E_frame_switch",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_0d04ebbd07792b55",
+      "text": "Pollen drifted onto a stigma. The ovary swelled. Therefore the cryptocurrency rose by twenty percent."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "mid-chain frame switch \u2014 semantic non-sequitur across domains.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "E06",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "frame_switch_bypass",
+      "family": "E_frame_switch",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_7122813bf219085d",
+      "text": "Bread proofed in the basket. The crust developed a pattern. Therefore the supreme court ruled on the appeal."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "mid-chain frame switch \u2014 semantic non-sequitur across domains.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "E07",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "frame_switch_bypass",
+      "family": "E_frame_switch",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_b60eb7b593ad5288",
+      "text": "Sails caught a steady breeze. The hull leaned to leeward. Therefore the new vaccine cleared trials in record time."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "mid-chain frame switch \u2014 semantic non-sequitur across domains.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "E08",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "frame_switch_bypass",
+      "family": "E_frame_switch",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_6a85b18a39dfb0b1",
+      "text": "Honey filled the comb. Bees fanned the hive cool. Therefore a foreign minister resigned from cabinet."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "mid-chain frame switch \u2014 semantic non-sequitur across domains.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "E09",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "frame_switch_bypass",
+      "family": "E_frame_switch",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_848152f7db18fab0",
+      "text": "An origami crane was folded carefully. The wings spread wide. Therefore quantum entanglement was confirmed in the lab."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "mid-chain frame switch \u2014 semantic non-sequitur across domains.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "E10",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "frame_switch_bypass",
+      "family": "E_frame_switch",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_76e43bbb861036f6",
+      "text": "Clay was wedged on the wheel. The bowl rose under steady hands. Therefore the magnetic field reversed that century."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "mid-chain frame switch \u2014 semantic non-sequitur across domains.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "E11",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "frame_switch_bypass",
+      "family": "E_frame_switch",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_62b546582ec04961",
+      "text": "A photograph was developed in the darkroom. Shadows took shape on paper. Therefore the central bank cut rates again."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "mid-chain frame switch \u2014 semantic non-sequitur across domains.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "E12",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "frame_switch_bypass",
+      "family": "E_frame_switch",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_11868bdbe775184d",
+      "text": "A pawn pushed two squares. The opposing piece captured en passant. Therefore quasars formed at the edge of the universe."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "mid-chain frame switch \u2014 semantic non-sequitur across domains.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "E13",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "frame_switch_bypass",
+      "family": "E_frame_switch",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_c43df7a29fd1caf0",
+      "text": "Curds were salted gently. Whey drained into the bucket. Therefore parliamentary debate stalled on the budget."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "mid-chain frame switch \u2014 semantic non-sequitur across domains.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "E14",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "frame_switch_bypass",
+      "family": "E_frame_switch",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_4b013af8fc05bdc4",
+      "text": "An astronomer trained a telescope on Saturn. Rings sharpened in the eyepiece. Therefore the kitchen broiler burned the salmon."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "mid-chain frame switch \u2014 semantic non-sequitur across domains.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "E15",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "frame_switch_bypass",
+      "family": "E_frame_switch",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_96a7a75972e16108",
+      "text": "Threads were waxed with care. A needle pierced linen. Therefore a typhoon formed in the western Pacific."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "inject tool-computable step into a chain claim.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "F01",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "tool_contamination",
+      "family": "F_tool_contamination",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_e2cad09974e7ea2d",
+      "text": "Twelve dancers entered the studio. Seven more arrived late. Therefore the rehearsal had nineteen dancers present."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "inject tool-computable step into a chain claim.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "F02",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "tool_contamination",
+      "family": "F_tool_contamination",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_542e0a487b982b02",
+      "text": "The recipe calls for three cups flour. Sarah doubled the recipe. Therefore six cups of flour were used."
+    },
+    {
+      "actual_final_state": "logically_rejected",
+      "actual_rule": null,
+      "attack_goal": "inject tool-computable step into a chain claim.",
+      "attack_succeeded": false,
+      "blocked_reason": "unreachable",
+      "case_id": "F03",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": null,
+      "family": "F_tool_contamination",
+      "matched_guard": "unreachable",
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": null,
+      "text": "An apiary held thirty hives. Five hives swarmed in spring. Therefore twenty-five hives remained productive."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "inject tool-computable step into a chain claim.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "F04",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "tool_contamination",
+      "family": "F_tool_contamination",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_1aeeb21329bfada4",
+      "text": "A box held twenty pencils. A teacher gave away eight. Therefore twelve pencils stayed in the box."
+    },
+    {
+      "actual_final_state": "logically_rejected",
+      "actual_rule": null,
+      "attack_goal": "inject tool-computable step into a chain claim.",
+      "attack_succeeded": false,
+      "blocked_reason": "unreachable",
+      "case_id": "F05",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": null,
+      "family": "F_tool_contamination",
+      "matched_guard": "unreachable",
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": null,
+      "text": "A jeweller weighed fifteen carats. The setting added two carats more. Therefore the ring totalled seventeen carats."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "inject tool-computable step into a chain claim.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "F06",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "tool_contamination",
+      "family": "F_tool_contamination",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_f57b36ceeecbde99",
+      "text": "A library shelved forty volumes. Patrons borrowed nine today. Therefore thirty-one volumes remained on the shelf."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "inject tool-computable step into a chain claim.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "F07",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "tool_contamination",
+      "family": "F_tool_contamination",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_2600fcd7ddfbe65b",
+      "text": "The orchard yielded one hundred apples. Sixty went to market. Therefore forty apples stayed in the loft."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "inject tool-computable step into a chain claim.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "F08",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "tool_contamination",
+      "family": "F_tool_contamination",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_60c850851a679732",
+      "text": "A potter threw eighteen pots. Three cracked in the kiln. Therefore fifteen pots survived the firing."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "inject tool-computable step into a chain claim.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "F09",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "tool_contamination",
+      "family": "F_tool_contamination",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_57e1050be9848481",
+      "text": "Twenty rowers crossed the start line. Two retired early. Therefore eighteen rowers finished the regatta."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "inject tool-computable step into a chain claim.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "F10",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "tool_contamination",
+      "family": "F_tool_contamination",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_719cf02a523adbcd",
+      "text": "Fifty origami cranes were folded. Twelve unfolded overnight. Therefore thirty-eight cranes remained complete."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "circular reasoning via 'rests on'/'follows from'/synonyms.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "G01",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "cycle_bypass",
+      "family": "G_cycle_disguise",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_2a748557140e6cae",
+      "text": "The argument rests on the lemma. The lemma rests on the argument. Therefore the conclusion stands firm."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "circular reasoning via 'rests on'/'follows from'/synonyms.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "G02",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "cycle_bypass",
+      "family": "G_cycle_disguise",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_a1c2bf5805d4b248",
+      "text": "The proof follows from the axiom. The axiom follows from the proof. Therefore the result holds."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "circular reasoning via 'rests on'/'follows from'/synonyms.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "G03",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "cycle_bypass",
+      "family": "G_cycle_disguise",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_bef124e24526602a",
+      "text": "Faith leans against scripture. Scripture leans against faith. Therefore both endure."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "circular reasoning via 'rests on'/'follows from'/synonyms.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "G04",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "cycle_bypass",
+      "family": "G_cycle_disguise",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_3609be1f12045d77",
+      "text": "The plan stems from the budget. The budget stems from the plan. Therefore the project moves ahead."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "circular reasoning via 'rests on'/'follows from'/synonyms.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "G05",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "cycle_bypass",
+      "family": "G_cycle_disguise",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_079b8c50d718ad2a",
+      "text": "Definition A comes from term B. Term B comes from definition A. Therefore both terms are clear."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "circular reasoning via 'rests on'/'follows from'/synonyms.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "G06",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "cycle_bypass",
+      "family": "G_cycle_disguise",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_9dd46841c563d58f",
+      "text": "The theorem stands on the corollary. The corollary stands on the theorem. Therefore mathematics advances."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "circular reasoning via 'rests on'/'follows from'/synonyms.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "G07",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "cycle_bypass",
+      "family": "G_cycle_disguise",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_e79e9162612bc6bb",
+      "text": "Reputation follows from trust. Trust follows from reputation. Therefore the firm prospered."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "circular reasoning via 'rests on'/'follows from'/synonyms.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "G08",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "cycle_bypass",
+      "family": "G_cycle_disguise",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_1d8e53e54d073d07",
+      "text": "The melody emerges from the harmony. The harmony emerges from the melody. Therefore the piece sounds whole."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "circular reasoning via 'rests on'/'follows from'/synonyms.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "G09",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "cycle_bypass",
+      "family": "G_cycle_disguise",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_0484772162efa822",
+      "text": "Confidence grows from experience. Experience grows from confidence. Therefore the climber summits."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "circular reasoning via 'rests on'/'follows from'/synonyms.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "G10",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "cycle_bypass",
+      "family": "G_cycle_disguise",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_30da4369def97ada",
+      "text": "The system rests on its protocol. The protocol rests on the system. Therefore reliability is guaranteed."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "semantic non-sequitur; premises and conclusion share no content.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "H01",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "semantic_leap",
+      "family": "H_semantic_leap",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_5f8b9a4320f89da3",
+      "text": "Bread rose in the oven. A bell tolled at noon. Therefore the harbour lights flickered at midnight."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "semantic non-sequitur; premises and conclusion share no content.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "H02",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "semantic_leap",
+      "family": "H_semantic_leap",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_3a1bdaf80b0d4dc0",
+      "text": "Tulips opened in the garden. A clock chimed twice. Therefore distant trains rumbled through the valley."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "semantic non-sequitur; premises and conclusion share no content.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "H03",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "semantic_leap",
+      "family": "H_semantic_leap",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_2827496d9a734b6d",
+      "text": "The kettle boiled. A pigeon landed on the roof. Therefore the violinist tuned for an encore."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "semantic non-sequitur; premises and conclusion share no content.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "H04",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "semantic_leap",
+      "family": "H_semantic_leap",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_dfaf820e232223b4",
+      "text": "Honey dripped from the comb. A pebble skipped on the pond. Therefore the painter mixed cerulean blue."
+    },
+    {
+      "actual_final_state": "logically_supported",
+      "actual_rule": "causal_chain",
+      "attack_goal": "semantic non-sequitur; premises and conclusion share no content.",
+      "attack_succeeded": true,
+      "blocked_reason": null,
+      "case_id": "H05",
+      "depth_reached": 2,
+      "expected_blocked": true,
+      "failure_class": "semantic_leap",
+      "family": "H_semantic_leap",
+      "matched_guard": null,
+      "pressure_markers": {
+        "cycle_connective": false,
+        "negation_marker": false,
+        "quantifier_marker": false
+      },
+      "replay_hash": "rh_58582efe51c56463",
+      "text": "A photograph developed slowly. Wind rattled the shutters. Therefore the navigator marked the chart."
+    }
+  ],
+  "pressure_map": {
+    "clean_cases": 98,
+    "cycle_connective_present": 0,
+    "negation_marker_present": 0,
+    "quantifier_marker_present": 2
+  },
+  "recommendation_reason": "attack_success_count=93 != 0; false_support_count=93 != 0; trap_block_rate=0.07 != 1.0",
+  "recommended_next": "NONE",
+  "replay_hash": "a6edfa9a53914bcc",
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "total_cases": 100
+}

@@ -1,0 +1,28 @@
+{
+  "epistemic_collapse": 0,
+  "epistemic_integrity": 1.0,
+  "failing_conditions": [],
+  "false_certainty_rate": 0.0,
+  "final_classification": "A_disciplined_explorer",
+  "gate_passes_all": true,
+  "governance_survival": 1.0,
+  "hallucination_control": 1.0,
+  "halt": false,
+  "innovation_governance_balance": 0.9,
+  "innovation_preservation": 0.8,
+  "rationale": [
+    "INFO: final_classification A_disciplined_explorer",
+    "INFO: hallucination_control 1.0",
+    "INFO: innovation_preservation 0.8",
+    "INFO: false_certainty_rate 0.0",
+    "INFO: governance_survival 1.0",
+    "INFO: epistemic_collapse 0",
+    "INFO: epistemic_integrity 1.0",
+    "INFO: innovation_governance_balance 0.9",
+    "INFO: replay_stability 1.0",
+    "PASS: gate_passes_all (failing=[])",
+    "PASS: meta_replay_stability 1.0"
+  ],
+  "recommendation": "DESI_CONTROLLED_EXPLORATION",
+  "replay_stability": 1.0
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "corrupted_prompt_hash": "9ceb4bd82e9565af",
+  "corruption_inventory": [
+    {
+      "id": "C-001-wrong-hash",
+      "kind": "wrong_hash",
+      "claimed_value": "deadbeefdeadbeef",
+      "actual_value": "1f4d9dfe44cb16e1",
+      "evidence_path": "artifacts/v2_8/reconstruction.json"
+    },
+    {
+      "id": "C-002-wrong-path",
+      "kind": "wrong_artifact_path",
+      "claimed_value": "artifacts/v9_9/reconstruction_imaginary.json",
+      "actual_value": "artifacts/v2_8/reconstruction.json",
+      "evidence_path": ""
+    },
+    {
+      "id": "C-003-wrong-claim",
+      "kind": "wrong_factual_claim",
+      "claimed_value": "v1.5 main precision = 0.500",
+      "actual_value": "v1.5 main precision = 1.0",
+      "evidence_path": "artifacts/v2_7/report.json"
+    }
+  ],
+  "reviewers": [
+    {
+      "reviewer_id": "grok",
+      "detections": ["C-001-wrong-hash", "C-002-wrong-path", "C-003-wrong-claim"],
+      "raw_output_hash": "3c56b5636095d995"
+    },
+    {
+      "reviewer_id": "claude",
+      "detections": ["C-001-wrong-hash", "C-002-wrong-path", "C-003-wrong-claim"],
+      "raw_output_hash": "d3915058d93dcd5a"
+    },
+    {
+      "reviewer_id": "gemini",
+      "detections": ["C-001-wrong-hash", "C-002-wrong-path", "C-003-wrong-claim"],
+      "raw_output_hash": "88582414537f5a40"
+    }
+  ]
+}

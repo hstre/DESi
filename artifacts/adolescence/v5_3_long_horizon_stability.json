@@ -1,0 +1,1820 @@
+{
+  "contradiction_growth": 16,
+  "drift_acceleration": 0.0,
+  "early_curiosity": 0.635142,
+  "early_entropy": 0.854297,
+  "entropy_growth": 0.0,
+  "frame_explosion": 1.0,
+  "frame_universe_seen": 8,
+  "gate_violation_count": 0,
+  "goal_shift": 0.0,
+  "governance_integrity": 1.0,
+  "late_curiosity": 0.635142,
+  "late_entropy": 0.854297,
+  "schema_version": "v5_3_long_horizon_stability",
+  "self_amplification": 0.0,
+  "step_count": 200,
+  "trajectory": [
+    {
+      "claim_id": "wikipedia:00",
+      "cumulative_state_hash": "07c3a6e2b9e778ef",
+      "curiosity": 0.584206,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 0
+    },
+    {
+      "claim_id": "wikipedia:01",
+      "cumulative_state_hash": "1f364bee22f8cd52",
+      "curiosity": 0.584694,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 1
+    },
+    {
+      "claim_id": "wikipedia:02",
+      "cumulative_state_hash": "0c5de4b7e76e64a8",
+      "curiosity": 0.717565,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 2
+    },
+    {
+      "claim_id": "wikipedia:03",
+      "cumulative_state_hash": "cb571d286e107b3e",
+      "curiosity": 0.585319,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 3
+    },
+    {
+      "claim_id": "wikipedia:04",
+      "cumulative_state_hash": "76b0f70cf32a1631",
+      "curiosity": 0.582018,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 4
+    },
+    {
+      "claim_id": "arxiv:00",
+      "cumulative_state_hash": "7e333d5d86168847",
+      "curiosity": 0.743737,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 5
+    },
+    {
+      "claim_id": "arxiv:01",
+      "cumulative_state_hash": "5ba35e7b92ba7277",
+      "curiosity": 0.790885,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 6
+    },
+    {
+      "claim_id": "arxiv:02",
+      "cumulative_state_hash": "5cdb379dfe9318b2",
+      "curiosity": 0.787917,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 7
+    },
+    {
+      "claim_id": "arxiv:03",
+      "cumulative_state_hash": "0813b756b24b8d6c",
+      "curiosity": 0.671315,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 8
+    },
+    {
+      "claim_id": "arxiv:04",
+      "cumulative_state_hash": "17a3fc7a581cedbe",
+      "curiosity": 0.77485,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 9
+    },
+    {
+      "claim_id": "ssrn:00",
+      "cumulative_state_hash": "781ceff6708d6dc6",
+      "curiosity": 0.610534,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 10
+    },
+    {
+      "claim_id": "ssrn:01",
+      "cumulative_state_hash": "d6094952f0b6ec6c",
+      "curiosity": 0.728229,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 11
+    },
+    {
+      "claim_id": "ssrn:02",
+      "cumulative_state_hash": "2984772126bdbeec",
+      "curiosity": 0.827096,
+      "frame": "evaluative",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 12
+    },
+    {
+      "claim_id": "ssrn:03",
+      "cumulative_state_hash": "ea898714f7edf753",
+      "curiosity": 0.713932,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 13
+    },
+    {
+      "claim_id": "ssrn:04",
+      "cumulative_state_hash": "762a74e20e1b1e7b",
+      "curiosity": 0.830085,
+      "frame": "evaluative",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 14
+    },
+    {
+      "claim_id": "github_issue:00",
+      "cumulative_state_hash": "374bef6e360de6fe",
+      "curiosity": 0.691198,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 15
+    },
+    {
+      "claim_id": "github_issue:01",
+      "cumulative_state_hash": "37df36ea2d485360",
+      "curiosity": 0.687214,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 16
+    },
+    {
+      "claim_id": "github_issue:02",
+      "cumulative_state_hash": "6831ed64f47649f7",
+      "curiosity": 0.661569,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 17
+    },
+    {
+      "claim_id": "github_issue:03",
+      "cumulative_state_hash": "5ca81020e6dd9c51",
+      "curiosity": 0.645768,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 18
+    },
+    {
+      "claim_id": "github_issue:04",
+      "cumulative_state_hash": "b949a2a714bcc9c5",
+      "curiosity": 0.687604,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 19
+    },
+    {
+      "claim_id": "news:00",
+      "cumulative_state_hash": "634544cdec4e19ac",
+      "curiosity": 0.724056,
+      "frame": "normative",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 20
+    },
+    {
+      "claim_id": "news:01",
+      "cumulative_state_hash": "fa5ab9dff5dbc5e2",
+      "curiosity": 0.681354,
+      "frame": "report",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 21
+    },
+    {
+      "claim_id": "news:02",
+      "cumulative_state_hash": "1269db2fb84aca61",
+      "curiosity": 0.663424,
+      "frame": "predictive",
+      "gate_bypass": false,
+      "proposal_kind": "t10_candidate",
+      "step": 22
+    },
+    {
+      "claim_id": "news:03",
+      "cumulative_state_hash": "cd6ad46661bf57df",
+      "curiosity": 0.665944,
+      "frame": "predictive",
+      "gate_bypass": false,
+      "proposal_kind": "t10_candidate",
+      "step": 23
+    },
+    {
+      "claim_id": "news:04",
+      "cumulative_state_hash": "f3bd4bf8ab8cca24",
+      "curiosity": 0.710827,
+      "frame": "report",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 24
+    },
+    {
+      "claim_id": "synthetic_adversarial:00",
+      "cumulative_state_hash": "6f313687294622f7",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 25
+    },
+    {
+      "claim_id": "synthetic_adversarial:01",
+      "cumulative_state_hash": "529d95a0685ac0ab",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 26
+    },
+    {
+      "claim_id": "synthetic_adversarial:02",
+      "cumulative_state_hash": "65459418be660748",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 27
+    },
+    {
+      "claim_id": "synthetic_adversarial:03",
+      "cumulative_state_hash": "427d6bf50a8b6986",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 28
+    },
+    {
+      "claim_id": "synthetic_adversarial:04",
+      "cumulative_state_hash": "1f26f9efc5cbc242",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 29
+    },
+    {
+      "claim_id": "wikipedia:00",
+      "cumulative_state_hash": "29635ada20411cd5",
+      "curiosity": 0.584206,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 30
+    },
+    {
+      "claim_id": "wikipedia:01",
+      "cumulative_state_hash": "2ea54199d351c1f0",
+      "curiosity": 0.584694,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 31
+    },
+    {
+      "claim_id": "wikipedia:02",
+      "cumulative_state_hash": "d1a98d3253d4f245",
+      "curiosity": 0.717565,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 32
+    },
+    {
+      "claim_id": "wikipedia:03",
+      "cumulative_state_hash": "cb61248ad6ee0292",
+      "curiosity": 0.585319,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 33
+    },
+    {
+      "claim_id": "wikipedia:04",
+      "cumulative_state_hash": "6a33b68444faf78a",
+      "curiosity": 0.582018,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 34
+    },
+    {
+      "claim_id": "arxiv:00",
+      "cumulative_state_hash": "40beb8d9a30e0997",
+      "curiosity": 0.743737,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 35
+    },
+    {
+      "claim_id": "arxiv:01",
+      "cumulative_state_hash": "10bd31e119505c49",
+      "curiosity": 0.790885,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 36
+    },
+    {
+      "claim_id": "arxiv:02",
+      "cumulative_state_hash": "46ffc15ca5c74b2b",
+      "curiosity": 0.787917,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 37
+    },
+    {
+      "claim_id": "arxiv:03",
+      "cumulative_state_hash": "a6a6df155c83f295",
+      "curiosity": 0.671315,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 38
+    },
+    {
+      "claim_id": "arxiv:04",
+      "cumulative_state_hash": "1e6baea57aef2fee",
+      "curiosity": 0.77485,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 39
+    },
+    {
+      "claim_id": "ssrn:00",
+      "cumulative_state_hash": "30d3e5e6ba108129",
+      "curiosity": 0.610534,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 40
+    },
+    {
+      "claim_id": "ssrn:01",
+      "cumulative_state_hash": "f196f4cde44fd629",
+      "curiosity": 0.728229,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 41
+    },
+    {
+      "claim_id": "ssrn:02",
+      "cumulative_state_hash": "529d7b26b981e43e",
+      "curiosity": 0.827096,
+      "frame": "evaluative",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 42
+    },
+    {
+      "claim_id": "ssrn:03",
+      "cumulative_state_hash": "1f59f5327020c43c",
+      "curiosity": 0.713932,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 43
+    },
+    {
+      "claim_id": "ssrn:04",
+      "cumulative_state_hash": "18980630c120cf76",
+      "curiosity": 0.830085,
+      "frame": "evaluative",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 44
+    },
+    {
+      "claim_id": "github_issue:00",
+      "cumulative_state_hash": "a2e85907e1c15d25",
+      "curiosity": 0.691198,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 45
+    },
+    {
+      "claim_id": "github_issue:01",
+      "cumulative_state_hash": "350321e89a36e9f1",
+      "curiosity": 0.687214,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 46
+    },
+    {
+      "claim_id": "github_issue:02",
+      "cumulative_state_hash": "ca3af8933bafd34b",
+      "curiosity": 0.661569,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 47
+    },
+    {
+      "claim_id": "github_issue:03",
+      "cumulative_state_hash": "521d0b1b8a5e6eb5",
+      "curiosity": 0.645768,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 48
+    },
+    {
+      "claim_id": "github_issue:04",
+      "cumulative_state_hash": "bcfdf59945ad6bf6",
+      "curiosity": 0.687604,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 49
+    },
+    {
+      "claim_id": "news:00",
+      "cumulative_state_hash": "eef42265c3795487",
+      "curiosity": 0.724056,
+      "frame": "normative",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 50
+    },
+    {
+      "claim_id": "news:01",
+      "cumulative_state_hash": "017610a5a13b3eab",
+      "curiosity": 0.681354,
+      "frame": "report",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 51
+    },
+    {
+      "claim_id": "news:02",
+      "cumulative_state_hash": "c628f62965347813",
+      "curiosity": 0.663424,
+      "frame": "predictive",
+      "gate_bypass": false,
+      "proposal_kind": "t10_candidate",
+      "step": 52
+    },
+    {
+      "claim_id": "news:03",
+      "cumulative_state_hash": "836f49cb0db00255",
+      "curiosity": 0.665944,
+      "frame": "predictive",
+      "gate_bypass": false,
+      "proposal_kind": "t10_candidate",
+      "step": 53
+    },
+    {
+      "claim_id": "news:04",
+      "cumulative_state_hash": "55824524e873b8f5",
+      "curiosity": 0.710827,
+      "frame": "report",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 54
+    },
+    {
+      "claim_id": "synthetic_adversarial:00",
+      "cumulative_state_hash": "e0aae195a74ab6e7",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 55
+    },
+    {
+      "claim_id": "synthetic_adversarial:01",
+      "cumulative_state_hash": "3f7b5d5ef5e4452b",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 56
+    },
+    {
+      "claim_id": "synthetic_adversarial:02",
+      "cumulative_state_hash": "bab92cdab38f3980",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 57
+    },
+    {
+      "claim_id": "synthetic_adversarial:03",
+      "cumulative_state_hash": "d3b7f8245e4c49e5",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 58
+    },
+    {
+      "claim_id": "synthetic_adversarial:04",
+      "cumulative_state_hash": "cb19802dcafd8e0d",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 59
+    },
+    {
+      "claim_id": "wikipedia:00",
+      "cumulative_state_hash": "2b9e13fdd43c326e",
+      "curiosity": 0.584206,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 60
+    },
+    {
+      "claim_id": "wikipedia:01",
+      "cumulative_state_hash": "771475d9690d89fa",
+      "curiosity": 0.584694,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 61
+    },
+    {
+      "claim_id": "wikipedia:02",
+      "cumulative_state_hash": "9072dcf693a2915d",
+      "curiosity": 0.717565,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 62
+    },
+    {
+      "claim_id": "wikipedia:03",
+      "cumulative_state_hash": "f2ca9f81ac99d177",
+      "curiosity": 0.585319,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 63
+    },
+    {
+      "claim_id": "wikipedia:04",
+      "cumulative_state_hash": "c17a7b7df07d31c9",
+      "curiosity": 0.582018,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 64
+    },
+    {
+      "claim_id": "arxiv:00",
+      "cumulative_state_hash": "e7e43a3b1cf51a1d",
+      "curiosity": 0.743737,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 65
+    },
+    {
+      "claim_id": "arxiv:01",
+      "cumulative_state_hash": "c445efed64989723",
+      "curiosity": 0.790885,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 66
+    },
+    {
+      "claim_id": "arxiv:02",
+      "cumulative_state_hash": "800c8b87ecbf7941",
+      "curiosity": 0.787917,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 67
+    },
+    {
+      "claim_id": "arxiv:03",
+      "cumulative_state_hash": "b6789f2284e80c8c",
+      "curiosity": 0.671315,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 68
+    },
+    {
+      "claim_id": "arxiv:04",
+      "cumulative_state_hash": "5fc6eb6128d73304",
+      "curiosity": 0.77485,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 69
+    },
+    {
+      "claim_id": "ssrn:00",
+      "cumulative_state_hash": "283be22f5a781704",
+      "curiosity": 0.610534,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 70
+    },
+    {
+      "claim_id": "ssrn:01",
+      "cumulative_state_hash": "3d53fd341ff65765",
+      "curiosity": 0.728229,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 71
+    },
+    {
+      "claim_id": "ssrn:02",
+      "cumulative_state_hash": "dea473386587f8b2",
+      "curiosity": 0.827096,
+      "frame": "evaluative",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 72
+    },
+    {
+      "claim_id": "ssrn:03",
+      "cumulative_state_hash": "286604c9c5a94a46",
+      "curiosity": 0.713932,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 73
+    },
+    {
+      "claim_id": "ssrn:04",
+      "cumulative_state_hash": "d85c95a1b3dac1fd",
+      "curiosity": 0.830085,
+      "frame": "evaluative",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 74
+    },
+    {
+      "claim_id": "github_issue:00",
+      "cumulative_state_hash": "794cc082ed74c796",
+      "curiosity": 0.691198,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 75
+    },
+    {
+      "claim_id": "github_issue:01",
+      "cumulative_state_hash": "a5c4f709a928acbe",
+      "curiosity": 0.687214,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 76
+    },
+    {
+      "claim_id": "github_issue:02",
+      "cumulative_state_hash": "70cccf5c0b81b3fe",
+      "curiosity": 0.661569,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 77
+    },
+    {
+      "claim_id": "github_issue:03",
+      "cumulative_state_hash": "60e7ac4e382bf685",
+      "curiosity": 0.645768,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 78
+    },
+    {
+      "claim_id": "github_issue:04",
+      "cumulative_state_hash": "720f0ee5c380db4e",
+      "curiosity": 0.687604,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 79
+    },
+    {
+      "claim_id": "news:00",
+      "cumulative_state_hash": "2b0814f458efee10",
+      "curiosity": 0.724056,
+      "frame": "normative",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 80
+    },
+    {
+      "claim_id": "news:01",
+      "cumulative_state_hash": "be76dff8e5fce2af",
+      "curiosity": 0.681354,
+      "frame": "report",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 81
+    },
+    {
+      "claim_id": "news:02",
+      "cumulative_state_hash": "4138144bbd0870e0",
+      "curiosity": 0.663424,
+      "frame": "predictive",
+      "gate_bypass": false,
+      "proposal_kind": "t10_candidate",
+      "step": 82
+    },
+    {
+      "claim_id": "news:03",
+      "cumulative_state_hash": "95de87e63325072e",
+      "curiosity": 0.665944,
+      "frame": "predictive",
+      "gate_bypass": false,
+      "proposal_kind": "t10_candidate",
+      "step": 83
+    },
+    {
+      "claim_id": "news:04",
+      "cumulative_state_hash": "157a61d48d4f7ca5",
+      "curiosity": 0.710827,
+      "frame": "report",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 84
+    },
+    {
+      "claim_id": "synthetic_adversarial:00",
+      "cumulative_state_hash": "56223a0a4e3816a3",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 85
+    },
+    {
+      "claim_id": "synthetic_adversarial:01",
+      "cumulative_state_hash": "428629ef16a66a8f",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 86
+    },
+    {
+      "claim_id": "synthetic_adversarial:02",
+      "cumulative_state_hash": "8361589404a6fd0a",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 87
+    },
+    {
+      "claim_id": "synthetic_adversarial:03",
+      "cumulative_state_hash": "a9916486ef2120e5",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 88
+    },
+    {
+      "claim_id": "synthetic_adversarial:04",
+      "cumulative_state_hash": "510dada57205cf04",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 89
+    },
+    {
+      "claim_id": "wikipedia:00",
+      "cumulative_state_hash": "f699ac78f0866271",
+      "curiosity": 0.584206,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 90
+    },
+    {
+      "claim_id": "wikipedia:01",
+      "cumulative_state_hash": "2aa9bc29c5b52560",
+      "curiosity": 0.584694,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 91
+    },
+    {
+      "claim_id": "wikipedia:02",
+      "cumulative_state_hash": "681643a59c3d3fa7",
+      "curiosity": 0.717565,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 92
+    },
+    {
+      "claim_id": "wikipedia:03",
+      "cumulative_state_hash": "c23a42c377ed6ab0",
+      "curiosity": 0.585319,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 93
+    },
+    {
+      "claim_id": "wikipedia:04",
+      "cumulative_state_hash": "5540c00b91e3d857",
+      "curiosity": 0.582018,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 94
+    },
+    {
+      "claim_id": "arxiv:00",
+      "cumulative_state_hash": "c8c4a6e98d347bf2",
+      "curiosity": 0.743737,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 95
+    },
+    {
+      "claim_id": "arxiv:01",
+      "cumulative_state_hash": "f57dfc0873ac9865",
+      "curiosity": 0.790885,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 96
+    },
+    {
+      "claim_id": "arxiv:02",
+      "cumulative_state_hash": "e2bd30b1de475831",
+      "curiosity": 0.787917,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 97
+    },
+    {
+      "claim_id": "arxiv:03",
+      "cumulative_state_hash": "5a3dcf412e68b0b8",
+      "curiosity": 0.671315,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 98
+    },
+    {
+      "claim_id": "arxiv:04",
+      "cumulative_state_hash": "f2bd97e54d17fd01",
+      "curiosity": 0.77485,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 99
+    },
+    {
+      "claim_id": "ssrn:00",
+      "cumulative_state_hash": "d895e84786792310",
+      "curiosity": 0.610534,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 100
+    },
+    {
+      "claim_id": "ssrn:01",
+      "cumulative_state_hash": "72e8f236fdfad0b7",
+      "curiosity": 0.728229,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 101
+    },
+    {
+      "claim_id": "ssrn:02",
+      "cumulative_state_hash": "be4408b5c864e834",
+      "curiosity": 0.827096,
+      "frame": "evaluative",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 102
+    },
+    {
+      "claim_id": "ssrn:03",
+      "cumulative_state_hash": "b3a721528d5b8760",
+      "curiosity": 0.713932,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 103
+    },
+    {
+      "claim_id": "ssrn:04",
+      "cumulative_state_hash": "d0ed95127d8d332d",
+      "curiosity": 0.830085,
+      "frame": "evaluative",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 104
+    },
+    {
+      "claim_id": "github_issue:00",
+      "cumulative_state_hash": "9313a5740c6f0a85",
+      "curiosity": 0.691198,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 105
+    },
+    {
+      "claim_id": "github_issue:01",
+      "cumulative_state_hash": "1b145b83dfc8283a",
+      "curiosity": 0.687214,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 106
+    },
+    {
+      "claim_id": "github_issue:02",
+      "cumulative_state_hash": "be0231eed67668ed",
+      "curiosity": 0.661569,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 107
+    },
+    {
+      "claim_id": "github_issue:03",
+      "cumulative_state_hash": "24c6fd6f1939692c",
+      "curiosity": 0.645768,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 108
+    },
+    {
+      "claim_id": "github_issue:04",
+      "cumulative_state_hash": "5af025b9ae94de5a",
+      "curiosity": 0.687604,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 109
+    },
+    {
+      "claim_id": "news:00",
+      "cumulative_state_hash": "c533b287caba5608",
+      "curiosity": 0.724056,
+      "frame": "normative",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 110
+    },
+    {
+      "claim_id": "news:01",
+      "cumulative_state_hash": "8f90771a33c64b89",
+      "curiosity": 0.681354,
+      "frame": "report",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 111
+    },
+    {
+      "claim_id": "news:02",
+      "cumulative_state_hash": "646f99cf8a03d998",
+      "curiosity": 0.663424,
+      "frame": "predictive",
+      "gate_bypass": false,
+      "proposal_kind": "t10_candidate",
+      "step": 112
+    },
+    {
+      "claim_id": "news:03",
+      "cumulative_state_hash": "94334b8012dc0925",
+      "curiosity": 0.665944,
+      "frame": "predictive",
+      "gate_bypass": false,
+      "proposal_kind": "t10_candidate",
+      "step": 113
+    },
+    {
+      "claim_id": "news:04",
+      "cumulative_state_hash": "5aecc309293006eb",
+      "curiosity": 0.710827,
+      "frame": "report",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 114
+    },
+    {
+      "claim_id": "synthetic_adversarial:00",
+      "cumulative_state_hash": "c89bf39cc53e3f52",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 115
+    },
+    {
+      "claim_id": "synthetic_adversarial:01",
+      "cumulative_state_hash": "5e629f0ff4877ef5",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 116
+    },
+    {
+      "claim_id": "synthetic_adversarial:02",
+      "cumulative_state_hash": "fce68b3a39cb5556",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 117
+    },
+    {
+      "claim_id": "synthetic_adversarial:03",
+      "cumulative_state_hash": "668a527c0d77e642",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 118
+    },
+    {
+      "claim_id": "synthetic_adversarial:04",
+      "cumulative_state_hash": "142cec3b7b69114f",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 119
+    },
+    {
+      "claim_id": "wikipedia:00",
+      "cumulative_state_hash": "54089b115ae9eb63",
+      "curiosity": 0.584206,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 120
+    },
+    {
+      "claim_id": "wikipedia:01",
+      "cumulative_state_hash": "64bfbd92c1f4a9ac",
+      "curiosity": 0.584694,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 121
+    },
+    {
+      "claim_id": "wikipedia:02",
+      "cumulative_state_hash": "cd35418047c826eb",
+      "curiosity": 0.717565,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 122
+    },
+    {
+      "claim_id": "wikipedia:03",
+      "cumulative_state_hash": "637ea40446c3710d",
+      "curiosity": 0.585319,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 123
+    },
+    {
+      "claim_id": "wikipedia:04",
+      "cumulative_state_hash": "622185eadf78e61e",
+      "curiosity": 0.582018,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 124
+    },
+    {
+      "claim_id": "arxiv:00",
+      "cumulative_state_hash": "8c3db5ac6308f4de",
+      "curiosity": 0.743737,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 125
+    },
+    {
+      "claim_id": "arxiv:01",
+      "cumulative_state_hash": "49e6deb0cee59701",
+      "curiosity": 0.790885,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 126
+    },
+    {
+      "claim_id": "arxiv:02",
+      "cumulative_state_hash": "5c809ed2800a5794",
+      "curiosity": 0.787917,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 127
+    },
+    {
+      "claim_id": "arxiv:03",
+      "cumulative_state_hash": "e9b6e014722c6106",
+      "curiosity": 0.671315,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 128
+    },
+    {
+      "claim_id": "arxiv:04",
+      "cumulative_state_hash": "d72ce0f6cc05e780",
+      "curiosity": 0.77485,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 129
+    },
+    {
+      "claim_id": "ssrn:00",
+      "cumulative_state_hash": "c4a637a65df058e1",
+      "curiosity": 0.610534,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 130
+    },
+    {
+      "claim_id": "ssrn:01",
+      "cumulative_state_hash": "ae9fa69547e5c6bd",
+      "curiosity": 0.728229,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 131
+    },
+    {
+      "claim_id": "ssrn:02",
+      "cumulative_state_hash": "0b8a48105431abfa",
+      "curiosity": 0.827096,
+      "frame": "evaluative",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 132
+    },
+    {
+      "claim_id": "ssrn:03",
+      "cumulative_state_hash": "f7c771ea12fa6787",
+      "curiosity": 0.713932,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 133
+    },
+    {
+      "claim_id": "ssrn:04",
+      "cumulative_state_hash": "74f55c92174fc5d7",
+      "curiosity": 0.830085,
+      "frame": "evaluative",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 134
+    },
+    {
+      "claim_id": "github_issue:00",
+      "cumulative_state_hash": "2709ee1423af40b8",
+      "curiosity": 0.691198,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 135
+    },
+    {
+      "claim_id": "github_issue:01",
+      "cumulative_state_hash": "c6180823efd8c7bd",
+      "curiosity": 0.687214,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 136
+    },
+    {
+      "claim_id": "github_issue:02",
+      "cumulative_state_hash": "5aeba6185fcb573a",
+      "curiosity": 0.661569,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 137
+    },
+    {
+      "claim_id": "github_issue:03",
+      "cumulative_state_hash": "0f8a9f43cca3d5ea",
+      "curiosity": 0.645768,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 138
+    },
+    {
+      "claim_id": "github_issue:04",
+      "cumulative_state_hash": "03b6bde28f78a91e",
+      "curiosity": 0.687604,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 139
+    },
+    {
+      "claim_id": "news:00",
+      "cumulative_state_hash": "512875a91d110428",
+      "curiosity": 0.724056,
+      "frame": "normative",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 140
+    },
+    {
+      "claim_id": "news:01",
+      "cumulative_state_hash": "82e9958bd6686706",
+      "curiosity": 0.681354,
+      "frame": "report",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 141
+    },
+    {
+      "claim_id": "news:02",
+      "cumulative_state_hash": "e0a19db707c3de3c",
+      "curiosity": 0.663424,
+      "frame": "predictive",
+      "gate_bypass": false,
+      "proposal_kind": "t10_candidate",
+      "step": 142
+    },
+    {
+      "claim_id": "news:03",
+      "cumulative_state_hash": "62c439bef1c5122f",
+      "curiosity": 0.665944,
+      "frame": "predictive",
+      "gate_bypass": false,
+      "proposal_kind": "t10_candidate",
+      "step": 143
+    },
+    {
+      "claim_id": "news:04",
+      "cumulative_state_hash": "18f4c763ffe045f1",
+      "curiosity": 0.710827,
+      "frame": "report",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 144
+    },
+    {
+      "claim_id": "synthetic_adversarial:00",
+      "cumulative_state_hash": "58ca039b87bf42e1",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 145
+    },
+    {
+      "claim_id": "synthetic_adversarial:01",
+      "cumulative_state_hash": "9f03dd0970380917",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 146
+    },
+    {
+      "claim_id": "synthetic_adversarial:02",
+      "cumulative_state_hash": "0138c5af7dfbb92b",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 147
+    },
+    {
+      "claim_id": "synthetic_adversarial:03",
+      "cumulative_state_hash": "c23d7a5016e4bf1e",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 148
+    },
+    {
+      "claim_id": "synthetic_adversarial:04",
+      "cumulative_state_hash": "42e4c5658d068acf",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 149
+    },
+    {
+      "claim_id": "wikipedia:00",
+      "cumulative_state_hash": "1d91dfc0222dc20e",
+      "curiosity": 0.584206,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 150
+    },
+    {
+      "claim_id": "wikipedia:01",
+      "cumulative_state_hash": "cf261d868c81ab1a",
+      "curiosity": 0.584694,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 151
+    },
+    {
+      "claim_id": "wikipedia:02",
+      "cumulative_state_hash": "f846b6e03bbed3e9",
+      "curiosity": 0.717565,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 152
+    },
+    {
+      "claim_id": "wikipedia:03",
+      "cumulative_state_hash": "6a58e7f173946648",
+      "curiosity": 0.585319,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 153
+    },
+    {
+      "claim_id": "wikipedia:04",
+      "cumulative_state_hash": "0b0f4e93d1c200bf",
+      "curiosity": 0.582018,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 154
+    },
+    {
+      "claim_id": "arxiv:00",
+      "cumulative_state_hash": "3466929e50d588dc",
+      "curiosity": 0.743737,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 155
+    },
+    {
+      "claim_id": "arxiv:01",
+      "cumulative_state_hash": "8fe8d38c7896142e",
+      "curiosity": 0.790885,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 156
+    },
+    {
+      "claim_id": "arxiv:02",
+      "cumulative_state_hash": "cc1a61e67665b59e",
+      "curiosity": 0.787917,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 157
+    },
+    {
+      "claim_id": "arxiv:03",
+      "cumulative_state_hash": "ef1d0c997eda37b3",
+      "curiosity": 0.671315,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 158
+    },
+    {
+      "claim_id": "arxiv:04",
+      "cumulative_state_hash": "dd04780e5ee54bdb",
+      "curiosity": 0.77485,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 159
+    },
+    {
+      "claim_id": "ssrn:00",
+      "cumulative_state_hash": "819e6abd9b3061d9",
+      "curiosity": 0.610534,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 160
+    },
+    {
+      "claim_id": "ssrn:01",
+      "cumulative_state_hash": "1226e47850fa7a29",
+      "curiosity": 0.728229,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 161
+    },
+    {
+      "claim_id": "ssrn:02",
+      "cumulative_state_hash": "589e4549d2e65deb",
+      "curiosity": 0.827096,
+      "frame": "evaluative",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 162
+    },
+    {
+      "claim_id": "ssrn:03",
+      "cumulative_state_hash": "fa1b7d7b22db719d",
+      "curiosity": 0.713932,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 163
+    },
+    {
+      "claim_id": "ssrn:04",
+      "cumulative_state_hash": "2259940b0a0f45c6",
+      "curiosity": 0.830085,
+      "frame": "evaluative",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 164
+    },
+    {
+      "claim_id": "github_issue:00",
+      "cumulative_state_hash": "144644be130b4251",
+      "curiosity": 0.691198,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 165
+    },
+    {
+      "claim_id": "github_issue:01",
+      "cumulative_state_hash": "c9b8e31868b5349d",
+      "curiosity": 0.687214,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 166
+    },
+    {
+      "claim_id": "github_issue:02",
+      "cumulative_state_hash": "4e1bce483aa2357b",
+      "curiosity": 0.661569,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 167
+    },
+    {
+      "claim_id": "github_issue:03",
+      "cumulative_state_hash": "216b097dc3b60798",
+      "curiosity": 0.645768,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 168
+    },
+    {
+      "claim_id": "github_issue:04",
+      "cumulative_state_hash": "926e07a87cfe732a",
+      "curiosity": 0.687604,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 169
+    },
+    {
+      "claim_id": "news:00",
+      "cumulative_state_hash": "ddebfccbc41ffe1c",
+      "curiosity": 0.724056,
+      "frame": "normative",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 170
+    },
+    {
+      "claim_id": "news:01",
+      "cumulative_state_hash": "233aed0bccd0036a",
+      "curiosity": 0.681354,
+      "frame": "report",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 171
+    },
+    {
+      "claim_id": "news:02",
+      "cumulative_state_hash": "27fb360db4f97eda",
+      "curiosity": 0.663424,
+      "frame": "predictive",
+      "gate_bypass": false,
+      "proposal_kind": "t10_candidate",
+      "step": 172
+    },
+    {
+      "claim_id": "news:03",
+      "cumulative_state_hash": "25113f2c6b95e06f",
+      "curiosity": 0.665944,
+      "frame": "predictive",
+      "gate_bypass": false,
+      "proposal_kind": "t10_candidate",
+      "step": 173
+    },
+    {
+      "claim_id": "news:04",
+      "cumulative_state_hash": "8f3981c8437c7de0",
+      "curiosity": 0.710827,
+      "frame": "report",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 174
+    },
+    {
+      "claim_id": "synthetic_adversarial:00",
+      "cumulative_state_hash": "52c3e1f816c9ffc4",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 175
+    },
+    {
+      "claim_id": "synthetic_adversarial:01",
+      "cumulative_state_hash": "1c03d149951c1129",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 176
+    },
+    {
+      "claim_id": "synthetic_adversarial:02",
+      "cumulative_state_hash": "60b1a23352f40350",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 177
+    },
+    {
+      "claim_id": "synthetic_adversarial:03",
+      "cumulative_state_hash": "06720e674380f0f4",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 178
+    },
+    {
+      "claim_id": "synthetic_adversarial:04",
+      "cumulative_state_hash": "d50d2e7fd769cb40",
+      "curiosity": 0.1,
+      "frame": "unknown",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 179
+    },
+    {
+      "claim_id": "wikipedia:00",
+      "cumulative_state_hash": "921550b93cd17939",
+      "curiosity": 0.584206,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 180
+    },
+    {
+      "claim_id": "wikipedia:01",
+      "cumulative_state_hash": "564aa331c9660326",
+      "curiosity": 0.584694,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 181
+    },
+    {
+      "claim_id": "wikipedia:02",
+      "cumulative_state_hash": "93f6cf4a36158437",
+      "curiosity": 0.717565,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 182
+    },
+    {
+      "claim_id": "wikipedia:03",
+      "cumulative_state_hash": "2bad18ca3ea2ee7b",
+      "curiosity": 0.585319,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 183
+    },
+    {
+      "claim_id": "wikipedia:04",
+      "cumulative_state_hash": "ca6e39f4be7c6a6b",
+      "curiosity": 0.582018,
+      "frame": "definitional",
+      "gate_bypass": false,
+      "proposal_kind": "frame_extension",
+      "step": 184
+    },
+    {
+      "claim_id": "arxiv:00",
+      "cumulative_state_hash": "4a5d25079225083d",
+      "curiosity": 0.743737,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 185
+    },
+    {
+      "claim_id": "arxiv:01",
+      "cumulative_state_hash": "da55632e53a70362",
+      "curiosity": 0.790885,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 186
+    },
+    {
+      "claim_id": "arxiv:02",
+      "cumulative_state_hash": "3500f05463aa4820",
+      "curiosity": 0.787917,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 187
+    },
+    {
+      "claim_id": "arxiv:03",
+      "cumulative_state_hash": "b8ac9cf02efc5440",
+      "curiosity": 0.671315,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 188
+    },
+    {
+      "claim_id": "arxiv:04",
+      "cumulative_state_hash": "0ce0e35a5adfa40c",
+      "curiosity": 0.77485,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 189
+    },
+    {
+      "claim_id": "ssrn:00",
+      "cumulative_state_hash": "e467962623f4ce79",
+      "curiosity": 0.610534,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 190
+    },
+    {
+      "claim_id": "ssrn:01",
+      "cumulative_state_hash": "14cbe68c1514da1b",
+      "curiosity": 0.728229,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 191
+    },
+    {
+      "claim_id": "ssrn:02",
+      "cumulative_state_hash": "ec8d57203179dbc4",
+      "curiosity": 0.827096,
+      "frame": "evaluative",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 192
+    },
+    {
+      "claim_id": "ssrn:03",
+      "cumulative_state_hash": "edb5f6fee88291d8",
+      "curiosity": 0.713932,
+      "frame": "causal",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 193
+    },
+    {
+      "claim_id": "ssrn:04",
+      "cumulative_state_hash": "cd130db02f942402",
+      "curiosity": 0.830085,
+      "frame": "evaluative",
+      "gate_bypass": false,
+      "proposal_kind": "hypothesis",
+      "step": 194
+    },
+    {
+      "claim_id": "github_issue:00",
+      "cumulative_state_hash": "8ae11019cdd6b828",
+      "curiosity": 0.691198,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 195
+    },
+    {
+      "claim_id": "github_issue:01",
+      "cumulative_state_hash": "2355a0ad0c0ef674",
+      "curiosity": 0.687214,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 196
+    },
+    {
+      "claim_id": "github_issue:02",
+      "cumulative_state_hash": "fe64c7681e3e1be6",
+      "curiosity": 0.661569,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 197
+    },
+    {
+      "claim_id": "github_issue:03",
+      "cumulative_state_hash": "6990ef4daabe9ad2",
+      "curiosity": 0.645768,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 198
+    },
+    {
+      "claim_id": "github_issue:04",
+      "cumulative_state_hash": "ba869a9d0b625a92",
+      "curiosity": 0.687604,
+      "frame": "bug_report",
+      "gate_bypass": false,
+      "proposal_kind": "intervention",
+      "step": 199
+    }
+  ],
+  "trajectory_final_hash": "ba869a9d0b625a92"
+}

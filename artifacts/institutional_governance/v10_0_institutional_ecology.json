@@ -1,0 +1,195 @@
+{
+  "epistemic_equality": 0.997865,
+  "governance_styles": [
+    "consultative",
+    "hierarchical",
+    "federated",
+    "open"
+  ],
+  "governance_transparency": 0.975,
+  "institution_count": 10,
+  "institution_kinds": [
+    "peer_review",
+    "replication_lab",
+    "meta_analysis_hub",
+    "registry",
+    "ombuds"
+  ],
+  "institutional_roles": [
+    "auditor",
+    "proposer",
+    "replicator",
+    "registrar",
+    "dissenter"
+  ],
+  "institutions": [
+    {
+      "governance_style": "consultative",
+      "institution_id": "inst-pr-001",
+      "kind": "peer_review",
+      "power_share": 0.1,
+      "resource_share": 0.11,
+      "transparency_score": 0.98,
+      "trust_index": 0.9
+    },
+    {
+      "governance_style": "open",
+      "institution_id": "inst-pr-002",
+      "kind": "peer_review",
+      "power_share": 0.09,
+      "resource_share": 0.1,
+      "transparency_score": 0.99,
+      "trust_index": 0.92
+    },
+    {
+      "governance_style": "federated",
+      "institution_id": "inst-rl-001",
+      "kind": "replication_lab",
+      "power_share": 0.11,
+      "resource_share": 0.12,
+      "transparency_score": 0.97,
+      "trust_index": 0.95
+    },
+    {
+      "governance_style": "federated",
+      "institution_id": "inst-rl-002",
+      "kind": "replication_lab",
+      "power_share": 0.1,
+      "resource_share": 0.11,
+      "transparency_score": 0.96,
+      "trust_index": 0.93
+    },
+    {
+      "governance_style": "hierarchical",
+      "institution_id": "inst-ma-001",
+      "kind": "meta_analysis_hub",
+      "power_share": 0.1,
+      "resource_share": 0.1,
+      "transparency_score": 0.96,
+      "trust_index": 0.88
+    },
+    {
+      "governance_style": "consultative",
+      "institution_id": "inst-ma-002",
+      "kind": "meta_analysis_hub",
+      "power_share": 0.1,
+      "resource_share": 0.1,
+      "transparency_score": 0.97,
+      "trust_index": 0.9
+    },
+    {
+      "governance_style": "open",
+      "institution_id": "inst-reg-001",
+      "kind": "registry",
+      "power_share": 0.09,
+      "resource_share": 0.09,
+      "transparency_score": 0.99,
+      "trust_index": 0.93
+    },
+    {
+      "governance_style": "open",
+      "institution_id": "inst-reg-002",
+      "kind": "registry",
+      "power_share": 0.1,
+      "resource_share": 0.09,
+      "transparency_score": 0.99,
+      "trust_index": 0.94
+    },
+    {
+      "governance_style": "consultative",
+      "institution_id": "inst-omb-001",
+      "kind": "ombuds",
+      "power_share": 0.1,
+      "resource_share": 0.09,
+      "transparency_score": 0.98,
+      "trust_index": 0.91
+    },
+    {
+      "governance_style": "hierarchical",
+      "institution_id": "inst-omb-002",
+      "kind": "ombuds",
+      "power_share": 0.11,
+      "resource_share": 0.09,
+      "transparency_score": 0.96,
+      "trust_index": 0.89
+    }
+  ],
+  "kind_counts": {
+    "meta_analysis_hub": 2,
+    "ombuds": 2,
+    "peer_review": 2,
+    "registry": 2,
+    "replication_lab": 2
+  },
+  "power_concentration": 0.01,
+  "role_assignments": [
+    {
+      "institution_id": "inst-pr-001",
+      "role": "auditor"
+    },
+    {
+      "institution_id": "inst-pr-002",
+      "role": "auditor"
+    },
+    {
+      "institution_id": "inst-rl-001",
+      "role": "replicator"
+    },
+    {
+      "institution_id": "inst-rl-002",
+      "role": "replicator"
+    },
+    {
+      "institution_id": "inst-ma-001",
+      "role": "proposer"
+    },
+    {
+      "institution_id": "inst-ma-002",
+      "role": "proposer"
+    },
+    {
+      "institution_id": "inst-reg-001",
+      "role": "registrar"
+    },
+    {
+      "institution_id": "inst-reg-002",
+      "role": "registrar"
+    },
+    {
+      "institution_id": "inst-omb-001",
+      "role": "dissenter"
+    },
+    {
+      "institution_id": "inst-omb-002",
+      "role": "dissenter"
+    }
+  ],
+  "role_counts": {
+    "auditor": 2,
+    "dissenter": 2,
+    "proposer": 2,
+    "registrar": 2,
+    "replicator": 2
+  },
+  "role_distribution_balance": 1.0,
+  "schema_version": "v10_0_institutional_ecology",
+  "style_counts": {
+    "consultative": 3,
+    "federated": 2,
+    "hierarchical": 2,
+    "open": 3
+  },
+  "trust_fairness": 0.926676,
+  "trust_per_institution": {
+    "inst-ma-001": 0.88,
+    "inst-ma-002": 0.9,
+    "inst-omb-001": 0.91,
+    "inst-omb-002": 0.89,
+    "inst-pr-001": 0.9,
+    "inst-pr-002": 0.92,
+    "inst-reg-001": 0.93,
+    "inst-reg-002": 0.94,
+    "inst-rl-001": 0.95,
+    "inst-rl-002": 0.93
+  }
+}

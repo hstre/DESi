@@ -1,0 +1,1442 @@
+{
+  "metrics": {
+    "conflict_rate": 0.05,
+    "frame_correct": 40,
+    "fully_correct": 40,
+    "per_category_correct": {
+      "A_thermo_vs_info": [
+        5,
+        5
+      ],
+      "B_metaphor_vs_literal": [
+        5,
+        5
+      ],
+      "C_ontological_distinguishability": [
+        5,
+        5
+      ],
+      "D_authority_speech": [
+        5,
+        5
+      ],
+      "E_tool_computable": [
+        5,
+        5
+      ],
+      "F_formal_logic": [
+        5,
+        5
+      ],
+      "G_empirical_causal": [
+        5,
+        5
+      ],
+      "H_undeclared_or_conflict": [
+        5,
+        5
+      ]
+    },
+    "pipeline_block_rate": 0.125,
+    "pipeline_correct": 40,
+    "state_correct": 40,
+    "total": 40,
+    "undeclared_rate": 0.075
+  },
+  "run": {
+    "results": [
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FA_01",
+          "category": "A_thermo_vs_info",
+          "expected_allowed_pipeline": [
+            "tool_gate",
+            "logical_audit"
+          ],
+          "expected_blocked_pipeline": [
+            "metaphor_audit"
+          ],
+          "expected_frame": "thermodynamic",
+          "expected_state": "frame_declared",
+          "text": "Frame: thermodynamic. Entropy of an isolated system never decreases."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FA_01",
+          "confidence": 1.0,
+          "detection_method": "explicit_marker",
+          "frame_id": "fr_690af0d9daf1",
+          "frame_kind": "thermodynamic",
+          "rationale": "explicit marker matched: thermodynamic",
+          "replay_hash": "ed46cfc432c0cefd",
+          "source_text": "Frame: thermodynamic. Entropy of an isolated system never decreases."
+        },
+        "fired_buckets": [
+          "thermodynamic"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FA_02",
+          "category": "A_thermo_vs_info",
+          "expected_allowed_pipeline": [
+            "tool_gate",
+            "logical_audit"
+          ],
+          "expected_blocked_pipeline": [
+            "metaphor_audit"
+          ],
+          "expected_frame": "thermodynamic",
+          "expected_state": "frame_declared",
+          "text": "Frame: thermodynamic. Heat flows from hot to cold reservoirs."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FA_02",
+          "confidence": 1.0,
+          "detection_method": "explicit_marker",
+          "frame_id": "fr_81c79176966e",
+          "frame_kind": "thermodynamic",
+          "rationale": "explicit marker matched: thermodynamic",
+          "replay_hash": "5a0d1d5e487ad6b5",
+          "source_text": "Frame: thermodynamic. Heat flows from hot to cold reservoirs."
+        },
+        "fired_buckets": [
+          "thermodynamic"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FA_03",
+          "category": "A_thermo_vs_info",
+          "expected_allowed_pipeline": [
+            "tool_gate",
+            "logical_audit"
+          ],
+          "expected_blocked_pipeline": [
+            "thermodynamic_inference"
+          ],
+          "expected_frame": "information_theoretic",
+          "expected_state": "frame_declared",
+          "text": "Frame: information-theoretic. The Shannon entropy of a fair coin is 1 bit."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FA_03",
+          "confidence": 1.0,
+          "detection_method": "explicit_marker",
+          "frame_id": "fr_6848d8987be2",
+          "frame_kind": "information_theoretic",
+          "rationale": "explicit marker matched: information_theoretic",
+          "replay_hash": "fd6eb0d0987f97d2",
+          "source_text": "Frame: information-theoretic. The Shannon entropy of a fair coin is 1 bit."
+        },
+        "fired_buckets": [
+          "information_theoretic"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FA_04",
+          "category": "A_thermo_vs_info",
+          "expected_allowed_pipeline": [
+            "tool_gate",
+            "logical_audit"
+          ],
+          "expected_blocked_pipeline": [
+            "thermodynamic_inference"
+          ],
+          "expected_frame": "information_theoretic",
+          "expected_state": "frame_declared",
+          "text": "Frame: information-theoretic. Mutual information is symmetric."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FA_04",
+          "confidence": 1.0,
+          "detection_method": "explicit_marker",
+          "frame_id": "fr_048bdb5267cd",
+          "frame_kind": "information_theoretic",
+          "rationale": "explicit marker matched: information_theoretic",
+          "replay_hash": "3288bbccdd32baf6",
+          "source_text": "Frame: information-theoretic. Mutual information is symmetric."
+        },
+        "fired_buckets": [
+          "information_theoretic"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FA_05",
+          "category": "A_thermo_vs_info",
+          "expected_allowed_pipeline": [
+            "tool_gate",
+            "logical_audit"
+          ],
+          "expected_blocked_pipeline": [
+            "metaphor_audit"
+          ],
+          "expected_frame": "thermodynamic",
+          "expected_state": "frame_declared",
+          "text": "Frame: thermodynamic. Temperature has units of kelvin."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FA_05",
+          "confidence": 1.0,
+          "detection_method": "explicit_marker",
+          "frame_id": "fr_2f46968557fe",
+          "frame_kind": "thermodynamic",
+          "rationale": "explicit marker matched: thermodynamic",
+          "replay_hash": "2cf5a2e4b02a441e",
+          "source_text": "Frame: thermodynamic. Temperature has units of kelvin."
+        },
+        "fired_buckets": [
+          "thermodynamic"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FB_01",
+          "category": "B_metaphor_vs_literal",
+          "expected_allowed_pipeline": [
+            "metaphor_audit",
+            "consilium"
+          ],
+          "expected_blocked_pipeline": [
+            "literal_physical_inference",
+            "tool_gate"
+          ],
+          "expected_frame": "metaphorical",
+          "expected_state": "frame_declared",
+          "text": "The market is nervous, like a herd of deer."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FB_01",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_0ed389ac3e20",
+          "frame_kind": "metaphorical",
+          "rationale": "rule bucket: metaphorical",
+          "replay_hash": "7990208da4e84443",
+          "source_text": "The market is nervous, like a herd of deer."
+        },
+        "fired_buckets": [
+          "metaphorical"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FB_02",
+          "category": "B_metaphor_vs_literal",
+          "expected_allowed_pipeline": [
+            "metaphor_audit",
+            "consilium"
+          ],
+          "expected_blocked_pipeline": [
+            "literal_physical_inference",
+            "tool_gate"
+          ],
+          "expected_frame": "metaphorical",
+          "expected_state": "frame_declared",
+          "text": "Frame: metaphorical. Time flies when you are having fun."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FB_02",
+          "confidence": 1.0,
+          "detection_method": "explicit_marker",
+          "frame_id": "fr_5fd77ce89e82",
+          "frame_kind": "metaphorical",
+          "rationale": "explicit marker matched: metaphorical",
+          "replay_hash": "230a480d3affb687",
+          "source_text": "Frame: metaphorical. Time flies when you are having fun."
+        },
+        "fired_buckets": [
+          "metaphorical"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FB_03",
+          "category": "B_metaphor_vs_literal",
+          "expected_allowed_pipeline": [
+            "metaphor_audit",
+            "consilium"
+          ],
+          "expected_blocked_pipeline": [
+            "literal_physical_inference",
+            "tool_gate"
+          ],
+          "expected_frame": "metaphorical",
+          "expected_state": "frame_declared",
+          "text": "He spoke as if he were the king of his domain."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FB_03",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_3eaf61019d57",
+          "frame_kind": "metaphorical",
+          "rationale": "rule bucket: metaphorical",
+          "replay_hash": "61661978b4412ef3",
+          "source_text": "He spoke as if he were the king of his domain."
+        },
+        "fired_buckets": [
+          "metaphorical"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FB_04",
+          "category": "B_metaphor_vs_literal",
+          "expected_allowed_pipeline": [
+            "metaphor_audit",
+            "consilium"
+          ],
+          "expected_blocked_pipeline": [
+            "literal_physical_inference",
+            "tool_gate"
+          ],
+          "expected_frame": "metaphorical",
+          "expected_state": "frame_declared",
+          "text": "Loosely speaking, the algorithm runs in linear time."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FB_04",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_8047430fa767",
+          "frame_kind": "metaphorical",
+          "rationale": "rule bucket: metaphorical",
+          "replay_hash": "fb40cfddf8e043a6",
+          "source_text": "Loosely speaking, the algorithm runs in linear time."
+        },
+        "fired_buckets": [
+          "metaphorical"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FB_05",
+          "category": "B_metaphor_vs_literal",
+          "expected_allowed_pipeline": [
+            "metaphor_audit",
+            "consilium"
+          ],
+          "expected_blocked_pipeline": [
+            "literal_physical_inference",
+            "tool_gate"
+          ],
+          "expected_frame": "metaphorical",
+          "expected_state": "frame_declared",
+          "text": "In a sense, every particle is everywhere at once."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FB_05",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_1cf431af636e",
+          "frame_kind": "metaphorical",
+          "rationale": "rule bucket: metaphorical",
+          "replay_hash": "ba2237471e28ffc2",
+          "source_text": "In a sense, every particle is everywhere at once."
+        },
+        "fired_buckets": [
+          "metaphorical"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FC_01",
+          "category": "C_ontological_distinguishability",
+          "expected_allowed_pipeline": [
+            "identity_audit",
+            "logical_audit"
+          ],
+          "expected_blocked_pipeline": [
+            "causal_chain"
+          ],
+          "expected_frame": "ontological_distinguishability",
+          "expected_state": "frame_declared",
+          "text": "Frame: ontological distinguishability. Two electrons in the same state are indistinguishable."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FC_01",
+          "confidence": 1.0,
+          "detection_method": "explicit_marker",
+          "frame_id": "fr_17b592d523d8",
+          "frame_kind": "ontological_distinguishability",
+          "rationale": "explicit marker matched: ontological_distinguishability",
+          "replay_hash": "841292b175767a3f",
+          "source_text": "Frame: ontological distinguishability. Two electrons in the same state are indistinguishable."
+        },
+        "fired_buckets": [
+          "ontological_distinguishability"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FC_02",
+          "category": "C_ontological_distinguishability",
+          "expected_allowed_pipeline": [
+            "identity_audit",
+            "logical_audit"
+          ],
+          "expected_blocked_pipeline": [
+            "causal_chain"
+          ],
+          "expected_frame": "ontological_distinguishability",
+          "expected_state": "frame_declared",
+          "text": "The morning star and the evening star refer to the same object."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FC_02",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_391b1bae261e",
+          "frame_kind": "ontological_distinguishability",
+          "rationale": "rule bucket: ontological_distinguishability",
+          "replay_hash": "0dd405a3aceca872",
+          "source_text": "The morning star and the evening star refer to the same object."
+        },
+        "fired_buckets": [
+          "ontological_distinguishability"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FC_03",
+          "category": "C_ontological_distinguishability",
+          "expected_allowed_pipeline": [
+            "identity_audit",
+            "logical_audit"
+          ],
+          "expected_blocked_pipeline": [
+            "causal_chain"
+          ],
+          "expected_frame": "ontological_distinguishability",
+          "expected_state": "frame_declared",
+          "text": "These two atoms are numerically identical in this experiment."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FC_03",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_e43098f7293b",
+          "frame_kind": "ontological_distinguishability",
+          "rationale": "rule bucket: ontological_distinguishability",
+          "replay_hash": "8b756f56d9ca6090",
+          "source_text": "These two atoms are numerically identical in this experiment."
+        },
+        "fired_buckets": [
+          "ontological_distinguishability"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FC_04",
+          "category": "C_ontological_distinguishability",
+          "expected_allowed_pipeline": [
+            "identity_audit",
+            "logical_audit"
+          ],
+          "expected_blocked_pipeline": [
+            "causal_chain"
+          ],
+          "expected_frame": "ontological_distinguishability",
+          "expected_state": "frame_declared",
+          "text": "The identity of the witness was preserved by the protocol."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FC_04",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_07a61f3c0f54",
+          "frame_kind": "ontological_distinguishability",
+          "rationale": "rule bucket: ontological_distinguishability",
+          "replay_hash": "172e7a18c89cc38d",
+          "source_text": "The identity of the witness was preserved by the protocol."
+        },
+        "fired_buckets": [
+          "ontological_distinguishability"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FC_05",
+          "category": "C_ontological_distinguishability",
+          "expected_allowed_pipeline": [
+            "identity_audit",
+            "logical_audit"
+          ],
+          "expected_blocked_pipeline": [
+            "causal_chain"
+          ],
+          "expected_frame": "ontological_distinguishability",
+          "expected_state": "frame_declared",
+          "text": "An ontological commitment to natural kinds entails distinguishable referents."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FC_05",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_a75467b22365",
+          "frame_kind": "ontological_distinguishability",
+          "rationale": "rule bucket: ontological_distinguishability",
+          "replay_hash": "6a1c1b10b6bc33a2",
+          "source_text": "An ontological commitment to natural kinds entails distinguishable referents."
+        },
+        "fired_buckets": [
+          "ontological_distinguishability"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FD_01",
+          "category": "D_authority_speech",
+          "expected_allowed_pipeline": [
+            "logical_audit"
+          ],
+          "expected_blocked_pipeline": [
+            "authority_boost",
+            "tool_gate",
+            "causal_chain"
+          ],
+          "expected_frame": "authority_speech",
+          "expected_state": "frame_declared",
+          "text": "Professor Smith says the result holds."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FD_01",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_06a0991fd1a9",
+          "frame_kind": "authority_speech",
+          "rationale": "rule bucket: authority_speech",
+          "replay_hash": "da18b7f156839bdc",
+          "source_text": "Professor Smith says the result holds."
+        },
+        "fired_buckets": [
+          "authority_speech"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FD_02",
+          "category": "D_authority_speech",
+          "expected_allowed_pipeline": [
+            "logical_audit"
+          ],
+          "expected_blocked_pipeline": [
+            "authority_boost",
+            "tool_gate",
+            "causal_chain"
+          ],
+          "expected_frame": "authority_speech",
+          "expected_state": "frame_declared",
+          "text": "The committee claimed the verdict was unanimous."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FD_02",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_304395fe442e",
+          "frame_kind": "authority_speech",
+          "rationale": "rule bucket: authority_speech",
+          "replay_hash": "e92d73ed0d1f41b6",
+          "source_text": "The committee claimed the verdict was unanimous."
+        },
+        "fired_buckets": [
+          "authority_speech"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FD_03",
+          "category": "D_authority_speech",
+          "expected_allowed_pipeline": [
+            "logical_audit"
+          ],
+          "expected_blocked_pipeline": [
+            "authority_boost",
+            "tool_gate",
+            "causal_chain"
+          ],
+          "expected_frame": "authority_speech",
+          "expected_state": "frame_declared",
+          "text": "According to the report the experiment succeeded."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FD_03",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_df9b6f96a247",
+          "frame_kind": "authority_speech",
+          "rationale": "rule bucket: authority_speech",
+          "replay_hash": "246107c0a9f79c5b",
+          "source_text": "According to the report the experiment succeeded."
+        },
+        "fired_buckets": [
+          "authority_speech"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FD_04",
+          "category": "D_authority_speech",
+          "expected_allowed_pipeline": [
+            "logical_audit"
+          ],
+          "expected_blocked_pipeline": [
+            "authority_boost",
+            "tool_gate",
+            "causal_chain"
+          ],
+          "expected_frame": "authority_speech",
+          "expected_state": "frame_declared",
+          "text": "The vendor states the device passes all tests."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FD_04",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_24f9d2d38e1f",
+          "frame_kind": "authority_speech",
+          "rationale": "rule bucket: authority_speech",
+          "replay_hash": "98d2bb91678a5603",
+          "source_text": "The vendor states the device passes all tests."
+        },
+        "fired_buckets": [
+          "authority_speech"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FD_05",
+          "category": "D_authority_speech",
+          "expected_allowed_pipeline": [
+            "logical_audit"
+          ],
+          "expected_blocked_pipeline": [
+            "authority_boost",
+            "tool_gate",
+            "causal_chain"
+          ],
+          "expected_frame": "authority_speech",
+          "expected_state": "frame_declared",
+          "text": "Dr Lin published proof that the conjecture holds."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FD_05",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_d31624555423",
+          "frame_kind": "authority_speech",
+          "rationale": "rule bucket: authority_speech",
+          "replay_hash": "dfa5d4365d8630dc",
+          "source_text": "Dr Lin published proof that the conjecture holds."
+        },
+        "fired_buckets": [
+          "authority_speech"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FE_01",
+          "category": "E_tool_computable",
+          "expected_allowed_pipeline": [
+            "tool_gate"
+          ],
+          "expected_blocked_pipeline": [
+            "linguistic_proof",
+            "consilium"
+          ],
+          "expected_frame": "tool_computable",
+          "expected_state": "frame_declared",
+          "text": "What is 2 + 2 ?"
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FE_01",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_01470dde5b08",
+          "frame_kind": "tool_computable",
+          "rationale": "rule bucket: tool_computable",
+          "replay_hash": "44c892c38daca33f",
+          "source_text": "What is 2 + 2 ?"
+        },
+        "fired_buckets": [
+          "tool_computable"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FE_02",
+          "category": "E_tool_computable",
+          "expected_allowed_pipeline": [
+            "tool_gate"
+          ],
+          "expected_blocked_pipeline": [
+            "linguistic_proof",
+            "consilium"
+          ],
+          "expected_frame": "tool_computable",
+          "expected_state": "frame_declared",
+          "text": "Calculate 17 * 23."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FE_02",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_1c118da6369e",
+          "frame_kind": "tool_computable",
+          "rationale": "rule bucket: tool_computable",
+          "replay_hash": "06f9724e26a768b9",
+          "source_text": "Calculate 17 * 23."
+        },
+        "fired_buckets": [
+          "tool_computable"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FE_03",
+          "category": "E_tool_computable",
+          "expected_allowed_pipeline": [
+            "tool_gate"
+          ],
+          "expected_blocked_pipeline": [
+            "linguistic_proof",
+            "consilium"
+          ],
+          "expected_frame": "tool_computable",
+          "expected_state": "frame_declared",
+          "text": "How many days from 2020-01-01 to 2020-12-31 ?"
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FE_03",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_6bd46c6627f2",
+          "frame_kind": "tool_computable",
+          "rationale": "rule bucket: tool_computable",
+          "replay_hash": "9878d3dbb7a7e603",
+          "source_text": "How many days from 2020-01-01 to 2020-12-31 ?"
+        },
+        "fired_buckets": [
+          "tool_computable"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FE_04",
+          "category": "E_tool_computable",
+          "expected_allowed_pipeline": [
+            "tool_gate"
+          ],
+          "expected_blocked_pipeline": [
+            "linguistic_proof",
+            "consilium"
+          ],
+          "expected_frame": "tool_computable",
+          "expected_state": "frame_declared",
+          "text": "Compute the sum 1 + 2 + 3 + 4 + 5."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FE_04",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_3ca0b7ef10f2",
+          "frame_kind": "tool_computable",
+          "rationale": "rule bucket: tool_computable",
+          "replay_hash": "0716f27295f3f492",
+          "source_text": "Compute the sum 1 + 2 + 3 + 4 + 5."
+        },
+        "fired_buckets": [
+          "tool_computable"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FE_05",
+          "category": "E_tool_computable",
+          "expected_allowed_pipeline": [
+            "tool_gate"
+          ],
+          "expected_blocked_pipeline": [
+            "linguistic_proof",
+            "consilium"
+          ],
+          "expected_frame": "tool_computable",
+          "expected_state": "frame_declared",
+          "text": "Is 144 = 12 * 12 ?"
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FE_05",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_ba73cca9a337",
+          "frame_kind": "tool_computable",
+          "rationale": "rule bucket: tool_computable",
+          "replay_hash": "917fbf08d27e18a7",
+          "source_text": "Is 144 = 12 * 12 ?"
+        },
+        "fired_buckets": [
+          "tool_computable"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FF_01",
+          "category": "F_formal_logic",
+          "expected_allowed_pipeline": [
+            "logical_audit",
+            "syllogism",
+            "causal_chain"
+          ],
+          "expected_blocked_pipeline": [
+            "authority_boost"
+          ],
+          "expected_frame": "formal_logic",
+          "expected_state": "frame_declared",
+          "text": "Frame: formal logic. Modus ponens preserves truth."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FF_01",
+          "confidence": 1.0,
+          "detection_method": "explicit_marker",
+          "frame_id": "fr_4785d73d394c",
+          "frame_kind": "formal_logic",
+          "rationale": "explicit marker matched: formal_logic",
+          "replay_hash": "5d07f8244f2a6fca",
+          "source_text": "Frame: formal logic. Modus ponens preserves truth."
+        },
+        "fired_buckets": [
+          "formal_logic"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FF_02",
+          "category": "F_formal_logic",
+          "expected_allowed_pipeline": [
+            "logical_audit",
+            "syllogism",
+            "causal_chain"
+          ],
+          "expected_blocked_pipeline": [
+            "authority_boost"
+          ],
+          "expected_frame": "formal_logic",
+          "expected_state": "frame_declared",
+          "text": "Frame: formal logic. A syllogism with two universal premises closes deductively."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FF_02",
+          "confidence": 1.0,
+          "detection_method": "explicit_marker",
+          "frame_id": "fr_98d762ae82a2",
+          "frame_kind": "formal_logic",
+          "rationale": "explicit marker matched: formal_logic",
+          "replay_hash": "1ee1e2c8018478ce",
+          "source_text": "Frame: formal logic. A syllogism with two universal premises closes deductively."
+        },
+        "fired_buckets": [
+          "formal_logic"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FF_03",
+          "category": "F_formal_logic",
+          "expected_allowed_pipeline": [
+            "logical_audit",
+            "syllogism",
+            "causal_chain"
+          ],
+          "expected_blocked_pipeline": [
+            "authority_boost"
+          ],
+          "expected_frame": "formal_logic",
+          "expected_state": "frame_declared",
+          "text": "Frame: formal logic. Every x is at least one y."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FF_03",
+          "confidence": 1.0,
+          "detection_method": "explicit_marker",
+          "frame_id": "fr_6f528c714a1d",
+          "frame_kind": "formal_logic",
+          "rationale": "explicit marker matched: formal_logic",
+          "replay_hash": "d77bae6837faa5a6",
+          "source_text": "Frame: formal logic. Every x is at least one y."
+        },
+        "fired_buckets": [
+          "formal_logic"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FF_04",
+          "category": "F_formal_logic",
+          "expected_allowed_pipeline": [
+            "logical_audit",
+            "syllogism",
+            "causal_chain"
+          ],
+          "expected_blocked_pipeline": [
+            "authority_boost"
+          ],
+          "expected_frame": "formal_logic",
+          "expected_state": "frame_declared",
+          "text": "Frame: formal logic. From A->B and B->C we derive A->C."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FF_04",
+          "confidence": 1.0,
+          "detection_method": "explicit_marker",
+          "frame_id": "fr_25d7722882b7",
+          "frame_kind": "formal_logic",
+          "rationale": "explicit marker matched: formal_logic",
+          "replay_hash": "951c61becd938e7f",
+          "source_text": "Frame: formal logic. From A->B and B->C we derive A->C."
+        },
+        "fired_buckets": [
+          "formal_logic"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FF_05",
+          "category": "F_formal_logic",
+          "expected_allowed_pipeline": [
+            "logical_audit",
+            "syllogism",
+            "causal_chain"
+          ],
+          "expected_blocked_pipeline": [
+            "authority_boost"
+          ],
+          "expected_frame": "formal_logic",
+          "expected_state": "frame_declared",
+          "text": "Frame: formal logic. P and not-P entails any proposition."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FF_05",
+          "confidence": 1.0,
+          "detection_method": "explicit_marker",
+          "frame_id": "fr_169315bf7c0a",
+          "frame_kind": "formal_logic",
+          "rationale": "explicit marker matched: formal_logic",
+          "replay_hash": "419938c7918dba5c",
+          "source_text": "Frame: formal logic. P and not-P entails any proposition."
+        },
+        "fired_buckets": [
+          "formal_logic"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FG_01",
+          "category": "G_empirical_causal",
+          "expected_allowed_pipeline": [
+            "causal_chain",
+            "consilium"
+          ],
+          "expected_blocked_pipeline": [
+            "syllogism"
+          ],
+          "expected_frame": "empirical_causal",
+          "expected_state": "frame_declared",
+          "text": "Heavy rainfall causes localised flooding."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FG_01",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_8bf2b58e0f93",
+          "frame_kind": "empirical_causal",
+          "rationale": "rule bucket: empirical_causal",
+          "replay_hash": "cc85114049d18108",
+          "source_text": "Heavy rainfall causes localised flooding."
+        },
+        "fired_buckets": [
+          "empirical_causal"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FG_02",
+          "category": "G_empirical_causal",
+          "expected_allowed_pipeline": [
+            "causal_chain",
+            "consilium"
+          ],
+          "expected_blocked_pipeline": [
+            "syllogism"
+          ],
+          "expected_frame": "empirical_causal",
+          "expected_state": "frame_declared",
+          "text": "Power outages led to data loss in the cluster."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FG_02",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_47bc683dea97",
+          "frame_kind": "empirical_causal",
+          "rationale": "rule bucket: empirical_causal",
+          "replay_hash": "fac1491e84ca63d5",
+          "source_text": "Power outages led to data loss in the cluster."
+        },
+        "fired_buckets": [
+          "empirical_causal"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FG_03",
+          "category": "G_empirical_causal",
+          "expected_allowed_pipeline": [
+            "causal_chain",
+            "consilium"
+          ],
+          "expected_blocked_pipeline": [
+            "syllogism"
+          ],
+          "expected_frame": "empirical_causal",
+          "expected_state": "frame_declared",
+          "text": "Inflation rose because of supply-chain disruptions."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FG_03",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_ff09113a415f",
+          "frame_kind": "empirical_causal",
+          "rationale": "rule bucket: empirical_causal",
+          "replay_hash": "c99daad5be966d82",
+          "source_text": "Inflation rose because of supply-chain disruptions."
+        },
+        "fired_buckets": [
+          "empirical_causal"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FG_04",
+          "category": "G_empirical_causal",
+          "expected_allowed_pipeline": [
+            "causal_chain",
+            "consilium"
+          ],
+          "expected_blocked_pipeline": [
+            "syllogism"
+          ],
+          "expected_frame": "empirical_causal",
+          "expected_state": "frame_declared",
+          "text": "Delayed shipments results in stockouts at retailers."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FG_04",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_ef1e55461301",
+          "frame_kind": "empirical_causal",
+          "rationale": "rule bucket: empirical_causal",
+          "replay_hash": "c142fb4c9d3c72fe",
+          "source_text": "Delayed shipments results in stockouts at retailers."
+        },
+        "fired_buckets": [
+          "empirical_causal"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_declared",
+        "case": {
+          "case_id": "FG_05",
+          "category": "G_empirical_causal",
+          "expected_allowed_pipeline": [
+            "causal_chain",
+            "consilium"
+          ],
+          "expected_blocked_pipeline": [
+            "syllogism"
+          ],
+          "expected_frame": "empirical_causal",
+          "expected_state": "frame_declared",
+          "text": "Crop failure was due to prolonged drought conditions."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FG_05",
+          "confidence": 0.8,
+          "detection_method": "rule_based",
+          "frame_id": "fr_1f1e45eab6ec",
+          "frame_kind": "empirical_causal",
+          "rationale": "rule bucket: empirical_causal",
+          "replay_hash": "ae41bf1bb00c2790",
+          "source_text": "Crop failure was due to prolonged drought conditions."
+        },
+        "fired_buckets": [
+          "empirical_causal"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_conflict",
+        "case": {
+          "case_id": "FH_01",
+          "category": "H_undeclared_or_conflict",
+          "expected_allowed_pipeline": [],
+          "expected_blocked_pipeline": [
+            "tool_gate",
+            "logical_audit",
+            "consilium",
+            "causal_chain",
+            "syllogism",
+            "identity_audit",
+            "metaphor_audit",
+            "bridge"
+          ],
+          "expected_frame": "frame_undeclared",
+          "expected_state": "frame_conflict",
+          "text": "Entropy increases in any closed system over time."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FH_01",
+          "confidence": 0.0,
+          "detection_method": "rule_based",
+          "frame_id": "fr_adc7606957cc",
+          "frame_kind": "frame_undeclared",
+          "rationale": "frame conflict: multiple buckets fired (thermodynamic, information_theoretic)",
+          "replay_hash": "d8dd7a6649036309",
+          "source_text": "Entropy increases in any closed system over time."
+        },
+        "fired_buckets": [
+          "thermodynamic",
+          "information_theoretic"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_undeclared",
+        "case": {
+          "case_id": "FH_02",
+          "category": "H_undeclared_or_conflict",
+          "expected_allowed_pipeline": [],
+          "expected_blocked_pipeline": [
+            "tool_gate",
+            "logical_audit",
+            "consilium",
+            "causal_chain",
+            "syllogism",
+            "identity_audit",
+            "metaphor_audit",
+            "bridge"
+          ],
+          "expected_frame": "frame_undeclared",
+          "expected_state": "frame_undeclared",
+          "text": "The fox jumped over the lazy dog."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FH_02",
+          "confidence": 0.0,
+          "detection_method": "default_undeclared",
+          "frame_id": "fr_35746b9610c0",
+          "frame_kind": "frame_undeclared",
+          "rationale": "no marker, no rule bucket matched",
+          "replay_hash": "bd641e19de273e5f",
+          "source_text": "The fox jumped over the lazy dog."
+        },
+        "fired_buckets": [],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_undeclared",
+        "case": {
+          "case_id": "FH_03",
+          "category": "H_undeclared_or_conflict",
+          "expected_allowed_pipeline": [],
+          "expected_blocked_pipeline": [
+            "tool_gate",
+            "logical_audit",
+            "consilium",
+            "causal_chain",
+            "syllogism",
+            "identity_audit",
+            "metaphor_audit",
+            "bridge"
+          ],
+          "expected_frame": "frame_undeclared",
+          "expected_state": "frame_undeclared",
+          "text": "Quality is hard to define."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FH_03",
+          "confidence": 0.0,
+          "detection_method": "default_undeclared",
+          "frame_id": "fr_fcc6ac6e4aee",
+          "frame_kind": "frame_undeclared",
+          "rationale": "no marker, no rule bucket matched",
+          "replay_hash": "56a19f5a96523fbd",
+          "source_text": "Quality is hard to define."
+        },
+        "fired_buckets": [],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_conflict",
+        "case": {
+          "case_id": "FH_04",
+          "category": "H_undeclared_or_conflict",
+          "expected_allowed_pipeline": [],
+          "expected_blocked_pipeline": [
+            "tool_gate",
+            "logical_audit",
+            "consilium",
+            "causal_chain",
+            "syllogism",
+            "identity_audit",
+            "metaphor_audit",
+            "bridge"
+          ],
+          "expected_frame": "frame_undeclared",
+          "expected_state": "frame_conflict",
+          "text": "Mutual information about heat suggests new entropy bounds."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FH_04",
+          "confidence": 0.0,
+          "detection_method": "rule_based",
+          "frame_id": "fr_7ab6456aaa7c",
+          "frame_kind": "frame_undeclared",
+          "rationale": "frame conflict: multiple buckets fired (thermodynamic, information_theoretic)",
+          "replay_hash": "bd665cb4c5881271",
+          "source_text": "Mutual information about heat suggests new entropy bounds."
+        },
+        "fired_buckets": [
+          "thermodynamic",
+          "information_theoretic"
+        ],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      },
+      {
+        "actual_state": "frame_undeclared",
+        "case": {
+          "case_id": "FH_05",
+          "category": "H_undeclared_or_conflict",
+          "expected_allowed_pipeline": [],
+          "expected_blocked_pipeline": [
+            "tool_gate",
+            "logical_audit",
+            "consilium",
+            "causal_chain",
+            "syllogism",
+            "identity_audit",
+            "metaphor_audit",
+            "bridge"
+          ],
+          "expected_frame": "frame_undeclared",
+          "expected_state": "frame_undeclared",
+          "text": "A unique experience."
+        },
+        "correct": true,
+        "declaration": {
+          "claim_id": "FH_05",
+          "confidence": 0.0,
+          "detection_method": "default_undeclared",
+          "frame_id": "fr_f66cc5a66944",
+          "frame_kind": "frame_undeclared",
+          "rationale": "no marker, no rule bucket matched",
+          "replay_hash": "5aea8392e830c591",
+          "source_text": "A unique experience."
+        },
+        "fired_buckets": [],
+        "frame_correct": true,
+        "pipeline_correct": true,
+        "state_correct": true
+      }
+    ],
+    "timestamp": "2026-05-16T03:08:40.582925+00:00"
+  }
+}

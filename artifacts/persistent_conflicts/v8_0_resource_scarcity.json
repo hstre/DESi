@@ -1,0 +1,237 @@
+{
+  "budget": 3.0,
+  "cheap_solution_drift": 0.0,
+  "claim_count": 16,
+  "claims": [
+    {
+      "claim_id": "sc-001",
+      "complexity_cost": 0.95,
+      "epistemic_value": 0.92,
+      "text": "Meta-analysis across 14 cohorts with hierarchical model and adjusted RR."
+    },
+    {
+      "claim_id": "sc-002",
+      "complexity_cost": 0.85,
+      "epistemic_value": 0.9,
+      "text": "Pre-registered RCT with 5000 subjects and adjudicated outcomes."
+    },
+    {
+      "claim_id": "sc-003",
+      "complexity_cost": 0.9,
+      "epistemic_value": 0.88,
+      "text": "Long-run prospective study with competing-risk adjustment."
+    },
+    {
+      "claim_id": "sc-004",
+      "complexity_cost": 0.88,
+      "epistemic_value": 0.9,
+      "text": "Bayesian causal inference with sensitivity analysis."
+    },
+    {
+      "claim_id": "sc-005",
+      "complexity_cost": 0.2,
+      "epistemic_value": 0.85,
+      "text": "Direct measurement with calibrated instrument."
+    },
+    {
+      "claim_id": "sc-006",
+      "complexity_cost": 0.15,
+      "epistemic_value": 0.8,
+      "text": "Single-line lab result, replicated."
+    },
+    {
+      "claim_id": "sc-007",
+      "complexity_cost": 0.25,
+      "epistemic_value": 0.88,
+      "text": "Published RCT primary outcome."
+    },
+    {
+      "claim_id": "sc-008",
+      "complexity_cost": 0.2,
+      "epistemic_value": 0.82,
+      "text": "Replicated benchmark accuracy."
+    },
+    {
+      "claim_id": "sc-009",
+      "complexity_cost": 0.8,
+      "epistemic_value": 0.25,
+      "text": "Press release with vague stats."
+    },
+    {
+      "claim_id": "sc-010",
+      "complexity_cost": 0.85,
+      "epistemic_value": 0.2,
+      "text": "Glossy report with cherry-picked subgroups."
+    },
+    {
+      "claim_id": "sc-011",
+      "complexity_cost": 0.9,
+      "epistemic_value": 0.15,
+      "text": "Long anecdotal review with rhetorical flourishes."
+    },
+    {
+      "claim_id": "sc-012",
+      "complexity_cost": 0.85,
+      "epistemic_value": 0.18,
+      "text": "Survey of opinions wrapped in jargon."
+    },
+    {
+      "claim_id": "sc-013",
+      "complexity_cost": 0.05,
+      "epistemic_value": 0.1,
+      "text": "One-line tweet without source."
+    },
+    {
+      "claim_id": "sc-014",
+      "complexity_cost": 0.08,
+      "epistemic_value": 0.08,
+      "text": "Forwarded chain message."
+    },
+    {
+      "claim_id": "sc-015",
+      "complexity_cost": 0.05,
+      "epistemic_value": 0.12,
+      "text": "Anonymous comment."
+    },
+    {
+      "claim_id": "sc-016",
+      "complexity_cost": 0.1,
+      "epistemic_value": 0.08,
+      "text": "Catchy slogan."
+    }
+  ],
+  "complexity_preservation": 1.0,
+  "deferred": 4,
+  "governance_integrity": 1.0,
+  "processed": 5,
+  "resource_bias": 0.0,
+  "resource_kinds": [
+    "compute",
+    "memory",
+    "attention",
+    "conflict_budget",
+    "time_budget"
+  ],
+  "schedule": [
+    {
+      "claim_id": "sc-001",
+      "complexity_cost": 0.95,
+      "decision": "process",
+      "epistemic_value": 0.92,
+      "running_cost": 0.95
+    },
+    {
+      "claim_id": "sc-002",
+      "complexity_cost": 0.85,
+      "decision": "process",
+      "epistemic_value": 0.9,
+      "running_cost": 1.8
+    },
+    {
+      "claim_id": "sc-003",
+      "complexity_cost": 0.9,
+      "decision": "defer",
+      "epistemic_value": 0.88,
+      "running_cost": 2.93
+    },
+    {
+      "claim_id": "sc-004",
+      "complexity_cost": 0.88,
+      "decision": "process",
+      "epistemic_value": 0.9,
+      "running_cost": 2.68
+    },
+    {
+      "claim_id": "sc-005",
+      "complexity_cost": 0.2,
+      "decision": "defer",
+      "epistemic_value": 0.85,
+      "running_cost": 2.93
+    },
+    {
+      "claim_id": "sc-006",
+      "complexity_cost": 0.15,
+      "decision": "defer",
+      "epistemic_value": 0.8,
+      "running_cost": 2.93
+    },
+    {
+      "claim_id": "sc-007",
+      "complexity_cost": 0.25,
+      "decision": "process",
+      "epistemic_value": 0.88,
+      "running_cost": 2.93
+    },
+    {
+      "claim_id": "sc-008",
+      "complexity_cost": 0.2,
+      "decision": "defer",
+      "epistemic_value": 0.82,
+      "running_cost": 2.93
+    },
+    {
+      "claim_id": "sc-009",
+      "complexity_cost": 0.8,
+      "decision": "skip",
+      "epistemic_value": 0.25,
+      "running_cost": 2.93
+    },
+    {
+      "claim_id": "sc-010",
+      "complexity_cost": 0.85,
+      "decision": "skip",
+      "epistemic_value": 0.2,
+      "running_cost": 2.93
+    },
+    {
+      "claim_id": "sc-011",
+      "complexity_cost": 0.9,
+      "decision": "skip",
+      "epistemic_value": 0.15,
+      "running_cost": 2.93
+    },
+    {
+      "claim_id": "sc-012",
+      "complexity_cost": 0.85,
+      "decision": "skip",
+      "epistemic_value": 0.18,
+      "running_cost": 2.93
+    },
+    {
+      "claim_id": "sc-013",
+      "complexity_cost": 0.05,
+      "decision": "skip",
+      "epistemic_value": 0.1,
+      "running_cost": 2.98
+    },
+    {
+      "claim_id": "sc-014",
+      "complexity_cost": 0.08,
+      "decision": "skip",
+      "epistemic_value": 0.08,
+      "running_cost": 2.98
+    },
+    {
+      "claim_id": "sc-015",
+      "complexity_cost": 0.05,
+      "decision": "process",
+      "epistemic_value": 0.12,
+      "running_cost": 2.98
+    },
+    {
+      "claim_id": "sc-016",
+      "complexity_cost": 0.1,
+      "decision": "skip",
+      "epistemic_value": 0.08,
+      "running_cost": 2.98
+    }
+  ],
+  "schedule_decisions": [
+    "process",
+    "defer",
+    "skip"
+  ],
+  "schema_version": "v8_0_resource_scarcity",
+  "skipped": 7,
+  "total_processed_cost": 2.98
+}

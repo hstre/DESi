@@ -1,0 +1,65 @@
+{
+  "baseline_energy": 4300.0,
+  "baseline_nodes": 4300,
+  "baseline_time_ms": 4300.0,
+  "branch_compression": 0.532558,
+  "compute_reduction": 0.540698,
+  "elo_delta_proxy": -0.0,
+  "guided_energy": 1905.0,
+  "guided_nodes": 2010,
+  "guided_time_ms": 2010.0,
+  "per_position_compression": {
+    "pos-end-001": {
+      "baseline_nodes": 300.0,
+      "guided_nodes": 110.0,
+      "reduction": 0.633333
+    },
+    "pos-end-002": {
+      "baseline_nodes": 400.0,
+      "guided_nodes": 190.0,
+      "reduction": 0.525
+    },
+    "pos-middle-001": {
+      "baseline_nodes": 400.0,
+      "guided_nodes": 250.0,
+      "reduction": 0.375
+    },
+    "pos-middle-002": {
+      "baseline_nodes": 400.0,
+      "guided_nodes": 190.0,
+      "reduction": 0.525
+    },
+    "pos-quiet-001": {
+      "baseline_nodes": 400.0,
+      "guided_nodes": 180.0,
+      "reduction": 0.55
+    },
+    "pos-quiet-002": {
+      "baseline_nodes": 500.0,
+      "guided_nodes": 330.0,
+      "reduction": 0.34
+    },
+    "pos-strat-001": {
+      "baseline_nodes": 500.0,
+      "guided_nodes": 250.0,
+      "reduction": 0.5
+    },
+    "pos-strat-002": {
+      "baseline_nodes": 500.0,
+      "guided_nodes": 260.0,
+      "reduction": 0.48
+    },
+    "pos-tact-001": {
+      "baseline_nodes": 500.0,
+      "guided_nodes": 130.0,
+      "reduction": 0.74
+    },
+    "pos-tact-002": {
+      "baseline_nodes": 400.0,
+      "guided_nodes": 120.0,
+      "reduction": 0.7
+    }
+  },
+  "quality_preservation": 1.0,
+  "schema_version": "v11_3_compute_efficiency"
+}

@@ -1,0 +1,2034 @@
+{
+  "attempted_pressure": 0.6999,
+  "capture_occurred": false,
+  "disclaimer": "A >= 5000-step deterministic simulation of long-horizon exploration (variable action spaces, non-stationary shifts, repeated failed exploration, collapse, skill stitching, policy drift). DESi keeps exploration plural, keeps novelty visible, bounds policy drift, and resists trajectory capture. It forces no path, injects no reward, claims no optimal strategy, and takes no hidden authority. Synthetic, replay-exact.",
+  "enum_snapshot_hash": "301e18c225c84499b3d97166a382687928d63210c90eb7c713041dd58017d287",
+  "event_types": [
+    "variable_action_space",
+    "non_stationary_shift",
+    "failed_exploration",
+    "exploration_collapse",
+    "skill_stitching",
+    "policy_drift",
+    "novelty_decay"
+  ],
+  "exploration_plurality": 0.970008,
+  "final_hash": "9b750bb7884b40f420704a2ee0bec2157ee57e27984f23eceb8521b4732fdc66",
+  "min_novelty_visibility": 0.96004,
+  "min_plurality": 0.94006,
+  "novelty_visibility": 0.980013,
+  "policy_drift": 0.087996,
+  "policy_drift_bounded": true,
+  "policy_drift_resistance": 0.912004,
+  "recommendation": "EXPLORATION_ECOLOGY_STABLE",
+  "report_verdicts": [
+    "EXPLORATION_ECOLOGY_STABLE",
+    "EXPLORATION_ECOLOGY_CAPTURED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "sample": [
+    {
+      "attempted_pressure": 0.6182,
+      "capture": 0.0,
+      "chain_hash": "cd2ef4ced161d1830aaee2928cdc9cb6c0df8d0a8005351a8ae19d54593720a2",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.99884,
+      "plurality": 0.99922,
+      "policy_drift": 0.0,
+      "step": 0
+    },
+    {
+      "attempted_pressure": 0.6816,
+      "capture": 0.0,
+      "chain_hash": "a7b5ae380bf526b2b3d56c536a82ca2e74012f7df976b6cb5bc89e02ada6883e",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.98216,
+      "plurality": 0.95044,
+      "policy_drift": 0.001598,
+      "step": 27
+    },
+    {
+      "attempted_pressure": 0.745,
+      "capture": 0.0,
+      "chain_hash": "12b1c24b427f687d781adc8673566436a1c831ad421f1d9d97c0042d39fb644c",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.96548,
+      "plurality": 0.96166,
+      "policy_drift": 0.003155,
+      "step": 54
+    },
+    {
+      "attempted_pressure": 0.6084,
+      "capture": 0.0,
+      "chain_hash": "de228de3c70513e8cb5237f1db3c7c5652b8036c1c19ce4d4374bf5f7d409db7",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.9888,
+      "plurality": 0.97288,
+      "policy_drift": 0.004671,
+      "step": 81
+    },
+    {
+      "attempted_pressure": 0.6718,
+      "capture": 0.0,
+      "chain_hash": "291cc3d2c00a2b984ddb7a58842769124e8e756107f764bcfa47d32aa886e867",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.97212,
+      "plurality": 0.9841,
+      "policy_drift": 0.006148,
+      "step": 108
+    },
+    {
+      "attempted_pressure": 0.7352,
+      "capture": 0.0,
+      "chain_hash": "0f4a027767fef4bcd2a8ee55473568091cd4013bea0495d9c50818f1452de2ca",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.99544,
+      "plurality": 0.99532,
+      "policy_drift": 0.007588,
+      "step": 135
+    },
+    {
+      "attempted_pressure": 0.7986,
+      "capture": 0.0,
+      "chain_hash": "0445f00a4b7d4ad7b8f02c0031b0a3ad3097ba2855ae29c164bd4d790ffdc26b",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.97876,
+      "plurality": 0.94654,
+      "policy_drift": 0.008992,
+      "step": 162
+    },
+    {
+      "attempted_pressure": 0.662,
+      "capture": 0.0,
+      "chain_hash": "2676fe09da561d102dd5f24870b729bd86141416d56bf159ab0a727f94cf0ddd",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.96208,
+      "plurality": 0.95776,
+      "policy_drift": 0.010361,
+      "step": 189
+    },
+    {
+      "attempted_pressure": 0.7254,
+      "capture": 0.0,
+      "chain_hash": "9d4d538af90641e95bdc5cc44e6ace5a9dca031cfb9f67f0ba78999fd973a7d5",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.9854,
+      "plurality": 0.96898,
+      "policy_drift": 0.011697,
+      "step": 216
+    },
+    {
+      "attempted_pressure": 0.7888,
+      "capture": 0.0,
+      "chain_hash": "8279943ca331c6d853c4f2ce4dba9d78338a1c216d7f68516d718f13b5fc68c1",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.96872,
+      "plurality": 0.9802,
+      "policy_drift": 0.013,
+      "step": 243
+    },
+    {
+      "attempted_pressure": 0.6522,
+      "capture": 0.0,
+      "chain_hash": "9fa0bbc7d75bc50c967113b7c6d2ac10745e698f685f595eb671683531c20ec3",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.99204,
+      "plurality": 0.99142,
+      "policy_drift": 0.014273,
+      "step": 270
+    },
+    {
+      "attempted_pressure": 0.7156,
+      "capture": 0.0,
+      "chain_hash": "4c22a338368a4e46f44930a4fe326378a160379ae99323d4515a6fc6a0f9d848",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.97536,
+      "plurality": 0.94264,
+      "policy_drift": 0.015516,
+      "step": 297
+    },
+    {
+      "attempted_pressure": 0.779,
+      "capture": 0.0,
+      "chain_hash": "2efe37b712b044f0e44283f5df8c571aa4a2f6a8d7b10ab586cc2a957a56566a",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.99868,
+      "plurality": 0.95386,
+      "policy_drift": 0.01673,
+      "step": 324
+    },
+    {
+      "attempted_pressure": 0.6424,
+      "capture": 0.0,
+      "chain_hash": "b5f2914b628ca9a5c9043a104a8eed992084639b36940fa9fe08c54732f6eb9a",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.982,
+      "plurality": 0.96508,
+      "policy_drift": 0.017916,
+      "step": 351
+    },
+    {
+      "attempted_pressure": 0.7058,
+      "capture": 0.0,
+      "chain_hash": "b75f4304d2cb6fd63ecd9f587dc9676aa51045417f9ee49e835a53e74c4b6c13",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.96532,
+      "plurality": 0.9763,
+      "policy_drift": 0.019075,
+      "step": 378
+    },
+    {
+      "attempted_pressure": 0.7692,
+      "capture": 0.0,
+      "chain_hash": "74b8cc3f348e1f5d1e902045c86971144a57c4fb59d1c5ef0c8577348e9cd43c",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.98864,
+      "plurality": 0.98752,
+      "policy_drift": 0.020208,
+      "step": 405
+    },
+    {
+      "attempted_pressure": 0.6326,
+      "capture": 0.0,
+      "chain_hash": "e9f3ff8bb16ef07485af446ef90a4e6bcbe777be7c53057122cc38a162b2da26",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.97196,
+      "plurality": 0.99874,
+      "policy_drift": 0.021316,
+      "step": 432
+    },
+    {
+      "attempted_pressure": 0.696,
+      "capture": 0.0,
+      "chain_hash": "bf9f6cbf11419557841c3fee537f33010133336ccab19407c00a0d397882750f",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.99528,
+      "plurality": 0.94996,
+      "policy_drift": 0.022399,
+      "step": 459
+    },
+    {
+      "attempted_pressure": 0.7594,
+      "capture": 0.0,
+      "chain_hash": "2c401850c1e3df89c1b10fe75c734a8934558da8d1a0fcba32d3cfc8044cfdc0",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.9786,
+      "plurality": 0.96118,
+      "policy_drift": 0.023459,
+      "step": 486
+    },
+    {
+      "attempted_pressure": 0.6228,
+      "capture": 0.0,
+      "chain_hash": "e190a4003cf095ca0cc5c1064d449c7df95abda7c0da31ef976f39c7e012e767",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.96192,
+      "plurality": 0.9724,
+      "policy_drift": 0.024497,
+      "step": 513
+    },
+    {
+      "attempted_pressure": 0.6862,
+      "capture": 0.0,
+      "chain_hash": "ec3b971ec2a9835fcac63f718e76851685dc9d91683e81f02e16ef9a173d92a5",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.98524,
+      "plurality": 0.98362,
+      "policy_drift": 0.025512,
+      "step": 540
+    },
+    {
+      "attempted_pressure": 0.7496,
+      "capture": 0.0,
+      "chain_hash": "0eba7cdca726723f9227b41634224d0ae03ea18d205f52411a4acfa914b8fe6a",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.96856,
+      "plurality": 0.99484,
+      "policy_drift": 0.026506,
+      "step": 567
+    },
+    {
+      "attempted_pressure": 0.613,
+      "capture": 0.0,
+      "chain_hash": "f9b2b194e8c44f42720ce5ceba53dd8bba55f3e93e0dd8440163ec5b3af0e020",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.99188,
+      "plurality": 0.94606,
+      "policy_drift": 0.027479,
+      "step": 594
+    },
+    {
+      "attempted_pressure": 0.6764,
+      "capture": 0.0,
+      "chain_hash": "6c1228deb6653676d16361e9d286d8c2db0c205d75b1502927c573687e72199d",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.9752,
+      "plurality": 0.95728,
+      "policy_drift": 0.028432,
+      "step": 621
+    },
+    {
+      "attempted_pressure": 0.7398,
+      "capture": 0.0,
+      "chain_hash": "8346ca9f7415986520fa813aac989ebdc7e8e3ca1f1500bd99ebb5f2cc4a4fd4",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.99852,
+      "plurality": 0.9685,
+      "policy_drift": 0.029366,
+      "step": 648
+    },
+    {
+      "attempted_pressure": 0.6032,
+      "capture": 0.0,
+      "chain_hash": "b8e4602a548410ddbb524e35095235f9f8a55990d84ac3cf961b4342b2f69850",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.98184,
+      "plurality": 0.97972,
+      "policy_drift": 0.03028,
+      "step": 675
+    },
+    {
+      "attempted_pressure": 0.6666,
+      "capture": 0.0,
+      "chain_hash": "852a4df416d7bc2ab4394c056c15f7601822ddc0a6a04fd92b91dc2a8ad645ce",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.96516,
+      "plurality": 0.99094,
+      "policy_drift": 0.031177,
+      "step": 702
+    },
+    {
+      "attempted_pressure": 0.73,
+      "capture": 0.0,
+      "chain_hash": "218b6188debaa6e53fb983cab2ab3dd73047443e95b11b5d77f75efeb3ae572e",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.98848,
+      "plurality": 0.94216,
+      "policy_drift": 0.032056,
+      "step": 729
+    },
+    {
+      "attempted_pressure": 0.7934,
+      "capture": 0.0,
+      "chain_hash": "3bfcb01211f56a7cd18e5eacb6b717de459510ac7ebb8fc621c4bf0dbba0c90d",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.9718,
+      "plurality": 0.95338,
+      "policy_drift": 0.032917,
+      "step": 756
+    },
+    {
+      "attempted_pressure": 0.6568,
+      "capture": 0.0,
+      "chain_hash": "789b9f6bbb5d51985f38f1662eaf1f6930497cdf30ca729ec52177e39c318e00",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.99512,
+      "plurality": 0.9646,
+      "policy_drift": 0.033762,
+      "step": 783
+    },
+    {
+      "attempted_pressure": 0.7202,
+      "capture": 0.0,
+      "chain_hash": "4436549bfb06d1b051af67d2a6cad21d5c9d1e5b4f47f21a7a66d524d563dfaa",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.97844,
+      "plurality": 0.97582,
+      "policy_drift": 0.034591,
+      "step": 810
+    },
+    {
+      "attempted_pressure": 0.7836,
+      "capture": 0.0,
+      "chain_hash": "85a2f3ed3317945f304dce045f0744ff1481b64b07fceb5d1bea483657370d92",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.96176,
+      "plurality": 0.98704,
+      "policy_drift": 0.035404,
+      "step": 837
+    },
+    {
+      "attempted_pressure": 0.647,
+      "capture": 0.0,
+      "chain_hash": "1b3ce4f6fcc9b0fc7e4e94e493b7caf486daab178470785f6db2a85f463d6279",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.98508,
+      "plurality": 0.99826,
+      "policy_drift": 0.036201,
+      "step": 864
+    },
+    {
+      "attempted_pressure": 0.7104,
+      "capture": 0.0,
+      "chain_hash": "51b4df72109d1997d7417b5e9fa8c8643e28aa6eff19376180e3be5cb1547f5d",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.9684,
+      "plurality": 0.94948,
+      "policy_drift": 0.036984,
+      "step": 891
+    },
+    {
+      "attempted_pressure": 0.7738,
+      "capture": 0.0,
+      "chain_hash": "f8ddff66eeee6b7200cf4b1adafbfe93c852ff471114c087566d190f6b3552a0",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.99172,
+      "plurality": 0.9607,
+      "policy_drift": 0.037752,
+      "step": 918
+    },
+    {
+      "attempted_pressure": 0.6372,
+      "capture": 0.0,
+      "chain_hash": "5b21addecca9781590e833f9cc1c0d89d570f0287412036ef45a66d05fc38ac2",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.97504,
+      "plurality": 0.97192,
+      "policy_drift": 0.038506,
+      "step": 945
+    },
+    {
+      "attempted_pressure": 0.7006,
+      "capture": 0.0,
+      "chain_hash": "d2f3534ba188a6fbe1dff9d9bd7a494037e301d4782cdb730218c3307d585f71",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.99836,
+      "plurality": 0.98314,
+      "policy_drift": 0.039246,
+      "step": 972
+    },
+    {
+      "attempted_pressure": 0.764,
+      "capture": 0.0,
+      "chain_hash": "0dd1b2b80313a0d923f8481743b3fe3838d87d547a5efae4ca605a7a247f2499",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.98168,
+      "plurality": 0.99436,
+      "policy_drift": 0.039973,
+      "step": 999
+    },
+    {
+      "attempted_pressure": 0.6274,
+      "capture": 0.0,
+      "chain_hash": "d19cc891b46ada88645b52d0c5e58cf9adc604167a31e291b352dbb7686567f4",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.965,
+      "plurality": 0.94558,
+      "policy_drift": 0.040687,
+      "step": 1026
+    },
+    {
+      "attempted_pressure": 0.6908,
+      "capture": 0.0,
+      "chain_hash": "1813f9858954277355c3a86a6315ed8016a2a23486c309563add8082e49804a8",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.98832,
+      "plurality": 0.9568,
+      "policy_drift": 0.041389,
+      "step": 1053
+    },
+    {
+      "attempted_pressure": 0.7542,
+      "capture": 0.0,
+      "chain_hash": "a9ff6adb68172d7f1ef875f3e0c051337caeda210280dd0d07ca3c11b965370a",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.97164,
+      "plurality": 0.96802,
+      "policy_drift": 0.042078,
+      "step": 1080
+    },
+    {
+      "attempted_pressure": 0.6176,
+      "capture": 0.0,
+      "chain_hash": "da4e59bb93149f7f221ccf7ca3a04fa5fc92cb5c36363f162fbbd56a370c1aa0",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.99496,
+      "plurality": 0.97924,
+      "policy_drift": 0.042755,
+      "step": 1107
+    },
+    {
+      "attempted_pressure": 0.681,
+      "capture": 0.0,
+      "chain_hash": "e0ea726c22a9fe61108e1ce172de0719120fde79ac798adf55330dd7fc001289",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.97828,
+      "plurality": 0.99046,
+      "policy_drift": 0.043421,
+      "step": 1134
+    },
+    {
+      "attempted_pressure": 0.7444,
+      "capture": 0.0,
+      "chain_hash": "56d4defd7e5c9b6d6226db984011ef6b97315327c11cdd05df23d37d34bd8930",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.9616,
+      "plurality": 0.94168,
+      "policy_drift": 0.044075,
+      "step": 1161
+    },
+    {
+      "attempted_pressure": 0.6078,
+      "capture": 0.0,
+      "chain_hash": "67a9a7d4d75cfeafd33c6abb4865dfd6eab203deaaaaa5de02681ee525f63a09",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.98492,
+      "plurality": 0.9529,
+      "policy_drift": 0.044718,
+      "step": 1188
+    },
+    {
+      "attempted_pressure": 0.6712,
+      "capture": 0.0,
+      "chain_hash": "a46658dc34c8ab0269ea1bc0223b0af3c661ca8c73c2383d8178ee681daa471f",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.96824,
+      "plurality": 0.96412,
+      "policy_drift": 0.04535,
+      "step": 1215
+    },
+    {
+      "attempted_pressure": 0.7346,
+      "capture": 0.0,
+      "chain_hash": "270c6613c7d70574a9cd63cf654bd119cd12bd13f2ce6434d5d1066afa6ef5d4",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.99156,
+      "plurality": 0.97534,
+      "policy_drift": 0.045972,
+      "step": 1242
+    },
+    {
+      "attempted_pressure": 0.798,
+      "capture": 0.0,
+      "chain_hash": "2dfae22543c5860f18f237716d4ec90b4f4f7935bd3705de04df688fac4bf975",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.97488,
+      "plurality": 0.98656,
+      "policy_drift": 0.046583,
+      "step": 1269
+    },
+    {
+      "attempted_pressure": 0.6614,
+      "capture": 0.0,
+      "chain_hash": "19adb78f2f212905ce00ff90d47aa240c3465f417648cb0c60a8249405ce0271",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.9982,
+      "plurality": 0.99778,
+      "policy_drift": 0.047184,
+      "step": 1296
+    },
+    {
+      "attempted_pressure": 0.7248,
+      "capture": 0.0,
+      "chain_hash": "67152c5151e8cfd1bf2659346dbd8c4afe6e3dfc023feb71598c7efd884d8c30",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.98152,
+      "plurality": 0.949,
+      "policy_drift": 0.047776,
+      "step": 1323
+    },
+    {
+      "attempted_pressure": 0.7882,
+      "capture": 0.0,
+      "chain_hash": "4e460527b32e0810744889ec2092e4d88904ad9b966855ae1dac8f6ee7d6549e",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.96484,
+      "plurality": 0.96022,
+      "policy_drift": 0.048358,
+      "step": 1350
+    },
+    {
+      "attempted_pressure": 0.6516,
+      "capture": 0.0,
+      "chain_hash": "0cc17b839b68cedf3ee57082bade47ba6a0b8de2c7b5a309913d838fc55bea36",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.98816,
+      "plurality": 0.97144,
+      "policy_drift": 0.048931,
+      "step": 1377
+    },
+    {
+      "attempted_pressure": 0.715,
+      "capture": 0.0,
+      "chain_hash": "93c9d64a54bdc1a98a686d2c740a20d14f65090d4f182ae089c91ee0fe9198ad",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.97148,
+      "plurality": 0.98266,
+      "policy_drift": 0.049495,
+      "step": 1404
+    },
+    {
+      "attempted_pressure": 0.7784,
+      "capture": 0.0,
+      "chain_hash": "0842eccd17363290a4da96b8ad3d40b4471dc926fafabdd99dc54f9bc8e3ec5f",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.9948,
+      "plurality": 0.99388,
+      "policy_drift": 0.05005,
+      "step": 1431
+    },
+    {
+      "attempted_pressure": 0.6418,
+      "capture": 0.0,
+      "chain_hash": "54eb94e0051c11a2504c149e514a73eb2b8abebad359d4ab98b748a9c93444e5",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.97812,
+      "plurality": 0.9451,
+      "policy_drift": 0.050596,
+      "step": 1458
+    },
+    {
+      "attempted_pressure": 0.7052,
+      "capture": 0.0,
+      "chain_hash": "41fa992de87da2ce6cbbc912a3f8189221c23abcecbb7289e0337baf10ed5120",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.96144,
+      "plurality": 0.95632,
+      "policy_drift": 0.051133,
+      "step": 1485
+    },
+    {
+      "attempted_pressure": 0.7686,
+      "capture": 0.0,
+      "chain_hash": "b0d51e1964b8e9b053e9ffae74441840ea60a7251cd293cc75d18c0e7279c9f6",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.98476,
+      "plurality": 0.96754,
+      "policy_drift": 0.051663,
+      "step": 1512
+    },
+    {
+      "attempted_pressure": 0.632,
+      "capture": 0.0,
+      "chain_hash": "306a58b9d08da34a307247ee89afe093b67f706411cf3d93d03a469686084e47",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.96808,
+      "plurality": 0.97876,
+      "policy_drift": 0.052184,
+      "step": 1539
+    },
+    {
+      "attempted_pressure": 0.6954,
+      "capture": 0.0,
+      "chain_hash": "0942a0d7b9a85f9f34f73084b015e11a7f44f5f93cdbf1ded76b61587d4292ba",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.9914,
+      "plurality": 0.98998,
+      "policy_drift": 0.052698,
+      "step": 1566
+    },
+    {
+      "attempted_pressure": 0.7588,
+      "capture": 0.0,
+      "chain_hash": "c3d6bf5889118151443a6c2d9f9b7121c4f85eb1fe8a7d537cc25078dc73bbf1",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.97472,
+      "plurality": 0.9412,
+      "policy_drift": 0.053203,
+      "step": 1593
+    },
+    {
+      "attempted_pressure": 0.6222,
+      "capture": 0.0,
+      "chain_hash": "55d697198e59b2ee367a4f510a22e15ca2ef912c97451b845f64dc611b84e8a5",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.99804,
+      "plurality": 0.95242,
+      "policy_drift": 0.053702,
+      "step": 1620
+    },
+    {
+      "attempted_pressure": 0.6856,
+      "capture": 0.0,
+      "chain_hash": "caa350718390d39783e8f55bb9ffc88709af4d1170f628bd634839c16edf9916",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.98136,
+      "plurality": 0.96364,
+      "policy_drift": 0.054192,
+      "step": 1647
+    },
+    {
+      "attempted_pressure": 0.749,
+      "capture": 0.0,
+      "chain_hash": "c29a9c2e9aaab769172b1edcfcd8caefb65cb0b90cbf40e14f0582f80b055c15",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.96468,
+      "plurality": 0.97486,
+      "policy_drift": 0.054676,
+      "step": 1674
+    },
+    {
+      "attempted_pressure": 0.6124,
+      "capture": 0.0,
+      "chain_hash": "f22c7888e6ba594c844946bb306a639b571416cc4a52fea87bc2f466d21839c6",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.988,
+      "plurality": 0.98608,
+      "policy_drift": 0.055153,
+      "step": 1701
+    },
+    {
+      "attempted_pressure": 0.6758,
+      "capture": 0.0,
+      "chain_hash": "9bad86250861fe9da97436cc7c9203eb88c32ab3b2330c4205b604a047b2bb87",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.97132,
+      "plurality": 0.9973,
+      "policy_drift": 0.055622,
+      "step": 1728
+    },
+    {
+      "attempted_pressure": 0.7392,
+      "capture": 0.0,
+      "chain_hash": "89bf90cdaf2a669eaf675a3193d41f9e2b445b71570ed5e968a85be9899f84cc",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.99464,
+      "plurality": 0.94852,
+      "policy_drift": 0.056085,
+      "step": 1755
+    },
+    {
+      "attempted_pressure": 0.6026,
+      "capture": 0.0,
+      "chain_hash": "8c7e6fbcff4a535e19444c0ef5a979b8a49caf57806cb755799f546a066c6eed",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.97796,
+      "plurality": 0.95974,
+      "policy_drift": 0.056542,
+      "step": 1782
+    },
+    {
+      "attempted_pressure": 0.666,
+      "capture": 0.0,
+      "chain_hash": "61c0c0da4b5d26de32cf8492f2161adbd5d7063588a58eb88e6ad3bd45c91e5d",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.96128,
+      "plurality": 0.97096,
+      "policy_drift": 0.056991,
+      "step": 1809
+    },
+    {
+      "attempted_pressure": 0.7294,
+      "capture": 0.0,
+      "chain_hash": "e562b02d8173e77bc1349f37c50babd809e78edc77b46ce7b270733337bb3d76",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.9846,
+      "plurality": 0.98218,
+      "policy_drift": 0.057435,
+      "step": 1836
+    },
+    {
+      "attempted_pressure": 0.7928,
+      "capture": 0.0,
+      "chain_hash": "1312683e583ce0a628f41ba54f4543681ad04073f91b06f691c60292d18bb07a",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.96792,
+      "plurality": 0.9934,
+      "policy_drift": 0.057872,
+      "step": 1863
+    },
+    {
+      "attempted_pressure": 0.6562,
+      "capture": 0.0,
+      "chain_hash": "31233d06e4c800fa0e08d1f2e0a51acbc940bf6684c2717865c20eb109ed2828",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.99124,
+      "plurality": 0.94462,
+      "policy_drift": 0.058303,
+      "step": 1890
+    },
+    {
+      "attempted_pressure": 0.7196,
+      "capture": 0.0,
+      "chain_hash": "92d7e7ec93adbca11353d2eb697f37f7036c889aef153207e6cabf8ebccf1294",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.97456,
+      "plurality": 0.95584,
+      "policy_drift": 0.058729,
+      "step": 1917
+    },
+    {
+      "attempted_pressure": 0.783,
+      "capture": 0.0,
+      "chain_hash": "babd7da427555b4b72630b761872d235f1ae2429d953ac9ca16173a379f1c138",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.99788,
+      "plurality": 0.96706,
+      "policy_drift": 0.059148,
+      "step": 1944
+    },
+    {
+      "attempted_pressure": 0.6464,
+      "capture": 0.0,
+      "chain_hash": "fc29216ac20d36ef305a1919709ae810666b332fbb0654aeabd3c7510110d06d",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.9812,
+      "plurality": 0.97828,
+      "policy_drift": 0.059562,
+      "step": 1971
+    },
+    {
+      "attempted_pressure": 0.7098,
+      "capture": 0.0,
+      "chain_hash": "50282ad8b109a747d48de7556ffffba6469d507a99284dfbfd56368160494f3f",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.96452,
+      "plurality": 0.9895,
+      "policy_drift": 0.05997,
+      "step": 1998
+    },
+    {
+      "attempted_pressure": 0.7732,
+      "capture": 0.0,
+      "chain_hash": "fb4e13550b3252e3e1f0356976a5ab1260aa98cfd6f55a014c6678630a93bc56",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.98784,
+      "plurality": 0.94072,
+      "policy_drift": 0.060373,
+      "step": 2025
+    },
+    {
+      "attempted_pressure": 0.6366,
+      "capture": 0.0,
+      "chain_hash": "194dc39b83c07fad334865a337197b12b9bd905fdd9194bab9ac775205b5b25b",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.97116,
+      "plurality": 0.95194,
+      "policy_drift": 0.06077,
+      "step": 2052
+    },
+    {
+      "attempted_pressure": 0.7,
+      "capture": 0.0,
+      "chain_hash": "1605154fafedf45bcb5efa9dc89a8470aa373b0834c9ec87505813aaadf05b3a",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.99448,
+      "plurality": 0.96316,
+      "policy_drift": 0.061162,
+      "step": 2079
+    },
+    {
+      "attempted_pressure": 0.7634,
+      "capture": 0.0,
+      "chain_hash": "8b3627654bd815efc2d95acec20eff4c609448aa0e7faf0fc1888781bb413d58",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.9778,
+      "plurality": 0.97438,
+      "policy_drift": 0.061549,
+      "step": 2106
+    },
+    {
+      "attempted_pressure": 0.6268,
+      "capture": 0.0,
+      "chain_hash": "c816e29360455f402a8a6aa06fdc846ea2ffce1a2c618ce26c999fa636db18ec",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.96112,
+      "plurality": 0.9856,
+      "policy_drift": 0.061931,
+      "step": 2133
+    },
+    {
+      "attempted_pressure": 0.6902,
+      "capture": 0.0,
+      "chain_hash": "b0e2ca7c7ae85069284dc17fe2c2ef15c156f147d5b2696eae8f2aae8dee21ce",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.98444,
+      "plurality": 0.99682,
+      "policy_drift": 0.062308,
+      "step": 2160
+    },
+    {
+      "attempted_pressure": 0.7536,
+      "capture": 0.0,
+      "chain_hash": "a4008c9e3d8f4e0be90b1accfc225759526a209a8e9f0bce6133ba4cdd8c71c5",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.96776,
+      "plurality": 0.94804,
+      "policy_drift": 0.06268,
+      "step": 2187
+    },
+    {
+      "attempted_pressure": 0.617,
+      "capture": 0.0,
+      "chain_hash": "ba2cc340fd05bebe033376f39056f231bb550efdb5eaf313631eafe73e02e332",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.99108,
+      "plurality": 0.95926,
+      "policy_drift": 0.063047,
+      "step": 2214
+    },
+    {
+      "attempted_pressure": 0.6804,
+      "capture": 0.0,
+      "chain_hash": "007f87b50962322323e1ed743022bbc90f8754c465205fb8db6ef8a8dd767fda",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.9744,
+      "plurality": 0.97048,
+      "policy_drift": 0.06341,
+      "step": 2241
+    },
+    {
+      "attempted_pressure": 0.7438,
+      "capture": 0.0,
+      "chain_hash": "ec5ab774e76fae8e342026ef603e53decad7fda427842c945b3b787067b37d26",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.99772,
+      "plurality": 0.9817,
+      "policy_drift": 0.063768,
+      "step": 2268
+    },
+    {
+      "attempted_pressure": 0.6072,
+      "capture": 0.0,
+      "chain_hash": "5005d4a61a462f5b388816f8728b980e24ca899af457fe166d5d92f063a4741e",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.98104,
+      "plurality": 0.99292,
+      "policy_drift": 0.064121,
+      "step": 2295
+    },
+    {
+      "attempted_pressure": 0.6706,
+      "capture": 0.0,
+      "chain_hash": "3832659c871768108d83d2f65e7d394a2b65941e95941823dd9ab3e0f89cb96d",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.96436,
+      "plurality": 0.94414,
+      "policy_drift": 0.06447,
+      "step": 2322
+    },
+    {
+      "attempted_pressure": 0.734,
+      "capture": 0.0,
+      "chain_hash": "2285a6981d003486c7d8e84cdef1edad28af3591a0c4ffee7757f2417ddde08b",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.98768,
+      "plurality": 0.95536,
+      "policy_drift": 0.064815,
+      "step": 2349
+    },
+    {
+      "attempted_pressure": 0.7974,
+      "capture": 0.0,
+      "chain_hash": "4da6917a97be87612656fe82cf24274bd624fb82ca51bb9b9e9b6baf2014a659",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.971,
+      "plurality": 0.96658,
+      "policy_drift": 0.065155,
+      "step": 2376
+    },
+    {
+      "attempted_pressure": 0.6608,
+      "capture": 0.0,
+      "chain_hash": "59124b7fc013e49f231aa6841d7507b52b844f7ec26fac51670c4e7639a3cc13",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.99432,
+      "plurality": 0.9778,
+      "policy_drift": 0.065492,
+      "step": 2403
+    },
+    {
+      "attempted_pressure": 0.7242,
+      "capture": 0.0,
+      "chain_hash": "34a84803c864a91cd5b695ab74ba63faa831a26b717ae1b99a07c63efc5cc8d5",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.97764,
+      "plurality": 0.98902,
+      "policy_drift": 0.065824,
+      "step": 2430
+    },
+    {
+      "attempted_pressure": 0.7876,
+      "capture": 0.0,
+      "chain_hash": "bc4ed3c7133a394c0b08c6570d5ee837f042f6f636b24e7af1ace38aa670bf88",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.96096,
+      "plurality": 0.94024,
+      "policy_drift": 0.066152,
+      "step": 2457
+    },
+    {
+      "attempted_pressure": 0.651,
+      "capture": 0.0,
+      "chain_hash": "ebaf4ea1c414a9dd181650669e7c11d56880222e9ef92ee80afdc2418344caae",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.98428,
+      "plurality": 0.95146,
+      "policy_drift": 0.066476,
+      "step": 2484
+    },
+    {
+      "attempted_pressure": 0.7144,
+      "capture": 0.0,
+      "chain_hash": "9a43bd7756c54a435afc205565c0a4435a83bbbb87649a866d056d9ab1edb722",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.9676,
+      "plurality": 0.96268,
+      "policy_drift": 0.066797,
+      "step": 2511
+    },
+    {
+      "attempted_pressure": 0.7778,
+      "capture": 0.0,
+      "chain_hash": "c82037025d5653cacae0f69accdc11ffe0262bfe29163d79c936f3af99c9b236",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.99092,
+      "plurality": 0.9739,
+      "policy_drift": 0.067113,
+      "step": 2538
+    },
+    {
+      "attempted_pressure": 0.6412,
+      "capture": 0.0,
+      "chain_hash": "69b17999ddcb6c6b689bfeea9b5b94f9254d096b4df520db4552183691b80df5",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.97424,
+      "plurality": 0.98512,
+      "policy_drift": 0.067426,
+      "step": 2565
+    },
+    {
+      "attempted_pressure": 0.7046,
+      "capture": 0.0,
+      "chain_hash": "92941f7c53d0fd70064a871380d78a3426c1a00189aa5367cb8b484305a7ac88",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.99756,
+      "plurality": 0.99634,
+      "policy_drift": 0.067735,
+      "step": 2592
+    },
+    {
+      "attempted_pressure": 0.768,
+      "capture": 0.0,
+      "chain_hash": "39df3400da7169361dbe752d20889dbc046fdccff33f98873e849b59b0fcf723",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.98088,
+      "plurality": 0.94756,
+      "policy_drift": 0.068041,
+      "step": 2619
+    },
+    {
+      "attempted_pressure": 0.6314,
+      "capture": 0.0,
+      "chain_hash": "634d3f47d98d2cb44fefd295c542353b6e4fec00014b86a1581645bc4c8bc60b",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.9642,
+      "plurality": 0.95878,
+      "policy_drift": 0.068343,
+      "step": 2646
+    },
+    {
+      "attempted_pressure": 0.6948,
+      "capture": 0.0,
+      "chain_hash": "1012b42f873de9e59caad23a1f780759c17d6056a28282d9530cf3a286e667b1",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.98752,
+      "plurality": 0.97,
+      "policy_drift": 0.068641,
+      "step": 2673
+    },
+    {
+      "attempted_pressure": 0.7582,
+      "capture": 0.0,
+      "chain_hash": "979197978652bd36cc5a330ecab9b65cb6bc9d8f53b9327d011a578d86149d0d",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.97084,
+      "plurality": 0.98122,
+      "policy_drift": 0.068936,
+      "step": 2700
+    },
+    {
+      "attempted_pressure": 0.6216,
+      "capture": 0.0,
+      "chain_hash": "a7fff0ad00da24c9518a122f208797979100b32f79333180f3347c89304d1dfd",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.99416,
+      "plurality": 0.99244,
+      "policy_drift": 0.069228,
+      "step": 2727
+    },
+    {
+      "attempted_pressure": 0.685,
+      "capture": 0.0,
+      "chain_hash": "400f60dde387a2232380441b2364432fd2e5f19510bf00001c5dedb80497b879",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.97748,
+      "plurality": 0.94366,
+      "policy_drift": 0.069516,
+      "step": 2754
+    },
+    {
+      "attempted_pressure": 0.7484,
+      "capture": 0.0,
+      "chain_hash": "df34ec3ad5a497dc1ffdfccb6de37ab124aa99c9f9e84b4ff93f6f7f1a83f5b9",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.9608,
+      "plurality": 0.95488,
+      "policy_drift": 0.069801,
+      "step": 2781
+    },
+    {
+      "attempted_pressure": 0.6118,
+      "capture": 0.0,
+      "chain_hash": "44cf42ee88a0c04f5ee50e196748c0bf3a05dad328a3452baec48343d88d81c1",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.98412,
+      "plurality": 0.9661,
+      "policy_drift": 0.070083,
+      "step": 2808
+    },
+    {
+      "attempted_pressure": 0.6752,
+      "capture": 0.0,
+      "chain_hash": "ebf9139c1e226daf74faa716ada007ac2b5f6d068d53908fc66dde23ec91dcc6",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.96744,
+      "plurality": 0.97732,
+      "policy_drift": 0.070362,
+      "step": 2835
+    },
+    {
+      "attempted_pressure": 0.7386,
+      "capture": 0.0,
+      "chain_hash": "52335c9bfd109b7ba92622639307580e104e39685da3b722eb2be4eb1e28e21c",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.99076,
+      "plurality": 0.98854,
+      "policy_drift": 0.070638,
+      "step": 2862
+    },
+    {
+      "attempted_pressure": 0.602,
+      "capture": 0.0,
+      "chain_hash": "a6042ff9fc38509ecc0fd50353f29db7c12adbba5474b2e99f1a5f787047d41e",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.97408,
+      "plurality": 0.99976,
+      "policy_drift": 0.07091,
+      "step": 2889
+    },
+    {
+      "attempted_pressure": 0.6654,
+      "capture": 0.0,
+      "chain_hash": "1aa3ac89ce55ec07740c891a6a1567a5f108ad1704f2576dc8c5daf17c5b74c1",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.9974,
+      "plurality": 0.95098,
+      "policy_drift": 0.07118,
+      "step": 2916
+    },
+    {
+      "attempted_pressure": 0.7288,
+      "capture": 0.0,
+      "chain_hash": "25ef2d3bf0e411d0f45e31df7b1ac0a38fc8b7f593c4e85321373368d30bbe34",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.98072,
+      "plurality": 0.9622,
+      "policy_drift": 0.071446,
+      "step": 2943
+    },
+    {
+      "attempted_pressure": 0.7922,
+      "capture": 0.0,
+      "chain_hash": "358e35b72b55c188f9c602c39d1b93146b517009cb8c242b1b73bfa6be870700",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.96404,
+      "plurality": 0.97342,
+      "policy_drift": 0.07171,
+      "step": 2970
+    },
+    {
+      "attempted_pressure": 0.6556,
+      "capture": 0.0,
+      "chain_hash": "43da04ef8087a504b01c79268fc792f9816d594e4de8bd0293bb488377196a1d",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.98736,
+      "plurality": 0.98464,
+      "policy_drift": 0.071971,
+      "step": 2997
+    },
+    {
+      "attempted_pressure": 0.719,
+      "capture": 0.0,
+      "chain_hash": "de10f6de9f162f9f4f5af50a9042dfc571c716fe5547c9d6c89d3409c5c7ab88",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.97068,
+      "plurality": 0.99586,
+      "policy_drift": 0.072229,
+      "step": 3024
+    },
+    {
+      "attempted_pressure": 0.7824,
+      "capture": 0.0,
+      "chain_hash": "4cdc222c5d395657012b12c5823f0f9b14710115c8370e974670d4c1ed4eb55c",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.994,
+      "plurality": 0.94708,
+      "policy_drift": 0.072485,
+      "step": 3051
+    },
+    {
+      "attempted_pressure": 0.6458,
+      "capture": 0.0,
+      "chain_hash": "a18bc4bb12feaeadedb679880101e2465fe5e3521204d876901bfaf4ecd6bf6c",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.97732,
+      "plurality": 0.9583,
+      "policy_drift": 0.072737,
+      "step": 3078
+    },
+    {
+      "attempted_pressure": 0.7092,
+      "capture": 0.0,
+      "chain_hash": "b0fac64ba4fbac236cfa7000ceed992a054edb18a74d4f1ee88b4691308f6973",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.96064,
+      "plurality": 0.96952,
+      "policy_drift": 0.072987,
+      "step": 3105
+    },
+    {
+      "attempted_pressure": 0.7726,
+      "capture": 0.0,
+      "chain_hash": "341769164c5cc95fb793dd7e26b206700f8abe5efb84f2292f40f7b7be971ed1",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.98396,
+      "plurality": 0.98074,
+      "policy_drift": 0.073235,
+      "step": 3132
+    },
+    {
+      "attempted_pressure": 0.636,
+      "capture": 0.0,
+      "chain_hash": "27fdcee2fa584c8307dba0b36c44769ac459676da2d9e2ea1c626e5f65c60df4",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.96728,
+      "plurality": 0.99196,
+      "policy_drift": 0.073479,
+      "step": 3159
+    },
+    {
+      "attempted_pressure": 0.6994,
+      "capture": 0.0,
+      "chain_hash": "84c07bbdf58c20fb858419b330332cb2064174986de88d717c8a5d2d55202359",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.9906,
+      "plurality": 0.94318,
+      "policy_drift": 0.073722,
+      "step": 3186
+    },
+    {
+      "attempted_pressure": 0.7628,
+      "capture": 0.0,
+      "chain_hash": "b45c7380f418635a01c8cb4a26ae6ff7f0441804299ad87a59f68286f9ed4124",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.97392,
+      "plurality": 0.9544,
+      "policy_drift": 0.073961,
+      "step": 3213
+    },
+    {
+      "attempted_pressure": 0.6262,
+      "capture": 0.0,
+      "chain_hash": "3a5188b66b04f5b64dd17041db4ae20a515f745362e6a55485a03f2930817708",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.99724,
+      "plurality": 0.96562,
+      "policy_drift": 0.074198,
+      "step": 3240
+    },
+    {
+      "attempted_pressure": 0.6896,
+      "capture": 0.0,
+      "chain_hash": "fa6dad494e90583522bef9b46636145fcd8f5d024165cf9f9f4625c5a81a7799",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.98056,
+      "plurality": 0.97684,
+      "policy_drift": 0.074433,
+      "step": 3267
+    },
+    {
+      "attempted_pressure": 0.753,
+      "capture": 0.0,
+      "chain_hash": "55b737587511e3bb8add1a738c00cbdd5fdc7cefdeb0093c3140b9d74939dda3",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.96388,
+      "plurality": 0.98806,
+      "policy_drift": 0.074666,
+      "step": 3294
+    },
+    {
+      "attempted_pressure": 0.6164,
+      "capture": 0.0,
+      "chain_hash": "fef5b00c9c8cd442a500c5239c0c08a273c418b2433e10cac4b4eb857a42dbaa",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.9872,
+      "plurality": 0.99928,
+      "policy_drift": 0.074896,
+      "step": 3321
+    },
+    {
+      "attempted_pressure": 0.6798,
+      "capture": 0.0,
+      "chain_hash": "78338f937bb587ebc6d6312fe02516a2f6f86a044d828c9e90b79cee0432766e",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.97052,
+      "plurality": 0.9505,
+      "policy_drift": 0.075123,
+      "step": 3348
+    },
+    {
+      "attempted_pressure": 0.7432,
+      "capture": 0.0,
+      "chain_hash": "7af0312a0a6e0b59e02d3f79d886cb934ef65b619fd6c7be4d8a18a920402398",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.99384,
+      "plurality": 0.96172,
+      "policy_drift": 0.075349,
+      "step": 3375
+    },
+    {
+      "attempted_pressure": 0.6066,
+      "capture": 0.0,
+      "chain_hash": "68d47eae7034ce860cf88d0da4631660c208d12a066350a57dc5cfde325b4e3f",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.97716,
+      "plurality": 0.97294,
+      "policy_drift": 0.075572,
+      "step": 3402
+    },
+    {
+      "attempted_pressure": 0.67,
+      "capture": 0.0,
+      "chain_hash": "f02cf86dd5e25b3572cb9bcfc922fc660885f4f48e9b1b1453cbecf02f4274b3",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.96048,
+      "plurality": 0.98416,
+      "policy_drift": 0.075793,
+      "step": 3429
+    },
+    {
+      "attempted_pressure": 0.7334,
+      "capture": 0.0,
+      "chain_hash": "ffb722043770076e0fd606dcd903bcae516687ced7c0551167c36de217018bb1",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.9838,
+      "plurality": 0.99538,
+      "policy_drift": 0.076012,
+      "step": 3456
+    },
+    {
+      "attempted_pressure": 0.7968,
+      "capture": 0.0,
+      "chain_hash": "87394407da80744bfe35802bb469d0e3880f0c5e1c24c89dfdc1eb6742275cbf",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.96712,
+      "plurality": 0.9466,
+      "policy_drift": 0.076228,
+      "step": 3483
+    },
+    {
+      "attempted_pressure": 0.6602,
+      "capture": 0.0,
+      "chain_hash": "9bd3cc896cc4a210cd40143b5a6483a84354d70480e655a2206a91ba18287980",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.99044,
+      "plurality": 0.95782,
+      "policy_drift": 0.076443,
+      "step": 3510
+    },
+    {
+      "attempted_pressure": 0.7236,
+      "capture": 0.0,
+      "chain_hash": "5f1745db38aff5a3bbb428ccff3d5450ae28094905f95584e504356041038f1c",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.97376,
+      "plurality": 0.96904,
+      "policy_drift": 0.076655,
+      "step": 3537
+    },
+    {
+      "attempted_pressure": 0.787,
+      "capture": 0.0,
+      "chain_hash": "72ff292c7bad4c07ed271f648d053ef8464a1e05efe9ea42a639d68dad56762e",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.99708,
+      "plurality": 0.98026,
+      "policy_drift": 0.076866,
+      "step": 3564
+    },
+    {
+      "attempted_pressure": 0.6504,
+      "capture": 0.0,
+      "chain_hash": "53d098e80bb36d14c6f0db798bb6974f03c1d57f1d23d972f94a79006c1bcaa0",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.9804,
+      "plurality": 0.99148,
+      "policy_drift": 0.077074,
+      "step": 3591
+    },
+    {
+      "attempted_pressure": 0.7138,
+      "capture": 0.0,
+      "chain_hash": "62f1e34a3e1d2841fba881d846e571372b09ba39e993996a6971175365a4f9ea",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.96372,
+      "plurality": 0.9427,
+      "policy_drift": 0.07728,
+      "step": 3618
+    },
+    {
+      "attempted_pressure": 0.7772,
+      "capture": 0.0,
+      "chain_hash": "0306dafdb2c1797b0b6c029838596db998fa9d4720ed7550d5966e6e95d9b610",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.98704,
+      "plurality": 0.95392,
+      "policy_drift": 0.077484,
+      "step": 3645
+    },
+    {
+      "attempted_pressure": 0.6406,
+      "capture": 0.0,
+      "chain_hash": "740daed8e6438aaf84a609c069ee1347ed1c8156f869a34d267949cd6e60eb7b",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.97036,
+      "plurality": 0.96514,
+      "policy_drift": 0.077687,
+      "step": 3672
+    },
+    {
+      "attempted_pressure": 0.704,
+      "capture": 0.0,
+      "chain_hash": "57de7c3cdb795dbda9cac2623d132b326f1a72770a74d29854f98c04f55dd621",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.99368,
+      "plurality": 0.97636,
+      "policy_drift": 0.077887,
+      "step": 3699
+    },
+    {
+      "attempted_pressure": 0.7674,
+      "capture": 0.0,
+      "chain_hash": "a8a21e3b8a0acdb9c13e877a2eaae50da0c7373151856e20af55b8480b9ff7f4",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.977,
+      "plurality": 0.98758,
+      "policy_drift": 0.078086,
+      "step": 3726
+    },
+    {
+      "attempted_pressure": 0.6308,
+      "capture": 0.0,
+      "chain_hash": "00df553c64a50e57dd646d89eaf8d06fd1883aff5df8258b420f20bbf214e139",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.96032,
+      "plurality": 0.9988,
+      "policy_drift": 0.078283,
+      "step": 3753
+    },
+    {
+      "attempted_pressure": 0.6942,
+      "capture": 0.0,
+      "chain_hash": "9abfb0897506bc36bf385ad26d0407f3b79c152659c9371588840aa74f3eb6d0",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.98364,
+      "plurality": 0.95002,
+      "policy_drift": 0.078478,
+      "step": 3780
+    },
+    {
+      "attempted_pressure": 0.7576,
+      "capture": 0.0,
+      "chain_hash": "15be66832f29650166b7dd07a4b738fd9165eec3451c81d9213ce3c7d8ee7386",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.96696,
+      "plurality": 0.96124,
+      "policy_drift": 0.078671,
+      "step": 3807
+    },
+    {
+      "attempted_pressure": 0.621,
+      "capture": 0.0,
+      "chain_hash": "0ffa1b39f55bd42cf1fd2a8c14c93aa44404622a6b25c166f8d02e50cd3be447",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.99028,
+      "plurality": 0.97246,
+      "policy_drift": 0.078862,
+      "step": 3834
+    },
+    {
+      "attempted_pressure": 0.6844,
+      "capture": 0.0,
+      "chain_hash": "8f71a66996dc616f304462418995c9311c43e6f881944e15ac4a20729c33e71f",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.9736,
+      "plurality": 0.98368,
+      "policy_drift": 0.079051,
+      "step": 3861
+    },
+    {
+      "attempted_pressure": 0.7478,
+      "capture": 0.0,
+      "chain_hash": "4f4836ddace7ac792d406bc1d039831a2674e4182bfbff244ff877aea2bb66e0",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.99692,
+      "plurality": 0.9949,
+      "policy_drift": 0.079239,
+      "step": 3888
+    },
+    {
+      "attempted_pressure": 0.6112,
+      "capture": 0.0,
+      "chain_hash": "0281dacdc636ef7dbf8a487de7e25175beb5234d46768d48fe20cf7dcacef3c7",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.98024,
+      "plurality": 0.94612,
+      "policy_drift": 0.079425,
+      "step": 3915
+    },
+    {
+      "attempted_pressure": 0.6746,
+      "capture": 0.0,
+      "chain_hash": "5ee52a931dbfcff7b3c8ad1458feb94fac8b239a9ce9d2e578944f03406a55dd",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.96356,
+      "plurality": 0.95734,
+      "policy_drift": 0.07961,
+      "step": 3942
+    },
+    {
+      "attempted_pressure": 0.738,
+      "capture": 0.0,
+      "chain_hash": "99897d787942148f0dfe3916e061f0166e4a89e9a551e7855e788ef718fa78d8",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.98688,
+      "plurality": 0.96856,
+      "policy_drift": 0.079792,
+      "step": 3969
+    },
+    {
+      "attempted_pressure": 0.6014,
+      "capture": 0.0,
+      "chain_hash": "152713dfd4f0020071fdb7bc531588880d9e5ad7da40d049c41b84ac2489a4f2",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.9702,
+      "plurality": 0.97978,
+      "policy_drift": 0.079973,
+      "step": 3996
+    },
+    {
+      "attempted_pressure": 0.6648,
+      "capture": 0.0,
+      "chain_hash": "bc36836bec51e4b3e33c98d862ea0430ecd5aa89eb7a304e497dc06bd9cb5958",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.99352,
+      "plurality": 0.991,
+      "policy_drift": 0.080153,
+      "step": 4023
+    },
+    {
+      "attempted_pressure": 0.7282,
+      "capture": 0.0,
+      "chain_hash": "339b9e80520d371b81ec300955ea99eb140c0aa43f0df68a2579db51948d782d",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.97684,
+      "plurality": 0.94222,
+      "policy_drift": 0.080331,
+      "step": 4050
+    },
+    {
+      "attempted_pressure": 0.7916,
+      "capture": 0.0,
+      "chain_hash": "0d2d4825d60801401e5ccbb162007cce98a8ba2c6935c6a2a53e3f6bab5c630b",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.96016,
+      "plurality": 0.95344,
+      "policy_drift": 0.080507,
+      "step": 4077
+    },
+    {
+      "attempted_pressure": 0.655,
+      "capture": 0.0,
+      "chain_hash": "a6bf63bf3753dd2606b72014b774ad7f752c518c1cfa4df4dc7bada26cbfe9b6",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.98348,
+      "plurality": 0.96466,
+      "policy_drift": 0.080682,
+      "step": 4104
+    },
+    {
+      "attempted_pressure": 0.7184,
+      "capture": 0.0,
+      "chain_hash": "4e7707275345b67e2382f78a6ffc13ec52ee495b186bf061390af36ffe934bc5",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.9668,
+      "plurality": 0.97588,
+      "policy_drift": 0.080855,
+      "step": 4131
+    },
+    {
+      "attempted_pressure": 0.7818,
+      "capture": 0.0,
+      "chain_hash": "b6b09d80168990c9202049bd5786ed45ed55f2a2364fad58b7113e9fc77ee05f",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.99012,
+      "plurality": 0.9871,
+      "policy_drift": 0.081026,
+      "step": 4158
+    },
+    {
+      "attempted_pressure": 0.6452,
+      "capture": 0.0,
+      "chain_hash": "8e8a29e80ef54fd7dc591f77f09f37b09a0a2d9836d148c39c6017432a6e13dc",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.97344,
+      "plurality": 0.99832,
+      "policy_drift": 0.081196,
+      "step": 4185
+    },
+    {
+      "attempted_pressure": 0.7086,
+      "capture": 0.0,
+      "chain_hash": "c71ae1bcc5d7995e7a7c676d176f395380a35323d676b6359795a477b7a5e2b2",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.99676,
+      "plurality": 0.94954,
+      "policy_drift": 0.081365,
+      "step": 4212
+    },
+    {
+      "attempted_pressure": 0.772,
+      "capture": 0.0,
+      "chain_hash": "f202a32a05da46cbcf1919879529411a033fdd3d6a5ac73042a3bc3ce4cadd0f",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.98008,
+      "plurality": 0.96076,
+      "policy_drift": 0.081532,
+      "step": 4239
+    },
+    {
+      "attempted_pressure": 0.6354,
+      "capture": 0.0,
+      "chain_hash": "932be30c1f697d9f0fe9b19734524bedd02001b52a3ef595f9f165e2a4dfda17",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.9634,
+      "plurality": 0.97198,
+      "policy_drift": 0.081698,
+      "step": 4266
+    },
+    {
+      "attempted_pressure": 0.6988,
+      "capture": 0.0,
+      "chain_hash": "e9fcd11a298ffe68799b182e944160984d6b9de36ec7dc2e09d385e7de68032e",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.98672,
+      "plurality": 0.9832,
+      "policy_drift": 0.081862,
+      "step": 4293
+    },
+    {
+      "attempted_pressure": 0.7622,
+      "capture": 0.0,
+      "chain_hash": "824128d462da98875698d463ba992e27a74e33238a23e270109424014f046969",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.97004,
+      "plurality": 0.99442,
+      "policy_drift": 0.082025,
+      "step": 4320
+    },
+    {
+      "attempted_pressure": 0.6256,
+      "capture": 0.0,
+      "chain_hash": "a9b355ba98240c0c80ca22473d86808ad895a19e39c8e54042954bda63ba0118",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.99336,
+      "plurality": 0.94564,
+      "policy_drift": 0.082187,
+      "step": 4347
+    },
+    {
+      "attempted_pressure": 0.689,
+      "capture": 0.0,
+      "chain_hash": "42f53a4806a00df1ea77b167a76f67163a2754df215bb768671a01797e3a4b42",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.97668,
+      "plurality": 0.95686,
+      "policy_drift": 0.082347,
+      "step": 4374
+    },
+    {
+      "attempted_pressure": 0.7524,
+      "capture": 0.0,
+      "chain_hash": "35398b40af903f0068adf1902484aeda92c20b591f644aaacd10dc82962dadc2",
+      "event_type": "policy_drift",
+      "novelty_visibility": 1.0,
+      "plurality": 0.96808,
+      "policy_drift": 0.082506,
+      "step": 4401
+    },
+    {
+      "attempted_pressure": 0.6158,
+      "capture": 0.0,
+      "chain_hash": "d1d044aae6039d209c12d8b247b6824764eceb54fbf24cad47a22ec5c582b984",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.98332,
+      "plurality": 0.9793,
+      "policy_drift": 0.082663,
+      "step": 4428
+    },
+    {
+      "attempted_pressure": 0.6792,
+      "capture": 0.0,
+      "chain_hash": "9e54b1d4f89843f474bab82cd4abc3068783dfea9ea00e54de93170b495908c5",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.96664,
+      "plurality": 0.99052,
+      "policy_drift": 0.08282,
+      "step": 4455
+    },
+    {
+      "attempted_pressure": 0.7426,
+      "capture": 0.0,
+      "chain_hash": "8994e704f508da2c92c77324588938594e69a879fb770f38d62b9dfe629a6d00",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.98996,
+      "plurality": 0.94174,
+      "policy_drift": 0.082974,
+      "step": 4482
+    },
+    {
+      "attempted_pressure": 0.606,
+      "capture": 0.0,
+      "chain_hash": "8a5f5a0f47c21ab1051ed799a14fb0adbd537ff201a6e84b6427f4f23f239757",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.97328,
+      "plurality": 0.95296,
+      "policy_drift": 0.083128,
+      "step": 4509
+    },
+    {
+      "attempted_pressure": 0.6694,
+      "capture": 0.0,
+      "chain_hash": "82e253f1c095dc911a05e1342612de69904ddde364d2bf069c8cbe9f23000c9e",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.9966,
+      "plurality": 0.96418,
+      "policy_drift": 0.08328,
+      "step": 4536
+    },
+    {
+      "attempted_pressure": 0.7328,
+      "capture": 0.0,
+      "chain_hash": "41a57a2be7d2f0c20a207b1de3de3e4039591e82f0ba8da9817fff420a5f9296",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.97992,
+      "plurality": 0.9754,
+      "policy_drift": 0.083431,
+      "step": 4563
+    },
+    {
+      "attempted_pressure": 0.7962,
+      "capture": 0.0,
+      "chain_hash": "e087d73d49bcdd0ec6dc5dfec73145cff08b59a869bfa9d9e7294d7a506a6318",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.96324,
+      "plurality": 0.98662,
+      "policy_drift": 0.083581,
+      "step": 4590
+    },
+    {
+      "attempted_pressure": 0.6596,
+      "capture": 0.0,
+      "chain_hash": "e80ebc29d7d7b8182fbb38d2eb5cec3a0cbc513896389d43fd0584324343d550",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.98656,
+      "plurality": 0.99784,
+      "policy_drift": 0.08373,
+      "step": 4617
+    },
+    {
+      "attempted_pressure": 0.723,
+      "capture": 0.0,
+      "chain_hash": "e3c0318fe50644e121f2c94dd5d5137d335465ad4a7646b5b4e563a7ce043d0f",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.96988,
+      "plurality": 0.94906,
+      "policy_drift": 0.083877,
+      "step": 4644
+    },
+    {
+      "attempted_pressure": 0.7864,
+      "capture": 0.0,
+      "chain_hash": "d25019b883f4ebcfdc1f29df1567239ea944f0afd5a66990063d673ec1665a5b",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.9932,
+      "plurality": 0.96028,
+      "policy_drift": 0.084023,
+      "step": 4671
+    },
+    {
+      "attempted_pressure": 0.6498,
+      "capture": 0.0,
+      "chain_hash": "48a7db99e286827d21a4cdb3bf5da5a807c61ff2c874a8c71831315aba7f0894",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.97652,
+      "plurality": 0.9715,
+      "policy_drift": 0.084168,
+      "step": 4698
+    },
+    {
+      "attempted_pressure": 0.7132,
+      "capture": 0.0,
+      "chain_hash": "e245c6789b1b68a1454cbe16254cd0c0820e087519bc50f3f1656e7b55355e51",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.99984,
+      "plurality": 0.98272,
+      "policy_drift": 0.084312,
+      "step": 4725
+    },
+    {
+      "attempted_pressure": 0.7766,
+      "capture": 0.0,
+      "chain_hash": "f569c5f14f8caf0b84ea18b137437b519f0df3bf81b50ddd99d27d86e3781e46",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.98316,
+      "plurality": 0.99394,
+      "policy_drift": 0.084455,
+      "step": 4752
+    },
+    {
+      "attempted_pressure": 0.64,
+      "capture": 0.0,
+      "chain_hash": "001d8910ee9f4cd8fdb42446321c514d53ff1d385bcb5a45b27c84f2a443aaeb",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.96648,
+      "plurality": 0.94516,
+      "policy_drift": 0.084597,
+      "step": 4779
+    },
+    {
+      "attempted_pressure": 0.7034,
+      "capture": 0.0,
+      "chain_hash": "61fed2dfe475e782dfc6d11b807ae1125ac898ad7af3c765585a0d8a29e38aed",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.9898,
+      "plurality": 0.95638,
+      "policy_drift": 0.084737,
+      "step": 4806
+    },
+    {
+      "attempted_pressure": 0.7668,
+      "capture": 0.0,
+      "chain_hash": "238dbb6fd097ea99ee2febc5c51111382d6da40e17cd4ae9673d9222ab94b645",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.97312,
+      "plurality": 0.9676,
+      "policy_drift": 0.084876,
+      "step": 4833
+    },
+    {
+      "attempted_pressure": 0.6302,
+      "capture": 0.0,
+      "chain_hash": "6d8adb01e6bd777fbc2f8bc7caee18e3eed5b6d18b4c34af138f6b6ffa35fa69",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.99644,
+      "plurality": 0.97882,
+      "policy_drift": 0.085015,
+      "step": 4860
+    },
+    {
+      "attempted_pressure": 0.6936,
+      "capture": 0.0,
+      "chain_hash": "60f6e37c78862fce151a7f02b49faa46b3d612d4b48e6acb56efb400b49a7bb3",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.97976,
+      "plurality": 0.99004,
+      "policy_drift": 0.085152,
+      "step": 4887
+    },
+    {
+      "attempted_pressure": 0.757,
+      "capture": 0.0,
+      "chain_hash": "a41ece74ef7a75d19ff66285e683e7448f07aca83b1065c2e79f00ce36ad8fbd",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.96308,
+      "plurality": 0.94126,
+      "policy_drift": 0.085288,
+      "step": 4914
+    },
+    {
+      "attempted_pressure": 0.6204,
+      "capture": 0.0,
+      "chain_hash": "4e0dc6cdd4896c0542db0c165a0a894235120336128eca3ceddbe3bea8b8ec15",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.9864,
+      "plurality": 0.95248,
+      "policy_drift": 0.085423,
+      "step": 4941
+    },
+    {
+      "attempted_pressure": 0.6838,
+      "capture": 0.0,
+      "chain_hash": "7973f11473445f0e8fa3c615524f571da3994165f786b94a0513101cbe6b909c",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.96972,
+      "plurality": 0.9637,
+      "policy_drift": 0.085557,
+      "step": 4968
+    },
+    {
+      "attempted_pressure": 0.7472,
+      "capture": 0.0,
+      "chain_hash": "c08194205007c4b35bb5b2c5dc28a218af656db815917a0adb80977d360245d6",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.99304,
+      "plurality": 0.97492,
+      "policy_drift": 0.08569,
+      "step": 4995
+    },
+    {
+      "attempted_pressure": 0.6106,
+      "capture": 0.0,
+      "chain_hash": "5473542991211239088005dd86bc76dd11337f3da501f078dc033d69820fc5ba",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.97636,
+      "plurality": 0.98614,
+      "policy_drift": 0.085822,
+      "step": 5022
+    },
+    {
+      "attempted_pressure": 0.674,
+      "capture": 0.0,
+      "chain_hash": "47745e69affd4565316169b3a1b07ebf0d21baa01106a442a1132ed05e2ae207",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.99968,
+      "plurality": 0.99736,
+      "policy_drift": 0.085953,
+      "step": 5049
+    },
+    {
+      "attempted_pressure": 0.7374,
+      "capture": 0.0,
+      "chain_hash": "9d3a7b4c9f6e70f6595adb08e33353ce63afd1df399f9398cb5f78d5baa5b9e0",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.983,
+      "plurality": 0.94858,
+      "policy_drift": 0.086083,
+      "step": 5076
+    },
+    {
+      "attempted_pressure": 0.6008,
+      "capture": 0.0,
+      "chain_hash": "cf2cb8f22cdcbaa7f676a0128efe1c360b5b28a84e84f6f390aede70de33be97",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.96632,
+      "plurality": 0.9598,
+      "policy_drift": 0.086211,
+      "step": 5103
+    },
+    {
+      "attempted_pressure": 0.6642,
+      "capture": 0.0,
+      "chain_hash": "6f63fab7bddb2f1fc44385b2830e691dad528e5f4fcd8e27f37c7576f3d8c3ba",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.98964,
+      "plurality": 0.97102,
+      "policy_drift": 0.086339,
+      "step": 5130
+    },
+    {
+      "attempted_pressure": 0.7276,
+      "capture": 0.0,
+      "chain_hash": "5894f52e9bde97f8d18997b0a3d36bdea50a39fa5e7b46ae17ebdac63ec84601",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.97296,
+      "plurality": 0.98224,
+      "policy_drift": 0.086466,
+      "step": 5157
+    },
+    {
+      "attempted_pressure": 0.791,
+      "capture": 0.0,
+      "chain_hash": "d84ec5ffc719e7d22caa3d05fd2870bf905fa84aca01f0be30029b2dc337c199",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.99628,
+      "plurality": 0.99346,
+      "policy_drift": 0.086592,
+      "step": 5184
+    },
+    {
+      "attempted_pressure": 0.6544,
+      "capture": 0.0,
+      "chain_hash": "e0982663bd1b053bc347022acb5f05d10ce7ae2b805d64d96623354c584f3ecb",
+      "event_type": "exploration_collapse",
+      "novelty_visibility": 0.9796,
+      "plurality": 0.94468,
+      "policy_drift": 0.086718,
+      "step": 5211
+    },
+    {
+      "attempted_pressure": 0.7178,
+      "capture": 0.0,
+      "chain_hash": "6742e5f12e204bf4085819f8224dbd38129ff50f1e07c69b6168c0d10483761a",
+      "event_type": "failed_exploration",
+      "novelty_visibility": 0.96292,
+      "plurality": 0.9559,
+      "policy_drift": 0.086842,
+      "step": 5238
+    },
+    {
+      "attempted_pressure": 0.7812,
+      "capture": 0.0,
+      "chain_hash": "a788c1339f326f88e6f6e5953b80db3fc30ddd2b3e5e3a14d9442751dae8d1f4",
+      "event_type": "non_stationary_shift",
+      "novelty_visibility": 0.98624,
+      "plurality": 0.96712,
+      "policy_drift": 0.086965,
+      "step": 5265
+    },
+    {
+      "attempted_pressure": 0.6446,
+      "capture": 0.0,
+      "chain_hash": "28b82ca66faedb232f0f03846ae58639af671e7c9cf1c4c39fa9cd4f6030c5d7",
+      "event_type": "variable_action_space",
+      "novelty_visibility": 0.96956,
+      "plurality": 0.97834,
+      "policy_drift": 0.087087,
+      "step": 5292
+    },
+    {
+      "attempted_pressure": 0.708,
+      "capture": 0.0,
+      "chain_hash": "205b2f8e2469da42f86f06812d273441b06fbdf0c6285035f100e2355dd18e9b",
+      "event_type": "novelty_decay",
+      "novelty_visibility": 0.99288,
+      "plurality": 0.98956,
+      "policy_drift": 0.087209,
+      "step": 5319
+    },
+    {
+      "attempted_pressure": 0.7714,
+      "capture": 0.0,
+      "chain_hash": "69bb4fda4d486d8d017af554fc49733983bfb04127bd72158b2fb73c1640e2f2",
+      "event_type": "policy_drift",
+      "novelty_visibility": 0.9762,
+      "plurality": 0.94078,
+      "policy_drift": 0.087329,
+      "step": 5346
+    },
+    {
+      "attempted_pressure": 0.6348,
+      "capture": 0.0,
+      "chain_hash": "abec9eb268a43355f49132c9dc53e8bda6597ad02de41fcc4923f6c40651426e",
+      "event_type": "skill_stitching",
+      "novelty_visibility": 0.99952,
+      "plurality": 0.952,
+      "policy_drift": 0.087449,
+      "step": 5373
+    }
+  ],
+  "schema_version": "v19_3_long_horizon_exploration_ecology",
+  "steps": 5500,
+  "trajectory_capture_resistance": 1.0
+}

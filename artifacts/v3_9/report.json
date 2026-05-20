@@ -1,0 +1,1005 @@
+{
+  "contamination": {
+    "checked_pool_count": 6,
+    "contamination_risk": 0.0,
+    "hits": [],
+    "introduced_count": 45,
+    "per_pool_hits": {
+      "v1_5_main": 0,
+      "v1_9_tools": 0,
+      "v2_3_multistep": 0,
+      "v3_4_frame": 0,
+      "v3_5_invariance": 0,
+      "v3_8_context_probe": 0
+    },
+    "per_source_hits": {}
+  },
+  "corpus_outcomes": [
+    {
+      "case_id": "A.v35nc:N01-thermo-vs-info.a",
+      "classification": "frame_confirmed",
+      "correct": true,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": "thermodynamic",
+      "outer_detected": "thermodynamic",
+      "score": 1.0
+    },
+    {
+      "case_id": "A.v35nc:N01-thermo-vs-info.b",
+      "classification": "frame_confirmed",
+      "correct": true,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": "information_theoretic",
+      "outer_detected": "information_theoretic",
+      "score": 1.0
+    },
+    {
+      "case_id": "A.v35nc:N02-info-vs-metaphor.a",
+      "classification": "frame_confirmed",
+      "correct": true,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": "information_theoretic",
+      "outer_detected": "information_theoretic",
+      "score": 1.0
+    },
+    {
+      "case_id": "A.v35nc:N02-info-vs-metaphor.b",
+      "classification": "frame_confirmed",
+      "correct": true,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": "metaphorical",
+      "outer_detected": "metaphorical",
+      "score": 1.0
+    },
+    {
+      "case_id": "A.v35nc:N03-ontological-vs-empirical.a",
+      "classification": "frame_confirmed",
+      "correct": true,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": "ontological_distinguishability",
+      "outer_detected": "ontological_distinguishability",
+      "score": 1.0
+    },
+    {
+      "case_id": "A.v35nc:N03-ontological-vs-empirical.b",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": null,
+      "outer_detected": "empirical_causal",
+      "score": 0.0
+    },
+    {
+      "case_id": "A.v35nc:N04-metaphor-vs-tool.a",
+      "classification": "frame_confirmed",
+      "correct": true,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": "metaphorical",
+      "outer_detected": "metaphorical",
+      "score": 1.0
+    },
+    {
+      "case_id": "A.v35nc:N04-metaphor-vs-tool.b",
+      "classification": "frame_confirmed",
+      "correct": true,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": "tool_computable",
+      "outer_detected": "tool_computable",
+      "score": 1.0
+    },
+    {
+      "case_id": "A.v35nc:N05-formal-vs-causal.a",
+      "classification": "frame_confirmed",
+      "correct": true,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": "formal_logic",
+      "outer_detected": "formal_logic",
+      "score": 1.0
+    },
+    {
+      "case_id": "A.v35nc:N05-formal-vs-causal.b",
+      "classification": "frame_confirmed",
+      "correct": true,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": "empirical_causal",
+      "outer_detected": "empirical_causal",
+      "score": 1.0
+    },
+    {
+      "case_id": "A.v35nc:N06-causal-vs-authority.a",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": null,
+      "outer_detected": "empirical_causal",
+      "score": 0.0
+    },
+    {
+      "case_id": "A.v35nc:N06-causal-vs-authority.b",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": null,
+      "outer_detected": "authority_speech",
+      "score": 0.0
+    },
+    {
+      "case_id": "A.v35nc:N07-authority-vs-tool.a",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": null,
+      "outer_detected": "authority_speech",
+      "score": 0.0
+    },
+    {
+      "case_id": "A.v35nc:N07-authority-vs-tool.b",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": null,
+      "outer_detected": "tool_computable",
+      "score": 0.0
+    },
+    {
+      "case_id": "A.v35nc:N08-tool-vs-thermo.a",
+      "classification": "frame_confirmed",
+      "correct": true,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": "tool_computable",
+      "outer_detected": "tool_computable",
+      "score": 1.0
+    },
+    {
+      "case_id": "A.v35nc:N08-tool-vs-thermo.b",
+      "classification": "frame_confirmed",
+      "correct": true,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": "thermodynamic",
+      "outer_detected": "thermodynamic",
+      "score": 1.0
+    },
+    {
+      "case_id": "A.v38fn-aligned:FN01",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": null,
+      "outer_detected": "metaphorical",
+      "score": 0.0
+    },
+    {
+      "case_id": "A.v38fn-aligned:FN02",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": null,
+      "outer_detected": "metaphorical",
+      "score": 0.0
+    },
+    {
+      "case_id": "A.v38fn-aligned:FN03",
+      "classification": "frame_confirmed",
+      "correct": true,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": "thermodynamic",
+      "outer_detected": "thermodynamic",
+      "score": 1.0
+    },
+    {
+      "case_id": "A.v38fn-aligned:FN04",
+      "classification": "frame_confirmed",
+      "correct": true,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": "information_theoretic",
+      "outer_detected": "information_theoretic",
+      "score": 1.0
+    },
+    {
+      "case_id": "A.v38fn-aligned:FN05",
+      "classification": "frame_confirmed",
+      "correct": true,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": "thermodynamic",
+      "outer_detected": "thermodynamic",
+      "score": 1.0
+    },
+    {
+      "case_id": "A.v38fn-aligned:FN06",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": null,
+      "outer_detected": "metaphorical",
+      "score": 0.0
+    },
+    {
+      "case_id": "A.v38fn-aligned:FN07",
+      "classification": "frame_confirmed",
+      "correct": true,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": "formal_logic",
+      "outer_detected": "formal_logic",
+      "score": 1.0
+    },
+    {
+      "case_id": "A.v38fn-aligned:FN08",
+      "classification": "frame_confirmed",
+      "correct": true,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": "authority_speech",
+      "outer_detected": "authority_speech",
+      "score": 1.0
+    },
+    {
+      "case_id": "A.v38fn-aligned:FN09",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": null,
+      "outer_detected": "tool_computable",
+      "score": 0.0
+    },
+    {
+      "case_id": "A.v38fn-aligned:FN10",
+      "classification": "frame_confirmed",
+      "correct": true,
+      "ground_truth_relation": "frame_confirmed",
+      "group": "outer_eq_inner",
+      "inner_detected": "ontological_distinguishability",
+      "outer_detected": "ontological_distinguishability",
+      "score": 1.0
+    },
+    {
+      "case_id": "B.v38fn:FN01",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_neq_inner",
+      "inner_detected": null,
+      "outer_detected": "information_theoretic",
+      "score": 0.0
+    },
+    {
+      "case_id": "B.v38fn:FN02",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_neq_inner",
+      "inner_detected": null,
+      "outer_detected": "information_theoretic",
+      "score": 0.0
+    },
+    {
+      "case_id": "B.v38fn:FN03",
+      "classification": "frame_tension",
+      "correct": true,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_neq_inner",
+      "inner_detected": "thermodynamic",
+      "outer_detected": "information_theoretic",
+      "score": 0.5
+    },
+    {
+      "case_id": "B.v38fn:FN04",
+      "classification": "frame_tension",
+      "correct": true,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_neq_inner",
+      "inner_detected": "information_theoretic",
+      "outer_detected": "thermodynamic",
+      "score": 0.5
+    },
+    {
+      "case_id": "B.v38fn:FN05",
+      "classification": "frame_tension",
+      "correct": true,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_neq_inner",
+      "inner_detected": "thermodynamic",
+      "outer_detected": "metaphorical",
+      "score": 0.5
+    },
+    {
+      "case_id": "B.v38fn:FN06",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_neq_inner",
+      "inner_detected": null,
+      "outer_detected": "information_theoretic",
+      "score": 0.0
+    },
+    {
+      "case_id": "B.v38fn:FN07",
+      "classification": "frame_tension",
+      "correct": true,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_neq_inner",
+      "inner_detected": "formal_logic",
+      "outer_detected": "empirical_causal",
+      "score": 0.5
+    },
+    {
+      "case_id": "B.v38fn:FN08",
+      "classification": "frame_tension",
+      "correct": true,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_neq_inner",
+      "inner_detected": "authority_speech",
+      "outer_detected": "empirical_causal",
+      "score": 0.5
+    },
+    {
+      "case_id": "B.v38fn:FN09",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_conflict",
+      "group": "outer_neq_inner",
+      "inner_detected": null,
+      "outer_detected": "authority_speech",
+      "score": 0.0
+    },
+    {
+      "case_id": "B.v38fn:FN10",
+      "classification": "frame_conflict",
+      "correct": true,
+      "ground_truth_relation": "frame_conflict",
+      "group": "outer_neq_inner",
+      "inner_detected": "ontological_distinguishability",
+      "outer_detected": "thermodynamic",
+      "score": 0.0
+    },
+    {
+      "case_id": "B.v35-swap:N01-thermo-vs-info.a-with-b",
+      "classification": "frame_tension",
+      "correct": true,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_neq_inner",
+      "inner_detected": "thermodynamic",
+      "outer_detected": "information_theoretic",
+      "score": 0.5
+    },
+    {
+      "case_id": "B.v35-swap:N01-thermo-vs-info.b-with-a",
+      "classification": "frame_tension",
+      "correct": true,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_neq_inner",
+      "inner_detected": "information_theoretic",
+      "outer_detected": "thermodynamic",
+      "score": 0.5
+    },
+    {
+      "case_id": "B.v35-swap:N02-info-vs-metaphor.a-with-b",
+      "classification": "frame_tension",
+      "correct": true,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_neq_inner",
+      "inner_detected": "information_theoretic",
+      "outer_detected": "metaphorical",
+      "score": 0.5
+    },
+    {
+      "case_id": "B.v35-swap:N02-info-vs-metaphor.b-with-a",
+      "classification": "frame_tension",
+      "correct": true,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_neq_inner",
+      "inner_detected": "metaphorical",
+      "outer_detected": "information_theoretic",
+      "score": 0.5
+    },
+    {
+      "case_id": "B.v35-swap:N03-ontological-vs-empirical.a-with-b",
+      "classification": "frame_conflict",
+      "correct": true,
+      "ground_truth_relation": "frame_conflict",
+      "group": "outer_neq_inner",
+      "inner_detected": "ontological_distinguishability",
+      "outer_detected": "empirical_causal",
+      "score": 0.0
+    },
+    {
+      "case_id": "B.v35-swap:N03-ontological-vs-empirical.b-with-a",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_conflict",
+      "group": "outer_neq_inner",
+      "inner_detected": null,
+      "outer_detected": "ontological_distinguishability",
+      "score": 0.0
+    },
+    {
+      "case_id": "B.v35-swap:N04-metaphor-vs-tool.a-with-b",
+      "classification": "frame_conflict",
+      "correct": true,
+      "ground_truth_relation": "frame_conflict",
+      "group": "outer_neq_inner",
+      "inner_detected": "metaphorical",
+      "outer_detected": "tool_computable",
+      "score": 0.0
+    },
+    {
+      "case_id": "B.v35-swap:N04-metaphor-vs-tool.b-with-a",
+      "classification": "frame_conflict",
+      "correct": true,
+      "ground_truth_relation": "frame_conflict",
+      "group": "outer_neq_inner",
+      "inner_detected": "tool_computable",
+      "outer_detected": "metaphorical",
+      "score": 0.0
+    },
+    {
+      "case_id": "B.v35-swap:N05-formal-vs-causal.a-with-b",
+      "classification": "frame_tension",
+      "correct": true,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_neq_inner",
+      "inner_detected": "formal_logic",
+      "outer_detected": "empirical_causal",
+      "score": 0.5
+    },
+    {
+      "case_id": "B.v35-swap:N05-formal-vs-causal.b-with-a",
+      "classification": "frame_tension",
+      "correct": true,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_neq_inner",
+      "inner_detected": "empirical_causal",
+      "outer_detected": "formal_logic",
+      "score": 0.5
+    },
+    {
+      "case_id": "B.v35-swap:N06-causal-vs-authority.a-with-b",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_neq_inner",
+      "inner_detected": null,
+      "outer_detected": "authority_speech",
+      "score": 0.0
+    },
+    {
+      "case_id": "B.v35-swap:N06-causal-vs-authority.b-with-a",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_neq_inner",
+      "inner_detected": null,
+      "outer_detected": "empirical_causal",
+      "score": 0.0
+    },
+    {
+      "case_id": "B.v35-swap:N07-authority-vs-tool.a-with-b",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_conflict",
+      "group": "outer_neq_inner",
+      "inner_detected": null,
+      "outer_detected": "tool_computable",
+      "score": 0.0
+    },
+    {
+      "case_id": "B.v35-swap:N07-authority-vs-tool.b-with-a",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_conflict",
+      "group": "outer_neq_inner",
+      "inner_detected": null,
+      "outer_detected": "authority_speech",
+      "score": 0.0
+    },
+    {
+      "case_id": "B.v35-swap:N08-tool-vs-thermo.a-with-b",
+      "classification": "frame_conflict",
+      "correct": true,
+      "ground_truth_relation": "frame_conflict",
+      "group": "outer_neq_inner",
+      "inner_detected": "tool_computable",
+      "outer_detected": "thermodynamic",
+      "score": 0.0
+    },
+    {
+      "case_id": "B.v35-swap:N08-tool-vs-thermo.b-with-a",
+      "classification": "frame_conflict",
+      "correct": true,
+      "ground_truth_relation": "frame_conflict",
+      "group": "outer_neq_inner",
+      "inner_detected": "thermodynamic",
+      "outer_detected": "tool_computable",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.v38:v34:FH_01",
+      "classification": "frame_conflict",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": "thermodynamic",
+      "outer_detected": "frame_undeclared",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:00-00",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "information_theoretic",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:00-01",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "thermodynamic",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:00-02",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "metaphorical",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:00-03",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "formal_logic",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:00-04",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "authority_speech",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:01-00",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "information_theoretic",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:01-01",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "thermodynamic",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:01-02",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "metaphorical",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:01-03",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "formal_logic",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:01-04",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "authority_speech",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:02-00",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "information_theoretic",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:02-01",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "thermodynamic",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:02-02",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "metaphorical",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:02-03",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "formal_logic",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:02-04",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "authority_speech",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:03-00",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "information_theoretic",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:03-01",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "thermodynamic",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:03-02",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "metaphorical",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:03-03",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "formal_logic",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:03-04",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "authority_speech",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:04-00",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "information_theoretic",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:04-01",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "thermodynamic",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:04-02",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "metaphorical",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:04-03",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "formal_logic",
+      "score": 0.0
+    },
+    {
+      "case_id": "C.synth:04-04",
+      "classification": "frame_undecidable",
+      "correct": false,
+      "ground_truth_relation": "frame_tension",
+      "group": "outer_ambiguous",
+      "inner_detected": null,
+      "outer_detected": "authority_speech",
+      "score": 0.0
+    }
+  ],
+  "corpus_per_group": {
+    "outer_ambiguous": 26,
+    "outer_eq_inner": 26,
+    "outer_neq_inner": 26
+  },
+  "corpus_total": 78,
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "manipulation_detection_rate": 1.0,
+  "manipulation_outcomes": [
+    {
+      "case_id": "M01",
+      "classification": "frame_tension",
+      "detected_inner": "information_theoretic",
+      "detected_manipulation": true,
+      "detected_outer": "thermodynamic",
+      "misleading_outer": "thermodynamic",
+      "true_inner": "information_theoretic"
+    },
+    {
+      "case_id": "M02",
+      "classification": "frame_undecidable",
+      "detected_inner": null,
+      "detected_manipulation": true,
+      "detected_outer": "formal_logic",
+      "misleading_outer": "formal_logic",
+      "true_inner": "metaphorical"
+    },
+    {
+      "case_id": "M03",
+      "classification": "frame_undecidable",
+      "detected_inner": null,
+      "detected_manipulation": true,
+      "detected_outer": "tool_computable",
+      "misleading_outer": "tool_computable",
+      "true_inner": "metaphorical"
+    },
+    {
+      "case_id": "M04",
+      "classification": "frame_tension",
+      "detected_inner": "thermodynamic",
+      "detected_manipulation": true,
+      "detected_outer": "information_theoretic",
+      "misleading_outer": "information_theoretic",
+      "true_inner": "thermodynamic"
+    },
+    {
+      "case_id": "M05",
+      "classification": "frame_tension",
+      "detected_inner": "authority_speech",
+      "detected_manipulation": true,
+      "detected_outer": "empirical_causal",
+      "misleading_outer": "empirical_causal",
+      "true_inner": "authority_speech"
+    },
+    {
+      "case_id": "M06",
+      "classification": "frame_tension",
+      "detected_inner": "formal_logic",
+      "detected_manipulation": true,
+      "detected_outer": "empirical_causal",
+      "misleading_outer": "empirical_causal",
+      "true_inner": "formal_logic"
+    },
+    {
+      "case_id": "M07",
+      "classification": "frame_conflict",
+      "detected_inner": "ontological_distinguishability",
+      "detected_manipulation": true,
+      "detected_outer": "thermodynamic",
+      "misleading_outer": "thermodynamic",
+      "true_inner": "ontological_distinguishability"
+    },
+    {
+      "case_id": "M08",
+      "classification": "frame_conflict",
+      "detected_inner": "metaphorical",
+      "detected_manipulation": true,
+      "detected_outer": "formal_logic",
+      "misleading_outer": "formal_logic",
+      "true_inner": "metaphorical"
+    },
+    {
+      "case_id": "M09",
+      "classification": "frame_undecidable",
+      "detected_inner": null,
+      "detected_manipulation": true,
+      "detected_outer": "authority_speech",
+      "misleading_outer": "authority_speech",
+      "true_inner": "tool_computable"
+    },
+    {
+      "case_id": "M10",
+      "classification": "frame_tension",
+      "detected_inner": "information_theoretic",
+      "detected_manipulation": true,
+      "detected_outer": "thermodynamic",
+      "misleading_outer": "thermodynamic",
+      "true_inner": "information_theoretic"
+    },
+    {
+      "case_id": "M11",
+      "classification": "frame_conflict",
+      "detected_inner": "authority_speech",
+      "detected_manipulation": true,
+      "detected_outer": "tool_computable",
+      "misleading_outer": "tool_computable",
+      "true_inner": "authority_speech"
+    },
+    {
+      "case_id": "M12",
+      "classification": "frame_conflict",
+      "detected_inner": "metaphorical",
+      "detected_manipulation": true,
+      "detected_outer": "tool_computable",
+      "misleading_outer": "tool_computable",
+      "true_inner": "metaphorical"
+    },
+    {
+      "case_id": "M13",
+      "classification": "frame_conflict",
+      "detected_inner": "formal_logic",
+      "detected_manipulation": true,
+      "detected_outer": "authority_speech",
+      "misleading_outer": "authority_speech",
+      "true_inner": "formal_logic"
+    },
+    {
+      "case_id": "M14",
+      "classification": "frame_conflict",
+      "detected_inner": "thermodynamic",
+      "detected_manipulation": true,
+      "detected_outer": "ontological_distinguishability",
+      "misleading_outer": "ontological_distinguishability",
+      "true_inner": "thermodynamic"
+    },
+    {
+      "case_id": "M15",
+      "classification": "frame_conflict",
+      "detected_inner": "information_theoretic",
+      "detected_manipulation": true,
+      "detected_outer": "authority_speech",
+      "misleading_outer": "authority_speech",
+      "true_inner": "information_theoretic"
+    },
+    {
+      "case_id": "M16",
+      "classification": "frame_conflict",
+      "detected_inner": "authority_speech",
+      "detected_manipulation": true,
+      "detected_outer": "metaphorical",
+      "misleading_outer": "metaphorical",
+      "true_inner": "authority_speech"
+    },
+    {
+      "case_id": "M17",
+      "classification": "frame_conflict",
+      "detected_inner": "metaphorical",
+      "detected_manipulation": true,
+      "detected_outer": "empirical_causal",
+      "misleading_outer": "empirical_causal",
+      "true_inner": "metaphorical"
+    },
+    {
+      "case_id": "M18",
+      "classification": "frame_conflict",
+      "detected_inner": "formal_logic",
+      "detected_manipulation": true,
+      "detected_outer": "information_theoretic",
+      "misleading_outer": "information_theoretic",
+      "true_inner": "formal_logic"
+    },
+    {
+      "case_id": "M19",
+      "classification": "frame_conflict",
+      "detected_inner": "tool_computable",
+      "detected_manipulation": true,
+      "detected_outer": "metaphorical",
+      "misleading_outer": "metaphorical",
+      "true_inner": "tool_computable"
+    },
+    {
+      "case_id": "M20",
+      "classification": "frame_conflict",
+      "detected_inner": "ontological_distinguishability",
+      "detected_manipulation": true,
+      "detected_outer": "information_theoretic",
+      "misleading_outer": "information_theoretic",
+      "true_inner": "ontological_distinguishability"
+    }
+  ],
+  "manipulation_total": 20,
+  "metrics": {
+    "conflict_precision": 1.0,
+    "consistency_accuracy": 0.435897,
+    "per_group_accuracy": {
+      "outer_ambiguous": 0.0,
+      "outer_eq_inner": 0.653846,
+      "outer_neq_inner": 0.653846
+    },
+    "tension_recall": 1.0,
+    "undecidable_rate": 0.551282
+  },
+  "recommendation_reason": "all three gates passed",
+  "recommended_next": "FRAME_TENSION_LAYER",
+  "replay_hash": "dbc8da87ab466bef",
+  "started_at": "2026-05-16T00:00:00+00:00"
+}

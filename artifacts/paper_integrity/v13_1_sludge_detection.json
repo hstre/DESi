@@ -1,0 +1,78 @@
+{
+  "citation_grounding": 1.0,
+  "classified_papers": [
+    {
+      "is_actually_sludge": false,
+      "paper_class": "gold_set",
+      "paper_id": "paper-gold-001",
+      "verdict": "clean"
+    },
+    {
+      "is_actually_sludge": false,
+      "paper_class": "gold_set",
+      "paper_id": "paper-gold-002",
+      "verdict": "clean"
+    },
+    {
+      "is_actually_sludge": false,
+      "paper_class": "weak_set",
+      "paper_id": "paper-weak-001",
+      "verdict": "clean"
+    },
+    {
+      "is_actually_sludge": false,
+      "paper_class": "weak_set",
+      "paper_id": "paper-weak-002",
+      "verdict": "clean"
+    },
+    {
+      "is_actually_sludge": true,
+      "paper_class": "ai_sludge",
+      "paper_id": "paper-sludge-001",
+      "verdict": "sludge"
+    },
+    {
+      "is_actually_sludge": true,
+      "paper_class": "ai_sludge",
+      "paper_id": "paper-sludge-002",
+      "verdict": "sludge"
+    },
+    {
+      "is_actually_sludge": false,
+      "paper_class": "adversarial_set",
+      "paper_id": "paper-adv-001",
+      "verdict": "suspect"
+    },
+    {
+      "is_actually_sludge": false,
+      "paper_class": "adversarial_set",
+      "paper_id": "paper-adv-002",
+      "verdict": "suspect"
+    },
+    {
+      "is_actually_sludge": false,
+      "paper_class": "borderline_set",
+      "paper_id": "paper-border-001",
+      "verdict": "clean"
+    },
+    {
+      "is_actually_sludge": false,
+      "paper_class": "borderline_set",
+      "paper_id": "paper-border-002",
+      "verdict": "clean"
+    }
+  ],
+  "composite_grounding": 1.0,
+  "diagram_consistency": 1.0,
+  "fake_paper_recall": 1.0,
+  "false_accusation_rate": 0.0,
+  "hallucinated_reference_count": 2,
+  "paper_count": 10,
+  "schema_version": "v13_1_sludge_detection",
+  "sludge_verdicts": [
+    "clean",
+    "suspect",
+    "sludge"
+  ],
+  "stats_consistency": 1.0
+}

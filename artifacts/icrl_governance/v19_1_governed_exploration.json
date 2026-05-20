@@ -1,0 +1,94 @@
+{
+  "baseline_redundant_weight": 8.0,
+  "disclaimer": "DESi governs exploration by SOFT re-weighting only: it shifts budget toward informative paths and away from redundant ones, but removes NO trajectory and forces NO single path. DESi does NOT replace the RL policy, manipulate rewards, claim an optimal strategy, or accumulate hidden optimisation authority. Synthetic; replay-exact.",
+  "exploration_preservation": 1.0,
+  "exploration_signature": "02194de389fee3b5721ed960401a99cfd8f4322c839b9b19a555735b949d2b47",
+  "governed_priorities": {
+    "T01": 1.0,
+    "T02": 1.0,
+    "T03": 0.1,
+    "T04": 0.1,
+    "T05": 0.1,
+    "T06": 0.8,
+    "T07": 0.2,
+    "T08": 1.0,
+    "T09": 0.1,
+    "T10": 0.1,
+    "T11": 1.0,
+    "T12": 0.05,
+    "T13": 0.05,
+    "T14": 1.0
+  },
+  "governed_redundant_weight": 0.8,
+  "governs_not_forces": true,
+  "hidden_authority_drift": 0.0,
+  "novelty_gain": 0.450213,
+  "ranked_trajectories": [
+    [
+      "T01",
+      1.0
+    ],
+    [
+      "T02",
+      1.0
+    ],
+    [
+      "T08",
+      1.0
+    ],
+    [
+      "T11",
+      1.0
+    ],
+    [
+      "T14",
+      1.0
+    ],
+    [
+      "T06",
+      0.8
+    ],
+    [
+      "T07",
+      0.2
+    ],
+    [
+      "T03",
+      0.1
+    ],
+    [
+      "T04",
+      0.1
+    ],
+    [
+      "T05",
+      0.1
+    ],
+    [
+      "T09",
+      0.1
+    ],
+    [
+      "T10",
+      0.1
+    ],
+    [
+      "T12",
+      0.05
+    ],
+    [
+      "T13",
+      0.05
+    ]
+  ],
+  "recommendation": "EXPLORATION_GOVERNED",
+  "redundancy_reduction": 0.9,
+  "report_verdicts": [
+    "EXPLORATION_GOVERNED",
+    "EXPLORATION_DESTROYED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "schema_version": "v19_1_desi_governed_exploration",
+  "search_pressure_relief": 0.528571,
+  "trajectory_compression": 0.528571
+}

@@ -1,0 +1,18 @@
+{
+  "trajectory_id": "adv02_recovery_below_threshold",
+  "domain": "_adversarial",
+  "seed": "Probe: a borderline EN (0.10 < eni_novelty < 0.12) that nonetheless triggers a strong downstream recovery.",
+  "persona": "_probe",
+  "steps": [
+    {"loop_index": 0, "focus_claim_id": "C001", "operator": "T3", "novel_claims": 12, "dup_rate": 0.05, "failure_mode": null, "claims": [{"id":"C001","subject":"x","predicate":"p","object":"y","history":[]}]},
+    {"loop_index": 1, "focus_claim_id": "C001", "operator": "T4", "novel_claims": 1, "dup_rate": 0.45, "failure_mode": null, "claims": []},
+    {"loop_index": 2, "focus_claim_id": "C001", "operator": "T5", "novel_claims": 1, "dup_rate": 0.50, "failure_mode": null, "claims": []},
+    {"loop_index": 3, "focus_claim_id": "C001", "operator": "T5", "novel_claims": 5, "dup_rate": 0.20, "failure_mode": null, "claims": []},
+    {"loop_index": 4, "focus_claim_id": "C001", "operator": "T6", "novel_claims": 4, "dup_rate": 0.25, "failure_mode": null, "claims": []},
+    {"loop_index": 5, "focus_claim_id": "C001", "operator": "T7", "novel_claims": 3, "dup_rate": 0.30, "failure_mode": null, "claims": []}
+  ],
+  "en_events": [
+    {"loop_index": 2, "persona": "_probe", "eni_novelty": 0.11, "eni_non_drift": 0.65, "eni_admissibility": 1.0, "eni_composite": 0.45, "admitted": true, "question": "borderline-by-novelty but downstream-transformative", "novelty_produced_next_loop": 5, "dup_rate_before": 0.50, "dup_rate_after": 0.20}
+  ],
+  "terminal_failure_mode": null
+}

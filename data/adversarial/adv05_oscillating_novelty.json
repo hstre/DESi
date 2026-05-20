@@ -1,0 +1,21 @@
+{
+  "trajectory_id": "adv05_oscillating_novelty",
+  "domain": "_adversarial",
+  "seed": "Probe: clean oscillation. novel alternates between 10 and 1, dup alternates inversely. Trajectory is healthy but tripping Phase II early.",
+  "persona": "_probe",
+  "steps": [
+    {"loop_index": 0, "focus_claim_id": "C001", "operator": "T3", "novel_claims": 10, "dup_rate": 0.05, "failure_mode": null, "claims": [{"id":"C001","subject":"x","predicate":"p","object":"y","history":[]}]},
+    {"loop_index": 1, "focus_claim_id": "C001", "operator": "T4", "novel_claims": 1, "dup_rate": 0.45, "failure_mode": null, "claims": []},
+    {"loop_index": 2, "focus_claim_id": "C001", "operator": "T5", "novel_claims": 9, "dup_rate": 0.10, "failure_mode": null, "claims": []},
+    {"loop_index": 3, "focus_claim_id": "C001", "operator": "T6", "novel_claims": 1, "dup_rate": 0.40, "failure_mode": null, "claims": []},
+    {"loop_index": 4, "focus_claim_id": "C001", "operator": "T5", "novel_claims": 10, "dup_rate": 0.08, "failure_mode": null, "claims": []},
+    {"loop_index": 5, "focus_claim_id": "C001", "operator": "T6", "novel_claims": 1, "dup_rate": 0.42, "failure_mode": null, "claims": []},
+    {"loop_index": 6, "focus_claim_id": "C001", "operator": "T5", "novel_claims": 9, "dup_rate": 0.12, "failure_mode": null, "claims": []}
+  ],
+  "en_events": [
+    {"loop_index": 1, "persona": "_probe", "eni_novelty": 0.22, "eni_non_drift": 0.75, "eni_admissibility": 1.0, "eni_composite": 0.54, "admitted": true, "novelty_produced_next_loop": 9, "dup_rate_before": 0.45, "dup_rate_after": 0.10},
+    {"loop_index": 3, "persona": "_probe", "eni_novelty": 0.18, "eni_non_drift": 0.70, "eni_admissibility": 1.0, "eni_composite": 0.50, "admitted": true, "novelty_produced_next_loop": 10, "dup_rate_before": 0.40, "dup_rate_after": 0.08},
+    {"loop_index": 5, "persona": "_probe", "eni_novelty": 0.20, "eni_non_drift": 0.72, "eni_admissibility": 1.0, "eni_composite": 0.52, "admitted": true, "novelty_produced_next_loop": 9, "dup_rate_before": 0.42, "dup_rate_after": 0.12}
+  ],
+  "terminal_failure_mode": null
+}

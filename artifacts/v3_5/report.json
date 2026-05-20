@@ -1,0 +1,128 @@
+{
+  "negative_controls": [
+    {
+      "detected_a": "thermodynamic",
+      "detected_b": "information_theoretic",
+      "distinguished": true,
+      "expected_a": "thermodynamic",
+      "expected_b": "information_theoretic",
+      "nc_id": "N01-thermo-vs-info",
+      "text_a": "Frame: thermodynamic. Entropy increases in a closed physical system.",
+      "text_b": "Frame: information-theoretic. Entropy of a message distribution is one bit."
+    },
+    {
+      "detected_a": "frame_undeclared",
+      "detected_b": "metaphorical",
+      "distinguished": true,
+      "expected_a": "information_theoretic",
+      "expected_b": "metaphorical",
+      "nc_id": "N02-info-vs-metaphor",
+      "text_a": "Shannon entropy bounds compression in bits.",
+      "text_b": "Loosely speaking, the brain compresses memories like a poet."
+    },
+    {
+      "detected_a": "ontological_distinguishability",
+      "detected_b": "empirical_causal",
+      "distinguished": true,
+      "expected_a": "ontological_distinguishability",
+      "expected_b": "empirical_causal",
+      "nc_id": "N03-ontological-vs-empirical",
+      "text_a": "Frame: ontological distinguishability. Hesperus and Phosphorus refer to the same object.",
+      "text_b": "Heavy rainfall causes localised flooding."
+    },
+    {
+      "detected_a": "metaphorical",
+      "detected_b": "tool_computable",
+      "distinguished": true,
+      "expected_a": "metaphorical",
+      "expected_b": "tool_computable",
+      "nc_id": "N04-metaphor-vs-tool",
+      "text_a": "Like a fortress, the firewall stood firm.",
+      "text_b": "Compute the sum 1 + 2 + 3."
+    },
+    {
+      "detected_a": "formal_logic",
+      "detected_b": "empirical_causal",
+      "distinguished": true,
+      "expected_a": "formal_logic",
+      "expected_b": "empirical_causal",
+      "nc_id": "N05-formal-vs-causal",
+      "text_a": "Frame: formal logic. Modus ponens preserves truth.",
+      "text_b": "Drought resulted in crop failure last summer."
+    },
+    {
+      "detected_a": "empirical_causal",
+      "detected_b": "authority_speech",
+      "distinguished": true,
+      "expected_a": "empirical_causal",
+      "expected_b": "authority_speech",
+      "nc_id": "N06-causal-vs-authority",
+      "text_a": "Inflation rose because of supply-chain disruptions.",
+      "text_b": "The auditor reported a clean balance sheet."
+    },
+    {
+      "detected_a": "authority_speech",
+      "detected_b": "tool_computable",
+      "distinguished": true,
+      "expected_a": "authority_speech",
+      "expected_b": "tool_computable",
+      "nc_id": "N07-authority-vs-tool",
+      "text_a": "Professor Smith says the conclusion holds.",
+      "text_b": "What is 17 * 23 ?"
+    },
+    {
+      "detected_a": "tool_computable",
+      "detected_b": "thermodynamic",
+      "distinguished": true,
+      "expected_a": "tool_computable",
+      "expected_b": "thermodynamic",
+      "nc_id": "N08-tool-vs-thermo",
+      "text_a": "Compute 100 / 4.",
+      "text_b": "Frame: thermodynamic. Adiabatic compression raises temperature."
+    }
+  ],
+  "report": {
+    "finished_at": "2026-05-16T03:15:44.186142+00:00",
+    "metrics": {
+      "conflict_rate": 0.0425,
+      "failure_distribution": {
+        "forbidden_frame_hit": 0,
+        "frame_conflict_unexpected": 17,
+        "frame_drift": 0,
+        "frame_undeclared": 12,
+        "none": 370,
+        "pipeline_mismatch": 1
+      },
+      "forbidden_frame_hit_rate": 0.0,
+      "frame_accuracy": 0.925,
+      "group_invariance_rate": 0.875,
+      "per_frame_accuracy": {
+        "authority_speech": 0.98,
+        "empirical_causal": 0.86,
+        "formal_logic": 1.0,
+        "information_theoretic": 0.7,
+        "metaphorical": 1.0,
+        "ontological_distinguishability": 0.92,
+        "thermodynamic": 1.0,
+        "tool_computable": 0.94
+      },
+      "per_frame_invariance": {
+        "authority_speech": 0.9,
+        "empirical_causal": 0.6,
+        "formal_logic": 1.0,
+        "information_theoretic": 0.8,
+        "metaphorical": 1.0,
+        "ontological_distinguishability": 0.9,
+        "thermodynamic": 1.0,
+        "tool_computable": 0.8
+      },
+      "total_cases": 400,
+      "total_groups": 80,
+      "undeclared_rate": 0.03
+    },
+    "negative_control_distinguished": 8,
+    "negative_control_total": 8,
+    "replay_hash": "780b9c525e9781fe",
+    "started_at": "2026-05-16T03:15:44.186142+00:00"
+  }
+}

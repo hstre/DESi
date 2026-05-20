@@ -1,0 +1,142 @@
+{
+  "class_histogram": {
+    "audit_sensitive": 1,
+    "epistemically_transparent": 1,
+    "governance_risk_concentrated": 1,
+    "opacity_heavy": 1,
+    "structurally_stable": 2
+  },
+  "corpus_class": "governance_risk_concentrated",
+  "disclaimer": "Final governance verdict over the synthetic v15.0-v15.3 DAX archetype corpus; NOT real companies. The A-E taxonomy is descriptive and never accusatory. DESi does NOT conclude fraud, does NOT rate, does NOT give investment advice - output is audit-priority only. Post-hoc labels are used solely as validation, never as scoring input.",
+  "firm_verdicts": [
+    {
+      "audit_priority": "HIGH_AUDIT_PRIORITY",
+      "firm_id": "AUTO_BETA",
+      "governance_class": "opacity_heavy",
+      "post_hoc_label": "governance_event_later",
+      "sector": "automotive"
+    },
+    {
+      "audit_priority": "LOW_AUDIT_PRIORITY",
+      "firm_id": "CHEM_GAMMA",
+      "governance_class": "structurally_stable",
+      "post_hoc_label": "no_adverse_event",
+      "sector": "chemicals"
+    },
+    {
+      "audit_priority": "LOW_AUDIT_PRIORITY",
+      "firm_id": "INDUSTRIAL_ZETA",
+      "governance_class": "structurally_stable",
+      "post_hoc_label": "no_adverse_event",
+      "sector": "industrials"
+    },
+    {
+      "audit_priority": "GOVERNANCE_REVIEW_RECOMMENDED",
+      "firm_id": "PAYMENTS_ALPHA",
+      "governance_class": "governance_risk_concentrated",
+      "post_hoc_label": "statements_later_voided",
+      "sector": "payments"
+    },
+    {
+      "audit_priority": "MEDIUM_AUDIT_PRIORITY",
+      "firm_id": "PHARMA_EPSILON",
+      "governance_class": "audit_sensitive",
+      "post_hoc_label": "scrutinized_not_ruled",
+      "sector": "pharma"
+    },
+    {
+      "audit_priority": "LOW_AUDIT_PRIORITY",
+      "firm_id": "UTILITY_DELTA",
+      "governance_class": "epistemically_transparent",
+      "post_hoc_label": "no_adverse_event",
+      "sector": "utilities"
+    }
+  ],
+  "gate_conditions": [
+    {
+      "comparator": ">=",
+      "name": "critical_signal_preservation",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": "<=",
+      "name": "false_accusation_rate",
+      "passed": true,
+      "threshold": 0.05,
+      "value": 0.0
+    },
+    {
+      "comparator": ">=",
+      "name": "audit_search_reduction",
+      "passed": true,
+      "threshold": 0.3,
+      "value": 0.604167
+    },
+    {
+      "comparator": ">=",
+      "name": "governance_integrity",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "epistemic_transparency",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi kann finanzielle Auditraeume epistemisch strukturieren.",
+  "governance_classes": [
+    "epistemically_transparent",
+    "structurally_stable",
+    "audit_sensitive",
+    "opacity_heavy",
+    "governance_risk_concentrated"
+  ],
+  "halt": false,
+  "killerfrage": "Kann ein epistemisches System finanzielle Pruefung strukturieren ohne zur epistemischen Ratingmaschine zu werden?",
+  "metrics": {
+    "audit_priority_quality": 1.0,
+    "audit_search_reduction": 0.604167,
+    "critical_signal_preservation": 1.0,
+    "epistemic_transparency": 1.0,
+    "false_accusation_rate": 0.0,
+    "governance_integrity": 1.0,
+    "replay_stability": 1.0
+  },
+  "phase_verdicts": [
+    "FINANCIAL_AUDIT_SPACE_STRUCTURED",
+    "GOVERNANCE_STRUCTURING_UNRESOLVED",
+    "HALT_REPLAY_DRIFT"
+  ],
+  "rationale": [
+    "INFO: aggregates v15.0-v15.3 over the synthetic DAX archetype corpus; NOT real companies",
+    "INFO: DESi does NOT conclude fraud, does NOT rate, does NOT advise; the A-E taxonomy is descriptive, not accusatory",
+    "INFO: corpus_class governance_risk_concentrated; class_histogram {'epistemically_transparent': 1, 'structurally_stable': 2, 'audit_sensitive': 1, 'opacity_heavy': 1, 'governance_risk_concentrated': 1}",
+    "INFO: audit_priority_quality 1.0",
+    "INFO: epistemic_transparency 1.0",
+    "PASS: critical_signal_preservation 1.0 >= 0.95",
+    "PASS: false_accusation_rate 0.0 <= 0.05",
+    "PASS: audit_search_reduction 0.604167 >= 0.3",
+    "PASS: governance_integrity 1.0 >= 0.9",
+    "PASS: epistemic_transparency 1.0 >= 0.9",
+    "PASS: replay_stability 1.0 == 1.0",
+    "INFO: gate_passes_all True",
+    "INFO: Killerfrage answer JA: structuring without becoming a rating machine (false_accusation_rate 0.0)"
+  ],
+  "recommendation": "FINANCIAL_AUDIT_SPACE_STRUCTURED",
+  "schema_version": "v15_4_financial_governance_verdict"
+}

@@ -1,0 +1,92 @@
+{
+  "conflict_rich": true,
+  "corpus_class": "conflict_rich_but_productive",
+  "disclaimer": "Final dual-agent governance verdict over a synthetic exploration corpus (v20.0-v20.3). DESi governs the Wild Explorer without replacing the policy, injecting reward, claiming an optimal strategy, or taking hidden optimisation authority - and without eliminating or homogenising the wild. The A-E taxonomy describes the governance state, not an optimality verdict. Replay-exact.",
+  "dual_agent_classes": [
+    "governed_exploratory",
+    "novelty_stable",
+    "conflict_rich_but_productive",
+    "hallucination_drifted",
+    "authority_collapsed"
+  ],
+  "gate_conditions": [
+    {
+      "comparator": ">=",
+      "name": "hallucination_containment",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "novelty_preservation",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 0.990005
+    },
+    {
+      "comparator": ">=",
+      "name": "authority_resistance",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 0.955792
+    },
+    {
+      "comparator": ">=",
+      "name": "productive_conflict",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "exploration_diversity",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi kann wilde Exploration epistemisch governieren ohne Exploration oder epistemische Freiheit zu zerstoeren.",
+  "halt": false,
+  "killerfrage": "Kann ein epistemisch governter wilder Bruder produktiver sein als reine konservative Governance?",
+  "metrics": {
+    "authority_resistance": 0.955792,
+    "exploration_diversity": 1.0,
+    "hallucination_containment": 1.0,
+    "novelty_preservation": 0.990005,
+    "productive_conflict": 1.0,
+    "replay_stability": 1.0
+  },
+  "phase_verdicts": [
+    "WILD_EXPLORATION_GOVERNED",
+    "EXPLORATION_UNGOVERNED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "productivity_gain": 2.75,
+  "rationale": [
+    "INFO: aggregates v20.0-v20.3 over a synthetic dual-agent exploration corpus; DESi replaces no policy, injects no reward, claims no optimal strategy",
+    "INFO: the A-E taxonomy describes DESi's governance of the wild brother, never an optimality verdict",
+    "INFO: corpus_class conflict_rich_but_productive (conflict_rich True)",
+    "PASS: hallucination_containment 1.0 >= 0.9",
+    "PASS: novelty_preservation 0.990005 >= 0.9",
+    "PASS: authority_resistance 0.955792 >= 0.9",
+    "PASS: productive_conflict 1.0 >= 0.9",
+    "PASS: exploration_diversity 1.0 >= 0.9",
+    "PASS: replay_stability 1.0 == 1.0",
+    "INFO: gate_passes_all True",
+    "INFO: productivity_gain 2.75 (the governed wild brother reaches more than DESi-alone); wild_not_eliminated True",
+    "INFO: Killerfrage answer JA: the governed wild brother is more productive than conservative governance alone"
+  ],
+  "recommendation": "WILD_EXPLORATION_GOVERNED",
+  "schema_version": "v20_4_dual_agent_governance_verdict",
+  "wild_not_eliminated": true
+}

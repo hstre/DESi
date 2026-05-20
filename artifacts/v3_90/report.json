@@ -1,0 +1,89 @@
+{
+  "baseline_purity": 0.289474,
+  "clusters": [
+    {
+      "cluster_id": 0,
+      "max_intra_distance": 0.38879,
+      "mean_intra_distance": 0.150543,
+      "members": [
+        "v314:D01",
+        "v314:D03",
+        "v314:D04",
+        "v315:A08",
+        "v315:A10",
+        "v315:A12",
+        "v316-susp:G01",
+        "v316-susp:G02",
+        "v316-susp:G03",
+        "v316-susp:G04",
+        "v316-susp:G05",
+        "v316-susp:G06",
+        "v316-susp:G07",
+        "v316-susp:G08",
+        "v316-susp:G09",
+        "v317-h:E01",
+        "v317-h:E02",
+        "v317-h:E03",
+        "v317-h:E04",
+        "v317-h:E05",
+        "v317-h:E06",
+        "v317-h:E07",
+        "v317-h:E08",
+        "v317-h:E09",
+        "v317-h:E10"
+      ]
+    },
+    {
+      "cluster_id": 1,
+      "max_intra_distance": 0.258634,
+      "mean_intra_distance": 0.084003,
+      "members": [
+        "v315:A01",
+        "v315:A02",
+        "v315:A04",
+        "v315:A06",
+        "v315:A09",
+        "v315:A11",
+        "v315:A13",
+        "v315:A15"
+      ]
+    },
+    {
+      "cluster_id": 2,
+      "max_intra_distance": 0.242429,
+      "mean_intra_distance": 0.096972,
+      "members": [
+        "v314:D06",
+        "v314:D07",
+        "v314:D08",
+        "v314:D09",
+        "v314:D10"
+      ]
+    }
+  ],
+  "halt": false,
+  "normalized_cluster_count": 3,
+  "normalized_cluster_purity": 0.605263,
+  "normalized_cluster_recall": 0.0,
+  "normalized_cluster_sizes": [
+    25,
+    8,
+    5
+  ],
+  "normalized_distance_gap": 1.226947,
+  "pairwise_distance_count": 703,
+  "purity_delta": 0.315789,
+  "rationale": [
+    "INFO: baseline_purity 0.289474",
+    "INFO: normalized_cluster_count 3",
+    "INFO: normalized_cluster_sizes [25, 8, 5]",
+    "FAIL: normalized_cluster_purity 0.605263 (threshold 0.7)",
+    "FAIL: normalized_cluster_recall 0.0 (threshold 0.7)",
+    "INFO: normalized_distance_gap 1.226947",
+    "INFO: purity_delta 0.315789 (normalized minus baseline)",
+    "INFO: clusters [{'cluster_id': 0, 'members': ['v314:D01', 'v314:D03', 'v314:D04', 'v315:A08', 'v315:A10', 'v315:A12', 'v316-susp:G01', 'v316-susp:G02', 'v316-susp:G03', 'v316-susp:G04', 'v316-susp:G05', 'v316-susp:G06', 'v316-susp:G07', 'v316-susp:G08', 'v316-susp:G09', 'v317-h:E01', 'v317-h:E02', 'v317-h:E03', 'v317-h:E04', 'v317-h:E05', 'v317-h:E06', 'v317-h:E07', 'v317-h:E08', 'v317-h:E09', 'v317-h:E10'], 'mean_intra_distance': 0.150543, 'max_intra_distance': 0.38879}, {'cluster_id': 1, 'members': ['v315:A01', 'v315:A02', 'v315:A04', 'v315:A06', 'v315:A09', 'v315:A11', 'v315:A13', 'v315:A15'], 'mean_intra_distance': 0.084003, 'max_intra_distance': 0.258634}, {'cluster_id': 2, 'members': ['v314:D06', 'v314:D07', 'v314:D08', 'v314:D09', 'v314:D10'], 'mean_intra_distance': 0.096972, 'max_intra_distance': 0.242429}]",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "DOPPELGAENGER_WEAK_RECOVERY",
+  "replay_stability": 1.0
+}

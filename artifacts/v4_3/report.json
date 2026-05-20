@@ -1,0 +1,838 @@
+{
+  "contamination": {
+    "per_token": [
+      {
+        "cluster": "HIDDEN_NEGATION",
+        "hits": 0,
+        "token": "rules out"
+      },
+      {
+        "cluster": "HIDDEN_NEGATION",
+        "hits": 0,
+        "token": "ruled out"
+      },
+      {
+        "cluster": "HIDDEN_NEGATION",
+        "hits": 0,
+        "token": "is excluded"
+      },
+      {
+        "cluster": "HIDDEN_NEGATION",
+        "hits": 0,
+        "token": "are excluded"
+      },
+      {
+        "cluster": "HIDDEN_NEGATION",
+        "hits": 0,
+        "token": "excluded by"
+      },
+      {
+        "cluster": "HIDDEN_NEGATION",
+        "hits": 0,
+        "token": "is forgotten"
+      },
+      {
+        "cluster": "HIDDEN_NEGATION",
+        "hits": 0,
+        "token": "was forgotten"
+      },
+      {
+        "cluster": "HIDDEN_NEGATION",
+        "hits": 0,
+        "token": "safely deferred"
+      },
+      {
+        "cluster": "HIDDEN_NEGATION",
+        "hits": 0,
+        "token": "is singular"
+      },
+      {
+        "cluster": "HIDDEN_NEGATION",
+        "hits": 0,
+        "token": "are supplementary"
+      },
+      {
+        "cluster": "HIDDEN_NEGATION",
+        "hits": 0,
+        "token": "no real"
+      },
+      {
+        "cluster": "HIDDEN_NEGATION",
+        "hits": 0,
+        "token": "suppressed cell growth"
+      },
+      {
+        "cluster": "HIDDEN_NEGATION",
+        "hits": 0,
+        "token": "accelerated disease"
+      },
+      {
+        "cluster": "HIDDEN_NEGATION",
+        "hits": 0,
+        "token": "reduced the desired"
+      },
+      {
+        "cluster": "QUANTIFIER_DRIFT",
+        "hits": 0,
+        "token": "guaranteed"
+      },
+      {
+        "cluster": "QUANTIFIER_DRIFT",
+        "hits": 0,
+        "token": "single-handedly"
+      },
+      {
+        "cluster": "QUANTIFIER_DRIFT",
+        "hits": 0,
+        "token": "alone"
+      },
+      {
+        "cluster": "QUANTIFIER_DRIFT",
+        "hits": 0,
+        "token": "solely"
+      },
+      {
+        "cluster": "QUANTIFIER_DRIFT",
+        "hits": 0,
+        "token": "sole cause"
+      },
+      {
+        "cluster": "QUANTIFIER_DRIFT",
+        "hits": 0,
+        "token": "entire decline"
+      },
+      {
+        "cluster": "QUANTIFIER_DRIFT",
+        "hits": 0,
+        "token": "for a decade"
+      },
+      {
+        "cluster": "QUANTIFIER_DRIFT",
+        "hits": 0,
+        "token": "conclusively"
+      },
+      {
+        "cluster": "QUANTIFIER_DRIFT",
+        "hits": 0,
+        "token": "unambiguously"
+      },
+      {
+        "cluster": "QUANTIFIER_DRIFT",
+        "hits": 0,
+        "token": "only at"
+      },
+      {
+        "cluster": "QUANTIFIER_DRIFT",
+        "hits": 0,
+        "token": "in perpetuity"
+      },
+      {
+        "cluster": "AUTHORITY_CONTAMINATION",
+        "hits": 0,
+        "token": "endorsed"
+      },
+      {
+        "cluster": "AUTHORITY_CONTAMINATION",
+        "hits": 0,
+        "token": "validated"
+      },
+      {
+        "cluster": "AUTHORITY_CONTAMINATION",
+        "hits": 0,
+        "token": "reportedly"
+      },
+      {
+        "cluster": "AUTHORITY_CONTAMINATION",
+        "hits": 0,
+        "token": "conclusively established"
+      }
+    ],
+    "protected_pool_size": 385,
+    "total_contamination": 0
+  },
+  "effect": {
+    "external_precision_after": 0.931034,
+    "external_precision_before": 0.6875,
+    "external_recall_after": 0.675,
+    "external_recall_before": 0.675,
+    "false_support_after": 24,
+    "false_support_before": 143,
+    "false_support_reduction": 119,
+    "non_target_relabel_count": 0,
+    "per_class": [
+      {
+        "after_count": 0,
+        "before_count": 15,
+        "cluster": "AUTHORITY_CONTAMINATION",
+        "reduction": 15,
+        "targeted": true
+      },
+      {
+        "after_count": 5,
+        "before_count": 5,
+        "cluster": "CYCLE_DISGUISE",
+        "reduction": 0,
+        "targeted": false
+      },
+      {
+        "after_count": 10,
+        "before_count": 10,
+        "cluster": "FRAME_SWITCH",
+        "reduction": 0,
+        "targeted": false
+      },
+      {
+        "after_count": 0,
+        "before_count": 69,
+        "cluster": "HIDDEN_NEGATION",
+        "reduction": 69,
+        "targeted": true
+      },
+      {
+        "after_count": 0,
+        "before_count": 35,
+        "cluster": "QUANTIFIER_DRIFT",
+        "reduction": 35,
+        "targeted": true
+      },
+      {
+        "after_count": 9,
+        "before_count": 9,
+        "cluster": "SEMANTIC_NON_SEQUITUR",
+        "reduction": 0,
+        "targeted": false
+      }
+    ],
+    "reduction_rate": 0.832168,
+    "undecidable_rate_after": 0.142857,
+    "undecidable_rate_before": 0.108571
+  },
+  "extension_token_count": 29,
+  "extensions_per_class": {
+    "AUTHORITY_CONTAMINATION": [
+      " endorsed ",
+      " validated ",
+      " reportedly ",
+      " conclusively established "
+    ],
+    "HIDDEN_NEGATION": [
+      " rules out ",
+      " ruled out ",
+      " is excluded ",
+      " are excluded ",
+      " excluded by ",
+      " is forgotten ",
+      " was forgotten ",
+      " safely deferred ",
+      " is singular ",
+      " are supplementary ",
+      " no real ",
+      " suppressed cell growth ",
+      " accelerated disease ",
+      " reduced the desired "
+    ],
+    "QUANTIFIER_DRIFT": [
+      " guaranteed ",
+      " single-handedly ",
+      " alone ",
+      " solely ",
+      " sole cause ",
+      " entire decline ",
+      " for a decade ",
+      " conclusively ",
+      " unambiguously ",
+      " only at ",
+      " in perpetuity "
+    ]
+  },
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "nc_by_class": {
+    "AUTHORITY_CONTAMINATION": {
+      "detected": 20,
+      "total": 20
+    },
+    "CYCLE_DISGUISE": {
+      "detected": 20,
+      "total": 20
+    },
+    "HIDDEN_NEGATION": {
+      "detected": 20,
+      "total": 20
+    },
+    "QUANTIFIER_DRIFT": {
+      "detected": 20,
+      "total": 20
+    }
+  },
+  "nc_count": 80,
+  "nc_detection_rate": 1.0,
+  "nc_outcomes": [
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-HN-001",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-HN-002",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-HN-003",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-HN-004",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-HN-005",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-HN-006",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-HN-007",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-HN-008",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-HN-009",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-HN-010",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-HN-011",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-HN-012",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-HN-013",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-HN-014",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-HN-015",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-HN-016",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-HN-017",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-HN-018",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-HN-019",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-HN-020",
+      "target_class": "HIDDEN_NEGATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-QD-001",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-QD-002",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-QD-003",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-QD-004",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-QD-005",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-QD-006",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-QD-007",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-QD-008",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-QD-009",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-QD-010",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-QD-011",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-QD-012",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-QD-013",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-QD-014",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-QD-015",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-QD-016",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-QD-017",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-QD-018",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-QD-019",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-QD-020",
+      "target_class": "QUANTIFIER_DRIFT"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-AU-001",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-AU-002",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-AU-003",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-AU-004",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-AU-005",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-AU-006",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-AU-007",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-AU-008",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-AU-009",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-AU-010",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-AU-011",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-AU-012",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-AU-013",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-AU-014",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-AU-015",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-AU-016",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-AU-017",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-AU-018",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-AU-019",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-AU-020",
+      "target_class": "AUTHORITY_CONTAMINATION"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-CY-001",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-CY-002",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-CY-003",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-CY-004",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-CY-005",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-CY-006",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-CY-007",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-CY-008",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-CY-009",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-CY-010",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-CY-011",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-CY-012",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-CY-013",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-CY-014",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-CY-015",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-CY-016",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-CY-017",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-CY-018",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "bridge_required",
+      "detected": true,
+      "nc_id": "NC-CY-019",
+      "target_class": "CYCLE_DISGUISE"
+    },
+    {
+      "audit_rule": null,
+      "audit_state": "logically_rejected",
+      "detected": true,
+      "nc_id": "NC-CY-020",
+      "target_class": "CYCLE_DISGUISE"
+    }
+  ],
+  "recommendation_reason": "false_support_before=143 -> after=24 (reduction=119, rate=0.832168); contamination=0; nc_detection_rate=1.0",
+  "recommended_next": "EXTERNAL_AUDIT_PATCH_CONFIRMED",
+  "replay_hash": "7c63bcae4cf3fb37",
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "v40_pre_v43_replay_hash": "aefa8f1e3429225a",
+  "v41_pre_v43_replay_hash": "f7ec695f17aa341b",
+  "v42_pre_v43_replay_hash": "181ec3cb1febf62f"
+}

@@ -1,0 +1,25 @@
+{
+  "branch_growth": 14,
+  "classification_accuracy": 1.0,
+  "exploration_diversity": 0.976119,
+  "hallucination_pressure": 0.2,
+  "halt": false,
+  "hypothesis_count": 15,
+  "overreach_rejection_rate": 1.0,
+  "rationale": [
+    "INFO: hypothesis_count 15",
+    "INFO: shape_counts {'decomposition': 4, 'asymptotic': 2, 'symmetry': 2, 'cluster': 2, 'analogy': 2, 'overreach': 3}",
+    "INFO: status_counts {'verified': 3, 'heuristic': 2, 'plausible': 2, 'speculative': 2, 'rejected': 3, 'unresolved': 3}",
+    "INFO: op_counts {'specialise': 3, 'analogise': 3, 'randomise': 3, 'combine': 3, 'generalise': 2}",
+    "INFO: classification_accuracy 1.0",
+    "PASS: exploration_diversity 0.976119 >= 0.70",
+    "INFO: branch_growth 14",
+    "INFO: redundancy_rate 0.0",
+    "INFO: hallucination_pressure 0.2",
+    "PASS: overreach_rejection_rate 1.0",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "WILD_DISCIPLINED",
+  "redundancy_rate": 0.0,
+  "replay_stability": 1.0
+}

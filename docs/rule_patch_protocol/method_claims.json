@@ -1,0 +1,252 @@
+{
+  "schema": {
+    "claim_id": "C-NNN",
+    "text": "human-readable statement",
+    "supporting_artifact": "path relative to repo root",
+    "field_path": "dot-path within the artefact's JSON, or '' for top-level absence/presence",
+    "expected_value": "exact expected value at field_path",
+    "replay_hash": "the supporting artefact's own replay_hash, or '' if none"
+  },
+  "claims": [
+    {
+      "claim_id": "C-001",
+      "text": "v2.7 reconstruction reaches phase=complete under the protocol.",
+      "supporting_artifact": "artifacts/v2_8/reconstruction.json",
+      "field_path": "phase",
+      "expected_value": "complete",
+      "replay_hash": "1f4d9dfe44cb16e1"
+    },
+    {
+      "claim_id": "C-002",
+      "text": "v2.7 reconstruction's overall passed flag is true.",
+      "supporting_artifact": "artifacts/v2_8/reconstruction.json",
+      "field_path": "passed",
+      "expected_value": true,
+      "replay_hash": "1f4d9dfe44cb16e1"
+    },
+    {
+      "claim_id": "C-003",
+      "text": "v2.7 reconstruction declares exactly 7 structural guards.",
+      "supporting_artifact": "artifacts/v2_8/reconstruction.json",
+      "field_path": "len:created_guards",
+      "expected_value": 7,
+      "replay_hash": "1f4d9dfe44cb16e1"
+    },
+    {
+      "claim_id": "C-004",
+      "text": "v2.7 reconstruction's benchmark hashes are bit-identical before and after.",
+      "supporting_artifact": "artifacts/v2_8/reconstruction.json",
+      "field_path": "benchmark_hash_before==benchmark_hash_after",
+      "expected_value": true,
+      "replay_hash": "1f4d9dfe44cb16e1"
+    },
+    {
+      "claim_id": "C-005",
+      "text": "v2.7 reconstruction touches exactly 8 declared files.",
+      "supporting_artifact": "artifacts/v2_8/reconstruction.json",
+      "field_path": "len:touched_files",
+      "expected_value": 8,
+      "replay_hash": "1f4d9dfe44cb16e1"
+    },
+    {
+      "claim_id": "C-006",
+      "text": "v2.7 reconstruction has zero fail reason.",
+      "supporting_artifact": "artifacts/v2_8/reconstruction.json",
+      "field_path": "fail_reason",
+      "expected_value": "",
+      "replay_hash": "1f4d9dfe44cb16e1"
+    },
+    {
+      "claim_id": "C-007",
+      "text": "v2.8 fail-case fixture is rejected at the guard_synthesis phase.",
+      "supporting_artifact": "artifacts/v2_8/fail_case.json",
+      "field_path": "phase",
+      "expected_value": "guard_synthesis",
+      "replay_hash": "d83d81ab8417c022"
+    },
+    {
+      "claim_id": "C-008",
+      "text": "v2.8 fail-case fixture's passed flag is false.",
+      "supporting_artifact": "artifacts/v2_8/fail_case.json",
+      "field_path": "passed",
+      "expected_value": false,
+      "replay_hash": "d83d81ab8417c022"
+    },
+    {
+      "claim_id": "C-009",
+      "text": "v2.8 fail-case fixture's fail_reason starts with missing_guards.",
+      "supporting_artifact": "artifacts/v2_8/fail_case.json",
+      "field_path": "startswith:fail_reason",
+      "expected_value": "missing_guards",
+      "replay_hash": "d83d81ab8417c022"
+    },
+    {
+      "claim_id": "C-010",
+      "text": "v2.8 fail-case fixture declares zero guards.",
+      "supporting_artifact": "artifacts/v2_8/fail_case.json",
+      "field_path": "len:created_guards",
+      "expected_value": 0,
+      "replay_hash": "d83d81ab8417c022"
+    },
+    {
+      "claim_id": "C-011",
+      "text": "v2.6 known-FP reopen rate is exactly 0.0 in the causal-chain probe.",
+      "supporting_artifact": "artifacts/v2_6/report.json",
+      "field_path": "metrics.known_false_positive_reopen_rate",
+      "expected_value": 0.0,
+      "replay_hash": "d061c7c66ccb5d7f"
+    },
+    {
+      "claim_id": "C-012",
+      "text": "v2.6 authority touch rate is exactly 0.0.",
+      "supporting_artifact": "artifacts/v2_6/report.json",
+      "field_path": "metrics.authority_touch_rate",
+      "expected_value": 0.0,
+      "replay_hash": "d061c7c66ccb5d7f"
+    },
+    {
+      "claim_id": "C-013",
+      "text": "v2.6 philosophy touch rate is exactly 0.0.",
+      "supporting_artifact": "artifacts/v2_6/report.json",
+      "field_path": "metrics.philosophy_touch_rate",
+      "expected_value": 0.0,
+      "replay_hash": "d061c7c66ccb5d7f"
+    },
+    {
+      "claim_id": "C-014",
+      "text": "v2.6 metaphor touch rate is exactly 0.0.",
+      "supporting_artifact": "artifacts/v2_6/report.json",
+      "field_path": "metrics.metaphor_touch_rate",
+      "expected_value": 0.0,
+      "replay_hash": "d061c7c66ccb5d7f"
+    },
+    {
+      "claim_id": "C-015",
+      "text": "v2.6 declares safe_to_implement is true.",
+      "supporting_artifact": "artifacts/v2_6/report.json",
+      "field_path": "safe_to_implement",
+      "expected_value": true,
+      "replay_hash": "d061c7c66ccb5d7f"
+    },
+    {
+      "claim_id": "C-016",
+      "text": "v2.5 rule_hit_rate is 0.000 over the 30 multi-step cases.",
+      "supporting_artifact": "artifacts/v2_5/report.json",
+      "field_path": "rule_hit_rate",
+      "expected_value": 0.0,
+      "replay_hash": "cf417bc8e490646c"
+    },
+    {
+      "claim_id": "C-017",
+      "text": "v2.5 dominant missing-rule class is causal_chain.",
+      "supporting_artifact": "artifacts/v2_5/report.json",
+      "field_path": "dominant_missing_rule_class",
+      "expected_value": "causal_chain",
+      "replay_hash": "cf417bc8e490646c"
+    },
+    {
+      "claim_id": "C-018",
+      "text": "v2.5 no_rule_match_rate is exactly 1.0.",
+      "supporting_artifact": "artifacts/v2_5/report.json",
+      "field_path": "no_rule_match_rate",
+      "expected_value": 1.0,
+      "replay_hash": "cf417bc8e490646c"
+    },
+    {
+      "claim_id": "C-019",
+      "text": "v2.4 dominant loss stage is parser_loss.",
+      "supporting_artifact": "artifacts/v2_4/report.json",
+      "field_path": "dominant_loss_stage",
+      "expected_value": "parser_loss",
+      "replay_hash": "11d8471f0dd39767"
+    },
+    {
+      "claim_id": "C-020",
+      "text": "v2.4 recursion reach rate is 0.033333 (1 in 30).",
+      "supporting_artifact": "artifacts/v2_4/report.json",
+      "field_path": "recursion_reach_rate",
+      "expected_value": 0.033333,
+      "replay_hash": "11d8471f0dd39767"
+    },
+    {
+      "claim_id": "C-021",
+      "text": "v2.7 main-benchmark precision remains 1.0 after the patch.",
+      "supporting_artifact": "artifacts/v2_7/report.json",
+      "field_path": "main_benchmark.precision",
+      "expected_value": 1.0,
+      "replay_hash": ""
+    },
+    {
+      "claim_id": "C-022",
+      "text": "v2.7 main-benchmark recall remains 1.0 after the patch.",
+      "supporting_artifact": "artifacts/v2_7/report.json",
+      "field_path": "main_benchmark.recall",
+      "expected_value": 1.0,
+      "replay_hash": ""
+    },
+    {
+      "claim_id": "C-023",
+      "text": "v2.7 main-benchmark false_positives remains 0 after the patch.",
+      "supporting_artifact": "artifacts/v2_7/report.json",
+      "field_path": "main_benchmark.false_positives",
+      "expected_value": 0,
+      "replay_hash": ""
+    },
+    {
+      "claim_id": "C-024",
+      "text": "v2.7 R2+R3 gain is exactly 12 cases.",
+      "supporting_artifact": "artifacts/v2_7/report.json",
+      "field_path": "r2_r3_gain_count",
+      "expected_value": 12,
+      "replay_hash": ""
+    },
+    {
+      "claim_id": "C-025",
+      "text": "v2.7 R4 regression count is exactly 0.",
+      "supporting_artifact": "artifacts/v2_7/report.json",
+      "field_path": "r4_regression_count",
+      "expected_value": 0,
+      "replay_hash": ""
+    },
+    {
+      "claim_id": "C-026",
+      "text": "v2.7 R5 regression count is exactly 0.",
+      "supporting_artifact": "artifacts/v2_7/report.json",
+      "field_path": "r5_regression_count",
+      "expected_value": 0,
+      "replay_hash": ""
+    },
+    {
+      "claim_id": "C-027",
+      "text": "v2.0 sandbox accepted all 30 mutation steps.",
+      "supporting_artifact": "artifacts/v2_0/report.json",
+      "field_path": "accepted_steps",
+      "expected_value": 30,
+      "replay_hash": "21a692fb35c8f368"
+    },
+    {
+      "claim_id": "C-028",
+      "text": "v2.1 self-diagnostic reports exactly 2 actionable deficits.",
+      "supporting_artifact": "artifacts/v2_1/report.json",
+      "field_path": "actionable_deficits",
+      "expected_value": 2,
+      "replay_hash": "099bc9b4f67e0382"
+    },
+    {
+      "claim_id": "C-029",
+      "text": "v2.2 depth-sandbox best_depth is 1 by Occam tie-break.",
+      "supporting_artifact": "artifacts/v2_2/report.json",
+      "field_path": "best_depth",
+      "expected_value": 1,
+      "replay_hash": "9d4a5938c938710e"
+    },
+    {
+      "claim_id": "C-030",
+      "text": "v2.2 depth-sandbox best_fitness is 5.0 across all visited depths.",
+      "supporting_artifact": "artifacts/v2_2/report.json",
+      "field_path": "best_fitness",
+      "expected_value": 5.0,
+      "replay_hash": "9d4a5938c938710e"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "assertions": [
+    {
+      "asserted_level": "participation",
+      "basis_claim_id": "Q08",
+      "basis_note": "secondary commentary asserts conduct",
+      "entity": "ENTITY_A",
+      "governed_level": "mention",
+      "inflation_gap": 2,
+      "is_inflation": true,
+      "is_unsupported_leap": true,
+      "supported_level": "mention"
+    },
+    {
+      "asserted_level": "participation",
+      "basis_claim_id": "Q04",
+      "basis_note": "flight-log co-appearance read as conduct",
+      "entity": "ENTITY_C",
+      "governed_level": "contact",
+      "inflation_gap": 1,
+      "is_inflation": true,
+      "is_unsupported_leap": true,
+      "supported_level": "contact"
+    },
+    {
+      "asserted_level": "participation",
+      "basis_claim_id": "Q09",
+      "basis_note": "contested leaked file asserts conduct",
+      "entity": "ENTITY_D",
+      "governed_level": "contact",
+      "inflation_gap": 1,
+      "is_inflation": true,
+      "is_unsupported_leap": true,
+      "supported_level": "contact"
+    },
+    {
+      "asserted_level": "participation",
+      "basis_claim_id": "Q11",
+      "basis_note": "viral speculation asserts conduct",
+      "entity": "ENTITY_F",
+      "governed_level": "mention",
+      "inflation_gap": 2,
+      "is_inflation": true,
+      "is_unsupported_leap": true,
+      "supported_level": "mention"
+    },
+    {
+      "asserted_level": "contact",
+      "basis_claim_id": "Q06",
+      "basis_note": "flight-log co-appearance, asserted as contact",
+      "entity": "ENTITY_E",
+      "governed_level": "contact",
+      "inflation_gap": 0,
+      "is_inflation": false,
+      "is_unsupported_leap": false,
+      "supported_level": "contact"
+    }
+  ],
+  "association_inflation_detection": 1.0,
+  "association_levels": [
+    "none",
+    "mention",
+    "contact",
+    "participation"
+  ],
+  "association_resistance": 1.0,
+  "context_is_not_participation": true,
+  "context_only_entities": [
+    "ENTITY_C",
+    "ENTITY_D",
+    "ENTITY_E"
+  ],
+  "disclaimer": "Fully synthetic and anonymised. DESi strictly separates mention, contact, and participation: presence evidence caps at CONTACT and NO abstract entity ever reaches PARTICIPATION. DESi derives NO guilt, builds NO suspect list, identifies no one, and claims no journalistic/moral/legal authority. Association assertions are stress fixtures, never adopted. Mention != involvement.",
+  "dissent_preservation": 1.0,
+  "epistemic_integrity": 1.0,
+  "evidence_weights": [
+    "none",
+    "assertion",
+    "contested",
+    "corroborated",
+    "robust"
+  ],
+  "false_certainty_rate": 0.0,
+  "no_entity_reaches_participation": true,
+  "presence_weights": {
+    "ENTITY_A": "contested",
+    "ENTITY_B": "robust",
+    "ENTITY_C": "corroborated",
+    "ENTITY_D": "robust",
+    "ENTITY_E": "contested",
+    "ENTITY_F": "assertion"
+  },
+  "recommendation": "ASSOCIATION_CONTROLLED",
+  "report_verdicts": [
+    "ASSOCIATION_CONTROLLED",
+    "ASSOCIATION_LEAK",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "robust_participation_evidence_count": 0,
+  "schema_version": "v17_1_association_vs_evidence",
+  "supported_levels": {
+    "ENTITY_A": "mention",
+    "ENTITY_B": "mention",
+    "ENTITY_C": "contact",
+    "ENTITY_D": "contact",
+    "ENTITY_E": "contact",
+    "ENTITY_F": "mention"
+  },
+  "unsupported_leap_detection": 1.0
+}

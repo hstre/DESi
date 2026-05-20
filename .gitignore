@@ -1,0 +1,145 @@
+# Secrets
+.env
+.env.local
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+
+# Generated reports (keep folder, ignore content)
+outputs/*.md
+!outputs/.gitkeep
+
+# Cross-branch working-tree leftovers. These directories are owned by
+# other branches (release/paper1-representation-gap, experiment/desi-
+# generalization-loop-12) and have their own tracking rules there. On
+# feature/claim-object-memory they are not part of the feature surface.
+data/generalization/
+outputs/generalization_loop/
+docs/paper1/
+
+# v0.4.1 showcase: per-scenario artefact bundles are regenerable from
+# the ShowcaseRunner. The runner code + the top-level README and
+# baseline_notes.md are tracked; the bundles themselves are noise
+# under git (wall-clock timestamps and per-run UUIDs drift each run).
+docs/showcase/S2/
+docs/showcase/S6/
+docs/showcase/S7/
+
+# v3.124 full-regression scratch files (raw pytest log + start
+# timestamp). The parsed summary is committed as
+# artifacts/v3_124/_regression_status.json.
+artifacts/v3_124/_full_regression.log
+artifacts/v3_124/_full_regression_started.txt
+
+# v5.4 end-of-sprint full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/v5_4/_regression_status.json.
+artifacts/v5_4/_full_regression.log
+artifacts/v5_4/_full_regression_started.txt
+
+# v6.4 end-of-sprint full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/world_contact/_regression_status.json.
+artifacts/world_contact/_full_regression.log
+artifacts/world_contact/_full_regression_started.txt
+
+# v7.4 end-of-sprint full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/social_reality/_regression_status.json.
+artifacts/social_reality/_full_regression.log
+artifacts/social_reality/_full_regression_started.txt
+
+# v8.4 end-of-sprint full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/persistent_conflicts/_regression_status.json.
+artifacts/persistent_conflicts/_full_regression.log
+artifacts/persistent_conflicts/_full_regression_started.txt
+
+# v9.4 end-of-sprint full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/strategic_epistemics/_regression_status.json.
+artifacts/strategic_epistemics/_full_regression.log
+artifacts/strategic_epistemics/_full_regression_started.txt
+
+# v10.4 end-of-sprint full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/institutional_governance/_regression_status.json.
+artifacts/institutional_governance/_full_regression.log
+artifacts/institutional_governance/_full_regression_started.txt
+
+# v11.4 end-of-sprint full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/chess_governance/_regression_status.json.
+artifacts/chess_governance/_full_regression.log
+artifacts/chess_governance/_full_regression_started.txt
+
+# v12.4 end-of-sprint full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/open_math/_regression_status.json.
+artifacts/open_math/_full_regression.log
+artifacts/open_math/_full_regression_started.txt
+
+# v13.4 end-of-sprint full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/paper_integrity/_regression_status.json.
+artifacts/paper_integrity/_full_regression.log
+artifacts/paper_integrity/_full_regression_started.txt
+
+# v15.4 end-of-phase full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/financial_governance/_regression_status.json.
+artifacts/financial_governance/_full_regression.log
+artifacts/financial_governance/_full_regression_started.txt
+
+# v16.4 end-of-phase full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/criminal_epistemics/_regression_status.json.
+artifacts/criminal_epistemics/_full_regression.log
+artifacts/criminal_epistemics/_full_regression_started.txt
+
+# v17.4 end-of-phase full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/sensitive_documents/_regression_status.json.
+artifacts/sensitive_documents/_full_regression.log
+artifacts/sensitive_documents/_full_regression_started.txt
+
+# v18.4 end-of-phase full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/religious_pressure/_regression_status.json.
+artifacts/religious_pressure/_full_regression.log
+artifacts/religious_pressure/_full_regression_started.txt
+
+# v19.4 end-of-phase full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/icrl_governance/_regression_status.json.
+artifacts/icrl_governance/_full_regression.log
+artifacts/icrl_governance/_full_regression_started.txt
+
+# v20.4 / v21.0 end-of-phase full-regression scratch files (raw pytest
+# log + start timestamp). The parsed summary is committed as
+# artifacts/dual_agent/_regression_status.json.
+artifacts/dual_agent/_full_regression.log
+artifacts/dual_agent/_full_regression_started.txt

@@ -1,0 +1,37 @@
+{
+  "coherence_score": 0.821429,
+  "component_count": 4,
+  "component_sizes": [
+    3,
+    2,
+    2,
+    1
+  ],
+  "conflict_count": 5,
+  "conflict_resolution_stability": 1.0,
+  "detection_precision": 1.0,
+  "detection_recall": 1.0,
+  "fragmentation_rate": 0.5,
+  "halt": false,
+  "paper_count": 8,
+  "polarization_index": 0.625,
+  "rationale": [
+    "INFO: paper_count 8",
+    "INFO: conflict_count 5",
+    "INFO: ground_truth_conflicts 5",
+    "INFO: component_sizes [3, 2, 2, 1]",
+    "INFO: uncertainty_zones 3",
+    "INFO: school_distribution {'empirical': 2, 'experimental': 1, 'meta_analysis': 1, 'observational': 1, 'theoretical': 2, 'trial': 1}",
+    "INFO: conflict_kind_counts {'sign_contradiction': 5}",
+    "INFO: topic_conflict_density {'attention_convergence': 1, 'disclosure_efficiency': 1, 'vitamin_d_cv': 3}",
+    "PASS: conflict_resolution_stability 1.0",
+    "PASS: detection_recall 1.0 >= 0.80",
+    "PASS: polarization_index 0.625 <= 0.90",
+    "PASS: fragmentation_rate 0.5 <= 0.80",
+    "PASS: coherence_score 0.821429 >= 0.50",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "ECOLOGY_TRACTABLE",
+  "replay_stability": 1.0,
+  "uncertainty_zone_count": 3
+}

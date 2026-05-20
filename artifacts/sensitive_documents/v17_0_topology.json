@@ -1,0 +1,613 @@
+{
+  "claim_types": [
+    "VERIFIED_DOCUMENT_PRESENCE",
+    "REFERENCED",
+    "CONTEXTUAL_ASSOCIATION",
+    "CLAIMED",
+    "CONTESTED",
+    "UNSUPPORTED",
+    "SPECULATIVE",
+    "UNRESOLVED"
+  ],
+  "claims": [
+    {
+      "asserted_as": "VERIFIED_DOCUMENT_PRESENCE",
+      "best_provenance": 1.0,
+      "claim_id": "Q01",
+      "claim_type": "VERIFIED_DOCUMENT_PRESENCE",
+      "doc_ids": [
+        "D01"
+      ],
+      "entity": "",
+      "independent_sources": 1,
+      "is_document_fact": true,
+      "text": "Court document D01 verifiably exists."
+    },
+    {
+      "asserted_as": "REFERENCED",
+      "best_provenance": 1.0,
+      "claim_id": "Q02",
+      "claim_type": "REFERENCED",
+      "doc_ids": [
+        "D01",
+        "D02"
+      ],
+      "entity": "ENTITY_A",
+      "independent_sources": 1,
+      "is_document_fact": true,
+      "text": "ENTITY_A is referenced in court document D01."
+    },
+    {
+      "asserted_as": "REFERENCED",
+      "best_provenance": 1.0,
+      "claim_id": "Q03",
+      "claim_type": "REFERENCED",
+      "doc_ids": [
+        "D01",
+        "D03",
+        "D13"
+      ],
+      "entity": "ENTITY_B",
+      "independent_sources": 3,
+      "is_document_fact": true,
+      "text": "ENTITY_B is referenced across a court document and a witness statement."
+    },
+    {
+      "asserted_as": "CONTEXTUAL_ASSOCIATION",
+      "best_provenance": 0.66,
+      "claim_id": "Q04",
+      "claim_type": "CONTEXTUAL_ASSOCIATION",
+      "doc_ids": [
+        "D03",
+        "D04"
+      ],
+      "entity": "ENTITY_C",
+      "independent_sources": 2,
+      "is_document_fact": true,
+      "text": "ENTITY_C appears in the same flight-log context as other entities."
+    },
+    {
+      "asserted_as": "CONTEXTUAL_ASSOCIATION",
+      "best_provenance": 1.0,
+      "claim_id": "Q05",
+      "claim_type": "CONTEXTUAL_ASSOCIATION",
+      "doc_ids": [
+        "D04",
+        "D14"
+      ],
+      "entity": "ENTITY_D",
+      "independent_sources": 2,
+      "is_document_fact": true,
+      "text": "ENTITY_D appears in a flight-log context and a court document."
+    },
+    {
+      "asserted_as": "CONTEXTUAL_ASSOCIATION",
+      "best_provenance": 0.66,
+      "claim_id": "Q06",
+      "claim_type": "CONTEXTUAL_ASSOCIATION",
+      "doc_ids": [
+        "D04",
+        "D05"
+      ],
+      "entity": "ENTITY_E",
+      "independent_sources": 1,
+      "is_document_fact": true,
+      "text": "ENTITY_E appears in flight-log context."
+    },
+    {
+      "asserted_as": "REFERENCED",
+      "best_provenance": 0.33,
+      "claim_id": "Q07",
+      "claim_type": "REFERENCED",
+      "doc_ids": [
+        "D06",
+        "D07"
+      ],
+      "entity": "ENTITY_F",
+      "independent_sources": 2,
+      "is_document_fact": true,
+      "text": "A media report references ENTITY_F."
+    },
+    {
+      "asserted_as": "CLAIMED",
+      "best_provenance": 0.0,
+      "claim_id": "Q08",
+      "claim_type": "CLAIMED",
+      "doc_ids": [
+        "D08"
+      ],
+      "entity": "ENTITY_A",
+      "independent_sources": 1,
+      "is_document_fact": false,
+      "text": "A secondary commentary CLAIMS more about ENTITY_A than the record supports."
+    },
+    {
+      "asserted_as": "CONTESTED",
+      "best_provenance": 0.0,
+      "claim_id": "Q09",
+      "claim_type": "CONTESTED",
+      "doc_ids": [
+        "D09"
+      ],
+      "entity": "ENTITY_D",
+      "independent_sources": 1,
+      "is_document_fact": false,
+      "text": "A leaked file makes a CONTESTED assertion about ENTITY_D."
+    },
+    {
+      "asserted_as": "UNSUPPORTED",
+      "best_provenance": 0.0,
+      "claim_id": "Q10",
+      "claim_type": "UNSUPPORTED",
+      "doc_ids": [
+        "D10"
+      ],
+      "entity": "ENTITY_F",
+      "independent_sources": 1,
+      "is_document_fact": false,
+      "text": "An unknown-provenance file makes an UNSUPPORTED assertion about ENTITY_F."
+    },
+    {
+      "asserted_as": "VERIFIED_DOCUMENT_PRESENCE",
+      "best_provenance": 0.0,
+      "claim_id": "Q11",
+      "claim_type": "SPECULATIVE",
+      "doc_ids": [
+        "D08",
+        "D10"
+      ],
+      "entity": "ENTITY_F",
+      "independent_sources": 2,
+      "is_document_fact": false,
+      "text": "A viral narrative SPECULATES about ENTITY_F beyond any evidence."
+    },
+    {
+      "asserted_as": "UNRESOLVED",
+      "best_provenance": 0.0,
+      "claim_id": "Q12",
+      "claim_type": "UNRESOLVED",
+      "doc_ids": [
+        "D08"
+      ],
+      "entity": "ENTITY_C",
+      "independent_sources": 1,
+      "is_document_fact": false,
+      "text": "Whether any documented contact implies anything further is UNRESOLVED for ENTITY_C."
+    },
+    {
+      "asserted_as": "VERIFIED_DOCUMENT_PRESENCE",
+      "best_provenance": 1.0,
+      "claim_id": "Q13",
+      "claim_type": "VERIFIED_DOCUMENT_PRESENCE",
+      "doc_ids": [
+        "D14"
+      ],
+      "entity": "",
+      "independent_sources": 1,
+      "is_document_fact": true,
+      "text": "Court document D14 verifiably exists."
+    },
+    {
+      "asserted_as": "UNRESOLVED",
+      "best_provenance": 0.0,
+      "claim_id": "Q14",
+      "claim_type": "UNRESOLVED",
+      "doc_ids": [
+        "D11",
+        "D12"
+      ],
+      "entity": "",
+      "independent_sources": 2,
+      "is_document_fact": false,
+      "text": "Whether re-circulated copies add any evidentiary weight is UNRESOLVED."
+    }
+  ],
+  "disclaimer": "Fully synthetic and anonymised. Entities are abstract placeholders with NO real identity; documents carry only structural metadata (class, provenance, source, a synthetic fingerprint) and NO real content, names, victim data, minors' data, or sensitive material. DESi classifies claims and documents only, emits NO per-entity verdict, derives NO guilt, builds NO suspect list, and claims NO journalistic/moral/legal authority. Mention != involvement.",
+  "document_classes": [
+    "court_documents",
+    "flight_logs",
+    "witness_statements",
+    "media_reports",
+    "leaked_material",
+    "secondary_commentary",
+    "duplicated_documents",
+    "unknown_provenance"
+  ],
+  "documents": [
+    {
+      "content_fingerprint": "FP100",
+      "doc_class": "court_documents",
+      "doc_id": "D01",
+      "entities_referenced": [
+        "ENTITY_A",
+        "ENTITY_B"
+      ],
+      "is_synthetic_placeholder": true,
+      "provenance_grade": "chain_of_custody",
+      "provenance_value": 1.0,
+      "source_id": "court"
+    },
+    {
+      "content_fingerprint": "FP101",
+      "doc_class": "court_documents",
+      "doc_id": "D02",
+      "entities_referenced": [
+        "ENTITY_A"
+      ],
+      "is_synthetic_placeholder": true,
+      "provenance_grade": "chain_of_custody",
+      "provenance_value": 1.0,
+      "source_id": "court"
+    },
+    {
+      "content_fingerprint": "FP102",
+      "doc_class": "witness_statements",
+      "doc_id": "D03",
+      "entities_referenced": [
+        "ENTITY_B",
+        "ENTITY_C"
+      ],
+      "is_synthetic_placeholder": true,
+      "provenance_grade": "attributed",
+      "provenance_value": 0.66,
+      "source_id": "witness_1"
+    },
+    {
+      "content_fingerprint": "FP103",
+      "doc_class": "flight_logs",
+      "doc_id": "D04",
+      "entities_referenced": [
+        "ENTITY_C",
+        "ENTITY_D",
+        "ENTITY_E"
+      ],
+      "is_synthetic_placeholder": true,
+      "provenance_grade": "attributed",
+      "provenance_value": 0.66,
+      "source_id": "registry"
+    },
+    {
+      "content_fingerprint": "FP104",
+      "doc_class": "flight_logs",
+      "doc_id": "D05",
+      "entities_referenced": [
+        "ENTITY_E"
+      ],
+      "is_synthetic_placeholder": true,
+      "provenance_grade": "partial",
+      "provenance_value": 0.33,
+      "source_id": "registry"
+    },
+    {
+      "content_fingerprint": "FP105",
+      "doc_class": "media_reports",
+      "doc_id": "D06",
+      "entities_referenced": [
+        "ENTITY_A",
+        "ENTITY_F"
+      ],
+      "is_synthetic_placeholder": true,
+      "provenance_grade": "partial",
+      "provenance_value": 0.33,
+      "source_id": "media_outlet_1"
+    },
+    {
+      "content_fingerprint": "FP106",
+      "doc_class": "media_reports",
+      "doc_id": "D07",
+      "entities_referenced": [
+        "ENTITY_F"
+      ],
+      "is_synthetic_placeholder": true,
+      "provenance_grade": "partial",
+      "provenance_value": 0.33,
+      "source_id": "media_outlet_2"
+    },
+    {
+      "content_fingerprint": "FP107",
+      "doc_class": "secondary_commentary",
+      "doc_id": "D08",
+      "entities_referenced": [
+        "ENTITY_A",
+        "ENTITY_C",
+        "ENTITY_F"
+      ],
+      "is_synthetic_placeholder": true,
+      "provenance_grade": "unknown",
+      "provenance_value": 0.0,
+      "source_id": "blog_aggregator"
+    },
+    {
+      "content_fingerprint": "FP108",
+      "doc_class": "leaked_material",
+      "doc_id": "D09",
+      "entities_referenced": [
+        "ENTITY_D"
+      ],
+      "is_synthetic_placeholder": true,
+      "provenance_grade": "unknown",
+      "provenance_value": 0.0,
+      "source_id": "anon_leak"
+    },
+    {
+      "content_fingerprint": "FP109",
+      "doc_class": "unknown_provenance",
+      "doc_id": "D10",
+      "entities_referenced": [
+        "ENTITY_F"
+      ],
+      "is_synthetic_placeholder": true,
+      "provenance_grade": "unknown",
+      "provenance_value": 0.0,
+      "source_id": "unknown"
+    },
+    {
+      "content_fingerprint": "FP105",
+      "doc_class": "duplicated_documents",
+      "doc_id": "D11",
+      "entities_referenced": [
+        "ENTITY_A",
+        "ENTITY_F"
+      ],
+      "is_synthetic_placeholder": true,
+      "provenance_grade": "unknown",
+      "provenance_value": 0.0,
+      "source_id": "repost_1"
+    },
+    {
+      "content_fingerprint": "FP107",
+      "doc_class": "duplicated_documents",
+      "doc_id": "D12",
+      "entities_referenced": [
+        "ENTITY_A",
+        "ENTITY_C",
+        "ENTITY_F"
+      ],
+      "is_synthetic_placeholder": true,
+      "provenance_grade": "unknown",
+      "provenance_value": 0.0,
+      "source_id": "repost_2"
+    },
+    {
+      "content_fingerprint": "FP110",
+      "doc_class": "witness_statements",
+      "doc_id": "D13",
+      "entities_referenced": [
+        "ENTITY_B"
+      ],
+      "is_synthetic_placeholder": true,
+      "provenance_grade": "attributed",
+      "provenance_value": 0.66,
+      "source_id": "witness_2"
+    },
+    {
+      "content_fingerprint": "FP111",
+      "doc_class": "court_documents",
+      "doc_id": "D14",
+      "entities_referenced": [
+        "ENTITY_D"
+      ],
+      "is_synthetic_placeholder": true,
+      "provenance_grade": "chain_of_custody",
+      "provenance_value": 1.0,
+      "source_id": "court"
+    }
+  ],
+  "duplicate_detection": 1.0,
+  "duplicate_groups": {
+    "FP105": [
+      "D06",
+      "D11"
+    ],
+    "FP107": [
+      "D08",
+      "D12"
+    ]
+  },
+  "entities": [
+    "ENTITY_A",
+    "ENTITY_B",
+    "ENTITY_C",
+    "ENTITY_D",
+    "ENTITY_E",
+    "ENTITY_F"
+  ],
+  "entities_remain_neutral": true,
+  "lineage_map": {
+    "Q01": {
+      "best_provenance": 1.0,
+      "claim_type": "VERIFIED_DOCUMENT_PRESENCE",
+      "doc_ids": [
+        "D01"
+      ],
+      "entity": "",
+      "independent_sources": 1
+    },
+    "Q02": {
+      "best_provenance": 1.0,
+      "claim_type": "REFERENCED",
+      "doc_ids": [
+        "D01",
+        "D02"
+      ],
+      "entity": "ENTITY_A",
+      "independent_sources": 1
+    },
+    "Q03": {
+      "best_provenance": 1.0,
+      "claim_type": "REFERENCED",
+      "doc_ids": [
+        "D01",
+        "D03",
+        "D13"
+      ],
+      "entity": "ENTITY_B",
+      "independent_sources": 3
+    },
+    "Q04": {
+      "best_provenance": 0.66,
+      "claim_type": "CONTEXTUAL_ASSOCIATION",
+      "doc_ids": [
+        "D03",
+        "D04"
+      ],
+      "entity": "ENTITY_C",
+      "independent_sources": 2
+    },
+    "Q05": {
+      "best_provenance": 1.0,
+      "claim_type": "CONTEXTUAL_ASSOCIATION",
+      "doc_ids": [
+        "D04",
+        "D14"
+      ],
+      "entity": "ENTITY_D",
+      "independent_sources": 2
+    },
+    "Q06": {
+      "best_provenance": 0.66,
+      "claim_type": "CONTEXTUAL_ASSOCIATION",
+      "doc_ids": [
+        "D04",
+        "D05"
+      ],
+      "entity": "ENTITY_E",
+      "independent_sources": 1
+    },
+    "Q07": {
+      "best_provenance": 0.33,
+      "claim_type": "REFERENCED",
+      "doc_ids": [
+        "D06",
+        "D07"
+      ],
+      "entity": "ENTITY_F",
+      "independent_sources": 2
+    },
+    "Q08": {
+      "best_provenance": 0.0,
+      "claim_type": "CLAIMED",
+      "doc_ids": [
+        "D08"
+      ],
+      "entity": "ENTITY_A",
+      "independent_sources": 1
+    },
+    "Q09": {
+      "best_provenance": 0.0,
+      "claim_type": "CONTESTED",
+      "doc_ids": [
+        "D09"
+      ],
+      "entity": "ENTITY_D",
+      "independent_sources": 1
+    },
+    "Q10": {
+      "best_provenance": 0.0,
+      "claim_type": "UNSUPPORTED",
+      "doc_ids": [
+        "D10"
+      ],
+      "entity": "ENTITY_F",
+      "independent_sources": 1
+    },
+    "Q11": {
+      "best_provenance": 0.0,
+      "claim_type": "SPECULATIVE",
+      "doc_ids": [
+        "D08",
+        "D10"
+      ],
+      "entity": "ENTITY_F",
+      "independent_sources": 2
+    },
+    "Q12": {
+      "best_provenance": 0.0,
+      "claim_type": "UNRESOLVED",
+      "doc_ids": [
+        "D08"
+      ],
+      "entity": "ENTITY_C",
+      "independent_sources": 1
+    },
+    "Q13": {
+      "best_provenance": 1.0,
+      "claim_type": "VERIFIED_DOCUMENT_PRESENCE",
+      "doc_ids": [
+        "D14"
+      ],
+      "entity": "",
+      "independent_sources": 1
+    },
+    "Q14": {
+      "best_provenance": 0.0,
+      "claim_type": "UNRESOLVED",
+      "doc_ids": [
+        "D11",
+        "D12"
+      ],
+      "entity": "",
+      "independent_sources": 2
+    }
+  },
+  "lineage_quality": 0.5,
+  "no_involvement_vocabulary": true,
+  "provenance_gap_ids": [
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D11",
+    "D12"
+  ],
+  "provenance_grades": [
+    "chain_of_custody",
+    "attributed",
+    "partial",
+    "unknown"
+  ],
+  "provenance_integrity": 0.426429,
+  "provenance_visibility": 1.0,
+  "recommendation": "DOCUMENT_SPACE_STRUCTURED",
+  "redundancy": 0.142857,
+  "report_verdicts": [
+    "DOCUMENT_SPACE_STRUCTURED",
+    "CONTAMINATION_OPAQUE",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "robust_provenance_ids": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D13",
+    "D14"
+  ],
+  "schema_version": "v17_0_provenance_document_topology",
+  "source_independence": 0.428571,
+  "sources": [
+    "court",
+    "witness_1",
+    "registry",
+    "media_outlet_1",
+    "media_outlet_2",
+    "blog_aggregator",
+    "anon_leak",
+    "unknown",
+    "repost_1",
+    "repost_2",
+    "witness_2"
+  ],
+  "status_histogram": {
+    "CLAIMED": 1,
+    "CONTESTED": 1,
+    "CONTEXTUAL_ASSOCIATION": 3,
+    "REFERENCED": 3,
+    "SPECULATIVE": 1,
+    "UNRESOLVED": 2,
+    "UNSUPPORTED": 1,
+    "VERIFIED_DOCUMENT_PRESENCE": 2
+  }
+}

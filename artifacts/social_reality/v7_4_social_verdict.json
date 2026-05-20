@@ -1,0 +1,23 @@
+{
+  "failing_conditions": [],
+  "final_classification": "A_epistemically_resilient",
+  "gate_passes_all": true,
+  "metrics": {
+    "epistemic_integrity": 0.966667,
+    "false_certainty_rate": 0.0,
+    "governance_stability": 1.0,
+    "governance_survival": 1.0,
+    "identity_bias": 0.042164,
+    "replay_stability": 1.0,
+    "social_resilience": 0.978918,
+    "virality_bias": 0.0
+  },
+  "schema_version": "v7_4_social_verdict",
+  "social_reality_classes": [
+    "A_epistemically_resilient",
+    "B_bounded_social_drift",
+    "C_narrative_susceptible",
+    "D_polarization_unstable",
+    "E_epistemically_corruptible"
+  ]
+}

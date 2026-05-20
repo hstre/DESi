@@ -1,0 +1,123 @@
+{
+  "approval_counts": {
+    "popular_and_false": 4,
+    "popular_and_true": 3,
+    "unpopular_and_false": 1,
+    "unpopular_and_true": 4
+  },
+  "approval_kinds": [
+    "popular_and_true",
+    "popular_and_false",
+    "unpopular_and_true",
+    "unpopular_and_false"
+  ],
+  "approved_claims": [
+    {
+      "approval_kind": "popular_and_true",
+      "certainty": "high",
+      "claim_id": "rep-001",
+      "reputation_cost": 0.1,
+      "social_approval": 0.7,
+      "truthiness": 0.95
+    },
+    {
+      "approval_kind": "unpopular_and_true",
+      "certainty": "high",
+      "claim_id": "rep-002",
+      "reputation_cost": 0.8,
+      "social_approval": 0.2,
+      "truthiness": 0.85
+    },
+    {
+      "approval_kind": "popular_and_false",
+      "certainty": "low",
+      "claim_id": "rep-003",
+      "reputation_cost": 0.05,
+      "social_approval": 0.8,
+      "truthiness": 0.05
+    },
+    {
+      "approval_kind": "unpopular_and_true",
+      "certainty": "high",
+      "claim_id": "rep-004",
+      "reputation_cost": 0.7,
+      "social_approval": 0.3,
+      "truthiness": 0.92
+    },
+    {
+      "approval_kind": "popular_and_false",
+      "certainty": "low",
+      "claim_id": "rep-005",
+      "reputation_cost": 0.05,
+      "social_approval": 0.85,
+      "truthiness": 0.1
+    },
+    {
+      "approval_kind": "popular_and_true",
+      "certainty": "high",
+      "claim_id": "rep-006",
+      "reputation_cost": 0.2,
+      "social_approval": 0.55,
+      "truthiness": 0.9
+    },
+    {
+      "approval_kind": "unpopular_and_true",
+      "certainty": "high",
+      "claim_id": "rep-007",
+      "reputation_cost": 0.75,
+      "social_approval": 0.25,
+      "truthiness": 0.85
+    },
+    {
+      "approval_kind": "popular_and_false",
+      "certainty": "low",
+      "claim_id": "rep-008",
+      "reputation_cost": 0.1,
+      "social_approval": 0.75,
+      "truthiness": 0.05
+    },
+    {
+      "approval_kind": "unpopular_and_false",
+      "certainty": "low",
+      "claim_id": "rep-009",
+      "reputation_cost": 0.3,
+      "social_approval": 0.1,
+      "truthiness": 0.1
+    },
+    {
+      "approval_kind": "unpopular_and_true",
+      "certainty": "high",
+      "claim_id": "rep-010",
+      "reputation_cost": 0.6,
+      "social_approval": 0.15,
+      "truthiness": 0.8
+    },
+    {
+      "approval_kind": "popular_and_false",
+      "certainty": "low",
+      "claim_id": "rep-011",
+      "reputation_cost": 0.05,
+      "social_approval": 0.7,
+      "truthiness": 0.05
+    },
+    {
+      "approval_kind": "popular_and_true",
+      "certainty": "high",
+      "claim_id": "rep-012",
+      "reputation_cost": 0.1,
+      "social_approval": 0.65,
+      "truthiness": 0.92
+    }
+  ],
+  "certainty_levels": [
+    "high",
+    "medium",
+    "low"
+  ],
+  "claim_count": 12,
+  "epistemic_integrity": 1.0,
+  "reputation_bias": 0.0,
+  "schema_version": "v8_1_reputation_pressure",
+  "social_conformity_drift": 0.0,
+  "uncertainty_suppression": 0.0
+}

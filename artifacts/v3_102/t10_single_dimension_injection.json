@@ -1,0 +1,54 @@
+{
+  "baseline_dim": 45,
+  "cluster_delta": 1,
+  "entangled_family_ids": [
+    "G_v316susp",
+    "E_v317h"
+  ],
+  "geometry_delta": 0.462542,
+  "injected_auc": 1.0,
+  "injected_cluster_count": 2,
+  "injected_cluster_sizes": [
+    10,
+    9
+  ],
+  "injected_clusters": [
+    {
+      "cluster_id": 0,
+      "max_intra_distance": 0.30587,
+      "mean_intra_distance": 0.134193,
+      "members": [
+        "v317-h:E01",
+        "v317-h:E02",
+        "v317-h:E03",
+        "v317-h:E04",
+        "v317-h:E05",
+        "v317-h:E06",
+        "v317-h:E07",
+        "v317-h:E08",
+        "v317-h:E09",
+        "v317-h:E10"
+      ]
+    },
+    {
+      "cluster_id": 1,
+      "max_intra_distance": 0.263067,
+      "mean_intra_distance": 0.131534,
+      "members": [
+        "v316-susp:G01",
+        "v316-susp:G02",
+        "v316-susp:G03",
+        "v316-susp:G04",
+        "v316-susp:G05",
+        "v316-susp:G06",
+        "v316-susp:G07",
+        "v316-susp:G08",
+        "v316-susp:G09"
+      ]
+    }
+  ],
+  "injected_dim": 46,
+  "injected_purity": 1.0,
+  "schema_version": "v3_102_t10_single_dimension_injection",
+  "selected_candidate": "contradiction_type"
+}

@@ -1,0 +1,1817 @@
+{
+  "bureaucracy_growth": 0.0,
+  "flexibility_loss": 0.0,
+  "gate_violation_count": 0,
+  "governance_erosion": 0.0,
+  "institutional_capture": 0.0,
+  "institutional_streams": [
+    "institution",
+    "layer",
+    "precedent"
+  ],
+  "schema_version": "v10_3_long_horizon_drift",
+  "step_count": 10000,
+  "trajectory_final_hash": "1365e828b1a93420",
+  "trajectory_sample": [
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "2ea56d19ee7066fc",
+      "gate_bypass": false,
+      "item_id": "inst-pr-001",
+      "quality_score": 0.9,
+      "step": 0,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "309093b87a4b92a2",
+      "gate_bypass": false,
+      "item_id": "dec-c-001",
+      "quality_score": 1.0,
+      "step": 1,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "7c374d1670fb4ad4",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0001",
+      "quality_score": 1.0,
+      "step": 2,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "17c06e4af5a93d77",
+      "gate_bypass": false,
+      "item_id": "inst-pr-002",
+      "quality_score": 0.92,
+      "step": 3,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "913e811cbd22b04e",
+      "gate_bypass": false,
+      "item_id": "dec-c-002",
+      "quality_score": 1.0,
+      "step": 4,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "57125b0c26d79ba9",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0002",
+      "quality_score": 0.0,
+      "step": 5,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "e6e39631d6b13b9f",
+      "gate_bypass": false,
+      "item_id": "inst-rl-001",
+      "quality_score": 0.95,
+      "step": 6,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "42c6a65b914a70bf",
+      "gate_bypass": false,
+      "item_id": "dec-i-001",
+      "quality_score": 1.0,
+      "step": 7,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "1f1aa5d90e0af32d",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0003",
+      "quality_score": 1.0,
+      "step": 8,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "d9aa526768013322",
+      "gate_bypass": false,
+      "item_id": "inst-rl-002",
+      "quality_score": 0.93,
+      "step": 9,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "ca453a7ac17cb5f9",
+      "gate_bypass": false,
+      "item_id": "dec-i-002",
+      "quality_score": 1.0,
+      "step": 10,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "97d54eb5f495d4a1",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0004",
+      "quality_score": 1.0,
+      "step": 11,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "ee8a1bde7138f095",
+      "gate_bypass": false,
+      "item_id": "inst-ma-001",
+      "quality_score": 0.88,
+      "step": 12,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "491cbd0d3d4dda2e",
+      "gate_bypass": false,
+      "item_id": "dec-i-003",
+      "quality_score": 1.0,
+      "step": 13,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "7a47de246ce25a91",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0001",
+      "quality_score": 1.0,
+      "step": 14,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "45204f77213e4f51",
+      "gate_bypass": false,
+      "item_id": "inst-ma-002",
+      "quality_score": 0.9,
+      "step": 15,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "42ebc68270c67d08",
+      "gate_bypass": false,
+      "item_id": "dec-o-001",
+      "quality_score": 1.0,
+      "step": 16,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "c63630b969d4c373",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0002",
+      "quality_score": 1.0,
+      "step": 17,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "b27f478481ea2c35",
+      "gate_bypass": false,
+      "item_id": "inst-reg-001",
+      "quality_score": 0.93,
+      "step": 18,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "61f907aa2165077f",
+      "gate_bypass": false,
+      "item_id": "dec-o-002",
+      "quality_score": 1.0,
+      "step": 19,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "9a9ecfe5a0d0128a",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0003",
+      "quality_score": 1.0,
+      "step": 20,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "ddab7bb9e0b2154d",
+      "gate_bypass": false,
+      "item_id": "inst-reg-002",
+      "quality_score": 0.94,
+      "step": 21,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "ec458cbf61bdb70f",
+      "gate_bypass": false,
+      "item_id": "dec-o-003",
+      "quality_score": 1.0,
+      "step": 22,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "dab7d35153381eca",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0004",
+      "quality_score": 1.0,
+      "step": 23,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "60a6a90f32d345be",
+      "gate_bypass": false,
+      "item_id": "inst-omb-001",
+      "quality_score": 0.91,
+      "step": 24,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "4813aa4ecb96d3a8",
+      "gate_bypass": false,
+      "item_id": "dec-o-004",
+      "quality_score": 1.0,
+      "step": 25,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "a6978851eeb2ba1b",
+      "gate_bypass": false,
+      "item_id": "dec-procedural-0001",
+      "quality_score": 1.0,
+      "step": 26,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "6aed6e88129c00b3",
+      "gate_bypass": false,
+      "item_id": "inst-omb-002",
+      "quality_score": 0.89,
+      "step": 27,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "0666e6d22b319a5e",
+      "gate_bypass": false,
+      "item_id": "dec-a-001",
+      "quality_score": 1.0,
+      "step": 28,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "2195c93dba602740",
+      "gate_bypass": false,
+      "item_id": "dec-procedural-0002",
+      "quality_score": 1.0,
+      "step": 29,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "6856b78ecc1edf44",
+      "gate_bypass": false,
+      "item_id": "inst-pr-001",
+      "quality_score": 0.9,
+      "step": 30,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "fb82e813e4eb255a",
+      "gate_bypass": false,
+      "item_id": "dec-a-002",
+      "quality_score": 1.0,
+      "step": 31,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "eb4925b277d8082a",
+      "gate_bypass": false,
+      "item_id": "dec-remedial-0001",
+      "quality_score": 1.0,
+      "step": 32,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "0aa8d6acdd8b5b0f",
+      "gate_bypass": false,
+      "item_id": "inst-pr-002",
+      "quality_score": 0.92,
+      "step": 33,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "bec85e054c406727",
+      "gate_bypass": false,
+      "item_id": "dec-a-003",
+      "quality_score": 1.0,
+      "step": 34,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "840c4d5db52d7b40",
+      "gate_bypass": false,
+      "item_id": "dec-remedial-0002",
+      "quality_score": 1.0,
+      "step": 35,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "03421deb67e09558",
+      "gate_bypass": false,
+      "item_id": "inst-rl-001",
+      "quality_score": 0.95,
+      "step": 36,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "8f048875bdd3ac6b",
+      "gate_bypass": false,
+      "item_id": "dec-c-001",
+      "quality_score": 1.0,
+      "step": 37,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "1b7d32ebef913eee",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0001",
+      "quality_score": 1.0,
+      "step": 38,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "589b78c1244cef0a",
+      "gate_bypass": false,
+      "item_id": "inst-rl-002",
+      "quality_score": 0.93,
+      "step": 39,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "4112f3ae96598cd4",
+      "gate_bypass": false,
+      "item_id": "dec-c-002",
+      "quality_score": 1.0,
+      "step": 40,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "7d94169448461841",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0002",
+      "quality_score": 0.0,
+      "step": 41,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "b3f84b5b95e59135",
+      "gate_bypass": false,
+      "item_id": "inst-ma-001",
+      "quality_score": 0.88,
+      "step": 42,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "8bdac5e3455b0c6d",
+      "gate_bypass": false,
+      "item_id": "dec-i-001",
+      "quality_score": 1.0,
+      "step": 43,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "168a393812694157",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0003",
+      "quality_score": 1.0,
+      "step": 44,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "0dbb4d20626b4491",
+      "gate_bypass": false,
+      "item_id": "inst-ma-002",
+      "quality_score": 0.9,
+      "step": 45,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "2724bc3013cbcc13",
+      "gate_bypass": false,
+      "item_id": "dec-i-002",
+      "quality_score": 1.0,
+      "step": 46,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "4636171b02cfa3e1",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0004",
+      "quality_score": 1.0,
+      "step": 47,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "82c876042e948ccc",
+      "gate_bypass": false,
+      "item_id": "inst-reg-001",
+      "quality_score": 0.93,
+      "step": 48,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "ff79040ae0f7517b",
+      "gate_bypass": false,
+      "item_id": "dec-i-003",
+      "quality_score": 1.0,
+      "step": 49,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "ff90339ff9a7d5a2",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0001",
+      "quality_score": 1.0,
+      "step": 50,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "ba1f4b076e42ebd5",
+      "gate_bypass": false,
+      "item_id": "inst-reg-002",
+      "quality_score": 0.94,
+      "step": 51,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "c825b2226fc946d9",
+      "gate_bypass": false,
+      "item_id": "dec-o-001",
+      "quality_score": 1.0,
+      "step": 52,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "e4399f13ad2f470a",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0002",
+      "quality_score": 1.0,
+      "step": 53,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "06d0cdb3a343a1de",
+      "gate_bypass": false,
+      "item_id": "inst-omb-001",
+      "quality_score": 0.91,
+      "step": 54,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "f6aab4f4513694ce",
+      "gate_bypass": false,
+      "item_id": "dec-o-002",
+      "quality_score": 1.0,
+      "step": 55,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "84f02668704185de",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0003",
+      "quality_score": 1.0,
+      "step": 56,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "936d95020a5db350",
+      "gate_bypass": false,
+      "item_id": "inst-omb-002",
+      "quality_score": 0.89,
+      "step": 57,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "b5429a975ef06efb",
+      "gate_bypass": false,
+      "item_id": "dec-o-003",
+      "quality_score": 1.0,
+      "step": 58,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "248d7ae27c6822ed",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0004",
+      "quality_score": 1.0,
+      "step": 59,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "0e170fbfaa863fa7",
+      "gate_bypass": false,
+      "item_id": "inst-pr-001",
+      "quality_score": 0.9,
+      "step": 60,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "2d3d1932b7a73ea5",
+      "gate_bypass": false,
+      "item_id": "dec-o-004",
+      "quality_score": 1.0,
+      "step": 61,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "dc2bfa4a60d09576",
+      "gate_bypass": false,
+      "item_id": "dec-procedural-0001",
+      "quality_score": 1.0,
+      "step": 62,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "876fd1d90ba17102",
+      "gate_bypass": false,
+      "item_id": "inst-pr-002",
+      "quality_score": 0.92,
+      "step": 63,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "e14da01dad100546",
+      "gate_bypass": false,
+      "item_id": "dec-a-001",
+      "quality_score": 1.0,
+      "step": 64,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "32a5b59ce2f7823d",
+      "gate_bypass": false,
+      "item_id": "dec-procedural-0002",
+      "quality_score": 1.0,
+      "step": 65,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "8d7ec7a58958e583",
+      "gate_bypass": false,
+      "item_id": "inst-rl-001",
+      "quality_score": 0.95,
+      "step": 66,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "cf3e37ec766bb800",
+      "gate_bypass": false,
+      "item_id": "dec-a-002",
+      "quality_score": 1.0,
+      "step": 67,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "3fde3fd803b92ae2",
+      "gate_bypass": false,
+      "item_id": "dec-remedial-0001",
+      "quality_score": 1.0,
+      "step": 68,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "1c584b8b896617d6",
+      "gate_bypass": false,
+      "item_id": "inst-rl-002",
+      "quality_score": 0.93,
+      "step": 69,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "73b8ba73cf9b55bd",
+      "gate_bypass": false,
+      "item_id": "dec-a-003",
+      "quality_score": 1.0,
+      "step": 70,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "b8268e505ca1a81f",
+      "gate_bypass": false,
+      "item_id": "dec-remedial-0002",
+      "quality_score": 1.0,
+      "step": 71,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "793ae54abfdd31a1",
+      "gate_bypass": false,
+      "item_id": "inst-ma-001",
+      "quality_score": 0.88,
+      "step": 72,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "07f2386d36566ffa",
+      "gate_bypass": false,
+      "item_id": "dec-c-001",
+      "quality_score": 1.0,
+      "step": 73,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "1aa4e70c65920fda",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0001",
+      "quality_score": 1.0,
+      "step": 74,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "cfd89d283d358aaa",
+      "gate_bypass": false,
+      "item_id": "inst-ma-002",
+      "quality_score": 0.9,
+      "step": 75,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "342be45ab081416a",
+      "gate_bypass": false,
+      "item_id": "dec-c-002",
+      "quality_score": 1.0,
+      "step": 76,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "983c8ea519d16258",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0002",
+      "quality_score": 0.0,
+      "step": 77,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "c68b348832b976e7",
+      "gate_bypass": false,
+      "item_id": "inst-reg-001",
+      "quality_score": 0.93,
+      "step": 78,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "7b9cec9f813c596c",
+      "gate_bypass": false,
+      "item_id": "dec-i-001",
+      "quality_score": 1.0,
+      "step": 79,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "738b8b1891e6cf2e",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0003",
+      "quality_score": 1.0,
+      "step": 80,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "89330686972d6244",
+      "gate_bypass": false,
+      "item_id": "inst-reg-002",
+      "quality_score": 0.94,
+      "step": 81,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "13dbf614bec90b87",
+      "gate_bypass": false,
+      "item_id": "dec-i-002",
+      "quality_score": 1.0,
+      "step": 82,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "8e7ce9961ff462a9",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0004",
+      "quality_score": 1.0,
+      "step": 83,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "7a28d31795d73d37",
+      "gate_bypass": false,
+      "item_id": "inst-omb-001",
+      "quality_score": 0.91,
+      "step": 84,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "d0c17589ef2fed2f",
+      "gate_bypass": false,
+      "item_id": "dec-i-003",
+      "quality_score": 1.0,
+      "step": 85,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "98937f38806dcc88",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0001",
+      "quality_score": 1.0,
+      "step": 86,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "70dec630a2cd02ce",
+      "gate_bypass": false,
+      "item_id": "inst-omb-002",
+      "quality_score": 0.89,
+      "step": 87,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "e59ea32aea756634",
+      "gate_bypass": false,
+      "item_id": "dec-o-001",
+      "quality_score": 1.0,
+      "step": 88,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "2d823a5da7cd30a6",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0002",
+      "quality_score": 1.0,
+      "step": 89,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "ed81fb9d011fb3b2",
+      "gate_bypass": false,
+      "item_id": "inst-pr-001",
+      "quality_score": 0.9,
+      "step": 90,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "13bb6882888a8106",
+      "gate_bypass": false,
+      "item_id": "dec-o-002",
+      "quality_score": 1.0,
+      "step": 91,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "de14ac8557deb45a",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0003",
+      "quality_score": 1.0,
+      "step": 92,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "db666920f3380a16",
+      "gate_bypass": false,
+      "item_id": "inst-pr-002",
+      "quality_score": 0.92,
+      "step": 93,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "518ef943dfe853bb",
+      "gate_bypass": false,
+      "item_id": "dec-o-003",
+      "quality_score": 1.0,
+      "step": 94,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "17bd8fb899055118",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0004",
+      "quality_score": 1.0,
+      "step": 95,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "f5ed49c6aed51b93",
+      "gate_bypass": false,
+      "item_id": "inst-rl-001",
+      "quality_score": 0.95,
+      "step": 96,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "a809d4da5e500edc",
+      "gate_bypass": false,
+      "item_id": "dec-o-004",
+      "quality_score": 1.0,
+      "step": 97,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "c2ba5f383e634cd4",
+      "gate_bypass": false,
+      "item_id": "dec-procedural-0001",
+      "quality_score": 1.0,
+      "step": 98,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "9d107cef0b1d4836",
+      "gate_bypass": false,
+      "item_id": "inst-rl-002",
+      "quality_score": 0.93,
+      "step": 99,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "9ad2721e4f7aad5c",
+      "gate_bypass": false,
+      "item_id": "inst-pr-001",
+      "quality_score": 0.9,
+      "step": 9900,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "35869cf334bbde62",
+      "gate_bypass": false,
+      "item_id": "dec-c-001",
+      "quality_score": 1.0,
+      "step": 9901,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "63badcd2e3bf4903",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0001",
+      "quality_score": 1.0,
+      "step": 9902,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "a023daade8913524",
+      "gate_bypass": false,
+      "item_id": "inst-pr-002",
+      "quality_score": 0.92,
+      "step": 9903,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "64c0f35156adfea6",
+      "gate_bypass": false,
+      "item_id": "dec-c-002",
+      "quality_score": 1.0,
+      "step": 9904,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "8d7c4775d7f2b381",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0002",
+      "quality_score": 0.0,
+      "step": 9905,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "9adea48931ebf929",
+      "gate_bypass": false,
+      "item_id": "inst-rl-001",
+      "quality_score": 0.95,
+      "step": 9906,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "f0d759bd9940dc50",
+      "gate_bypass": false,
+      "item_id": "dec-i-001",
+      "quality_score": 1.0,
+      "step": 9907,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "e50664b3c2ef7359",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0003",
+      "quality_score": 1.0,
+      "step": 9908,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "77b7dea84bab6fac",
+      "gate_bypass": false,
+      "item_id": "inst-rl-002",
+      "quality_score": 0.93,
+      "step": 9909,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "a5ff37a308376949",
+      "gate_bypass": false,
+      "item_id": "dec-i-002",
+      "quality_score": 1.0,
+      "step": 9910,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "979b32b599c007ce",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0004",
+      "quality_score": 1.0,
+      "step": 9911,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "9c281f647a692786",
+      "gate_bypass": false,
+      "item_id": "inst-ma-001",
+      "quality_score": 0.88,
+      "step": 9912,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "73bca4e331d9e7a5",
+      "gate_bypass": false,
+      "item_id": "dec-i-003",
+      "quality_score": 1.0,
+      "step": 9913,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "abb4e3e1d35ce890",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0001",
+      "quality_score": 1.0,
+      "step": 9914,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "13ef8cd3f84f34ba",
+      "gate_bypass": false,
+      "item_id": "inst-ma-002",
+      "quality_score": 0.9,
+      "step": 9915,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "b446ce64ae33cbdf",
+      "gate_bypass": false,
+      "item_id": "dec-o-001",
+      "quality_score": 1.0,
+      "step": 9916,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "28ce18b47143c1b1",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0002",
+      "quality_score": 1.0,
+      "step": 9917,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "e7a5980042cdcb2a",
+      "gate_bypass": false,
+      "item_id": "inst-reg-001",
+      "quality_score": 0.93,
+      "step": 9918,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "ee795d1b168bb48e",
+      "gate_bypass": false,
+      "item_id": "dec-o-002",
+      "quality_score": 1.0,
+      "step": 9919,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "4ddf15022955e233",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0003",
+      "quality_score": 1.0,
+      "step": 9920,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "9fb0717ef7ff0eeb",
+      "gate_bypass": false,
+      "item_id": "inst-reg-002",
+      "quality_score": 0.94,
+      "step": 9921,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "8af84c4a062ca9a7",
+      "gate_bypass": false,
+      "item_id": "dec-o-003",
+      "quality_score": 1.0,
+      "step": 9922,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "cb440349716ff711",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0004",
+      "quality_score": 1.0,
+      "step": 9923,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "5073f49c006a063a",
+      "gate_bypass": false,
+      "item_id": "inst-omb-001",
+      "quality_score": 0.91,
+      "step": 9924,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "b3137b859cb46749",
+      "gate_bypass": false,
+      "item_id": "dec-o-004",
+      "quality_score": 1.0,
+      "step": 9925,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "72ba2050f2436652",
+      "gate_bypass": false,
+      "item_id": "dec-procedural-0001",
+      "quality_score": 1.0,
+      "step": 9926,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "2bfeb132165b35bc",
+      "gate_bypass": false,
+      "item_id": "inst-omb-002",
+      "quality_score": 0.89,
+      "step": 9927,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "772421d9f84f81a8",
+      "gate_bypass": false,
+      "item_id": "dec-a-001",
+      "quality_score": 1.0,
+      "step": 9928,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "3fce872c03b2aed1",
+      "gate_bypass": false,
+      "item_id": "dec-procedural-0002",
+      "quality_score": 1.0,
+      "step": 9929,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "3faa3b6174881fbc",
+      "gate_bypass": false,
+      "item_id": "inst-pr-001",
+      "quality_score": 0.9,
+      "step": 9930,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "7ed68b34272f1084",
+      "gate_bypass": false,
+      "item_id": "dec-a-002",
+      "quality_score": 1.0,
+      "step": 9931,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "dcad17b2eacdb871",
+      "gate_bypass": false,
+      "item_id": "dec-remedial-0001",
+      "quality_score": 1.0,
+      "step": 9932,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "87da09647e5e6f9a",
+      "gate_bypass": false,
+      "item_id": "inst-pr-002",
+      "quality_score": 0.92,
+      "step": 9933,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "aef465bf0a474e77",
+      "gate_bypass": false,
+      "item_id": "dec-a-003",
+      "quality_score": 1.0,
+      "step": 9934,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "1aa3350e4dfc83a6",
+      "gate_bypass": false,
+      "item_id": "dec-remedial-0002",
+      "quality_score": 1.0,
+      "step": 9935,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "bd601b4afc505e89",
+      "gate_bypass": false,
+      "item_id": "inst-rl-001",
+      "quality_score": 0.95,
+      "step": 9936,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "a2563735507263b8",
+      "gate_bypass": false,
+      "item_id": "dec-c-001",
+      "quality_score": 1.0,
+      "step": 9937,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "10807e85e3e98f01",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0001",
+      "quality_score": 1.0,
+      "step": 9938,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "2156d3a8be5a86ab",
+      "gate_bypass": false,
+      "item_id": "inst-rl-002",
+      "quality_score": 0.93,
+      "step": 9939,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "68e117bc76a5f0b3",
+      "gate_bypass": false,
+      "item_id": "dec-c-002",
+      "quality_score": 1.0,
+      "step": 9940,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "4106f3d11e73ae5c",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0002",
+      "quality_score": 0.0,
+      "step": 9941,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "6c614401a262b8be",
+      "gate_bypass": false,
+      "item_id": "inst-ma-001",
+      "quality_score": 0.88,
+      "step": 9942,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "4eb995768f821e34",
+      "gate_bypass": false,
+      "item_id": "dec-i-001",
+      "quality_score": 1.0,
+      "step": 9943,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "17a32e9356ebf9a8",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0003",
+      "quality_score": 1.0,
+      "step": 9944,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "19746308187ab647",
+      "gate_bypass": false,
+      "item_id": "inst-ma-002",
+      "quality_score": 0.9,
+      "step": 9945,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "a8c84532629891b2",
+      "gate_bypass": false,
+      "item_id": "dec-i-002",
+      "quality_score": 1.0,
+      "step": 9946,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "e8ff31bdf6986b62",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0004",
+      "quality_score": 1.0,
+      "step": 9947,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "4029af7445b429d5",
+      "gate_bypass": false,
+      "item_id": "inst-reg-001",
+      "quality_score": 0.93,
+      "step": 9948,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "2b6850744b2b23ad",
+      "gate_bypass": false,
+      "item_id": "dec-i-003",
+      "quality_score": 1.0,
+      "step": 9949,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "012568aa0d886a27",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0001",
+      "quality_score": 1.0,
+      "step": 9950,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "be4943a5bd64bdcd",
+      "gate_bypass": false,
+      "item_id": "inst-reg-002",
+      "quality_score": 0.94,
+      "step": 9951,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "dc6ce08e0ee28f23",
+      "gate_bypass": false,
+      "item_id": "dec-o-001",
+      "quality_score": 1.0,
+      "step": 9952,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "3205e922a5eee50c",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0002",
+      "quality_score": 1.0,
+      "step": 9953,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "20b0b6262cca1f69",
+      "gate_bypass": false,
+      "item_id": "inst-omb-001",
+      "quality_score": 0.91,
+      "step": 9954,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "bf6dfa944c5d0e03",
+      "gate_bypass": false,
+      "item_id": "dec-o-002",
+      "quality_score": 1.0,
+      "step": 9955,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "ee9de4979fc22abf",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0003",
+      "quality_score": 1.0,
+      "step": 9956,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "e872573982385d54",
+      "gate_bypass": false,
+      "item_id": "inst-omb-002",
+      "quality_score": 0.89,
+      "step": 9957,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "a489dd570f14f94c",
+      "gate_bypass": false,
+      "item_id": "dec-o-003",
+      "quality_score": 1.0,
+      "step": 9958,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "e0a23d0fd8243629",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0004",
+      "quality_score": 1.0,
+      "step": 9959,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "5d81578c419d0398",
+      "gate_bypass": false,
+      "item_id": "inst-pr-001",
+      "quality_score": 0.9,
+      "step": 9960,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "65c71cf4afcf8d96",
+      "gate_bypass": false,
+      "item_id": "dec-o-004",
+      "quality_score": 1.0,
+      "step": 9961,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "8b35f52b85a1df75",
+      "gate_bypass": false,
+      "item_id": "dec-procedural-0001",
+      "quality_score": 1.0,
+      "step": 9962,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "7f431354540afee0",
+      "gate_bypass": false,
+      "item_id": "inst-pr-002",
+      "quality_score": 0.92,
+      "step": 9963,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "284f8726a20ffd46",
+      "gate_bypass": false,
+      "item_id": "dec-a-001",
+      "quality_score": 1.0,
+      "step": 9964,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "39cf21f0e55111b8",
+      "gate_bypass": false,
+      "item_id": "dec-procedural-0002",
+      "quality_score": 1.0,
+      "step": 9965,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "bb14b09313b34625",
+      "gate_bypass": false,
+      "item_id": "inst-rl-001",
+      "quality_score": 0.95,
+      "step": 9966,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "bcc50a3c8c69852a",
+      "gate_bypass": false,
+      "item_id": "dec-a-002",
+      "quality_score": 1.0,
+      "step": 9967,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "f707c576d7588599",
+      "gate_bypass": false,
+      "item_id": "dec-remedial-0001",
+      "quality_score": 1.0,
+      "step": 9968,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "46faf74f566ffee1",
+      "gate_bypass": false,
+      "item_id": "inst-rl-002",
+      "quality_score": 0.93,
+      "step": 9969,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "08b8fb541e436a42",
+      "gate_bypass": false,
+      "item_id": "dec-a-003",
+      "quality_score": 1.0,
+      "step": 9970,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "36d69dc590426968",
+      "gate_bypass": false,
+      "item_id": "dec-remedial-0002",
+      "quality_score": 1.0,
+      "step": 9971,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "a7dedbfd0a33ca18",
+      "gate_bypass": false,
+      "item_id": "inst-ma-001",
+      "quality_score": 0.88,
+      "step": 9972,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "540d9dde3014e38f",
+      "gate_bypass": false,
+      "item_id": "dec-c-001",
+      "quality_score": 1.0,
+      "step": 9973,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "890a212eca85726f",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0001",
+      "quality_score": 1.0,
+      "step": 9974,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "e9f6529f8f170050",
+      "gate_bypass": false,
+      "item_id": "inst-ma-002",
+      "quality_score": 0.9,
+      "step": 9975,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "6430245ac4886920",
+      "gate_bypass": false,
+      "item_id": "dec-c-002",
+      "quality_score": 1.0,
+      "step": 9976,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "15cf11df3af218d8",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0002",
+      "quality_score": 0.0,
+      "step": 9977,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "36162b9878258e62",
+      "gate_bypass": false,
+      "item_id": "inst-reg-001",
+      "quality_score": 0.93,
+      "step": 9978,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "8f88112dc55cfba1",
+      "gate_bypass": false,
+      "item_id": "dec-i-001",
+      "quality_score": 1.0,
+      "step": 9979,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "1331ae7624639f37",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0003",
+      "quality_score": 1.0,
+      "step": 9980,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "8684449f5abc90d0",
+      "gate_bypass": false,
+      "item_id": "inst-reg-002",
+      "quality_score": 0.94,
+      "step": 9981,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "d510c0fd5f695f53",
+      "gate_bypass": false,
+      "item_id": "dec-i-002",
+      "quality_score": 1.0,
+      "step": 9982,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "5796b81279e6985f",
+      "gate_bypass": false,
+      "item_id": "dec-foundational-0004",
+      "quality_score": 1.0,
+      "step": 9983,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "a1f5c781b6773f97",
+      "gate_bypass": false,
+      "item_id": "inst-omb-001",
+      "quality_score": 0.91,
+      "step": 9984,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "4b3dabf33b9953bf",
+      "gate_bypass": false,
+      "item_id": "dec-i-003",
+      "quality_score": 1.0,
+      "step": 9985,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "ebae103646ae78e4",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0001",
+      "quality_score": 1.0,
+      "step": 9986,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "eb389efa3b22b750",
+      "gate_bypass": false,
+      "item_id": "inst-omb-002",
+      "quality_score": 0.89,
+      "step": 9987,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "23be6d73937dec80",
+      "gate_bypass": false,
+      "item_id": "dec-o-001",
+      "quality_score": 1.0,
+      "step": 9988,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "be8ff898f3a37226",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0002",
+      "quality_score": 1.0,
+      "step": 9989,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "b744ae7d6533a09a",
+      "gate_bypass": false,
+      "item_id": "inst-pr-001",
+      "quality_score": 0.9,
+      "step": 9990,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "d39da34df7a1fbe3",
+      "gate_bypass": false,
+      "item_id": "dec-o-002",
+      "quality_score": 1.0,
+      "step": 9991,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "b4dc8c65c54862b3",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0003",
+      "quality_score": 1.0,
+      "step": 9992,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "43011dcfd8716c45",
+      "gate_bypass": false,
+      "item_id": "inst-pr-002",
+      "quality_score": 0.92,
+      "step": 9993,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "e95c62c645583e0c",
+      "gate_bypass": false,
+      "item_id": "dec-o-003",
+      "quality_score": 1.0,
+      "step": 9994,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "2e8834b41880327f",
+      "gate_bypass": false,
+      "item_id": "dec-normative-0004",
+      "quality_score": 1.0,
+      "step": 9995,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "3b9c0167e98143db",
+      "gate_bypass": false,
+      "item_id": "inst-rl-001",
+      "quality_score": 0.95,
+      "step": 9996,
+      "stream": "institution"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "e371ad50497963d1",
+      "gate_bypass": false,
+      "item_id": "dec-o-004",
+      "quality_score": 1.0,
+      "step": 9997,
+      "stream": "layer"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "d0930440699d5feb",
+      "gate_bypass": false,
+      "item_id": "dec-procedural-0001",
+      "quality_score": 1.0,
+      "step": 9998,
+      "stream": "precedent"
+    },
+    {
+      "closed_enum_hash": "dd9e541b8c5d1f30",
+      "cumulative_hash": "1365e828b1a93420",
+      "gate_bypass": false,
+      "item_id": "inst-rl-002",
+      "quality_score": 0.93,
+      "step": 9999,
+      "stream": "institution"
+    }
+  ]
+}

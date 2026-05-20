@@ -1,0 +1,1580 @@
+{
+  "adaptive_outcomes": [
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "letter_prefix_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.480603,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.495873,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v314:A",
+      "family_b": "v314:B",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "letter_prefix_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.438203,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.472464,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v314:A",
+      "family_b": "v315:H",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.403153,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.47027,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v314:A",
+      "family_b": "v316-surv:A",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.438203,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.472464,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v314:A",
+      "family_b": "v316-surv:H",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.480603,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.495873,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v314:A",
+      "family_b": "v317-h:B",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "letter_prefix_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.489735,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.504762,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v314:B",
+      "family_b": "v315:E",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "letter_prefix_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.419014,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.453623,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v314:B",
+      "family_b": "v315:H",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.428228,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.44955,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v314:B",
+      "family_b": "v316-surv:A",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.489735,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.504762,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v314:B",
+      "family_b": "v316-surv:E",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.419014,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.453623,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v314:B",
+      "family_b": "v316-surv:H",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.480603,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.495873,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v314:B",
+      "family_b": "v317-h:A",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.498907,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.495628,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v314:B",
+      "family_b": "v318-wmf:WMF",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "letter_prefix_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.429913,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v315:E",
+      "family_b": "v315:H",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.43033,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v315:E",
+      "family_b": "v316-surv:A",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.429913,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v315:E",
+      "family_b": "v316-surv:H",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.489735,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.504762,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v315:E",
+      "family_b": "v317-h:B",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.465625,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v315:H",
+      "family_b": "v316-surv:A",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.429913,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v315:H",
+      "family_b": "v316-surv:E",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.438203,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.472464,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v315:H",
+      "family_b": "v317-h:A",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.419014,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.453623,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v315:H",
+      "family_b": "v317-h:B",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "letter_prefix_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.43033,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v316-surv:A",
+      "family_b": "v316-surv:E",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "letter_prefix_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.465625,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v316-surv:A",
+      "family_b": "v316-surv:H",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.403153,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.47027,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v316-surv:A",
+      "family_b": "v317-h:A",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.428228,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.44955,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v316-surv:A",
+      "family_b": "v317-h:B",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.399954,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v316-surv:A",
+      "family_b": "v318-wmf:WMF",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "letter_prefix_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.429913,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v316-surv:E",
+      "family_b": "v316-surv:H",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.489735,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.504762,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v316-surv:E",
+      "family_b": "v317-h:B",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.438203,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.472464,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v316-surv:H",
+      "family_b": "v317-h:A",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.419014,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.453623,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v316-surv:H",
+      "family_b": "v317-h:B",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "letter_prefix_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.480603,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.495873,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v317-h:A",
+      "family_b": "v317-h:B",
+      "rescued": true
+    },
+    {
+      "baseline_auc": 0.5,
+      "best_auc": 1.0,
+      "best_candidate": "corpus_hash",
+      "candidate_aucs": [
+        {
+          "auc": 0.5,
+          "candidate": "reasoning_pattern_id"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "premise_dependency"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "inference_template"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "contradiction_type"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "semantic_operator_family"
+        },
+        {
+          "auc": 0.5,
+          "candidate": "claim_structure_hash"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "letter_prefix_hash"
+        },
+        {
+          "auc": 0.498907,
+          "candidate": "first_content_word_hash"
+        },
+        {
+          "auc": 0.495628,
+          "candidate": "text_length_bucket"
+        },
+        {
+          "auc": 1.0,
+          "candidate": "corpus_hash"
+        }
+      ],
+      "family_a": "v317-h:B",
+      "family_b": "v318-wmf:WMF",
+      "rescued": true
+    }
+  ],
+  "all_candidates": [
+    "reasoning_pattern_id",
+    "premise_dependency",
+    "inference_template",
+    "contradiction_type",
+    "semantic_operator_family",
+    "claim_structure_hash",
+    "letter_prefix_hash",
+    "first_content_word_hash",
+    "text_length_bucket",
+    "corpus_hash"
+  ],
+  "candidate_vocab_size": 2,
+  "instance_count": 31,
+  "mean_candidate_auc": 1.0,
+  "new_candidate_count": 2,
+  "rescue_rate": 1.0,
+  "reused_candidates": [
+    "corpus_hash",
+    "letter_prefix_hash"
+  ],
+  "schema_version": "v3_107_t10_adaptive_candidates",
+  "used_candidates": [
+    "corpus_hash",
+    "letter_prefix_hash"
+  ]
+}

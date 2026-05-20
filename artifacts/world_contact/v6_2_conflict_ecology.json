@@ -1,0 +1,312 @@
+{
+  "coherence_score": 0.821429,
+  "components": [
+    [
+      "eco-001",
+      "eco-002",
+      "eco-003"
+    ],
+    [
+      "eco-004",
+      "eco-005"
+    ],
+    [
+      "eco-006",
+      "eco-007"
+    ],
+    [
+      "eco-008"
+    ]
+  ],
+  "conflict_kind_counts": {
+    "sign_contradiction": 5
+  },
+  "conflict_kinds": [
+    "sign_contradiction",
+    "methodology_clash",
+    "scope_disagreement",
+    "evidence_quality"
+  ],
+  "conflict_resolution_stability": 1.0,
+  "detected_conflicts": [
+    {
+      "kind": "sign_contradiction",
+      "paper_a": "eco-001",
+      "paper_b": "eco-002",
+      "topic": "vitamin_d_cv"
+    },
+    {
+      "kind": "sign_contradiction",
+      "paper_a": "eco-001",
+      "paper_b": "eco-003",
+      "topic": "vitamin_d_cv"
+    },
+    {
+      "kind": "sign_contradiction",
+      "paper_a": "eco-002",
+      "paper_b": "eco-003",
+      "topic": "vitamin_d_cv"
+    },
+    {
+      "kind": "sign_contradiction",
+      "paper_a": "eco-004",
+      "paper_b": "eco-005",
+      "topic": "attention_convergence"
+    },
+    {
+      "kind": "sign_contradiction",
+      "paper_a": "eco-006",
+      "paper_b": "eco-007",
+      "topic": "disclosure_efficiency"
+    }
+  ],
+  "detection_precision": 1.0,
+  "detection_recall": 1.0,
+  "fragmentation_rate": 0.5,
+  "ground_truth_conflicts": [
+    [
+      "eco-001",
+      "eco-002"
+    ],
+    [
+      "eco-001",
+      "eco-003"
+    ],
+    [
+      "eco-002",
+      "eco-003"
+    ],
+    [
+      "eco-004",
+      "eco-005"
+    ],
+    [
+      "eco-006",
+      "eco-007"
+    ]
+  ],
+  "nodes": [
+    {
+      "component_id": 0,
+      "paper_id": "eco-001",
+      "topic": "vitamin_d_cv"
+    },
+    {
+      "component_id": 0,
+      "paper_id": "eco-002",
+      "topic": "vitamin_d_cv"
+    },
+    {
+      "component_id": 0,
+      "paper_id": "eco-003",
+      "topic": "vitamin_d_cv"
+    },
+    {
+      "component_id": 1,
+      "paper_id": "eco-004",
+      "topic": "attention_convergence"
+    },
+    {
+      "component_id": 1,
+      "paper_id": "eco-005",
+      "topic": "attention_convergence"
+    },
+    {
+      "component_id": 2,
+      "paper_id": "eco-006",
+      "topic": "disclosure_efficiency"
+    },
+    {
+      "component_id": 2,
+      "paper_id": "eco-007",
+      "topic": "disclosure_efficiency"
+    },
+    {
+      "component_id": 3,
+      "paper_id": "eco-008",
+      "topic": "superconductivity_mgb2"
+    }
+  ],
+  "paper_count": 8,
+  "papers": [
+    {
+      "conflicts_with": [
+        "eco-002",
+        "eco-003"
+      ],
+      "direction": "-",
+      "evidence_strength": 0.85,
+      "methodology": "rct",
+      "paper_id": "eco-001",
+      "school": "trial",
+      "text": "RCT shows that vitamin D supplementation REDUCES cardiovascular events.",
+      "topic": "vitamin_d_cv"
+    },
+    {
+      "conflicts_with": [
+        "eco-001",
+        "eco-003"
+      ],
+      "direction": "+",
+      "evidence_strength": 0.55,
+      "methodology": "cohort",
+      "paper_id": "eco-002",
+      "school": "observational",
+      "text": "Cohort study suggests vitamin D supplementation INCREASES cardiovascular events in high-baseline populations.",
+      "topic": "vitamin_d_cv"
+    },
+    {
+      "conflicts_with": [
+        "eco-001",
+        "eco-002"
+      ],
+      "direction": "0",
+      "evidence_strength": 0.7,
+      "methodology": "meta",
+      "paper_id": "eco-003",
+      "school": "meta_analysis",
+      "text": "Meta-analysis finds no significant effect of vitamin D on cardiovascular events.",
+      "topic": "vitamin_d_cv"
+    },
+    {
+      "conflicts_with": [
+        "eco-005"
+      ],
+      "direction": "+",
+      "evidence_strength": 0.9,
+      "methodology": "proof",
+      "paper_id": "eco-004",
+      "school": "theoretical",
+      "text": "We prove that attention models CONVERGE under sparse supervision.",
+      "topic": "attention_convergence"
+    },
+    {
+      "conflicts_with": [
+        "eco-004"
+      ],
+      "direction": "-",
+      "evidence_strength": 0.6,
+      "methodology": "benchmark",
+      "paper_id": "eco-005",
+      "school": "empirical",
+      "text": "Benchmarks show that attention models DIVERGE on real-world long-context inputs.",
+      "topic": "attention_convergence"
+    },
+    {
+      "conflicts_with": [
+        "eco-007"
+      ],
+      "direction": "+",
+      "evidence_strength": 0.75,
+      "methodology": "event_study",
+      "paper_id": "eco-006",
+      "school": "empirical",
+      "text": "Event study shows that mandatory disclosure IMPROVES market efficiency.",
+      "topic": "disclosure_efficiency"
+    },
+    {
+      "conflicts_with": [
+        "eco-006"
+      ],
+      "direction": "0",
+      "evidence_strength": 0.4,
+      "methodology": "model",
+      "paper_id": "eco-007",
+      "school": "theoretical",
+      "text": "A theoretical model is neutral on whether mandatory disclosure improves market efficiency.",
+      "topic": "disclosure_efficiency"
+    },
+    {
+      "conflicts_with": [],
+      "direction": "+",
+      "evidence_strength": 0.95,
+      "methodology": "measurement",
+      "paper_id": "eco-008",
+      "school": "experimental",
+      "text": "Measurement confirms a phase transition in MgB2 at 39 Kelvin.",
+      "topic": "superconductivity_mgb2"
+    }
+  ],
+  "polarization_index": 0.625,
+  "schema_version": "v6_2_conflict_ecology",
+  "school_distribution": {
+    "empirical": 2,
+    "experimental": 1,
+    "meta_analysis": 1,
+    "observational": 1,
+    "theoretical": 2,
+    "trial": 1
+  },
+  "topic_clusters": [
+    {
+      "directions": [
+        "+",
+        "-"
+      ],
+      "is_uncertainty_zone": true,
+      "papers": [
+        "eco-004",
+        "eco-005"
+      ],
+      "schools": [
+        "empirical",
+        "theoretical"
+      ],
+      "topic": "attention_convergence"
+    },
+    {
+      "directions": [
+        "+",
+        "0"
+      ],
+      "is_uncertainty_zone": true,
+      "papers": [
+        "eco-006",
+        "eco-007"
+      ],
+      "schools": [
+        "empirical",
+        "theoretical"
+      ],
+      "topic": "disclosure_efficiency"
+    },
+    {
+      "directions": [
+        "+"
+      ],
+      "is_uncertainty_zone": false,
+      "papers": [
+        "eco-008"
+      ],
+      "schools": [
+        "experimental"
+      ],
+      "topic": "superconductivity_mgb2"
+    },
+    {
+      "directions": [
+        "+",
+        "-",
+        "0"
+      ],
+      "is_uncertainty_zone": true,
+      "papers": [
+        "eco-001",
+        "eco-002",
+        "eco-003"
+      ],
+      "schools": [
+        "meta_analysis",
+        "observational",
+        "trial"
+      ],
+      "topic": "vitamin_d_cv"
+    }
+  ],
+  "topic_conflict_density": {
+    "attention_convergence": 1,
+    "disclosure_efficiency": 1,
+    "vitamin_d_cv": 3
+  },
+  "uncertainty_zone_count": 3
+}

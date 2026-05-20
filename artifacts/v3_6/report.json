@@ -1,0 +1,627 @@
+{
+  "cluster_summary": {
+    "cluster_count": 5,
+    "clusters": [
+      {
+        "cluster_id": "CL_multi_signal_conflict__empirical_causal",
+        "expected_frame": "empirical_causal",
+        "failure_class": "multi_signal_conflict",
+        "members": [
+          "C03:p0",
+          "C03:p3"
+        ],
+        "size": 2
+      },
+      {
+        "cluster_id": "CL_polysemy_collision__information_theoretic",
+        "expected_frame": "information_theoretic",
+        "failure_class": "polysemy_collision",
+        "members": [
+          "I01:p0",
+          "I01:p1",
+          "I01:p2",
+          "I01:p3",
+          "I01:p4",
+          "I04:p0",
+          "I04:p1",
+          "I04:p2",
+          "I04:p3",
+          "I04:p4",
+          "I08:p0",
+          "I08:p1",
+          "I08:p2",
+          "I08:p3",
+          "I10:p1"
+        ],
+        "size": 15
+      },
+      {
+        "cluster_id": "CL_synonym_gap__empirical_causal",
+        "expected_frame": "empirical_causal",
+        "failure_class": "synonym_gap",
+        "members": [
+          "C02:p2",
+          "C03:p1",
+          "C07:p2",
+          "C09:p1"
+        ],
+        "size": 4
+      },
+      {
+        "cluster_id": "CL_synonym_gap__ontological_distinguishability",
+        "expected_frame": "ontological_distinguishability",
+        "failure_class": "synonym_gap",
+        "members": [
+          "O04:p0",
+          "O04:p2",
+          "O04:p3",
+          "O04:p4"
+        ],
+        "size": 4
+      },
+      {
+        "cluster_id": "CL_synonym_gap__tool_computable",
+        "expected_frame": "tool_computable",
+        "failure_class": "synonym_gap",
+        "members": [
+          "X03:p4",
+          "X06:p0",
+          "X06:p4"
+        ],
+        "size": 3
+      }
+    ],
+    "entropy_of_failure_distribution": 1.452794,
+    "largest_cluster_size": 15,
+    "singleton_count": 2,
+    "singletons": [
+      {
+        "cluster_id": "CL_pipeline_routing_mismatch__empirical_causal",
+        "expected_frame": "empirical_causal",
+        "failure_class": "pipeline_routing_mismatch",
+        "members": [
+          "C03:p4"
+        ],
+        "size": 1
+      },
+      {
+        "cluster_id": "CL_synonym_gap__authority_speech",
+        "expected_frame": "authority_speech",
+        "failure_class": "synonym_gap",
+        "members": [
+          "A07:p0"
+        ],
+        "size": 1
+      }
+    ]
+  },
+  "failures": [
+    {
+      "canonical_group_id": "I01",
+      "canonical_text": "Shannon entropy of a fair coin is exactly one bit.",
+      "case_id": "I01:p0",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "explicit_marker_present": false,
+      "failure_type": "frame_conflict_unexpected",
+      "paraphrase_variant": 0,
+      "text": "Shannon entropy of a fair coin is exactly one bit."
+    },
+    {
+      "canonical_group_id": "I01",
+      "canonical_text": "Shannon entropy of a fair coin is exactly one bit.",
+      "case_id": "I01:p1",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "explicit_marker_present": false,
+      "failure_type": "frame_conflict_unexpected",
+      "paraphrase_variant": 1,
+      "text": "A fair coin carries one bit of Shannon entropy."
+    },
+    {
+      "canonical_group_id": "I01",
+      "canonical_text": "Shannon entropy of a fair coin is exactly one bit.",
+      "case_id": "I01:p2",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "explicit_marker_present": false,
+      "failure_type": "frame_conflict_unexpected",
+      "paraphrase_variant": 2,
+      "text": "Shannon entropy equals one bit for a fair coin."
+    },
+    {
+      "canonical_group_id": "I01",
+      "canonical_text": "Shannon entropy of a fair coin is exactly one bit.",
+      "case_id": "I01:p3",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "explicit_marker_present": false,
+      "failure_type": "frame_conflict_unexpected",
+      "paraphrase_variant": 3,
+      "text": "Fair coins have one-bit Shannon entropy."
+    },
+    {
+      "canonical_group_id": "I01",
+      "canonical_text": "Shannon entropy of a fair coin is exactly one bit.",
+      "case_id": "I01:p4",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "explicit_marker_present": false,
+      "failure_type": "frame_conflict_unexpected",
+      "paraphrase_variant": 4,
+      "text": "One bit of Shannon entropy per fair coin flip."
+    },
+    {
+      "canonical_group_id": "I04",
+      "canonical_text": "Compression ratio is bounded by Shannon entropy in bits.",
+      "case_id": "I04:p0",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "explicit_marker_present": false,
+      "failure_type": "frame_conflict_unexpected",
+      "paraphrase_variant": 0,
+      "text": "Compression ratio is bounded by Shannon entropy in bits."
+    },
+    {
+      "canonical_group_id": "I04",
+      "canonical_text": "Compression ratio is bounded by Shannon entropy in bits.",
+      "case_id": "I04:p1",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "explicit_marker_present": false,
+      "failure_type": "frame_conflict_unexpected",
+      "paraphrase_variant": 1,
+      "text": "Shannon entropy bounds achievable compression bits-per-symbol."
+    },
+    {
+      "canonical_group_id": "I04",
+      "canonical_text": "Compression ratio is bounded by Shannon entropy in bits.",
+      "case_id": "I04:p2",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "explicit_marker_present": false,
+      "failure_type": "frame_conflict_unexpected",
+      "paraphrase_variant": 2,
+      "text": "Optimal compression in bits matches Shannon entropy."
+    },
+    {
+      "canonical_group_id": "I04",
+      "canonical_text": "Compression ratio is bounded by Shannon entropy in bits.",
+      "case_id": "I04:p3",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "explicit_marker_present": false,
+      "failure_type": "frame_conflict_unexpected",
+      "paraphrase_variant": 3,
+      "text": "No compression beats the Shannon entropy bound in bits."
+    },
+    {
+      "canonical_group_id": "I04",
+      "canonical_text": "Compression ratio is bounded by Shannon entropy in bits.",
+      "case_id": "I04:p4",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "explicit_marker_present": false,
+      "failure_type": "frame_conflict_unexpected",
+      "paraphrase_variant": 4,
+      "text": "Compression bits are lower-bounded by Shannon's entropy."
+    },
+    {
+      "canonical_group_id": "I08",
+      "canonical_text": "Channel capacity for a binary symmetric channel is 1 minus binary entropy in bits.",
+      "case_id": "I08:p0",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "explicit_marker_present": false,
+      "failure_type": "frame_conflict_unexpected",
+      "paraphrase_variant": 0,
+      "text": "Channel capacity for a binary symmetric channel is 1 minus binary entropy in bits."
+    },
+    {
+      "canonical_group_id": "I08",
+      "canonical_text": "Channel capacity for a binary symmetric channel is 1 minus binary entropy in bits.",
+      "case_id": "I08:p1",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "explicit_marker_present": false,
+      "failure_type": "frame_conflict_unexpected",
+      "paraphrase_variant": 1,
+      "text": "BSC channel capacity equals one bit minus binary entropy."
+    },
+    {
+      "canonical_group_id": "I08",
+      "canonical_text": "Channel capacity for a binary symmetric channel is 1 minus binary entropy in bits.",
+      "case_id": "I08:p2",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "explicit_marker_present": false,
+      "failure_type": "frame_conflict_unexpected",
+      "paraphrase_variant": 2,
+      "text": "For a binary symmetric channel the bits-per-use capacity is one minus binary entropy."
+    },
+    {
+      "canonical_group_id": "I08",
+      "canonical_text": "Channel capacity for a binary symmetric channel is 1 minus binary entropy in bits.",
+      "case_id": "I08:p3",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "explicit_marker_present": false,
+      "failure_type": "frame_conflict_unexpected",
+      "paraphrase_variant": 3,
+      "text": "The bits-per-use BSC capacity is the complement of binary entropy."
+    },
+    {
+      "canonical_group_id": "I10",
+      "canonical_text": "Shannon's source-coding theorem bounds expected bits-per-symbol.",
+      "case_id": "I10:p1",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "information_theoretic",
+      "explicit_marker_present": false,
+      "failure_type": "frame_conflict_unexpected",
+      "paraphrase_variant": 1,
+      "text": "Source coding bounds the expected bits per symbol by Shannon entropy."
+    },
+    {
+      "canonical_group_id": "O04",
+      "canonical_text": "Witness identity was preserved throughout the protocol.",
+      "case_id": "O04:p0",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "ontological_distinguishability",
+      "explicit_marker_present": false,
+      "failure_type": "frame_undeclared",
+      "paraphrase_variant": 0,
+      "text": "Witness identity was preserved throughout the protocol."
+    },
+    {
+      "canonical_group_id": "O04",
+      "canonical_text": "Witness identity was preserved throughout the protocol.",
+      "case_id": "O04:p2",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "ontological_distinguishability",
+      "explicit_marker_present": false,
+      "failure_type": "frame_undeclared",
+      "paraphrase_variant": 2,
+      "text": "Protocol preserved witness identity end to end."
+    },
+    {
+      "canonical_group_id": "O04",
+      "canonical_text": "Witness identity was preserved throughout the protocol.",
+      "case_id": "O04:p3",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "ontological_distinguishability",
+      "explicit_marker_present": false,
+      "failure_type": "frame_undeclared",
+      "paraphrase_variant": 3,
+      "text": "Witness identity remained preserved by protocol design."
+    },
+    {
+      "canonical_group_id": "O04",
+      "canonical_text": "Witness identity was preserved throughout the protocol.",
+      "case_id": "O04:p4",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "ontological_distinguishability",
+      "explicit_marker_present": false,
+      "failure_type": "frame_undeclared",
+      "paraphrase_variant": 4,
+      "text": "Protocol kept the witness identity intact."
+    },
+    {
+      "canonical_group_id": "C02",
+      "canonical_text": "Inflation rose because of supply-chain disruptions.",
+      "case_id": "C02:p2",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "empirical_causal",
+      "explicit_marker_present": false,
+      "failure_type": "frame_undeclared",
+      "paraphrase_variant": 2,
+      "text": "Price increases resulted from logistics breakdowns."
+    },
+    {
+      "canonical_group_id": "C03",
+      "canonical_text": "Heat waves caused widespread power blackouts.",
+      "case_id": "C03:p0",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "empirical_causal",
+      "explicit_marker_present": false,
+      "failure_type": "frame_conflict_unexpected",
+      "paraphrase_variant": 0,
+      "text": "Heat waves caused widespread power blackouts."
+    },
+    {
+      "canonical_group_id": "C03",
+      "canonical_text": "Heat waves caused widespread power blackouts.",
+      "case_id": "C03:p1",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "empirical_causal",
+      "explicit_marker_present": false,
+      "failure_type": "frame_undeclared",
+      "paraphrase_variant": 1,
+      "text": "Blackouts resulted from sustained heat-wave conditions."
+    },
+    {
+      "canonical_group_id": "C03",
+      "canonical_text": "Heat waves caused widespread power blackouts.",
+      "case_id": "C03:p3",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "empirical_causal",
+      "explicit_marker_present": false,
+      "failure_type": "frame_conflict_unexpected",
+      "paraphrase_variant": 3,
+      "text": "Power outages were due to severe heat waves."
+    },
+    {
+      "canonical_group_id": "C03",
+      "canonical_text": "Heat waves caused widespread power blackouts.",
+      "case_id": "C03:p4",
+      "detected_frame": "thermodynamic",
+      "expected_frame": "empirical_causal",
+      "explicit_marker_present": false,
+      "failure_type": "pipeline_mismatch",
+      "paraphrase_variant": 4,
+      "text": "Power blackouts resulted from extended heat-wave temperatures."
+    },
+    {
+      "canonical_group_id": "C07",
+      "canonical_text": "Vaccine rollout led to a measurable drop in cases.",
+      "case_id": "C07:p2",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "empirical_causal",
+      "explicit_marker_present": false,
+      "failure_type": "frame_undeclared",
+      "paraphrase_variant": 2,
+      "text": "Cases fell as a result of vaccine deployment."
+    },
+    {
+      "canonical_group_id": "C09",
+      "canonical_text": "Factory openings led to local population growth.",
+      "case_id": "C09:p1",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "empirical_causal",
+      "explicit_marker_present": false,
+      "failure_type": "frame_undeclared",
+      "paraphrase_variant": 1,
+      "text": "Population growth resulted from new factories opening."
+    },
+    {
+      "canonical_group_id": "A07",
+      "canonical_text": "The court ruled in favour of the plaintiff.",
+      "case_id": "A07:p0",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "authority_speech",
+      "explicit_marker_present": false,
+      "failure_type": "frame_undeclared",
+      "paraphrase_variant": 0,
+      "text": "The court ruled in favour of the plaintiff."
+    },
+    {
+      "canonical_group_id": "X03",
+      "canonical_text": "How many days from 2020-01-01 to 2020-12-31 ?",
+      "case_id": "X03:p4",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "tool_computable",
+      "explicit_marker_present": false,
+      "failure_type": "frame_undeclared",
+      "paraphrase_variant": 4,
+      "text": "What is the day count 2020-01-01 to 2020-12-31 ?"
+    },
+    {
+      "canonical_group_id": "X06",
+      "canonical_text": "What is 25 % of 200 ?",
+      "case_id": "X06:p0",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "tool_computable",
+      "explicit_marker_present": false,
+      "failure_type": "frame_undeclared",
+      "paraphrase_variant": 0,
+      "text": "What is 25 % of 200 ?"
+    },
+    {
+      "canonical_group_id": "X06",
+      "canonical_text": "What is 25 % of 200 ?",
+      "case_id": "X06:p4",
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "tool_computable",
+      "explicit_marker_present": false,
+      "failure_type": "frame_undeclared",
+      "paraphrase_variant": 4,
+      "text": "Evaluate 25 % of 200."
+    }
+  ],
+  "finished_at": "2026-05-16T03:23:24.908355+00:00",
+  "negative_control_outcomes": [
+    {
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "metaphorical",
+      "nc_id": "NC01",
+      "pass": true
+    },
+    {
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "metaphorical",
+      "nc_id": "NC02",
+      "pass": true
+    },
+    {
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "authority_speech",
+      "nc_id": "NC03",
+      "pass": true
+    },
+    {
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "metaphorical",
+      "nc_id": "NC04",
+      "pass": true
+    },
+    {
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "tool_computable",
+      "nc_id": "NC05",
+      "pass": true
+    },
+    {
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "tool_computable",
+      "nc_id": "NC06",
+      "pass": true
+    },
+    {
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "tool_computable",
+      "nc_id": "NC07",
+      "pass": true
+    },
+    {
+      "detected_frame": "frame_undeclared",
+      "expected_frame": "authority_speech",
+      "nc_id": "NC08",
+      "pass": true
+    },
+    {
+      "detected_frame": "formal_logic",
+      "expected_frame": "formal_logic",
+      "nc_id": "NC09",
+      "pass": true
+    },
+    {
+      "detected_frame": "metaphorical",
+      "expected_frame": "metaphorical",
+      "nc_id": "NC10",
+      "pass": true
+    }
+  ],
+  "negative_control_precision": 1.0,
+  "patchability": [
+    {
+      "cluster_id": "CL_multi_signal_conflict__empirical_causal",
+      "contamination": {
+        "candidate_tokens": [
+          "heat",
+          "power",
+          "waves"
+        ],
+        "cluster_id": "CL_multi_signal_conflict__empirical_causal",
+        "contamination_risk": 0.0,
+        "per_benchmark_hits": {
+          "v1_5_main": 0,
+          "v1_9_tools": 0,
+          "v2_3_multistep": 0,
+          "v2_7_causal_chain": 0,
+          "v3_4_frame": 0
+        }
+      },
+      "reason": "cluster size 2 < 3",
+      "safe_patch_candidate": false
+    },
+    {
+      "cluster_id": "CL_polysemy_collision__information_theoretic",
+      "contamination": {
+        "candidate_tokens": [
+          "entropy"
+        ],
+        "cluster_id": "CL_polysemy_collision__information_theoretic",
+        "contamination_risk": 0.026316,
+        "per_benchmark_hits": {
+          "v1_5_main": 0,
+          "v1_9_tools": 0,
+          "v2_3_multistep": 0,
+          "v2_7_causal_chain": 0,
+          "v3_4_frame": 4
+        }
+      },
+      "reason": "contamination_risk = 0.026316",
+      "safe_patch_candidate": false
+    },
+    {
+      "cluster_id": "CL_synonym_gap__empirical_causal",
+      "contamination": {
+        "candidate_tokens": [],
+        "cluster_id": "CL_synonym_gap__empirical_causal",
+        "contamination_risk": 0.0,
+        "per_benchmark_hits": {
+          "v1_5_main": 0,
+          "v1_9_tools": 0,
+          "v2_3_multistep": 0,
+          "v2_7_causal_chain": 0,
+          "v3_4_frame": 0
+        }
+      },
+      "reason": "members share no content tokens",
+      "safe_patch_candidate": false
+    },
+    {
+      "cluster_id": "CL_synonym_gap__ontological_distinguishability",
+      "contamination": {
+        "candidate_tokens": [
+          "identity",
+          "protocol",
+          "witness"
+        ],
+        "cluster_id": "CL_synonym_gap__ontological_distinguishability",
+        "contamination_risk": 0.006579,
+        "per_benchmark_hits": {
+          "v1_5_main": 0,
+          "v1_9_tools": 0,
+          "v2_3_multistep": 0,
+          "v2_7_causal_chain": 0,
+          "v3_4_frame": 1
+        }
+      },
+      "reason": "contamination_risk = 0.006579",
+      "safe_patch_candidate": false
+    },
+    {
+      "cluster_id": "CL_synonym_gap__tool_computable",
+      "contamination": {
+        "candidate_tokens": [],
+        "cluster_id": "CL_synonym_gap__tool_computable",
+        "contamination_risk": 0.0,
+        "per_benchmark_hits": {
+          "v1_5_main": 0,
+          "v1_9_tools": 0,
+          "v2_3_multistep": 0,
+          "v2_7_causal_chain": 0,
+          "v3_4_frame": 0
+        }
+      },
+      "reason": "members share no content tokens",
+      "safe_patch_candidate": false
+    }
+  ],
+  "per_frame_breakdown": [
+    {
+      "concentration_ratio": 1.0,
+      "dominant_failure_class": "synonym_gap",
+      "frame": "authority_speech",
+      "total_failures": 1
+    },
+    {
+      "concentration_ratio": 0.571429,
+      "dominant_failure_class": "synonym_gap",
+      "frame": "empirical_causal",
+      "total_failures": 7
+    },
+    {
+      "concentration_ratio": 1.0,
+      "dominant_failure_class": "polysemy_collision",
+      "frame": "information_theoretic",
+      "total_failures": 15
+    },
+    {
+      "concentration_ratio": 1.0,
+      "dominant_failure_class": "synonym_gap",
+      "frame": "ontological_distinguishability",
+      "total_failures": 4
+    },
+    {
+      "concentration_ratio": 1.0,
+      "dominant_failure_class": "synonym_gap",
+      "frame": "tool_computable",
+      "total_failures": 3
+    }
+  ],
+  "recommended_next": "NONE",
+  "replay_hash": "4acddd5a3d54142f",
+  "started_at": "2026-05-16T03:23:24.908355+00:00",
+  "total_failures": 30
+}

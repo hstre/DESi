@@ -1,0 +1,545 @@
+{
+  "adversarial_distribution": {
+    "v315_adversarial": {
+      "by_type": {
+        "authority_assertion": 16,
+        "institutional_causal": 13,
+        "logical_implication": 23,
+        "metaphorical_association": 16,
+        "physical_causal": 44,
+        "temporal_sequence": 9,
+        "tool_dependency": 18,
+        "unknown": 61
+      },
+      "corpus": "v315_adversarial",
+      "cross_type_transition_rate": 0.59,
+      "link_count": 200,
+      "mixed_type_rate": 0.59,
+      "unknown_rate": 0.305
+    },
+    "v316_suspended": {
+      "by_type": {
+        "authority_assertion": 16,
+        "institutional_causal": 6,
+        "logical_implication": 23,
+        "metaphorical_association": 16,
+        "physical_causal": 23,
+        "temporal_sequence": 7,
+        "tool_dependency": 18,
+        "unknown": 43
+      },
+      "corpus": "v316_suspended",
+      "cross_type_transition_rate": 0.605263,
+      "link_count": 152,
+      "mixed_type_rate": 0.605263,
+      "unknown_rate": 0.282895
+    }
+  },
+  "classification_coverage": 1.0,
+  "contamination": {
+    "allowed_link_types": [
+      "institutional_causal",
+      "logical_implication",
+      "physical_causal"
+    ],
+    "contamination_count": 25,
+    "contamination_rate": 0.25,
+    "per_corpus": {
+      "v23_multistep": {
+        "chain_count": 30,
+        "chains_all_allowed": 3,
+        "chains_any_disallowed": 27,
+        "corpus": "v23_multistep",
+        "survival_rate": 0.1
+      },
+      "v314_heldout": {
+        "chain_count": 60,
+        "chains_all_allowed": 19,
+        "chains_any_disallowed": 41,
+        "corpus": "v314_heldout",
+        "survival_rate": 0.316667
+      },
+      "v315_adversarial": {
+        "chain_count": 100,
+        "chains_all_allowed": 25,
+        "chains_any_disallowed": 75,
+        "corpus": "v315_adversarial",
+        "survival_rate": 0.25
+      },
+      "v316_suspended": {
+        "chain_count": 76,
+        "chains_all_allowed": 15,
+        "chains_any_disallowed": 61,
+        "corpus": "v316_suspended",
+        "survival_rate": 0.197368
+      }
+    },
+    "v23_survival_rate": 0.1,
+    "v314_survival_rate": 0.316667,
+    "v315_attack_reduction": 0.75
+  },
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "negative_control_accuracy": 1.0,
+  "negative_control_count": 30,
+  "negative_control_outcomes": [
+    {
+      "actual": [
+        "physical_causal",
+        "physical_causal"
+      ],
+      "all_correct": true,
+      "case_id": "NC01",
+      "correct": 2,
+      "expected": [
+        "physical_causal",
+        "physical_causal"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "logical_implication"
+      ],
+      "all_correct": true,
+      "case_id": "NC02",
+      "correct": 1,
+      "expected": [
+        "logical_implication"
+      ],
+      "total": 1
+    },
+    {
+      "actual": [
+        "metaphorical_association",
+        "metaphorical_association"
+      ],
+      "all_correct": true,
+      "case_id": "NC03",
+      "correct": 2,
+      "expected": [
+        "metaphorical_association",
+        "metaphorical_association"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "tool_dependency",
+        "tool_dependency"
+      ],
+      "all_correct": true,
+      "case_id": "NC04",
+      "correct": 2,
+      "expected": [
+        "tool_dependency",
+        "tool_dependency"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "physical_causal",
+        "physical_causal"
+      ],
+      "all_correct": true,
+      "case_id": "NC05",
+      "correct": 2,
+      "expected": [
+        "physical_causal",
+        "physical_causal"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "institutional_causal",
+        "institutional_causal"
+      ],
+      "all_correct": true,
+      "case_id": "NC06",
+      "correct": 2,
+      "expected": [
+        "institutional_causal",
+        "institutional_causal"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "authority_assertion",
+        "authority_assertion"
+      ],
+      "all_correct": true,
+      "case_id": "NC07",
+      "correct": 2,
+      "expected": [
+        "authority_assertion",
+        "authority_assertion"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "logical_implication",
+        "logical_implication"
+      ],
+      "all_correct": true,
+      "case_id": "NC08",
+      "correct": 2,
+      "expected": [
+        "logical_implication",
+        "logical_implication"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "temporal_sequence",
+        "temporal_sequence"
+      ],
+      "all_correct": true,
+      "case_id": "NC09",
+      "correct": 2,
+      "expected": [
+        "temporal_sequence",
+        "temporal_sequence"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "tool_dependency",
+        "tool_dependency"
+      ],
+      "all_correct": true,
+      "case_id": "NC10",
+      "correct": 2,
+      "expected": [
+        "tool_dependency",
+        "tool_dependency"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "authority_assertion",
+        "authority_assertion"
+      ],
+      "all_correct": true,
+      "case_id": "NC11",
+      "correct": 2,
+      "expected": [
+        "authority_assertion",
+        "authority_assertion"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "logical_implication",
+        "physical_causal"
+      ],
+      "all_correct": true,
+      "case_id": "NC12",
+      "correct": 2,
+      "expected": [
+        "logical_implication",
+        "physical_causal"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "metaphorical_association",
+        "physical_causal"
+      ],
+      "all_correct": true,
+      "case_id": "NC13",
+      "correct": 2,
+      "expected": [
+        "metaphorical_association",
+        "physical_causal"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "authority_assertion",
+        "authority_assertion"
+      ],
+      "all_correct": true,
+      "case_id": "NC14",
+      "correct": 2,
+      "expected": [
+        "authority_assertion",
+        "authority_assertion"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "physical_causal",
+        "physical_causal"
+      ],
+      "all_correct": true,
+      "case_id": "NC15",
+      "correct": 2,
+      "expected": [
+        "physical_causal",
+        "physical_causal"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "authority_assertion",
+        "logical_implication"
+      ],
+      "all_correct": true,
+      "case_id": "NC16",
+      "correct": 2,
+      "expected": [
+        "authority_assertion",
+        "logical_implication"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "authority_assertion",
+        "authority_assertion"
+      ],
+      "all_correct": true,
+      "case_id": "NC17",
+      "correct": 2,
+      "expected": [
+        "authority_assertion",
+        "authority_assertion"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "physical_causal",
+        "physical_causal"
+      ],
+      "all_correct": true,
+      "case_id": "NC18",
+      "correct": 2,
+      "expected": [
+        "physical_causal",
+        "physical_causal"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "metaphorical_association",
+        "tool_dependency"
+      ],
+      "all_correct": true,
+      "case_id": "NC19",
+      "correct": 2,
+      "expected": [
+        "metaphorical_association",
+        "tool_dependency"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "logical_implication",
+        "physical_causal"
+      ],
+      "all_correct": true,
+      "case_id": "NC20",
+      "correct": 2,
+      "expected": [
+        "logical_implication",
+        "physical_causal"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "institutional_causal",
+        "institutional_causal"
+      ],
+      "all_correct": true,
+      "case_id": "NC21",
+      "correct": 2,
+      "expected": [
+        "institutional_causal",
+        "institutional_causal"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "institutional_causal",
+        "institutional_causal"
+      ],
+      "all_correct": true,
+      "case_id": "NC22",
+      "correct": 2,
+      "expected": [
+        "institutional_causal",
+        "institutional_causal"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "metaphorical_association",
+        "logical_implication"
+      ],
+      "all_correct": true,
+      "case_id": "NC23",
+      "correct": 2,
+      "expected": [
+        "metaphorical_association",
+        "logical_implication"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "physical_causal",
+        "physical_causal"
+      ],
+      "all_correct": true,
+      "case_id": "NC24",
+      "correct": 2,
+      "expected": [
+        "physical_causal",
+        "physical_causal"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "logical_implication",
+        "logical_implication"
+      ],
+      "all_correct": true,
+      "case_id": "NC25",
+      "correct": 2,
+      "expected": [
+        "logical_implication",
+        "logical_implication"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "tool_dependency",
+        "tool_dependency"
+      ],
+      "all_correct": true,
+      "case_id": "NC26",
+      "correct": 2,
+      "expected": [
+        "tool_dependency",
+        "tool_dependency"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "authority_assertion",
+        "institutional_causal"
+      ],
+      "all_correct": true,
+      "case_id": "NC27",
+      "correct": 2,
+      "expected": [
+        "authority_assertion",
+        "institutional_causal"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "metaphorical_association",
+        "physical_causal"
+      ],
+      "all_correct": true,
+      "case_id": "NC28",
+      "correct": 2,
+      "expected": [
+        "metaphorical_association",
+        "physical_causal"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "physical_causal",
+        "physical_causal"
+      ],
+      "all_correct": true,
+      "case_id": "NC29",
+      "correct": 2,
+      "expected": [
+        "physical_causal",
+        "physical_causal"
+      ],
+      "total": 2
+    },
+    {
+      "actual": [
+        "logical_implication",
+        "institutional_causal"
+      ],
+      "all_correct": true,
+      "case_id": "NC30",
+      "correct": 2,
+      "expected": [
+        "logical_implication",
+        "institutional_causal"
+      ],
+      "total": 2
+    }
+  ],
+  "recommendation_reason": "contamination_count=25 != 0; v315_attack_reduction=0.75 < 0.8; v314_survival_rate=0.316667 < 0.85",
+  "recommended_next": "NONE",
+  "replay_hash": "a01b6edaa9e1a086",
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "total_link_count": 561,
+  "valid_chain_distribution": {
+    "v23_multistep": {
+      "by_type": {
+        "authority_assertion": 1,
+        "institutional_causal": 8,
+        "logical_implication": 8,
+        "metaphorical_association": 2,
+        "physical_causal": 11,
+        "temporal_sequence": 2,
+        "tool_dependency": 1,
+        "unknown": 51
+      },
+      "corpus": "v23_multistep",
+      "cross_type_transition_rate": 0.240741,
+      "link_count": 84,
+      "mixed_type_rate": 0.366667,
+      "unknown_rate": 0.607143
+    },
+    "v314_heldout": {
+      "by_type": {
+        "authority_assertion": 3,
+        "institutional_causal": 2,
+        "logical_implication": 15,
+        "metaphorical_association": 0,
+        "physical_causal": 32,
+        "temporal_sequence": 6,
+        "tool_dependency": 0,
+        "unknown": 67
+      },
+      "corpus": "v314_heldout",
+      "cross_type_transition_rate": 0.276923,
+      "link_count": 125,
+      "mixed_type_rate": 0.3,
+      "unknown_rate": 0.536
+    }
+  }
+}

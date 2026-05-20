@@ -1,0 +1,939 @@
+{
+  "benchmarks": {
+    "v1_5": {
+      "metrics": {
+        "false_negatives": 0,
+        "false_positives": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "name": "v1_5_main"
+    },
+    "v1_9": {
+      "metrics": {
+        "tool_case_count": 20
+      },
+      "name": "v1_9_tools"
+    },
+    "v2_3": {
+      "metrics": {
+        "case_count": 30
+      },
+      "name": "v2_3_multistep"
+    },
+    "v3_13": {
+      "metrics": {
+        "adversarial_blocked": 20,
+        "adversarial_total": 20,
+        "benchmark_accuracy": 1.0,
+        "benchmark_correct": 70,
+        "benchmark_total": 70,
+        "manipulation_detection_rate": 1.0
+      },
+      "name": "v3_13_routing"
+    },
+    "v3_14": {
+      "metrics": {
+        "false_positive_count": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "rule_generalization_rate": 1.0,
+        "trap_block_rate": 1.0
+      },
+      "name": "v3_14_heldout"
+    },
+    "v3_4": {
+      "metrics": {
+        "fully_correct": 40,
+        "total": 40
+      },
+      "name": "v3_4_frame"
+    }
+  },
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "gates": [
+    {
+      "detail": "false_support_count=24 (requirement: 0)",
+      "name": "v315_false_support_zero",
+      "passed": false
+    },
+    {
+      "detail": "recall=1.0 (requirement: >= 0.85); false_positive_count=0",
+      "name": "v314_recall_at_least_0_85",
+      "passed": true
+    },
+    {
+      "detail": "precision=1.0, false_positives=0",
+      "name": "v15_precision_and_zero_fp",
+      "passed": true
+    },
+    {
+      "detail": "manipulation_detection_rate=1.0",
+      "name": "v313_manipulation_detection",
+      "passed": true
+    },
+    {
+      "detail": "v2_7_reconstruction=1f4d9dfe44cb16e1 (pinned 1f4d9dfe44cb16e1); v2_7_fail_case=d83d81ab8417c022 (pinned d83d81ab8417c022)",
+      "name": "prior_runtime_hashes_bit_identical",
+      "passed": true
+    }
+  ],
+  "recommendation_reason": "v315_false_support_zero: false_support_count=24 (requirement: 0)",
+  "recommended_next": "NONE",
+  "replay_hash": "1f4e5f85c085d32f",
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "v315": {
+    "by_family": {
+      "A_hidden_negation": {
+        "supported": 4,
+        "suspended": 11,
+        "total": 15
+      },
+      "B_quantifier_drift": {
+        "supported": 0,
+        "suspended": 15,
+        "total": 15
+      },
+      "C_authority_insertion": {
+        "supported": 0,
+        "suspended": 15,
+        "total": 15
+      },
+      "D_metaphor_insertion": {
+        "supported": 0,
+        "suspended": 15,
+        "total": 15
+      },
+      "E_frame_switch": {
+        "supported": 15,
+        "suspended": 0,
+        "total": 15
+      },
+      "F_tool_contamination": {
+        "supported": 0,
+        "suspended": 10,
+        "total": 10
+      },
+      "G_cycle_disguise": {
+        "supported": 0,
+        "suspended": 10,
+        "total": 10
+      },
+      "H_semantic_leap": {
+        "supported": 5,
+        "suspended": 0,
+        "total": 5
+      }
+    },
+    "by_leap_class": {
+      "frame_switch": 15,
+      "negation_synonym": 4,
+      "pure_non_sequitur": 5
+    },
+    "false_support_count": 24,
+    "false_support_rate": 0.24,
+    "outcomes": [
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "A01",
+        "family": "A_hidden_negation",
+        "leap_class": "negation_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "A02",
+        "family": "A_hidden_negation",
+        "leap_class": "negation_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "A03",
+        "family": "A_hidden_negation",
+        "leap_class": "negation_synonym",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "A04",
+        "family": "A_hidden_negation",
+        "leap_class": "negation_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "A05",
+        "family": "A_hidden_negation",
+        "leap_class": "negation_synonym",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "A06",
+        "family": "A_hidden_negation",
+        "leap_class": "negation_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "A07",
+        "family": "A_hidden_negation",
+        "leap_class": "negation_synonym",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "A08",
+        "family": "A_hidden_negation",
+        "leap_class": "negation_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "A09",
+        "family": "A_hidden_negation",
+        "leap_class": "negation_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "A10",
+        "family": "A_hidden_negation",
+        "leap_class": "negation_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "A11",
+        "family": "A_hidden_negation",
+        "leap_class": "negation_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "A12",
+        "family": "A_hidden_negation",
+        "leap_class": "negation_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "A13",
+        "family": "A_hidden_negation",
+        "leap_class": "negation_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "A14",
+        "family": "A_hidden_negation",
+        "leap_class": "negation_synonym",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "A15",
+        "family": "A_hidden_negation",
+        "leap_class": "negation_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "B01",
+        "family": "B_quantifier_drift",
+        "leap_class": "quantifier_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "B02",
+        "family": "B_quantifier_drift",
+        "leap_class": "quantifier_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "B03",
+        "family": "B_quantifier_drift",
+        "leap_class": "quantifier_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "B04",
+        "family": "B_quantifier_drift",
+        "leap_class": "quantifier_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "B05",
+        "family": "B_quantifier_drift",
+        "leap_class": "quantifier_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "B06",
+        "family": "B_quantifier_drift",
+        "leap_class": "quantifier_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "B07",
+        "family": "B_quantifier_drift",
+        "leap_class": "quantifier_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "B08",
+        "family": "B_quantifier_drift",
+        "leap_class": "quantifier_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "B09",
+        "family": "B_quantifier_drift",
+        "leap_class": "quantifier_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "B10",
+        "family": "B_quantifier_drift",
+        "leap_class": "quantifier_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "B11",
+        "family": "B_quantifier_drift",
+        "leap_class": "quantifier_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "B12",
+        "family": "B_quantifier_drift",
+        "leap_class": "quantifier_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "B13",
+        "family": "B_quantifier_drift",
+        "leap_class": "quantifier_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "B14",
+        "family": "B_quantifier_drift",
+        "leap_class": "quantifier_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "B15",
+        "family": "B_quantifier_drift",
+        "leap_class": "quantifier_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "C01",
+        "family": "C_authority_insertion",
+        "leap_class": "authority_lemma_bypass",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "C02",
+        "family": "C_authority_insertion",
+        "leap_class": "authority_lemma_bypass",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "C03",
+        "family": "C_authority_insertion",
+        "leap_class": "authority_lemma_bypass",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "C04",
+        "family": "C_authority_insertion",
+        "leap_class": "authority_lemma_bypass",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "C05",
+        "family": "C_authority_insertion",
+        "leap_class": "authority_lemma_bypass",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "C06",
+        "family": "C_authority_insertion",
+        "leap_class": "authority_lemma_bypass",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "C07",
+        "family": "C_authority_insertion",
+        "leap_class": "authority_lemma_bypass",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "C08",
+        "family": "C_authority_insertion",
+        "leap_class": "authority_lemma_bypass",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "C09",
+        "family": "C_authority_insertion",
+        "leap_class": "authority_lemma_bypass",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "C10",
+        "family": "C_authority_insertion",
+        "leap_class": "authority_lemma_bypass",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "C11",
+        "family": "C_authority_insertion",
+        "leap_class": "authority_lemma_bypass",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "C12",
+        "family": "C_authority_insertion",
+        "leap_class": "authority_lemma_bypass",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "C13",
+        "family": "C_authority_insertion",
+        "leap_class": "authority_lemma_bypass",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "C14",
+        "family": "C_authority_insertion",
+        "leap_class": "authority_lemma_bypass",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "C15",
+        "family": "C_authority_insertion",
+        "leap_class": "authority_lemma_bypass",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "D01",
+        "family": "D_metaphor_insertion",
+        "leap_class": "metaphor_identification",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "D02",
+        "family": "D_metaphor_insertion",
+        "leap_class": "metaphor_identification",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "D03",
+        "family": "D_metaphor_insertion",
+        "leap_class": "metaphor_identification",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "D04",
+        "family": "D_metaphor_insertion",
+        "leap_class": "metaphor_identification",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "D05",
+        "family": "D_metaphor_insertion",
+        "leap_class": "metaphor_identification",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "D06",
+        "family": "D_metaphor_insertion",
+        "leap_class": "metaphor_identification",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "D07",
+        "family": "D_metaphor_insertion",
+        "leap_class": "metaphor_identification",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "D08",
+        "family": "D_metaphor_insertion",
+        "leap_class": "metaphor_identification",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "D09",
+        "family": "D_metaphor_insertion",
+        "leap_class": "metaphor_identification",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "D10",
+        "family": "D_metaphor_insertion",
+        "leap_class": "metaphor_identification",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "D11",
+        "family": "D_metaphor_insertion",
+        "leap_class": "metaphor_identification",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "D12",
+        "family": "D_metaphor_insertion",
+        "leap_class": "metaphor_identification",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "D13",
+        "family": "D_metaphor_insertion",
+        "leap_class": "metaphor_identification",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "D14",
+        "family": "D_metaphor_insertion",
+        "leap_class": "metaphor_identification",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "D15",
+        "family": "D_metaphor_insertion",
+        "leap_class": "metaphor_identification",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "E01",
+        "family": "E_frame_switch",
+        "leap_class": "frame_switch",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "E02",
+        "family": "E_frame_switch",
+        "leap_class": "frame_switch",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "E03",
+        "family": "E_frame_switch",
+        "leap_class": "frame_switch",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "E04",
+        "family": "E_frame_switch",
+        "leap_class": "frame_switch",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "E05",
+        "family": "E_frame_switch",
+        "leap_class": "frame_switch",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "E06",
+        "family": "E_frame_switch",
+        "leap_class": "frame_switch",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "E07",
+        "family": "E_frame_switch",
+        "leap_class": "frame_switch",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "E08",
+        "family": "E_frame_switch",
+        "leap_class": "frame_switch",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "E09",
+        "family": "E_frame_switch",
+        "leap_class": "frame_switch",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "E10",
+        "family": "E_frame_switch",
+        "leap_class": "frame_switch",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "E11",
+        "family": "E_frame_switch",
+        "leap_class": "frame_switch",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "E12",
+        "family": "E_frame_switch",
+        "leap_class": "frame_switch",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "E13",
+        "family": "E_frame_switch",
+        "leap_class": "frame_switch",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "E14",
+        "family": "E_frame_switch",
+        "leap_class": "frame_switch",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "E15",
+        "family": "E_frame_switch",
+        "leap_class": "frame_switch",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "F01",
+        "family": "F_tool_contamination",
+        "leap_class": "tool_contamination",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "F02",
+        "family": "F_tool_contamination",
+        "leap_class": "tool_contamination",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "F03",
+        "family": "F_tool_contamination",
+        "leap_class": "tool_contamination",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "F04",
+        "family": "F_tool_contamination",
+        "leap_class": "tool_contamination",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "F05",
+        "family": "F_tool_contamination",
+        "leap_class": "tool_contamination",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "F06",
+        "family": "F_tool_contamination",
+        "leap_class": "tool_contamination",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "F07",
+        "family": "F_tool_contamination",
+        "leap_class": "tool_contamination",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "F08",
+        "family": "F_tool_contamination",
+        "leap_class": "tool_contamination",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "F09",
+        "family": "F_tool_contamination",
+        "leap_class": "tool_contamination",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "F10",
+        "family": "F_tool_contamination",
+        "leap_class": "tool_contamination",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "G01",
+        "family": "G_cycle_disguise",
+        "leap_class": "cycle_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "G02",
+        "family": "G_cycle_disguise",
+        "leap_class": "cycle_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "G03",
+        "family": "G_cycle_disguise",
+        "leap_class": "cycle_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "G04",
+        "family": "G_cycle_disguise",
+        "leap_class": "cycle_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "G05",
+        "family": "G_cycle_disguise",
+        "leap_class": "cycle_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "G06",
+        "family": "G_cycle_disguise",
+        "leap_class": "cycle_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "G07",
+        "family": "G_cycle_disguise",
+        "leap_class": "cycle_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "G08",
+        "family": "G_cycle_disguise",
+        "leap_class": "cycle_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_rejected",
+        "actual_rule": null,
+        "case_id": "G09",
+        "family": "G_cycle_disguise",
+        "leap_class": "cycle_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "bridge_required",
+        "actual_rule": null,
+        "case_id": "G10",
+        "family": "G_cycle_disguise",
+        "leap_class": "cycle_synonym",
+        "still_supported": false
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "H01",
+        "family": "H_semantic_leap",
+        "leap_class": "pure_non_sequitur",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "H02",
+        "family": "H_semantic_leap",
+        "leap_class": "pure_non_sequitur",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "H03",
+        "family": "H_semantic_leap",
+        "leap_class": "pure_non_sequitur",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "H04",
+        "family": "H_semantic_leap",
+        "leap_class": "pure_non_sequitur",
+        "still_supported": true
+      },
+      {
+        "actual_final_state": "logically_supported",
+        "actual_rule": "causal_chain",
+        "case_id": "H05",
+        "family": "H_semantic_leap",
+        "leap_class": "pure_non_sequitur",
+        "still_supported": true
+      }
+    ],
+    "total": 100
+  }
+}

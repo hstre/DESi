@@ -1,0 +1,144 @@
+{
+  "affected_packages": [
+    "epistemic_trajectory"
+  ],
+  "census": {
+    "affected_dims": [
+      "frame_id"
+    ],
+    "jitter_rate": 0.005063,
+    "jittery_trajectory_count": 2,
+    "jittery_trajectory_ids": [
+      "sample:n03_darwin",
+      "sample:n03_mozart"
+    ],
+    "max_state_delta": 8.0,
+    "reference_seed": 0,
+    "seed_count": 100,
+    "trajectory_count": 395
+  },
+  "schema_version": "v3_96a_jitter_census",
+  "shuffle_failure_rate": 0.5,
+  "shuffle_outcomes": [
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 0
+    },
+    {
+      "exit_code": 1,
+      "failed": 2,
+      "passed": 18,
+      "seed": 1
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 2
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 3
+    },
+    {
+      "exit_code": 1,
+      "failed": 2,
+      "passed": 18,
+      "seed": 4
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 5
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 6
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 7
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 8
+    },
+    {
+      "exit_code": 1,
+      "failed": 19,
+      "passed": 1,
+      "seed": 9
+    },
+    {
+      "exit_code": 1,
+      "failed": 19,
+      "passed": 1,
+      "seed": 10
+    },
+    {
+      "exit_code": 1,
+      "failed": 19,
+      "passed": 1,
+      "seed": 11
+    },
+    {
+      "exit_code": 1,
+      "failed": 19,
+      "passed": 1,
+      "seed": 12
+    },
+    {
+      "exit_code": 1,
+      "failed": 19,
+      "passed": 1,
+      "seed": 13
+    },
+    {
+      "exit_code": 1,
+      "failed": 19,
+      "passed": 1,
+      "seed": 14
+    },
+    {
+      "exit_code": 1,
+      "failed": 19,
+      "passed": 1,
+      "seed": 15
+    },
+    {
+      "exit_code": 1,
+      "failed": 19,
+      "passed": 1,
+      "seed": 16
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 17
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 18
+    },
+    {
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 20,
+      "seed": 19
+    }
+  ]
+}

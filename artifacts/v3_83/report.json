@@ -1,0 +1,98 @@
+{
+  "class_stability": 1.0,
+  "cross_corpus_classes": 2,
+  "cross_corpus_pair_count": 10,
+  "halt": false,
+  "intra_corpus_classes": [
+    3,
+    2,
+    1,
+    1
+  ],
+  "joint_clusters": [
+    {
+      "cluster_id": 0,
+      "max_intra_distance": 0.279508,
+      "mean_intra_distance": 0.118015,
+      "members": [
+        "v23:R5_04",
+        "v314:D02",
+        "v314:D05",
+        "v315:G10",
+        "v316-susp:G10"
+      ]
+    },
+    {
+      "cluster_id": 1,
+      "max_intra_distance": 0.516015,
+      "mean_intra_distance": 0.327885,
+      "members": [
+        "v23:R5_02",
+        "v23:R5_03",
+        "v23:R5_05",
+        "v23:R5_06"
+      ]
+    },
+    {
+      "cluster_id": 2,
+      "max_intra_distance": 0.019966,
+      "mean_intra_distance": 0.019966,
+      "members": [
+        "v23:R4_04",
+        "v314:C02"
+      ]
+    }
+  ],
+  "per_corpus_summaries": [
+    {
+      "anchor_count": 6,
+      "cluster_count": 3,
+      "cluster_sizes": [
+        4,
+        1,
+        1
+      ],
+      "corpus": "v23"
+    },
+    {
+      "anchor_count": 3,
+      "cluster_count": 2,
+      "cluster_sizes": [
+        2,
+        1
+      ],
+      "corpus": "v314"
+    },
+    {
+      "anchor_count": 1,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        1
+      ],
+      "corpus": "v315"
+    },
+    {
+      "anchor_count": 1,
+      "cluster_count": 1,
+      "cluster_sizes": [
+        1
+      ],
+      "corpus": "v316"
+    }
+  ],
+  "probe_radius": 3.5,
+  "rationale": [
+    "INFO: probe_radius 3.5",
+    "INFO: per_corpus_summaries [{'corpus': 'v23', 'anchor_count': 6, 'cluster_count': 3, 'cluster_sizes': [4, 1, 1]}, {'corpus': 'v314', 'anchor_count': 3, 'cluster_count': 2, 'cluster_sizes': [2, 1]}, {'corpus': 'v315', 'anchor_count': 1, 'cluster_count': 1, 'cluster_sizes': [1]}, {'corpus': 'v316', 'anchor_count': 1, 'cluster_count': 1, 'cluster_sizes': [1]}]",
+    "INFO: intra_corpus_classes [3, 2, 1, 1]",
+    "INFO: joint_clusters [{'cluster_id': 0, 'members': ['v23:R5_04', 'v314:D02', 'v314:D05', 'v315:G10', 'v316-susp:G10'], 'mean_intra_distance': 0.118015, 'max_intra_distance': 0.279508}, {'cluster_id': 1, 'members': ['v23:R5_02', 'v23:R5_03', 'v23:R5_05', 'v23:R5_06'], 'mean_intra_distance': 0.327885, 'max_intra_distance': 0.516015}, {'cluster_id': 2, 'members': ['v23:R4_04', 'v314:C02'], 'mean_intra_distance': 0.019966, 'max_intra_distance': 0.019966}]",
+    "INFO: cross_corpus_classes 2",
+    "INFO: cross_corpus_pair_count 10",
+    "PASS: transfer_accuracy 1.0 (threshold 0.7)",
+    "PASS: class_stability 1.0",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "CROSS_CORPUS_DOPPELGAENGER_DETECTED",
+  "replay_stability": 1.0,
+  "transfer_accuracy": 1.0
+}

@@ -1,0 +1,32 @@
+{
+  "baseline_dim": 45,
+  "cluster_delta": 1,
+  "entangled_family_ids": [
+    "G_v316susp",
+    "E_v317h"
+  ],
+  "geometry_delta": 0.462542,
+  "halt": false,
+  "injected_auc": 1.0,
+  "injected_cluster_count": 2,
+  "injected_cluster_sizes": [
+    10,
+    9
+  ],
+  "injected_dim": 46,
+  "injected_purity": 1.0,
+  "rationale": [
+    "INFO: entangled_family_ids ['G_v316susp', 'E_v317h']",
+    "INFO: selected_candidate contradiction_type",
+    "INFO: baseline_dim 45 injected_dim 46 (delta=+1)",
+    "INFO: injected_cluster_count 2 sizes [10, 9]",
+    "PASS: injected_purity 1.0 (threshold 0.7)",
+    "PASS: injected_auc 1.0 (threshold 0.7)",
+    "INFO: geometry_delta 0.462542 (tolerance 0.1)",
+    "INFO: cluster_delta 1",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "SINGLE_DIM_RESCUES",
+  "replay_stability": 1.0,
+  "selected_candidate": "contradiction_type"
+}

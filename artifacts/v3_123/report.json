@@ -1,0 +1,28 @@
+{
+  "allowed_count": 16,
+  "blocked_count": 36,
+  "candidate_count": 48,
+  "final_far": 0.0,
+  "final_tpr": 1.0,
+  "halt": false,
+  "perfect_rule_count": 2,
+  "rationale": [
+    "INFO: selected_axis members_per_family",
+    "INFO: selected_t1 0.541667",
+    "INFO: selected_t2 1.5",
+    "INFO: rule_complexity 2",
+    "INFO: allowed_count 16",
+    "INFO: blocked_count 36",
+    "INFO: candidate_count 48",
+    "INFO: perfect_rule_count 2",
+    "PASS: final_far 0.0 <= 0.1",
+    "PASS: final_tpr 1.0 >= 1.0",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "MULTISIGNAL_PERFECT",
+  "replay_stability": 1.0,
+  "rule_complexity": 2,
+  "selected_axis": "members_per_family",
+  "selected_t1": 0.541667,
+  "selected_t2": 1.5
+}

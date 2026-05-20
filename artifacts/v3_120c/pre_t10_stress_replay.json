@@ -1,0 +1,91 @@
+{
+  "adverse_flip_count": 0,
+  "cell_count": 10,
+  "false_negative_rate_max": 0.0,
+  "historical_tpr_max": 1.0,
+  "historical_tpr_min": 1.0,
+  "schema_version": "v3_120c_pre_t10_stress_replay",
+  "seed_count": 10,
+  "stress_cells": [
+    {
+      "allowed": 18,
+      "blocked": 34,
+      "far": 0.111111,
+      "hgfc": 0,
+      "seed": 0,
+      "tpr": 1.0
+    },
+    {
+      "allowed": 18,
+      "blocked": 34,
+      "far": 0.111111,
+      "hgfc": 0,
+      "seed": 1,
+      "tpr": 1.0
+    },
+    {
+      "allowed": 18,
+      "blocked": 34,
+      "far": 0.111111,
+      "hgfc": 0,
+      "seed": 2,
+      "tpr": 1.0
+    },
+    {
+      "allowed": 18,
+      "blocked": 34,
+      "far": 0.111111,
+      "hgfc": 0,
+      "seed": 3,
+      "tpr": 1.0
+    },
+    {
+      "allowed": 18,
+      "blocked": 34,
+      "far": 0.111111,
+      "hgfc": 0,
+      "seed": 4,
+      "tpr": 1.0
+    },
+    {
+      "allowed": 18,
+      "blocked": 34,
+      "far": 0.111111,
+      "hgfc": 0,
+      "seed": 5,
+      "tpr": 1.0
+    },
+    {
+      "allowed": 18,
+      "blocked": 34,
+      "far": 0.111111,
+      "hgfc": 0,
+      "seed": 6,
+      "tpr": 1.0
+    },
+    {
+      "allowed": 18,
+      "blocked": 34,
+      "far": 0.111111,
+      "hgfc": 0,
+      "seed": 7,
+      "tpr": 1.0
+    },
+    {
+      "allowed": 18,
+      "blocked": 34,
+      "far": 0.111111,
+      "hgfc": 0,
+      "seed": 8,
+      "tpr": 1.0
+    },
+    {
+      "allowed": 18,
+      "blocked": 34,
+      "far": 0.111111,
+      "hgfc": 0,
+      "seed": 9,
+      "tpr": 1.0
+    }
+  ]
+}

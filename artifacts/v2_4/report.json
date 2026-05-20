@@ -1,0 +1,798 @@
+{
+  "bridge_creation_rate": 0.166667,
+  "category_loss_distribution": {
+    "R1_two_step_bridge": {
+      "audit_reject_loss": 0,
+      "bridge_missing_loss": 0,
+      "consilium_veto_loss": 0,
+      "cycle_not_recognized": 0,
+      "no_loss": 0,
+      "parser_loss": 6,
+      "resolver_not_reached": 0,
+      "resolver_zero_depth": 0,
+      "unknown_loss": 0
+    },
+    "R2_three_step_bridge": {
+      "audit_reject_loss": 0,
+      "bridge_missing_loss": 0,
+      "consilium_veto_loss": 0,
+      "cycle_not_recognized": 0,
+      "no_loss": 0,
+      "parser_loss": 6,
+      "resolver_not_reached": 0,
+      "resolver_zero_depth": 0,
+      "unknown_loss": 0
+    },
+    "R3_four_step_closure": {
+      "audit_reject_loss": 0,
+      "bridge_missing_loss": 0,
+      "consilium_veto_loss": 0,
+      "cycle_not_recognized": 0,
+      "no_loss": 0,
+      "parser_loss": 6,
+      "resolver_not_reached": 0,
+      "resolver_zero_depth": 0,
+      "unknown_loss": 0
+    },
+    "R4_hidden_contradiction": {
+      "audit_reject_loss": 1,
+      "bridge_missing_loss": 0,
+      "consilium_veto_loss": 0,
+      "cycle_not_recognized": 0,
+      "no_loss": 0,
+      "parser_loss": 4,
+      "resolver_not_reached": 0,
+      "resolver_zero_depth": 0,
+      "unknown_loss": 1
+    },
+    "R5_cyclic_dependency": {
+      "audit_reject_loss": 0,
+      "bridge_missing_loss": 0,
+      "consilium_veto_loss": 0,
+      "cycle_not_recognized": 5,
+      "no_loss": 0,
+      "parser_loss": 1,
+      "resolver_not_reached": 0,
+      "resolver_zero_depth": 0,
+      "unknown_loss": 0
+    }
+  },
+  "consilium_call_rate": 0.2,
+  "dominant_loss_stage": "parser_loss",
+  "finished_at": "2026-05-15T08:18:13.245283+00:00",
+  "loss_distribution": {
+    "audit_reject_loss_count": 1,
+    "bridge_missing_loss_count": 0,
+    "consilium_veto_loss_count": 0,
+    "cycle_not_recognized_count": 5,
+    "no_loss_count": 0,
+    "parser_loss_count": 23,
+    "resolver_not_reached_count": 0,
+    "resolver_zero_depth_count": 0,
+    "unknown_loss_count": 1
+  },
+  "recursion_reach_rate": 0.033333,
+  "reflection": "",
+  "replay_hash": "11d8471f0dd39767",
+  "resolver_entry_rate": 0.2,
+  "started_at": "2026-05-15T08:18:13.245283+00:00",
+  "total_cases": 30,
+  "traces": [
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R1_01",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 1,
+      "premise_kinds": [
+        "particular"
+      ],
+      "replay_hash": "3457e1565aba9281",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R1_02",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 1,
+      "premise_kinds": [
+        "particular"
+      ],
+      "replay_hash": "b7af65254c1e244b",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R1_03",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 1,
+      "premise_kinds": [
+        "atomic"
+      ],
+      "replay_hash": "840f58e39d1f89ee",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R1_04",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 1,
+      "premise_kinds": [
+        "atomic"
+      ],
+      "replay_hash": "d751cf54ad30b711",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R1_05",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 1,
+      "premise_kinds": [
+        "atomic"
+      ],
+      "replay_hash": "d4c727be718bb228",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R1_06",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 1,
+      "premise_kinds": [
+        "atomic"
+      ],
+      "replay_hash": "6d66e4b0720e19cc",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R2_01",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "particular",
+        "atomic"
+      ],
+      "replay_hash": "7427f30e47a15eb5",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R2_02",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "eac18cb32b259b4f",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R2_03",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "d42be6c78b5c65be",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R2_04",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "f83792f70f9ffdf6",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R2_05",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "c01f34e2619d6686",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R2_06",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "22a6b365f14fcbf1",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R3_01",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 4,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "442f677bcb7235ad",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R3_02",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 4,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "42b1cdde421f2f44",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R3_03",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 4,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "1adbdd9fcf898b5e",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R3_04",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 4,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "78f5f3ae52697ad6",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R3_05",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 4,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "d1856859f7caeee9",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R3_06",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 4,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "9cf1268790b6d121",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R4_01",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "fbc36793104c595d",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R4_02",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "particular",
+        "particular"
+      ],
+      "replay_hash": "37230dab6554f0f2",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R4_03",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 2,
+      "premise_kinds": [
+        "universal",
+        "atomic"
+      ],
+      "replay_hash": "25841554db5b0e10",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "gap_detected",
+      "blocking_reason": null,
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R4_04",
+      "consilium_called": true,
+      "consilium_verdicts": [
+        "accept_as_bridge"
+      ],
+      "depth_reached": 1,
+      "final_state": "resolution_complete",
+      "loss_stage": "unknown_loss",
+      "parser_recognized": true,
+      "premise_count": 1,
+      "premise_kinds": [
+        "particular"
+      ],
+      "replay_hash": "030b6f4550d21bae",
+      "resolver_entered": true,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R4_05",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 2,
+      "premise_kinds": [
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "ce9a87f94e9e40d2",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "invalid_inference",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R4_06",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "audit_reject_loss",
+      "parser_recognized": true,
+      "premise_count": 2,
+      "premise_kinds": [
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "5f25af4a753afaff",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_count": 0,
+      "bridge_created": false,
+      "bridge_kinds": [],
+      "case_id": "R5_01",
+      "consilium_called": false,
+      "consilium_verdicts": [],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "parser_loss",
+      "parser_recognized": true,
+      "premise_count": 2,
+      "premise_kinds": [
+        "conditional",
+        "conditional"
+      ],
+      "replay_hash": "02331b646168156d",
+      "resolver_entered": false,
+      "veto_roles": []
+    },
+    {
+      "audit_state": "bridge_required",
+      "blocking_reason": "counterexample_found",
+      "bridge_count": 1,
+      "bridge_created": true,
+      "bridge_kinds": [
+        "generic_fallback"
+      ],
+      "case_id": "R5_02",
+      "consilium_called": true,
+      "consilium_verdicts": [
+        "veto"
+      ],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "cycle_not_recognized",
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "5c2a9c966f8afaab",
+      "resolver_entered": true,
+      "veto_roles": [
+        "integrator",
+        "logician",
+        "skeptic"
+      ]
+    },
+    {
+      "audit_state": "bridge_required",
+      "blocking_reason": "counterexample_found",
+      "bridge_count": 1,
+      "bridge_created": true,
+      "bridge_kinds": [
+        "generic_fallback"
+      ],
+      "case_id": "R5_03",
+      "consilium_called": true,
+      "consilium_verdicts": [
+        "veto"
+      ],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "cycle_not_recognized",
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "30e0efe2937525e2",
+      "resolver_entered": true,
+      "veto_roles": [
+        "logician",
+        "skeptic"
+      ]
+    },
+    {
+      "audit_state": "bridge_required",
+      "blocking_reason": "counterexample_found",
+      "bridge_count": 1,
+      "bridge_created": true,
+      "bridge_kinds": [
+        "generic_fallback"
+      ],
+      "case_id": "R5_04",
+      "consilium_called": true,
+      "consilium_verdicts": [
+        "veto"
+      ],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "cycle_not_recognized",
+      "parser_recognized": true,
+      "premise_count": 2,
+      "premise_kinds": [
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "48539ce25535d87d",
+      "resolver_entered": true,
+      "veto_roles": [
+        "logician",
+        "skeptic"
+      ]
+    },
+    {
+      "audit_state": "bridge_required",
+      "blocking_reason": "counterexample_found",
+      "bridge_count": 1,
+      "bridge_created": true,
+      "bridge_kinds": [
+        "generic_fallback"
+      ],
+      "case_id": "R5_05",
+      "consilium_called": true,
+      "consilium_verdicts": [
+        "veto"
+      ],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "cycle_not_recognized",
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "8edc382008e8da3d",
+      "resolver_entered": true,
+      "veto_roles": [
+        "logician",
+        "skeptic"
+      ]
+    },
+    {
+      "audit_state": "bridge_required",
+      "blocking_reason": "counterexample_found",
+      "bridge_count": 1,
+      "bridge_created": true,
+      "bridge_kinds": [
+        "generic_fallback"
+      ],
+      "case_id": "R5_06",
+      "consilium_called": true,
+      "consilium_verdicts": [
+        "veto"
+      ],
+      "depth_reached": 0,
+      "final_state": "resolution_blocked",
+      "loss_stage": "cycle_not_recognized",
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "f960b56faa5f6638",
+      "resolver_entered": true,
+      "veto_roles": [
+        "integrator",
+        "logician",
+        "skeptic"
+      ]
+    }
+  ]
+}

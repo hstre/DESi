@@ -1,0 +1,460 @@
+{
+  "allowed_count": 16,
+  "best_rule": {
+    "allowed_count": 16,
+    "axis": "members_per_family",
+    "blocked_count": 36,
+    "far": 0.0,
+    "t1": 0.541667,
+    "t2": 1.5,
+    "tpr": 1.0
+  },
+  "blocked_count": 36,
+  "candidate_rules": [
+    {
+      "allowed_count": 18,
+      "axis": "members_per_family",
+      "blocked_count": 34,
+      "far": 0.111111,
+      "t1": 0.541667,
+      "t2": 0.5,
+      "tpr": 1.0
+    },
+    {
+      "allowed_count": 18,
+      "axis": "members_per_family",
+      "blocked_count": 34,
+      "far": 0.111111,
+      "t1": 0.541667,
+      "t2": 1.0,
+      "tpr": 1.0
+    },
+    {
+      "allowed_count": 16,
+      "axis": "members_per_family",
+      "blocked_count": 36,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 1.5,
+      "tpr": 1.0
+    },
+    {
+      "allowed_count": 16,
+      "axis": "members_per_family",
+      "blocked_count": 36,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 2.0,
+      "tpr": 1.0
+    },
+    {
+      "allowed_count": 13,
+      "axis": "members_per_family",
+      "blocked_count": 39,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 2.5,
+      "tpr": 0.8125
+    },
+    {
+      "allowed_count": 12,
+      "axis": "members_per_family",
+      "blocked_count": 40,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 3.0,
+      "tpr": 0.75
+    },
+    {
+      "allowed_count": 9,
+      "axis": "members_per_family",
+      "blocked_count": 43,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 3.5,
+      "tpr": 0.5625
+    },
+    {
+      "allowed_count": 9,
+      "axis": "members_per_family",
+      "blocked_count": 43,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 4.0,
+      "tpr": 0.5625
+    },
+    {
+      "allowed_count": 7,
+      "axis": "members_per_family",
+      "blocked_count": 45,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 4.5,
+      "tpr": 0.4375
+    },
+    {
+      "allowed_count": 6,
+      "axis": "members_per_family",
+      "blocked_count": 46,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 5.0,
+      "tpr": 0.375
+    },
+    {
+      "allowed_count": 5,
+      "axis": "members_per_family",
+      "blocked_count": 47,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 5.5,
+      "tpr": 0.3125
+    },
+    {
+      "allowed_count": 5,
+      "axis": "members_per_family",
+      "blocked_count": 47,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 6.0,
+      "tpr": 0.3125
+    },
+    {
+      "allowed_count": 0,
+      "axis": "family_count",
+      "blocked_count": 52,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 0.5,
+      "tpr": 0.0
+    },
+    {
+      "allowed_count": 0,
+      "axis": "family_count",
+      "blocked_count": 52,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 1.0,
+      "tpr": 0.0
+    },
+    {
+      "allowed_count": 0,
+      "axis": "family_count",
+      "blocked_count": 52,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 1.5,
+      "tpr": 0.0
+    },
+    {
+      "allowed_count": 12,
+      "axis": "family_count",
+      "blocked_count": 40,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 2.0,
+      "tpr": 0.75
+    },
+    {
+      "allowed_count": 12,
+      "axis": "family_count",
+      "blocked_count": 40,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 2.5,
+      "tpr": 0.75
+    },
+    {
+      "allowed_count": 12,
+      "axis": "family_count",
+      "blocked_count": 40,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 3.0,
+      "tpr": 0.75
+    },
+    {
+      "allowed_count": 12,
+      "axis": "family_count",
+      "blocked_count": 40,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 3.5,
+      "tpr": 0.75
+    },
+    {
+      "allowed_count": 16,
+      "axis": "family_count",
+      "blocked_count": 36,
+      "far": 0.125,
+      "t1": 0.541667,
+      "t2": 4.0,
+      "tpr": 0.875
+    },
+    {
+      "allowed_count": 16,
+      "axis": "family_count",
+      "blocked_count": 36,
+      "far": 0.125,
+      "t1": 0.541667,
+      "t2": 4.5,
+      "tpr": 0.875
+    },
+    {
+      "allowed_count": 16,
+      "axis": "family_count",
+      "blocked_count": 36,
+      "far": 0.125,
+      "t1": 0.541667,
+      "t2": 5.0,
+      "tpr": 0.875
+    },
+    {
+      "allowed_count": 16,
+      "axis": "family_count",
+      "blocked_count": 36,
+      "far": 0.125,
+      "t1": 0.541667,
+      "t2": 5.5,
+      "tpr": 0.875
+    },
+    {
+      "allowed_count": 16,
+      "axis": "family_count",
+      "blocked_count": 36,
+      "far": 0.125,
+      "t1": 0.541667,
+      "t2": 6.0,
+      "tpr": 0.875
+    },
+    {
+      "allowed_count": 18,
+      "axis": "pool_entropy",
+      "blocked_count": 34,
+      "far": 0.111111,
+      "t1": 0.541667,
+      "t2": 0.5,
+      "tpr": 1.0
+    },
+    {
+      "allowed_count": 18,
+      "axis": "pool_entropy",
+      "blocked_count": 34,
+      "far": 0.111111,
+      "t1": 0.541667,
+      "t2": 1.0,
+      "tpr": 1.0
+    },
+    {
+      "allowed_count": 6,
+      "axis": "pool_entropy",
+      "blocked_count": 46,
+      "far": 0.333333,
+      "t1": 0.541667,
+      "t2": 1.5,
+      "tpr": 0.25
+    },
+    {
+      "allowed_count": 4,
+      "axis": "pool_entropy",
+      "blocked_count": 48,
+      "far": 0.5,
+      "t1": 0.541667,
+      "t2": 2.0,
+      "tpr": 0.125
+    },
+    {
+      "allowed_count": 2,
+      "axis": "pool_entropy",
+      "blocked_count": 50,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 2.5,
+      "tpr": 0.125
+    },
+    {
+      "allowed_count": 2,
+      "axis": "pool_entropy",
+      "blocked_count": 50,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 3.0,
+      "tpr": 0.125
+    },
+    {
+      "allowed_count": 0,
+      "axis": "pool_entropy",
+      "blocked_count": 52,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 3.5,
+      "tpr": 0.0
+    },
+    {
+      "allowed_count": 0,
+      "axis": "pool_entropy",
+      "blocked_count": 52,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 4.0,
+      "tpr": 0.0
+    },
+    {
+      "allowed_count": 0,
+      "axis": "pool_entropy",
+      "blocked_count": 52,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 4.5,
+      "tpr": 0.0
+    },
+    {
+      "allowed_count": 0,
+      "axis": "pool_entropy",
+      "blocked_count": 52,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 5.0,
+      "tpr": 0.0
+    },
+    {
+      "allowed_count": 0,
+      "axis": "pool_entropy",
+      "blocked_count": 52,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 5.5,
+      "tpr": 0.0
+    },
+    {
+      "allowed_count": 0,
+      "axis": "pool_entropy",
+      "blocked_count": 52,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 6.0,
+      "tpr": 0.0
+    },
+    {
+      "allowed_count": 18,
+      "axis": "member_count",
+      "blocked_count": 34,
+      "far": 0.111111,
+      "t1": 0.541667,
+      "t2": 0.5,
+      "tpr": 1.0
+    },
+    {
+      "allowed_count": 18,
+      "axis": "member_count",
+      "blocked_count": 34,
+      "far": 0.111111,
+      "t1": 0.541667,
+      "t2": 1.0,
+      "tpr": 1.0
+    },
+    {
+      "allowed_count": 18,
+      "axis": "member_count",
+      "blocked_count": 34,
+      "far": 0.111111,
+      "t1": 0.541667,
+      "t2": 1.5,
+      "tpr": 1.0
+    },
+    {
+      "allowed_count": 18,
+      "axis": "member_count",
+      "blocked_count": 34,
+      "far": 0.111111,
+      "t1": 0.541667,
+      "t2": 2.0,
+      "tpr": 1.0
+    },
+    {
+      "allowed_count": 18,
+      "axis": "member_count",
+      "blocked_count": 34,
+      "far": 0.111111,
+      "t1": 0.541667,
+      "t2": 2.5,
+      "tpr": 1.0
+    },
+    {
+      "allowed_count": 18,
+      "axis": "member_count",
+      "blocked_count": 34,
+      "far": 0.111111,
+      "t1": 0.541667,
+      "t2": 3.0,
+      "tpr": 1.0
+    },
+    {
+      "allowed_count": 18,
+      "axis": "member_count",
+      "blocked_count": 34,
+      "far": 0.111111,
+      "t1": 0.541667,
+      "t2": 3.5,
+      "tpr": 1.0
+    },
+    {
+      "allowed_count": 18,
+      "axis": "member_count",
+      "blocked_count": 34,
+      "far": 0.111111,
+      "t1": 0.541667,
+      "t2": 4.0,
+      "tpr": 1.0
+    },
+    {
+      "allowed_count": 14,
+      "axis": "member_count",
+      "blocked_count": 38,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 4.5,
+      "tpr": 0.875
+    },
+    {
+      "allowed_count": 14,
+      "axis": "member_count",
+      "blocked_count": 38,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 5.0,
+      "tpr": 0.875
+    },
+    {
+      "allowed_count": 14,
+      "axis": "member_count",
+      "blocked_count": 38,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 5.5,
+      "tpr": 0.875
+    },
+    {
+      "allowed_count": 14,
+      "axis": "member_count",
+      "blocked_count": 38,
+      "far": 0.0,
+      "t1": 0.541667,
+      "t2": 6.0,
+      "tpr": 0.875
+    }
+  ],
+  "final_far": 0.0,
+  "final_tpr": 1.0,
+  "rule_complexity": 2,
+  "schema_version": "v3_123_pre_t10_multisignal",
+  "second_axes": [
+    "members_per_family",
+    "family_count",
+    "pool_entropy",
+    "member_count"
+  ],
+  "selected_axis": "members_per_family",
+  "selected_t1": 0.541667,
+  "selected_t2": 1.5
+}

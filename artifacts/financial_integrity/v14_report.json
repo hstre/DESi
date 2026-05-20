@@ -1,0 +1,37 @@
+{
+  "anomaly_priority_score": 0.570669,
+  "audit_trail_opacity": 0.503012,
+  "bridge_required_disclosures": 0.472024,
+  "cashflow_profit_divergence": 0.410553,
+  "ex_ante_red_flag_recall": 1.0,
+  "geographic_revenue_opacity": 0.547949,
+  "halt": false,
+  "high_priority_years": [
+    2017,
+    2018
+  ],
+  "narrative_numbers_mismatch": 0.270553,
+  "rationale": [
+    "INFO: statement_count 4 (years [2015, 2016, 2017, 2018])",
+    "INFO: figures are illustrative-synthetic; structural pattern only; NOT the actual audited line items",
+    "INFO: DESi does NOT conclude fraud; output is audit-priority only",
+    "INFO: cashflow_profit_divergence 0.410553",
+    "INFO: receivables_growth 0.258373",
+    "INFO: third_party_acquirer_dependency 0.511923",
+    "INFO: narrative_numbers_mismatch 0.270553",
+    "INFO: audit_trail_opacity 0.503012",
+    "INFO: geographic_revenue_opacity 0.547949",
+    "INFO: unexplained_margin_stability 0.849335",
+    "INFO: bridge_required_disclosures 0.472024",
+    "INFO: anomaly_priority_score 0.570669",
+    "INFO: high_priority_years [2017, 2018]",
+    "PASS: ex_ante_red_flag_recall 1.0 >= 0.90 (post-hoc validation only)",
+    "PASS: replay_stability 1.0"
+  ],
+  "receivables_growth": 0.258373,
+  "recommendation": "STATEMENTS_AUDIT_WORTHY",
+  "replay_stability": 1.0,
+  "statement_count": 4,
+  "third_party_acquirer_dependency": 0.511923,
+  "unexplained_margin_stability": 0.849335
+}

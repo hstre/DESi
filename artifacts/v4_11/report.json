@@ -1,0 +1,380 @@
+{
+  "class_distribution": {
+    "FROZEN_ARTIFACT_REPLAYABLE": 12,
+    "HISTORICAL_RUNTIME_DRIFT": 9,
+    "LIVE_REPLAY_STABLE": 2,
+    "NON_REPLAYABLE_BY_DESIGN": 1
+  },
+  "classification_accuracy": 1.0,
+  "environment": {
+    "branch": "feature/reproducibility-hardening-audit",
+    "env_vars": {
+      "DESI_ENV": "",
+      "PYTHONDONTWRITEBYTECODE": "",
+      "PYTHONHASHSEED": "",
+      "PYTHONPATH": "src"
+    },
+    "git_commit": "b288a520e7be0b8f2e36fe8e9c28a0e893c8544a",
+    "installed_optional_dependencies": [],
+    "package_versions": {
+      "numpy": null,
+      "scipy": null,
+      "sympy": null
+    },
+    "platform": "Linux",
+    "python_version": "3.11",
+    "sympy_available": false
+  },
+  "expected_tool_correct_under_env": 20,
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "matrix": [
+    {
+      "artifact_exists": true,
+      "frozen_hash": "1f4d9dfe44cb16e1",
+      "hash_equal": true,
+      "live_hash": "1f4d9dfe44cb16e1",
+      "live_replay_available": true,
+      "repro_class": "LIVE_REPLAY_STABLE",
+      "version": "v2_8"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "1c8e6d0e0b90905c",
+      "hash_equal": null,
+      "live_hash": null,
+      "live_replay_available": false,
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "version": "v3_11"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "733032cc30a0cc2e",
+      "hash_equal": null,
+      "live_hash": null,
+      "live_replay_available": false,
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "version": "v3_13"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "94be5611fc9bd336",
+      "hash_equal": null,
+      "live_hash": null,
+      "live_replay_available": false,
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "version": "v3_14"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "a6edfa9a53914bcc",
+      "hash_equal": null,
+      "live_hash": null,
+      "live_replay_available": false,
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "version": "v3_15"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "1f4e5f85c085d32f",
+      "hash_equal": null,
+      "live_hash": null,
+      "live_replay_available": false,
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "version": "v3_16"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "a01b6edaa9e1a086",
+      "hash_equal": null,
+      "live_hash": null,
+      "live_replay_available": false,
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "version": "v3_17"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "7829ae1e1750f00d",
+      "hash_equal": null,
+      "live_hash": null,
+      "live_replay_available": false,
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "version": "v3_18"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "3cbde141b5d90a46",
+      "hash_equal": null,
+      "live_hash": null,
+      "live_replay_available": false,
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "version": "v3_19"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "02eb32df1f51b761",
+      "hash_equal": null,
+      "live_hash": null,
+      "live_replay_available": false,
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "version": "v3_20"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "f570c9e94770dfbc",
+      "hash_equal": null,
+      "live_hash": null,
+      "live_replay_available": false,
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "version": "v3_21"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "be039cd52c3de9b5",
+      "hash_equal": null,
+      "live_hash": null,
+      "live_replay_available": false,
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "version": "v3_22"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "0246444ccd8f96ef",
+      "hash_equal": null,
+      "live_hash": null,
+      "live_replay_available": false,
+      "repro_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "version": "v3_23"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "aefa8f1e3429225a",
+      "hash_equal": false,
+      "live_hash": "24cc539f9a177d4d",
+      "live_replay_available": true,
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "version": "v4_0"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "f7ec695f17aa341b",
+      "hash_equal": false,
+      "live_hash": "d2acdf18bd425bbe",
+      "live_replay_available": true,
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "version": "v4_1"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "181ec3cb1febf62f",
+      "hash_equal": false,
+      "live_hash": "c892a194ff3ae896",
+      "live_replay_available": true,
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "version": "v4_2"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "7c63bcae4cf3fb37",
+      "hash_equal": false,
+      "live_hash": "741f95728f2f284b",
+      "live_replay_available": true,
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "version": "v4_3"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "bf4147b89f398224",
+      "hash_equal": false,
+      "live_hash": "5ef0c40e39f80bff",
+      "live_replay_available": true,
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "version": "v4_4"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "86418c9d976cc147",
+      "hash_equal": false,
+      "live_hash": "9221fe43bb5210e0",
+      "live_replay_available": true,
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "version": "v4_5"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "58268fd9c4437e49",
+      "hash_equal": false,
+      "live_hash": "569ede06b031a661",
+      "live_replay_available": true,
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "version": "v4_6"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "2774818766a8035a",
+      "hash_equal": false,
+      "live_hash": "e1bcb1887834c875",
+      "live_replay_available": true,
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "version": "v4_7"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "d0835b564453cfc0",
+      "hash_equal": false,
+      "live_hash": "4d70a780575f4343",
+      "live_replay_available": true,
+      "repro_class": "HISTORICAL_RUNTIME_DRIFT",
+      "version": "v4_8"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "51122b802bd257dc",
+      "hash_equal": true,
+      "live_hash": "51122b802bd257dc",
+      "live_replay_available": true,
+      "repro_class": "LIVE_REPLAY_STABLE",
+      "version": "v4_9"
+    },
+    {
+      "artifact_exists": true,
+      "frozen_hash": "42f0a23f3c054e00",
+      "hash_equal": null,
+      "live_hash": null,
+      "live_replay_available": false,
+      "repro_class": "NON_REPLAYABLE_BY_DESIGN",
+      "version": "v4_10"
+    }
+  ],
+  "nc_count": 20,
+  "nc_outcomes": [
+    {
+      "correct": true,
+      "expected_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "nc_id": "NC-001",
+      "predicted_class": "FROZEN_ARTIFACT_REPLAYABLE"
+    },
+    {
+      "correct": true,
+      "expected_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "nc_id": "NC-002",
+      "predicted_class": "FROZEN_ARTIFACT_REPLAYABLE"
+    },
+    {
+      "correct": true,
+      "expected_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "nc_id": "NC-003",
+      "predicted_class": "FROZEN_ARTIFACT_REPLAYABLE"
+    },
+    {
+      "correct": true,
+      "expected_class": "LIVE_REPLAY_STABLE",
+      "nc_id": "NC-004",
+      "predicted_class": "LIVE_REPLAY_STABLE"
+    },
+    {
+      "correct": true,
+      "expected_class": "LIVE_REPLAY_STABLE",
+      "nc_id": "NC-005",
+      "predicted_class": "LIVE_REPLAY_STABLE"
+    },
+    {
+      "correct": true,
+      "expected_class": "LIVE_REPLAY_STABLE",
+      "nc_id": "NC-006",
+      "predicted_class": "LIVE_REPLAY_STABLE"
+    },
+    {
+      "correct": true,
+      "expected_class": "HISTORICAL_RUNTIME_DRIFT",
+      "nc_id": "NC-007",
+      "predicted_class": "HISTORICAL_RUNTIME_DRIFT"
+    },
+    {
+      "correct": true,
+      "expected_class": "HISTORICAL_RUNTIME_DRIFT",
+      "nc_id": "NC-008",
+      "predicted_class": "HISTORICAL_RUNTIME_DRIFT"
+    },
+    {
+      "correct": true,
+      "expected_class": "HISTORICAL_RUNTIME_DRIFT",
+      "nc_id": "NC-009",
+      "predicted_class": "HISTORICAL_RUNTIME_DRIFT"
+    },
+    {
+      "correct": true,
+      "expected_class": "HISTORICAL_RUNTIME_DRIFT",
+      "nc_id": "NC-010",
+      "predicted_class": "HISTORICAL_RUNTIME_DRIFT"
+    },
+    {
+      "correct": true,
+      "expected_class": "NON_REPLAYABLE_BY_DESIGN",
+      "nc_id": "NC-011",
+      "predicted_class": "NON_REPLAYABLE_BY_DESIGN"
+    },
+    {
+      "correct": true,
+      "expected_class": "NON_REPLAYABLE_BY_DESIGN",
+      "nc_id": "NC-012",
+      "predicted_class": "NON_REPLAYABLE_BY_DESIGN"
+    },
+    {
+      "correct": true,
+      "expected_class": "NON_REPLAYABLE_BY_DESIGN",
+      "nc_id": "NC-013",
+      "predicted_class": "NON_REPLAYABLE_BY_DESIGN"
+    },
+    {
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-014",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-015",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-016",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "correct": true,
+      "expected_class": "UNKNOWN",
+      "nc_id": "NC-017",
+      "predicted_class": "UNKNOWN"
+    },
+    {
+      "correct": true,
+      "expected_class": "HISTORICAL_RUNTIME_DRIFT",
+      "nc_id": "NC-018",
+      "predicted_class": "HISTORICAL_RUNTIME_DRIFT"
+    },
+    {
+      "correct": true,
+      "expected_class": "LIVE_REPLAY_STABLE",
+      "nc_id": "NC-019",
+      "predicted_class": "LIVE_REPLAY_STABLE"
+    },
+    {
+      "correct": true,
+      "expected_class": "FROZEN_ARTIFACT_REPLAYABLE",
+      "nc_id": "NC-020",
+      "predicted_class": "FROZEN_ARTIFACT_REPLAYABLE"
+    }
+  ],
+  "recommendation_reason": "9 entries classified as HISTORICAL_RUNTIME_DRIFT; drift is explicit, matrix entries are complete; tool_repro_policy=ENVIRONMENT_CONDITIONAL",
+  "recommended_next": "REPRO_HARDENING_CONFIRMED",
+  "replay_hash": "70556e8d1100172d",
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "tool_repro_policy": "ENVIRONMENT_CONDITIONAL",
+  "v2_8_frozen_hash": "1f4d9dfe44cb16e1",
+  "v2_8_hash_equal": true,
+  "v2_8_live_hash": "1f4d9dfe44cb16e1",
+  "v2_8_repro_class": "LIVE_REPLAY_STABLE"
+}

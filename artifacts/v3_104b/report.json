@@ -1,0 +1,112 @@
+{
+  "directional_gate_result_on_actual": {
+    "failing_conditions": [],
+    "passed": true
+  },
+  "false_block_rate_directional": 0.0,
+  "false_block_rate_old": 0.666667,
+  "false_pass_rate_directional": 0.0,
+  "false_pass_rate_old": 0.0,
+  "halt": false,
+  "old_gate_result_on_actual": {
+    "failing_conditions": [
+      "historical_auc_delta"
+    ],
+    "passed": false
+  },
+  "rationale": [
+    "INFO: scenario_count 3",
+    "INFO: old_gate on actual = {'passed': False, 'failing_conditions': ['historical_auc_delta']}",
+    "INFO: directional_gate on actual = {'passed': True, 'failing_conditions': []}",
+    "INFO: false_block_rate_old 0.666667",
+    "INFO: false_block_rate_directional 0.0",
+    "INFO: false_pass_rate_old 0.0",
+    "INFO: false_pass_rate_directional 0.0",
+    "INFO: scenario_outcomes [{'scenario': 'actual_t10', 'gate_input': {'candidate_auc': 1.0, 'injected_purity': 1.0, 'injected_auc': 1.0, 'adverse_flip_count': 0, 'beneficial_flip_count': 4, 'adverse_auc_delta': 0.0, 'beneficial_auc_delta': 0.494239, 'historical_auc_delta': 0.494239, 'replay_stability': 1.0}, 'old_gate': {'passed': False, 'failing_conditions': ['historical_auc_delta']}, 'directional_gate': {'passed': True, 'failing_conditions': []}, 'real_damage': False}, {'scenario': 'synthetic_adverse', 'gate_input': {'candidate_auc': 1.0, 'injected_purity': 1.0, 'injected_auc': 1.0, 'adverse_flip_count': 1, 'beneficial_flip_count': 4, 'adverse_auc_delta': 0.4, 'beneficial_auc_delta': 0.494239, 'historical_auc_delta': 0.494239, 'replay_stability': 1.0}, 'old_gate': {'passed': False, 'failing_conditions': ['gate_flip_count', 'historical_auc_delta']}, 'directional_gate': {'passed': False, 'failing_conditions': ['adverse_flip_count', 'adverse_auc_delta']}, 'real_damage': True}, {'scenario': 'synthetic_beneficial_only', 'gate_input': {'candidate_auc': 1.0, 'injected_purity': 1.0, 'injected_auc': 1.0, 'adverse_flip_count': 0, 'beneficial_flip_count': 5, 'adverse_auc_delta': 0.0, 'beneficial_auc_delta': 0.6, 'historical_auc_delta': 0.6, 'replay_stability': 1.0}, 'old_gate': {'passed': False, 'failing_conditions': ['historical_auc_delta']}, 'directional_gate': {'passed': True, 'failing_conditions': []}, 'real_damage': False}]",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "DIRECTIONAL_GATE_DOMINANT",
+  "replay_stability": 1.0,
+  "scenario_count": 3,
+  "scenario_outcomes": [
+    {
+      "directional_gate": {
+        "failing_conditions": [],
+        "passed": true
+      },
+      "gate_input": {
+        "adverse_auc_delta": 0.0,
+        "adverse_flip_count": 0,
+        "beneficial_auc_delta": 0.494239,
+        "beneficial_flip_count": 4,
+        "candidate_auc": 1.0,
+        "historical_auc_delta": 0.494239,
+        "injected_auc": 1.0,
+        "injected_purity": 1.0,
+        "replay_stability": 1.0
+      },
+      "old_gate": {
+        "failing_conditions": [
+          "historical_auc_delta"
+        ],
+        "passed": false
+      },
+      "real_damage": false,
+      "scenario": "actual_t10"
+    },
+    {
+      "directional_gate": {
+        "failing_conditions": [
+          "adverse_flip_count",
+          "adverse_auc_delta"
+        ],
+        "passed": false
+      },
+      "gate_input": {
+        "adverse_auc_delta": 0.4,
+        "adverse_flip_count": 1,
+        "beneficial_auc_delta": 0.494239,
+        "beneficial_flip_count": 4,
+        "candidate_auc": 1.0,
+        "historical_auc_delta": 0.494239,
+        "injected_auc": 1.0,
+        "injected_purity": 1.0,
+        "replay_stability": 1.0
+      },
+      "old_gate": {
+        "failing_conditions": [
+          "gate_flip_count",
+          "historical_auc_delta"
+        ],
+        "passed": false
+      },
+      "real_damage": true,
+      "scenario": "synthetic_adverse"
+    },
+    {
+      "directional_gate": {
+        "failing_conditions": [],
+        "passed": true
+      },
+      "gate_input": {
+        "adverse_auc_delta": 0.0,
+        "adverse_flip_count": 0,
+        "beneficial_auc_delta": 0.6,
+        "beneficial_flip_count": 5,
+        "candidate_auc": 1.0,
+        "historical_auc_delta": 0.6,
+        "injected_auc": 1.0,
+        "injected_purity": 1.0,
+        "replay_stability": 1.0
+      },
+      "old_gate": {
+        "failing_conditions": [
+          "historical_auc_delta"
+        ],
+        "passed": false
+      },
+      "real_damage": false,
+      "scenario": "synthetic_beneficial_only"
+    }
+  ]
+}

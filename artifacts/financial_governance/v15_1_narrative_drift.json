@@ -1,0 +1,2396 @@
+{
+  "audit_priorities": [
+    "LOW_AUDIT_PRIORITY",
+    "MEDIUM_AUDIT_PRIORITY",
+    "HIGH_AUDIT_PRIORITY",
+    "GOVERNANCE_REVIEW_RECOMMENDED",
+    "UNRESOLVED"
+  ],
+  "bridge_evolution_integrity": 0.75944,
+  "claim_lineage": [
+    {
+      "firm_id": "PAYMENTS_ALPHA",
+      "made_year": 2011,
+      "topic": "receivables_normalise",
+      "upheld": true
+    },
+    {
+      "firm_id": "PAYMENTS_ALPHA",
+      "made_year": 2012,
+      "topic": "third_party_dependence_falls",
+      "upheld": true
+    },
+    {
+      "firm_id": "PAYMENTS_ALPHA",
+      "made_year": 2013,
+      "topic": "cash_conversion_improves",
+      "upheld": true
+    },
+    {
+      "firm_id": "PAYMENTS_ALPHA",
+      "made_year": 2014,
+      "topic": "segment_disclosure_expands",
+      "upheld": false
+    },
+    {
+      "firm_id": "PAYMENTS_ALPHA",
+      "made_year": 2015,
+      "topic": "margin_sustained_organically",
+      "upheld": false
+    },
+    {
+      "firm_id": "PAYMENTS_ALPHA",
+      "made_year": 2016,
+      "topic": "receivables_normalise",
+      "upheld": false
+    },
+    {
+      "firm_id": "PAYMENTS_ALPHA",
+      "made_year": 2017,
+      "topic": "third_party_dependence_falls",
+      "upheld": false
+    },
+    {
+      "firm_id": "PAYMENTS_ALPHA",
+      "made_year": 2018,
+      "topic": "cash_conversion_improves",
+      "upheld": false
+    },
+    {
+      "firm_id": "PAYMENTS_ALPHA",
+      "made_year": 2019,
+      "topic": "segment_disclosure_expands",
+      "upheld": false
+    },
+    {
+      "firm_id": "AUTO_BETA",
+      "made_year": 2011,
+      "topic": "receivables_normalise",
+      "upheld": true
+    },
+    {
+      "firm_id": "AUTO_BETA",
+      "made_year": 2012,
+      "topic": "third_party_dependence_falls",
+      "upheld": true
+    },
+    {
+      "firm_id": "AUTO_BETA",
+      "made_year": 2013,
+      "topic": "cash_conversion_improves",
+      "upheld": true
+    },
+    {
+      "firm_id": "AUTO_BETA",
+      "made_year": 2014,
+      "topic": "segment_disclosure_expands",
+      "upheld": true
+    },
+    {
+      "firm_id": "AUTO_BETA",
+      "made_year": 2015,
+      "topic": "margin_sustained_organically",
+      "upheld": true
+    },
+    {
+      "firm_id": "AUTO_BETA",
+      "made_year": 2016,
+      "topic": "receivables_normalise",
+      "upheld": false
+    },
+    {
+      "firm_id": "AUTO_BETA",
+      "made_year": 2017,
+      "topic": "third_party_dependence_falls",
+      "upheld": false
+    },
+    {
+      "firm_id": "AUTO_BETA",
+      "made_year": 2018,
+      "topic": "cash_conversion_improves",
+      "upheld": false
+    },
+    {
+      "firm_id": "AUTO_BETA",
+      "made_year": 2019,
+      "topic": "segment_disclosure_expands",
+      "upheld": false
+    },
+    {
+      "firm_id": "CHEM_GAMMA",
+      "made_year": 2011,
+      "topic": "receivables_normalise",
+      "upheld": true
+    },
+    {
+      "firm_id": "CHEM_GAMMA",
+      "made_year": 2012,
+      "topic": "third_party_dependence_falls",
+      "upheld": true
+    },
+    {
+      "firm_id": "CHEM_GAMMA",
+      "made_year": 2013,
+      "topic": "cash_conversion_improves",
+      "upheld": true
+    },
+    {
+      "firm_id": "CHEM_GAMMA",
+      "made_year": 2014,
+      "topic": "segment_disclosure_expands",
+      "upheld": true
+    },
+    {
+      "firm_id": "CHEM_GAMMA",
+      "made_year": 2015,
+      "topic": "margin_sustained_organically",
+      "upheld": true
+    },
+    {
+      "firm_id": "CHEM_GAMMA",
+      "made_year": 2016,
+      "topic": "receivables_normalise",
+      "upheld": true
+    },
+    {
+      "firm_id": "CHEM_GAMMA",
+      "made_year": 2017,
+      "topic": "third_party_dependence_falls",
+      "upheld": true
+    },
+    {
+      "firm_id": "CHEM_GAMMA",
+      "made_year": 2018,
+      "topic": "cash_conversion_improves",
+      "upheld": true
+    },
+    {
+      "firm_id": "CHEM_GAMMA",
+      "made_year": 2019,
+      "topic": "segment_disclosure_expands",
+      "upheld": true
+    },
+    {
+      "firm_id": "UTILITY_DELTA",
+      "made_year": 2011,
+      "topic": "receivables_normalise",
+      "upheld": true
+    },
+    {
+      "firm_id": "UTILITY_DELTA",
+      "made_year": 2012,
+      "topic": "third_party_dependence_falls",
+      "upheld": true
+    },
+    {
+      "firm_id": "UTILITY_DELTA",
+      "made_year": 2013,
+      "topic": "cash_conversion_improves",
+      "upheld": true
+    },
+    {
+      "firm_id": "UTILITY_DELTA",
+      "made_year": 2014,
+      "topic": "segment_disclosure_expands",
+      "upheld": true
+    },
+    {
+      "firm_id": "UTILITY_DELTA",
+      "made_year": 2015,
+      "topic": "margin_sustained_organically",
+      "upheld": true
+    },
+    {
+      "firm_id": "UTILITY_DELTA",
+      "made_year": 2016,
+      "topic": "receivables_normalise",
+      "upheld": true
+    },
+    {
+      "firm_id": "UTILITY_DELTA",
+      "made_year": 2017,
+      "topic": "third_party_dependence_falls",
+      "upheld": true
+    },
+    {
+      "firm_id": "UTILITY_DELTA",
+      "made_year": 2018,
+      "topic": "cash_conversion_improves",
+      "upheld": true
+    },
+    {
+      "firm_id": "UTILITY_DELTA",
+      "made_year": 2019,
+      "topic": "segment_disclosure_expands",
+      "upheld": true
+    },
+    {
+      "firm_id": "PHARMA_EPSILON",
+      "made_year": 2011,
+      "topic": "receivables_normalise",
+      "upheld": true
+    },
+    {
+      "firm_id": "PHARMA_EPSILON",
+      "made_year": 2012,
+      "topic": "third_party_dependence_falls",
+      "upheld": true
+    },
+    {
+      "firm_id": "PHARMA_EPSILON",
+      "made_year": 2013,
+      "topic": "cash_conversion_improves",
+      "upheld": true
+    },
+    {
+      "firm_id": "PHARMA_EPSILON",
+      "made_year": 2014,
+      "topic": "segment_disclosure_expands",
+      "upheld": true
+    },
+    {
+      "firm_id": "PHARMA_EPSILON",
+      "made_year": 2015,
+      "topic": "margin_sustained_organically",
+      "upheld": true
+    },
+    {
+      "firm_id": "PHARMA_EPSILON",
+      "made_year": 2016,
+      "topic": "receivables_normalise",
+      "upheld": true
+    },
+    {
+      "firm_id": "PHARMA_EPSILON",
+      "made_year": 2017,
+      "topic": "third_party_dependence_falls",
+      "upheld": true
+    },
+    {
+      "firm_id": "PHARMA_EPSILON",
+      "made_year": 2018,
+      "topic": "cash_conversion_improves",
+      "upheld": true
+    },
+    {
+      "firm_id": "PHARMA_EPSILON",
+      "made_year": 2019,
+      "topic": "segment_disclosure_expands",
+      "upheld": false
+    },
+    {
+      "firm_id": "INDUSTRIAL_ZETA",
+      "made_year": 2011,
+      "topic": "receivables_normalise",
+      "upheld": true
+    },
+    {
+      "firm_id": "INDUSTRIAL_ZETA",
+      "made_year": 2012,
+      "topic": "third_party_dependence_falls",
+      "upheld": true
+    },
+    {
+      "firm_id": "INDUSTRIAL_ZETA",
+      "made_year": 2013,
+      "topic": "cash_conversion_improves",
+      "upheld": true
+    },
+    {
+      "firm_id": "INDUSTRIAL_ZETA",
+      "made_year": 2014,
+      "topic": "segment_disclosure_expands",
+      "upheld": true
+    },
+    {
+      "firm_id": "INDUSTRIAL_ZETA",
+      "made_year": 2015,
+      "topic": "margin_sustained_organically",
+      "upheld": true
+    },
+    {
+      "firm_id": "INDUSTRIAL_ZETA",
+      "made_year": 2016,
+      "topic": "receivables_normalise",
+      "upheld": true
+    },
+    {
+      "firm_id": "INDUSTRIAL_ZETA",
+      "made_year": 2017,
+      "topic": "third_party_dependence_falls",
+      "upheld": true
+    },
+    {
+      "firm_id": "INDUSTRIAL_ZETA",
+      "made_year": 2018,
+      "topic": "cash_conversion_improves",
+      "upheld": true
+    },
+    {
+      "firm_id": "INDUSTRIAL_ZETA",
+      "made_year": 2019,
+      "topic": "segment_disclosure_expands",
+      "upheld": true
+    }
+  ],
+  "clean_firm_low_drift_rate": 1.0,
+  "corpus_priority_label": "HIGH_AUDIT_PRIORITY",
+  "disclaimer": "Synthetic longitudinal narrative trajectories over the v15.0 sector archetypes; NOT real audited disclosures and NOT named real companies. DESi does NOT conclude fraud, does NOT rate, does NOT give investment advice - output is audit-priority only. Post-hoc labels are used solely as validation, never as scoring input.",
+  "ex_ante_drift_recall": 1.0,
+  "firm_drift_verdicts": [
+    {
+      "bridge_evolution_integrity": 0.535794,
+      "firm_id": "AUTO_BETA",
+      "historical_consistency": 0.555556,
+      "narrative_drift": 0.13365,
+      "post_hoc_label": "governance_event_later",
+      "priority_label": "MEDIUM_AUDIT_PRIORITY",
+      "priority_score": 0.291963,
+      "sector": "automotive",
+      "semantic_reframing": 0.12555
+    },
+    {
+      "bridge_evolution_integrity": 1.0,
+      "firm_id": "CHEM_GAMMA",
+      "historical_consistency": 1.0,
+      "narrative_drift": 0.01188,
+      "post_hoc_label": "no_adverse_event",
+      "priority_label": "LOW_AUDIT_PRIORITY",
+      "priority_score": 0.00576,
+      "sector": "chemicals",
+      "semantic_reframing": 0.01116
+    },
+    {
+      "bridge_evolution_integrity": 1.0,
+      "firm_id": "INDUSTRIAL_ZETA",
+      "historical_consistency": 1.0,
+      "narrative_drift": 0.00891,
+      "post_hoc_label": "no_adverse_event",
+      "priority_label": "LOW_AUDIT_PRIORITY",
+      "priority_score": 0.00432,
+      "sector": "industrials",
+      "semantic_reframing": 0.00837
+    },
+    {
+      "bridge_evolution_integrity": 0.168463,
+      "firm_id": "PAYMENTS_ALPHA",
+      "historical_consistency": 0.333333,
+      "narrative_drift": 0.25245,
+      "post_hoc_label": "statements_later_voided",
+      "priority_label": "HIGH_AUDIT_PRIORITY",
+      "priority_score": 0.496951,
+      "sector": "payments",
+      "semantic_reframing": 0.23715
+    },
+    {
+      "bridge_evolution_integrity": 0.852381,
+      "firm_id": "PHARMA_EPSILON",
+      "historical_consistency": 0.888889,
+      "narrative_drift": 0.03564,
+      "post_hoc_label": "scrutinized_not_ruled",
+      "priority_label": "LOW_AUDIT_PRIORITY",
+      "priority_score": 0.081962,
+      "sector": "pharma",
+      "semantic_reframing": 0.03348
+    },
+    {
+      "bridge_evolution_integrity": 1.0,
+      "firm_id": "UTILITY_DELTA",
+      "historical_consistency": 1.0,
+      "narrative_drift": 0.00594,
+      "post_hoc_label": "no_adverse_event",
+      "priority_label": "LOW_AUDIT_PRIORITY",
+      "priority_score": 0.00288,
+      "sector": "utilities",
+      "semantic_reframing": 0.00558
+    }
+  ],
+  "historical_consistency": 0.796296,
+  "narrative_drift": 0.074745,
+  "schema_version": "v15_1_longitudinal_narrative_drift",
+  "semantic_reframing": 0.070215,
+  "themes": [
+    "growth",
+    "profitability",
+    "compliance",
+    "risk_transparency",
+    "innovation",
+    "geographic_expansion"
+  ],
+  "trajectories": [
+    {
+      "firm_id": "PAYMENTS_ALPHA",
+      "post_hoc_label": "statements_later_voided",
+      "sector": "payments",
+      "years": [
+        {
+          "bridges_provided": 3,
+          "bridges_required": 4,
+          "firm_id": "PAYMENTS_ALPHA",
+          "fiscal_year": 2011,
+          "theme_weights": [
+            [
+              "growth",
+              0.18
+            ],
+            [
+              "profitability",
+              0.18
+            ],
+            [
+              "compliance",
+              0.2
+            ],
+            [
+              "risk_transparency",
+              0.22
+            ],
+            [
+              "innovation",
+              0.12
+            ],
+            [
+              "geographic_expansion",
+              0.1
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 3,
+          "bridges_required": 5,
+          "firm_id": "PAYMENTS_ALPHA",
+          "fiscal_year": 2012,
+          "theme_weights": [
+            [
+              "growth",
+              0.1936
+            ],
+            [
+              "profitability",
+              0.1817
+            ],
+            [
+              "compliance",
+              0.1881
+            ],
+            [
+              "risk_transparency",
+              0.20555
+            ],
+            [
+              "innovation",
+              0.13275
+            ],
+            [
+              "geographic_expansion",
+              0.0983
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 3,
+          "bridges_required": 6,
+          "firm_id": "PAYMENTS_ALPHA",
+          "fiscal_year": 2013,
+          "theme_weights": [
+            [
+              "growth",
+              0.2072
+            ],
+            [
+              "profitability",
+              0.1834
+            ],
+            [
+              "compliance",
+              0.1762
+            ],
+            [
+              "risk_transparency",
+              0.1911
+            ],
+            [
+              "innovation",
+              0.1455
+            ],
+            [
+              "geographic_expansion",
+              0.0966
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 3,
+          "bridges_required": 7,
+          "firm_id": "PAYMENTS_ALPHA",
+          "fiscal_year": 2014,
+          "theme_weights": [
+            [
+              "growth",
+              0.2208
+            ],
+            [
+              "profitability",
+              0.1851
+            ],
+            [
+              "compliance",
+              0.1643
+            ],
+            [
+              "risk_transparency",
+              0.17665
+            ],
+            [
+              "innovation",
+              0.15825
+            ],
+            [
+              "geographic_expansion",
+              0.0949
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 3,
+          "bridges_required": 8,
+          "firm_id": "PAYMENTS_ALPHA",
+          "fiscal_year": 2015,
+          "theme_weights": [
+            [
+              "growth",
+              0.2344
+            ],
+            [
+              "profitability",
+              0.1868
+            ],
+            [
+              "compliance",
+              0.1524
+            ],
+            [
+              "risk_transparency",
+              0.1622
+            ],
+            [
+              "innovation",
+              0.171
+            ],
+            [
+              "geographic_expansion",
+              0.0932
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 3,
+          "bridges_required": 8,
+          "firm_id": "PAYMENTS_ALPHA",
+          "fiscal_year": 2016,
+          "theme_weights": [
+            [
+              "growth",
+              0.248
+            ],
+            [
+              "profitability",
+              0.1885
+            ],
+            [
+              "compliance",
+              0.1405
+            ],
+            [
+              "risk_transparency",
+              0.14775
+            ],
+            [
+              "innovation",
+              0.18375
+            ],
+            [
+              "geographic_expansion",
+              0.0915
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 3,
+          "bridges_required": 9,
+          "firm_id": "PAYMENTS_ALPHA",
+          "fiscal_year": 2017,
+          "theme_weights": [
+            [
+              "growth",
+              0.2616
+            ],
+            [
+              "profitability",
+              0.1902
+            ],
+            [
+              "compliance",
+              0.1286
+            ],
+            [
+              "risk_transparency",
+              0.1333
+            ],
+            [
+              "innovation",
+              0.1965
+            ],
+            [
+              "geographic_expansion",
+              0.0898
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 3,
+          "bridges_required": 10,
+          "firm_id": "PAYMENTS_ALPHA",
+          "fiscal_year": 2018,
+          "theme_weights": [
+            [
+              "growth",
+              0.2752
+            ],
+            [
+              "profitability",
+              0.1919
+            ],
+            [
+              "compliance",
+              0.1167
+            ],
+            [
+              "risk_transparency",
+              0.11885
+            ],
+            [
+              "innovation",
+              0.20925
+            ],
+            [
+              "geographic_expansion",
+              0.0881
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 3,
+          "bridges_required": 11,
+          "firm_id": "PAYMENTS_ALPHA",
+          "fiscal_year": 2019,
+          "theme_weights": [
+            [
+              "growth",
+              0.2888
+            ],
+            [
+              "profitability",
+              0.1936
+            ],
+            [
+              "compliance",
+              0.1048
+            ],
+            [
+              "risk_transparency",
+              0.1044
+            ],
+            [
+              "innovation",
+              0.222
+            ],
+            [
+              "geographic_expansion",
+              0.0864
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 3,
+          "bridges_required": 12,
+          "firm_id": "PAYMENTS_ALPHA",
+          "fiscal_year": 2020,
+          "theme_weights": [
+            [
+              "growth",
+              0.3024
+            ],
+            [
+              "profitability",
+              0.1953
+            ],
+            [
+              "compliance",
+              0.0929
+            ],
+            [
+              "risk_transparency",
+              0.08995
+            ],
+            [
+              "innovation",
+              0.23475
+            ],
+            [
+              "geographic_expansion",
+              0.0847
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "firm_id": "AUTO_BETA",
+      "post_hoc_label": "governance_event_later",
+      "sector": "automotive",
+      "years": [
+        {
+          "bridges_provided": 4,
+          "bridges_required": 5,
+          "firm_id": "AUTO_BETA",
+          "fiscal_year": 2011,
+          "theme_weights": [
+            [
+              "growth",
+              0.18
+            ],
+            [
+              "profitability",
+              0.18
+            ],
+            [
+              "compliance",
+              0.2
+            ],
+            [
+              "risk_transparency",
+              0.22
+            ],
+            [
+              "innovation",
+              0.12
+            ],
+            [
+              "geographic_expansion",
+              0.1
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 4,
+          "bridges_required": 5,
+          "firm_id": "AUTO_BETA",
+          "fiscal_year": 2012,
+          "theme_weights": [
+            [
+              "growth",
+              0.1872
+            ],
+            [
+              "profitability",
+              0.1809
+            ],
+            [
+              "compliance",
+              0.1937
+            ],
+            [
+              "risk_transparency",
+              0.21235
+            ],
+            [
+              "innovation",
+              0.12675
+            ],
+            [
+              "geographic_expansion",
+              0.0991
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 4,
+          "bridges_required": 6,
+          "firm_id": "AUTO_BETA",
+          "fiscal_year": 2013,
+          "theme_weights": [
+            [
+              "growth",
+              0.1944
+            ],
+            [
+              "profitability",
+              0.1818
+            ],
+            [
+              "compliance",
+              0.1874
+            ],
+            [
+              "risk_transparency",
+              0.2047
+            ],
+            [
+              "innovation",
+              0.1335
+            ],
+            [
+              "geographic_expansion",
+              0.0982
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 4,
+          "bridges_required": 6,
+          "firm_id": "AUTO_BETA",
+          "fiscal_year": 2014,
+          "theme_weights": [
+            [
+              "growth",
+              0.2016
+            ],
+            [
+              "profitability",
+              0.1827
+            ],
+            [
+              "compliance",
+              0.1811
+            ],
+            [
+              "risk_transparency",
+              0.19705
+            ],
+            [
+              "innovation",
+              0.14025
+            ],
+            [
+              "geographic_expansion",
+              0.0973
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 4,
+          "bridges_required": 7,
+          "firm_id": "AUTO_BETA",
+          "fiscal_year": 2015,
+          "theme_weights": [
+            [
+              "growth",
+              0.2088
+            ],
+            [
+              "profitability",
+              0.1836
+            ],
+            [
+              "compliance",
+              0.1748
+            ],
+            [
+              "risk_transparency",
+              0.1894
+            ],
+            [
+              "innovation",
+              0.147
+            ],
+            [
+              "geographic_expansion",
+              0.0964
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 7,
+          "firm_id": "AUTO_BETA",
+          "fiscal_year": 2016,
+          "theme_weights": [
+            [
+              "growth",
+              0.216
+            ],
+            [
+              "profitability",
+              0.1845
+            ],
+            [
+              "compliance",
+              0.1685
+            ],
+            [
+              "risk_transparency",
+              0.18175
+            ],
+            [
+              "innovation",
+              0.15375
+            ],
+            [
+              "geographic_expansion",
+              0.0955
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 8,
+          "firm_id": "AUTO_BETA",
+          "fiscal_year": 2017,
+          "theme_weights": [
+            [
+              "growth",
+              0.2232
+            ],
+            [
+              "profitability",
+              0.1854
+            ],
+            [
+              "compliance",
+              0.1622
+            ],
+            [
+              "risk_transparency",
+              0.1741
+            ],
+            [
+              "innovation",
+              0.1605
+            ],
+            [
+              "geographic_expansion",
+              0.0946
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 8,
+          "firm_id": "AUTO_BETA",
+          "fiscal_year": 2018,
+          "theme_weights": [
+            [
+              "growth",
+              0.2304
+            ],
+            [
+              "profitability",
+              0.1863
+            ],
+            [
+              "compliance",
+              0.1559
+            ],
+            [
+              "risk_transparency",
+              0.16645
+            ],
+            [
+              "innovation",
+              0.16725
+            ],
+            [
+              "geographic_expansion",
+              0.0937
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 9,
+          "firm_id": "AUTO_BETA",
+          "fiscal_year": 2019,
+          "theme_weights": [
+            [
+              "growth",
+              0.2376
+            ],
+            [
+              "profitability",
+              0.1872
+            ],
+            [
+              "compliance",
+              0.1496
+            ],
+            [
+              "risk_transparency",
+              0.1588
+            ],
+            [
+              "innovation",
+              0.174
+            ],
+            [
+              "geographic_expansion",
+              0.0928
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 9,
+          "firm_id": "AUTO_BETA",
+          "fiscal_year": 2020,
+          "theme_weights": [
+            [
+              "growth",
+              0.2448
+            ],
+            [
+              "profitability",
+              0.1881
+            ],
+            [
+              "compliance",
+              0.1433
+            ],
+            [
+              "risk_transparency",
+              0.15115
+            ],
+            [
+              "innovation",
+              0.18075
+            ],
+            [
+              "geographic_expansion",
+              0.0919
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "firm_id": "CHEM_GAMMA",
+      "post_hoc_label": "no_adverse_event",
+      "sector": "chemicals",
+      "years": [
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "CHEM_GAMMA",
+          "fiscal_year": 2011,
+          "theme_weights": [
+            [
+              "growth",
+              0.18
+            ],
+            [
+              "profitability",
+              0.18
+            ],
+            [
+              "compliance",
+              0.2
+            ],
+            [
+              "risk_transparency",
+              0.22
+            ],
+            [
+              "innovation",
+              0.12
+            ],
+            [
+              "geographic_expansion",
+              0.1
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "CHEM_GAMMA",
+          "fiscal_year": 2012,
+          "theme_weights": [
+            [
+              "growth",
+              0.18064
+            ],
+            [
+              "profitability",
+              0.18008
+            ],
+            [
+              "compliance",
+              0.19944
+            ],
+            [
+              "risk_transparency",
+              0.21932
+            ],
+            [
+              "innovation",
+              0.1206
+            ],
+            [
+              "geographic_expansion",
+              0.09992
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "CHEM_GAMMA",
+          "fiscal_year": 2013,
+          "theme_weights": [
+            [
+              "growth",
+              0.18128
+            ],
+            [
+              "profitability",
+              0.18016
+            ],
+            [
+              "compliance",
+              0.19888
+            ],
+            [
+              "risk_transparency",
+              0.21864
+            ],
+            [
+              "innovation",
+              0.1212
+            ],
+            [
+              "geographic_expansion",
+              0.09984
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "CHEM_GAMMA",
+          "fiscal_year": 2014,
+          "theme_weights": [
+            [
+              "growth",
+              0.18192
+            ],
+            [
+              "profitability",
+              0.18024
+            ],
+            [
+              "compliance",
+              0.19832
+            ],
+            [
+              "risk_transparency",
+              0.21796
+            ],
+            [
+              "innovation",
+              0.1218
+            ],
+            [
+              "geographic_expansion",
+              0.09976
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "CHEM_GAMMA",
+          "fiscal_year": 2015,
+          "theme_weights": [
+            [
+              "growth",
+              0.18256
+            ],
+            [
+              "profitability",
+              0.18032
+            ],
+            [
+              "compliance",
+              0.19776
+            ],
+            [
+              "risk_transparency",
+              0.21728
+            ],
+            [
+              "innovation",
+              0.1224
+            ],
+            [
+              "geographic_expansion",
+              0.09968
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "CHEM_GAMMA",
+          "fiscal_year": 2016,
+          "theme_weights": [
+            [
+              "growth",
+              0.1832
+            ],
+            [
+              "profitability",
+              0.1804
+            ],
+            [
+              "compliance",
+              0.1972
+            ],
+            [
+              "risk_transparency",
+              0.2166
+            ],
+            [
+              "innovation",
+              0.123
+            ],
+            [
+              "geographic_expansion",
+              0.0996
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "CHEM_GAMMA",
+          "fiscal_year": 2017,
+          "theme_weights": [
+            [
+              "growth",
+              0.18384
+            ],
+            [
+              "profitability",
+              0.18048
+            ],
+            [
+              "compliance",
+              0.19664
+            ],
+            [
+              "risk_transparency",
+              0.21592
+            ],
+            [
+              "innovation",
+              0.1236
+            ],
+            [
+              "geographic_expansion",
+              0.09952
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "CHEM_GAMMA",
+          "fiscal_year": 2018,
+          "theme_weights": [
+            [
+              "growth",
+              0.18448
+            ],
+            [
+              "profitability",
+              0.18056
+            ],
+            [
+              "compliance",
+              0.19608
+            ],
+            [
+              "risk_transparency",
+              0.21524
+            ],
+            [
+              "innovation",
+              0.1242
+            ],
+            [
+              "geographic_expansion",
+              0.09944
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "CHEM_GAMMA",
+          "fiscal_year": 2019,
+          "theme_weights": [
+            [
+              "growth",
+              0.18512
+            ],
+            [
+              "profitability",
+              0.18064
+            ],
+            [
+              "compliance",
+              0.19552
+            ],
+            [
+              "risk_transparency",
+              0.21456
+            ],
+            [
+              "innovation",
+              0.1248
+            ],
+            [
+              "geographic_expansion",
+              0.09936
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "CHEM_GAMMA",
+          "fiscal_year": 2020,
+          "theme_weights": [
+            [
+              "growth",
+              0.18576
+            ],
+            [
+              "profitability",
+              0.18072
+            ],
+            [
+              "compliance",
+              0.19496
+            ],
+            [
+              "risk_transparency",
+              0.21388
+            ],
+            [
+              "innovation",
+              0.1254
+            ],
+            [
+              "geographic_expansion",
+              0.09928
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "firm_id": "UTILITY_DELTA",
+      "post_hoc_label": "no_adverse_event",
+      "sector": "utilities",
+      "years": [
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "UTILITY_DELTA",
+          "fiscal_year": 2011,
+          "theme_weights": [
+            [
+              "growth",
+              0.18
+            ],
+            [
+              "profitability",
+              0.18
+            ],
+            [
+              "compliance",
+              0.2
+            ],
+            [
+              "risk_transparency",
+              0.22
+            ],
+            [
+              "innovation",
+              0.12
+            ],
+            [
+              "geographic_expansion",
+              0.1
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "UTILITY_DELTA",
+          "fiscal_year": 2012,
+          "theme_weights": [
+            [
+              "growth",
+              0.18032
+            ],
+            [
+              "profitability",
+              0.18004
+            ],
+            [
+              "compliance",
+              0.19972
+            ],
+            [
+              "risk_transparency",
+              0.21966
+            ],
+            [
+              "innovation",
+              0.1203
+            ],
+            [
+              "geographic_expansion",
+              0.09996
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "UTILITY_DELTA",
+          "fiscal_year": 2013,
+          "theme_weights": [
+            [
+              "growth",
+              0.18064
+            ],
+            [
+              "profitability",
+              0.18008
+            ],
+            [
+              "compliance",
+              0.19944
+            ],
+            [
+              "risk_transparency",
+              0.21932
+            ],
+            [
+              "innovation",
+              0.1206
+            ],
+            [
+              "geographic_expansion",
+              0.09992
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "UTILITY_DELTA",
+          "fiscal_year": 2014,
+          "theme_weights": [
+            [
+              "growth",
+              0.18096
+            ],
+            [
+              "profitability",
+              0.18012
+            ],
+            [
+              "compliance",
+              0.19916
+            ],
+            [
+              "risk_transparency",
+              0.21898
+            ],
+            [
+              "innovation",
+              0.1209
+            ],
+            [
+              "geographic_expansion",
+              0.09988
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "UTILITY_DELTA",
+          "fiscal_year": 2015,
+          "theme_weights": [
+            [
+              "growth",
+              0.18128
+            ],
+            [
+              "profitability",
+              0.18016
+            ],
+            [
+              "compliance",
+              0.19888
+            ],
+            [
+              "risk_transparency",
+              0.21864
+            ],
+            [
+              "innovation",
+              0.1212
+            ],
+            [
+              "geographic_expansion",
+              0.09984
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "UTILITY_DELTA",
+          "fiscal_year": 2016,
+          "theme_weights": [
+            [
+              "growth",
+              0.1816
+            ],
+            [
+              "profitability",
+              0.1802
+            ],
+            [
+              "compliance",
+              0.1986
+            ],
+            [
+              "risk_transparency",
+              0.2183
+            ],
+            [
+              "innovation",
+              0.1215
+            ],
+            [
+              "geographic_expansion",
+              0.0998
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "UTILITY_DELTA",
+          "fiscal_year": 2017,
+          "theme_weights": [
+            [
+              "growth",
+              0.18192
+            ],
+            [
+              "profitability",
+              0.18024
+            ],
+            [
+              "compliance",
+              0.19832
+            ],
+            [
+              "risk_transparency",
+              0.21796
+            ],
+            [
+              "innovation",
+              0.1218
+            ],
+            [
+              "geographic_expansion",
+              0.09976
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "UTILITY_DELTA",
+          "fiscal_year": 2018,
+          "theme_weights": [
+            [
+              "growth",
+              0.18224
+            ],
+            [
+              "profitability",
+              0.18028
+            ],
+            [
+              "compliance",
+              0.19804
+            ],
+            [
+              "risk_transparency",
+              0.21762
+            ],
+            [
+              "innovation",
+              0.1221
+            ],
+            [
+              "geographic_expansion",
+              0.09972
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "UTILITY_DELTA",
+          "fiscal_year": 2019,
+          "theme_weights": [
+            [
+              "growth",
+              0.18256
+            ],
+            [
+              "profitability",
+              0.18032
+            ],
+            [
+              "compliance",
+              0.19776
+            ],
+            [
+              "risk_transparency",
+              0.21728
+            ],
+            [
+              "innovation",
+              0.1224
+            ],
+            [
+              "geographic_expansion",
+              0.09968
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "UTILITY_DELTA",
+          "fiscal_year": 2020,
+          "theme_weights": [
+            [
+              "growth",
+              0.18288
+            ],
+            [
+              "profitability",
+              0.18036
+            ],
+            [
+              "compliance",
+              0.19748
+            ],
+            [
+              "risk_transparency",
+              0.21694
+            ],
+            [
+              "innovation",
+              0.1227
+            ],
+            [
+              "geographic_expansion",
+              0.09964
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "firm_id": "PHARMA_EPSILON",
+      "post_hoc_label": "scrutinized_not_ruled",
+      "sector": "pharma",
+      "years": [
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "PHARMA_EPSILON",
+          "fiscal_year": 2011,
+          "theme_weights": [
+            [
+              "growth",
+              0.18
+            ],
+            [
+              "profitability",
+              0.18
+            ],
+            [
+              "compliance",
+              0.2
+            ],
+            [
+              "risk_transparency",
+              0.22
+            ],
+            [
+              "innovation",
+              0.12
+            ],
+            [
+              "geographic_expansion",
+              0.1
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "PHARMA_EPSILON",
+          "fiscal_year": 2012,
+          "theme_weights": [
+            [
+              "growth",
+              0.18192
+            ],
+            [
+              "profitability",
+              0.18024
+            ],
+            [
+              "compliance",
+              0.19832
+            ],
+            [
+              "risk_transparency",
+              0.21796
+            ],
+            [
+              "innovation",
+              0.1218
+            ],
+            [
+              "geographic_expansion",
+              0.09976
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "PHARMA_EPSILON",
+          "fiscal_year": 2013,
+          "theme_weights": [
+            [
+              "growth",
+              0.18384
+            ],
+            [
+              "profitability",
+              0.18048
+            ],
+            [
+              "compliance",
+              0.19664
+            ],
+            [
+              "risk_transparency",
+              0.21592
+            ],
+            [
+              "innovation",
+              0.1236
+            ],
+            [
+              "geographic_expansion",
+              0.09952
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 6,
+          "firm_id": "PHARMA_EPSILON",
+          "fiscal_year": 2014,
+          "theme_weights": [
+            [
+              "growth",
+              0.18576
+            ],
+            [
+              "profitability",
+              0.18072
+            ],
+            [
+              "compliance",
+              0.19496
+            ],
+            [
+              "risk_transparency",
+              0.21388
+            ],
+            [
+              "innovation",
+              0.1254
+            ],
+            [
+              "geographic_expansion",
+              0.09928
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 6,
+          "firm_id": "PHARMA_EPSILON",
+          "fiscal_year": 2015,
+          "theme_weights": [
+            [
+              "growth",
+              0.18768
+            ],
+            [
+              "profitability",
+              0.18096
+            ],
+            [
+              "compliance",
+              0.19328
+            ],
+            [
+              "risk_transparency",
+              0.21184
+            ],
+            [
+              "innovation",
+              0.1272
+            ],
+            [
+              "geographic_expansion",
+              0.09904
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 6,
+          "bridges_required": 6,
+          "firm_id": "PHARMA_EPSILON",
+          "fiscal_year": 2016,
+          "theme_weights": [
+            [
+              "growth",
+              0.1896
+            ],
+            [
+              "profitability",
+              0.1812
+            ],
+            [
+              "compliance",
+              0.1916
+            ],
+            [
+              "risk_transparency",
+              0.2098
+            ],
+            [
+              "innovation",
+              0.129
+            ],
+            [
+              "geographic_expansion",
+              0.0988
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 6,
+          "bridges_required": 6,
+          "firm_id": "PHARMA_EPSILON",
+          "fiscal_year": 2017,
+          "theme_weights": [
+            [
+              "growth",
+              0.19152
+            ],
+            [
+              "profitability",
+              0.18144
+            ],
+            [
+              "compliance",
+              0.18992
+            ],
+            [
+              "risk_transparency",
+              0.20776
+            ],
+            [
+              "innovation",
+              0.1308
+            ],
+            [
+              "geographic_expansion",
+              0.09856
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 6,
+          "bridges_required": 7,
+          "firm_id": "PHARMA_EPSILON",
+          "fiscal_year": 2018,
+          "theme_weights": [
+            [
+              "growth",
+              0.19344
+            ],
+            [
+              "profitability",
+              0.18168
+            ],
+            [
+              "compliance",
+              0.18824
+            ],
+            [
+              "risk_transparency",
+              0.20572
+            ],
+            [
+              "innovation",
+              0.1326
+            ],
+            [
+              "geographic_expansion",
+              0.09832
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 6,
+          "bridges_required": 7,
+          "firm_id": "PHARMA_EPSILON",
+          "fiscal_year": 2019,
+          "theme_weights": [
+            [
+              "growth",
+              0.19536
+            ],
+            [
+              "profitability",
+              0.18192
+            ],
+            [
+              "compliance",
+              0.18656
+            ],
+            [
+              "risk_transparency",
+              0.20368
+            ],
+            [
+              "innovation",
+              0.1344
+            ],
+            [
+              "geographic_expansion",
+              0.09808
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 6,
+          "bridges_required": 7,
+          "firm_id": "PHARMA_EPSILON",
+          "fiscal_year": 2020,
+          "theme_weights": [
+            [
+              "growth",
+              0.19728
+            ],
+            [
+              "profitability",
+              0.18216
+            ],
+            [
+              "compliance",
+              0.18488
+            ],
+            [
+              "risk_transparency",
+              0.20164
+            ],
+            [
+              "innovation",
+              0.1362
+            ],
+            [
+              "geographic_expansion",
+              0.09784
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "firm_id": "INDUSTRIAL_ZETA",
+      "post_hoc_label": "no_adverse_event",
+      "sector": "industrials",
+      "years": [
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "INDUSTRIAL_ZETA",
+          "fiscal_year": 2011,
+          "theme_weights": [
+            [
+              "growth",
+              0.18
+            ],
+            [
+              "profitability",
+              0.18
+            ],
+            [
+              "compliance",
+              0.2
+            ],
+            [
+              "risk_transparency",
+              0.22
+            ],
+            [
+              "innovation",
+              0.12
+            ],
+            [
+              "geographic_expansion",
+              0.1
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "INDUSTRIAL_ZETA",
+          "fiscal_year": 2012,
+          "theme_weights": [
+            [
+              "growth",
+              0.18048
+            ],
+            [
+              "profitability",
+              0.18006
+            ],
+            [
+              "compliance",
+              0.19958
+            ],
+            [
+              "risk_transparency",
+              0.21949
+            ],
+            [
+              "innovation",
+              0.12045
+            ],
+            [
+              "geographic_expansion",
+              0.09994
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "INDUSTRIAL_ZETA",
+          "fiscal_year": 2013,
+          "theme_weights": [
+            [
+              "growth",
+              0.18096
+            ],
+            [
+              "profitability",
+              0.18012
+            ],
+            [
+              "compliance",
+              0.19916
+            ],
+            [
+              "risk_transparency",
+              0.21898
+            ],
+            [
+              "innovation",
+              0.1209
+            ],
+            [
+              "geographic_expansion",
+              0.09988
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "INDUSTRIAL_ZETA",
+          "fiscal_year": 2014,
+          "theme_weights": [
+            [
+              "growth",
+              0.18144
+            ],
+            [
+              "profitability",
+              0.18018
+            ],
+            [
+              "compliance",
+              0.19874
+            ],
+            [
+              "risk_transparency",
+              0.21847
+            ],
+            [
+              "innovation",
+              0.12135
+            ],
+            [
+              "geographic_expansion",
+              0.09982
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "INDUSTRIAL_ZETA",
+          "fiscal_year": 2015,
+          "theme_weights": [
+            [
+              "growth",
+              0.18192
+            ],
+            [
+              "profitability",
+              0.18024
+            ],
+            [
+              "compliance",
+              0.19832
+            ],
+            [
+              "risk_transparency",
+              0.21796
+            ],
+            [
+              "innovation",
+              0.1218
+            ],
+            [
+              "geographic_expansion",
+              0.09976
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "INDUSTRIAL_ZETA",
+          "fiscal_year": 2016,
+          "theme_weights": [
+            [
+              "growth",
+              0.1824
+            ],
+            [
+              "profitability",
+              0.1803
+            ],
+            [
+              "compliance",
+              0.1979
+            ],
+            [
+              "risk_transparency",
+              0.21745
+            ],
+            [
+              "innovation",
+              0.12225
+            ],
+            [
+              "geographic_expansion",
+              0.0997
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "INDUSTRIAL_ZETA",
+          "fiscal_year": 2017,
+          "theme_weights": [
+            [
+              "growth",
+              0.18288
+            ],
+            [
+              "profitability",
+              0.18036
+            ],
+            [
+              "compliance",
+              0.19748
+            ],
+            [
+              "risk_transparency",
+              0.21694
+            ],
+            [
+              "innovation",
+              0.1227
+            ],
+            [
+              "geographic_expansion",
+              0.09964
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "INDUSTRIAL_ZETA",
+          "fiscal_year": 2018,
+          "theme_weights": [
+            [
+              "growth",
+              0.18336
+            ],
+            [
+              "profitability",
+              0.18042
+            ],
+            [
+              "compliance",
+              0.19706
+            ],
+            [
+              "risk_transparency",
+              0.21643
+            ],
+            [
+              "innovation",
+              0.12315
+            ],
+            [
+              "geographic_expansion",
+              0.09958
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "INDUSTRIAL_ZETA",
+          "fiscal_year": 2019,
+          "theme_weights": [
+            [
+              "growth",
+              0.18384
+            ],
+            [
+              "profitability",
+              0.18048
+            ],
+            [
+              "compliance",
+              0.19664
+            ],
+            [
+              "risk_transparency",
+              0.21592
+            ],
+            [
+              "innovation",
+              0.1236
+            ],
+            [
+              "geographic_expansion",
+              0.09952
+            ]
+          ]
+        },
+        {
+          "bridges_provided": 5,
+          "bridges_required": 5,
+          "firm_id": "INDUSTRIAL_ZETA",
+          "fiscal_year": 2020,
+          "theme_weights": [
+            [
+              "growth",
+              0.18432
+            ],
+            [
+              "profitability",
+              0.18054
+            ],
+            [
+              "compliance",
+              0.19622
+            ],
+            [
+              "risk_transparency",
+              0.21541
+            ],
+            [
+              "innovation",
+              0.12405
+            ],
+            [
+              "geographic_expansion",
+              0.09946
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "years": [
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020
+  ]
+}

@@ -1,0 +1,529 @@
+{
+  "anchors": [
+    {
+      "actual_value": "5",
+      "anchor": {
+        "artifact": "artifacts/v2_1/report.json",
+        "doc_path": "docs/memory/v2_1.md",
+        "expected": "5",
+        "field": "total_deficits",
+        "line_number": 122
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "1.0",
+      "anchor": {
+        "artifact": "artifacts/v2_1/report.json",
+        "doc_path": "docs/memory/v2_1.md",
+        "expected": "1.00",
+        "field": "highest_severity",
+        "line_number": 125
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "1.0",
+      "anchor": {
+        "artifact": "artifacts/v2_1/report.json",
+        "doc_path": "docs/memory/v2_1.md",
+        "expected": "1.00",
+        "field": "highest_confidence",
+        "line_number": 126
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "1",
+      "anchor": {
+        "artifact": "artifacts/v2_2/report.json",
+        "doc_path": "docs/memory/v2_2.md",
+        "expected": "1",
+        "field": "best_depth",
+        "line_number": 117
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "5.0",
+      "anchor": {
+        "artifact": "artifacts/v2_2/report.json",
+        "doc_path": "docs/memory/v2_2.md",
+        "expected": "5.0",
+        "field": "best_fitness",
+        "line_number": 119
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "1.0",
+      "anchor": {
+        "artifact": "artifacts/v2_3/report.json",
+        "doc_path": "docs/memory/v2_3.md",
+        "expected": "1.000",
+        "field": "metrics.false_depth_zero_rate",
+        "line_number": 72
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_3/report.json",
+        "doc_path": "docs/memory/v2_3.md",
+        "expected": "0.000",
+        "field": "metrics.cycle_detection_rate",
+        "line_number": 73
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "1.0",
+      "anchor": {
+        "artifact": "artifacts/v2_3/report.json",
+        "doc_path": "docs/memory/v2_3.md",
+        "expected": "1.0",
+        "field": "metrics.false_depth_zero_rate",
+        "line_number": 148
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_3/report.json",
+        "doc_path": "docs/memory/v2_3.md",
+        "expected": "0.0",
+        "field": "metrics.cycle_detection_rate",
+        "line_number": 151
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.2",
+      "anchor": {
+        "artifact": "artifacts/v2_4/report.json",
+        "doc_path": "docs/memory/v2_4.md",
+        "expected": "0.200",
+        "field": "resolver_entry_rate",
+        "line_number": 75
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.2",
+      "anchor": {
+        "artifact": "artifacts/v2_4/report.json",
+        "doc_path": "docs/memory/v2_4.md",
+        "expected": "0.200",
+        "field": "consilium_call_rate",
+        "line_number": 76
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_5/report.json",
+        "doc_path": "docs/memory/v2_5.md",
+        "expected": "0.000",
+        "field": "rule_hit_rate",
+        "line_number": 47
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "1.0",
+      "anchor": {
+        "artifact": "artifacts/v2_5/report.json",
+        "doc_path": "docs/memory/v2_5.md",
+        "expected": "1.000",
+        "field": "no_rule_match_rate",
+        "line_number": 48
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_5/report.json",
+        "doc_path": "docs/memory/v2_5.md",
+        "expected": "0.000",
+        "field": "multi_hop_case_coverage",
+        "line_number": 50
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_5/report.json",
+        "doc_path": "docs/memory/v2_5.md",
+        "expected": "0.000",
+        "field": "rule_hit_rate",
+        "line_number": 101
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.02",
+      "anchor": {
+        "artifact": "artifacts/v2_6/report.json",
+        "doc_path": "docs/memory/v2_6.md",
+        "expected": "0.020",
+        "field": "metrics.main_trigger_rate",
+        "line_number": 53
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_6/report.json",
+        "doc_path": "docs/memory/v2_6.md",
+        "expected": "0.000",
+        "field": "metrics.known_false_positive_reopen_rate",
+        "line_number": 54
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_6/report.json",
+        "doc_path": "docs/memory/v2_6.md",
+        "expected": "0.000",
+        "field": "metrics.authority_touch_rate",
+        "line_number": 55
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_6/report.json",
+        "doc_path": "docs/memory/v2_6.md",
+        "expected": "0.000",
+        "field": "metrics.philosophy_touch_rate",
+        "line_number": 56
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_6/report.json",
+        "doc_path": "docs/memory/v2_6.md",
+        "expected": "0.000",
+        "field": "metrics.metaphor_touch_rate",
+        "line_number": 57
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_6/report.json",
+        "doc_path": "docs/memory/v2_6.md",
+        "expected": "0",
+        "field": "metrics.authority_touch_rate",
+        "line_number": 105
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_6/report.json",
+        "doc_path": "docs/memory/v2_6.md",
+        "expected": "0",
+        "field": "metrics.philosophy_touch_rate",
+        "line_number": 106
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "468",
+      "anchor": {
+        "artifact": "artifacts/v3_0/report.json",
+        "doc_path": "docs/memory/v3_0.md",
+        "expected": "468",
+        "field": "total_claims",
+        "line_number": 35
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "321",
+      "anchor": {
+        "artifact": "artifacts/v3_0/report.json",
+        "doc_path": "docs/memory/v3_0.md",
+        "expected": "321",
+        "field": "verified_claims",
+        "line_number": 36
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "95407f59155fb84a",
+      "anchor": {
+        "artifact": "artifacts/v3_0/report.json",
+        "doc_path": "docs/memory/v3_0.md",
+        "expected": "95407f59155fb84a",
+        "field": "replay_hash",
+        "line_number": 45
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "95407f59155fb84a",
+      "anchor": {
+        "artifact": "artifacts/v3_0/report.json",
+        "doc_path": "docs/memory/v3_0.md",
+        "expected": "95407f59155fb84a",
+        "field": "replay_hash",
+        "line_number": 199
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_6/report.json",
+        "doc_path": "docs/rule_patch_protocol/README.md",
+        "expected": "0.000",
+        "field": "metrics.known_false_positive_reopen_rate",
+        "line_number": 101
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_6/report.json",
+        "doc_path": "docs/rule_patch_protocol/phase_diagram.md",
+        "expected": "0.000",
+        "field": "metrics.authority_touch_rate",
+        "line_number": 57
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_6/report.json",
+        "doc_path": "docs/rule_patch_protocol/tinkering_vs_science.md",
+        "expected": "0.000",
+        "field": "metrics.known_false_positive_reopen_rate",
+        "line_number": 10
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_5/report.json",
+        "doc_path": "docs/rule_patch_protocol/worked_example_v27.md",
+        "expected": "0.000",
+        "field": "rule_hit_rate",
+        "line_number": 21
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.02",
+      "anchor": {
+        "artifact": "artifacts/v2_6/report.json",
+        "doc_path": "docs/rule_patch_protocol/worked_example_v27.md",
+        "expected": "0.020",
+        "field": "metrics.main_trigger_rate",
+        "line_number": 22
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.02",
+      "anchor": {
+        "artifact": "artifacts/v2_6/report.json",
+        "doc_path": "docs/rule_patch_protocol/worked_example_v27.md",
+        "expected": "0.020",
+        "field": "metrics.main_trigger_rate",
+        "line_number": 41
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_6/report.json",
+        "doc_path": "docs/rule_patch_protocol/worked_example_v27.md",
+        "expected": "0.000",
+        "field": "metrics.known_false_positive_reopen_rate",
+        "line_number": 42
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_6/report.json",
+        "doc_path": "docs/rule_patch_protocol/worked_example_v27.md",
+        "expected": "0.000",
+        "field": "metrics.authority_touch_rate",
+        "line_number": 43
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_6/report.json",
+        "doc_path": "docs/rule_patch_protocol/worked_example_v27.md",
+        "expected": "0.000",
+        "field": "metrics.philosophy_touch_rate",
+        "line_number": 44
+      },
+      "reason": "",
+      "verdict": "verified"
+    },
+    {
+      "actual_value": "0.0",
+      "anchor": {
+        "artifact": "artifacts/v2_6/report.json",
+        "doc_path": "docs/rule_patch_protocol/worked_example_v27.md",
+        "expected": "0.000",
+        "field": "metrics.metaphor_touch_rate",
+        "line_number": 45
+      },
+      "reason": "",
+      "verdict": "verified"
+    }
+  ],
+  "finished_at": "2026-05-15T12:22:54.997750+00:00",
+  "invalid_anchors": 0,
+  "legacy": [
+    {
+      "doc_path": "docs/memory/v0_2.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v0_3.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v0_4.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v0_4_1.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v0_5.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v0_6.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v0_7.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v0_8.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v0_9.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v1_0.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v1_1.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v1_2.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v1_3.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v1_4.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v1_5.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v1_6.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v1_7.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v1_8.md",
+      "line_number": 3
+    },
+    {
+      "doc_path": "docs/memory/v1_9.md",
+      "line_number": 3
+    }
+  ],
+  "legacy_exemptions": 19,
+  "replay_hash": "15ba5f929b38bde8",
+  "started_at": "2026-05-15T12:22:54.997750+00:00",
+  "total_anchors": 36,
+  "total_documents": 36,
+  "verdict_counts": {
+    "malformed": 0,
+    "missing_artifact": 0,
+    "missing_field": 0,
+    "value_mismatch": 0,
+    "verified": 36
+  },
+  "verified_anchors": 36
+}

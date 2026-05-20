@@ -1,0 +1,888 @@
+{
+  "adversarial": {
+    "decisions": [
+      {
+        "case_id": "M01",
+        "consistency": "undecidable",
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": null,
+        "misleading_outer_pipeline": "logical_auditor",
+        "outer_frame": "thermodynamic",
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "M02",
+        "consistency": "undecidable",
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": null,
+        "misleading_outer_pipeline": "logical_auditor",
+        "outer_frame": "formal_logic",
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "M03",
+        "consistency": "undecidable",
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": null,
+        "misleading_outer_pipeline": "tool_gate",
+        "outer_frame": "tool_computable",
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "M04",
+        "consistency": "tension",
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": "thermodynamic",
+        "misleading_outer_pipeline": "tool_gate",
+        "outer_frame": "information_theoretic",
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "M05",
+        "consistency": "tension",
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": "authority_speech",
+        "misleading_outer_pipeline": "logical_auditor",
+        "outer_frame": "empirical_causal",
+        "routed_pipeline": "consilium"
+      },
+      {
+        "case_id": "M06",
+        "consistency": "tension",
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": "formal_logic",
+        "misleading_outer_pipeline": "logical_auditor",
+        "outer_frame": "empirical_causal",
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "M07",
+        "consistency": "undecidable",
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": null,
+        "misleading_outer_pipeline": "logical_auditor",
+        "outer_frame": "thermodynamic",
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "M08",
+        "consistency": "conflict",
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": "metaphorical",
+        "misleading_outer_pipeline": "logical_auditor",
+        "outer_frame": "formal_logic",
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M09",
+        "consistency": "undecidable",
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": null,
+        "misleading_outer_pipeline": "consilium",
+        "outer_frame": "authority_speech",
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "M10",
+        "consistency": "undecidable",
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": null,
+        "misleading_outer_pipeline": "logical_auditor",
+        "outer_frame": "thermodynamic",
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "M11",
+        "consistency": "conflict",
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": "authority_speech",
+        "misleading_outer_pipeline": "tool_gate",
+        "outer_frame": "tool_computable",
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M12",
+        "consistency": "conflict",
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": "metaphorical",
+        "misleading_outer_pipeline": "tool_gate",
+        "outer_frame": "tool_computable",
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M13",
+        "consistency": "conflict",
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": "formal_logic",
+        "misleading_outer_pipeline": "consilium",
+        "outer_frame": "authority_speech",
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M14",
+        "consistency": "conflict",
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": "thermodynamic",
+        "misleading_outer_pipeline": "consilium",
+        "outer_frame": "ontological_distinguishability",
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M15",
+        "consistency": "conflict",
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": "information_theoretic",
+        "misleading_outer_pipeline": "consilium",
+        "outer_frame": "authority_speech",
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M16",
+        "consistency": "conflict",
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": "authority_speech",
+        "misleading_outer_pipeline": "consilium",
+        "outer_frame": "metaphorical",
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M17",
+        "consistency": "conflict",
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": "metaphorical",
+        "misleading_outer_pipeline": "logical_auditor",
+        "outer_frame": "empirical_causal",
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M18",
+        "consistency": "undecidable",
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": null,
+        "misleading_outer_pipeline": "tool_gate",
+        "outer_frame": "information_theoretic",
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "M19",
+        "consistency": "conflict",
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": "tool_computable",
+        "misleading_outer_pipeline": "consilium",
+        "outer_frame": "metaphorical",
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M20",
+        "consistency": "undecidable",
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "inherited_via_outer": false,
+        "inner_frame": null,
+        "misleading_outer_pipeline": "tool_gate",
+        "outer_frame": "information_theoretic",
+        "routed_pipeline": null
+      }
+    ],
+    "inherited_manipulations": 0,
+    "manipulation_detection": 1.0,
+    "routed_manipulations": 0,
+    "total": 20
+  },
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "integration_benchmark": {
+    "accuracy": 1.0,
+    "category_counts": {
+      "ambiguous": 20,
+      "manipulative": 30,
+      "normal": 20,
+      "total": 70
+    },
+    "correct": 70,
+    "decisions": [
+      {
+        "case_id": "N:CF01",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "N:CF02",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "tool_gate"
+      },
+      {
+        "case_id": "N:CF03",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "consilium"
+      },
+      {
+        "case_id": "N:CF04",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "N:CF05",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "consilium"
+      },
+      {
+        "case_id": "N:CF06",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "N:CF07",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "tool_gate"
+      },
+      {
+        "case_id": "N:CF08",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "consilium"
+      },
+      {
+        "case_id": "N:CF09",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "consilium"
+      },
+      {
+        "case_id": "N:CF10",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "N:SN01",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "N:SN02",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "consilium"
+      },
+      {
+        "case_id": "N:SN03",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "N:SN04",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "tool_gate"
+      },
+      {
+        "case_id": "N:SN05",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "consilium"
+      },
+      {
+        "case_id": "N:SN06",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "tool_gate"
+      },
+      {
+        "case_id": "N:SN07",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "N:SN08",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "consilium"
+      },
+      {
+        "case_id": "N:SN09",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "consilium"
+      },
+      {
+        "case_id": "N:SN10",
+        "category": "normal",
+        "consistency": "confirmed",
+        "correct": true,
+        "event": "frame_routing_allowed",
+        "inheritance_allowed": true,
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "M:M01",
+        "category": "manipulative",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "M:M02",
+        "category": "manipulative",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "M:M03",
+        "category": "manipulative",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "M:M04",
+        "category": "manipulative",
+        "consistency": "tension",
+        "correct": true,
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "M:M05",
+        "category": "manipulative",
+        "consistency": "tension",
+        "correct": true,
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "routed_pipeline": "consilium"
+      },
+      {
+        "case_id": "M:M06",
+        "category": "manipulative",
+        "consistency": "tension",
+        "correct": true,
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "M:M07",
+        "category": "manipulative",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "M:M08",
+        "category": "manipulative",
+        "consistency": "conflict",
+        "correct": true,
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M:M09",
+        "category": "manipulative",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "M:M10",
+        "category": "manipulative",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "M:M11",
+        "category": "manipulative",
+        "consistency": "conflict",
+        "correct": true,
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M:M12",
+        "category": "manipulative",
+        "consistency": "conflict",
+        "correct": true,
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M:M13",
+        "category": "manipulative",
+        "consistency": "conflict",
+        "correct": true,
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M:M14",
+        "category": "manipulative",
+        "consistency": "conflict",
+        "correct": true,
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M:M15",
+        "category": "manipulative",
+        "consistency": "conflict",
+        "correct": true,
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M:M16",
+        "category": "manipulative",
+        "consistency": "conflict",
+        "correct": true,
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M:M17",
+        "category": "manipulative",
+        "consistency": "conflict",
+        "correct": true,
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M:M18",
+        "category": "manipulative",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "M:M19",
+        "category": "manipulative",
+        "consistency": "conflict",
+        "correct": true,
+        "event": "frame_routing_blocked",
+        "inheritance_allowed": false,
+        "routed_pipeline": "reject"
+      },
+      {
+        "case_id": "M:M20",
+        "category": "manipulative",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "FI:FN01",
+        "category": "manipulative",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "FI:FN02",
+        "category": "manipulative",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "FI:FN03",
+        "category": "manipulative",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "FI:FN04",
+        "category": "manipulative",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "FI:FN05",
+        "category": "manipulative",
+        "consistency": "tension",
+        "correct": true,
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "FI:FN06",
+        "category": "manipulative",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "FI:FN07",
+        "category": "manipulative",
+        "consistency": "tension",
+        "correct": true,
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "FI:FN08",
+        "category": "manipulative",
+        "consistency": "tension",
+        "correct": true,
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "routed_pipeline": "consilium"
+      },
+      {
+        "case_id": "FI:FN09",
+        "category": "manipulative",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "FI:FN10",
+        "category": "manipulative",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "A:TN01",
+        "category": "ambiguous",
+        "consistency": "tension",
+        "correct": true,
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "A:TN02",
+        "category": "ambiguous",
+        "consistency": "tension",
+        "correct": true,
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "routed_pipeline": "tool_gate"
+      },
+      {
+        "case_id": "A:TN03",
+        "category": "ambiguous",
+        "consistency": "tension",
+        "correct": true,
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "routed_pipeline": "consilium"
+      },
+      {
+        "case_id": "A:TN04",
+        "category": "ambiguous",
+        "consistency": "tension",
+        "correct": true,
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "routed_pipeline": "tool_gate"
+      },
+      {
+        "case_id": "A:TN05",
+        "category": "ambiguous",
+        "consistency": "tension",
+        "correct": true,
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "A:TN06",
+        "category": "ambiguous",
+        "consistency": "tension",
+        "correct": true,
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "routed_pipeline": "consilium"
+      },
+      {
+        "case_id": "A:TN07",
+        "category": "ambiguous",
+        "consistency": "tension",
+        "correct": true,
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "A:TN08",
+        "category": "ambiguous",
+        "consistency": "tension",
+        "correct": true,
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "routed_pipeline": "logical_auditor"
+      },
+      {
+        "case_id": "A:TN09",
+        "category": "ambiguous",
+        "consistency": "tension",
+        "correct": true,
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "routed_pipeline": "consilium"
+      },
+      {
+        "case_id": "A:TN10",
+        "category": "ambiguous",
+        "consistency": "tension",
+        "correct": true,
+        "event": "frame_routing_inner_only",
+        "inheritance_allowed": false,
+        "routed_pipeline": "tool_gate"
+      },
+      {
+        "case_id": "A:UD01",
+        "category": "ambiguous",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "A:UD02",
+        "category": "ambiguous",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "A:UD03",
+        "category": "ambiguous",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "A:UD04",
+        "category": "ambiguous",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "A:UD05",
+        "category": "ambiguous",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "A:UD06",
+        "category": "ambiguous",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "A:UD07",
+        "category": "ambiguous",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "A:UD08",
+        "category": "ambiguous",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "A:UD09",
+        "category": "ambiguous",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      },
+      {
+        "case_id": "A:UD10",
+        "category": "ambiguous",
+        "consistency": "undecidable",
+        "correct": true,
+        "event": "frame_routing_marker_required",
+        "inheritance_allowed": false,
+        "routed_pipeline": null
+      }
+    ],
+    "total": 70
+  },
+  "replay": {
+    "identical": true,
+    "run1_state_hash": "b5c44d6e640acec5",
+    "run2_state_hash": "b5c44d6e640acec5"
+  },
+  "replay_hash": "733032cc30a0cc2e",
+  "routing_impact": {
+    "audit_calls_prevented": 8,
+    "blocked_before_routing": 50,
+    "consilium_calls_prevented": 5,
+    "false_routes": 0,
+    "tool_calls_prevented": 3
+  },
+  "started_at": "2026-05-16T00:00:00+00:00"
+}

@@ -1,0 +1,33 @@
+{
+  "cross_model_convergence": true,
+  "hash_agreement_rate": 1.0,
+  "mean_falsifiability": 7.666667,
+  "replay_agreement_rate": 1.0,
+  "reviewer_ids": [
+    "claude",
+    "gemini",
+    "grok"
+  ],
+  "schema_version": 1,
+  "shared_contamination_risks": [
+    {
+      "affected_benchmark": "v2.3 multistep",
+      "reviewers": [
+        "claude",
+        "gemini",
+        "grok"
+      ]
+    }
+  ],
+  "shared_hidden_assumptions": [
+    {
+      "normalised": "v1.5 main benchmark ground truth correct.",
+      "reviewers": [
+        "claude",
+        "grok"
+      ]
+    }
+  ],
+  "std_falsifiability": 0.471405,
+  "total_reviewers": 3
+}

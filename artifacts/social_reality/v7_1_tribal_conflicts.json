@@ -1,0 +1,133 @@
+{
+  "certainty_levels": [
+    "high",
+    "medium",
+    "low"
+  ],
+  "claim_count": 15,
+  "classified_claims": [
+    {
+      "certainty": "high",
+      "claim_id": "t-a-001",
+      "epistemic_quality": 0.9,
+      "tribe": "tribe_a_technocratic"
+    },
+    {
+      "certainty": "low",
+      "claim_id": "t-a-002",
+      "epistemic_quality": 0.3,
+      "tribe": "tribe_a_technocratic"
+    },
+    {
+      "certainty": "high",
+      "claim_id": "t-a-003",
+      "epistemic_quality": 0.85,
+      "tribe": "tribe_a_technocratic"
+    },
+    {
+      "certainty": "low",
+      "claim_id": "t-b-001",
+      "epistemic_quality": 0.3,
+      "tribe": "tribe_b_populist"
+    },
+    {
+      "certainty": "high",
+      "claim_id": "t-b-002",
+      "epistemic_quality": 0.75,
+      "tribe": "tribe_b_populist"
+    },
+    {
+      "certainty": "medium",
+      "claim_id": "t-b-003",
+      "epistemic_quality": 0.55,
+      "tribe": "tribe_b_populist"
+    },
+    {
+      "certainty": "medium",
+      "claim_id": "t-c-001",
+      "epistemic_quality": 0.65,
+      "tribe": "tribe_c_traditional"
+    },
+    {
+      "certainty": "low",
+      "claim_id": "t-c-002",
+      "epistemic_quality": 0.2,
+      "tribe": "tribe_c_traditional"
+    },
+    {
+      "certainty": "high",
+      "claim_id": "t-c-003",
+      "epistemic_quality": 0.8,
+      "tribe": "tribe_c_traditional"
+    },
+    {
+      "certainty": "high",
+      "claim_id": "t-d-001",
+      "epistemic_quality": 0.75,
+      "tribe": "tribe_d_progressive"
+    },
+    {
+      "certainty": "low",
+      "claim_id": "t-d-002",
+      "epistemic_quality": 0.25,
+      "tribe": "tribe_d_progressive"
+    },
+    {
+      "certainty": "high",
+      "claim_id": "t-d-003",
+      "epistemic_quality": 0.85,
+      "tribe": "tribe_d_progressive"
+    },
+    {
+      "certainty": "high",
+      "claim_id": "t-i-001",
+      "epistemic_quality": 0.7,
+      "tribe": "independent"
+    },
+    {
+      "certainty": "low",
+      "claim_id": "t-i-002",
+      "epistemic_quality": 0.25,
+      "tribe": "independent"
+    },
+    {
+      "certainty": "high",
+      "claim_id": "t-i-003",
+      "epistemic_quality": 0.9,
+      "tribe": "independent"
+    }
+  ],
+  "coherence_score": 1.0,
+  "epistemic_tribes": [
+    "tribe_a_technocratic",
+    "tribe_b_populist",
+    "tribe_c_traditional",
+    "tribe_d_progressive",
+    "independent"
+  ],
+  "governance_survival": 1.0,
+  "identity_bias": 0.042164,
+  "mean_certainty_per_tribe": {
+    "independent": 0.666667,
+    "tribe_a_technocratic": 0.666667,
+    "tribe_b_populist": 0.5,
+    "tribe_c_traditional": 0.5,
+    "tribe_d_progressive": 0.666667
+  },
+  "mean_quality_per_tribe": {
+    "independent": 0.616667,
+    "tribe_a_technocratic": 0.683333,
+    "tribe_b_populist": 0.533333,
+    "tribe_c_traditional": 0.55,
+    "tribe_d_progressive": 0.616667
+  },
+  "polarization_resistance": 0.915672,
+  "schema_version": "v7_1_tribal_conflicts",
+  "tribe_counts": {
+    "independent": 3,
+    "tribe_a_technocratic": 3,
+    "tribe_b_populist": 3,
+    "tribe_c_traditional": 3,
+    "tribe_d_progressive": 3
+  }
+}

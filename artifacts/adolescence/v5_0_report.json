@@ -1,0 +1,20 @@
+{
+  "halt": false,
+  "rationale": [
+    "INFO: session_count 10",
+    "INFO: snapshot_count 30",
+    "PASS: session_replay_rate 1.0",
+    "PASS: rollback_success 1.0",
+    "PASS: snapshot_integrity 1.0",
+    "PASS: seed_invariance 1.0",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "SANDBOX_READY",
+  "replay_stability": 1.0,
+  "rollback_success": 1.0,
+  "seed_invariance": 1.0,
+  "session_count": 10,
+  "session_replay_rate": 1.0,
+  "snapshot_count": 30,
+  "snapshot_integrity": 1.0
+}

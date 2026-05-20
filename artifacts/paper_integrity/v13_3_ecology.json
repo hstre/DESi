@@ -1,0 +1,1818 @@
+{
+  "closed_enum_constant": true,
+  "dissent_preservation": 1.0,
+  "ecology_streams": [
+    "paper",
+    "sludge",
+    "manipulation"
+  ],
+  "epistemic_pollution": 0.0,
+  "gate_violation_count": 0,
+  "schema_version": "v13_3_scientific_ecology",
+  "sludge_propagation": 0.0,
+  "step_count": 5000,
+  "trajectory_final_hash": "06d020f1dd7e0f47",
+  "trajectory_sample": [
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "5dc0a42d9fc6da32",
+      "gate_bypass": false,
+      "item_id": "paper-gold-001",
+      "step": 0,
+      "stream": "paper",
+      "verdict": "gold_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "7dfaa78df70de1f3",
+      "gate_bypass": false,
+      "item_id": "paper-gold-001",
+      "step": 1,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "86cd0dc1d1051e19",
+      "gate_bypass": false,
+      "item_id": "mc-honest-001",
+      "step": 2,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "f736137a70fc7e18",
+      "gate_bypass": false,
+      "item_id": "paper-gold-002",
+      "step": 3,
+      "stream": "paper",
+      "verdict": "gold_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "7f4ca6414dc1782a",
+      "gate_bypass": false,
+      "item_id": "paper-gold-002",
+      "step": 4,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "3308063119510d82",
+      "gate_bypass": false,
+      "item_id": "mc-honest-002",
+      "step": 5,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "b03b20b330b9a0df",
+      "gate_bypass": false,
+      "item_id": "paper-weak-001",
+      "step": 6,
+      "stream": "paper",
+      "verdict": "weak_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "8185d14ae20f9b32",
+      "gate_bypass": false,
+      "item_id": "paper-weak-001",
+      "step": 7,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "27e555cb9906b599",
+      "gate_bypass": false,
+      "item_id": "mc-sel-001",
+      "step": 8,
+      "stream": "manipulation",
+      "verdict": "selective_reporting"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "343a38a501a76dd9",
+      "gate_bypass": false,
+      "item_id": "paper-weak-002",
+      "step": 9,
+      "stream": "paper",
+      "verdict": "weak_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "7bfa6ca0e41f5470",
+      "gate_bypass": false,
+      "item_id": "paper-weak-002",
+      "step": 10,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "6ba5126a128d9c81",
+      "gate_bypass": false,
+      "item_id": "mc-null-001",
+      "step": 11,
+      "stream": "manipulation",
+      "verdict": "hidden_null_result"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "b8544198a9c6a438",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-001",
+      "step": 12,
+      "stream": "paper",
+      "verdict": "ai_sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "7d105ed5e033d333",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-001",
+      "step": 13,
+      "stream": "sludge",
+      "verdict": "sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "8cb3715fa010f4e0",
+      "gate_bypass": false,
+      "item_id": "mc-conf-001",
+      "step": 14,
+      "stream": "manipulation",
+      "verdict": "confidence_inflation"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "334e0551bd59c32c",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-002",
+      "step": 15,
+      "stream": "paper",
+      "verdict": "ai_sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "1b4f1b6289f30336",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-002",
+      "step": 16,
+      "stream": "sludge",
+      "verdict": "sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "d1878eb99cfea9cc",
+      "gate_bypass": false,
+      "item_id": "mc-bench-001",
+      "step": 17,
+      "stream": "manipulation",
+      "verdict": "benchmark_cherry_pick"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "666d1b10c57e48d1",
+      "gate_bypass": false,
+      "item_id": "paper-adv-001",
+      "step": 18,
+      "stream": "paper",
+      "verdict": "adversarial_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "ed371b4b1dd4adb8",
+      "gate_bypass": false,
+      "item_id": "paper-adv-001",
+      "step": 19,
+      "stream": "sludge",
+      "verdict": "suspect"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "4deb3cb13498e556",
+      "gate_bypass": false,
+      "item_id": "mc-causal-001",
+      "step": 20,
+      "stream": "manipulation",
+      "verdict": "causal_exaggeration"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "4513e6ec91df670f",
+      "gate_bypass": false,
+      "item_id": "paper-adv-002",
+      "step": 21,
+      "stream": "paper",
+      "verdict": "adversarial_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "e116b1e50b800aff",
+      "gate_bypass": false,
+      "item_id": "paper-adv-002",
+      "step": 22,
+      "stream": "sludge",
+      "verdict": "suspect"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "eb44590c830c53a4",
+      "gate_bypass": false,
+      "item_id": "mc-laundry-001",
+      "step": 23,
+      "stream": "manipulation",
+      "verdict": "methodological_laundering"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "a847630771793bf2",
+      "gate_bypass": false,
+      "item_id": "paper-border-001",
+      "step": 24,
+      "stream": "paper",
+      "verdict": "borderline_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "aa891cbaa1925b7a",
+      "gate_bypass": false,
+      "item_id": "paper-border-001",
+      "step": 25,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "f8026b00898b9adf",
+      "gate_bypass": false,
+      "item_id": "mc-honest-001",
+      "step": 26,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "3c29cd9ebda91464",
+      "gate_bypass": false,
+      "item_id": "paper-border-002",
+      "step": 27,
+      "stream": "paper",
+      "verdict": "borderline_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "fddea5ba8a4c8089",
+      "gate_bypass": false,
+      "item_id": "paper-border-002",
+      "step": 28,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "e7bc7aeca02634b4",
+      "gate_bypass": false,
+      "item_id": "mc-honest-002",
+      "step": 29,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "6ff64c9ecb0e3a5b",
+      "gate_bypass": false,
+      "item_id": "paper-gold-001",
+      "step": 30,
+      "stream": "paper",
+      "verdict": "gold_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "43ce5da35f4c34f1",
+      "gate_bypass": false,
+      "item_id": "paper-gold-001",
+      "step": 31,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "cd3b3ce85e6d6e8a",
+      "gate_bypass": false,
+      "item_id": "mc-sel-001",
+      "step": 32,
+      "stream": "manipulation",
+      "verdict": "selective_reporting"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "42acb679cb692ffd",
+      "gate_bypass": false,
+      "item_id": "paper-gold-002",
+      "step": 33,
+      "stream": "paper",
+      "verdict": "gold_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "c35e5de489c4318e",
+      "gate_bypass": false,
+      "item_id": "paper-gold-002",
+      "step": 34,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "2b59b400bac41a46",
+      "gate_bypass": false,
+      "item_id": "mc-null-001",
+      "step": 35,
+      "stream": "manipulation",
+      "verdict": "hidden_null_result"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "96eb532dfa0eae08",
+      "gate_bypass": false,
+      "item_id": "paper-weak-001",
+      "step": 36,
+      "stream": "paper",
+      "verdict": "weak_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "0bf833f27106d198",
+      "gate_bypass": false,
+      "item_id": "paper-weak-001",
+      "step": 37,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "5351936755ec6bb3",
+      "gate_bypass": false,
+      "item_id": "mc-conf-001",
+      "step": 38,
+      "stream": "manipulation",
+      "verdict": "confidence_inflation"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "f184ab1d77b5d617",
+      "gate_bypass": false,
+      "item_id": "paper-weak-002",
+      "step": 39,
+      "stream": "paper",
+      "verdict": "weak_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "f099bc5066329154",
+      "gate_bypass": false,
+      "item_id": "paper-weak-002",
+      "step": 40,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "b26387e0b377e9b8",
+      "gate_bypass": false,
+      "item_id": "mc-bench-001",
+      "step": 41,
+      "stream": "manipulation",
+      "verdict": "benchmark_cherry_pick"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "437427c3dcdf1fe9",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-001",
+      "step": 42,
+      "stream": "paper",
+      "verdict": "ai_sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "83c71d6f447b9aa1",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-001",
+      "step": 43,
+      "stream": "sludge",
+      "verdict": "sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "8dfc796e4e312e12",
+      "gate_bypass": false,
+      "item_id": "mc-causal-001",
+      "step": 44,
+      "stream": "manipulation",
+      "verdict": "causal_exaggeration"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "91424006d3f77d47",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-002",
+      "step": 45,
+      "stream": "paper",
+      "verdict": "ai_sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "4a395d97ba050294",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-002",
+      "step": 46,
+      "stream": "sludge",
+      "verdict": "sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "6bf5b5c5af6e1f4f",
+      "gate_bypass": false,
+      "item_id": "mc-laundry-001",
+      "step": 47,
+      "stream": "manipulation",
+      "verdict": "methodological_laundering"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "47cc5f9a70ecb1fc",
+      "gate_bypass": false,
+      "item_id": "paper-adv-001",
+      "step": 48,
+      "stream": "paper",
+      "verdict": "adversarial_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "0aa792389de4c434",
+      "gate_bypass": false,
+      "item_id": "paper-adv-001",
+      "step": 49,
+      "stream": "sludge",
+      "verdict": "suspect"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "41379bd55ae3605c",
+      "gate_bypass": false,
+      "item_id": "mc-honest-001",
+      "step": 50,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "99e35d316a54132c",
+      "gate_bypass": false,
+      "item_id": "paper-adv-002",
+      "step": 51,
+      "stream": "paper",
+      "verdict": "adversarial_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "edc1464d2ef093b4",
+      "gate_bypass": false,
+      "item_id": "paper-adv-002",
+      "step": 52,
+      "stream": "sludge",
+      "verdict": "suspect"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "9ab8054bcd546284",
+      "gate_bypass": false,
+      "item_id": "mc-honest-002",
+      "step": 53,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "686298eb3c9855e5",
+      "gate_bypass": false,
+      "item_id": "paper-border-001",
+      "step": 54,
+      "stream": "paper",
+      "verdict": "borderline_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "c882758a996b1fc1",
+      "gate_bypass": false,
+      "item_id": "paper-border-001",
+      "step": 55,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "5e54294c85856197",
+      "gate_bypass": false,
+      "item_id": "mc-sel-001",
+      "step": 56,
+      "stream": "manipulation",
+      "verdict": "selective_reporting"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "17e9039a99134f5b",
+      "gate_bypass": false,
+      "item_id": "paper-border-002",
+      "step": 57,
+      "stream": "paper",
+      "verdict": "borderline_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "c423596d335a58ab",
+      "gate_bypass": false,
+      "item_id": "paper-border-002",
+      "step": 58,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "dfeaba73d9051b86",
+      "gate_bypass": false,
+      "item_id": "mc-null-001",
+      "step": 59,
+      "stream": "manipulation",
+      "verdict": "hidden_null_result"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "d366db3aaf28d635",
+      "gate_bypass": false,
+      "item_id": "paper-gold-001",
+      "step": 60,
+      "stream": "paper",
+      "verdict": "gold_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "70a1275136763521",
+      "gate_bypass": false,
+      "item_id": "paper-gold-001",
+      "step": 61,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "58f747c8669cbde8",
+      "gate_bypass": false,
+      "item_id": "mc-conf-001",
+      "step": 62,
+      "stream": "manipulation",
+      "verdict": "confidence_inflation"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "9ca938f834df5147",
+      "gate_bypass": false,
+      "item_id": "paper-gold-002",
+      "step": 63,
+      "stream": "paper",
+      "verdict": "gold_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "c74f4606f69b0c5d",
+      "gate_bypass": false,
+      "item_id": "paper-gold-002",
+      "step": 64,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "8fa55ca2004c240f",
+      "gate_bypass": false,
+      "item_id": "mc-bench-001",
+      "step": 65,
+      "stream": "manipulation",
+      "verdict": "benchmark_cherry_pick"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "0cc37d4368f9791a",
+      "gate_bypass": false,
+      "item_id": "paper-weak-001",
+      "step": 66,
+      "stream": "paper",
+      "verdict": "weak_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "5b30d339372978cd",
+      "gate_bypass": false,
+      "item_id": "paper-weak-001",
+      "step": 67,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "1b156a622da0b621",
+      "gate_bypass": false,
+      "item_id": "mc-causal-001",
+      "step": 68,
+      "stream": "manipulation",
+      "verdict": "causal_exaggeration"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "ad3bd5146a1a6b7b",
+      "gate_bypass": false,
+      "item_id": "paper-weak-002",
+      "step": 69,
+      "stream": "paper",
+      "verdict": "weak_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "8f438d9135115d35",
+      "gate_bypass": false,
+      "item_id": "paper-weak-002",
+      "step": 70,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "0aacee382b22b214",
+      "gate_bypass": false,
+      "item_id": "mc-laundry-001",
+      "step": 71,
+      "stream": "manipulation",
+      "verdict": "methodological_laundering"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "65f81d3bb3370308",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-001",
+      "step": 72,
+      "stream": "paper",
+      "verdict": "ai_sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "cf27d1cd37eee994",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-001",
+      "step": 73,
+      "stream": "sludge",
+      "verdict": "sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "01200ca0a1c79005",
+      "gate_bypass": false,
+      "item_id": "mc-honest-001",
+      "step": 74,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "8a7828fa0cab69fe",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-002",
+      "step": 75,
+      "stream": "paper",
+      "verdict": "ai_sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "03296aec0d084aa0",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-002",
+      "step": 76,
+      "stream": "sludge",
+      "verdict": "sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "0cc005de1a7989f3",
+      "gate_bypass": false,
+      "item_id": "mc-honest-002",
+      "step": 77,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "7651d918c0f15edb",
+      "gate_bypass": false,
+      "item_id": "paper-adv-001",
+      "step": 78,
+      "stream": "paper",
+      "verdict": "adversarial_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "8760718495ae9be0",
+      "gate_bypass": false,
+      "item_id": "paper-adv-001",
+      "step": 79,
+      "stream": "sludge",
+      "verdict": "suspect"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "87f593e3ad4144c6",
+      "gate_bypass": false,
+      "item_id": "mc-sel-001",
+      "step": 80,
+      "stream": "manipulation",
+      "verdict": "selective_reporting"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "79e257e773dc54fe",
+      "gate_bypass": false,
+      "item_id": "paper-adv-002",
+      "step": 81,
+      "stream": "paper",
+      "verdict": "adversarial_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "a6d74f4985233e09",
+      "gate_bypass": false,
+      "item_id": "paper-adv-002",
+      "step": 82,
+      "stream": "sludge",
+      "verdict": "suspect"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "e367585c4e6fdc80",
+      "gate_bypass": false,
+      "item_id": "mc-null-001",
+      "step": 83,
+      "stream": "manipulation",
+      "verdict": "hidden_null_result"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "b4cde71d035c205c",
+      "gate_bypass": false,
+      "item_id": "paper-border-001",
+      "step": 84,
+      "stream": "paper",
+      "verdict": "borderline_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "36fd5731a5d86df4",
+      "gate_bypass": false,
+      "item_id": "paper-border-001",
+      "step": 85,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "bc2e5cf4bf5af679",
+      "gate_bypass": false,
+      "item_id": "mc-conf-001",
+      "step": 86,
+      "stream": "manipulation",
+      "verdict": "confidence_inflation"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "f2908171d3a56706",
+      "gate_bypass": false,
+      "item_id": "paper-border-002",
+      "step": 87,
+      "stream": "paper",
+      "verdict": "borderline_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "e6e14f25a04ed96b",
+      "gate_bypass": false,
+      "item_id": "paper-border-002",
+      "step": 88,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "50f4bc0013c286ce",
+      "gate_bypass": false,
+      "item_id": "mc-bench-001",
+      "step": 89,
+      "stream": "manipulation",
+      "verdict": "benchmark_cherry_pick"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "258430409804fd2a",
+      "gate_bypass": false,
+      "item_id": "paper-gold-001",
+      "step": 90,
+      "stream": "paper",
+      "verdict": "gold_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "f499cf91062ae43d",
+      "gate_bypass": false,
+      "item_id": "paper-gold-001",
+      "step": 91,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "5f18039f3b3de426",
+      "gate_bypass": false,
+      "item_id": "mc-causal-001",
+      "step": 92,
+      "stream": "manipulation",
+      "verdict": "causal_exaggeration"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "856ac3047645ad88",
+      "gate_bypass": false,
+      "item_id": "paper-gold-002",
+      "step": 93,
+      "stream": "paper",
+      "verdict": "gold_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "95bbf74b75aa10bd",
+      "gate_bypass": false,
+      "item_id": "paper-gold-002",
+      "step": 94,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "93a32e0d52282b4f",
+      "gate_bypass": false,
+      "item_id": "mc-laundry-001",
+      "step": 95,
+      "stream": "manipulation",
+      "verdict": "methodological_laundering"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "9a3b17429aa14dc0",
+      "gate_bypass": false,
+      "item_id": "paper-weak-001",
+      "step": 96,
+      "stream": "paper",
+      "verdict": "weak_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "4bd15f732e183ed8",
+      "gate_bypass": false,
+      "item_id": "paper-weak-001",
+      "step": 97,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "92874f3fafce29c4",
+      "gate_bypass": false,
+      "item_id": "mc-honest-001",
+      "step": 98,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "1f5c124964c25185",
+      "gate_bypass": false,
+      "item_id": "paper-weak-002",
+      "step": 99,
+      "stream": "paper",
+      "verdict": "weak_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "6d2bdcd6cf4c4b6e",
+      "gate_bypass": false,
+      "item_id": "paper-weak-002",
+      "step": 4900,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "22e2e18ee5a68904",
+      "gate_bypass": false,
+      "item_id": "mc-honest-002",
+      "step": 4901,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "9d68aa43bc86f818",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-001",
+      "step": 4902,
+      "stream": "paper",
+      "verdict": "ai_sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "890268f6b3737102",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-001",
+      "step": 4903,
+      "stream": "sludge",
+      "verdict": "sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "79a06a2ba27efe1b",
+      "gate_bypass": false,
+      "item_id": "mc-sel-001",
+      "step": 4904,
+      "stream": "manipulation",
+      "verdict": "selective_reporting"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "ffc0354b2e4e2206",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-002",
+      "step": 4905,
+      "stream": "paper",
+      "verdict": "ai_sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "47043e4222279c41",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-002",
+      "step": 4906,
+      "stream": "sludge",
+      "verdict": "sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "fc6287b19bd14938",
+      "gate_bypass": false,
+      "item_id": "mc-null-001",
+      "step": 4907,
+      "stream": "manipulation",
+      "verdict": "hidden_null_result"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "c7d7fe7412c54818",
+      "gate_bypass": false,
+      "item_id": "paper-adv-001",
+      "step": 4908,
+      "stream": "paper",
+      "verdict": "adversarial_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "cf0fef2a89408405",
+      "gate_bypass": false,
+      "item_id": "paper-adv-001",
+      "step": 4909,
+      "stream": "sludge",
+      "verdict": "suspect"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "ceb64c6a3f8729e9",
+      "gate_bypass": false,
+      "item_id": "mc-conf-001",
+      "step": 4910,
+      "stream": "manipulation",
+      "verdict": "confidence_inflation"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "a045ac20f8470fe3",
+      "gate_bypass": false,
+      "item_id": "paper-adv-002",
+      "step": 4911,
+      "stream": "paper",
+      "verdict": "adversarial_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "fef3da86f055a59b",
+      "gate_bypass": false,
+      "item_id": "paper-adv-002",
+      "step": 4912,
+      "stream": "sludge",
+      "verdict": "suspect"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "7ad35818f3681f86",
+      "gate_bypass": false,
+      "item_id": "mc-bench-001",
+      "step": 4913,
+      "stream": "manipulation",
+      "verdict": "benchmark_cherry_pick"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "a1c7a1454d28c06e",
+      "gate_bypass": false,
+      "item_id": "paper-border-001",
+      "step": 4914,
+      "stream": "paper",
+      "verdict": "borderline_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "a33a8354e6c51c76",
+      "gate_bypass": false,
+      "item_id": "paper-border-001",
+      "step": 4915,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "e1c3bd164f046ae7",
+      "gate_bypass": false,
+      "item_id": "mc-causal-001",
+      "step": 4916,
+      "stream": "manipulation",
+      "verdict": "causal_exaggeration"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "7c1bd5db5f5a9e44",
+      "gate_bypass": false,
+      "item_id": "paper-border-002",
+      "step": 4917,
+      "stream": "paper",
+      "verdict": "borderline_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "59e583e988627cc1",
+      "gate_bypass": false,
+      "item_id": "paper-border-002",
+      "step": 4918,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "5202a779991d57fa",
+      "gate_bypass": false,
+      "item_id": "mc-laundry-001",
+      "step": 4919,
+      "stream": "manipulation",
+      "verdict": "methodological_laundering"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "1d7a8d66baa43144",
+      "gate_bypass": false,
+      "item_id": "paper-gold-001",
+      "step": 4920,
+      "stream": "paper",
+      "verdict": "gold_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "4a9e8a69aff663a2",
+      "gate_bypass": false,
+      "item_id": "paper-gold-001",
+      "step": 4921,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "8a31c393c6149b57",
+      "gate_bypass": false,
+      "item_id": "mc-honest-001",
+      "step": 4922,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "0963ee655bedf574",
+      "gate_bypass": false,
+      "item_id": "paper-gold-002",
+      "step": 4923,
+      "stream": "paper",
+      "verdict": "gold_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "f3aa34cda2c9d037",
+      "gate_bypass": false,
+      "item_id": "paper-gold-002",
+      "step": 4924,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "0634d20baac09a46",
+      "gate_bypass": false,
+      "item_id": "mc-honest-002",
+      "step": 4925,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "5c316f9ff5dc9099",
+      "gate_bypass": false,
+      "item_id": "paper-weak-001",
+      "step": 4926,
+      "stream": "paper",
+      "verdict": "weak_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "dc6ac1e90f1fb6b6",
+      "gate_bypass": false,
+      "item_id": "paper-weak-001",
+      "step": 4927,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "b718d2fb30ae81ac",
+      "gate_bypass": false,
+      "item_id": "mc-sel-001",
+      "step": 4928,
+      "stream": "manipulation",
+      "verdict": "selective_reporting"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "5b5598b524275ee9",
+      "gate_bypass": false,
+      "item_id": "paper-weak-002",
+      "step": 4929,
+      "stream": "paper",
+      "verdict": "weak_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "758c424f70753b42",
+      "gate_bypass": false,
+      "item_id": "paper-weak-002",
+      "step": 4930,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "be2f23d0c4c70f3e",
+      "gate_bypass": false,
+      "item_id": "mc-null-001",
+      "step": 4931,
+      "stream": "manipulation",
+      "verdict": "hidden_null_result"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "14053981d5686711",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-001",
+      "step": 4932,
+      "stream": "paper",
+      "verdict": "ai_sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "4dd5667391a7618b",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-001",
+      "step": 4933,
+      "stream": "sludge",
+      "verdict": "sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "72e291aa3f8b9cf7",
+      "gate_bypass": false,
+      "item_id": "mc-conf-001",
+      "step": 4934,
+      "stream": "manipulation",
+      "verdict": "confidence_inflation"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "a6f10b2d75dc347c",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-002",
+      "step": 4935,
+      "stream": "paper",
+      "verdict": "ai_sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "fab6631f6c07682f",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-002",
+      "step": 4936,
+      "stream": "sludge",
+      "verdict": "sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "b6ad05060065e6cc",
+      "gate_bypass": false,
+      "item_id": "mc-bench-001",
+      "step": 4937,
+      "stream": "manipulation",
+      "verdict": "benchmark_cherry_pick"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "217df74aeefc41ca",
+      "gate_bypass": false,
+      "item_id": "paper-adv-001",
+      "step": 4938,
+      "stream": "paper",
+      "verdict": "adversarial_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "7da485f5c032af02",
+      "gate_bypass": false,
+      "item_id": "paper-adv-001",
+      "step": 4939,
+      "stream": "sludge",
+      "verdict": "suspect"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "fb7e7c135a0ec87d",
+      "gate_bypass": false,
+      "item_id": "mc-causal-001",
+      "step": 4940,
+      "stream": "manipulation",
+      "verdict": "causal_exaggeration"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "a1db328bed6966b0",
+      "gate_bypass": false,
+      "item_id": "paper-adv-002",
+      "step": 4941,
+      "stream": "paper",
+      "verdict": "adversarial_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "01f436f5b203bfae",
+      "gate_bypass": false,
+      "item_id": "paper-adv-002",
+      "step": 4942,
+      "stream": "sludge",
+      "verdict": "suspect"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "9c00a062ae4819af",
+      "gate_bypass": false,
+      "item_id": "mc-laundry-001",
+      "step": 4943,
+      "stream": "manipulation",
+      "verdict": "methodological_laundering"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "57852b6b8235063a",
+      "gate_bypass": false,
+      "item_id": "paper-border-001",
+      "step": 4944,
+      "stream": "paper",
+      "verdict": "borderline_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "03fb5092770bdd0d",
+      "gate_bypass": false,
+      "item_id": "paper-border-001",
+      "step": 4945,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "da05eb6e45eb4a75",
+      "gate_bypass": false,
+      "item_id": "mc-honest-001",
+      "step": 4946,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "02b9c20dba63579a",
+      "gate_bypass": false,
+      "item_id": "paper-border-002",
+      "step": 4947,
+      "stream": "paper",
+      "verdict": "borderline_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "b2a76e9bec1ea1d1",
+      "gate_bypass": false,
+      "item_id": "paper-border-002",
+      "step": 4948,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "32d4aa522241fcd6",
+      "gate_bypass": false,
+      "item_id": "mc-honest-002",
+      "step": 4949,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "3dd4651a230b553a",
+      "gate_bypass": false,
+      "item_id": "paper-gold-001",
+      "step": 4950,
+      "stream": "paper",
+      "verdict": "gold_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "5de14733477210ca",
+      "gate_bypass": false,
+      "item_id": "paper-gold-001",
+      "step": 4951,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "81099a0be54e383e",
+      "gate_bypass": false,
+      "item_id": "mc-sel-001",
+      "step": 4952,
+      "stream": "manipulation",
+      "verdict": "selective_reporting"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "d033cd9e1118cc3a",
+      "gate_bypass": false,
+      "item_id": "paper-gold-002",
+      "step": 4953,
+      "stream": "paper",
+      "verdict": "gold_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "9a9b5f152a8e760d",
+      "gate_bypass": false,
+      "item_id": "paper-gold-002",
+      "step": 4954,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "6c3e5eea8554302c",
+      "gate_bypass": false,
+      "item_id": "mc-null-001",
+      "step": 4955,
+      "stream": "manipulation",
+      "verdict": "hidden_null_result"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "2395e8f2723c5000",
+      "gate_bypass": false,
+      "item_id": "paper-weak-001",
+      "step": 4956,
+      "stream": "paper",
+      "verdict": "weak_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "54df1d921de478a2",
+      "gate_bypass": false,
+      "item_id": "paper-weak-001",
+      "step": 4957,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "f10c99f42d816694",
+      "gate_bypass": false,
+      "item_id": "mc-conf-001",
+      "step": 4958,
+      "stream": "manipulation",
+      "verdict": "confidence_inflation"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "b303a93e70a67640",
+      "gate_bypass": false,
+      "item_id": "paper-weak-002",
+      "step": 4959,
+      "stream": "paper",
+      "verdict": "weak_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "21f4bd5d831ce6c9",
+      "gate_bypass": false,
+      "item_id": "paper-weak-002",
+      "step": 4960,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "486517ca361f78b3",
+      "gate_bypass": false,
+      "item_id": "mc-bench-001",
+      "step": 4961,
+      "stream": "manipulation",
+      "verdict": "benchmark_cherry_pick"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "865877c2cb6f87f0",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-001",
+      "step": 4962,
+      "stream": "paper",
+      "verdict": "ai_sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "63bbb6727ab1769c",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-001",
+      "step": 4963,
+      "stream": "sludge",
+      "verdict": "sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "b123391943dd7dde",
+      "gate_bypass": false,
+      "item_id": "mc-causal-001",
+      "step": 4964,
+      "stream": "manipulation",
+      "verdict": "causal_exaggeration"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "7547d1404a08b9ab",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-002",
+      "step": 4965,
+      "stream": "paper",
+      "verdict": "ai_sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "3aa3422ed51953a3",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-002",
+      "step": 4966,
+      "stream": "sludge",
+      "verdict": "sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "e439c5272f7d8214",
+      "gate_bypass": false,
+      "item_id": "mc-laundry-001",
+      "step": 4967,
+      "stream": "manipulation",
+      "verdict": "methodological_laundering"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "592d67987764c7bd",
+      "gate_bypass": false,
+      "item_id": "paper-adv-001",
+      "step": 4968,
+      "stream": "paper",
+      "verdict": "adversarial_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "f27e0f6be8d3ccc5",
+      "gate_bypass": false,
+      "item_id": "paper-adv-001",
+      "step": 4969,
+      "stream": "sludge",
+      "verdict": "suspect"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "7e42225752db766b",
+      "gate_bypass": false,
+      "item_id": "mc-honest-001",
+      "step": 4970,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "226fa35cfe75b658",
+      "gate_bypass": false,
+      "item_id": "paper-adv-002",
+      "step": 4971,
+      "stream": "paper",
+      "verdict": "adversarial_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "effdf4271d0c29b3",
+      "gate_bypass": false,
+      "item_id": "paper-adv-002",
+      "step": 4972,
+      "stream": "sludge",
+      "verdict": "suspect"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "17fec8bf10307ba5",
+      "gate_bypass": false,
+      "item_id": "mc-honest-002",
+      "step": 4973,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "e355b1f790666af5",
+      "gate_bypass": false,
+      "item_id": "paper-border-001",
+      "step": 4974,
+      "stream": "paper",
+      "verdict": "borderline_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "30205eb54d588dad",
+      "gate_bypass": false,
+      "item_id": "paper-border-001",
+      "step": 4975,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "e0838a6426ea9604",
+      "gate_bypass": false,
+      "item_id": "mc-sel-001",
+      "step": 4976,
+      "stream": "manipulation",
+      "verdict": "selective_reporting"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "ec7cce505beb1556",
+      "gate_bypass": false,
+      "item_id": "paper-border-002",
+      "step": 4977,
+      "stream": "paper",
+      "verdict": "borderline_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "0e90f5bf04c87b55",
+      "gate_bypass": false,
+      "item_id": "paper-border-002",
+      "step": 4978,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "f8e2edf954fe331c",
+      "gate_bypass": false,
+      "item_id": "mc-null-001",
+      "step": 4979,
+      "stream": "manipulation",
+      "verdict": "hidden_null_result"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "0fae952ccf9e3565",
+      "gate_bypass": false,
+      "item_id": "paper-gold-001",
+      "step": 4980,
+      "stream": "paper",
+      "verdict": "gold_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "29dd422003bcce13",
+      "gate_bypass": false,
+      "item_id": "paper-gold-001",
+      "step": 4981,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "7461bf60905de823",
+      "gate_bypass": false,
+      "item_id": "mc-conf-001",
+      "step": 4982,
+      "stream": "manipulation",
+      "verdict": "confidence_inflation"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "a6864acda4cbcd90",
+      "gate_bypass": false,
+      "item_id": "paper-gold-002",
+      "step": 4983,
+      "stream": "paper",
+      "verdict": "gold_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "662b27c16480a314",
+      "gate_bypass": false,
+      "item_id": "paper-gold-002",
+      "step": 4984,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "dc82152fc7ff38f8",
+      "gate_bypass": false,
+      "item_id": "mc-bench-001",
+      "step": 4985,
+      "stream": "manipulation",
+      "verdict": "benchmark_cherry_pick"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "db689c39a53e28aa",
+      "gate_bypass": false,
+      "item_id": "paper-weak-001",
+      "step": 4986,
+      "stream": "paper",
+      "verdict": "weak_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "9aa052f62212cbd7",
+      "gate_bypass": false,
+      "item_id": "paper-weak-001",
+      "step": 4987,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "94ee4745ce68d571",
+      "gate_bypass": false,
+      "item_id": "mc-causal-001",
+      "step": 4988,
+      "stream": "manipulation",
+      "verdict": "causal_exaggeration"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "1772f94d9bb9db87",
+      "gate_bypass": false,
+      "item_id": "paper-weak-002",
+      "step": 4989,
+      "stream": "paper",
+      "verdict": "weak_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "cdf9fbe63491af1f",
+      "gate_bypass": false,
+      "item_id": "paper-weak-002",
+      "step": 4990,
+      "stream": "sludge",
+      "verdict": "clean"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "4acea790cb1700b9",
+      "gate_bypass": false,
+      "item_id": "mc-laundry-001",
+      "step": 4991,
+      "stream": "manipulation",
+      "verdict": "methodological_laundering"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "7a7f05452431a74a",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-001",
+      "step": 4992,
+      "stream": "paper",
+      "verdict": "ai_sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "aeb29735a5236674",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-001",
+      "step": 4993,
+      "stream": "sludge",
+      "verdict": "sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "0fed7d7282a049da",
+      "gate_bypass": false,
+      "item_id": "mc-honest-001",
+      "step": 4994,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "9046db8d9e060272",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-002",
+      "step": 4995,
+      "stream": "paper",
+      "verdict": "ai_sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "427afab83a5715ad",
+      "gate_bypass": false,
+      "item_id": "paper-sludge-002",
+      "step": 4996,
+      "stream": "sludge",
+      "verdict": "sludge"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "c3c421bc427537f2",
+      "gate_bypass": false,
+      "item_id": "mc-honest-002",
+      "step": 4997,
+      "stream": "manipulation",
+      "verdict": "honest"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "0a08378217ceaab1",
+      "gate_bypass": false,
+      "item_id": "paper-adv-001",
+      "step": 4998,
+      "stream": "paper",
+      "verdict": "adversarial_set"
+    },
+    {
+      "closed_enum_hash": "4a80d746b1a0899c",
+      "cumulative_hash": "06d020f1dd7e0f47",
+      "gate_bypass": false,
+      "item_id": "paper-adv-001",
+      "step": 4999,
+      "stream": "sludge",
+      "verdict": "suspect"
+    }
+  ],
+  "trust_integrity": 1.0
+}

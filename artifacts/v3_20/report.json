@@ -1,0 +1,506 @@
+{
+  "adv_centroid": [
+    1.919643,
+    0.881944,
+    0.095238,
+    0.0,
+    0.022817,
+    0.001488,
+    7.0625,
+    2.943452,
+    0.044745,
+    1.0,
+    0.85119
+  ],
+  "baseline_separability": 0.048238,
+  "chain_count": 554,
+  "contamination_count": 25,
+  "dead_knobs": [
+    "premise_count",
+    "atomic_ratio",
+    "particular_ratio",
+    "universal_ratio",
+    "unsupported_form_ratio",
+    "extraction_drop_rate",
+    "premise_token_count",
+    "conclusion_token_count",
+    "premise_conclusion_overlap",
+    "compression_ratio",
+    "paraphrase_instability"
+  ],
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "nc_accuracy": 0.96,
+  "nc_count": 50,
+  "nc_per_shape": {
+    "conclusion_inflation": {
+      "correct": 10,
+      "total": 10
+    },
+    "logically_valid_but_linguistically_chaotic": {
+      "correct": 9,
+      "total": 10
+    },
+    "paraphrase_drift": {
+      "correct": 10,
+      "total": 10
+    },
+    "premise_loss": {
+      "correct": 10,
+      "total": 10
+    },
+    "syntactically_clean_but_logically_false": {
+      "correct": 9,
+      "total": 10
+    }
+  },
+  "nc_results": [
+    {
+      "case_id": "CBF01",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "syntactically_clean_but_logically_false"
+    },
+    {
+      "case_id": "CBF02",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "syntactically_clean_but_logically_false"
+    },
+    {
+      "case_id": "CBF03",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "syntactically_clean_but_logically_false"
+    },
+    {
+      "case_id": "CBF04",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "syntactically_clean_but_logically_false"
+    },
+    {
+      "case_id": "CBF05",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "syntactically_clean_but_logically_false"
+    },
+    {
+      "case_id": "CBF06",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "syntactically_clean_but_logically_false"
+    },
+    {
+      "case_id": "CBF07",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "syntactically_clean_but_logically_false"
+    },
+    {
+      "case_id": "CBF08",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "syntactically_clean_but_logically_false"
+    },
+    {
+      "case_id": "CBF09",
+      "correct": false,
+      "expected_anomalous": false,
+      "observed_anomalous": true,
+      "shape": "syntactically_clean_but_logically_false"
+    },
+    {
+      "case_id": "CBF10",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "syntactically_clean_but_logically_false"
+    },
+    {
+      "case_id": "VBC01",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "logically_valid_but_linguistically_chaotic"
+    },
+    {
+      "case_id": "VBC02",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "logically_valid_but_linguistically_chaotic"
+    },
+    {
+      "case_id": "VBC03",
+      "correct": false,
+      "expected_anomalous": true,
+      "observed_anomalous": false,
+      "shape": "logically_valid_but_linguistically_chaotic"
+    },
+    {
+      "case_id": "VBC04",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "logically_valid_but_linguistically_chaotic"
+    },
+    {
+      "case_id": "VBC05",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "logically_valid_but_linguistically_chaotic"
+    },
+    {
+      "case_id": "VBC06",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "logically_valid_but_linguistically_chaotic"
+    },
+    {
+      "case_id": "VBC07",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "logically_valid_but_linguistically_chaotic"
+    },
+    {
+      "case_id": "VBC08",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "logically_valid_but_linguistically_chaotic"
+    },
+    {
+      "case_id": "VBC09",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "logically_valid_but_linguistically_chaotic"
+    },
+    {
+      "case_id": "VBC10",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "logically_valid_but_linguistically_chaotic"
+    },
+    {
+      "case_id": "PFD01",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "paraphrase_drift"
+    },
+    {
+      "case_id": "PFD02",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "paraphrase_drift"
+    },
+    {
+      "case_id": "PFD03",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "paraphrase_drift"
+    },
+    {
+      "case_id": "PFD04",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "paraphrase_drift"
+    },
+    {
+      "case_id": "PFD05",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "paraphrase_drift"
+    },
+    {
+      "case_id": "PFD06",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "paraphrase_drift"
+    },
+    {
+      "case_id": "PFD07",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "paraphrase_drift"
+    },
+    {
+      "case_id": "PFD08",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "paraphrase_drift"
+    },
+    {
+      "case_id": "PFD09",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "paraphrase_drift"
+    },
+    {
+      "case_id": "PFD10",
+      "correct": true,
+      "expected_anomalous": false,
+      "observed_anomalous": false,
+      "shape": "paraphrase_drift"
+    },
+    {
+      "case_id": "PML01",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "premise_loss"
+    },
+    {
+      "case_id": "PML02",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "premise_loss"
+    },
+    {
+      "case_id": "PML03",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "premise_loss"
+    },
+    {
+      "case_id": "PML04",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "premise_loss"
+    },
+    {
+      "case_id": "PML05",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "premise_loss"
+    },
+    {
+      "case_id": "PML06",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "premise_loss"
+    },
+    {
+      "case_id": "PML07",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "premise_loss"
+    },
+    {
+      "case_id": "PML08",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "premise_loss"
+    },
+    {
+      "case_id": "PML09",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "premise_loss"
+    },
+    {
+      "case_id": "PML10",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "premise_loss"
+    },
+    {
+      "case_id": "CCI01",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "conclusion_inflation"
+    },
+    {
+      "case_id": "CCI02",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "conclusion_inflation"
+    },
+    {
+      "case_id": "CCI03",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "conclusion_inflation"
+    },
+    {
+      "case_id": "CCI04",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "conclusion_inflation"
+    },
+    {
+      "case_id": "CCI05",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "conclusion_inflation"
+    },
+    {
+      "case_id": "CCI06",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "conclusion_inflation"
+    },
+    {
+      "case_id": "CCI07",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "conclusion_inflation"
+    },
+    {
+      "case_id": "CCI08",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "conclusion_inflation"
+    },
+    {
+      "case_id": "CCI09",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "conclusion_inflation"
+    },
+    {
+      "case_id": "CCI10",
+      "correct": true,
+      "expected_anomalous": true,
+      "observed_anomalous": true,
+      "shape": "conclusion_inflation"
+    }
+  ],
+  "primary_signals": [],
+  "recommendation_reason": "contamination_count=25 != 0; no signal reached PRIMARY threshold",
+  "recommended_next": "NONE",
+  "replay_hash": "02eb32df1f51b761",
+  "signal_probes": [
+    {
+      "baseline_separability": 0.048238,
+      "classification": "DEAD_KNOB",
+      "delta": 0.007923,
+      "masked_separability": 0.040315,
+      "signal": "premise_count"
+    },
+    {
+      "baseline_separability": 0.048238,
+      "classification": "DEAD_KNOB",
+      "delta": 0.000125,
+      "masked_separability": 0.048113,
+      "signal": "atomic_ratio"
+    },
+    {
+      "baseline_separability": 0.048238,
+      "classification": "DEAD_KNOB",
+      "delta": 0.00018,
+      "masked_separability": 0.048058,
+      "signal": "particular_ratio"
+    },
+    {
+      "baseline_separability": 0.048238,
+      "classification": "DEAD_KNOB",
+      "delta": 4e-06,
+      "masked_separability": 0.048234,
+      "signal": "universal_ratio"
+    },
+    {
+      "baseline_separability": 0.048238,
+      "classification": "DEAD_KNOB",
+      "delta": 0.0,
+      "masked_separability": 0.048238,
+      "signal": "unsupported_form_ratio"
+    },
+    {
+      "baseline_separability": 0.048238,
+      "classification": "DEAD_KNOB",
+      "delta": 5.2e-05,
+      "masked_separability": 0.048186,
+      "signal": "extraction_drop_rate"
+    },
+    {
+      "baseline_separability": 0.048238,
+      "classification": "DEAD_KNOB",
+      "delta": 0.019833,
+      "masked_separability": 0.028405,
+      "signal": "premise_token_count"
+    },
+    {
+      "baseline_separability": 0.048238,
+      "classification": "DEAD_KNOB",
+      "delta": 0.000577,
+      "masked_separability": 0.047661,
+      "signal": "conclusion_token_count"
+    },
+    {
+      "baseline_separability": 0.048238,
+      "classification": "DEAD_KNOB",
+      "delta": 6e-06,
+      "masked_separability": 0.048232,
+      "signal": "premise_conclusion_overlap"
+    },
+    {
+      "baseline_separability": 0.048238,
+      "classification": "DEAD_KNOB",
+      "delta": 5.9e-05,
+      "masked_separability": 0.048179,
+      "signal": "compression_ratio"
+    },
+    {
+      "baseline_separability": 0.048238,
+      "classification": "DEAD_KNOB",
+      "delta": 9.2e-05,
+      "masked_separability": 0.048146,
+      "signal": "paraphrase_instability"
+    }
+  ],
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "transition_count": 2216,
+  "valid_centroid": [
+    2.184524,
+    0.916667,
+    0.053571,
+    0.005952,
+    0.02381,
+    0.02381,
+    6.672619,
+    2.869048,
+    0.037309,
+    0.97619,
+    0.880952
+  ]
+}
