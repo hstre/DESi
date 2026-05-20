@@ -1,0 +1,108 @@
+{
+  "citation_completeness": 1.0,
+  "disclaimer": "An arXiv-compatible short paper rendered deterministically from DESi's epistemic state. All 13 mandated sections are present, the base paper is cited, every metric is defined, every number is derived from a named sprint, and the document contains no forbidden term. This is a provenance-bound export, not free text generation or paper imitation; it is replay-exact and scoped to the synthetic sandbox.",
+  "external_claims": [
+    {
+      "claim_id": "EC1",
+      "reference_keys": [
+        "rentschler_roberts_2025"
+      ],
+      "text": "The base paper studies in-context reinforcement learning for variable action spaces and skill stitching."
+    },
+    {
+      "claim_id": "EC2",
+      "reference_keys": [
+        "rentschler_roberts_2025"
+      ],
+      "text": "The base paper notes, in its Section 4.6 limitations, open exploration problems: exploration collapse, sparse-reward failure and repetitive trajectories."
+    },
+    {
+      "claim_id": "EC3",
+      "reference_keys": [
+        "rentschler_roberts_2025"
+      ],
+      "text": "We position this work as a complementary follow-up to the base paper's open exploration question."
+    }
+  ],
+  "metric_definition_coverage": 1.0,
+  "paper_forbidden_hits": [],
+  "paper_signature": "3ace7b5a56fb7538171f99e94b0ccee3c7010ac0d2e1b975166a046567c2a50b",
+  "port": "arxiv_paper_port",
+  "recommendation": "ARXIV_PAPER_FULLY_TRACEABLE",
+  "references": [
+    {
+      "authors": "Rentschler and Roberts",
+      "citation_text": "Rentschler and Roberts (2025). In-Context Reinforcement Learning for Variable Action Spaces and Skill Stitching. arXiv:2501.14176.",
+      "ref_key": "rentschler_roberts_2025",
+      "title": "In-Context Reinforcement Learning for Variable Action Spaces and Skill Stitching",
+      "venue": "arXiv:2501.14176",
+      "year": 2025
+    }
+  ],
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "ARXIV_PAPER_FULLY_TRACEABLE",
+    "ARXIV_PAPER_INCOMPLETE",
+    "RENDER_DRIFT_HALT"
+  ],
+  "required_sections": [
+    "title",
+    "abstract",
+    "introduction",
+    "related_work",
+    "problem_statement",
+    "method",
+    "experimental_conditions",
+    "metrics",
+    "results",
+    "limitations",
+    "reproducibility_statement",
+    "conclusion",
+    "references"
+  ],
+  "result_derivation_visibility": 1.0,
+  "result_lines": [
+    {
+      "metric_name": "redundancy_reduction",
+      "sprint_source": "v19.1",
+      "value": 0.9
+    },
+    {
+      "metric_name": "novelty_gain",
+      "sprint_source": "v20.0/v21.0",
+      "value": 0.733333
+    },
+    {
+      "metric_name": "residual_hallucination",
+      "sprint_source": "v20.1",
+      "value": 0.0
+    },
+    {
+      "metric_name": "exploration_diversity",
+      "sprint_source": "v20.2",
+      "value": 1.0
+    },
+    {
+      "metric_name": "authority_drift",
+      "sprint_source": "v20.3",
+      "value": 0.088417
+    },
+    {
+      "metric_name": "capture_resistance",
+      "sprint_source": "v20.3",
+      "value": 1.0
+    },
+    {
+      "metric_name": "productivity_gain",
+      "sprint_source": "v21.0",
+      "value": 2.75
+    },
+    {
+      "metric_name": "replay_stability",
+      "sprint_source": "v19-v22",
+      "value": 1.0
+    }
+  ],
+  "schema_version": "v25_1_arxiv_paper_port",
+  "section_completeness": 1.0
+}
