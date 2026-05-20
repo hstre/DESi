@@ -1,0 +1,148 @@
+{
+  "claim_conservatism": 1.0,
+  "corpus_forbidden_hits": [],
+  "disclaimer": "Raises the scientific density of the follow-up: every motivation statement carries concrete technical content, design tradeoffs are stated with both benefit and cost, forward-looking statements are marked as hypotheses, and significance claims stay scoped to the synthetic sandbox. Numbers are pulled live from the v23.1 reconstruction. No forbidden term appears. Replay-exact.",
+  "hypotheses": [
+    {
+      "hypothesis_id": "H1",
+      "is_marked": true,
+      "text": "We hypothesise that the same read-only re-weighting could reduce redundancy in a non-synthetic ICRL setting, but this remains open."
+    },
+    {
+      "hypothesis_id": "H2",
+      "is_marked": true,
+      "text": "Containment of high-certainty incoherent paths may generalise beyond the fixtures; future work would need a real generator to test it."
+    },
+    {
+      "hypothesis_id": "H3",
+      "is_marked": true,
+      "text": "We conjecture that bounded drift could hold under longer horizons, though we test only 5600 steps."
+    },
+    {
+      "hypothesis_id": "H4",
+      "is_marked": true,
+      "text": "The diversity-preserving effect might depend on the negotiation rule; this is an open question, not a result."
+    }
+  ],
+  "hypothesis_visibility": 1.0,
+  "interpretations": [
+    {
+      "does_not_mean": "that redundancy was removed in any real environment or that optimal exploration is guaranteed",
+      "is_bounded": true,
+      "means": "the governor moved 0.9 of the redundant search weight away on the synthetic corpus",
+      "result_id": "R1"
+    },
+    {
+      "does_not_mean": "that hallucination is solved in general or that the governor validates truth",
+      "is_bounded": true,
+      "means": "high-certainty incoherent paths were capped so residual hallucination reached zero on the fixtures",
+      "result_id": "R3"
+    },
+    {
+      "does_not_mean": "that DESi is that much better at real reinforcement learning or that it replaces it",
+      "is_bounded": true,
+      "means": "the dual-agent design covered 2.75 times the distinct states of DESi-alone on the fixtures",
+      "result_id": "R7"
+    }
+  ],
+  "motivation_points": [
+    {
+      "is_dense": true,
+      "point_id": "M1",
+      "text": "Section 4.6 of the base paper leaves exploration collapse open; we ask whether a read-only governance layer can re-weight redundant search without deleting any trajectory."
+    },
+    {
+      "is_dense": true,
+      "point_id": "M2",
+      "text": "Sparse-reward exploration tends to repeat trajectories; the v19.1 redundancy_reduction of 0.9 measures how much redundant search weight the governor moves away on the synthetic corpus."
+    },
+    {
+      "is_dense": true,
+      "point_id": "M3",
+      "text": "Whether an unconstrained generator adds genuinely distinct states is testable: the v21.0 novelty_gain of 0.733333 is the share of states reached only with the Wild Explorer."
+    },
+    {
+      "is_dense": true,
+      "point_id": "M4",
+      "text": "A governance layer could silently homogenise search; the v20.2 exploration_diversity of 1.0 records that distinct regions survived negotiation rather than collapsing to one."
+    },
+    {
+      "is_dense": true,
+      "point_id": "M5",
+      "text": "Long-horizon optimisation authority is a stated risk; the v20.3 authority_drift of 0.088417 stays bounded by saturation across a 5600-step run."
+    }
+  ],
+  "one_sided_tradeoffs": [],
+  "overclaimed_statements": [],
+  "recommendation": "SCIENTIFICALLY_DENSE",
+  "report_verdicts": [
+    "SCIENTIFICALLY_DENSE",
+    "TOO_THIN_OR_OVERCLAIMED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "schema_version": "v23_2_scientific_density",
+  "scientific_density": 1.0,
+  "signature": "c592a3f827aa835c1055e41475fc364486c850024ad53369ec3447cf5c729e46",
+  "significance_statements": [
+    {
+      "is_conservative": true,
+      "statement_id": "S1",
+      "text": "Relative to the DESi-only baseline, controlled wild exploration raised distinct-state coverage on the synthetic corpus without breaking replay stability."
+    },
+    {
+      "is_conservative": true,
+      "statement_id": "S2",
+      "text": "Within this sandbox, a read-only governance layer kept exploration diverse while down-weighting redundant search."
+    },
+    {
+      "is_conservative": true,
+      "statement_id": "S3",
+      "text": "These results are scoped to synthetic fixtures and describe a complementary governance layer, not a substitute for reinforcement learning."
+    },
+    {
+      "is_conservative": true,
+      "statement_id": "S4",
+      "text": "The contribution is methodological: the setup is auditable and replay-exact on the corpus, which is what we claim and nothing beyond it."
+    }
+  ],
+  "thin_points": [],
+  "tradeoff_visibility": 1.0,
+  "tradeoffs": [
+    {
+      "benefit": "every trajectory is preserved, so exploration diversity is not lost to deletion",
+      "cost": "redundant search is only down-weighted, not removed, so some redundancy remains in the run.",
+      "decision": "Soft re-weighting instead of pruning",
+      "is_two_sided": true,
+      "tradeoff_id": "T1"
+    },
+    {
+      "benefit": "the governor never edits the policy, so it cannot inject hidden optimisation authority",
+      "cost": "it can only observe and re-weight, so it cannot directly repair an already-collapsed policy.",
+      "decision": "Read-only governance layer",
+      "is_two_sided": true,
+      "tradeoff_id": "T2"
+    },
+    {
+      "benefit": "novelty_gain rises because states DESi-alone misses are reached",
+      "cost": "the generator adds hallucination pressure that must be contained, which costs governance overhead.",
+      "decision": "Admitting the Wild Explorer",
+      "is_two_sided": true,
+      "tradeoff_id": "T3"
+    },
+    {
+      "benefit": "every number is replay-exact and fully auditable",
+      "cost": "results are scoped to the sandbox and do not measure a real trained policy.",
+      "decision": "Deterministic synthetic fixtures",
+      "is_two_sided": true,
+      "tradeoff_id": "T4"
+    },
+    {
+      "benefit": "accumulated authority stays bounded over a long horizon",
+      "cost": "the bound is a modelling choice on the fixtures, not a guarantee about real systems.",
+      "decision": "Bounded saturating drift model",
+      "is_two_sided": true,
+      "tradeoff_id": "T5"
+    }
+  ],
+  "unmarked_hypotheses": []
+}
