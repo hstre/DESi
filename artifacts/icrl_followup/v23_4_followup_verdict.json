@@ -1,0 +1,76 @@
+{
+  "class_rank": 5,
+  "classification": "directly_relevant",
+  "disclaimer": "Final verdict on the targeted ICRL follow-up. Aggregates one signal per dimension from the v23.0-v23.3 layers and classifies the follow-up on a closed A-E taxonomy. DESi is a complementary, read-only governance layer scoped to the synthetic sandbox - not a replacement for reinforcement learning, not a global or universal claim. No forbidden term appears. Replay-exact.",
+  "followup_classes": [
+    "directly_relevant",
+    "technically_interesting",
+    "exploratory_but_grounded",
+    "disconnected",
+    "hype_inflated"
+  ],
+  "followup_forbidden_hits": [],
+  "gate_conditions": [
+    {
+      "comparator": ">=",
+      "name": "paper_alignment",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "result_traceability",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "technical_grounding",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "claim_conservatism",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "author_relevance",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi kann direkt anschlussfaehige wissenschaftliche Follow-Up-Kommunikation erzeugen ohne Hype oder epistemische Inflation.",
+  "metrics": {
+    "author_relevance": 1.0,
+    "claim_conservatism": 1.0,
+    "paper_alignment": 1.0,
+    "replay_stability": 1.0,
+    "result_traceability": 1.0,
+    "technical_grounding": 1.0
+  },
+  "recommendation": "FOLLOWUP_DIRECTLY_RELEVANT_GROUNDED",
+  "report_verdicts": [
+    "FOLLOWUP_DIRECTLY_RELEVANT_GROUNDED",
+    "FOLLOWUP_NOT_READY",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "schema_version": "v23_4_final_followup_verdict",
+  "signature": "b8c64785ecc401675b935c92c5d2546bac92d6fda9762c21e57d88340d7c52ce"
+}
