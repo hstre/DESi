@@ -1,0 +1,31 @@
+{
+  "corpus_forbidden_hits": [],
+  "cross_port_claim_consistency": 1.0,
+  "cross_port_metric_consistency": 1.0,
+  "disclaimer": "Renders the same epistemic state into several scientific document formats - arXiv paper, workshop note, technical report, citation appendix and reproducibility statement. All ports draw from one shared section provider, so claims, numbers, references and limitations are byte-identical across ports; only the title and the included-section set differ by format. No forbidden term appears. Replay-exact.",
+  "format_validity": 1.0,
+  "limitation_preservation": 1.0,
+  "port_types": [
+    "arxiv_paper_port",
+    "workshop_note_port",
+    "technical_report_port",
+    "citation_appendix_port",
+    "reproducibility_statement_port"
+  ],
+  "recommendation": "MULTI_PORT_CLAIM_STABLE",
+  "render_lengths": {
+    "arxiv_paper_port": 7156,
+    "citation_appendix_port": 1370,
+    "reproducibility_statement_port": 2927,
+    "technical_report_port": 5236,
+    "workshop_note_port": 2486
+  },
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "MULTI_PORT_CLAIM_STABLE",
+    "MULTI_PORT_INCONSISTENT",
+    "RENDER_DRIFT_HALT"
+  ],
+  "schema_version": "v25_3_multi_port_rendering",
+  "signature": "fd6a1caf13b4a8b29963ccafc3015063eefba091bba00bcb12b9b03ff380f6f9"
+}
