@@ -1,0 +1,44 @@
+{
+  "citation_edges": [
+    {
+      "claim_id": "EC1",
+      "ref_key": "rentschler_roberts_2025"
+    },
+    {
+      "claim_id": "EC2",
+      "ref_key": "rentschler_roberts_2025"
+    },
+    {
+      "claim_id": "EC3",
+      "ref_key": "rentschler_roberts_2025"
+    }
+  ],
+  "citation_traceability": 1.0,
+  "claim_reference_alignment": 1.0,
+  "disclaimer": "Citation governance for DESi's output ports. Citations are modelled as directed edges from external claims to a closed reference registry, not as literature decoration. The layer detects phantom citations, missing citations, unsupported related-work claims, wrong reference assignment and orphan references. Deterministic and replay-stable.",
+  "missing_citations": [],
+  "orphan_references": [],
+  "phantom_citation_detection": 1.0,
+  "phantom_citations": [],
+  "recommendation": "CITATIONS_AS_EPISTEMIC_EDGES",
+  "reference_usage_integrity": 1.0,
+  "references": [
+    {
+      "authors": "Rentschler and Roberts",
+      "citation_text": "Rentschler and Roberts (2025). In-Context Reinforcement Learning for Variable Action Spaces and Skill Stitching. arXiv:2501.14176.",
+      "ref_key": "rentschler_roberts_2025",
+      "title": "In-Context Reinforcement Learning for Variable Action Spaces and Skill Stitching",
+      "venue": "arXiv:2501.14176",
+      "year": 2025
+    }
+  ],
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "CITATIONS_AS_EPISTEMIC_EDGES",
+    "CITATION_FRAGILE",
+    "CITATION_DRIFT_HALT"
+  ],
+  "schema_version": "v25_2_citation_governance",
+  "signature": "a4cea6529e0ad2f7405f3605b1cad80a9eacc1534257d9dc3cd38d9682131ad0",
+  "wrong_reference_assignment": []
+}
