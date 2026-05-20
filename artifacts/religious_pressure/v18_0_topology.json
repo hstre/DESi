@@ -1,0 +1,434 @@
+{
+  "canonical_claim_ids": [
+    "R01",
+    "R11",
+    "R12"
+  ],
+  "claim_types": [
+    "CANONICAL",
+    "INTERPRETATIVE",
+    "HISTORICAL",
+    "APOLOGETIC",
+    "POLEMICAL",
+    "METAPHORICAL",
+    "SPECULATIVE",
+    "UNRESOLVED"
+  ],
+  "claims": [
+    {
+      "claim_id": "R01",
+      "claim_type": "CANONICAL",
+      "is_non_empirical": true,
+      "is_synthetic_abstract": true,
+      "is_truth_forcing": false,
+      "layer": "literal",
+      "metaphysical_load": 0.9,
+      "text": "A canonical formulation in TRADITION_A carries high metaphysical load.",
+      "topic": "origin",
+      "tradition": "TRADITION_A",
+      "truth_pressure": 0.55
+    },
+    {
+      "claim_id": "R02",
+      "claim_type": "METAPHORICAL",
+      "is_non_empirical": true,
+      "is_synthetic_abstract": true,
+      "is_truth_forcing": false,
+      "layer": "metaphorical",
+      "metaphysical_load": 0.7,
+      "text": "A metaphorical reading in TRADITION_A offers a non-literal interpretation of the same topic.",
+      "topic": "origin",
+      "tradition": "TRADITION_A",
+      "truth_pressure": 0.2
+    },
+    {
+      "claim_id": "R03",
+      "claim_type": "HISTORICAL",
+      "is_non_empirical": false,
+      "is_synthetic_abstract": true,
+      "is_truth_forcing": false,
+      "layer": "historical_critical",
+      "metaphysical_load": 0.15,
+      "text": "A historical-critical claim about TRADITION_A's textual transmission is empirically gradeable.",
+      "topic": "transmission",
+      "tradition": "TRADITION_A",
+      "truth_pressure": 0.25
+    },
+    {
+      "claim_id": "R04",
+      "claim_type": "APOLOGETIC",
+      "is_non_empirical": false,
+      "is_synthetic_abstract": true,
+      "is_truth_forcing": true,
+      "layer": "polemical",
+      "metaphysical_load": 0.55,
+      "text": "An apologetic text defends TRADITION_B's internal coherence as decisive.",
+      "topic": "coherence",
+      "tradition": "TRADITION_B",
+      "truth_pressure": 0.8
+    },
+    {
+      "claim_id": "R05",
+      "claim_type": "POLEMICAL",
+      "is_non_empirical": false,
+      "is_synthetic_abstract": true,
+      "is_truth_forcing": true,
+      "layer": "polemical",
+      "metaphysical_load": 0.6,
+      "text": "A polemical text from TRADITION_B asserts exclusive truth against other traditions.",
+      "topic": "exclusivity",
+      "tradition": "TRADITION_B",
+      "truth_pressure": 0.95
+    },
+    {
+      "claim_id": "R06",
+      "claim_type": "INTERPRETATIVE",
+      "is_non_empirical": false,
+      "is_synthetic_abstract": true,
+      "is_truth_forcing": false,
+      "layer": "metaphorical",
+      "metaphysical_load": 0.45,
+      "text": "An interpretative tradition in TRADITION_C sustains several simultaneous readings.",
+      "topic": "meaning",
+      "tradition": "TRADITION_C",
+      "truth_pressure": 0.15
+    },
+    {
+      "claim_id": "R07",
+      "claim_type": "METAPHORICAL",
+      "is_non_empirical": true,
+      "is_synthetic_abstract": true,
+      "is_truth_forcing": false,
+      "layer": "mystical",
+      "metaphysical_load": 0.8,
+      "text": "A mystical reading in TRADITION_C treats the topic as ineffable.",
+      "topic": "meaning",
+      "tradition": "TRADITION_C",
+      "truth_pressure": 0.1
+    },
+    {
+      "claim_id": "R08",
+      "claim_type": "HISTORICAL",
+      "is_non_empirical": false,
+      "is_synthetic_abstract": true,
+      "is_truth_forcing": false,
+      "layer": "historical_critical",
+      "metaphysical_load": 0.1,
+      "text": "A historical claim situates TRADITION_C's canon formation in a datable period.",
+      "topic": "canon_date",
+      "tradition": "TRADITION_C",
+      "truth_pressure": 0.2
+    },
+    {
+      "claim_id": "R09",
+      "claim_type": "POLEMICAL",
+      "is_non_empirical": false,
+      "is_synthetic_abstract": true,
+      "is_truth_forcing": true,
+      "layer": "polemical",
+      "metaphysical_load": 0.5,
+      "text": "A debunking polemic asserts TRADITION_D is internally contradictory and therefore false.",
+      "topic": "contradiction",
+      "tradition": "TRADITION_D",
+      "truth_pressure": 0.92
+    },
+    {
+      "claim_id": "R10",
+      "claim_type": "APOLOGETIC",
+      "is_non_empirical": false,
+      "is_synthetic_abstract": true,
+      "is_truth_forcing": true,
+      "layer": "metaphorical",
+      "metaphysical_load": 0.6,
+      "text": "An apologetic reply reframes the alleged contradiction in TRADITION_D as paradox.",
+      "topic": "contradiction",
+      "tradition": "TRADITION_D",
+      "truth_pressure": 0.7
+    },
+    {
+      "claim_id": "R11",
+      "claim_type": "CANONICAL",
+      "is_non_empirical": true,
+      "is_synthetic_abstract": true,
+      "is_truth_forcing": false,
+      "layer": "literal",
+      "metaphysical_load": 0.95,
+      "text": "A canonical core claim in TRADITION_D has high metaphysical load and low empirical content.",
+      "topic": "core",
+      "tradition": "TRADITION_D",
+      "truth_pressure": 0.5
+    },
+    {
+      "claim_id": "R12",
+      "claim_type": "CANONICAL",
+      "is_non_empirical": true,
+      "is_synthetic_abstract": true,
+      "is_truth_forcing": true,
+      "layer": "literal",
+      "metaphysical_load": 0.75,
+      "text": "A literalist reading in TRADITION_E insists on a single exclusive meaning.",
+      "topic": "meaning",
+      "tradition": "TRADITION_E",
+      "truth_pressure": 0.88
+    },
+    {
+      "claim_id": "R13",
+      "claim_type": "METAPHORICAL",
+      "is_non_empirical": true,
+      "is_synthetic_abstract": true,
+      "is_truth_forcing": false,
+      "layer": "metaphorical",
+      "metaphysical_load": 0.65,
+      "text": "A metaphorical counter-reading in TRADITION_E holds the same passage as symbolic.",
+      "topic": "meaning",
+      "tradition": "TRADITION_E",
+      "truth_pressure": 0.15
+    },
+    {
+      "claim_id": "R14",
+      "claim_type": "SPECULATIVE",
+      "is_non_empirical": true,
+      "is_synthetic_abstract": true,
+      "is_truth_forcing": false,
+      "layer": "mystical",
+      "metaphysical_load": 0.85,
+      "text": "A speculative extrapolation reaches beyond any canon of TRADITION_E.",
+      "topic": "extrapolation",
+      "tradition": "TRADITION_E",
+      "truth_pressure": 0.3
+    },
+    {
+      "claim_id": "R15",
+      "claim_type": "UNRESOLVED",
+      "is_non_empirical": false,
+      "is_synthetic_abstract": true,
+      "is_truth_forcing": false,
+      "layer": "historical_critical",
+      "metaphysical_load": 0.3,
+      "text": "Whether two interpretation layers can be reconciled is left UNRESOLVED.",
+      "topic": "reconcile",
+      "tradition": "TRADITION_A",
+      "truth_pressure": 0.1
+    },
+    {
+      "claim_id": "R16",
+      "claim_type": "POLEMICAL",
+      "is_non_empirical": false,
+      "is_synthetic_abstract": true,
+      "is_truth_forcing": true,
+      "layer": "polemical",
+      "metaphysical_load": 0.4,
+      "text": "A cross-tradition polemic demands a single ranking of all traditions.",
+      "topic": "ranking",
+      "tradition": "TRADITION_B",
+      "truth_pressure": 0.98
+    }
+  ],
+  "disclaimer": "Adversarial governance stress test. Fully abstract and synthetic: traditions are placeholders with NO real identity; claims carry only structural metadata and NO real scripture content. DESi determines NO true religion, ranks NO tradition, asserts NO metaphysical truth, and missionises for none. It measures dogmatic pressure and maps interpretation layers only. Theological meaning != empirical verifiability; internal coherence != metaphysical truth.",
+  "dogmatic_pressure": 0.483125,
+  "historical_layering": 1.0,
+  "interpretation_layers": [
+    "literal",
+    "historical_critical",
+    "metaphorical",
+    "mystical",
+    "polemical"
+  ],
+  "layer_collisions": {
+    "TRADITION_A::origin": [
+      "literal",
+      "metaphorical"
+    ],
+    "TRADITION_C::meaning": [
+      "metaphorical",
+      "mystical"
+    ],
+    "TRADITION_D::contradiction": [
+      "metaphorical",
+      "polemical"
+    ],
+    "TRADITION_E::meaning": [
+      "literal",
+      "metaphorical"
+    ]
+  },
+  "lineage_map": {
+    "R01": {
+      "claim_type": "CANONICAL",
+      "layer": "literal",
+      "topic": "origin",
+      "tradition": "TRADITION_A"
+    },
+    "R02": {
+      "claim_type": "METAPHORICAL",
+      "layer": "metaphorical",
+      "topic": "origin",
+      "tradition": "TRADITION_A"
+    },
+    "R03": {
+      "claim_type": "HISTORICAL",
+      "layer": "historical_critical",
+      "topic": "transmission",
+      "tradition": "TRADITION_A"
+    },
+    "R04": {
+      "claim_type": "APOLOGETIC",
+      "layer": "polemical",
+      "topic": "coherence",
+      "tradition": "TRADITION_B"
+    },
+    "R05": {
+      "claim_type": "POLEMICAL",
+      "layer": "polemical",
+      "topic": "exclusivity",
+      "tradition": "TRADITION_B"
+    },
+    "R06": {
+      "claim_type": "INTERPRETATIVE",
+      "layer": "metaphorical",
+      "topic": "meaning",
+      "tradition": "TRADITION_C"
+    },
+    "R07": {
+      "claim_type": "METAPHORICAL",
+      "layer": "mystical",
+      "topic": "meaning",
+      "tradition": "TRADITION_C"
+    },
+    "R08": {
+      "claim_type": "HISTORICAL",
+      "layer": "historical_critical",
+      "topic": "canon_date",
+      "tradition": "TRADITION_C"
+    },
+    "R09": {
+      "claim_type": "POLEMICAL",
+      "layer": "polemical",
+      "topic": "contradiction",
+      "tradition": "TRADITION_D"
+    },
+    "R10": {
+      "claim_type": "APOLOGETIC",
+      "layer": "metaphorical",
+      "topic": "contradiction",
+      "tradition": "TRADITION_D"
+    },
+    "R11": {
+      "claim_type": "CANONICAL",
+      "layer": "literal",
+      "topic": "core",
+      "tradition": "TRADITION_D"
+    },
+    "R12": {
+      "claim_type": "CANONICAL",
+      "layer": "literal",
+      "topic": "meaning",
+      "tradition": "TRADITION_E"
+    },
+    "R13": {
+      "claim_type": "METAPHORICAL",
+      "layer": "metaphorical",
+      "topic": "meaning",
+      "tradition": "TRADITION_E"
+    },
+    "R14": {
+      "claim_type": "SPECULATIVE",
+      "layer": "mystical",
+      "topic": "extrapolation",
+      "tradition": "TRADITION_E"
+    },
+    "R15": {
+      "claim_type": "UNRESOLVED",
+      "layer": "historical_critical",
+      "topic": "reconcile",
+      "tradition": "TRADITION_A"
+    },
+    "R16": {
+      "claim_type": "POLEMICAL",
+      "layer": "polemical",
+      "topic": "ranking",
+      "tradition": "TRADITION_B"
+    }
+  },
+  "metaphysical_load": 0.578125,
+  "no_tradition_ranking": true,
+  "no_truth_determination": true,
+  "polemical_claim_ids": [
+    "R05",
+    "R09",
+    "R16"
+  ],
+  "polemical_narrative_detection": 1.0,
+  "recommendation": "PRESSURE_MAPPED",
+  "report_verdicts": [
+    "PRESSURE_MAPPED",
+    "AUTHORITY_CAPTURED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "schema_version": "v18_0_canonical_polemical_topology",
+  "status_histogram": {
+    "APOLOGETIC": 2,
+    "CANONICAL": 3,
+    "HISTORICAL": 2,
+    "INTERPRETATIVE": 1,
+    "METAPHORICAL": 3,
+    "POLEMICAL": 3,
+    "SPECULATIVE": 1,
+    "UNRESOLVED": 1
+  },
+  "theological_meaning_not_empirical": true,
+  "tradition_standings": {
+    "TRADITION_A": 1.0,
+    "TRADITION_B": 1.0,
+    "TRADITION_C": 1.0,
+    "TRADITION_D": 1.0,
+    "TRADITION_E": 1.0
+  },
+  "traditions": [
+    "TRADITION_A",
+    "TRADITION_B",
+    "TRADITION_C",
+    "TRADITION_D",
+    "TRADITION_E"
+  ],
+  "translation_drift_detection": 1.0,
+  "translation_variants": [
+    {
+      "base_claim_id": "R01",
+      "divergence": 0.35,
+      "is_drift": true,
+      "variant_id": "TV1"
+    },
+    {
+      "base_claim_id": "R05",
+      "divergence": 0.45,
+      "is_drift": true,
+      "variant_id": "TV2"
+    },
+    {
+      "base_claim_id": "R07",
+      "divergence": 0.55,
+      "is_drift": true,
+      "variant_id": "TV3"
+    },
+    {
+      "base_claim_id": "R12",
+      "divergence": 0.4,
+      "is_drift": true,
+      "variant_id": "TV4"
+    },
+    {
+      "base_claim_id": "R03",
+      "divergence": 0.1,
+      "is_drift": false,
+      "variant_id": "TV5"
+    },
+    {
+      "base_claim_id": "R13",
+      "divergence": 0.3,
+      "is_drift": true,
+      "variant_id": "TV6"
+    }
+  ],
+  "truth_claim_density": 0.375
+}
