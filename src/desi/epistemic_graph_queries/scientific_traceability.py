@@ -92,7 +92,7 @@ def traceability_section() -> str:
             f"fixtures: {', '.join(r.fixtures) or 'n/a'}; "
             f"scope: {', '.join(r.limitations)}; "
             f"validated by {len(r.replay_hashes)} replay "
-            f"hash(es)."
+            f"hashes."
         )
     lines.append("")
     return "\n".join(lines)
