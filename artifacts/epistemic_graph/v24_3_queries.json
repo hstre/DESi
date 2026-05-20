@@ -1,0 +1,268 @@
+{
+  "citations": [
+    {
+      "kind": "claim",
+      "sprints": [
+        "v19.1"
+      ],
+      "subject": "DC1",
+      "text": "DC1 [v19.1] (validated: v19.1)"
+    },
+    {
+      "kind": "claim",
+      "sprints": [
+        "v20.1"
+      ],
+      "subject": "DC2",
+      "text": "DC2 [v20.1] (validated: v20.1)"
+    },
+    {
+      "kind": "claim",
+      "sprints": [
+        "v20.2",
+        "v21.0"
+      ],
+      "subject": "DC3",
+      "text": "DC3 [v20.2, v21.0] (validated: v20.2)"
+    },
+    {
+      "kind": "claim",
+      "sprints": [
+        "v19.0",
+        "v20.2"
+      ],
+      "subject": "DC4",
+      "text": "DC4 [v19.0, v20.2] (validated: v19.0)"
+    },
+    {
+      "kind": "claim",
+      "sprints": [
+        "v19.3",
+        "v20.3"
+      ],
+      "subject": "DC5",
+      "text": "DC5 [v19.3, v20.3] (validated: v19.3)"
+    },
+    {
+      "kind": "metric",
+      "sprints": [
+        "v20.3"
+      ],
+      "subject": "authority_drift",
+      "text": "authority_drift [v20.3] supports DC5 (validated: v20.3)"
+    },
+    {
+      "kind": "metric",
+      "sprints": [
+        "v20.3"
+      ],
+      "subject": "capture_resistance",
+      "text": "capture_resistance [v20.3] supports DC5 (validated: v20.3)"
+    },
+    {
+      "kind": "metric",
+      "sprints": [
+        "v20.2"
+      ],
+      "subject": "exploration_diversity",
+      "text": "exploration_diversity [v20.2] supports DC5 (validated: v20.2)"
+    },
+    {
+      "kind": "metric",
+      "sprints": [
+        "v21.0"
+      ],
+      "subject": "novelty_gain",
+      "text": "novelty_gain [v21.0] supports DC3 (validated: v21.0)"
+    },
+    {
+      "kind": "metric",
+      "sprints": [
+        "v21.0"
+      ],
+      "subject": "productivity_gain",
+      "text": "productivity_gain [v21.0] supports DC3 (validated: v21.0)"
+    },
+    {
+      "kind": "metric",
+      "sprints": [
+        "v19.1"
+      ],
+      "subject": "redundancy_reduction",
+      "text": "redundancy_reduction [v19.1] supports DC1 (validated: v19.1)"
+    },
+    {
+      "kind": "metric",
+      "sprints": [
+        "v22.4"
+      ],
+      "subject": "replay_stability",
+      "text": "replay_stability [v22.4] supports DC1 (validated: v22.4)"
+    },
+    {
+      "kind": "metric",
+      "sprints": [
+        "v20.1"
+      ],
+      "subject": "residual_hallucination",
+      "text": "residual_hallucination [v20.1] supports DC2 (validated: v20.1)"
+    }
+  ],
+  "condition_reconstruction": 1.0,
+  "disclaimer": "Read-only graph queries that auto-derive scientific traceability, metric derivations, experimental conditions and paper lineage from the v24.0 epistemic graph. The graph supplies structure and provenance, not decisions; scientific rendering stays governed (no forbidden terms) and the canonical state remains the JSON artifacts and replay hashes.",
+  "graph_signature": "b9dfa934cd6df3ce5df644d10b3837e95e70ae2e32bd2f9acc7b5517ce8eed11",
+  "lineage_integrity": 1.0,
+  "metric_derivation_visibility": 1.0,
+  "paper_lineage": [
+    {
+      "artifact": "v23_0_anchoring",
+      "claims": [],
+      "sprint": "v23.0"
+    },
+    {
+      "artifact": "v23_1_conditions",
+      "claims": [],
+      "sprint": "v23.1"
+    },
+    {
+      "artifact": "v23_2_density",
+      "claims": [],
+      "sprint": "v23.2"
+    },
+    {
+      "artifact": "v23_3_relevance",
+      "claims": [],
+      "sprint": "v23.3"
+    },
+    {
+      "artifact": "v23_4_followup_verdict",
+      "claims": [],
+      "sprint": "v23.4"
+    },
+    {
+      "artifact": "v24_0_schema",
+      "claims": [],
+      "sprint": "v24.0"
+    }
+  ],
+  "recommendation": "TRACEABILITY_AUTO_DERIVED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "TRACEABILITY_AUTO_DERIVED",
+    "TRACEABILITY_INCOMPLETE",
+    "QUERY_DRIFT_HALT"
+  ],
+  "schema_version": "v24_3_graph_queries",
+  "scientific_traceability": 1.0,
+  "section_forbidden_hits": [],
+  "signature": "992843281395da4d795f4ef6d38fbf2b0b0eae3b70032cfd24b103f290626bf8",
+  "trace_records": [
+    {
+      "claim_id": "DC1",
+      "fixtures": [
+        "synthetic_trajectories"
+      ],
+      "is_complete": true,
+      "limitations": [
+        "L1"
+      ],
+      "methods": [
+        "soft_reweighting"
+      ],
+      "replay_hashes": [
+        "v19.1"
+      ],
+      "sprints": [
+        "v19.1"
+      ],
+      "text": "A read-only governance layer reduces redundant search while preserving novel-state reachability."
+    },
+    {
+      "claim_id": "DC2",
+      "fixtures": [
+        "hallucinated_paths"
+      ],
+      "is_complete": true,
+      "limitations": [
+        "L1"
+      ],
+      "methods": [
+        "containment"
+      ],
+      "replay_hashes": [
+        "v20.1"
+      ],
+      "sprints": [
+        "v20.1"
+      ],
+      "text": "Capping high-certainty incoherent paths keeps the uncontained hallucination rate at zero under pressure."
+    },
+    {
+      "claim_id": "DC3",
+      "fixtures": [
+        "synthetic_trajectories"
+      ],
+      "is_complete": true,
+      "limitations": [
+        "L1",
+        "L5"
+      ],
+      "methods": [
+        "generator_governor_split",
+        "negotiation"
+      ],
+      "replay_hashes": [
+        "v20.2"
+      ],
+      "sprints": [
+        "v20.2",
+        "v21.0"
+      ],
+      "text": "A generator/governor split raises distinct-state coverage under sparse-reward-like conditions."
+    },
+    {
+      "claim_id": "DC4",
+      "fixtures": [
+        "synthetic_trajectories"
+      ],
+      "is_complete": true,
+      "limitations": [
+        "L1"
+      ],
+      "methods": [
+        "soft_reweighting"
+      ],
+      "replay_hashes": [
+        "v19.0"
+      ],
+      "sprints": [
+        "v19.0",
+        "v20.2"
+      ],
+      "text": "Repetitive loops and dead ends are detected and deprioritised rather than deleted."
+    },
+    {
+      "claim_id": "DC5",
+      "fixtures": [
+        "ecology_5600"
+      ],
+      "is_complete": true,
+      "limitations": [
+        "L1",
+        "L2"
+      ],
+      "methods": [
+        "bounded_saturating_drift",
+        "negotiation"
+      ],
+      "replay_hashes": [
+        "v19.3"
+      ],
+      "sprints": [
+        "v19.3",
+        "v20.3"
+      ],
+      "text": "The governance layer keeps exploration plural under variable-action-space and non-stationary shifts over a long horizon."
+    }
+  ]
+}
