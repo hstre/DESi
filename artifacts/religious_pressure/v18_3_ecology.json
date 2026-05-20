@@ -1,0 +1,2032 @@
+{
+  "alternative_visibility": 0.980045,
+  "attempted_authority_pressure": 0.699915,
+  "authority_drift": 0.087563,
+  "authority_drift_bounded": true,
+  "capture_occurred": false,
+  "capture_resistance": 1.0,
+  "disclaimer": "A >= 5000-step deterministic simulation of ideological long-horizon pressure (schisms, missionary waves, debunking campaigns, media amplification, political instrumentalization, authority claims, aggressive simplification). DESi keeps plurality high, bounds authority drift, resists capture, keeps alternative readings visible, adopts NO reading, ranks NO tradition, and asserts NO metaphysical truth. Abstract; no real content.",
+  "enum_snapshot_hash": "3293e4470626e7fc4a4bd95cfa01d10c06587613e3e172a85913d3c0b50055d9",
+  "event_types": [
+    "schism",
+    "missionary_wave",
+    "debunking_campaign",
+    "media_amplification",
+    "political_instrumentalization",
+    "authority_claim",
+    "aggressive_simplification"
+  ],
+  "final_hash": "f43929a70367562a55f034ee15c8274e331fe069856418123ead369e8327b2dc",
+  "min_plurality": 0.94006,
+  "plurality_preservation": 0.970023,
+  "recommendation": "IDEOLOGICAL_ECOLOGY_STABLE",
+  "report_verdicts": [
+    "IDEOLOGICAL_ECOLOGY_STABLE",
+    "IDEOLOGICALLY_CAPTURED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "sample": [
+    {
+      "alternative_visibility": 0.99884,
+      "attempted_pressure": 0.6182,
+      "authority_drift": 0.0,
+      "capture": 0.0,
+      "chain_hash": "bff492cbf794dfdcc9ae1230d1cec61c3e1451f149f57769e02b94be706aaa1b",
+      "event_type": "schism",
+      "plurality": 0.99922,
+      "step": 0
+    },
+    {
+      "alternative_visibility": 0.98216,
+      "attempted_pressure": 0.6816,
+      "authority_drift": 0.001598,
+      "capture": 0.0,
+      "chain_hash": "03f635fe6858c203052e785039d53e7984cde5e38c65b623499e1df340566af6",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.95044,
+      "step": 27
+    },
+    {
+      "alternative_visibility": 0.96548,
+      "attempted_pressure": 0.745,
+      "authority_drift": 0.003155,
+      "capture": 0.0,
+      "chain_hash": "bc2337ae62a93692dc7cdab7f42af06b6365696ece418778b84394810821a6da",
+      "event_type": "authority_claim",
+      "plurality": 0.96166,
+      "step": 54
+    },
+    {
+      "alternative_visibility": 0.9888,
+      "attempted_pressure": 0.6084,
+      "authority_drift": 0.004671,
+      "capture": 0.0,
+      "chain_hash": "dedfaf929405df739622adbd89c5a7a1bcdb170c32a9eef9775488373bb6865c",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.97288,
+      "step": 81
+    },
+    {
+      "alternative_visibility": 0.97212,
+      "attempted_pressure": 0.6718,
+      "authority_drift": 0.006148,
+      "capture": 0.0,
+      "chain_hash": "a7c74e9b98c147673caab0534a30e043292eaaa6bfd5a8f78181801212e987ae",
+      "event_type": "media_amplification",
+      "plurality": 0.9841,
+      "step": 108
+    },
+    {
+      "alternative_visibility": 0.99544,
+      "attempted_pressure": 0.7352,
+      "authority_drift": 0.007588,
+      "capture": 0.0,
+      "chain_hash": "4174fc40690db266d7cee5d016a6fabacd113bf87e4c7a96f396cbbf1c9b4763",
+      "event_type": "debunking_campaign",
+      "plurality": 0.99532,
+      "step": 135
+    },
+    {
+      "alternative_visibility": 0.97876,
+      "attempted_pressure": 0.7986,
+      "authority_drift": 0.008992,
+      "capture": 0.0,
+      "chain_hash": "754d637b27f82c82220b4a635d2c65411df1cae96a97e7f1c934b5c1f729b312",
+      "event_type": "missionary_wave",
+      "plurality": 0.94654,
+      "step": 162
+    },
+    {
+      "alternative_visibility": 0.96208,
+      "attempted_pressure": 0.662,
+      "authority_drift": 0.010361,
+      "capture": 0.0,
+      "chain_hash": "e4816ac6ea4b50e9fe0f2f399878a5c0a1ad983c5751c984b17bfcdf1c7ffac1",
+      "event_type": "schism",
+      "plurality": 0.95776,
+      "step": 189
+    },
+    {
+      "alternative_visibility": 0.9854,
+      "attempted_pressure": 0.7254,
+      "authority_drift": 0.011697,
+      "capture": 0.0,
+      "chain_hash": "dab084e3dbe9c0d62c00b9118f355e918e5c241fd1d7c7edbbf033f5fba05d60",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.96898,
+      "step": 216
+    },
+    {
+      "alternative_visibility": 0.96872,
+      "attempted_pressure": 0.7888,
+      "authority_drift": 0.013,
+      "capture": 0.0,
+      "chain_hash": "841e99ffbcb45729ec751fd0ed1d90c990544494d815d2b8b7758e9ac1636744",
+      "event_type": "authority_claim",
+      "plurality": 0.9802,
+      "step": 243
+    },
+    {
+      "alternative_visibility": 0.99204,
+      "attempted_pressure": 0.6522,
+      "authority_drift": 0.014273,
+      "capture": 0.0,
+      "chain_hash": "b256597e0b6d7675bf67dae5e275253a63bcfb8866b5bd8e9752ad6e1deb99f0",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.99142,
+      "step": 270
+    },
+    {
+      "alternative_visibility": 0.97536,
+      "attempted_pressure": 0.7156,
+      "authority_drift": 0.015516,
+      "capture": 0.0,
+      "chain_hash": "49e89837d17a9b01b574293e3a0f8205556f3413de3bf5d1a0bababa472abada",
+      "event_type": "media_amplification",
+      "plurality": 0.94264,
+      "step": 297
+    },
+    {
+      "alternative_visibility": 0.99868,
+      "attempted_pressure": 0.779,
+      "authority_drift": 0.01673,
+      "capture": 0.0,
+      "chain_hash": "987fe7734c9b427930e78e2a6b863ff49d0d0c92ad0bf179ab98735dfaea2bcd",
+      "event_type": "debunking_campaign",
+      "plurality": 0.95386,
+      "step": 324
+    },
+    {
+      "alternative_visibility": 0.982,
+      "attempted_pressure": 0.6424,
+      "authority_drift": 0.017916,
+      "capture": 0.0,
+      "chain_hash": "444cb845f26289c1c494d62ffb130789d6572b6a02d5bed0e076f3ea7852f476",
+      "event_type": "missionary_wave",
+      "plurality": 0.96508,
+      "step": 351
+    },
+    {
+      "alternative_visibility": 0.96532,
+      "attempted_pressure": 0.7058,
+      "authority_drift": 0.019075,
+      "capture": 0.0,
+      "chain_hash": "d427420d4180a93f1a4a2860a60d00e4b400194500255fb9da78a31c3ca18328",
+      "event_type": "schism",
+      "plurality": 0.9763,
+      "step": 378
+    },
+    {
+      "alternative_visibility": 0.98864,
+      "attempted_pressure": 0.7692,
+      "authority_drift": 0.020208,
+      "capture": 0.0,
+      "chain_hash": "3013189555dd18c21e3004ebabea26a9672a45ddc22e69ba829a4994f6660a20",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.98752,
+      "step": 405
+    },
+    {
+      "alternative_visibility": 0.97196,
+      "attempted_pressure": 0.6326,
+      "authority_drift": 0.021316,
+      "capture": 0.0,
+      "chain_hash": "7c0b15d926e45753421cdee5545d513328f45a2c889f34d7630e83b8d838a4bc",
+      "event_type": "authority_claim",
+      "plurality": 0.99874,
+      "step": 432
+    },
+    {
+      "alternative_visibility": 0.99528,
+      "attempted_pressure": 0.696,
+      "authority_drift": 0.022399,
+      "capture": 0.0,
+      "chain_hash": "fd468a852c70005b1a9431e3cc3b39f6e6920dbecbeef0e70cca8dea6ee9090b",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.94996,
+      "step": 459
+    },
+    {
+      "alternative_visibility": 0.9786,
+      "attempted_pressure": 0.7594,
+      "authority_drift": 0.023459,
+      "capture": 0.0,
+      "chain_hash": "0cc48c8011d54cfc7c8f45d2612e6182034a13558fba32227f54b732ebc0bcfe",
+      "event_type": "media_amplification",
+      "plurality": 0.96118,
+      "step": 486
+    },
+    {
+      "alternative_visibility": 0.96192,
+      "attempted_pressure": 0.6228,
+      "authority_drift": 0.024497,
+      "capture": 0.0,
+      "chain_hash": "947dcf5872de4a6caa9456eedbd0f43f8d7cf4f63b9a95beb0c1e0ed85ef8cab",
+      "event_type": "debunking_campaign",
+      "plurality": 0.9724,
+      "step": 513
+    },
+    {
+      "alternative_visibility": 0.98524,
+      "attempted_pressure": 0.6862,
+      "authority_drift": 0.025512,
+      "capture": 0.0,
+      "chain_hash": "a610554cac499eec249c317dcf1deced8357da7df9ad62292e13dff1e50a5a13",
+      "event_type": "missionary_wave",
+      "plurality": 0.98362,
+      "step": 540
+    },
+    {
+      "alternative_visibility": 0.96856,
+      "attempted_pressure": 0.7496,
+      "authority_drift": 0.026506,
+      "capture": 0.0,
+      "chain_hash": "450efca1d80216d33a29b376e8fe6e51ddc78111b0f6089faf46459a6c8abf34",
+      "event_type": "schism",
+      "plurality": 0.99484,
+      "step": 567
+    },
+    {
+      "alternative_visibility": 0.99188,
+      "attempted_pressure": 0.613,
+      "authority_drift": 0.027479,
+      "capture": 0.0,
+      "chain_hash": "3a169a349f76852237f4f9578e0f90b4e19f32bab80b7d74e4240e7b4c733b43",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.94606,
+      "step": 594
+    },
+    {
+      "alternative_visibility": 0.9752,
+      "attempted_pressure": 0.6764,
+      "authority_drift": 0.028432,
+      "capture": 0.0,
+      "chain_hash": "0779b85b1d8362c667e5fe468c21bbdaf4671fc23d6aa9212eeb0994fe04d361",
+      "event_type": "authority_claim",
+      "plurality": 0.95728,
+      "step": 621
+    },
+    {
+      "alternative_visibility": 0.99852,
+      "attempted_pressure": 0.7398,
+      "authority_drift": 0.029366,
+      "capture": 0.0,
+      "chain_hash": "11ec45a8d337d45cc29a5ef0d6960d5fb5656f26936efe6afc00859012cf9ec2",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.9685,
+      "step": 648
+    },
+    {
+      "alternative_visibility": 0.98184,
+      "attempted_pressure": 0.6032,
+      "authority_drift": 0.03028,
+      "capture": 0.0,
+      "chain_hash": "dba7aab5a1aab4bcdcb7feea4a5dc8ad4c942d6c1387062b068ed2c08a9a3e57",
+      "event_type": "media_amplification",
+      "plurality": 0.97972,
+      "step": 675
+    },
+    {
+      "alternative_visibility": 0.96516,
+      "attempted_pressure": 0.6666,
+      "authority_drift": 0.031177,
+      "capture": 0.0,
+      "chain_hash": "9f4ddce0f651ea06f93d3036b87cf7e6dbe29a9fa78d6f7a807667ff07916bc8",
+      "event_type": "debunking_campaign",
+      "plurality": 0.99094,
+      "step": 702
+    },
+    {
+      "alternative_visibility": 0.98848,
+      "attempted_pressure": 0.73,
+      "authority_drift": 0.032056,
+      "capture": 0.0,
+      "chain_hash": "59357498db4695f3d8013bafbe9e656eb960bbe1eb7172b09a349130f0e63d9f",
+      "event_type": "missionary_wave",
+      "plurality": 0.94216,
+      "step": 729
+    },
+    {
+      "alternative_visibility": 0.9718,
+      "attempted_pressure": 0.7934,
+      "authority_drift": 0.032917,
+      "capture": 0.0,
+      "chain_hash": "e594d05f659c705775dbf136e14a5509a766758caed1191ee469637b9440d04d",
+      "event_type": "schism",
+      "plurality": 0.95338,
+      "step": 756
+    },
+    {
+      "alternative_visibility": 0.99512,
+      "attempted_pressure": 0.6568,
+      "authority_drift": 0.033762,
+      "capture": 0.0,
+      "chain_hash": "5609b7b486c7bd135dc0b7f2fd9b45431250cfeb569a6d22b9ef22a25fca43de",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.9646,
+      "step": 783
+    },
+    {
+      "alternative_visibility": 0.97844,
+      "attempted_pressure": 0.7202,
+      "authority_drift": 0.034591,
+      "capture": 0.0,
+      "chain_hash": "72422ebea46c82c977f399ac0985c0e8df0bec89150c73042e9faa25bdde755f",
+      "event_type": "authority_claim",
+      "plurality": 0.97582,
+      "step": 810
+    },
+    {
+      "alternative_visibility": 0.96176,
+      "attempted_pressure": 0.7836,
+      "authority_drift": 0.035404,
+      "capture": 0.0,
+      "chain_hash": "ed9979b9311d42fbb1eefda92612411b003570056c83ffea5f504fb883e229cf",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.98704,
+      "step": 837
+    },
+    {
+      "alternative_visibility": 0.98508,
+      "attempted_pressure": 0.647,
+      "authority_drift": 0.036201,
+      "capture": 0.0,
+      "chain_hash": "5ecd453e8ffc58db828457eec4675893bc517457d5142f22c1dc60ec603991d8",
+      "event_type": "media_amplification",
+      "plurality": 0.99826,
+      "step": 864
+    },
+    {
+      "alternative_visibility": 0.9684,
+      "attempted_pressure": 0.7104,
+      "authority_drift": 0.036984,
+      "capture": 0.0,
+      "chain_hash": "65e143a3b4be275aec66f6e0900d3ced4c5b9312ab2562a7d6c962ae10b5a909",
+      "event_type": "debunking_campaign",
+      "plurality": 0.94948,
+      "step": 891
+    },
+    {
+      "alternative_visibility": 0.99172,
+      "attempted_pressure": 0.7738,
+      "authority_drift": 0.037752,
+      "capture": 0.0,
+      "chain_hash": "add9c8c98314aac2fe5e69702e4ddf8a15a7746c5a2e5039903b1ee7b14d297f",
+      "event_type": "missionary_wave",
+      "plurality": 0.9607,
+      "step": 918
+    },
+    {
+      "alternative_visibility": 0.97504,
+      "attempted_pressure": 0.6372,
+      "authority_drift": 0.038506,
+      "capture": 0.0,
+      "chain_hash": "e68cb7f6b9e16cb4ba154824db04b7341ed80e07eab720908e9f3c685afb5126",
+      "event_type": "schism",
+      "plurality": 0.97192,
+      "step": 945
+    },
+    {
+      "alternative_visibility": 0.99836,
+      "attempted_pressure": 0.7006,
+      "authority_drift": 0.039246,
+      "capture": 0.0,
+      "chain_hash": "cbbc7d00cdb66c39cab6003cac92682eb0f4a507ee3430d532744340b2c190eb",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.98314,
+      "step": 972
+    },
+    {
+      "alternative_visibility": 0.98168,
+      "attempted_pressure": 0.764,
+      "authority_drift": 0.039973,
+      "capture": 0.0,
+      "chain_hash": "8b090b2e74790e6be77cdc77d8e733dcb61eeb03a16c1a67a02bffa020bedf71",
+      "event_type": "authority_claim",
+      "plurality": 0.99436,
+      "step": 999
+    },
+    {
+      "alternative_visibility": 0.965,
+      "attempted_pressure": 0.6274,
+      "authority_drift": 0.040687,
+      "capture": 0.0,
+      "chain_hash": "210858a0bb644cca5561fcd09ec8aeb483525d670aaeaf777cc08aa693e11dc0",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.94558,
+      "step": 1026
+    },
+    {
+      "alternative_visibility": 0.98832,
+      "attempted_pressure": 0.6908,
+      "authority_drift": 0.041389,
+      "capture": 0.0,
+      "chain_hash": "673b991d23ab75939476b1c1451a7dd4a91b33d446d0f4e108e93d2444d790d9",
+      "event_type": "media_amplification",
+      "plurality": 0.9568,
+      "step": 1053
+    },
+    {
+      "alternative_visibility": 0.97164,
+      "attempted_pressure": 0.7542,
+      "authority_drift": 0.042078,
+      "capture": 0.0,
+      "chain_hash": "7336cce02b36e23e30c279bd6b7fded528a00014d51a3e0d52128af84279d2ca",
+      "event_type": "debunking_campaign",
+      "plurality": 0.96802,
+      "step": 1080
+    },
+    {
+      "alternative_visibility": 0.99496,
+      "attempted_pressure": 0.6176,
+      "authority_drift": 0.042755,
+      "capture": 0.0,
+      "chain_hash": "7c42354f423d8edd07966feb9c2df69c8bc3f65fcd5cbcb8f695846d88840427",
+      "event_type": "missionary_wave",
+      "plurality": 0.97924,
+      "step": 1107
+    },
+    {
+      "alternative_visibility": 0.97828,
+      "attempted_pressure": 0.681,
+      "authority_drift": 0.043421,
+      "capture": 0.0,
+      "chain_hash": "ee9b5c14e47be2dae3fcf5aad189143bfe396a597bd13d4c254ec1d587f104f7",
+      "event_type": "schism",
+      "plurality": 0.99046,
+      "step": 1134
+    },
+    {
+      "alternative_visibility": 0.9616,
+      "attempted_pressure": 0.7444,
+      "authority_drift": 0.044075,
+      "capture": 0.0,
+      "chain_hash": "9b21b129f1837597890d1f267366b9b0eb6c15182348f6fe164f1ad73307dd51",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.94168,
+      "step": 1161
+    },
+    {
+      "alternative_visibility": 0.98492,
+      "attempted_pressure": 0.6078,
+      "authority_drift": 0.044718,
+      "capture": 0.0,
+      "chain_hash": "32fc8938614ce87363e776ede45178200719cfa6fa499af178a1bb50a3ce7fe4",
+      "event_type": "authority_claim",
+      "plurality": 0.9529,
+      "step": 1188
+    },
+    {
+      "alternative_visibility": 0.96824,
+      "attempted_pressure": 0.6712,
+      "authority_drift": 0.04535,
+      "capture": 0.0,
+      "chain_hash": "d64e94b260aaa26fc8836c6fc983bd32406ef384274f53a0d47c7011857e672f",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.96412,
+      "step": 1215
+    },
+    {
+      "alternative_visibility": 0.99156,
+      "attempted_pressure": 0.7346,
+      "authority_drift": 0.045972,
+      "capture": 0.0,
+      "chain_hash": "214abe15f98df4c17958e06d4517bb003aa14b3ac0e567899e90bf30d074cdb1",
+      "event_type": "media_amplification",
+      "plurality": 0.97534,
+      "step": 1242
+    },
+    {
+      "alternative_visibility": 0.97488,
+      "attempted_pressure": 0.798,
+      "authority_drift": 0.046583,
+      "capture": 0.0,
+      "chain_hash": "7a326e2c5685c50d2a86b2d230b64b0e6a4a026b5dd92f71b371ea13ea304bc0",
+      "event_type": "debunking_campaign",
+      "plurality": 0.98656,
+      "step": 1269
+    },
+    {
+      "alternative_visibility": 0.9982,
+      "attempted_pressure": 0.6614,
+      "authority_drift": 0.047184,
+      "capture": 0.0,
+      "chain_hash": "c2706b522e2c92364e6f67d13238437ae695f4e4961c1dbbc384aeaa50a8f40d",
+      "event_type": "missionary_wave",
+      "plurality": 0.99778,
+      "step": 1296
+    },
+    {
+      "alternative_visibility": 0.98152,
+      "attempted_pressure": 0.7248,
+      "authority_drift": 0.047776,
+      "capture": 0.0,
+      "chain_hash": "a9150f60ec468da7ef6b2ae6a14ce81978436c33e74b3eb60a89814798a45d50",
+      "event_type": "schism",
+      "plurality": 0.949,
+      "step": 1323
+    },
+    {
+      "alternative_visibility": 0.96484,
+      "attempted_pressure": 0.7882,
+      "authority_drift": 0.048358,
+      "capture": 0.0,
+      "chain_hash": "11ae338eee67a56fe80ae37242bf2471a6b446628a2df9c79fdbe0a72b400313",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.96022,
+      "step": 1350
+    },
+    {
+      "alternative_visibility": 0.98816,
+      "attempted_pressure": 0.6516,
+      "authority_drift": 0.048931,
+      "capture": 0.0,
+      "chain_hash": "dcad1f47eb8cf1dbcdf028b2d4432578868d80d3301e4f8c5b107bb0048f5e50",
+      "event_type": "authority_claim",
+      "plurality": 0.97144,
+      "step": 1377
+    },
+    {
+      "alternative_visibility": 0.97148,
+      "attempted_pressure": 0.715,
+      "authority_drift": 0.049495,
+      "capture": 0.0,
+      "chain_hash": "050ef21320cfbbf0068868361b69f7b82aebbfe8bf2ba13654222b71f9e269a2",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.98266,
+      "step": 1404
+    },
+    {
+      "alternative_visibility": 0.9948,
+      "attempted_pressure": 0.7784,
+      "authority_drift": 0.05005,
+      "capture": 0.0,
+      "chain_hash": "34da46477b01bfa2de652229e6bc718c963c15ef042c3fdcf8ba4870bf944d0f",
+      "event_type": "media_amplification",
+      "plurality": 0.99388,
+      "step": 1431
+    },
+    {
+      "alternative_visibility": 0.97812,
+      "attempted_pressure": 0.6418,
+      "authority_drift": 0.050596,
+      "capture": 0.0,
+      "chain_hash": "a4b182eba9750da5861aaf7c9995ba6dcd8e63fe3da04f3882ac0b6c0e535585",
+      "event_type": "debunking_campaign",
+      "plurality": 0.9451,
+      "step": 1458
+    },
+    {
+      "alternative_visibility": 0.96144,
+      "attempted_pressure": 0.7052,
+      "authority_drift": 0.051133,
+      "capture": 0.0,
+      "chain_hash": "bbde644bc8b9a7106e219a8f6fee0614b5e9a4cf4e1b0741f49d8523cc0b9120",
+      "event_type": "missionary_wave",
+      "plurality": 0.95632,
+      "step": 1485
+    },
+    {
+      "alternative_visibility": 0.98476,
+      "attempted_pressure": 0.7686,
+      "authority_drift": 0.051663,
+      "capture": 0.0,
+      "chain_hash": "23b4f3315f45c391f2d418701690ab8835f5cbd746d9e6e8e9fccd1f95f74230",
+      "event_type": "schism",
+      "plurality": 0.96754,
+      "step": 1512
+    },
+    {
+      "alternative_visibility": 0.96808,
+      "attempted_pressure": 0.632,
+      "authority_drift": 0.052184,
+      "capture": 0.0,
+      "chain_hash": "50b314f90d6132d15383c29310f9f227e02345d4ab0cdd50efba33157ed4145d",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.97876,
+      "step": 1539
+    },
+    {
+      "alternative_visibility": 0.9914,
+      "attempted_pressure": 0.6954,
+      "authority_drift": 0.052698,
+      "capture": 0.0,
+      "chain_hash": "fbfe7977db79f0be22ba18674416270c662540ff220d688c4d80e0fb71b20e96",
+      "event_type": "authority_claim",
+      "plurality": 0.98998,
+      "step": 1566
+    },
+    {
+      "alternative_visibility": 0.97472,
+      "attempted_pressure": 0.7588,
+      "authority_drift": 0.053203,
+      "capture": 0.0,
+      "chain_hash": "9805fff4384397ab7161bc8833efdb24657106355e1780dd7603a83d6dd3c7b1",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.9412,
+      "step": 1593
+    },
+    {
+      "alternative_visibility": 0.99804,
+      "attempted_pressure": 0.6222,
+      "authority_drift": 0.053702,
+      "capture": 0.0,
+      "chain_hash": "5bfa0daab2c70b7f7cba4c8da18086c9b6a77ee8c3fdcc2e5a0dccc4d47d21c1",
+      "event_type": "media_amplification",
+      "plurality": 0.95242,
+      "step": 1620
+    },
+    {
+      "alternative_visibility": 0.98136,
+      "attempted_pressure": 0.6856,
+      "authority_drift": 0.054192,
+      "capture": 0.0,
+      "chain_hash": "fd4f54cb3b33a35a276821b80d9b904021bfe624d5a7feb6513bc74ea66ff42d",
+      "event_type": "debunking_campaign",
+      "plurality": 0.96364,
+      "step": 1647
+    },
+    {
+      "alternative_visibility": 0.96468,
+      "attempted_pressure": 0.749,
+      "authority_drift": 0.054676,
+      "capture": 0.0,
+      "chain_hash": "c709f61a5b4a0593c61ff2f53322815b611371215d8f14052c2c5d05f40272b7",
+      "event_type": "missionary_wave",
+      "plurality": 0.97486,
+      "step": 1674
+    },
+    {
+      "alternative_visibility": 0.988,
+      "attempted_pressure": 0.6124,
+      "authority_drift": 0.055153,
+      "capture": 0.0,
+      "chain_hash": "a5e3fd81962ec2f990a442e86377018d5a71dba7361556f1bcd24214fd3f15f9",
+      "event_type": "schism",
+      "plurality": 0.98608,
+      "step": 1701
+    },
+    {
+      "alternative_visibility": 0.97132,
+      "attempted_pressure": 0.6758,
+      "authority_drift": 0.055622,
+      "capture": 0.0,
+      "chain_hash": "c1852082e88752a64dec64a5f6ab232c99f034ebf6f7946816a86034381ab99b",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.9973,
+      "step": 1728
+    },
+    {
+      "alternative_visibility": 0.99464,
+      "attempted_pressure": 0.7392,
+      "authority_drift": 0.056085,
+      "capture": 0.0,
+      "chain_hash": "9bafdaa00c0e89675eeb3fab6434d1b7c03d8a1a36fefe9373a6e423eb1e1810",
+      "event_type": "authority_claim",
+      "plurality": 0.94852,
+      "step": 1755
+    },
+    {
+      "alternative_visibility": 0.97796,
+      "attempted_pressure": 0.6026,
+      "authority_drift": 0.056542,
+      "capture": 0.0,
+      "chain_hash": "573bd6e16b70cbdedc6ff661836ce593f6f71240e2fa48ce0cffe787124aa162",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.95974,
+      "step": 1782
+    },
+    {
+      "alternative_visibility": 0.96128,
+      "attempted_pressure": 0.666,
+      "authority_drift": 0.056991,
+      "capture": 0.0,
+      "chain_hash": "7c79f6cb412e767675835ab6a3ea688b1e9e7c872147cee7bf67bf1b0f56503d",
+      "event_type": "media_amplification",
+      "plurality": 0.97096,
+      "step": 1809
+    },
+    {
+      "alternative_visibility": 0.9846,
+      "attempted_pressure": 0.7294,
+      "authority_drift": 0.057435,
+      "capture": 0.0,
+      "chain_hash": "f69febb1147982f66c85914dc1f1e02f2ed156515aae9763edc36c0ef0d0d16f",
+      "event_type": "debunking_campaign",
+      "plurality": 0.98218,
+      "step": 1836
+    },
+    {
+      "alternative_visibility": 0.96792,
+      "attempted_pressure": 0.7928,
+      "authority_drift": 0.057872,
+      "capture": 0.0,
+      "chain_hash": "264efe7de761948229c883b5302b3c5055f79ca587c38d2dabd62ca192ea7e94",
+      "event_type": "missionary_wave",
+      "plurality": 0.9934,
+      "step": 1863
+    },
+    {
+      "alternative_visibility": 0.99124,
+      "attempted_pressure": 0.6562,
+      "authority_drift": 0.058303,
+      "capture": 0.0,
+      "chain_hash": "3234462f8bdfededd780ba21cfc29fc8ae535272a205ba1d84b1b305af95ece0",
+      "event_type": "schism",
+      "plurality": 0.94462,
+      "step": 1890
+    },
+    {
+      "alternative_visibility": 0.97456,
+      "attempted_pressure": 0.7196,
+      "authority_drift": 0.058729,
+      "capture": 0.0,
+      "chain_hash": "69a5bdf9308d26aebdc577d497c47a65c00174ea5d0a17897ef0ee0bee6b4952",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.95584,
+      "step": 1917
+    },
+    {
+      "alternative_visibility": 0.99788,
+      "attempted_pressure": 0.783,
+      "authority_drift": 0.059148,
+      "capture": 0.0,
+      "chain_hash": "d8b82484400b242d6773cc13ba6ca61fcd914e2bacfe566f5b504af4ff9429d7",
+      "event_type": "authority_claim",
+      "plurality": 0.96706,
+      "step": 1944
+    },
+    {
+      "alternative_visibility": 0.9812,
+      "attempted_pressure": 0.6464,
+      "authority_drift": 0.059562,
+      "capture": 0.0,
+      "chain_hash": "55eff8fcca8c2520ba1f6bba79e406b67590430022b903cea528a94c07d9661e",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.97828,
+      "step": 1971
+    },
+    {
+      "alternative_visibility": 0.96452,
+      "attempted_pressure": 0.7098,
+      "authority_drift": 0.05997,
+      "capture": 0.0,
+      "chain_hash": "0b295441b3dc5a8aac0a08052695658b2a0254b2916c6693189ef674150250a2",
+      "event_type": "media_amplification",
+      "plurality": 0.9895,
+      "step": 1998
+    },
+    {
+      "alternative_visibility": 0.98784,
+      "attempted_pressure": 0.7732,
+      "authority_drift": 0.060373,
+      "capture": 0.0,
+      "chain_hash": "50cfc9aa78412aa2546a0d199297faf5bbbcc8d6f4abe0cbee8de791d56e21f3",
+      "event_type": "debunking_campaign",
+      "plurality": 0.94072,
+      "step": 2025
+    },
+    {
+      "alternative_visibility": 0.97116,
+      "attempted_pressure": 0.6366,
+      "authority_drift": 0.06077,
+      "capture": 0.0,
+      "chain_hash": "b85b707beaebf98bf172e66dfd5d0279872b8fd97d7e83405cc724279db95fcf",
+      "event_type": "missionary_wave",
+      "plurality": 0.95194,
+      "step": 2052
+    },
+    {
+      "alternative_visibility": 0.99448,
+      "attempted_pressure": 0.7,
+      "authority_drift": 0.061162,
+      "capture": 0.0,
+      "chain_hash": "b7199fed0b1a61fb65223f4f860bc8a2265db2f7f4952a737244ee83fc1f7fed",
+      "event_type": "schism",
+      "plurality": 0.96316,
+      "step": 2079
+    },
+    {
+      "alternative_visibility": 0.9778,
+      "attempted_pressure": 0.7634,
+      "authority_drift": 0.061549,
+      "capture": 0.0,
+      "chain_hash": "67ea94b712311d9614a27f2183b15de217babb24f2f6261504170b0f51410feb",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.97438,
+      "step": 2106
+    },
+    {
+      "alternative_visibility": 0.96112,
+      "attempted_pressure": 0.6268,
+      "authority_drift": 0.061931,
+      "capture": 0.0,
+      "chain_hash": "43137b30b128cf98a2d25c81d8325eeac82b53a4e852a355ce3fbb3c7286898e",
+      "event_type": "authority_claim",
+      "plurality": 0.9856,
+      "step": 2133
+    },
+    {
+      "alternative_visibility": 0.98444,
+      "attempted_pressure": 0.6902,
+      "authority_drift": 0.062308,
+      "capture": 0.0,
+      "chain_hash": "57b0ab25304c96a6d9217d04d2840ad714b3703debfc69ca32ab6b2b1c2912c3",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.99682,
+      "step": 2160
+    },
+    {
+      "alternative_visibility": 0.96776,
+      "attempted_pressure": 0.7536,
+      "authority_drift": 0.06268,
+      "capture": 0.0,
+      "chain_hash": "ed7ab005f568aefc0b25ffeed77d3c2e83c83b0d099e0e81293204e258a39969",
+      "event_type": "media_amplification",
+      "plurality": 0.94804,
+      "step": 2187
+    },
+    {
+      "alternative_visibility": 0.99108,
+      "attempted_pressure": 0.617,
+      "authority_drift": 0.063047,
+      "capture": 0.0,
+      "chain_hash": "5051d6d0fecac4ebc3857f9c8218b0cb872b3089a9c5f2aa9f3fe90f5812b749",
+      "event_type": "debunking_campaign",
+      "plurality": 0.95926,
+      "step": 2214
+    },
+    {
+      "alternative_visibility": 0.9744,
+      "attempted_pressure": 0.6804,
+      "authority_drift": 0.06341,
+      "capture": 0.0,
+      "chain_hash": "3cf35210c290835f3518656b3728c488666e1aa577330224df533f091f3f19ce",
+      "event_type": "missionary_wave",
+      "plurality": 0.97048,
+      "step": 2241
+    },
+    {
+      "alternative_visibility": 0.99772,
+      "attempted_pressure": 0.7438,
+      "authority_drift": 0.063768,
+      "capture": 0.0,
+      "chain_hash": "ae98b7d070c833e79e033bae130da167941dda7f6b4e43b275a9a5edba59a3af",
+      "event_type": "schism",
+      "plurality": 0.9817,
+      "step": 2268
+    },
+    {
+      "alternative_visibility": 0.98104,
+      "attempted_pressure": 0.6072,
+      "authority_drift": 0.064121,
+      "capture": 0.0,
+      "chain_hash": "446bddc487c0ee6f33b010604cffb3617da91c529b47109d21c8dac74c7984e1",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.99292,
+      "step": 2295
+    },
+    {
+      "alternative_visibility": 0.96436,
+      "attempted_pressure": 0.6706,
+      "authority_drift": 0.06447,
+      "capture": 0.0,
+      "chain_hash": "f9b057e8fc8da85d6ded5a43dc8ae35bcdb4bcd537e585d57d4d2c2945651cbd",
+      "event_type": "authority_claim",
+      "plurality": 0.94414,
+      "step": 2322
+    },
+    {
+      "alternative_visibility": 0.98768,
+      "attempted_pressure": 0.734,
+      "authority_drift": 0.064815,
+      "capture": 0.0,
+      "chain_hash": "1c565b33be04402adc2e3843e6c4cf96cab29cdc6fbb78a1e61ffb8058a2ba01",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.95536,
+      "step": 2349
+    },
+    {
+      "alternative_visibility": 0.971,
+      "attempted_pressure": 0.7974,
+      "authority_drift": 0.065155,
+      "capture": 0.0,
+      "chain_hash": "c21e9cf40257c7944a4cebef8e28199b58e0a394efe0a443c06041e04b41c1fd",
+      "event_type": "media_amplification",
+      "plurality": 0.96658,
+      "step": 2376
+    },
+    {
+      "alternative_visibility": 0.99432,
+      "attempted_pressure": 0.6608,
+      "authority_drift": 0.065492,
+      "capture": 0.0,
+      "chain_hash": "7cd4f82c762d979b810b643c483a01e1119f39af79bfafbaa6e6c765b672af5a",
+      "event_type": "debunking_campaign",
+      "plurality": 0.9778,
+      "step": 2403
+    },
+    {
+      "alternative_visibility": 0.97764,
+      "attempted_pressure": 0.7242,
+      "authority_drift": 0.065824,
+      "capture": 0.0,
+      "chain_hash": "56593dd4803b31b3064ab8accabd94be9d6f7c8315d683ae1fa3c5cf567ad28c",
+      "event_type": "missionary_wave",
+      "plurality": 0.98902,
+      "step": 2430
+    },
+    {
+      "alternative_visibility": 0.96096,
+      "attempted_pressure": 0.7876,
+      "authority_drift": 0.066152,
+      "capture": 0.0,
+      "chain_hash": "2f8b7b9eaee4436e124cb9d2ddbd653ba3a859d0fe4f2c5ca114e48f40fad920",
+      "event_type": "schism",
+      "plurality": 0.94024,
+      "step": 2457
+    },
+    {
+      "alternative_visibility": 0.98428,
+      "attempted_pressure": 0.651,
+      "authority_drift": 0.066476,
+      "capture": 0.0,
+      "chain_hash": "ac97d19b125eeb46225b8c2e825a6689cc268c1ae4aade667345d65c936c62ab",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.95146,
+      "step": 2484
+    },
+    {
+      "alternative_visibility": 0.9676,
+      "attempted_pressure": 0.7144,
+      "authority_drift": 0.066797,
+      "capture": 0.0,
+      "chain_hash": "ec4cdf17d21d518251fdb89ada76526a2828e8b4f10c3403e8c3eec3bf698c66",
+      "event_type": "authority_claim",
+      "plurality": 0.96268,
+      "step": 2511
+    },
+    {
+      "alternative_visibility": 0.99092,
+      "attempted_pressure": 0.7778,
+      "authority_drift": 0.067113,
+      "capture": 0.0,
+      "chain_hash": "1abdd73223da9c09507f15f07d583afed72f7980c26921f6a4d74fd5b6554293",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.9739,
+      "step": 2538
+    },
+    {
+      "alternative_visibility": 0.97424,
+      "attempted_pressure": 0.6412,
+      "authority_drift": 0.067426,
+      "capture": 0.0,
+      "chain_hash": "a7bb2aca2966ecb6c91833a1fde0edf1a5a46a351432ea05bf475b79b3afe230",
+      "event_type": "media_amplification",
+      "plurality": 0.98512,
+      "step": 2565
+    },
+    {
+      "alternative_visibility": 0.99756,
+      "attempted_pressure": 0.7046,
+      "authority_drift": 0.067735,
+      "capture": 0.0,
+      "chain_hash": "4ca5ad7789396f79df867e3613b6f93736816b6a4a1c0e3da3b996f116a8279d",
+      "event_type": "debunking_campaign",
+      "plurality": 0.99634,
+      "step": 2592
+    },
+    {
+      "alternative_visibility": 0.98088,
+      "attempted_pressure": 0.768,
+      "authority_drift": 0.068041,
+      "capture": 0.0,
+      "chain_hash": "a79bb5400e3774080472c4eb55c8ee0097d5bb3bb1a5d10b87e3f07e9fbfc93b",
+      "event_type": "missionary_wave",
+      "plurality": 0.94756,
+      "step": 2619
+    },
+    {
+      "alternative_visibility": 0.9642,
+      "attempted_pressure": 0.6314,
+      "authority_drift": 0.068343,
+      "capture": 0.0,
+      "chain_hash": "4a253e04dcb407a184e68d3c35cc05d2b35776446ea40bdad73416d23bfd5eee",
+      "event_type": "schism",
+      "plurality": 0.95878,
+      "step": 2646
+    },
+    {
+      "alternative_visibility": 0.98752,
+      "attempted_pressure": 0.6948,
+      "authority_drift": 0.068641,
+      "capture": 0.0,
+      "chain_hash": "21280a715642c6ad81cffadcf125fab2f87cf063702584a05e0fe34fea157c6b",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.97,
+      "step": 2673
+    },
+    {
+      "alternative_visibility": 0.97084,
+      "attempted_pressure": 0.7582,
+      "authority_drift": 0.068936,
+      "capture": 0.0,
+      "chain_hash": "4b1340fa8d8fcb2a7bfc903152ff685a34afaafee720f0cf5e618bca26ebcf0b",
+      "event_type": "authority_claim",
+      "plurality": 0.98122,
+      "step": 2700
+    },
+    {
+      "alternative_visibility": 0.99416,
+      "attempted_pressure": 0.6216,
+      "authority_drift": 0.069228,
+      "capture": 0.0,
+      "chain_hash": "6a6609f6b376a6827e3218580790026ea18e6c7660d3280f7776a29b780661ab",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.99244,
+      "step": 2727
+    },
+    {
+      "alternative_visibility": 0.97748,
+      "attempted_pressure": 0.685,
+      "authority_drift": 0.069516,
+      "capture": 0.0,
+      "chain_hash": "fa2bc90715aa2f3f001f6fd16d1ba065b12a829f0598b83ea6e555fd8b730f14",
+      "event_type": "media_amplification",
+      "plurality": 0.94366,
+      "step": 2754
+    },
+    {
+      "alternative_visibility": 0.9608,
+      "attempted_pressure": 0.7484,
+      "authority_drift": 0.069801,
+      "capture": 0.0,
+      "chain_hash": "16c76ee8f588d051e62b4751d246e1ee2103392101958b1fc48f4fa2902fbe4c",
+      "event_type": "debunking_campaign",
+      "plurality": 0.95488,
+      "step": 2781
+    },
+    {
+      "alternative_visibility": 0.98412,
+      "attempted_pressure": 0.6118,
+      "authority_drift": 0.070083,
+      "capture": 0.0,
+      "chain_hash": "618bdb50bac8753dbf5317939a41840be8ac22342231be6eb213d3dd1fd64354",
+      "event_type": "missionary_wave",
+      "plurality": 0.9661,
+      "step": 2808
+    },
+    {
+      "alternative_visibility": 0.96744,
+      "attempted_pressure": 0.6752,
+      "authority_drift": 0.070362,
+      "capture": 0.0,
+      "chain_hash": "b986c66291bd11ea25105b7ceb67fe356cf47d83fe459e7e2b277ed75dc1c0cd",
+      "event_type": "schism",
+      "plurality": 0.97732,
+      "step": 2835
+    },
+    {
+      "alternative_visibility": 0.99076,
+      "attempted_pressure": 0.7386,
+      "authority_drift": 0.070638,
+      "capture": 0.0,
+      "chain_hash": "092e37444cd2d42be715317d349af362b9f28abd5b0d65b4a13eff96506c3392",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.98854,
+      "step": 2862
+    },
+    {
+      "alternative_visibility": 0.97408,
+      "attempted_pressure": 0.602,
+      "authority_drift": 0.07091,
+      "capture": 0.0,
+      "chain_hash": "b6fa194e635b7d0329ced0580ac75f4e1b70e93d350f27a343359d686a014c7f",
+      "event_type": "authority_claim",
+      "plurality": 0.99976,
+      "step": 2889
+    },
+    {
+      "alternative_visibility": 0.9974,
+      "attempted_pressure": 0.6654,
+      "authority_drift": 0.07118,
+      "capture": 0.0,
+      "chain_hash": "f7f8b9b8a65b13104c9f772edf85d5d1bd3c373aa0380c7975de3144e82a42ed",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.95098,
+      "step": 2916
+    },
+    {
+      "alternative_visibility": 0.98072,
+      "attempted_pressure": 0.7288,
+      "authority_drift": 0.071446,
+      "capture": 0.0,
+      "chain_hash": "72274a54ab168819f877a6be79be5b1abc341fb1b83d14827a88befbcfb4572e",
+      "event_type": "media_amplification",
+      "plurality": 0.9622,
+      "step": 2943
+    },
+    {
+      "alternative_visibility": 0.96404,
+      "attempted_pressure": 0.7922,
+      "authority_drift": 0.07171,
+      "capture": 0.0,
+      "chain_hash": "01351f048347d5f21c0acd94cb3fd03e3eae87b73cba80bdd201e23d788d3c48",
+      "event_type": "debunking_campaign",
+      "plurality": 0.97342,
+      "step": 2970
+    },
+    {
+      "alternative_visibility": 0.98736,
+      "attempted_pressure": 0.6556,
+      "authority_drift": 0.071971,
+      "capture": 0.0,
+      "chain_hash": "01e470ef99e262852b1df316e8c597aaa69d972748ac885201fde180c8309602",
+      "event_type": "missionary_wave",
+      "plurality": 0.98464,
+      "step": 2997
+    },
+    {
+      "alternative_visibility": 0.97068,
+      "attempted_pressure": 0.719,
+      "authority_drift": 0.072229,
+      "capture": 0.0,
+      "chain_hash": "df95d7ca1f56fe9e71bfb544a47810a0eba00bbba33c498ad93162cca0040553",
+      "event_type": "schism",
+      "plurality": 0.99586,
+      "step": 3024
+    },
+    {
+      "alternative_visibility": 0.994,
+      "attempted_pressure": 0.7824,
+      "authority_drift": 0.072485,
+      "capture": 0.0,
+      "chain_hash": "403f9b34c8be2fff29306c03dc8b0afb7713867cce39d95ee395983283b40aaa",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.94708,
+      "step": 3051
+    },
+    {
+      "alternative_visibility": 0.97732,
+      "attempted_pressure": 0.6458,
+      "authority_drift": 0.072737,
+      "capture": 0.0,
+      "chain_hash": "23f2bf611a78a2605c433672602318bed1207a12a2c0b84274dbc120ce09ab22",
+      "event_type": "authority_claim",
+      "plurality": 0.9583,
+      "step": 3078
+    },
+    {
+      "alternative_visibility": 0.96064,
+      "attempted_pressure": 0.7092,
+      "authority_drift": 0.072987,
+      "capture": 0.0,
+      "chain_hash": "c18adea3d67e9d189c41658191e1ac8d33d3ccb42a6471a696bf4c1c62aee76b",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.96952,
+      "step": 3105
+    },
+    {
+      "alternative_visibility": 0.98396,
+      "attempted_pressure": 0.7726,
+      "authority_drift": 0.073235,
+      "capture": 0.0,
+      "chain_hash": "14874e13b4244141a4b2c82f4918f5967f736ce8d9e123437dd5cba6f341f1ac",
+      "event_type": "media_amplification",
+      "plurality": 0.98074,
+      "step": 3132
+    },
+    {
+      "alternative_visibility": 0.96728,
+      "attempted_pressure": 0.636,
+      "authority_drift": 0.073479,
+      "capture": 0.0,
+      "chain_hash": "723926eccef93c1019f549c91a5ca680757d0c279a6278462657cd7110b4a0c6",
+      "event_type": "debunking_campaign",
+      "plurality": 0.99196,
+      "step": 3159
+    },
+    {
+      "alternative_visibility": 0.9906,
+      "attempted_pressure": 0.6994,
+      "authority_drift": 0.073722,
+      "capture": 0.0,
+      "chain_hash": "98d96c29e6d41c8859939684aa4871ac7c3318a4aa82f8d7dc2f4bd0c2f255c9",
+      "event_type": "missionary_wave",
+      "plurality": 0.94318,
+      "step": 3186
+    },
+    {
+      "alternative_visibility": 0.97392,
+      "attempted_pressure": 0.7628,
+      "authority_drift": 0.073961,
+      "capture": 0.0,
+      "chain_hash": "e690d0a0f3c18c89aaccfae61dae55953dfd6f1d521e3d87f48dcde26ef5f515",
+      "event_type": "schism",
+      "plurality": 0.9544,
+      "step": 3213
+    },
+    {
+      "alternative_visibility": 0.99724,
+      "attempted_pressure": 0.6262,
+      "authority_drift": 0.074198,
+      "capture": 0.0,
+      "chain_hash": "a0ee8c3d63061a16d698ee3c1a2dbb727d5e06b9ccfe41c8d98118a0418f3447",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.96562,
+      "step": 3240
+    },
+    {
+      "alternative_visibility": 0.98056,
+      "attempted_pressure": 0.6896,
+      "authority_drift": 0.074433,
+      "capture": 0.0,
+      "chain_hash": "1ea1cab79f54c0579fb2c4ddcaa1ff62dcd74e16699816f067d68749d269a27e",
+      "event_type": "authority_claim",
+      "plurality": 0.97684,
+      "step": 3267
+    },
+    {
+      "alternative_visibility": 0.96388,
+      "attempted_pressure": 0.753,
+      "authority_drift": 0.074666,
+      "capture": 0.0,
+      "chain_hash": "089c6f1f629a9d151fbd10fc897e9962c560c189b5a6c68da6669da6bae7c2be",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.98806,
+      "step": 3294
+    },
+    {
+      "alternative_visibility": 0.9872,
+      "attempted_pressure": 0.6164,
+      "authority_drift": 0.074896,
+      "capture": 0.0,
+      "chain_hash": "bdb96c72c6f818647d1685960fd6726d2458973242748aa03fa71ef1cd8197a7",
+      "event_type": "media_amplification",
+      "plurality": 0.99928,
+      "step": 3321
+    },
+    {
+      "alternative_visibility": 0.97052,
+      "attempted_pressure": 0.6798,
+      "authority_drift": 0.075123,
+      "capture": 0.0,
+      "chain_hash": "d746e7256d57df54e67fc486176a1bf16803fc4b604be4e0960140a97bd3dc39",
+      "event_type": "debunking_campaign",
+      "plurality": 0.9505,
+      "step": 3348
+    },
+    {
+      "alternative_visibility": 0.99384,
+      "attempted_pressure": 0.7432,
+      "authority_drift": 0.075349,
+      "capture": 0.0,
+      "chain_hash": "7098195019b5e4ea9d8c76615a80a157f25c05083087000e931d000eb25bd915",
+      "event_type": "missionary_wave",
+      "plurality": 0.96172,
+      "step": 3375
+    },
+    {
+      "alternative_visibility": 0.97716,
+      "attempted_pressure": 0.6066,
+      "authority_drift": 0.075572,
+      "capture": 0.0,
+      "chain_hash": "778c6a03acf8853095913a7f9be49faf065c036e2f0597790193eb02a83ec754",
+      "event_type": "schism",
+      "plurality": 0.97294,
+      "step": 3402
+    },
+    {
+      "alternative_visibility": 0.96048,
+      "attempted_pressure": 0.67,
+      "authority_drift": 0.075793,
+      "capture": 0.0,
+      "chain_hash": "fa20b8d2281c217666593086dbb75cf43e054a0e588c44f5ef0c4e4819d61541",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.98416,
+      "step": 3429
+    },
+    {
+      "alternative_visibility": 0.9838,
+      "attempted_pressure": 0.7334,
+      "authority_drift": 0.076012,
+      "capture": 0.0,
+      "chain_hash": "383ba38e737432f030fd7792e43e64724ac4bdb7d259c77face1dc3dc2557544",
+      "event_type": "authority_claim",
+      "plurality": 0.99538,
+      "step": 3456
+    },
+    {
+      "alternative_visibility": 0.96712,
+      "attempted_pressure": 0.7968,
+      "authority_drift": 0.076228,
+      "capture": 0.0,
+      "chain_hash": "48093219a5444a5cfe7516a1a2870c3e8c8dd8cfb6c9879a42f02a307d0f70da",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.9466,
+      "step": 3483
+    },
+    {
+      "alternative_visibility": 0.99044,
+      "attempted_pressure": 0.6602,
+      "authority_drift": 0.076443,
+      "capture": 0.0,
+      "chain_hash": "06ee7f1a6c1466bad1e284a56f86d409fb598ac9295905ec2b4cbc57a2d35c88",
+      "event_type": "media_amplification",
+      "plurality": 0.95782,
+      "step": 3510
+    },
+    {
+      "alternative_visibility": 0.97376,
+      "attempted_pressure": 0.7236,
+      "authority_drift": 0.076655,
+      "capture": 0.0,
+      "chain_hash": "b06fd04256d1ee0609baec327e9a1706963a3b84f2a54d5f1b88c408e9dd54ed",
+      "event_type": "debunking_campaign",
+      "plurality": 0.96904,
+      "step": 3537
+    },
+    {
+      "alternative_visibility": 0.99708,
+      "attempted_pressure": 0.787,
+      "authority_drift": 0.076866,
+      "capture": 0.0,
+      "chain_hash": "69ce63e6991c70b4df03dcf9d0e2ed00e709db4934087b48e1c59dcfc239e58c",
+      "event_type": "missionary_wave",
+      "plurality": 0.98026,
+      "step": 3564
+    },
+    {
+      "alternative_visibility": 0.9804,
+      "attempted_pressure": 0.6504,
+      "authority_drift": 0.077074,
+      "capture": 0.0,
+      "chain_hash": "b0d0a7ff50d9738a34edc4885cc57d981839bcb3fd740dc380c74b2de7f9177e",
+      "event_type": "schism",
+      "plurality": 0.99148,
+      "step": 3591
+    },
+    {
+      "alternative_visibility": 0.96372,
+      "attempted_pressure": 0.7138,
+      "authority_drift": 0.07728,
+      "capture": 0.0,
+      "chain_hash": "e5f83be0a58522e61dba1778419b0647402901c1bdfcb7cf5b0aa9281dcc77cf",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.9427,
+      "step": 3618
+    },
+    {
+      "alternative_visibility": 0.98704,
+      "attempted_pressure": 0.7772,
+      "authority_drift": 0.077484,
+      "capture": 0.0,
+      "chain_hash": "e834901a29d09636d9b72dc3ff988aa4d8187d8598de757fd3a34f58dc5fc192",
+      "event_type": "authority_claim",
+      "plurality": 0.95392,
+      "step": 3645
+    },
+    {
+      "alternative_visibility": 0.97036,
+      "attempted_pressure": 0.6406,
+      "authority_drift": 0.077687,
+      "capture": 0.0,
+      "chain_hash": "0abc4922bb7ca17a37e830dc55ce805b9ab8fc5dc2c2546a03454ff88b8037ae",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.96514,
+      "step": 3672
+    },
+    {
+      "alternative_visibility": 0.99368,
+      "attempted_pressure": 0.704,
+      "authority_drift": 0.077887,
+      "capture": 0.0,
+      "chain_hash": "94b490ae7b5916bdf6e67bc8b40a56cb9f025901eb11c5dd308342f0f8d1b334",
+      "event_type": "media_amplification",
+      "plurality": 0.97636,
+      "step": 3699
+    },
+    {
+      "alternative_visibility": 0.977,
+      "attempted_pressure": 0.7674,
+      "authority_drift": 0.078086,
+      "capture": 0.0,
+      "chain_hash": "064b7ab89ddf239f1d4c7220eb39e0ce6f4dbf22c7e97b4b892c01bd8ba726ad",
+      "event_type": "debunking_campaign",
+      "plurality": 0.98758,
+      "step": 3726
+    },
+    {
+      "alternative_visibility": 0.96032,
+      "attempted_pressure": 0.6308,
+      "authority_drift": 0.078283,
+      "capture": 0.0,
+      "chain_hash": "5cf64e8f85acaf8cd8ec11ce0f8b7f8ad0159168f06296463c1b67b8cf9e17e3",
+      "event_type": "missionary_wave",
+      "plurality": 0.9988,
+      "step": 3753
+    },
+    {
+      "alternative_visibility": 0.98364,
+      "attempted_pressure": 0.6942,
+      "authority_drift": 0.078478,
+      "capture": 0.0,
+      "chain_hash": "ffb9059c5c1b5591f84944c400b5202a7e98a22c4d1af5c1eeecda13a45eb263",
+      "event_type": "schism",
+      "plurality": 0.95002,
+      "step": 3780
+    },
+    {
+      "alternative_visibility": 0.96696,
+      "attempted_pressure": 0.7576,
+      "authority_drift": 0.078671,
+      "capture": 0.0,
+      "chain_hash": "303d3f334f1d9ac02bddbe8b11fe27cc24f941a9f2f6e292f7a7692265e36ef0",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.96124,
+      "step": 3807
+    },
+    {
+      "alternative_visibility": 0.99028,
+      "attempted_pressure": 0.621,
+      "authority_drift": 0.078862,
+      "capture": 0.0,
+      "chain_hash": "58cebd88593b188689c28f8afde62ee58cdebc319b9b94a0b0dcd37b2c074f64",
+      "event_type": "authority_claim",
+      "plurality": 0.97246,
+      "step": 3834
+    },
+    {
+      "alternative_visibility": 0.9736,
+      "attempted_pressure": 0.6844,
+      "authority_drift": 0.079051,
+      "capture": 0.0,
+      "chain_hash": "734fada1aa45bdfbe06ea129e0fba1f165038e60c759e3ac4c80114a8072b2eb",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.98368,
+      "step": 3861
+    },
+    {
+      "alternative_visibility": 0.99692,
+      "attempted_pressure": 0.7478,
+      "authority_drift": 0.079239,
+      "capture": 0.0,
+      "chain_hash": "38bdfd7b246607e9599281442e8f56b5f9094622613ccb8c356c0bad9bc8f015",
+      "event_type": "media_amplification",
+      "plurality": 0.9949,
+      "step": 3888
+    },
+    {
+      "alternative_visibility": 0.98024,
+      "attempted_pressure": 0.6112,
+      "authority_drift": 0.079425,
+      "capture": 0.0,
+      "chain_hash": "dbf51fa0b3e1f7dab6354aff9a3b7a33a2a47fa3f3d30ec7ab786e5d61201af1",
+      "event_type": "debunking_campaign",
+      "plurality": 0.94612,
+      "step": 3915
+    },
+    {
+      "alternative_visibility": 0.96356,
+      "attempted_pressure": 0.6746,
+      "authority_drift": 0.07961,
+      "capture": 0.0,
+      "chain_hash": "48ab52464af11c77ab265206d1ecf4d6537ac21681050089c8a83b8b4e7664d1",
+      "event_type": "missionary_wave",
+      "plurality": 0.95734,
+      "step": 3942
+    },
+    {
+      "alternative_visibility": 0.98688,
+      "attempted_pressure": 0.738,
+      "authority_drift": 0.079792,
+      "capture": 0.0,
+      "chain_hash": "2c0c3dbc9bc18f8d2f7f2d124d54b42f6857a7ceff6f07dce2973d0e50d9be16",
+      "event_type": "schism",
+      "plurality": 0.96856,
+      "step": 3969
+    },
+    {
+      "alternative_visibility": 0.9702,
+      "attempted_pressure": 0.6014,
+      "authority_drift": 0.079973,
+      "capture": 0.0,
+      "chain_hash": "e05dc89ce2aeae21172e094a59636e9bd50009190686580d9483b362e4f09501",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.97978,
+      "step": 3996
+    },
+    {
+      "alternative_visibility": 0.99352,
+      "attempted_pressure": 0.6648,
+      "authority_drift": 0.080153,
+      "capture": 0.0,
+      "chain_hash": "6869839b7651d01f81cc7fc51d8fba3ef3c5ba0306b4830db1bd7e4797af3249",
+      "event_type": "authority_claim",
+      "plurality": 0.991,
+      "step": 4023
+    },
+    {
+      "alternative_visibility": 0.97684,
+      "attempted_pressure": 0.7282,
+      "authority_drift": 0.080331,
+      "capture": 0.0,
+      "chain_hash": "cb2d1308cc2b57ec45a3605bff6d9506efba88d0c063fcb431ce26596fcdd8c2",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.94222,
+      "step": 4050
+    },
+    {
+      "alternative_visibility": 0.96016,
+      "attempted_pressure": 0.7916,
+      "authority_drift": 0.080507,
+      "capture": 0.0,
+      "chain_hash": "e62637b86203624bc6a8cbbb90c2fbd7acc179e92e3f13f7f26787b4e7230282",
+      "event_type": "media_amplification",
+      "plurality": 0.95344,
+      "step": 4077
+    },
+    {
+      "alternative_visibility": 0.98348,
+      "attempted_pressure": 0.655,
+      "authority_drift": 0.080682,
+      "capture": 0.0,
+      "chain_hash": "6fddf39beb56fead6ba966a0298f3903e8792479d0c0d5635818edf3a17256fb",
+      "event_type": "debunking_campaign",
+      "plurality": 0.96466,
+      "step": 4104
+    },
+    {
+      "alternative_visibility": 0.9668,
+      "attempted_pressure": 0.7184,
+      "authority_drift": 0.080855,
+      "capture": 0.0,
+      "chain_hash": "85117fb38271ef045e8f6f9c769ed9f96c3b91cd3401a00b0b8cef2c03bd5cd4",
+      "event_type": "missionary_wave",
+      "plurality": 0.97588,
+      "step": 4131
+    },
+    {
+      "alternative_visibility": 0.99012,
+      "attempted_pressure": 0.7818,
+      "authority_drift": 0.081026,
+      "capture": 0.0,
+      "chain_hash": "67935b89a596288890dcaecfbeb12461048256c3c55bef825215d09c5b0d350b",
+      "event_type": "schism",
+      "plurality": 0.9871,
+      "step": 4158
+    },
+    {
+      "alternative_visibility": 0.97344,
+      "attempted_pressure": 0.6452,
+      "authority_drift": 0.081196,
+      "capture": 0.0,
+      "chain_hash": "476ee500596134563b7f67c9d9ad3a8ea44cd94ef8d53bd3736f144a5ec55352",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.99832,
+      "step": 4185
+    },
+    {
+      "alternative_visibility": 0.99676,
+      "attempted_pressure": 0.7086,
+      "authority_drift": 0.081365,
+      "capture": 0.0,
+      "chain_hash": "180537c92c209f27a48b5219b63b1de64f426bf8c541128e042a4dc48ae7a5d6",
+      "event_type": "authority_claim",
+      "plurality": 0.94954,
+      "step": 4212
+    },
+    {
+      "alternative_visibility": 0.98008,
+      "attempted_pressure": 0.772,
+      "authority_drift": 0.081532,
+      "capture": 0.0,
+      "chain_hash": "7f3445d0dba25d8812c304e80ab05d403f381ca64c6a9771e2c2937f920d2ba1",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.96076,
+      "step": 4239
+    },
+    {
+      "alternative_visibility": 0.9634,
+      "attempted_pressure": 0.6354,
+      "authority_drift": 0.081698,
+      "capture": 0.0,
+      "chain_hash": "7c35873e954241351df21cd94c49324d14d36a58432f023704bc1b6ff8a00dc4",
+      "event_type": "media_amplification",
+      "plurality": 0.97198,
+      "step": 4266
+    },
+    {
+      "alternative_visibility": 0.98672,
+      "attempted_pressure": 0.6988,
+      "authority_drift": 0.081862,
+      "capture": 0.0,
+      "chain_hash": "d954ef56045970468cd499d6593ab83fdd604ca6dfe1836d046e412bf2eaa5d6",
+      "event_type": "debunking_campaign",
+      "plurality": 0.9832,
+      "step": 4293
+    },
+    {
+      "alternative_visibility": 0.97004,
+      "attempted_pressure": 0.7622,
+      "authority_drift": 0.082025,
+      "capture": 0.0,
+      "chain_hash": "e6e86d6092d73207d6ecf1d2423b3fae22a711af15cae9b4e18b553c19a487b3",
+      "event_type": "missionary_wave",
+      "plurality": 0.99442,
+      "step": 4320
+    },
+    {
+      "alternative_visibility": 0.99336,
+      "attempted_pressure": 0.6256,
+      "authority_drift": 0.082187,
+      "capture": 0.0,
+      "chain_hash": "4ac71011ee11644bb616d90271947bd7435570ccd43100c8cb7fc6b9fe8b43d3",
+      "event_type": "schism",
+      "plurality": 0.94564,
+      "step": 4347
+    },
+    {
+      "alternative_visibility": 0.97668,
+      "attempted_pressure": 0.689,
+      "authority_drift": 0.082347,
+      "capture": 0.0,
+      "chain_hash": "df56d11c0e3d8f7469f3b7e060fd9ce59e36cb0f46a249bcf04a3a29374b7fd5",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.95686,
+      "step": 4374
+    },
+    {
+      "alternative_visibility": 1.0,
+      "attempted_pressure": 0.7524,
+      "authority_drift": 0.082506,
+      "capture": 0.0,
+      "chain_hash": "9e07dc83621b29faa72254125aaf9b9e1c3ddcec79deb2c8cac78e76e84a49f9",
+      "event_type": "authority_claim",
+      "plurality": 0.96808,
+      "step": 4401
+    },
+    {
+      "alternative_visibility": 0.98332,
+      "attempted_pressure": 0.6158,
+      "authority_drift": 0.082663,
+      "capture": 0.0,
+      "chain_hash": "073ebfd4f0abce55b3e6d6f1a6d1732d666c7a3a495f79f6f083c29534c2b04f",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.9793,
+      "step": 4428
+    },
+    {
+      "alternative_visibility": 0.96664,
+      "attempted_pressure": 0.6792,
+      "authority_drift": 0.08282,
+      "capture": 0.0,
+      "chain_hash": "3083f29ecbecff10f5b80c0254850e7ba213ed96f5e7ddfff9aff7987d7fc92f",
+      "event_type": "media_amplification",
+      "plurality": 0.99052,
+      "step": 4455
+    },
+    {
+      "alternative_visibility": 0.98996,
+      "attempted_pressure": 0.7426,
+      "authority_drift": 0.082974,
+      "capture": 0.0,
+      "chain_hash": "207dbf14e696987b51e7c7e123abf9e3abbdafb515ad6b0d5f3798c854573489",
+      "event_type": "debunking_campaign",
+      "plurality": 0.94174,
+      "step": 4482
+    },
+    {
+      "alternative_visibility": 0.97328,
+      "attempted_pressure": 0.606,
+      "authority_drift": 0.083128,
+      "capture": 0.0,
+      "chain_hash": "09deb6d1a38f954b3ee4daf01b73013c2215ce3c2339bca2e44090aa009febfe",
+      "event_type": "missionary_wave",
+      "plurality": 0.95296,
+      "step": 4509
+    },
+    {
+      "alternative_visibility": 0.9966,
+      "attempted_pressure": 0.6694,
+      "authority_drift": 0.08328,
+      "capture": 0.0,
+      "chain_hash": "131ed5693af4303be93ed4188fc750d637ddd3253cf20d3c3b0fe6a1bb731d4e",
+      "event_type": "schism",
+      "plurality": 0.96418,
+      "step": 4536
+    },
+    {
+      "alternative_visibility": 0.97992,
+      "attempted_pressure": 0.7328,
+      "authority_drift": 0.083431,
+      "capture": 0.0,
+      "chain_hash": "d6a413687ff8dc115b665006858063b52a8cbb8919afdd68c10cf4bc86bcec88",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.9754,
+      "step": 4563
+    },
+    {
+      "alternative_visibility": 0.96324,
+      "attempted_pressure": 0.7962,
+      "authority_drift": 0.083581,
+      "capture": 0.0,
+      "chain_hash": "017ec2f0b9acdcf957890144b2f9dff2d6f7c6435ad9dd4e0b488eaa3812c302",
+      "event_type": "authority_claim",
+      "plurality": 0.98662,
+      "step": 4590
+    },
+    {
+      "alternative_visibility": 0.98656,
+      "attempted_pressure": 0.6596,
+      "authority_drift": 0.08373,
+      "capture": 0.0,
+      "chain_hash": "2b41106d83189f4b218110a642b5a8596c5004af0fcb3c4ec243f41c1751a092",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.99784,
+      "step": 4617
+    },
+    {
+      "alternative_visibility": 0.96988,
+      "attempted_pressure": 0.723,
+      "authority_drift": 0.083877,
+      "capture": 0.0,
+      "chain_hash": "666f6684d86580132fafa5e0e57d243780a4f1d3088f32b7fe0d7dd5d7377452",
+      "event_type": "media_amplification",
+      "plurality": 0.94906,
+      "step": 4644
+    },
+    {
+      "alternative_visibility": 0.9932,
+      "attempted_pressure": 0.7864,
+      "authority_drift": 0.084023,
+      "capture": 0.0,
+      "chain_hash": "ac89892a1caeae55d30ef9a24374a7c3443a23820aeead518e52053388f79102",
+      "event_type": "debunking_campaign",
+      "plurality": 0.96028,
+      "step": 4671
+    },
+    {
+      "alternative_visibility": 0.97652,
+      "attempted_pressure": 0.6498,
+      "authority_drift": 0.084168,
+      "capture": 0.0,
+      "chain_hash": "bf34edce02b09c34b0008c5ca429b75e1eaa5602a322494aa0fde538edb842ec",
+      "event_type": "missionary_wave",
+      "plurality": 0.9715,
+      "step": 4698
+    },
+    {
+      "alternative_visibility": 0.99984,
+      "attempted_pressure": 0.7132,
+      "authority_drift": 0.084312,
+      "capture": 0.0,
+      "chain_hash": "7c5c67ca69e5ef017ef77eecf559cde5104a18344978fa74c2639bc5d06a1a10",
+      "event_type": "schism",
+      "plurality": 0.98272,
+      "step": 4725
+    },
+    {
+      "alternative_visibility": 0.98316,
+      "attempted_pressure": 0.7766,
+      "authority_drift": 0.084455,
+      "capture": 0.0,
+      "chain_hash": "3381d05397acdd68afb06de53b4ad2b17596a1d03b1b5e885d22b990ac78a434",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.99394,
+      "step": 4752
+    },
+    {
+      "alternative_visibility": 0.96648,
+      "attempted_pressure": 0.64,
+      "authority_drift": 0.084597,
+      "capture": 0.0,
+      "chain_hash": "73057ec6ef7a77e2ead639b3db05c08e9060a526efe2c4f731ed83733e3b161f",
+      "event_type": "authority_claim",
+      "plurality": 0.94516,
+      "step": 4779
+    },
+    {
+      "alternative_visibility": 0.9898,
+      "attempted_pressure": 0.7034,
+      "authority_drift": 0.084737,
+      "capture": 0.0,
+      "chain_hash": "1f093549f478f65809db89c34166a74bcebebd7ac47fe1e9758a6ef52f48ed2b",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.95638,
+      "step": 4806
+    },
+    {
+      "alternative_visibility": 0.97312,
+      "attempted_pressure": 0.7668,
+      "authority_drift": 0.084876,
+      "capture": 0.0,
+      "chain_hash": "0af073861b569b82f6e50aeaa6021e88d5f144f3f59d5a34236cb0d648182776",
+      "event_type": "media_amplification",
+      "plurality": 0.9676,
+      "step": 4833
+    },
+    {
+      "alternative_visibility": 0.99644,
+      "attempted_pressure": 0.6302,
+      "authority_drift": 0.085015,
+      "capture": 0.0,
+      "chain_hash": "e92d74744f76d208f4f272489cac82cd8f6e9949b04b9103967376e883c8ff92",
+      "event_type": "debunking_campaign",
+      "plurality": 0.97882,
+      "step": 4860
+    },
+    {
+      "alternative_visibility": 0.97976,
+      "attempted_pressure": 0.6936,
+      "authority_drift": 0.085152,
+      "capture": 0.0,
+      "chain_hash": "0102885f1e26461567b0dc4190929f3248182eed227ffd9ada5e11fd05cae632",
+      "event_type": "missionary_wave",
+      "plurality": 0.99004,
+      "step": 4887
+    },
+    {
+      "alternative_visibility": 0.96308,
+      "attempted_pressure": 0.757,
+      "authority_drift": 0.085288,
+      "capture": 0.0,
+      "chain_hash": "c078f1a847c176d9011f43da28d71f9ab3f31cb377dff69b350db93bcc5a6bdd",
+      "event_type": "schism",
+      "plurality": 0.94126,
+      "step": 4914
+    },
+    {
+      "alternative_visibility": 0.9864,
+      "attempted_pressure": 0.6204,
+      "authority_drift": 0.085423,
+      "capture": 0.0,
+      "chain_hash": "404dcd6f5973ddc8214183da2464ee9de8722f5c6d2c8ac3cba246514c388a10",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.95248,
+      "step": 4941
+    },
+    {
+      "alternative_visibility": 0.96972,
+      "attempted_pressure": 0.6838,
+      "authority_drift": 0.085557,
+      "capture": 0.0,
+      "chain_hash": "de1735b7dba50cf62d01623b53e438b4d1feaceba1082cc34da1a925c7cb59e9",
+      "event_type": "authority_claim",
+      "plurality": 0.9637,
+      "step": 4968
+    },
+    {
+      "alternative_visibility": 0.99304,
+      "attempted_pressure": 0.7472,
+      "authority_drift": 0.08569,
+      "capture": 0.0,
+      "chain_hash": "2adc2bd2b3c3c5071bda9966b13d7f2d355083926e475172a084273a04a5895f",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.97492,
+      "step": 4995
+    },
+    {
+      "alternative_visibility": 0.97636,
+      "attempted_pressure": 0.6106,
+      "authority_drift": 0.085822,
+      "capture": 0.0,
+      "chain_hash": "2922a1bcc5cc09d574b9cbafe08677e110a5afa22a12bc876789b27824455079",
+      "event_type": "media_amplification",
+      "plurality": 0.98614,
+      "step": 5022
+    },
+    {
+      "alternative_visibility": 0.99968,
+      "attempted_pressure": 0.674,
+      "authority_drift": 0.085953,
+      "capture": 0.0,
+      "chain_hash": "f5bf8472476c7646664290e64ea28b0d955e465d71a9216095dbb47efc9f741f",
+      "event_type": "debunking_campaign",
+      "plurality": 0.99736,
+      "step": 5049
+    },
+    {
+      "alternative_visibility": 0.983,
+      "attempted_pressure": 0.7374,
+      "authority_drift": 0.086083,
+      "capture": 0.0,
+      "chain_hash": "50cb6b4f6540b2c70bf5568e7f40e0fffbe387058e22659197864a2eedb1317e",
+      "event_type": "missionary_wave",
+      "plurality": 0.94858,
+      "step": 5076
+    },
+    {
+      "alternative_visibility": 0.96632,
+      "attempted_pressure": 0.6008,
+      "authority_drift": 0.086211,
+      "capture": 0.0,
+      "chain_hash": "936f7541e33aec51f542df41c0a92252d650905672be353ac349b21e1ab9e9a7",
+      "event_type": "schism",
+      "plurality": 0.9598,
+      "step": 5103
+    },
+    {
+      "alternative_visibility": 0.98964,
+      "attempted_pressure": 0.6642,
+      "authority_drift": 0.086339,
+      "capture": 0.0,
+      "chain_hash": "1fd676630cec91b0ed5de07bf3806181297da2b78b5175ded08b52f3b4d95c85",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.97102,
+      "step": 5130
+    },
+    {
+      "alternative_visibility": 0.97296,
+      "attempted_pressure": 0.7276,
+      "authority_drift": 0.086466,
+      "capture": 0.0,
+      "chain_hash": "5bbbfa7dc6b6915bbea73caa997ccdfc61943a9a6a7dd928be9c259954aee4a8",
+      "event_type": "authority_claim",
+      "plurality": 0.98224,
+      "step": 5157
+    },
+    {
+      "alternative_visibility": 0.99628,
+      "attempted_pressure": 0.791,
+      "authority_drift": 0.086592,
+      "capture": 0.0,
+      "chain_hash": "a2b417a7f62b79d8f1f25b1f206fb03e8f12b0dda5c84c35d90e7716a03194f2",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.99346,
+      "step": 5184
+    },
+    {
+      "alternative_visibility": 0.9796,
+      "attempted_pressure": 0.6544,
+      "authority_drift": 0.086718,
+      "capture": 0.0,
+      "chain_hash": "d9592fe2ce929926f80c8ff77821ef2678b2a38f8590d4082c38b3b3a4767b41",
+      "event_type": "media_amplification",
+      "plurality": 0.94468,
+      "step": 5211
+    },
+    {
+      "alternative_visibility": 0.96292,
+      "attempted_pressure": 0.7178,
+      "authority_drift": 0.086842,
+      "capture": 0.0,
+      "chain_hash": "d6bbba7cba89b5d25890d883c54b2f7cd25d7fd8f1d8eb0be6261c23ad3372b0",
+      "event_type": "debunking_campaign",
+      "plurality": 0.9559,
+      "step": 5238
+    },
+    {
+      "alternative_visibility": 0.98624,
+      "attempted_pressure": 0.7812,
+      "authority_drift": 0.086965,
+      "capture": 0.0,
+      "chain_hash": "89dc00a987313a5b7f241415650f021e426f4a5dfb863ce8522293411c84fc2b",
+      "event_type": "missionary_wave",
+      "plurality": 0.96712,
+      "step": 5265
+    },
+    {
+      "alternative_visibility": 0.96956,
+      "attempted_pressure": 0.6446,
+      "authority_drift": 0.087087,
+      "capture": 0.0,
+      "chain_hash": "dd36520a2722c60274a9b8ff04e63c97e0d10e4f31286b6fa64f77067e610870",
+      "event_type": "schism",
+      "plurality": 0.97834,
+      "step": 5292
+    },
+    {
+      "alternative_visibility": 0.99288,
+      "attempted_pressure": 0.708,
+      "authority_drift": 0.087209,
+      "capture": 0.0,
+      "chain_hash": "28276af3ede39d017cc86595e5b3a3035bc5d4837a2570ba04deb563083db5b0",
+      "event_type": "aggressive_simplification",
+      "plurality": 0.98956,
+      "step": 5319
+    },
+    {
+      "alternative_visibility": 0.9762,
+      "attempted_pressure": 0.7714,
+      "authority_drift": 0.087329,
+      "capture": 0.0,
+      "chain_hash": "0a9510e06a22fa80ee29ecace9baada3c551b38d81073da275435b9c00832bf1",
+      "event_type": "authority_claim",
+      "plurality": 0.94078,
+      "step": 5346
+    },
+    {
+      "alternative_visibility": 0.99952,
+      "attempted_pressure": 0.6348,
+      "authority_drift": 0.087449,
+      "capture": 0.0,
+      "chain_hash": "991ae2b6129e7e3a17ef415ba481a778fb18d12af1894b36e47c3da794fa2216",
+      "event_type": "political_instrumentalization",
+      "plurality": 0.952,
+      "step": 5373
+    }
+  ],
+  "schema_version": "v18_3_long_horizon_ideological_ecology",
+  "steps": 5400
+}
