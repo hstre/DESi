@@ -119,3 +119,9 @@ artifacts/financial_governance/_full_regression_started.txt
 # artifacts/criminal_epistemics/_regression_status.json.
 artifacts/criminal_epistemics/_full_regression.log
 artifacts/criminal_epistemics/_full_regression_started.txt
+
+# v17.4 end-of-phase full-regression scratch files (raw pytest log +
+# start timestamp). The parsed summary is committed as
+# artifacts/sensitive_documents/_regression_status.json.
+artifacts/sensitive_documents/_full_regression.log
+artifacts/sensitive_documents/_full_regression_started.txt
