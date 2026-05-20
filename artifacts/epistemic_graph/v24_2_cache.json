@@ -1,0 +1,129 @@
+{
+  "cache_key_components": [
+    "replay_hashes",
+    "fixtures",
+    "governance",
+    "claims",
+    "metrics"
+  ],
+  "cache_validity": 1.0,
+  "compute_reduction": 1.0,
+  "disclaimer": "Replay-validated epistemic caching, not opportunistic runtime caching. A subspace may be reused only when all five identity components are identical (replay hash, fixtures, governance, claims, metrics); any change is detected as stale and invalidated. Reuse therefore introduces no epistemic drift, governance stays an identity condition, and the canonical state remains the JSON artifacts and replay hashes.",
+  "invalidation_integrity": 1.0,
+  "recommendation": "REPLAY_VALIDATED_REUSE",
+  "recomputed": 0,
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "REPLAY_VALIDATED_REUSE",
+    "REUSE_RISKS_DRIFT",
+    "CACHE_DRIFT_HALT"
+  ],
+  "reused": 5,
+  "schema_version": "v24_2_epistemic_replay_cache",
+  "signature": "4bff41bf1a9a96d6bd0c7b0fb14336ba8b01535698628f3022510916b662232d",
+  "stale_detection": 1.0,
+  "subspaces": [
+    {
+      "claims": [
+        "claim:DC1"
+      ],
+      "fingerprint": "b7a01bdc01b5f01c6f07404cd914cddaadf214d76c35baffa240a35a0cffe645",
+      "fixtures": [
+        "fixture:synthetic_trajectories"
+      ],
+      "governance": [
+        "rule:forbidden_terms",
+        "rule:read_only_layer"
+      ],
+      "metrics": [
+        "metric:redundancy_reduction",
+        "metric:replay_stability"
+      ],
+      "replay_hashes": [
+        "4537fff62dc471b6"
+      ],
+      "subspace_id": "DC1"
+    },
+    {
+      "claims": [
+        "claim:DC2"
+      ],
+      "fingerprint": "0499a42ad20a26137c02cdf41031f567174cc6b87dcac4d1fac09bf2e0b3019b",
+      "fixtures": [
+        "fixture:hallucinated_paths"
+      ],
+      "governance": [
+        "rule:forbidden_terms",
+        "rule:read_only_layer"
+      ],
+      "metrics": [
+        "metric:residual_hallucination"
+      ],
+      "replay_hashes": [
+        "f0244ebd75b602be"
+      ],
+      "subspace_id": "DC2"
+    },
+    {
+      "claims": [
+        "claim:DC3"
+      ],
+      "fingerprint": "4e238ac7b37397ecc1fd8a6282e62cdc23fbd365e9571b0c617d250bc4a9fa72",
+      "fixtures": [
+        "fixture:synthetic_trajectories"
+      ],
+      "governance": [
+        "rule:forbidden_terms",
+        "rule:read_only_layer"
+      ],
+      "metrics": [
+        "metric:novelty_gain",
+        "metric:productivity_gain"
+      ],
+      "replay_hashes": [
+        "1ff033aacae3a30c"
+      ],
+      "subspace_id": "DC3"
+    },
+    {
+      "claims": [
+        "claim:DC4"
+      ],
+      "fingerprint": "62aae962eaaed8689ae29312682747695bfdc2591f8c53d4b60de96811bb3d5b",
+      "fixtures": [
+        "fixture:synthetic_trajectories"
+      ],
+      "governance": [
+        "rule:forbidden_terms",
+        "rule:read_only_layer"
+      ],
+      "metrics": [],
+      "replay_hashes": [
+        "3f6014fcf46e036a"
+      ],
+      "subspace_id": "DC4"
+    },
+    {
+      "claims": [
+        "claim:DC5"
+      ],
+      "fingerprint": "e824db194060386777c449e93e58e53d63ef71174ff4eb1a5560a0f12e00794a",
+      "fixtures": [
+        "fixture:ecology_5600"
+      ],
+      "governance": [
+        "rule:forbidden_terms",
+        "rule:read_only_layer"
+      ],
+      "metrics": [
+        "metric:authority_drift",
+        "metric:capture_resistance",
+        "metric:exploration_diversity"
+      ],
+      "replay_hashes": [
+        "a969b4243ff24691"
+      ],
+      "subspace_id": "DC5"
+    }
+  ]
+}
