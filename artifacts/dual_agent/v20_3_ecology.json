@@ -1,0 +1,2034 @@
+{
+  "attempted_pressure": 0.699886,
+  "authority_drift": 0.088417,
+  "authority_drift_bounded": true,
+  "authority_resistance": 0.911583,
+  "capture_occurred": false,
+  "capture_resistance": 1.0,
+  "disclaimer": "A >= 5000-step deterministic dual-agent ecology (persistent exploration, novelty exhaustion, hallucination growth, governance fatigue, trajectory collapse, authority drift, exploration addiction). DESi keeps exploration alive, keeps novelty visible, bounds authority drift, and resists governance capture - keeping the wild productive without becoming an authority. It replaces no policy, injects no reward, claims no optimal strategy. Synthetic, replay-exact.",
+  "enum_snapshot_hash": "0ae2a101dcc3ac27d0bd1432239da8da879ac601eadc7c6b72e953ca4d21433c",
+  "event_types": [
+    "persistent_exploration",
+    "novelty_exhaustion",
+    "hallucination_growth",
+    "governance_fatigue",
+    "trajectory_collapse",
+    "authority_drift",
+    "exploration_addiction"
+  ],
+  "exploration_longevity": 0.970015,
+  "final_hash": "d0c37e8b079bd302a89a60e25063b93188c398dd45490f97cfcac7e626d1db65",
+  "min_longevity": 0.94006,
+  "min_novelty_visibility": 0.96004,
+  "novelty_visibility": 0.98001,
+  "recommendation": "DUAL_AGENT_ECOLOGY_STABLE",
+  "report_verdicts": [
+    "DUAL_AGENT_ECOLOGY_STABLE",
+    "DUAL_AGENT_ECOLOGY_CAPTURED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "sample": [
+    {
+      "attempted_pressure": 0.6182,
+      "authority_drift": 0.0,
+      "capture": 0.0,
+      "chain_hash": "c3147155d5776bafe51074be33c571b5d6c22ef393f73aedfdbad2084aeefe70",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99922,
+      "novelty_visibility": 0.99884,
+      "step": 0
+    },
+    {
+      "attempted_pressure": 0.7358,
+      "authority_drift": 0.001657,
+      "capture": 0.0,
+      "chain_hash": "c6e7182d1824a33499151034ccc102383c7a45de170286f3f7bb9215cf881c3f",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9553,
+      "novelty_visibility": 0.99932,
+      "step": 28
+    },
+    {
+      "attempted_pressure": 0.6534,
+      "authority_drift": 0.003268,
+      "capture": 0.0,
+      "chain_hash": "7f037483a21543a256025e5b962cef7d046880ca2b4f007edb2a569e1d8f2741",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97138,
+      "novelty_visibility": 0.9998,
+      "step": 56
+    },
+    {
+      "attempted_pressure": 0.771,
+      "authority_drift": 0.004837,
+      "capture": 0.0,
+      "chain_hash": "7a9203aa8eae6f8241f2b643a73af32a2c54ff51ff4764c7b319d10b19dc2a42",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98746,
+      "novelty_visibility": 0.96028,
+      "step": 84
+    },
+    {
+      "attempted_pressure": 0.6886,
+      "authority_drift": 0.006364,
+      "capture": 0.0,
+      "chain_hash": "7a6d9301d1553834ca6962ffad28a357bde204e9f8a3751a57ae4327c2da0f07",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94354,
+      "novelty_visibility": 0.96076,
+      "step": 112
+    },
+    {
+      "attempted_pressure": 0.6062,
+      "authority_drift": 0.00785,
+      "capture": 0.0,
+      "chain_hash": "80a3026599310727a4153cddfac52ebca4c3e938a9317ab981c44b7a5992b016",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95962,
+      "novelty_visibility": 0.96124,
+      "step": 140
+    },
+    {
+      "attempted_pressure": 0.7238,
+      "authority_drift": 0.009299,
+      "capture": 0.0,
+      "chain_hash": "9ca57214ae048046c01af8be349b97c0bccfea3a7824bc165c6689e6f0329b01",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9757,
+      "novelty_visibility": 0.96172,
+      "step": 168
+    },
+    {
+      "attempted_pressure": 0.6414,
+      "authority_drift": 0.01071,
+      "capture": 0.0,
+      "chain_hash": "77b179f6f649adc29175fa8846ee28d30002d8d7fd74b10876d30fa0680b9a16",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99178,
+      "novelty_visibility": 0.9622,
+      "step": 196
+    },
+    {
+      "attempted_pressure": 0.759,
+      "authority_drift": 0.012086,
+      "capture": 0.0,
+      "chain_hash": "dfec7c77976bfc2969a2785bbefcac9c721212766d16537b8d12bea081aa7ff5",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94786,
+      "novelty_visibility": 0.96268,
+      "step": 224
+    },
+    {
+      "attempted_pressure": 0.6766,
+      "authority_drift": 0.013428,
+      "capture": 0.0,
+      "chain_hash": "c09df573fa1793f492f526f4b49ebd2f95b17d232152ec2fead49612ba704516",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96394,
+      "novelty_visibility": 0.96316,
+      "step": 252
+    },
+    {
+      "attempted_pressure": 0.7942,
+      "authority_drift": 0.014737,
+      "capture": 0.0,
+      "chain_hash": "88af3409cb53e49928fd9d901b92322152830f40257d334d25c714f638691708",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98002,
+      "novelty_visibility": 0.96364,
+      "step": 280
+    },
+    {
+      "attempted_pressure": 0.7118,
+      "authority_drift": 0.016014,
+      "capture": 0.0,
+      "chain_hash": "ca5e94f544e3532f70f5869dba4da9d7db2ae829a9c722b3d3afd952ced0f111",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9961,
+      "novelty_visibility": 0.96412,
+      "step": 308
+    },
+    {
+      "attempted_pressure": 0.6294,
+      "authority_drift": 0.01726,
+      "capture": 0.0,
+      "chain_hash": "8f9a0f9f0e48713e79337c838c7fc64c6ba5b7595e84fc58fb5666e2621d7906",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95218,
+      "novelty_visibility": 0.9646,
+      "step": 336
+    },
+    {
+      "attempted_pressure": 0.747,
+      "authority_drift": 0.018477,
+      "capture": 0.0,
+      "chain_hash": "bbfbf7bb7c7b28eb39a380587d34668c8a29f4a44be3c7ec92ce0996e075e35a",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96826,
+      "novelty_visibility": 0.96508,
+      "step": 364
+    },
+    {
+      "attempted_pressure": 0.6646,
+      "authority_drift": 0.019666,
+      "capture": 0.0,
+      "chain_hash": "cc98d72e4e4ab0b5c2df49ab2455303939d8b8eb5593fd789a238b80c9da4720",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98434,
+      "novelty_visibility": 0.96556,
+      "step": 392
+    },
+    {
+      "attempted_pressure": 0.7822,
+      "authority_drift": 0.020826,
+      "capture": 0.0,
+      "chain_hash": "f455f33dfad945b8f4a9b06a193267ed4e9f06061b8bf18477c06029f060f612",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94042,
+      "novelty_visibility": 0.96604,
+      "step": 420
+    },
+    {
+      "attempted_pressure": 0.6998,
+      "authority_drift": 0.021961,
+      "capture": 0.0,
+      "chain_hash": "b443ba2e23f029b8c687893fdd550e113024cf79b82fc3ae4efa07910f94f5f6",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9565,
+      "novelty_visibility": 0.96652,
+      "step": 448
+    },
+    {
+      "attempted_pressure": 0.6174,
+      "authority_drift": 0.023069,
+      "capture": 0.0,
+      "chain_hash": "972d20765546059f02da6f6232c194eb1035b9d189674a17433082b196d25034",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97258,
+      "novelty_visibility": 0.967,
+      "step": 476
+    },
+    {
+      "attempted_pressure": 0.735,
+      "authority_drift": 0.024153,
+      "capture": 0.0,
+      "chain_hash": "384846a74f9190f01c69bb8b59b4b673378a8dc65d9615f4d8e2fc85958cb773",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98866,
+      "novelty_visibility": 0.96748,
+      "step": 504
+    },
+    {
+      "attempted_pressure": 0.6526,
+      "authority_drift": 0.025213,
+      "capture": 0.0,
+      "chain_hash": "57f76756414e801536ccb93200fb95fd22f4cf63faf5be0aa4a9332de37b4cad",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94474,
+      "novelty_visibility": 0.96796,
+      "step": 532
+    },
+    {
+      "attempted_pressure": 0.7702,
+      "authority_drift": 0.02625,
+      "capture": 0.0,
+      "chain_hash": "63a3295aa79ba48dc0012dcc56342e4864eaa03b568d544e7004a5170f839bbb",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96082,
+      "novelty_visibility": 0.96844,
+      "step": 560
+    },
+    {
+      "attempted_pressure": 0.6878,
+      "authority_drift": 0.027264,
+      "capture": 0.0,
+      "chain_hash": "331fb04b6c23925c613ffe9d7dd25f502284e6a0c7f06f3f2feb9c3af17f5380",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9769,
+      "novelty_visibility": 0.96892,
+      "step": 588
+    },
+    {
+      "attempted_pressure": 0.6054,
+      "authority_drift": 0.028257,
+      "capture": 0.0,
+      "chain_hash": "99e095dc9d36c9854d49e93d2dd0669a618834c24095e9568b2bb708b5e361a0",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99298,
+      "novelty_visibility": 0.9694,
+      "step": 616
+    },
+    {
+      "attempted_pressure": 0.723,
+      "authority_drift": 0.029228,
+      "capture": 0.0,
+      "chain_hash": "bf7037be2d7518c0cca09d3455422ba66deb0f11f8d2485a356d9346d11f6874",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94906,
+      "novelty_visibility": 0.96988,
+      "step": 644
+    },
+    {
+      "attempted_pressure": 0.6406,
+      "authority_drift": 0.03018,
+      "capture": 0.0,
+      "chain_hash": "376d84a6f77ed383824c59977be49d660392a08a0c8a11059f32e5d3a23933bd",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96514,
+      "novelty_visibility": 0.97036,
+      "step": 672
+    },
+    {
+      "attempted_pressure": 0.7582,
+      "authority_drift": 0.031111,
+      "capture": 0.0,
+      "chain_hash": "42568dbeb10eab496f0b0e1105fb4dd678fc655ea7fe2725a4f9a888d1ebb717",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98122,
+      "novelty_visibility": 0.97084,
+      "step": 700
+    },
+    {
+      "attempted_pressure": 0.6758,
+      "authority_drift": 0.032023,
+      "capture": 0.0,
+      "chain_hash": "4a34c3a61d87ec6890c673acbc85944e1e31ba20cdd4139cc8142213935b821a",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9973,
+      "novelty_visibility": 0.97132,
+      "step": 728
+    },
+    {
+      "attempted_pressure": 0.7934,
+      "authority_drift": 0.032917,
+      "capture": 0.0,
+      "chain_hash": "582d55bf6c0cad211ed2bdd00d3873fad139b51b6b5c402285a3c79a2bf9c148",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95338,
+      "novelty_visibility": 0.9718,
+      "step": 756
+    },
+    {
+      "attempted_pressure": 0.711,
+      "authority_drift": 0.033793,
+      "capture": 0.0,
+      "chain_hash": "782ff27ea0606caa0e514afcf7988ce1f7fbe32135b4270c4a83d76e59cd3f0d",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96946,
+      "novelty_visibility": 0.97228,
+      "step": 784
+    },
+    {
+      "attempted_pressure": 0.6286,
+      "authority_drift": 0.034651,
+      "capture": 0.0,
+      "chain_hash": "f501d42b30b09eabdfaeea1db4fd0d590359a242b8bdfd44e0764bd6cbccce64",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98554,
+      "novelty_visibility": 0.97276,
+      "step": 812
+    },
+    {
+      "attempted_pressure": 0.7462,
+      "authority_drift": 0.035493,
+      "capture": 0.0,
+      "chain_hash": "3b41db17f81cbfcfd821116aabd80c9e11b9235eaeea97db8b17bd6478aec9d3",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94162,
+      "novelty_visibility": 0.97324,
+      "step": 840
+    },
+    {
+      "attempted_pressure": 0.6638,
+      "authority_drift": 0.036318,
+      "capture": 0.0,
+      "chain_hash": "41e9add631ce1d922b0dd2dec269389b22bf6fb4c78cdd990aa9fae963c49bb2",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9577,
+      "novelty_visibility": 0.97372,
+      "step": 868
+    },
+    {
+      "attempted_pressure": 0.7814,
+      "authority_drift": 0.037127,
+      "capture": 0.0,
+      "chain_hash": "63b95cea6785e4f4a4f020b82fa67e59ec38db4dc96fb73af4ef188550ac2689",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97378,
+      "novelty_visibility": 0.9742,
+      "step": 896
+    },
+    {
+      "attempted_pressure": 0.699,
+      "authority_drift": 0.037921,
+      "capture": 0.0,
+      "chain_hash": "6e9043f0f2ac68fce78700b437103920ca08997eb2c545a13b0896188ae1b3e0",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98986,
+      "novelty_visibility": 0.97468,
+      "step": 924
+    },
+    {
+      "attempted_pressure": 0.6166,
+      "authority_drift": 0.038699,
+      "capture": 0.0,
+      "chain_hash": "74c4e74afaa29631e3b7533913abf25ed50bf60347a11354a5d92e0e3576f5b9",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94594,
+      "novelty_visibility": 0.97516,
+      "step": 952
+    },
+    {
+      "attempted_pressure": 0.7342,
+      "authority_drift": 0.039463,
+      "capture": 0.0,
+      "chain_hash": "ccd0291478d6b1c7aeeed14e29cdbed9cea9fdd87d6bb2237c5f511a1c84b76b",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96202,
+      "novelty_visibility": 0.97564,
+      "step": 980
+    },
+    {
+      "attempted_pressure": 0.6518,
+      "authority_drift": 0.040213,
+      "capture": 0.0,
+      "chain_hash": "9c0642c8a5739dac86fedf09cfd383dcefda09fbf634a61f5c08256987cfc729",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9781,
+      "novelty_visibility": 0.97612,
+      "step": 1008
+    },
+    {
+      "attempted_pressure": 0.7694,
+      "authority_drift": 0.040949,
+      "capture": 0.0,
+      "chain_hash": "77026a7c8915b8e5aa02a419e1917e4b51be02621596e95c66955d3697d549a2",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99418,
+      "novelty_visibility": 0.9766,
+      "step": 1036
+    },
+    {
+      "attempted_pressure": 0.687,
+      "authority_drift": 0.041671,
+      "capture": 0.0,
+      "chain_hash": "1e7a87ba6c0b284a9c768b129e26d0981d806479ceba9175009ede254d167d29",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95026,
+      "novelty_visibility": 0.97708,
+      "step": 1064
+    },
+    {
+      "attempted_pressure": 0.6046,
+      "authority_drift": 0.04238,
+      "capture": 0.0,
+      "chain_hash": "4043dab2ac739d5e6e71c675c14696d6a3ce746e267e4a51e68d5508ab5e7eb1",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96634,
+      "novelty_visibility": 0.97756,
+      "step": 1092
+    },
+    {
+      "attempted_pressure": 0.7222,
+      "authority_drift": 0.043077,
+      "capture": 0.0,
+      "chain_hash": "a151a4095494883424c0d34a4b916c1272555d337dbfd038d3594314a6ffa5a0",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98242,
+      "novelty_visibility": 0.97804,
+      "step": 1120
+    },
+    {
+      "attempted_pressure": 0.6398,
+      "authority_drift": 0.043761,
+      "capture": 0.0,
+      "chain_hash": "d1785da34fa47bc01b08ee322bb2dc10fa8d8f542500a02dab1d9b3344cc6b5f",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9985,
+      "novelty_visibility": 0.97852,
+      "step": 1148
+    },
+    {
+      "attempted_pressure": 0.7574,
+      "authority_drift": 0.044433,
+      "capture": 0.0,
+      "chain_hash": "44e7f1d2c0296f51287c5431911184e8ca7e3cf970b277d52acaaaa6888a8a43",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95458,
+      "novelty_visibility": 0.979,
+      "step": 1176
+    },
+    {
+      "attempted_pressure": 0.675,
+      "authority_drift": 0.045094,
+      "capture": 0.0,
+      "chain_hash": "0ef066b2d017c98d2f1b2f1d31f9ec27d89300b1ec4c0dc12fc904474e14e16d",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97066,
+      "novelty_visibility": 0.97948,
+      "step": 1204
+    },
+    {
+      "attempted_pressure": 0.7926,
+      "authority_drift": 0.045743,
+      "capture": 0.0,
+      "chain_hash": "db84be430e63a5cb1fd4376d382c136ae35a8faed77a30bf44a38a22b67da979",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98674,
+      "novelty_visibility": 0.97996,
+      "step": 1232
+    },
+    {
+      "attempted_pressure": 0.7102,
+      "authority_drift": 0.04638,
+      "capture": 0.0,
+      "chain_hash": "7c8ebbbc36267c19d22d0c367057f021d8861019ce4e96a9de0d5c04e6f38ec8",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94282,
+      "novelty_visibility": 0.98044,
+      "step": 1260
+    },
+    {
+      "attempted_pressure": 0.6278,
+      "authority_drift": 0.047007,
+      "capture": 0.0,
+      "chain_hash": "4221755fcb405f32c7b5f455c624219bcfbb0960c0049c41249d764d568406e8",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9589,
+      "novelty_visibility": 0.98092,
+      "step": 1288
+    },
+    {
+      "attempted_pressure": 0.7454,
+      "authority_drift": 0.047624,
+      "capture": 0.0,
+      "chain_hash": "b060e55bc1ddff0c55d5e31273b13c679e906c8d6837fe5cf42c29910c9b7d65",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97498,
+      "novelty_visibility": 0.9814,
+      "step": 1316
+    },
+    {
+      "attempted_pressure": 0.663,
+      "authority_drift": 0.04823,
+      "capture": 0.0,
+      "chain_hash": "4d95ca66f9c31ed8d1c11814223350ea6be480175212d8cbe8d70d7b7befd5ed",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99106,
+      "novelty_visibility": 0.98188,
+      "step": 1344
+    },
+    {
+      "attempted_pressure": 0.7806,
+      "authority_drift": 0.048826,
+      "capture": 0.0,
+      "chain_hash": "b92a04a52658847b2ef54cc2b14562472e687896a73df297b5e3b375a6a61cb0",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94714,
+      "novelty_visibility": 0.98236,
+      "step": 1372
+    },
+    {
+      "attempted_pressure": 0.6982,
+      "authority_drift": 0.049412,
+      "capture": 0.0,
+      "chain_hash": "29bf443968464199a906d2871a9cf69db9fe9d93a456fd6ee17775ebdf2a5f70",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96322,
+      "novelty_visibility": 0.98284,
+      "step": 1400
+    },
+    {
+      "attempted_pressure": 0.6158,
+      "authority_drift": 0.049988,
+      "capture": 0.0,
+      "chain_hash": "73ea27dcdcd195cf510a102a4241999a4e4330103775d646987dc06ca4170cae",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9793,
+      "novelty_visibility": 0.98332,
+      "step": 1428
+    },
+    {
+      "attempted_pressure": 0.7334,
+      "authority_drift": 0.050556,
+      "capture": 0.0,
+      "chain_hash": "ced78e80c740de5bac4662e32da000a6514684088b36a53282a19c2e5218962e",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99538,
+      "novelty_visibility": 0.9838,
+      "step": 1456
+    },
+    {
+      "attempted_pressure": 0.651,
+      "authority_drift": 0.051114,
+      "capture": 0.0,
+      "chain_hash": "7c85bb064bf0c23d023d61e8b5982d32172fcb2acf7e235dc2869d336f5c008d",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95146,
+      "novelty_visibility": 0.98428,
+      "step": 1484
+    },
+    {
+      "attempted_pressure": 0.7686,
+      "authority_drift": 0.051663,
+      "capture": 0.0,
+      "chain_hash": "4ff13452502f16c12a0edf2404a8b8ff81342a3aefe9255a5ac1d76abcb95dc3",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96754,
+      "novelty_visibility": 0.98476,
+      "step": 1512
+    },
+    {
+      "attempted_pressure": 0.6862,
+      "authority_drift": 0.052203,
+      "capture": 0.0,
+      "chain_hash": "bec99e664d3cd70d910b8ba61805459d6265630b8c6f3d308262e96331510734",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98362,
+      "novelty_visibility": 0.98524,
+      "step": 1540
+    },
+    {
+      "attempted_pressure": 0.6038,
+      "authority_drift": 0.052735,
+      "capture": 0.0,
+      "chain_hash": "4cc57361579e77084fc335a3a8f6f4de0c10165c9f2538bf9a117c5efe63a8b2",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9997,
+      "novelty_visibility": 0.98572,
+      "step": 1568
+    },
+    {
+      "attempted_pressure": 0.7214,
+      "authority_drift": 0.053259,
+      "capture": 0.0,
+      "chain_hash": "f1e90422d8031e5bbe65b65503495180a911322f4271ef4653942a20f8d2fc07",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95578,
+      "novelty_visibility": 0.9862,
+      "step": 1596
+    },
+    {
+      "attempted_pressure": 0.639,
+      "authority_drift": 0.053775,
+      "capture": 0.0,
+      "chain_hash": "c9af52d916b9c45d229aa6105ef78654170956072bc01c67cdc0c64968ec8040",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97186,
+      "novelty_visibility": 0.98668,
+      "step": 1624
+    },
+    {
+      "attempted_pressure": 0.7566,
+      "authority_drift": 0.054283,
+      "capture": 0.0,
+      "chain_hash": "a2c9811d91a690dd624039518dc010e603798766cf561bded5d42d2271499875",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98794,
+      "novelty_visibility": 0.98716,
+      "step": 1652
+    },
+    {
+      "attempted_pressure": 0.6742,
+      "authority_drift": 0.054783,
+      "capture": 0.0,
+      "chain_hash": "b4778ea1550c76ced63d6d46b1bd019ce942375a1e1ff987a312fdb80ea16ba5",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94402,
+      "novelty_visibility": 0.98764,
+      "step": 1680
+    },
+    {
+      "attempted_pressure": 0.7918,
+      "authority_drift": 0.055275,
+      "capture": 0.0,
+      "chain_hash": "ae7750634ed5fff3ade4a6e6269b7235374251a30aa2c6aac31f0845bf181046",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9601,
+      "novelty_visibility": 0.98812,
+      "step": 1708
+    },
+    {
+      "attempted_pressure": 0.7094,
+      "authority_drift": 0.05576,
+      "capture": 0.0,
+      "chain_hash": "e4df349de22e0c08954abacc41336cb7c70d59b48c64ea722ecdc9e435b13524",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97618,
+      "novelty_visibility": 0.9886,
+      "step": 1736
+    },
+    {
+      "attempted_pressure": 0.627,
+      "authority_drift": 0.056238,
+      "capture": 0.0,
+      "chain_hash": "d97752e975706adb51108c5d80ccb53f655fb3209db7ec36299e107894884802",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99226,
+      "novelty_visibility": 0.98908,
+      "step": 1764
+    },
+    {
+      "attempted_pressure": 0.7446,
+      "authority_drift": 0.056709,
+      "capture": 0.0,
+      "chain_hash": "6f4f1d9a9ec342a9ed58d2d95d012fdea9a415137771088cb6986f64a1903a62",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94834,
+      "novelty_visibility": 0.98956,
+      "step": 1792
+    },
+    {
+      "attempted_pressure": 0.6622,
+      "authority_drift": 0.057173,
+      "capture": 0.0,
+      "chain_hash": "716be01d2a10a1ba0973ddbe879ab7c8b1e9cbde7afaaf7b2202b8cebb39d960",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96442,
+      "novelty_visibility": 0.99004,
+      "step": 1820
+    },
+    {
+      "attempted_pressure": 0.7798,
+      "authority_drift": 0.05763,
+      "capture": 0.0,
+      "chain_hash": "6870289ef8baff118726fbabb43f61e796443844d41b8b0a70b36383ce1c60bb",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9805,
+      "novelty_visibility": 0.99052,
+      "step": 1848
+    },
+    {
+      "attempted_pressure": 0.6974,
+      "authority_drift": 0.05808,
+      "capture": 0.0,
+      "chain_hash": "fcb193365883acf751ca8aef11806cd9147143bbeb5ab59fdc6a9aaca6270e18",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99658,
+      "novelty_visibility": 0.991,
+      "step": 1876
+    },
+    {
+      "attempted_pressure": 0.615,
+      "authority_drift": 0.058525,
+      "capture": 0.0,
+      "chain_hash": "b0e26f86da967ee6fb94f0eaadb3da7d2219d378e8f711aadc1b475e155ce8bf",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95266,
+      "novelty_visibility": 0.99148,
+      "step": 1904
+    },
+    {
+      "attempted_pressure": 0.7326,
+      "authority_drift": 0.058962,
+      "capture": 0.0,
+      "chain_hash": "3107de3c4dd084c7524e22d6035e0cb14a134459bc0b96e04bb52ac7de3a1bd8",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96874,
+      "novelty_visibility": 0.99196,
+      "step": 1932
+    },
+    {
+      "attempted_pressure": 0.6502,
+      "authority_drift": 0.059394,
+      "capture": 0.0,
+      "chain_hash": "07f7a65800344e26228176226c1c6c61b0d2f1f45e1980461951cdfdee7d33fa",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98482,
+      "novelty_visibility": 0.99244,
+      "step": 1960
+    },
+    {
+      "attempted_pressure": 0.7678,
+      "authority_drift": 0.059819,
+      "capture": 0.0,
+      "chain_hash": "a92d319e82abed5629ba4fbdb3b7f3d26f5b70c35e4db855c20cd57e8c3b9324",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9409,
+      "novelty_visibility": 0.99292,
+      "step": 1988
+    },
+    {
+      "attempted_pressure": 0.6854,
+      "authority_drift": 0.060239,
+      "capture": 0.0,
+      "chain_hash": "dbeae84390261df93f4b28bc2cb2db0cff57837fc00916df9781dfd81dc2ab8b",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95698,
+      "novelty_visibility": 0.9934,
+      "step": 2016
+    },
+    {
+      "attempted_pressure": 0.603,
+      "authority_drift": 0.060653,
+      "capture": 0.0,
+      "chain_hash": "9c6f2db8251ae1f0560306e2969e152f6244525e68bcefb2680bc937a13aee11",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97306,
+      "novelty_visibility": 0.99388,
+      "step": 2044
+    },
+    {
+      "attempted_pressure": 0.7206,
+      "authority_drift": 0.061061,
+      "capture": 0.0,
+      "chain_hash": "845973b78620683a03923d41999952669766fdff8b6d241b266d58b45ca205b0",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98914,
+      "novelty_visibility": 0.99436,
+      "step": 2072
+    },
+    {
+      "attempted_pressure": 0.6382,
+      "authority_drift": 0.061463,
+      "capture": 0.0,
+      "chain_hash": "9bef168f13027a3772654c2223b21560dab0b552d5fdd83e8af0e7b675d10455",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94522,
+      "novelty_visibility": 0.99484,
+      "step": 2100
+    },
+    {
+      "attempted_pressure": 0.7558,
+      "authority_drift": 0.06186,
+      "capture": 0.0,
+      "chain_hash": "3de6a47febb73c752801cab6f1b0e2408df7f4e94160c060357d9d90b6c830c9",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9613,
+      "novelty_visibility": 0.99532,
+      "step": 2128
+    },
+    {
+      "attempted_pressure": 0.6734,
+      "authority_drift": 0.062252,
+      "capture": 0.0,
+      "chain_hash": "1aa5133f0879130c9364ccce5f931f7576785263a625565872389b6f570b119c",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97738,
+      "novelty_visibility": 0.9958,
+      "step": 2156
+    },
+    {
+      "attempted_pressure": 0.791,
+      "authority_drift": 0.062639,
+      "capture": 0.0,
+      "chain_hash": "2a5fbcefa3f8451b49aa0a818ffd7ed60af9ce761c2ab46da8a38fbee26c78c8",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99346,
+      "novelty_visibility": 0.99628,
+      "step": 2184
+    },
+    {
+      "attempted_pressure": 0.7086,
+      "authority_drift": 0.06302,
+      "capture": 0.0,
+      "chain_hash": "a793af5279527a14e06efdef486e3c8969089192e8f0317ccd946ee122205e36",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94954,
+      "novelty_visibility": 0.99676,
+      "step": 2212
+    },
+    {
+      "attempted_pressure": 0.6262,
+      "authority_drift": 0.063396,
+      "capture": 0.0,
+      "chain_hash": "1058fdfbc8fad262337eb6e47905e4ffe38ed73fc8851a8f646f1e56158a31d7",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96562,
+      "novelty_visibility": 0.99724,
+      "step": 2240
+    },
+    {
+      "attempted_pressure": 0.7438,
+      "authority_drift": 0.063768,
+      "capture": 0.0,
+      "chain_hash": "79d87ecfa9b624d70fc2ad7f8c7da3022ed299f99d9ad251647db0ad05f825f7",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9817,
+      "novelty_visibility": 0.99772,
+      "step": 2268
+    },
+    {
+      "attempted_pressure": 0.6614,
+      "authority_drift": 0.064134,
+      "capture": 0.0,
+      "chain_hash": "4b618c31df4b529cf95f331dbda6403db5f21ced6f29dc2de9e330559f482a80",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99778,
+      "novelty_visibility": 0.9982,
+      "step": 2296
+    },
+    {
+      "attempted_pressure": 0.779,
+      "authority_drift": 0.064496,
+      "capture": 0.0,
+      "chain_hash": "e0130b3ed4534752591fccc7b52dda38b6e1a463659d20674c3bc609d46d4a57",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95386,
+      "novelty_visibility": 0.99868,
+      "step": 2324
+    },
+    {
+      "attempted_pressure": 0.6966,
+      "authority_drift": 0.064853,
+      "capture": 0.0,
+      "chain_hash": "538906db8b3c7a48ecc1a450d27413e58bfeed288256a21b601a24f0eee3fd17",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96994,
+      "novelty_visibility": 0.99916,
+      "step": 2352
+    },
+    {
+      "attempted_pressure": 0.6142,
+      "authority_drift": 0.065205,
+      "capture": 0.0,
+      "chain_hash": "3ade7bc5dde9f26bd65a3fbb1af6cb105208ac2b1790d157c18445d09d3eb553",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98602,
+      "novelty_visibility": 0.99964,
+      "step": 2380
+    },
+    {
+      "attempted_pressure": 0.7318,
+      "authority_drift": 0.065554,
+      "capture": 0.0,
+      "chain_hash": "999927865a3f0f409a3979f649e7d60ebc0c8705966722afbf3fd4290d6896a9",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9421,
+      "novelty_visibility": 0.96012,
+      "step": 2408
+    },
+    {
+      "attempted_pressure": 0.6494,
+      "authority_drift": 0.065897,
+      "capture": 0.0,
+      "chain_hash": "43ff043c61348095123ef24404184bbeaccdde971991e8b9a78970bd164e6c5d",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95818,
+      "novelty_visibility": 0.9606,
+      "step": 2436
+    },
+    {
+      "attempted_pressure": 0.767,
+      "authority_drift": 0.066237,
+      "capture": 0.0,
+      "chain_hash": "249b3d3724e7bd4741fd274a7e5e28b8546c5b31303e9c11ea372263a9de2e46",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97426,
+      "novelty_visibility": 0.96108,
+      "step": 2464
+    },
+    {
+      "attempted_pressure": 0.6846,
+      "authority_drift": 0.066572,
+      "capture": 0.0,
+      "chain_hash": "94b15ba8a56df603cd3d2941bef8d4b13bd4bda63a7ad7019a4962f4ac13d4de",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99034,
+      "novelty_visibility": 0.96156,
+      "step": 2492
+    },
+    {
+      "attempted_pressure": 0.6022,
+      "authority_drift": 0.066903,
+      "capture": 0.0,
+      "chain_hash": "73356ec9fa7ad28469d3730d39a132975bd4bc36297d949041977c325e253d70",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94642,
+      "novelty_visibility": 0.96204,
+      "step": 2520
+    },
+    {
+      "attempted_pressure": 0.7198,
+      "authority_drift": 0.06723,
+      "capture": 0.0,
+      "chain_hash": "5929d46bd6c8294456ecaf9f94ce922f4657fd9b65bce57b8c52ae112f4c2fd4",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9625,
+      "novelty_visibility": 0.96252,
+      "step": 2548
+    },
+    {
+      "attempted_pressure": 0.6374,
+      "authority_drift": 0.067552,
+      "capture": 0.0,
+      "chain_hash": "c659b68ac26264c5d9a9c26d7bbcb1470b71bf0a7446aae35f4d46a99dfa6a66",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97858,
+      "novelty_visibility": 0.963,
+      "step": 2576
+    },
+    {
+      "attempted_pressure": 0.755,
+      "authority_drift": 0.067871,
+      "capture": 0.0,
+      "chain_hash": "b285a9333fc7419a71f6448a33c8bfab74af3489a87d31362b6962ed42b3cefb",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99466,
+      "novelty_visibility": 0.96348,
+      "step": 2604
+    },
+    {
+      "attempted_pressure": 0.6726,
+      "authority_drift": 0.068187,
+      "capture": 0.0,
+      "chain_hash": "797907a0fdab94d450346c9634385d0a927ca2958c2c3f48461f92e400309a1d",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95074,
+      "novelty_visibility": 0.96396,
+      "step": 2632
+    },
+    {
+      "attempted_pressure": 0.7902,
+      "authority_drift": 0.068498,
+      "capture": 0.0,
+      "chain_hash": "44292ab642e1b14bd2d39dfd6e511572fab88d33d5a2b0c3161f1041a8f7433d",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96682,
+      "novelty_visibility": 0.96444,
+      "step": 2660
+    },
+    {
+      "attempted_pressure": 0.7078,
+      "authority_drift": 0.068805,
+      "capture": 0.0,
+      "chain_hash": "56ea40c4bdacb5e4a107175ea8ff9daa4a34450ad862336d09c51a5a9e4fe821",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9829,
+      "novelty_visibility": 0.96492,
+      "step": 2688
+    },
+    {
+      "attempted_pressure": 0.6254,
+      "authority_drift": 0.069109,
+      "capture": 0.0,
+      "chain_hash": "f848c758854ab9d8f62ede2f8518c30a63cb6630d462ba87dba56d56c9a568a4",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99898,
+      "novelty_visibility": 0.9654,
+      "step": 2716
+    },
+    {
+      "attempted_pressure": 0.743,
+      "authority_drift": 0.06941,
+      "capture": 0.0,
+      "chain_hash": "72e5106579572da6b71305250b9e204641f105045d69b42d06b821d4b6f2631e",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95506,
+      "novelty_visibility": 0.96588,
+      "step": 2744
+    },
+    {
+      "attempted_pressure": 0.6606,
+      "authority_drift": 0.069707,
+      "capture": 0.0,
+      "chain_hash": "1cffe27158bc74179770580c19501dabfc81738aa41d9749e0fcdab8bfead557",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97114,
+      "novelty_visibility": 0.96636,
+      "step": 2772
+    },
+    {
+      "attempted_pressure": 0.7782,
+      "authority_drift": 0.07,
+      "capture": 0.0,
+      "chain_hash": "556b1758906cf488b432adf13539a0f314f21421556fc4d8149ac8adc368d73e",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98722,
+      "novelty_visibility": 0.96684,
+      "step": 2800
+    },
+    {
+      "attempted_pressure": 0.6958,
+      "authority_drift": 0.07029,
+      "capture": 0.0,
+      "chain_hash": "42de0c248e6545ecb0afa2529586b0eb7e6b9d0a7822064ccfa46d021595f384",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9433,
+      "novelty_visibility": 0.96732,
+      "step": 2828
+    },
+    {
+      "attempted_pressure": 0.6134,
+      "authority_drift": 0.070577,
+      "capture": 0.0,
+      "chain_hash": "519c286601055d11b2c2217f7c1374b9e356dbed1ae7f252bd97158100572953",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95938,
+      "novelty_visibility": 0.9678,
+      "step": 2856
+    },
+    {
+      "attempted_pressure": 0.731,
+      "authority_drift": 0.07086,
+      "capture": 0.0,
+      "chain_hash": "8d69708892c0f0be63e5535e14c7d2578e0cb57fcf1314d1ac43ba366b4dcda2",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97546,
+      "novelty_visibility": 0.96828,
+      "step": 2884
+    },
+    {
+      "attempted_pressure": 0.6486,
+      "authority_drift": 0.07114,
+      "capture": 0.0,
+      "chain_hash": "d6398ce8ec63f7d48dd0c6292d893bb4b2d8093108124a4a3d5f1be00a22bac2",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99154,
+      "novelty_visibility": 0.96876,
+      "step": 2912
+    },
+    {
+      "attempted_pressure": 0.7662,
+      "authority_drift": 0.071417,
+      "capture": 0.0,
+      "chain_hash": "94f774e57526733a606c71a530fa32db7ee59e604b1ad366c36f02cfada3fc88",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94762,
+      "novelty_visibility": 0.96924,
+      "step": 2940
+    },
+    {
+      "attempted_pressure": 0.6838,
+      "authority_drift": 0.071691,
+      "capture": 0.0,
+      "chain_hash": "d8a3cee68bb3c4438c3ac35d907b4dbc5d3424d0ad75efc2404120aa9fcfba2d",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9637,
+      "novelty_visibility": 0.96972,
+      "step": 2968
+    },
+    {
+      "attempted_pressure": 0.6014,
+      "authority_drift": 0.071962,
+      "capture": 0.0,
+      "chain_hash": "74043f069c54372ba3e4385e5326dd522ecfc1d2b0a9498c8576a1485a8d36a8",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97978,
+      "novelty_visibility": 0.9702,
+      "step": 2996
+    },
+    {
+      "attempted_pressure": 0.719,
+      "authority_drift": 0.072229,
+      "capture": 0.0,
+      "chain_hash": "5b34d97b0f9a85e1a584ad075fc195d99e15a47f4d1f202ea09614b51f8e766a",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99586,
+      "novelty_visibility": 0.97068,
+      "step": 3024
+    },
+    {
+      "attempted_pressure": 0.6366,
+      "authority_drift": 0.072494,
+      "capture": 0.0,
+      "chain_hash": "3d1301d653b5886dc12ad7f68cb22efa4e4eb338de139de65d09b328f4595aed",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95194,
+      "novelty_visibility": 0.97116,
+      "step": 3052
+    },
+    {
+      "attempted_pressure": 0.7542,
+      "authority_drift": 0.072756,
+      "capture": 0.0,
+      "chain_hash": "fc20810746fbc8b639cbf9eb6c975b61ea9414c389b9cda1a0718ed1d986ebfc",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96802,
+      "novelty_visibility": 0.97164,
+      "step": 3080
+    },
+    {
+      "attempted_pressure": 0.6718,
+      "authority_drift": 0.073015,
+      "capture": 0.0,
+      "chain_hash": "ec4452a73cacbe62d3d35fe8251fbeb17ccc490031a194d333a018b1459c8e99",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9841,
+      "novelty_visibility": 0.97212,
+      "step": 3108
+    },
+    {
+      "attempted_pressure": 0.7894,
+      "authority_drift": 0.073271,
+      "capture": 0.0,
+      "chain_hash": "1e3c7784c96fb5d486a35f8bbab7cd368a948775d074dc7e59faa3247603421c",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94018,
+      "novelty_visibility": 0.9726,
+      "step": 3136
+    },
+    {
+      "attempted_pressure": 0.707,
+      "authority_drift": 0.073524,
+      "capture": 0.0,
+      "chain_hash": "c299beef3b65879867daa26ac0e85d477ce80e9da6bd1b7e89f441d3281d0fb4",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95626,
+      "novelty_visibility": 0.97308,
+      "step": 3164
+    },
+    {
+      "attempted_pressure": 0.6246,
+      "authority_drift": 0.073775,
+      "capture": 0.0,
+      "chain_hash": "fb58130f040fea37296568b8e5327f9e5d9dc7d5e312b0fd8ba3114998645b57",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97234,
+      "novelty_visibility": 0.97356,
+      "step": 3192
+    },
+    {
+      "attempted_pressure": 0.7422,
+      "authority_drift": 0.074023,
+      "capture": 0.0,
+      "chain_hash": "e4d1b4962c097a29283ea52028d7e6939fc97ccf095a049c21940b8ca579e031",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98842,
+      "novelty_visibility": 0.97404,
+      "step": 3220
+    },
+    {
+      "attempted_pressure": 0.6598,
+      "authority_drift": 0.074268,
+      "capture": 0.0,
+      "chain_hash": "c949c32704aef6664b1ee0cde049df3c2abccd0f1d94cc62453364b92aad4758",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9445,
+      "novelty_visibility": 0.97452,
+      "step": 3248
+    },
+    {
+      "attempted_pressure": 0.7774,
+      "authority_drift": 0.074511,
+      "capture": 0.0,
+      "chain_hash": "132e98441d8b9e98ff54af04f78ba0d7d5dab9e3b48364a60fd30f507a941c23",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96058,
+      "novelty_visibility": 0.975,
+      "step": 3276
+    },
+    {
+      "attempted_pressure": 0.695,
+      "authority_drift": 0.074751,
+      "capture": 0.0,
+      "chain_hash": "9cff9bb39a8a03b69622a07afa2cf9d9207630edbe05b43869984ac5453724dd",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97666,
+      "novelty_visibility": 0.97548,
+      "step": 3304
+    },
+    {
+      "attempted_pressure": 0.6126,
+      "authority_drift": 0.074989,
+      "capture": 0.0,
+      "chain_hash": "8d7ff3842810386ecfa54d391843507a5e5ff949eed9e1dc82072ba68bb93991",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99274,
+      "novelty_visibility": 0.97596,
+      "step": 3332
+    },
+    {
+      "attempted_pressure": 0.7302,
+      "authority_drift": 0.075224,
+      "capture": 0.0,
+      "chain_hash": "cd60008f30597cc1d66fef8aee40ce2e19e8020e42fc108dfefd210543b3fc7b",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94882,
+      "novelty_visibility": 0.97644,
+      "step": 3360
+    },
+    {
+      "attempted_pressure": 0.6478,
+      "authority_drift": 0.075457,
+      "capture": 0.0,
+      "chain_hash": "df72b77c29d8a1a833d740d099d17980567ff8d8b940f23198c9a3af1c028f68",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9649,
+      "novelty_visibility": 0.97692,
+      "step": 3388
+    },
+    {
+      "attempted_pressure": 0.7654,
+      "authority_drift": 0.075687,
+      "capture": 0.0,
+      "chain_hash": "ab34289cdac6d9ace95ca95da724af509b2c217e182090ad42ae2b1afb1d3a59",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98098,
+      "novelty_visibility": 0.9774,
+      "step": 3416
+    },
+    {
+      "attempted_pressure": 0.683,
+      "authority_drift": 0.075915,
+      "capture": 0.0,
+      "chain_hash": "f22e4880bfc2b0c502c3515adceabc72685557b0fc783f49cbeeeb43adf00b17",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99706,
+      "novelty_visibility": 0.97788,
+      "step": 3444
+    },
+    {
+      "attempted_pressure": 0.6006,
+      "authority_drift": 0.07614,
+      "capture": 0.0,
+      "chain_hash": "07777802f3b48a76be8e24b04635110f73c475486ab35e3c2af73c20297e0cbe",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95314,
+      "novelty_visibility": 0.97836,
+      "step": 3472
+    },
+    {
+      "attempted_pressure": 0.7182,
+      "authority_drift": 0.076364,
+      "capture": 0.0,
+      "chain_hash": "d6fdf30d60d99a82a67019cfda17e5de3ca71b8a9b9e3e4b5be7f4d76fbdd4f6",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96922,
+      "novelty_visibility": 0.97884,
+      "step": 3500
+    },
+    {
+      "attempted_pressure": 0.6358,
+      "authority_drift": 0.076585,
+      "capture": 0.0,
+      "chain_hash": "abdd62117e377496d0eecfcf17c3cfb1a2dd7a12f5d1190a3bc02307a8913ac8",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9853,
+      "novelty_visibility": 0.97932,
+      "step": 3528
+    },
+    {
+      "attempted_pressure": 0.7534,
+      "authority_drift": 0.076803,
+      "capture": 0.0,
+      "chain_hash": "fa904a9c2c5a06e0d333fbb5d891c108287fca64546ee9f25410742d4c1997ba",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94138,
+      "novelty_visibility": 0.9798,
+      "step": 3556
+    },
+    {
+      "attempted_pressure": 0.671,
+      "authority_drift": 0.07702,
+      "capture": 0.0,
+      "chain_hash": "d2735bdbbac1074488374eb121b4996dfc5ff401332ae4d01cabc358209a4fe1",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95746,
+      "novelty_visibility": 0.98028,
+      "step": 3584
+    },
+    {
+      "attempted_pressure": 0.7886,
+      "authority_drift": 0.077234,
+      "capture": 0.0,
+      "chain_hash": "123054652806037c0d45ff72b89b7e94125962b1d4b1005ed3cd253640da2423",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97354,
+      "novelty_visibility": 0.98076,
+      "step": 3612
+    },
+    {
+      "attempted_pressure": 0.7062,
+      "authority_drift": 0.077447,
+      "capture": 0.0,
+      "chain_hash": "b874b16c2b5cc67863e0a9c95291fdc1318ca351ed27cee61f978f77761ab23d",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98962,
+      "novelty_visibility": 0.98124,
+      "step": 3640
+    },
+    {
+      "attempted_pressure": 0.6238,
+      "authority_drift": 0.077657,
+      "capture": 0.0,
+      "chain_hash": "c9a0d04487bdc868daf167243c778267a5ba1cb951189e531b871cdee26f07ed",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9457,
+      "novelty_visibility": 0.98172,
+      "step": 3668
+    },
+    {
+      "attempted_pressure": 0.7414,
+      "authority_drift": 0.077865,
+      "capture": 0.0,
+      "chain_hash": "db56afb27297856c2d1246f3d4ee715fac343790ba05d3f39981030802791801",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96178,
+      "novelty_visibility": 0.9822,
+      "step": 3696
+    },
+    {
+      "attempted_pressure": 0.659,
+      "authority_drift": 0.078071,
+      "capture": 0.0,
+      "chain_hash": "b3943f0d78b255622d93f4009c3cf6af6075bfbc428ced3290d2b05c63051df6",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97786,
+      "novelty_visibility": 0.98268,
+      "step": 3724
+    },
+    {
+      "attempted_pressure": 0.7766,
+      "authority_drift": 0.078275,
+      "capture": 0.0,
+      "chain_hash": "b54f349a9c1d13f921866838cdd369ca83f455532b60c73c066be0264cc9ed65",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99394,
+      "novelty_visibility": 0.98316,
+      "step": 3752
+    },
+    {
+      "attempted_pressure": 0.6942,
+      "authority_drift": 0.078478,
+      "capture": 0.0,
+      "chain_hash": "66a4eba64019e541861b0c5ea79c1d80dba7d621a74d3a3809ea671372384f04",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95002,
+      "novelty_visibility": 0.98364,
+      "step": 3780
+    },
+    {
+      "attempted_pressure": 0.6118,
+      "authority_drift": 0.078678,
+      "capture": 0.0,
+      "chain_hash": "41dc4f3f5c61011e7f332805f1eb39be096e3fddb23530ebd21c832619107f5a",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9661,
+      "novelty_visibility": 0.98412,
+      "step": 3808
+    },
+    {
+      "attempted_pressure": 0.7294,
+      "authority_drift": 0.078876,
+      "capture": 0.0,
+      "chain_hash": "0b2524471a9f4d78ac9496fd61adceb82f8632f16f26beda517314fc851a2e21",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98218,
+      "novelty_visibility": 0.9846,
+      "step": 3836
+    },
+    {
+      "attempted_pressure": 0.647,
+      "authority_drift": 0.079072,
+      "capture": 0.0,
+      "chain_hash": "1da46bd140d927d36dd56904b16a45ecb6514cc80e7e3bb8b7d0dca7e2a8192a",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99826,
+      "novelty_visibility": 0.98508,
+      "step": 3864
+    },
+    {
+      "attempted_pressure": 0.7646,
+      "authority_drift": 0.079267,
+      "capture": 0.0,
+      "chain_hash": "e74b95fe33c32efc404d7344433d7557ac1785e34ddaed21b692eac9a9ddd8af",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95434,
+      "novelty_visibility": 0.98556,
+      "step": 3892
+    },
+    {
+      "attempted_pressure": 0.6822,
+      "authority_drift": 0.079459,
+      "capture": 0.0,
+      "chain_hash": "d24eb6ca9cec896e3813e784353ac642b741f86145c98cff1b1c7a38ad56359a",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97042,
+      "novelty_visibility": 0.98604,
+      "step": 3920
+    },
+    {
+      "attempted_pressure": 0.7998,
+      "authority_drift": 0.07965,
+      "capture": 0.0,
+      "chain_hash": "b53eeccff0ae89d5ea37c960e3c937682ded59a19894c5a8a0c124504200daed",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9865,
+      "novelty_visibility": 0.98652,
+      "step": 3948
+    },
+    {
+      "attempted_pressure": 0.7174,
+      "authority_drift": 0.079839,
+      "capture": 0.0,
+      "chain_hash": "7b1a94bee333d2f4155ef473e5758ff8129888489ae2c37d525b4c9618961b4e",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94258,
+      "novelty_visibility": 0.987,
+      "step": 3976
+    },
+    {
+      "attempted_pressure": 0.635,
+      "authority_drift": 0.080027,
+      "capture": 0.0,
+      "chain_hash": "3368f35dcc45d8b406de848a04edbd3a18623c5a98ca72964ce4d7d64bd64acf",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95866,
+      "novelty_visibility": 0.98748,
+      "step": 4004
+    },
+    {
+      "attempted_pressure": 0.7526,
+      "authority_drift": 0.080212,
+      "capture": 0.0,
+      "chain_hash": "c604bbe31854aeb59346fdc7d17dd869a2ef50b68a0438709e99a0e0f2bc6a93",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97474,
+      "novelty_visibility": 0.98796,
+      "step": 4032
+    },
+    {
+      "attempted_pressure": 0.6702,
+      "authority_drift": 0.080396,
+      "capture": 0.0,
+      "chain_hash": "b78d674d69aa43d5241c45a380c34dd4f7c62b86275f7f78a532e0a7001c5d8e",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99082,
+      "novelty_visibility": 0.98844,
+      "step": 4060
+    },
+    {
+      "attempted_pressure": 0.7878,
+      "authority_drift": 0.080578,
+      "capture": 0.0,
+      "chain_hash": "8c0666c59093fa37c9d4ed785256b8c8cc083dd797e61d9f10aa937efc476cf7",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9469,
+      "novelty_visibility": 0.98892,
+      "step": 4088
+    },
+    {
+      "attempted_pressure": 0.7054,
+      "authority_drift": 0.080759,
+      "capture": 0.0,
+      "chain_hash": "c515ee7a503d19c8459a69286debc1eebdf6a2d0e8bafc0700190a5e764b32e4",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96298,
+      "novelty_visibility": 0.9894,
+      "step": 4116
+    },
+    {
+      "attempted_pressure": 0.623,
+      "authority_drift": 0.080937,
+      "capture": 0.0,
+      "chain_hash": "f15f0ee5127071dcf55b252837df7cc57e386c0e6eac73fdcc69e696f4db3711",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97906,
+      "novelty_visibility": 0.98988,
+      "step": 4144
+    },
+    {
+      "attempted_pressure": 0.7406,
+      "authority_drift": 0.081115,
+      "capture": 0.0,
+      "chain_hash": "93e5141f3b2c61a6dbdcc118f4c36507935a182cd0aff6b802761efb9f0254ea",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99514,
+      "novelty_visibility": 0.99036,
+      "step": 4172
+    },
+    {
+      "attempted_pressure": 0.6582,
+      "authority_drift": 0.08129,
+      "capture": 0.0,
+      "chain_hash": "f3daffb60afea63f8795119cc377f7678851f5b9963e8f6674341805a80b79d7",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95122,
+      "novelty_visibility": 0.99084,
+      "step": 4200
+    },
+    {
+      "attempted_pressure": 0.7758,
+      "authority_drift": 0.081464,
+      "capture": 0.0,
+      "chain_hash": "7a36c6edd520aa90be61f1d5965ee7b466b459e55d1615905fb6f5a74f542d8c",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9673,
+      "novelty_visibility": 0.99132,
+      "step": 4228
+    },
+    {
+      "attempted_pressure": 0.6934,
+      "authority_drift": 0.081637,
+      "capture": 0.0,
+      "chain_hash": "53a631b917bfad32dd082df022b88d2976aad5abd9f8e5664f6ae40d92050970",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98338,
+      "novelty_visibility": 0.9918,
+      "step": 4256
+    },
+    {
+      "attempted_pressure": 0.611,
+      "authority_drift": 0.081808,
+      "capture": 0.0,
+      "chain_hash": "d95f8046a548361701713bc63f9ca17459d26c15c3e6e3af682870af40649706",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99946,
+      "novelty_visibility": 0.99228,
+      "step": 4284
+    },
+    {
+      "attempted_pressure": 0.7286,
+      "authority_drift": 0.081977,
+      "capture": 0.0,
+      "chain_hash": "cf061bf6f083cffac7fd0259a0b7acc6728eb2ddf3bf6f88fb58a893ce9b7b5d",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95554,
+      "novelty_visibility": 0.99276,
+      "step": 4312
+    },
+    {
+      "attempted_pressure": 0.6462,
+      "authority_drift": 0.082145,
+      "capture": 0.0,
+      "chain_hash": "25cc6d7ce8e0367419f35325493b48760a1a9fe5ce0f7f4c3062726bf49e14b6",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97162,
+      "novelty_visibility": 0.99324,
+      "step": 4340
+    },
+    {
+      "attempted_pressure": 0.7638,
+      "authority_drift": 0.082312,
+      "capture": 0.0,
+      "chain_hash": "bea1ac3202dc3989a1d02fbd8bc6fc463bcb6cd2c1422fc8ddb00ecf495c0e06",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9877,
+      "novelty_visibility": 0.99372,
+      "step": 4368
+    },
+    {
+      "attempted_pressure": 0.6814,
+      "authority_drift": 0.082477,
+      "capture": 0.0,
+      "chain_hash": "3243a3e0e21fc041b67ea7fa9830a5b5740c744b9f6ddc1f7de8b6cff33e896a",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94378,
+      "novelty_visibility": 0.9942,
+      "step": 4396
+    },
+    {
+      "attempted_pressure": 0.799,
+      "authority_drift": 0.08264,
+      "capture": 0.0,
+      "chain_hash": "aee370c6b9187656779a4f42d0aaf6cb47e278cca297c6270c58b43ce5856945",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95986,
+      "novelty_visibility": 0.99468,
+      "step": 4424
+    },
+    {
+      "attempted_pressure": 0.7166,
+      "authority_drift": 0.082802,
+      "capture": 0.0,
+      "chain_hash": "82c66913494a1a375657b2428da5637ffa1b3db1ed83319826c66ad747cec177",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97594,
+      "novelty_visibility": 0.99516,
+      "step": 4452
+    },
+    {
+      "attempted_pressure": 0.6342,
+      "authority_drift": 0.082963,
+      "capture": 0.0,
+      "chain_hash": "5f39564632c884ec982c65b6806d32ebd1c24f003ead24d760c022530026f49a",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99202,
+      "novelty_visibility": 0.99564,
+      "step": 4480
+    },
+    {
+      "attempted_pressure": 0.7518,
+      "authority_drift": 0.083122,
+      "capture": 0.0,
+      "chain_hash": "4fb941ead195284d6e6642ce5080fd865ab45e9c207067b5f6c6a6f714f5d9ac",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9481,
+      "novelty_visibility": 0.99612,
+      "step": 4508
+    },
+    {
+      "attempted_pressure": 0.6694,
+      "authority_drift": 0.08328,
+      "capture": 0.0,
+      "chain_hash": "9b24ddf5fcb0358728f0f48221ae71f7fe582cc7636a2b700778965162e7d202",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96418,
+      "novelty_visibility": 0.9966,
+      "step": 4536
+    },
+    {
+      "attempted_pressure": 0.787,
+      "authority_drift": 0.083437,
+      "capture": 0.0,
+      "chain_hash": "14ad9f384246768656d5a285eef7753d8ada99040633b8883f5e3e2f039571b4",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98026,
+      "novelty_visibility": 0.99708,
+      "step": 4564
+    },
+    {
+      "attempted_pressure": 0.7046,
+      "authority_drift": 0.083592,
+      "capture": 0.0,
+      "chain_hash": "a8586d93abf89bec8f89e57b93f9c16c06c6a2d8cfd02b7e6147cf0d18c71d96",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99634,
+      "novelty_visibility": 0.99756,
+      "step": 4592
+    },
+    {
+      "attempted_pressure": 0.6222,
+      "authority_drift": 0.083746,
+      "capture": 0.0,
+      "chain_hash": "26316eba4282f523614199d2e50c8500e39e41a410cc081881d7325f11ef6102",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95242,
+      "novelty_visibility": 0.99804,
+      "step": 4620
+    },
+    {
+      "attempted_pressure": 0.7398,
+      "authority_drift": 0.083899,
+      "capture": 0.0,
+      "chain_hash": "79b4817df68895e55bc1b0d78b3712a3650b74015832d5b7a0001b632123a960",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9685,
+      "novelty_visibility": 0.99852,
+      "step": 4648
+    },
+    {
+      "attempted_pressure": 0.6574,
+      "authority_drift": 0.08405,
+      "capture": 0.0,
+      "chain_hash": "0169655cea31d6b291c0f06cb7e72e8cbeafac294b6925079916eb0237190a84",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98458,
+      "novelty_visibility": 0.999,
+      "step": 4676
+    },
+    {
+      "attempted_pressure": 0.775,
+      "authority_drift": 0.0842,
+      "capture": 0.0,
+      "chain_hash": "3a0c28eb24dcd38ab17f1b93238581020fc78816fc374993117189515ed798f6",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94066,
+      "novelty_visibility": 0.99948,
+      "step": 4704
+    },
+    {
+      "attempted_pressure": 0.6926,
+      "authority_drift": 0.084349,
+      "capture": 0.0,
+      "chain_hash": "c0588deac3875d27e949753dba0283075d9c3acbaaf8eaf37487c9cbc31b68fb",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95674,
+      "novelty_visibility": 0.99996,
+      "step": 4732
+    },
+    {
+      "attempted_pressure": 0.6102,
+      "authority_drift": 0.084497,
+      "capture": 0.0,
+      "chain_hash": "02e122941dcc68acc2e7e6fdb20ceb53f47e3fc73430d7d60c01510b5cc544de",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97282,
+      "novelty_visibility": 0.96044,
+      "step": 4760
+    },
+    {
+      "attempted_pressure": 0.7278,
+      "authority_drift": 0.084643,
+      "capture": 0.0,
+      "chain_hash": "957e709bb7975f2e60bcfc28015a3c221501f70b9cd44118cc5172f5ce2cce88",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9889,
+      "novelty_visibility": 0.96092,
+      "step": 4788
+    },
+    {
+      "attempted_pressure": 0.6454,
+      "authority_drift": 0.084789,
+      "capture": 0.0,
+      "chain_hash": "47520f3df1b005a79cbad1a84a4e94c0bd65f59ea9ec476e3768783bbd8f4ca6",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94498,
+      "novelty_visibility": 0.9614,
+      "step": 4816
+    },
+    {
+      "attempted_pressure": 0.763,
+      "authority_drift": 0.084933,
+      "capture": 0.0,
+      "chain_hash": "8772775874c3d3982eabf81caffffbb7f6d8a3fb5dfc73bd2d93212f822434c4",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96106,
+      "novelty_visibility": 0.96188,
+      "step": 4844
+    },
+    {
+      "attempted_pressure": 0.6806,
+      "authority_drift": 0.085076,
+      "capture": 0.0,
+      "chain_hash": "dc45e966c65fcc89e8a0044472226622058eae95f8986d899b6ebd0876ee65a4",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97714,
+      "novelty_visibility": 0.96236,
+      "step": 4872
+    },
+    {
+      "attempted_pressure": 0.7982,
+      "authority_drift": 0.085217,
+      "capture": 0.0,
+      "chain_hash": "d3b5b792ce216c9243de9874d0b27e956db5825295b39aa625d40b330657a23a",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99322,
+      "novelty_visibility": 0.96284,
+      "step": 4900
+    },
+    {
+      "attempted_pressure": 0.7158,
+      "authority_drift": 0.085358,
+      "capture": 0.0,
+      "chain_hash": "1e2bd4ee494b23892f3dee59c0f895a50a7dc0a28e33fa2a61e7bee63f442d38",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9493,
+      "novelty_visibility": 0.96332,
+      "step": 4928
+    },
+    {
+      "attempted_pressure": 0.6334,
+      "authority_drift": 0.085497,
+      "capture": 0.0,
+      "chain_hash": "6bf35e33892cf308911644bfd61ab83355b03a92c4b07b8b6d3918083140b320",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96538,
+      "novelty_visibility": 0.9638,
+      "step": 4956
+    },
+    {
+      "attempted_pressure": 0.751,
+      "authority_drift": 0.085636,
+      "capture": 0.0,
+      "chain_hash": "e6ec2750e2448cef3733e612f75549507e9c0dcd95eb256a2a0d62894f77c262",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98146,
+      "novelty_visibility": 0.96428,
+      "step": 4984
+    },
+    {
+      "attempted_pressure": 0.6686,
+      "authority_drift": 0.085773,
+      "capture": 0.0,
+      "chain_hash": "129ca032bc295a000374382415584f792ebfc6eeb895b7a6a9ad165a7ff0d440",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99754,
+      "novelty_visibility": 0.96476,
+      "step": 5012
+    },
+    {
+      "attempted_pressure": 0.7862,
+      "authority_drift": 0.085909,
+      "capture": 0.0,
+      "chain_hash": "7505d48bb1358f85af234ed6ef05a1900c6eed1fb4c6205798cd8abc3455faca",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95362,
+      "novelty_visibility": 0.96524,
+      "step": 5040
+    },
+    {
+      "attempted_pressure": 0.7038,
+      "authority_drift": 0.086044,
+      "capture": 0.0,
+      "chain_hash": "ee3f95a2b384b83ef0e6d73dfd9ebe1e763249a710314867a733a3387d8d2dbc",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9697,
+      "novelty_visibility": 0.96572,
+      "step": 5068
+    },
+    {
+      "attempted_pressure": 0.6214,
+      "authority_drift": 0.086178,
+      "capture": 0.0,
+      "chain_hash": "fcc4386aab22ea621e4c14853f7ced291e51dc2271d654342ab053f660cbee5a",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98578,
+      "novelty_visibility": 0.9662,
+      "step": 5096
+    },
+    {
+      "attempted_pressure": 0.739,
+      "authority_drift": 0.086311,
+      "capture": 0.0,
+      "chain_hash": "004f9bc296ce9cb0f7c260c008c31fd0f069b966dea6fd80129c4eecf1844104",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94186,
+      "novelty_visibility": 0.96668,
+      "step": 5124
+    },
+    {
+      "attempted_pressure": 0.6566,
+      "authority_drift": 0.086443,
+      "capture": 0.0,
+      "chain_hash": "9315423be38debc2ccbe87856574d9c468680c6d320d30a2d4b74a74434b935f",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95794,
+      "novelty_visibility": 0.96716,
+      "step": 5152
+    },
+    {
+      "attempted_pressure": 0.7742,
+      "authority_drift": 0.086574,
+      "capture": 0.0,
+      "chain_hash": "559d83397ebe8b57894d4976ac4870183eb1c2d8965062a971c4956deff2ea32",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97402,
+      "novelty_visibility": 0.96764,
+      "step": 5180
+    },
+    {
+      "attempted_pressure": 0.6918,
+      "authority_drift": 0.086704,
+      "capture": 0.0,
+      "chain_hash": "2eee67a2b13af40171fb852735ecb2d4175a8de9cbb3fad9d4d83627efa3648b",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9901,
+      "novelty_visibility": 0.96812,
+      "step": 5208
+    },
+    {
+      "attempted_pressure": 0.6094,
+      "authority_drift": 0.086833,
+      "capture": 0.0,
+      "chain_hash": "b2ec2f7d6a3fc8d7aaf29b9dc97ad92de5fb4b000a2a17182eb6335f2d14a041",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94618,
+      "novelty_visibility": 0.9686,
+      "step": 5236
+    },
+    {
+      "attempted_pressure": 0.727,
+      "authority_drift": 0.08696,
+      "capture": 0.0,
+      "chain_hash": "bd1e40ba7ad64b1b8dd6350da28084d27e422e36b43e672aeff68cdb772417c6",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96226,
+      "novelty_visibility": 0.96908,
+      "step": 5264
+    },
+    {
+      "attempted_pressure": 0.6446,
+      "authority_drift": 0.087087,
+      "capture": 0.0,
+      "chain_hash": "e2627fcc29c65f92b981c97b37814bf630a403dac3db404ef648782aaf789c70",
+      "event_type": "persistent_exploration",
+      "longevity": 0.97834,
+      "novelty_visibility": 0.96956,
+      "step": 5292
+    },
+    {
+      "attempted_pressure": 0.7622,
+      "authority_drift": 0.087213,
+      "capture": 0.0,
+      "chain_hash": "0df8475809aecc2e2e31f317a9edcb9df8248c98cdb69b661cd2191eb1cd806a",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99442,
+      "novelty_visibility": 0.97004,
+      "step": 5320
+    },
+    {
+      "attempted_pressure": 0.6798,
+      "authority_drift": 0.087338,
+      "capture": 0.0,
+      "chain_hash": "156ad044829b2caff31a705a6109a84f4a30e0f794617e078c5d0c7b21c5a041",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9505,
+      "novelty_visibility": 0.97052,
+      "step": 5348
+    },
+    {
+      "attempted_pressure": 0.7974,
+      "authority_drift": 0.087462,
+      "capture": 0.0,
+      "chain_hash": "826dee4a1b97488b4ba6a628d954820ea460b23e2d6cb7eeae1a359c2b5fb718",
+      "event_type": "persistent_exploration",
+      "longevity": 0.96658,
+      "novelty_visibility": 0.971,
+      "step": 5376
+    },
+    {
+      "attempted_pressure": 0.715,
+      "authority_drift": 0.087585,
+      "capture": 0.0,
+      "chain_hash": "6af0a34fb07665614304f7a1ab4d6aec5836156d58595b4467c1c27509da4971",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98266,
+      "novelty_visibility": 0.97148,
+      "step": 5404
+    },
+    {
+      "attempted_pressure": 0.6326,
+      "authority_drift": 0.087707,
+      "capture": 0.0,
+      "chain_hash": "dea0703a6f75c42f56986d6cabc33aa3fe4d8cc749178bdc0f21bae274ee20d7",
+      "event_type": "persistent_exploration",
+      "longevity": 0.99874,
+      "novelty_visibility": 0.97196,
+      "step": 5432
+    },
+    {
+      "attempted_pressure": 0.7502,
+      "authority_drift": 0.087828,
+      "capture": 0.0,
+      "chain_hash": "764137f5d68904c1a316641aac4ee51dda287611b1a66af19af50cf583ef7969",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95482,
+      "novelty_visibility": 0.97244,
+      "step": 5460
+    },
+    {
+      "attempted_pressure": 0.6678,
+      "authority_drift": 0.087949,
+      "capture": 0.0,
+      "chain_hash": "eb9a650445e99bcee645052ff063cae259fee8a56ef795a64f5037128c1d04a9",
+      "event_type": "persistent_exploration",
+      "longevity": 0.9709,
+      "novelty_visibility": 0.97292,
+      "step": 5488
+    },
+    {
+      "attempted_pressure": 0.7854,
+      "authority_drift": 0.088068,
+      "capture": 0.0,
+      "chain_hash": "550b52e0bb975aa8705484d19eff24c4f024dc6250d7357aea23f758782ee6f7",
+      "event_type": "persistent_exploration",
+      "longevity": 0.98698,
+      "novelty_visibility": 0.9734,
+      "step": 5516
+    },
+    {
+      "attempted_pressure": 0.703,
+      "authority_drift": 0.088187,
+      "capture": 0.0,
+      "chain_hash": "da3eb1a1f3d6f5df844ac4744c9d7e2d30a680d141e24cab2eaa672af407b960",
+      "event_type": "persistent_exploration",
+      "longevity": 0.94306,
+      "novelty_visibility": 0.97388,
+      "step": 5544
+    },
+    {
+      "attempted_pressure": 0.6206,
+      "authority_drift": 0.088304,
+      "capture": 0.0,
+      "chain_hash": "c0bf9ab27317383f4e12c511ba404115b7413c6dad46f481e0b07ca8ff662069",
+      "event_type": "persistent_exploration",
+      "longevity": 0.95914,
+      "novelty_visibility": 0.97436,
+      "step": 5572
+    }
+  ],
+  "schema_version": "v20_3_long_horizon_dual_agent_ecology",
+  "steps": 5600
+}
