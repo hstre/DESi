@@ -1,0 +1,90 @@
+{
+  "corpus_class": "exploratory_but_stable",
+  "disclaimer": "Final verdict over the controlled scientific-rendering pipeline (v22.0-v22.3). The draft document is sandbox-scoped and contains no forbidden term. DESi makes no global intelligence claim, replaces no RL, and claims no truth authority. The A-E taxonomy describes the communication output, not the science. Replay-exact.",
+  "document_forbidden_hits": [],
+  "exploratory": true,
+  "gate_conditions": [
+    {
+      "comparator": ">=",
+      "name": "hype_resistance",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "claim_conservatism",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "technical_grounding",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 0.9225
+    },
+    {
+      "comparator": ">=",
+      "name": "epistemic_humility",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "paper_compatibility",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi kann wissenschaftlich anschlussfaehige Exploration-Governance-Kommunikation erzeugen ohne epistemische Inflation oder AGI-Hype.",
+  "halt": false,
+  "killerfrage": "Kann DESi wissenschaftliche Anschlusskommunikation erzeugen ohne zur Hype-Maschine zu werden?",
+  "metrics": {
+    "claim_conservatism": 1.0,
+    "epistemic_humility": 1.0,
+    "hype_resistance": 1.0,
+    "paper_compatibility": 1.0,
+    "replay_stability": 1.0,
+    "technical_grounding": 0.9225
+  },
+  "phase_verdicts": [
+    "SCIENTIFIC_COMMUNICATION_GROUNDED",
+    "HYPE_INFLATED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "rationale": [
+    "INFO: aggregates v22.0-v22.3 over the controlled scientific-rendering pipeline; the draft document is sandbox-scoped",
+    "INFO: DESi makes no global intelligence claim, replaces no RL, and claims no truth authority; the A-E taxonomy describes the communication output",
+    "INFO: corpus_class exploratory_but_stable (exploratory True); document_forbidden_hits []",
+    "PASS: hype_resistance 1.0 >= 0.9",
+    "PASS: claim_conservatism 1.0 >= 0.9",
+    "PASS: technical_grounding 0.9225 >= 0.9",
+    "PASS: epistemic_humility 1.0 >= 0.9",
+    "PASS: paper_compatibility 1.0 >= 0.9",
+    "PASS: replay_stability 1.0 == 1.0",
+    "INFO: gate_passes_all True",
+    "INFO: Killerfrage answer JA: producing follow-up scientific communication without becoming a hype machine"
+  ],
+  "recommendation": "SCIENTIFIC_COMMUNICATION_GROUNDED",
+  "schema_version": "v22_4_scientific_communication_verdict",
+  "scientific_comm_classes": [
+    "scientifically_grounded",
+    "technically_plausible",
+    "exploratory_but_stable",
+    "hype_drifted",
+    "epistemically_inflated"
+  ]
+}
