@@ -161,3 +161,9 @@ artifacts/icrl_followup/_full_regression_started.txt
 # artifacts/epistemic_graph/_regression_status.json.
 artifacts/epistemic_graph/_full_regression.log
 artifacts/epistemic_graph/_full_regression_started.txt
+
+# v25.0-v25.4 end-of-phase full-regression scratch files (raw pytest
+# log + start timestamp). The parsed summary is committed as
+# artifacts/output_ports/_regression_status.json.
+artifacts/output_ports/_full_regression.log
+artifacts/output_ports/_full_regression_started.txt
