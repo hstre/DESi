@@ -1,0 +1,82 @@
+{
+  "citation_integrity": 1.0,
+  "core_thesis": "Controlled exploratory pressure, implemented as a generator/governor split, may increase exploratory breadth in synthetic ICRL-style trajectory settings without increasing residual unsupported certainty, provided that the governance layer remains read-only, replay-stable, and non-authoritative.",
+  "desi_mechanism_clarity": 1.0,
+  "disclaimer": "A Rentschler follow-up short paper rendered through the v25 arXiv output port. It anchors directly to Section 4.6 of the base paper (arXiv:2501.14176), describes DESi only as a local, read-only, non-authoritative governance layer (no mythology), derives every number, references every external claim, makes experimental conditions and limitations explicit, and contains no forbidden term. A provenance-bound export, not free text generation; replay-exact and scoped to the synthetic sandbox.",
+  "gate_conditions": [
+    {
+      "comparator": ">=",
+      "name": "paper_alignment",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "desi_mechanism_clarity",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "citation_integrity",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "result_traceability",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "no_naked_claims",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_passes_all": true,
+  "gate_statement": "Das Paper ist versandfaehig an Rentschler.",
+  "no_naked_claims": 1.0,
+  "paper_alignment": 1.0,
+  "paper_forbidden_hits": [],
+  "paper_signature": "d2706173d8c29a28e95e8c61011cc30e2f78bc01a81a921f481f83eae9165b38",
+  "recommendation": "SHIPPABLE_TO_RENTSCHLER",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "SHIPPABLE_TO_RENTSCHLER",
+    "NOT_READY_FOR_RENTSCHLER",
+    "RENDER_DRIFT_HALT"
+  ],
+  "required_sections": [
+    "title",
+    "abstract",
+    "introduction",
+    "related_work",
+    "problem_statement",
+    "desi_governance_layer",
+    "experimental_conditions",
+    "metrics",
+    "results",
+    "discussion",
+    "limitations",
+    "reproducibility_statement",
+    "conclusion",
+    "references"
+  ],
+  "result_traceability": 1.0,
+  "schema_version": "v26_rentschler_followup_arxiv_port",
+  "section_completeness": 1.0
+}
