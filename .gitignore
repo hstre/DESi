@@ -203,3 +203,9 @@ artifacts/peripheral_mutation/_full_regression_started.txt
 # artifacts/frozen_benchmark/_regression_status.json.
 artifacts/frozen_benchmark/_full_regression.log
 artifacts/frozen_benchmark/_full_regression_started.txt
+
+# v33.0-v33.4 end-of-phase full-regression scratch files (raw pytest
+# log + start timestamp). The parsed summary is committed as
+# artifacts/benchmark_api/_regression_status.json.
+artifacts/benchmark_api/_full_regression.log
+artifacts/benchmark_api/_full_regression_started.txt
