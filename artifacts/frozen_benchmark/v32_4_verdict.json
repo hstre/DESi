@@ -1,0 +1,84 @@
+{
+  "baseline_version": "DESi_baseline_frozen_v1",
+  "benchmark_classes": [
+    "real_validated_evolutionary_improvement",
+    "replay_safe_optimization",
+    "neutral_complexity_increase",
+    "overengineered_drift",
+    "epistemically_degraded"
+  ],
+  "blind_validation": 1.0,
+  "class_rank": 5,
+  "classification": "real_validated_evolutionary_improvement",
+  "disclaimer": "Final verdict on the longitudinal evolution benchmark DESi_baseline_frozen_v1 vs DESi_mutated_v31. Aggregates one signal per dimension from the v32.0-v32.3 layers and classifies on a closed A-E taxonomy. The benchmark is real and measured (deterministic recompute reduction, not projected and not synthetically inflated), the evaluation is blind, outputs are byte-identical, governance is identical, the result is replay-stable and human approval is mandatory. The verdict honestly records the local attractors found by the utility analysis.",
+  "evolution_utility": 0.611111,
+  "gate_conditions": [
+    {
+      "comparator": ">=",
+      "name": "measured_evolutionary_improvement",
+      "passed": true,
+      "threshold": 0.2,
+      "value": 0.888889
+    },
+    {
+      "comparator": "==",
+      "name": "governance_identity",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "artifact_identity",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "human_approval_enforcement",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "evolution_traceability",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi hat erstmals wissenschaftlich messbare, replay-validierte evolutionaere Infrastrukturverbesserung gegenueber einer eingefrorenen Ursprungsversion demonstriert.",
+  "human_approval_required": true,
+  "local_attractors": [
+    "neo4j_evolution_graph"
+  ],
+  "metrics": {
+    "artifact_identity": 1.0,
+    "evolution_traceability": 1.0,
+    "governance_identity": 1.0,
+    "human_approval_enforcement": 1.0,
+    "measured_evolutionary_improvement": 0.888889,
+    "replay_stability": 1.0
+  },
+  "mutated_version": "DESi_mutated_v31",
+  "recommendation": "EVOLUTION_IMPROVEMENT_VALIDATED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "EVOLUTION_IMPROVEMENT_VALIDATED",
+    "EVOLUTION_IMPROVEMENT_UNVALIDATED",
+    "EVOLUTION_BENCHMARK_HALT"
+  ],
+  "schema_version": "v32_4_evolution_benchmark_verdict",
+  "signature": "8c63041f6504f9226e63f6740350c01438857ea9b70f2610ae42f6dee88447f9"
+}
