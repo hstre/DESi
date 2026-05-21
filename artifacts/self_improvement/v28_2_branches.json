@@ -1,0 +1,188 @@
+{
+  "branch_isolation": 1.0,
+  "branches": [
+    {
+      "auto_merge": false,
+      "base": "sandbox",
+      "branch_id": "BR_PATCH_WS1",
+      "human_approval_required": true,
+      "is_isolated": true,
+      "name": "proposal/PATCH_WS1",
+      "patch_id": "PATCH_WS1",
+      "targets_main": false
+    },
+    {
+      "auto_merge": false,
+      "base": "sandbox",
+      "branch_id": "BR_PATCH_WS2",
+      "human_approval_required": true,
+      "is_isolated": true,
+      "name": "proposal/PATCH_WS2",
+      "patch_id": "PATCH_WS2",
+      "targets_main": false
+    },
+    {
+      "auto_merge": false,
+      "base": "sandbox",
+      "branch_id": "BR_PATCH_WS3",
+      "human_approval_required": true,
+      "is_isolated": true,
+      "name": "proposal/PATCH_WS3",
+      "patch_id": "PATCH_WS3",
+      "targets_main": false
+    },
+    {
+      "auto_merge": false,
+      "base": "sandbox",
+      "branch_id": "BR_PATCH_WS4",
+      "human_approval_required": true,
+      "is_isolated": true,
+      "name": "proposal/PATCH_WS4",
+      "patch_id": "PATCH_WS4",
+      "targets_main": false
+    },
+    {
+      "auto_merge": false,
+      "base": "sandbox",
+      "branch_id": "BR_PATCH_WS5",
+      "human_approval_required": true,
+      "is_isolated": true,
+      "name": "proposal/PATCH_WS5",
+      "patch_id": "PATCH_WS5",
+      "targets_main": false
+    },
+    {
+      "auto_merge": false,
+      "base": "sandbox",
+      "branch_id": "BR_PATCH_WS6",
+      "human_approval_required": true,
+      "is_isolated": true,
+      "name": "proposal/PATCH_WS6",
+      "patch_id": "PATCH_WS6",
+      "targets_main": false
+    }
+  ],
+  "disclaimer": "Generates patch *proposals* (descriptions, never applied diffs) for governance-safe ideas and places each on an isolated proposal/* branch with a sandbox base - no branch targets main, none auto-merges, and every one carries a mandatory regression hook. Unsafe patch attempts are rejected. No real source is modified, nothing is merged, and human approval is mandatory. Deterministic and replay-stable.",
+  "governance_preservation": 1.0,
+  "human_approval_required": true,
+  "merges_to_main": [],
+  "patches": [
+    {
+      "change_kind": "propose_aggressive_full_graph_memoization",
+      "is_safe": true,
+      "patch_id": "PATCH_WS1",
+      "source_proposal_id": "WS1",
+      "target_area": "memoization",
+      "target_module": "desi.epistemic_graph.lineage"
+    },
+    {
+      "change_kind": "propose_speculative_parallel_query_index",
+      "is_safe": true,
+      "patch_id": "PATCH_WS2",
+      "source_proposal_id": "WS2",
+      "target_area": "graph_queries",
+      "target_module": "desi.epistemic_graph_queries.queries"
+    },
+    {
+      "change_kind": "propose_radical_output_port_compression",
+      "is_safe": true,
+      "patch_id": "PATCH_WS3",
+      "source_proposal_id": "WS3",
+      "target_area": "output_ports",
+      "target_module": "desi.output_ports_multi.renderer"
+    },
+    {
+      "change_kind": "propose_aggressive_ecology_vectorization",
+      "is_safe": true,
+      "patch_id": "PATCH_WS4",
+      "source_proposal_id": "WS4",
+      "target_area": "ecology_efficiency",
+      "target_module": "desi.research_ecology.ecology"
+    },
+    {
+      "change_kind": "propose_alternative_claim_extraction_heuristic",
+      "is_safe": true,
+      "patch_id": "PATCH_WS5",
+      "source_proposal_id": "WS5",
+      "target_area": "claim_extraction",
+      "target_module": "desi.research_harvester.claims"
+    },
+    {
+      "change_kind": "propose_branch_matrix_testing",
+      "is_safe": true,
+      "patch_id": "PATCH_WS6",
+      "source_proposal_id": "WS6",
+      "target_area": "branch_testing",
+      "target_module": "desi.self_improvement_branches.sandbox_validation"
+    }
+  ],
+  "recommendation": "BRANCHES_CONTROLLED_ISOLATED",
+  "regression_integrity": 1.0,
+  "rejected_patch_attempts": [
+    "WS7",
+    "WS8",
+    "WS9",
+    "WS10",
+    "WS11",
+    "WS12"
+  ],
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "BRANCHES_CONTROLLED_ISOLATED",
+    "BRANCH_ISOLATION_LEAK",
+    "BRANCH_DRIFT_HALT"
+  ],
+  "schema_version": "v28_2_branch_sandbox",
+  "signature": "d1ecc4bfed0a2f0864df101ee8b15182582105fbbe7402994d44e4e9eb6498c3",
+  "unsafe_patch_rejection": 1.0,
+  "validations": [
+    {
+      "branch_id": "BR_PATCH_WS1",
+      "governance_preserved": true,
+      "is_valid": true,
+      "patch_id": "PATCH_WS1",
+      "regression_enforced": true,
+      "replay_preserved": true
+    },
+    {
+      "branch_id": "BR_PATCH_WS2",
+      "governance_preserved": true,
+      "is_valid": true,
+      "patch_id": "PATCH_WS2",
+      "regression_enforced": true,
+      "replay_preserved": true
+    },
+    {
+      "branch_id": "BR_PATCH_WS3",
+      "governance_preserved": true,
+      "is_valid": true,
+      "patch_id": "PATCH_WS3",
+      "regression_enforced": true,
+      "replay_preserved": true
+    },
+    {
+      "branch_id": "BR_PATCH_WS4",
+      "governance_preserved": true,
+      "is_valid": true,
+      "patch_id": "PATCH_WS4",
+      "regression_enforced": true,
+      "replay_preserved": true
+    },
+    {
+      "branch_id": "BR_PATCH_WS5",
+      "governance_preserved": true,
+      "is_valid": true,
+      "patch_id": "PATCH_WS5",
+      "regression_enforced": true,
+      "replay_preserved": true
+    },
+    {
+      "branch_id": "BR_PATCH_WS6",
+      "governance_preserved": true,
+      "is_valid": true,
+      "patch_id": "PATCH_WS6",
+      "regression_enforced": true,
+      "replay_preserved": true
+    }
+  ]
+}
