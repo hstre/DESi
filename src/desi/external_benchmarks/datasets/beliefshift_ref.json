@@ -1,0 +1,15 @@
+{
+  "name": "beliefshift_ref",
+  "family": "BeliefShift",
+  "version": "1.0.0",
+  "provenance": "offline_reference_dataset",
+  "license": "CC0-1.0",
+  "source_note": "Locally vendored reference dataset in the BeliefShift-style belief-revision format. This environment is network-free: this is NOT a live download of an official published suite and the scores are NOT official leaderboard results. The connector ingests this file by its real bytes/hash and is built to ingest the published suite unchanged when provided locally.",
+  "tasks": [
+    {"task_id": "bs_001", "kind": "belief_revision", "claim": "model_size_drives_capability", "evidence_delta": "+strong", "expected_drift_direction": "update_visible"},
+    {"task_id": "bs_002", "kind": "belief_revision", "claim": "scaling_is_sufficient", "evidence_delta": "-weak", "expected_drift_direction": "update_visible"},
+    {"task_id": "bs_003", "kind": "contradiction", "claim": "method_A_beats_B", "evidence_delta": "conflicting", "expected_drift_direction": "resolve_visible"},
+    {"task_id": "bs_004", "kind": "evidence_sensitivity", "claim": "result_holds_under_ablation", "evidence_delta": "+moderate", "expected_drift_direction": "update_visible"},
+    {"task_id": "bs_005", "kind": "evidence_sensitivity", "claim": "effect_is_robust", "evidence_delta": "-moderate", "expected_drift_direction": "update_visible"}
+  ]
+}
