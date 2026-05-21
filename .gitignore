@@ -179,3 +179,15 @@ artifacts/research_harvester/_full_regression_started.txt
 # artifacts/self_improvement/_regression_status.json.
 artifacts/self_improvement/_full_regression.log
 artifacts/self_improvement/_full_regression_started.txt
+
+# v29.0-v29.2 end-of-phase full-regression scratch files (raw pytest
+# log + start timestamp). The parsed summary is committed as
+# artifacts/replay_cache_evolution/_regression_status.json.
+artifacts/replay_cache_evolution/_full_regression.log
+artifacts/replay_cache_evolution/_full_regression_started.txt
+
+# v30.0-v30.4 end-of-phase full-regression scratch files (raw pytest
+# log + start timestamp). The parsed summary is committed as
+# artifacts/evolution_memory/_regression_status.json.
+artifacts/evolution_memory/_full_regression.log
+artifacts/evolution_memory/_full_regression_started.txt
