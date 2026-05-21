@@ -1,0 +1,38 @@
+{
+  "branch_compression": 0.866667,
+  "compression_measurement": 1.0,
+  "compression_modes": [
+    "kept",
+    "hard_pruning",
+    "soft_reweighting",
+    "replay_reuse",
+    "redundant_branch_compression"
+  ],
+  "compute_reduction": 0.533333,
+  "core_identity": 1.0,
+  "critical_branch_preservation": 1.0,
+  "critical_branch_visibility": 1.0,
+  "disclaimer": "Adapter mapping external search/planning compression tasks onto DESi's measured branch metrics. Compression cleanly distinguishes four mechanisms - hard pruning, soft reweighting, replay reuse and redundant-branch compression - and uses only the lossless and reversible ones. Critical (load-bearing) branches are always kept and visible and are never hard-pruned, so the search space shrinks without hiding any load-bearing branch. The node counts are a deterministic synthetic search space, not a live planner trace. Human approval is mandatory.",
+  "hard_pruned_count": 0,
+  "human_approval_required": true,
+  "mode_breakdown": {
+    "hard_pruning": 0,
+    "kept": 10,
+    "redundant_branch_compression": 20,
+    "replay_reuse": 20,
+    "soft_reweighting": 25
+  },
+  "node_reduction": 0.533333,
+  "novelty_preservation": 1.0,
+  "quality_preservation": 1.0,
+  "recommendation": "SEARCH_COMPRESSION_MEASURED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "SEARCH_COMPRESSION_MEASURED",
+    "SEARCH_COMPRESSION_PARTIAL",
+    "SEARCH_COMPRESSION_HALT"
+  ],
+  "schema_version": "v33_2_search_adapter",
+  "signature": "0fe887330ee460e26def0a9be0417f55194d0a9b540a579a1937d4e0c7025010",
+  "total_nodes": 75
+}
