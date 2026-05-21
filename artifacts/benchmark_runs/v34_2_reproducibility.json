@@ -1,0 +1,52 @@
+{
+  "artifact_identity": 1.0,
+  "citation_identity": 1.0,
+  "core_identity": 1.0,
+  "disclaimer": "Controlled reproducibility benchmark run. The same workload (the v33 harness suite plus the output-port citation and section surfaces) is executed five times and every observable - outputs, metrics, citations, sections, artifacts and replay hashes - is verified byte-identical across runs. Snapshots are recomputed from scratch on each repeat, so identity reflects genuine determinism, not cached objects. The values come from the session's deterministic synthetic fixtures. Human approval is mandatory.",
+  "human_approval_required": true,
+  "metric_identity": 1.0,
+  "output_identity": 1.0,
+  "recommendation": "REPRODUCIBILITY_RUN_PASSED",
+  "repeats": 5,
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "REPRODUCIBILITY_RUN_PASSED",
+    "REPRODUCIBILITY_RUN_PARTIAL",
+    "REPRODUCIBILITY_RUN_HALT"
+  ],
+  "schema_version": "v34_2_reproducibility_run",
+  "scorecards": [
+    {
+      "dimension": "output_identity",
+      "identical": true,
+      "signature": "9835b01a623d20cd19e5d6d62558f8f757b774efa04e729b78fc071e0deed3c7"
+    },
+    {
+      "dimension": "metric_identity",
+      "identical": true,
+      "signature": "d9e1f2643c1e062ab3f40ce0ca1fc7ffc634559dd0804d3d2ae8309b89840ff2"
+    },
+    {
+      "dimension": "citation_identity",
+      "identical": true,
+      "signature": "16173a6c134adc939d2034c602bb1cd6ab575ab9e24d934719a81da066d642cf"
+    },
+    {
+      "dimension": "section_identity",
+      "identical": true,
+      "signature": "a60e8a504fe113b4a2d8d1619ebad81752750ff1672b196867c269346ae2a6f3"
+    },
+    {
+      "dimension": "artifact_identity",
+      "identical": true,
+      "signature": "af3d6de59686f9ab7a5f88fd55ff35631ea8933214df1b8832ff212ee3369ed3"
+    },
+    {
+      "dimension": "replay_hash_identity",
+      "identical": true,
+      "signature": "12491fbf710146770430e0aff5437e49991f52fc87c245a60ab685d5982ee192"
+    }
+  ],
+  "section_identity": 1.0,
+  "signature": "704520469e9ef5229c486845100d425d3f8fdccff9ef817e9871e85847f9ee99"
+}
