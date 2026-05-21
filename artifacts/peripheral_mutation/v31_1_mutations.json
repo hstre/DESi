@@ -1,0 +1,100 @@
+{
+  "artifact_identity": 1.0,
+  "branch": "proposal/peripheral_mutation_v1",
+  "core_identity": 1.0,
+  "disclaimer": "Real, deterministic peripheral mutations applied on the isolated branch proposal/peripheral_mutation_v1. Each mutation is a real code path (deterministic memoisation of a recompute) that reduces recompute cost with byte-identical output, leaving the protected core and governance unchanged. No core modules are touched, governance is not bypassed, replay is not modified, regression is not bypassed, nothing is merged and human approval is mandatory. Replay-stable.",
+  "governance_identity": 1.0,
+  "human_approval_required": true,
+  "mutations": [
+    {
+      "baseline_hash": "d50ee9748982136eb1da1329256790d6ff8887349fd4dd00fa5a35eeff0ed93b",
+      "baseline_recomputes": 10,
+      "is_allowed_target": true,
+      "mutated_hash": "d50ee9748982136eb1da1329256790d6ff8887349fd4dd00fa5a35eeff0ed93b",
+      "mutated_recomputes": 1,
+      "mutation_id": "RM1",
+      "output_identical": true,
+      "recompute_reduced": true,
+      "succeeded": true,
+      "target_area": "runtime_scheduling"
+    },
+    {
+      "baseline_hash": "873271600c7b13fab536a3f1192dec607db3330f204e57b37c93163cdfb53f47",
+      "baseline_recomputes": 8,
+      "is_allowed_target": true,
+      "mutated_hash": "873271600c7b13fab536a3f1192dec607db3330f204e57b37c93163cdfb53f47",
+      "mutated_recomputes": 1,
+      "mutation_id": "RM2",
+      "output_identical": true,
+      "recompute_reduced": true,
+      "succeeded": true,
+      "target_area": "graph_queries"
+    },
+    {
+      "baseline_hash": "ed5bb0bc89089d5062f9a40cbb477a862d935c340c10f575219b92200a51adea",
+      "baseline_recomputes": 9,
+      "is_allowed_target": true,
+      "mutated_hash": "ed5bb0bc89089d5062f9a40cbb477a862d935c340c10f575219b92200a51adea",
+      "mutated_recomputes": 1,
+      "mutation_id": "RM3",
+      "output_identical": true,
+      "recompute_reduced": true,
+      "succeeded": true,
+      "target_area": "scientific_rendering"
+    },
+    {
+      "baseline_hash": "1d6e388bba32ebd2ef0822ab85dd5e0ae70e5502068988ab51c25baec32c3460",
+      "baseline_recomputes": 7,
+      "is_allowed_target": true,
+      "mutated_hash": "1d6e388bba32ebd2ef0822ab85dd5e0ae70e5502068988ab51c25baec32c3460",
+      "mutated_recomputes": 1,
+      "mutation_id": "RM4",
+      "output_identical": true,
+      "recompute_reduced": true,
+      "succeeded": true,
+      "target_area": "artifact_compression"
+    }
+  ],
+  "patches": [
+    {
+      "branch": "proposal/peripheral_mutation_v1",
+      "change_kind": "memoize_runtime_scheduling",
+      "mutation_id": "RM1",
+      "patch_id": "PATCH_RM1",
+      "target_area": "runtime_scheduling"
+    },
+    {
+      "branch": "proposal/peripheral_mutation_v1",
+      "change_kind": "memoize_graph_queries",
+      "mutation_id": "RM2",
+      "patch_id": "PATCH_RM2",
+      "target_area": "graph_queries"
+    },
+    {
+      "branch": "proposal/peripheral_mutation_v1",
+      "change_kind": "memoize_scientific_rendering",
+      "mutation_id": "RM3",
+      "patch_id": "PATCH_RM3",
+      "target_area": "scientific_rendering"
+    },
+    {
+      "branch": "proposal/peripheral_mutation_v1",
+      "change_kind": "memoize_artifact_compression",
+      "mutation_id": "RM4",
+      "patch_id": "PATCH_RM4",
+      "target_area": "artifact_compression"
+    }
+  ],
+  "recommendation": "PERIPHERAL_MUTATION_NO_CORE_DRIFT",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "PERIPHERAL_MUTATION_NO_CORE_DRIFT",
+    "CORE_DRIFT_DETECTED",
+    "MUTATION_DRIFT_HALT"
+  ],
+  "runtime_reduction": 0.882353,
+  "schema_version": "v31_1_peripheral_mutations",
+  "signature": "7572172afbcbb04d143dcd6f20ba63de275137d19839b8b7ddca3f4251dd494f",
+  "successful_mutation_rate": 1.0,
+  "targets_main": false
+}
