@@ -1,0 +1,76 @@
+{
+  "class_rank": 5,
+  "classification": "epistemically_connected",
+  "disclaimer": "Final verdict on the research claim harvester. Aggregates one signal per dimension from the v27.0-v27.3 layers and classifies the harvester on a closed A-E taxonomy. DESi models research as a dynamic epistemic claim space - it structures, maps conflicts, preserves lineage and open questions, and stays neutral. It does not rank, score, peer-review, judge truth, or debunk. Neo4j is read-only and optional. Deterministic and replay-stable.",
+  "gate_conditions": [
+    {
+      "comparator": ">=",
+      "name": "claim_extraction_consistency",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "lineage_visibility",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "conflict_preservation",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "epistemic_neutrality",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "graph_integrity",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi kann wissenschaftliche Forschung als replay-validierten epistemischen Claim-Raum modellieren.",
+  "harvester_classes": [
+    "epistemically_connected",
+    "conflict_rich_but_stable",
+    "convergent_but_incomplete",
+    "hype_fragile",
+    "epistemically_collapsed"
+  ],
+  "metrics": {
+    "claim_extraction_consistency": 1.0,
+    "conflict_preservation": 1.0,
+    "epistemic_neutrality": 1.0,
+    "graph_integrity": 1.0,
+    "lineage_visibility": 1.0,
+    "open_question_visibility": 1.0,
+    "replay_stability": 1.0
+  },
+  "recommendation": "RESEARCH_CLAIM_SPACE_CONNECTED",
+  "report_verdicts": [
+    "RESEARCH_CLAIM_SPACE_CONNECTED",
+    "RESEARCH_CLAIM_SPACE_UNSTABLE",
+    "HARVESTER_DRIFT_HALT"
+  ],
+  "schema_version": "v27_4_research_harvester_verdict",
+  "signature": "55a3c0d7bed80f9c613ac2690d75c2468978cad3e446ca39ccb11b6a8962ac4c"
+}
