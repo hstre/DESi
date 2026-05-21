@@ -1,0 +1,21 @@
+{
+  "artifact_identity": 1.0,
+  "bias_resistance": 1.0,
+  "blind_evaluation": true,
+  "blind_winner": "version_1",
+  "blind_winner_is_mutated": true,
+  "blindness_integrity": 1.0,
+  "disclaimer": "A blind evaluation of the two versions under neutral anonymous labels. The scorer ranks only by the measured recompute count and never sees which version is the mutated one: there is no version-aware scoring, no mutation favouritism and no branch bias. The blind winner is determined first; only afterwards is the sealed label-to-name map used to verify that the winner is the mutated version. Outputs are byte-identical, governance is identical, replay is stable, and human approval is mandatory.",
+  "governance_identity": 1.0,
+  "human_approval_required": true,
+  "margin": 32,
+  "recommendation": "MUTATED_BETTER_UNDER_BLIND_EVALUATION",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "MUTATED_BETTER_UNDER_BLIND_EVALUATION",
+    "NO_BLIND_ADVANTAGE",
+    "BLIND_EVALUATION_HALT"
+  ],
+  "schema_version": "v32_2_blind_evaluation",
+  "signature": "c76740c7b10fa1c2755460318819139bee3526acabfa886d2b8984c2e81ab693"
+}
