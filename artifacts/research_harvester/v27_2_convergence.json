@@ -1,0 +1,123 @@
+{
+  "authority_marker_hits": [],
+  "conflict_lines": [
+    {
+      "paper_a": "synthetic:H5",
+      "paper_b": "synthetic:H2",
+      "stance_a": "Read-only constraints avoid hidden optimisation authority.",
+      "stance_b": "Separating generation and governance preserves exploration diversity on synthetic runs."
+    }
+  ],
+  "conflict_structure_visibility": 1.0,
+  "convergence_visibility": 1.0,
+  "disclaimer": "Surfaces convergences, conflict lines, method clusters and emergent trends across the corpus, strictly as structure. DESi detects trends but never evaluates them, names a winner or indicates a right direction; emergent trends are reported as frequencies, not scores. Epistemic neutrality is audited (no research-authority markers). Deterministic and replay-stable.",
+  "emergent_trends": [
+    {
+      "frequency": 4,
+      "kind": "assumption",
+      "name": "exploration_matters"
+    },
+    {
+      "frequency": 2,
+      "kind": "method",
+      "name": "generator_governor_split"
+    },
+    {
+      "frequency": 2,
+      "kind": "method",
+      "name": "read_only_governance"
+    },
+    {
+      "frequency": 3,
+      "kind": "topic",
+      "name": "Agents"
+    },
+    {
+      "frequency": 2,
+      "kind": "topic",
+      "name": "LLM"
+    },
+    {
+      "frequency": 5,
+      "kind": "topic",
+      "name": "RL"
+    },
+    {
+      "frequency": 2,
+      "kind": "topic",
+      "name": "Safety"
+    }
+  ],
+  "epistemic_neutrality": 1.0,
+  "fragile_claims": [
+    "C3b",
+    "C5b",
+    "C7a"
+  ],
+  "method_cluster_visibility": 1.0,
+  "method_clusters": {
+    "containment": [
+      "synthetic:H3"
+    ],
+    "deterministic_replay": [
+      "synthetic:H6"
+    ],
+    "generator_governor_split": [
+      "synthetic:H1",
+      "synthetic:H2"
+    ],
+    "in_context_rl": [
+      "arXiv:2501.14176"
+    ],
+    "read_only_governance": [
+      "synthetic:H1",
+      "synthetic:H5"
+    ],
+    "reasoning_trace": [
+      "synthetic:H7"
+    ],
+    "skill_stitching": [
+      "arXiv:2501.14176"
+    ],
+    "soft_reweighting": [
+      "synthetic:H2"
+    ],
+    "structural_classification": [
+      "synthetic:H4"
+    ]
+  },
+  "recommendation": "STRUCTURE_VISIBLE_NEUTRAL",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "STRUCTURE_VISIBLE_NEUTRAL",
+    "RESEARCH_AUTHORITY_LEAK",
+    "CONVERGENCE_DRIFT_HALT"
+  ],
+  "reproducible_claims": [
+    "C1e",
+    "C6a"
+  ],
+  "schema_version": "v27_2_research_convergence",
+  "shared_assumptions": [
+    {
+      "assumption": "exploration_matters",
+      "papers": [
+        "arXiv:2501.14176",
+        "synthetic:H1",
+        "synthetic:H2",
+        "synthetic:H5"
+      ]
+    }
+  ],
+  "shared_method_clusters": {
+    "generator_governor_split": [
+      "synthetic:H1",
+      "synthetic:H2"
+    ],
+    "read_only_governance": [
+      "synthetic:H1",
+      "synthetic:H5"
+    ]
+  },
+  "signature": "82e732e69f2a1b431f3c2937f4e59f9b0445d7f92e9a3c84642593ed795c3f96"
+}
