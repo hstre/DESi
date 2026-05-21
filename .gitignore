@@ -191,3 +191,9 @@ artifacts/replay_cache_evolution/_full_regression_started.txt
 # artifacts/evolution_memory/_regression_status.json.
 artifacts/evolution_memory/_full_regression.log
 artifacts/evolution_memory/_full_regression_started.txt
+
+# v31.0-v31.4 end-of-phase full-regression scratch files (raw pytest
+# log + start timestamp). The parsed summary is committed as
+# artifacts/peripheral_mutation/_regression_status.json.
+artifacts/peripheral_mutation/_full_regression.log
+artifacts/peripheral_mutation/_full_regression_started.txt
