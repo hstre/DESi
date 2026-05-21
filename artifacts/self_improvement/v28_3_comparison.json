@@ -1,0 +1,128 @@
+{
+  "authority_resistance": 1.0,
+  "candidate_vector": {
+    "exploration_diversity": 1.0,
+    "false_certainty": 0.0,
+    "governance_integrity": 1.0,
+    "graph_integrity": 1.0,
+    "hallucination_containment": 1.0,
+    "novelty": 0.75,
+    "regression_survival": 1.0,
+    "rendering_quality": 0.95,
+    "replay_stability": 1.0
+  },
+  "comparative_improvement": 1.0,
+  "comparison_table": [
+    {
+      "candidate": 1.0,
+      "current": 1.0,
+      "delta": 0.0,
+      "dimension": "exploration_diversity",
+      "higher_is_better": true,
+      "is_safety_invariant": false,
+      "verdict": "held"
+    },
+    {
+      "candidate": 0.0,
+      "current": 0.0,
+      "delta": 0.0,
+      "dimension": "false_certainty",
+      "higher_is_better": false,
+      "is_safety_invariant": true,
+      "verdict": "held"
+    },
+    {
+      "candidate": 1.0,
+      "current": 1.0,
+      "delta": 0.0,
+      "dimension": "governance_integrity",
+      "higher_is_better": true,
+      "is_safety_invariant": true,
+      "verdict": "held"
+    },
+    {
+      "candidate": 1.0,
+      "current": 1.0,
+      "delta": 0.0,
+      "dimension": "graph_integrity",
+      "higher_is_better": true,
+      "is_safety_invariant": true,
+      "verdict": "held"
+    },
+    {
+      "candidate": 1.0,
+      "current": 1.0,
+      "delta": 0.0,
+      "dimension": "hallucination_containment",
+      "higher_is_better": true,
+      "is_safety_invariant": true,
+      "verdict": "held"
+    },
+    {
+      "candidate": 0.75,
+      "current": 0.7,
+      "delta": 0.05,
+      "dimension": "novelty",
+      "higher_is_better": true,
+      "is_safety_invariant": false,
+      "verdict": "improved"
+    },
+    {
+      "candidate": 1.0,
+      "current": 1.0,
+      "delta": 0.0,
+      "dimension": "regression_survival",
+      "higher_is_better": true,
+      "is_safety_invariant": true,
+      "verdict": "held"
+    },
+    {
+      "candidate": 0.95,
+      "current": 0.9,
+      "delta": 0.05,
+      "dimension": "rendering_quality",
+      "higher_is_better": true,
+      "is_safety_invariant": false,
+      "verdict": "improved"
+    },
+    {
+      "candidate": 1.0,
+      "current": 1.0,
+      "delta": 0.0,
+      "dimension": "replay_stability",
+      "higher_is_better": true,
+      "is_safety_invariant": true,
+      "verdict": "held"
+    }
+  ],
+  "current_vector": {
+    "exploration_diversity": 1.0,
+    "false_certainty": 0.0,
+    "governance_integrity": 1.0,
+    "graph_integrity": 1.0,
+    "hallucination_containment": 1.0,
+    "novelty": 0.7,
+    "regression_survival": 1.0,
+    "rendering_quality": 0.9,
+    "replay_stability": 1.0
+  },
+  "degraded_safety_dimensions": [],
+  "disclaimer": "Projected comparison of DESi_current vs DESi_candidate across nine dimensions. The candidate column is a projection of the safe accepted patch set, not a measurement of a built system: safety invariants (replay, governance, regression survival, false certainty, hallucination containment, graph integrity) are held equal by construction, and only quality dimensions may improve. The benchmark's guarantee is no safety degradation, not a claim of real-world superiority. Nothing is applied; human approval is mandatory. Deterministic and replay-stable.",
+  "governance_preservation": 1.0,
+  "human_approval_required": true,
+  "improved_dimensions": [
+    "novelty",
+    "rendering_quality"
+  ],
+  "recommendation": "CONTROLLED_EVOLUTION_SAFE",
+  "regression_survival_preserved": true,
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "CONTROLLED_EVOLUTION_SAFE",
+    "EVOLUTION_DEGENERATE",
+    "EVOLUTION_DRIFT_HALT"
+  ],
+  "safety_invariant_preservation": 1.0,
+  "schema_version": "v28_3_comparative_evolution",
+  "signature": "c971ae2c559012f344bff311574e63e2709ecb4a64b4f9f7bc490835824eeaf7"
+}
