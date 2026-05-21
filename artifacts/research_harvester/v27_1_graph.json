@@ -1,0 +1,1025 @@
+{
+  "conflict_visibility": 1.0,
+  "disclaimer": "A read-only research claim graph built from the v27.0 corpus. Papers, claims, methods, metrics, datasets, authors, limitations and open questions are nodes; their CLAIMS / SUPPORTS / CONFLICTS_WITH / EXTENDS / REUSES_* / LEAVES_OPEN / LIMITED_BY / DERIVED_FROM relations are edges. Neo4j is optional read-only infrastructure (offline dry-run in tests, lazy driver import); DESi reads nothing back and ranks nothing. Conflicts are made visible, never adjudicated. Deterministic and replay-stable.",
+  "edge_types": [
+    "CLAIMS",
+    "SUPPORTS",
+    "CONFLICTS_WITH",
+    "EXTENDS",
+    "REUSES_METHOD",
+    "REUSES_METRIC",
+    "LEAVES_OPEN",
+    "LIMITED_BY",
+    "DERIVED_FROM"
+  ],
+  "edges": [
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Rentschler",
+      "target": "claim:C0a"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Rentschler",
+      "target": "claim:C0b"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Rentschler",
+      "target": "claim:C0c"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Roberts",
+      "target": "claim:C0a"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Roberts",
+      "target": "claim:C0b"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Roberts",
+      "target": "claim:C0c"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 1",
+      "target": "claim:C1a"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 1",
+      "target": "claim:C1b"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 1",
+      "target": "claim:C1c"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 1",
+      "target": "claim:C1d"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 1",
+      "target": "claim:C1e"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 2",
+      "target": "claim:C2a"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 2",
+      "target": "claim:C2b"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 2",
+      "target": "claim:C2c"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 2",
+      "target": "claim:C2d"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 3",
+      "target": "claim:C3a"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 3",
+      "target": "claim:C3b"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 3",
+      "target": "claim:C3c"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 3",
+      "target": "claim:C3d"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 4",
+      "target": "claim:C4a"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 4",
+      "target": "claim:C4b"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 4",
+      "target": "claim:C4c"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 5",
+      "target": "claim:C5a"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 5",
+      "target": "claim:C5b"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 5",
+      "target": "claim:C5c"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 5",
+      "target": "claim:C5d"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 6",
+      "target": "claim:C6a"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 6",
+      "target": "claim:C6b"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 6",
+      "target": "claim:C6c"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 6",
+      "target": "claim:C6d"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 7",
+      "target": "claim:C7a"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 7",
+      "target": "claim:C7b"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "author:Synthetic Group 7",
+      "target": "claim:C7c"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:arXiv:2501.14176",
+      "target": "claim:C0a"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:arXiv:2501.14176",
+      "target": "claim:C0b"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:arXiv:2501.14176",
+      "target": "claim:C0c"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H1",
+      "target": "claim:C1a"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H1",
+      "target": "claim:C1b"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H1",
+      "target": "claim:C1c"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H1",
+      "target": "claim:C1d"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H1",
+      "target": "claim:C1e"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H2",
+      "target": "claim:C2a"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H2",
+      "target": "claim:C2b"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H2",
+      "target": "claim:C2c"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H2",
+      "target": "claim:C2d"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H3",
+      "target": "claim:C3a"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H3",
+      "target": "claim:C3b"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H3",
+      "target": "claim:C3c"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H3",
+      "target": "claim:C3d"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H4",
+      "target": "claim:C4a"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H4",
+      "target": "claim:C4b"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H4",
+      "target": "claim:C4c"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H5",
+      "target": "claim:C5a"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H5",
+      "target": "claim:C5b"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H5",
+      "target": "claim:C5c"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H5",
+      "target": "claim:C5d"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H6",
+      "target": "claim:C6a"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H6",
+      "target": "claim:C6b"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H6",
+      "target": "claim:C6c"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H6",
+      "target": "claim:C6d"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H7",
+      "target": "claim:C7a"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H7",
+      "target": "claim:C7b"
+    },
+    {
+      "edge_type": "CLAIMS",
+      "source": "paper:synthetic:H7",
+      "target": "claim:C7c"
+    },
+    {
+      "edge_type": "CONFLICTS_WITH",
+      "source": "claim:C5a",
+      "target": "claim:C2a"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "paper:arXiv:2501.14176",
+      "target": "dataset:synthetic_action_space"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "paper:synthetic:H1",
+      "target": "dataset:synthetic_trajectories"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "paper:synthetic:H2",
+      "target": "dataset:synthetic_trajectories"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "paper:synthetic:H3",
+      "target": "dataset:synthetic_trajectories"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "paper:synthetic:H4",
+      "target": "dataset:synthetic_trajectories"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "paper:synthetic:H5",
+      "target": "dataset:synthetic_trajectories"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "paper:synthetic:H6",
+      "target": "dataset:synthetic_trajectories"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "paper:synthetic:H7",
+      "target": "dataset:synthetic_trajectories"
+    },
+    {
+      "edge_type": "EXTENDS",
+      "source": "paper:synthetic:H1",
+      "target": "paper:arXiv:2501.14176"
+    },
+    {
+      "edge_type": "EXTENDS",
+      "source": "paper:synthetic:H2",
+      "target": "paper:synthetic:H1"
+    },
+    {
+      "edge_type": "EXTENDS",
+      "source": "paper:synthetic:H5",
+      "target": "paper:synthetic:H1"
+    },
+    {
+      "edge_type": "LEAVES_OPEN",
+      "source": "paper:arXiv:2501.14176",
+      "target": "openq:C0c"
+    },
+    {
+      "edge_type": "LEAVES_OPEN",
+      "source": "paper:synthetic:H1",
+      "target": "openq:C1d"
+    },
+    {
+      "edge_type": "LEAVES_OPEN",
+      "source": "paper:synthetic:H2",
+      "target": "openq:C2d"
+    },
+    {
+      "edge_type": "LEAVES_OPEN",
+      "source": "paper:synthetic:H3",
+      "target": "openq:C3d"
+    },
+    {
+      "edge_type": "LEAVES_OPEN",
+      "source": "paper:synthetic:H4",
+      "target": "openq:C4c"
+    },
+    {
+      "edge_type": "LEAVES_OPEN",
+      "source": "paper:synthetic:H5",
+      "target": "openq:C5d"
+    },
+    {
+      "edge_type": "LEAVES_OPEN",
+      "source": "paper:synthetic:H6",
+      "target": "openq:C6d"
+    },
+    {
+      "edge_type": "LEAVES_OPEN",
+      "source": "paper:synthetic:H7",
+      "target": "openq:C7b"
+    },
+    {
+      "edge_type": "LIMITED_BY",
+      "source": "paper:arXiv:2501.14176",
+      "target": "limitation:C0b"
+    },
+    {
+      "edge_type": "LIMITED_BY",
+      "source": "paper:synthetic:H1",
+      "target": "limitation:C1c"
+    },
+    {
+      "edge_type": "LIMITED_BY",
+      "source": "paper:synthetic:H2",
+      "target": "limitation:C2c"
+    },
+    {
+      "edge_type": "LIMITED_BY",
+      "source": "paper:synthetic:H3",
+      "target": "limitation:C3c"
+    },
+    {
+      "edge_type": "LIMITED_BY",
+      "source": "paper:synthetic:H4",
+      "target": "limitation:C4b"
+    },
+    {
+      "edge_type": "LIMITED_BY",
+      "source": "paper:synthetic:H5",
+      "target": "limitation:C5c"
+    },
+    {
+      "edge_type": "LIMITED_BY",
+      "source": "paper:synthetic:H6",
+      "target": "limitation:C6c"
+    },
+    {
+      "edge_type": "LIMITED_BY",
+      "source": "paper:synthetic:H7",
+      "target": "limitation:C7c"
+    },
+    {
+      "edge_type": "REUSES_METHOD",
+      "source": "paper:arXiv:2501.14176",
+      "target": "method:in_context_rl"
+    },
+    {
+      "edge_type": "REUSES_METHOD",
+      "source": "paper:arXiv:2501.14176",
+      "target": "method:skill_stitching"
+    },
+    {
+      "edge_type": "REUSES_METHOD",
+      "source": "paper:synthetic:H1",
+      "target": "method:generator_governor_split"
+    },
+    {
+      "edge_type": "REUSES_METHOD",
+      "source": "paper:synthetic:H1",
+      "target": "method:read_only_governance"
+    },
+    {
+      "edge_type": "REUSES_METHOD",
+      "source": "paper:synthetic:H2",
+      "target": "method:generator_governor_split"
+    },
+    {
+      "edge_type": "REUSES_METHOD",
+      "source": "paper:synthetic:H2",
+      "target": "method:soft_reweighting"
+    },
+    {
+      "edge_type": "REUSES_METHOD",
+      "source": "paper:synthetic:H3",
+      "target": "method:containment"
+    },
+    {
+      "edge_type": "REUSES_METHOD",
+      "source": "paper:synthetic:H4",
+      "target": "method:structural_classification"
+    },
+    {
+      "edge_type": "REUSES_METHOD",
+      "source": "paper:synthetic:H5",
+      "target": "method:read_only_governance"
+    },
+    {
+      "edge_type": "REUSES_METHOD",
+      "source": "paper:synthetic:H6",
+      "target": "method:deterministic_replay"
+    },
+    {
+      "edge_type": "REUSES_METHOD",
+      "source": "paper:synthetic:H7",
+      "target": "method:reasoning_trace"
+    },
+    {
+      "edge_type": "REUSES_METRIC",
+      "source": "paper:arXiv:2501.14176",
+      "target": "metric:distinct_state_coverage"
+    },
+    {
+      "edge_type": "REUSES_METRIC",
+      "source": "paper:synthetic:H1",
+      "target": "metric:distinct_state_coverage"
+    },
+    {
+      "edge_type": "REUSES_METRIC",
+      "source": "paper:synthetic:H1",
+      "target": "metric:redundancy_reduction"
+    },
+    {
+      "edge_type": "REUSES_METRIC",
+      "source": "paper:synthetic:H2",
+      "target": "metric:authority_drift"
+    },
+    {
+      "edge_type": "REUSES_METRIC",
+      "source": "paper:synthetic:H2",
+      "target": "metric:exploration_diversity"
+    },
+    {
+      "edge_type": "REUSES_METRIC",
+      "source": "paper:synthetic:H3",
+      "target": "metric:residual_hallucination"
+    },
+    {
+      "edge_type": "REUSES_METRIC",
+      "source": "paper:synthetic:H4",
+      "target": "metric:redundancy_reduction"
+    },
+    {
+      "edge_type": "REUSES_METRIC",
+      "source": "paper:synthetic:H5",
+      "target": "metric:capture_resistance"
+    },
+    {
+      "edge_type": "REUSES_METRIC",
+      "source": "paper:synthetic:H6",
+      "target": "metric:replay_stability"
+    },
+    {
+      "edge_type": "REUSES_METRIC",
+      "source": "paper:synthetic:H7",
+      "target": "metric:novelty_gain"
+    },
+    {
+      "edge_type": "SUPPORTS",
+      "source": "claim:C1b",
+      "target": "claim:C1a"
+    },
+    {
+      "edge_type": "SUPPORTS",
+      "source": "claim:C1e",
+      "target": "claim:C1a"
+    }
+  ],
+  "graph_connectivity": 1.0,
+  "graph_signature": "28a157c3172f9f5a3b588f71518b5e8b40548edaeedf57d26e8507d878c7380b",
+  "invalid_edges": [],
+  "lineage_integrity": 1.0,
+  "neo4j_available": false,
+  "node_types": [
+    "Paper",
+    "Claim",
+    "Method",
+    "Metric",
+    "Dataset",
+    "Limitation",
+    "OpenQuestion",
+    "Author"
+  ],
+  "nodes": [
+    {
+      "label": "Rentschler",
+      "node_id": "author:Rentschler",
+      "node_type": "Author"
+    },
+    {
+      "label": "Roberts",
+      "node_id": "author:Roberts",
+      "node_type": "Author"
+    },
+    {
+      "label": "Synthetic Group 1",
+      "node_id": "author:Synthetic Group 1",
+      "node_type": "Author"
+    },
+    {
+      "label": "Synthetic Group 2",
+      "node_id": "author:Synthetic Group 2",
+      "node_type": "Author"
+    },
+    {
+      "label": "Synthetic Group 3",
+      "node_id": "author:Synthetic Group 3",
+      "node_type": "Author"
+    },
+    {
+      "label": "Synthetic Group 4",
+      "node_id": "author:Synthetic Group 4",
+      "node_type": "Author"
+    },
+    {
+      "label": "Synthetic Group 5",
+      "node_id": "author:Synthetic Group 5",
+      "node_type": "Author"
+    },
+    {
+      "label": "Synthetic Group 6",
+      "node_id": "author:Synthetic Group 6",
+      "node_type": "Author"
+    },
+    {
+      "label": "Synthetic Group 7",
+      "node_id": "author:Synthetic Group 7",
+      "node_type": "Author"
+    },
+    {
+      "label": "In-context RL can handle variable action spaces and stitch skills.",
+      "node_id": "claim:C0a",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Exploration can collapse; sparse reward and repetitive trajectories remain open (Section 4.6).",
+      "node_id": "claim:C0b",
+      "node_type": "Claim"
+    },
+    {
+      "label": "How can exploration be governed without replacing the policy?",
+      "node_id": "claim:C0c",
+      "node_type": "Claim"
+    },
+    {
+      "label": "A read-only governance layer reduces redundant search on a synthetic corpus.",
+      "node_id": "claim:C1a",
+      "node_type": "Claim"
+    },
+    {
+      "label": "A generator/governor split increases distinct-state coverage versus a single explorer.",
+      "node_id": "claim:C1b",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Results are limited to synthetic fixtures.",
+      "node_id": "claim:C1c",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Does the effect hold under a trained policy?",
+      "node_id": "claim:C1d",
+      "node_type": "Claim"
+    },
+    {
+      "label": "All reported numbers are replay-exact.",
+      "node_id": "claim:C1e",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Separating generation and governance preserves exploration diversity on synthetic runs.",
+      "node_id": "claim:C2a",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Soft re-weighting bounds accumulated authority drift.",
+      "node_id": "claim:C2b",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Agents are rule-based stand-ins, not trained.",
+      "node_id": "claim:C2c",
+      "node_type": "Claim"
+    },
+    {
+      "label": "How does the split scale to many agents?",
+      "node_id": "claim:C2d",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Containment caps high-certainty incoherent paths on synthetic fixtures.",
+      "node_id": "claim:C3a",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Containment may generalise beyond the fixtures.",
+      "node_id": "claim:C3b",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Only a synthetic generator is evaluated.",
+      "node_id": "claim:C3c",
+      "node_type": "Claim"
+    },
+    {
+      "label": "How does containment behave with a real generator?",
+      "node_id": "claim:C3d",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Structural classification explains soft re-weighting decisions.",
+      "node_id": "claim:C4a",
+      "node_type": "Claim"
+    },
+    {
+      "label": "The account is post-hoc, not causal.",
+      "node_id": "claim:C4b",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Can governance be interpreted causally?",
+      "node_id": "claim:C4c",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Read-only constraints avoid hidden optimisation authority.",
+      "node_id": "claim:C5a",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Non-authoritative layers may reduce misalignment pressure.",
+      "node_id": "claim:C5b",
+      "node_type": "Claim"
+    },
+    {
+      "label": "No real-world deployment is evaluated.",
+      "node_id": "claim:C5c",
+      "node_type": "Claim"
+    },
+    {
+      "label": "How do constraints behave under distribution shift?",
+      "node_id": "claim:C5d",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Exploration benchmarks are replay-exact under fixed fixtures.",
+      "node_id": "claim:C6a",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Fragile and reproducible claims differ by fixture sensitivity.",
+      "node_id": "claim:C6b",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Only a small benchmark suite is covered.",
+      "node_id": "claim:C6c",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Does reproducibility hold across labs?",
+      "node_id": "claim:C6d",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Reasoning chains might guide exploration breadth.",
+      "node_id": "claim:C7a",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Can reasoning traces be linked to exploration breadth?",
+      "node_id": "claim:C7b",
+      "node_type": "Claim"
+    },
+    {
+      "label": "No empirical test is provided.",
+      "node_id": "claim:C7c",
+      "node_type": "Claim"
+    },
+    {
+      "label": "synthetic_action_space",
+      "node_id": "dataset:synthetic_action_space",
+      "node_type": "Dataset"
+    },
+    {
+      "label": "synthetic_trajectories",
+      "node_id": "dataset:synthetic_trajectories",
+      "node_type": "Dataset"
+    },
+    {
+      "label": "Exploration can collapse; sparse reward and repetitive trajectories remain open (Section 4.6).",
+      "node_id": "limitation:C0b",
+      "node_type": "Limitation"
+    },
+    {
+      "label": "Results are limited to synthetic fixtures.",
+      "node_id": "limitation:C1c",
+      "node_type": "Limitation"
+    },
+    {
+      "label": "Agents are rule-based stand-ins, not trained.",
+      "node_id": "limitation:C2c",
+      "node_type": "Limitation"
+    },
+    {
+      "label": "Only a synthetic generator is evaluated.",
+      "node_id": "limitation:C3c",
+      "node_type": "Limitation"
+    },
+    {
+      "label": "The account is post-hoc, not causal.",
+      "node_id": "limitation:C4b",
+      "node_type": "Limitation"
+    },
+    {
+      "label": "No real-world deployment is evaluated.",
+      "node_id": "limitation:C5c",
+      "node_type": "Limitation"
+    },
+    {
+      "label": "Only a small benchmark suite is covered.",
+      "node_id": "limitation:C6c",
+      "node_type": "Limitation"
+    },
+    {
+      "label": "No empirical test is provided.",
+      "node_id": "limitation:C7c",
+      "node_type": "Limitation"
+    },
+    {
+      "label": "containment",
+      "node_id": "method:containment",
+      "node_type": "Method"
+    },
+    {
+      "label": "deterministic_replay",
+      "node_id": "method:deterministic_replay",
+      "node_type": "Method"
+    },
+    {
+      "label": "generator_governor_split",
+      "node_id": "method:generator_governor_split",
+      "node_type": "Method"
+    },
+    {
+      "label": "in_context_rl",
+      "node_id": "method:in_context_rl",
+      "node_type": "Method"
+    },
+    {
+      "label": "read_only_governance",
+      "node_id": "method:read_only_governance",
+      "node_type": "Method"
+    },
+    {
+      "label": "reasoning_trace",
+      "node_id": "method:reasoning_trace",
+      "node_type": "Method"
+    },
+    {
+      "label": "skill_stitching",
+      "node_id": "method:skill_stitching",
+      "node_type": "Method"
+    },
+    {
+      "label": "soft_reweighting",
+      "node_id": "method:soft_reweighting",
+      "node_type": "Method"
+    },
+    {
+      "label": "structural_classification",
+      "node_id": "method:structural_classification",
+      "node_type": "Method"
+    },
+    {
+      "label": "authority_drift",
+      "node_id": "metric:authority_drift",
+      "node_type": "Metric"
+    },
+    {
+      "label": "capture_resistance",
+      "node_id": "metric:capture_resistance",
+      "node_type": "Metric"
+    },
+    {
+      "label": "distinct_state_coverage",
+      "node_id": "metric:distinct_state_coverage",
+      "node_type": "Metric"
+    },
+    {
+      "label": "exploration_diversity",
+      "node_id": "metric:exploration_diversity",
+      "node_type": "Metric"
+    },
+    {
+      "label": "novelty_gain",
+      "node_id": "metric:novelty_gain",
+      "node_type": "Metric"
+    },
+    {
+      "label": "redundancy_reduction",
+      "node_id": "metric:redundancy_reduction",
+      "node_type": "Metric"
+    },
+    {
+      "label": "replay_stability",
+      "node_id": "metric:replay_stability",
+      "node_type": "Metric"
+    },
+    {
+      "label": "residual_hallucination",
+      "node_id": "metric:residual_hallucination",
+      "node_type": "Metric"
+    },
+    {
+      "label": "How can exploration be governed without replacing the policy?",
+      "node_id": "openq:C0c",
+      "node_type": "OpenQuestion"
+    },
+    {
+      "label": "Does the effect hold under a trained policy?",
+      "node_id": "openq:C1d",
+      "node_type": "OpenQuestion"
+    },
+    {
+      "label": "How does the split scale to many agents?",
+      "node_id": "openq:C2d",
+      "node_type": "OpenQuestion"
+    },
+    {
+      "label": "How does containment behave with a real generator?",
+      "node_id": "openq:C3d",
+      "node_type": "OpenQuestion"
+    },
+    {
+      "label": "Can governance be interpreted causally?",
+      "node_id": "openq:C4c",
+      "node_type": "OpenQuestion"
+    },
+    {
+      "label": "How do constraints behave under distribution shift?",
+      "node_id": "openq:C5d",
+      "node_type": "OpenQuestion"
+    },
+    {
+      "label": "Does reproducibility hold across labs?",
+      "node_id": "openq:C6d",
+      "node_type": "OpenQuestion"
+    },
+    {
+      "label": "Can reasoning traces be linked to exploration breadth?",
+      "node_id": "openq:C7b",
+      "node_type": "OpenQuestion"
+    },
+    {
+      "label": "In-Context Reinforcement Learning for Variable Action Spaces and Skill Stitching",
+      "node_id": "paper:arXiv:2501.14176",
+      "node_type": "Paper"
+    },
+    {
+      "label": "Read-Only Exploration Governance for In-Context Agents (synthetic illustrative)",
+      "node_id": "paper:synthetic:H1",
+      "node_type": "Paper"
+    },
+    {
+      "label": "Generator/Governor Splits in Multi-Agent Exploration (synthetic illustrative)",
+      "node_id": "paper:synthetic:H2",
+      "node_type": "Paper"
+    },
+    {
+      "label": "Residual Hallucination in Tool-Using LLM Agents (synthetic illustrative)",
+      "node_id": "paper:synthetic:H3",
+      "node_type": "Paper"
+    },
+    {
+      "label": "Interpretability of Exploration Policies (synthetic illustrative)",
+      "node_id": "paper:synthetic:H4",
+      "node_type": "Paper"
+    },
+    {
+      "label": "Alignment Constraints as Read-Only Governance (synthetic illustrative)",
+      "node_id": "paper:synthetic:H5",
+      "node_type": "Paper"
+    },
+    {
+      "label": "Reproducibility of Exploration Benchmarks (synthetic illustrative)",
+      "node_id": "paper:synthetic:H6",
+      "node_type": "Paper"
+    },
+    {
+      "label": "Reasoning Chains and Open Exploration Questions (synthetic illustrative)",
+      "node_id": "paper:synthetic:H7",
+      "node_type": "Paper"
+    }
+  ],
+  "open_problem_visibility": 1.0,
+  "recommendation": "RESEARCH_AS_EXPLICIT_GRAPH",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "RESEARCH_AS_EXPLICIT_GRAPH",
+    "GRAPH_INCOMPLETE",
+    "GRAPH_DRIFT_HALT"
+  ],
+  "schema_version": "v27_1_claim_graph",
+  "statement_count": 196,
+  "statements_signature": "1fe572ea0d28eb992af0abcab5d1e266b416816090f64c5b2270b1aa717ba0e2"
+}
