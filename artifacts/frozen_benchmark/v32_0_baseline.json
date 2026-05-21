@@ -1,0 +1,28 @@
+{
+  "artifact_identity": 1.0,
+  "baseline_fingerprint": "24d684621e91d5beb9bf3e5e10ea4d58f0c097f954d48e808e6150478b452898",
+  "baseline_identity": 1.0,
+  "baseline_recomputes": 36,
+  "baseline_reproducibility": 1.0,
+  "baseline_version": "DESi_baseline_frozen_v1",
+  "disabled_features": [
+    "replay_cache_evolution",
+    "mutation_ecology",
+    "evolution_memory",
+    "peripheral_mutation",
+    "long_horizon_branching"
+  ],
+  "disclaimer": "DESi_baseline_frozen_v1 is the original pre-v29 DESi, reconstructed as the fixed reference point of the longitudinal evolution benchmark. It has NONE of the evolution-era infrastructure (no replay cache evolution, no mutation ecology, no evolution memory, no peripheral mutation, no long-horizon branching) and every expensive rebuild is recomputed - there is no cache. The baseline must stay frozen: no later optimisation, no replay change, no cache change, no mutation memory. It is reproducible and replay-stable, and governance is identical to the mutated version. Human approval is mandatory.",
+  "governance_identity": 1.0,
+  "human_approval_required": true,
+  "is_frozen": true,
+  "recommendation": "FROZEN_BASELINE_RECONSTRUCTED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "FROZEN_BASELINE_RECONSTRUCTED",
+    "BASELINE_DRIFT_DETECTED",
+    "BASELINE_RECONSTRUCTION_HALT"
+  ],
+  "schema_version": "v32_0_frozen_baseline",
+  "signature": "6cffde9116ec1fa70fe2f1ff3d7512b5625f91302c51324d507a81e37ec9f911"
+}
