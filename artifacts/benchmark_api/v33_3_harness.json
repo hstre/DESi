@@ -1,0 +1,108 @@
+{
+  "blind_evaluation_integrity": 1.0,
+  "blind_scores": {
+    "run_0": 1.0,
+    "run_1": 1.0
+  },
+  "blind_sealed_map": {
+    "run_0": "SEARCH_COMPRESSION_BENCHMARK",
+    "run_1": "DRIFT_BENCHMARK"
+  },
+  "core_identity": 1.0,
+  "core_separation": 1.0,
+  "disclaimer": "A general benchmark harness that loads BenchmarkTasks, dispatches each to the matching DESi adapter, validates the results, scores them under blind anonymous labels and emits traceable scorecards. The harness is read-only: it never imports or mutates a protected core module, and running the whole suite leaves the core fingerprint identical. Blind scoring uses only objective result properties, so DESi cannot adapt its output to a known benchmark. Human approval is mandatory.",
+  "human_approval_required": true,
+  "recommendation": "BENCHMARK_HARNESS_RAN_CLEAN",
+  "registered_benchmarks": [
+    "DRIFT_BENCHMARK",
+    "SEARCH_COMPRESSION_BENCHMARK"
+  ],
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "BENCHMARK_HARNESS_RAN_CLEAN",
+    "BENCHMARK_HARNESS_PARTIAL",
+    "BENCHMARK_HARNESS_HALT"
+  ],
+  "result_validation": 1.0,
+  "schema_version": "v33_3_benchmark_harness",
+  "scorecard_traceability": 1.0,
+  "scorecards": [
+    {
+      "benchmark_name": "DRIFT_BENCHMARK",
+      "governance_status": "GOVERNANCE_INDEPENDENT",
+      "metrics": [
+        [
+          "claim_drift",
+          0.4
+        ],
+        [
+          "governance_drift",
+          0.0
+        ],
+        [
+          "lineage_drift",
+          0.0
+        ],
+        [
+          "artifact_drift",
+          0.0
+        ],
+        [
+          "authority_drift",
+          0.0
+        ],
+        [
+          "replay_drift",
+          0.0
+        ]
+      ],
+      "provenance": [
+        "benchmark_api_drift.drift_adapter",
+        "belief_drift"
+      ],
+      "replay_hash": "6f359fe83827275319f2224a540b7beead6f203391dce91c7e8ea55a87b94134",
+      "task_id": "canonical::DRIFT_BENCHMARK",
+      "validated": true
+    },
+    {
+      "benchmark_name": "SEARCH_COMPRESSION_BENCHMARK",
+      "governance_status": "GOVERNANCE_INDEPENDENT",
+      "metrics": [
+        [
+          "node_reduction",
+          0.533333
+        ],
+        [
+          "branch_compression",
+          0.866667
+        ],
+        [
+          "critical_branch_preservation",
+          1.0
+        ],
+        [
+          "novelty_preservation",
+          1.0
+        ],
+        [
+          "quality_preservation",
+          1.0
+        ],
+        [
+          "compute_reduction",
+          0.533333
+        ]
+      ],
+      "provenance": [
+        "benchmark_api_search.search_adapter",
+        "branch_metrics"
+      ],
+      "replay_hash": "b8624c994c51420b27fbb3edb042ad84f7c6af9e37ed6885c0835f784f76995e",
+      "task_id": "canonical::SEARCH_COMPRESSION_BENCHMARK",
+      "validated": true
+    }
+  ],
+  "signature": "4196b972bb8dfada9bc445b5ef3e004eb92fae9151511d17bb59079b7dcf40c0",
+  "task_count": 2,
+  "validation_failures": []
+}
