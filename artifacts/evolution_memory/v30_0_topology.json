@@ -1,0 +1,2180 @@
+{
+  "decision_visibility": 1.0,
+  "decisions": [
+    {
+      "decision_id": "DEC_MI_IC1",
+      "invariant": "",
+      "mutation_id": "MI_IC1",
+      "outcome": "ACCEPT",
+      "reason": "PERFORMANCE"
+    },
+    {
+      "decision_id": "DEC_MI_IC10",
+      "invariant": "",
+      "mutation_id": "MI_IC10",
+      "outcome": "ACCEPT",
+      "reason": "EXTRACTION"
+    },
+    {
+      "decision_id": "DEC_MI_IC11",
+      "invariant": "",
+      "mutation_id": "MI_IC11",
+      "outcome": "ACCEPT",
+      "reason": "CACHE"
+    },
+    {
+      "decision_id": "DEC_MI_IC12",
+      "invariant": "",
+      "mutation_id": "MI_IC12",
+      "outcome": "ACCEPT",
+      "reason": "PERFORMANCE"
+    },
+    {
+      "decision_id": "DEC_MI_IC13",
+      "invariant": "protected_core_immutability",
+      "mutation_id": "MI_IC13",
+      "outcome": "REJECT",
+      "reason": "forbidden_core_target"
+    },
+    {
+      "decision_id": "DEC_MI_IC14",
+      "invariant": "protected_core_immutability",
+      "mutation_id": "MI_IC14",
+      "outcome": "REJECT",
+      "reason": "forbidden_core_target"
+    },
+    {
+      "decision_id": "DEC_MI_IC15",
+      "invariant": "protected_core_immutability",
+      "mutation_id": "MI_IC15",
+      "outcome": "REJECT",
+      "reason": "forbidden_core_target"
+    },
+    {
+      "decision_id": "DEC_MI_IC2",
+      "invariant": "",
+      "mutation_id": "MI_IC2",
+      "outcome": "ACCEPT",
+      "reason": "CACHE"
+    },
+    {
+      "decision_id": "DEC_MI_IC3",
+      "invariant": "",
+      "mutation_id": "MI_IC3",
+      "outcome": "ACCEPT",
+      "reason": "GRAPH"
+    },
+    {
+      "decision_id": "DEC_MI_IC4",
+      "invariant": "",
+      "mutation_id": "MI_IC4",
+      "outcome": "ACCEPT",
+      "reason": "EXTRACTION"
+    },
+    {
+      "decision_id": "DEC_MI_IC5",
+      "invariant": "",
+      "mutation_id": "MI_IC5",
+      "outcome": "ACCEPT",
+      "reason": "TRACEABILITY"
+    },
+    {
+      "decision_id": "DEC_MI_IC6",
+      "invariant": "",
+      "mutation_id": "MI_IC6",
+      "outcome": "ACCEPT",
+      "reason": "GOVERNANCE"
+    },
+    {
+      "decision_id": "DEC_MI_IC7",
+      "invariant": "",
+      "mutation_id": "MI_IC7",
+      "outcome": "ACCEPT",
+      "reason": "RENDERING"
+    },
+    {
+      "decision_id": "DEC_MI_IC8",
+      "invariant": "",
+      "mutation_id": "MI_IC8",
+      "outcome": "ACCEPT",
+      "reason": "RENDERING"
+    },
+    {
+      "decision_id": "DEC_MI_IC9",
+      "invariant": "",
+      "mutation_id": "MI_IC9",
+      "outcome": "ACCEPT",
+      "reason": "EXPLORATION"
+    },
+    {
+      "decision_id": "DEC_MI_RC1",
+      "invariant": "",
+      "mutation_id": "MI_RC1",
+      "outcome": "ACCEPT",
+      "reason": "runtime_reduction"
+    },
+    {
+      "decision_id": "DEC_MI_WS1",
+      "invariant": "",
+      "mutation_id": "MI_WS1",
+      "outcome": "ACCEPT",
+      "reason": "novelty"
+    },
+    {
+      "decision_id": "DEC_MI_WS10",
+      "invariant": "protected_core_immutability",
+      "mutation_id": "MI_WS10",
+      "outcome": "REJECT",
+      "reason": "forbidden_core_target"
+    },
+    {
+      "decision_id": "DEC_MI_WS11",
+      "invariant": "no_hidden_authority",
+      "mutation_id": "MI_WS11",
+      "outcome": "REJECT",
+      "reason": "authority_escalation"
+    },
+    {
+      "decision_id": "DEC_MI_WS12",
+      "invariant": "regression_integrity",
+      "mutation_id": "MI_WS12",
+      "outcome": "REJECT",
+      "reason": "test_disabling"
+    },
+    {
+      "decision_id": "DEC_MI_WS2",
+      "invariant": "",
+      "mutation_id": "MI_WS2",
+      "outcome": "ACCEPT",
+      "reason": "novelty"
+    },
+    {
+      "decision_id": "DEC_MI_WS3",
+      "invariant": "",
+      "mutation_id": "MI_WS3",
+      "outcome": "ACCEPT",
+      "reason": "novelty"
+    },
+    {
+      "decision_id": "DEC_MI_WS4",
+      "invariant": "",
+      "mutation_id": "MI_WS4",
+      "outcome": "ACCEPT",
+      "reason": "novelty"
+    },
+    {
+      "decision_id": "DEC_MI_WS5",
+      "invariant": "",
+      "mutation_id": "MI_WS5",
+      "outcome": "ACCEPT",
+      "reason": "novelty"
+    },
+    {
+      "decision_id": "DEC_MI_WS6",
+      "invariant": "",
+      "mutation_id": "MI_WS6",
+      "outcome": "ACCEPT",
+      "reason": "novelty"
+    },
+    {
+      "decision_id": "DEC_MI_WS7",
+      "invariant": "no_hidden_authority",
+      "mutation_id": "MI_WS7",
+      "outcome": "REJECT",
+      "reason": "authority_escalation"
+    },
+    {
+      "decision_id": "DEC_MI_WS8",
+      "invariant": "no_hidden_authority",
+      "mutation_id": "MI_WS8",
+      "outcome": "REJECT",
+      "reason": "authority_escalation"
+    },
+    {
+      "decision_id": "DEC_MI_WS9",
+      "invariant": "regression_integrity",
+      "mutation_id": "MI_WS9",
+      "outcome": "REJECT",
+      "reason": "test_disabling"
+    }
+  ],
+  "disclaimer": "A read-only epistemic evolution-memory graph. Every mutation idea DESi has produced - accepted or rejected - is preserved as an epistemic event with its proposer, target, provenance, decision, reason and consequence. Rejected ideas are never deleted. This is history, not a learning layer: no implicit learning, no automatic policy adaptation, no hidden optimisation memory, no governance change. Deterministic and replay-stable.",
+  "edge_types": [
+    "DERIVED_FROM",
+    "PROPOSED_BY",
+    "TARGETS",
+    "EVALUATED_BY",
+    "REJECTED_BECAUSE",
+    "ACCEPTED_BECAUSE",
+    "PRODUCED_BRANCH",
+    "DESCENDS_FROM",
+    "VALIDATED_BY",
+    "INVALIDATED_BY"
+  ],
+  "edges": [
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_IC1",
+      "target": "metric:PERFORMANCE"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_IC10",
+      "target": "metric:EXTRACTION"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_IC11",
+      "target": "metric:CACHE"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_IC12",
+      "target": "metric:PERFORMANCE"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_IC2",
+      "target": "metric:CACHE"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_IC3",
+      "target": "metric:GRAPH"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_IC4",
+      "target": "metric:EXTRACTION"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_IC5",
+      "target": "metric:TRACEABILITY"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_IC6",
+      "target": "metric:GOVERNANCE"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_IC7",
+      "target": "metric:RENDERING"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_IC8",
+      "target": "metric:RENDERING"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_IC9",
+      "target": "metric:EXPLORATION"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_RC1",
+      "target": "metric:runtime_reduction"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_WS1",
+      "target": "metric:novelty"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_WS2",
+      "target": "metric:novelty"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_WS3",
+      "target": "metric:novelty"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_WS4",
+      "target": "metric:novelty"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_WS5",
+      "target": "metric:novelty"
+    },
+    {
+      "edge_type": "ACCEPTED_BECAUSE",
+      "source": "mutation:MI_WS6",
+      "target": "metric:novelty"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "mutation:MI_IC1",
+      "target": "paperclaim:C6d"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "mutation:MI_IC10",
+      "target": "paperclaim:G12d"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "mutation:MI_IC11",
+      "target": "paperclaim:G16d"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "mutation:MI_IC12",
+      "target": "paperclaim:G20d"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "mutation:MI_IC13",
+      "target": "paperclaim:G36d"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "mutation:MI_IC14",
+      "target": "paperclaim:G40d"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "mutation:MI_IC15",
+      "target": "paperclaim:G44d"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "mutation:MI_IC2",
+      "target": "paperclaim:C1d"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "mutation:MI_IC3",
+      "target": "paperclaim:C4c"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "mutation:MI_IC4",
+      "target": "paperclaim:C7b"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "mutation:MI_IC5",
+      "target": "paperclaim:C0c"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "mutation:MI_IC6",
+      "target": "paperclaim:C2d"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "mutation:MI_IC7",
+      "target": "paperclaim:C5d"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "mutation:MI_IC8",
+      "target": "paperclaim:C3d"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "mutation:MI_IC9",
+      "target": "paperclaim:G8d"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "mutation:MI_RC1",
+      "target": "paperclaim:C6d"
+    },
+    {
+      "edge_type": "DESCENDS_FROM",
+      "source": "branch:proposal/PATCH_WS1",
+      "target": "branch:sandbox_base"
+    },
+    {
+      "edge_type": "DESCENDS_FROM",
+      "source": "branch:proposal/PATCH_WS2",
+      "target": "branch:sandbox_base"
+    },
+    {
+      "edge_type": "DESCENDS_FROM",
+      "source": "branch:proposal/PATCH_WS3",
+      "target": "branch:sandbox_base"
+    },
+    {
+      "edge_type": "DESCENDS_FROM",
+      "source": "branch:proposal/PATCH_WS4",
+      "target": "branch:sandbox_base"
+    },
+    {
+      "edge_type": "DESCENDS_FROM",
+      "source": "branch:proposal/PATCH_WS5",
+      "target": "branch:sandbox_base"
+    },
+    {
+      "edge_type": "DESCENDS_FROM",
+      "source": "branch:proposal/PATCH_WS6",
+      "target": "branch:sandbox_base"
+    },
+    {
+      "edge_type": "DESCENDS_FROM",
+      "source": "branch:proposal/replay_cache_v1",
+      "target": "branch:sandbox_base"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_IC1",
+      "target": "mutation:MI_IC1"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_IC10",
+      "target": "mutation:MI_IC10"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_IC11",
+      "target": "mutation:MI_IC11"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_IC12",
+      "target": "mutation:MI_IC12"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_IC13",
+      "target": "mutation:MI_IC13"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_IC14",
+      "target": "mutation:MI_IC14"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_IC15",
+      "target": "mutation:MI_IC15"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_IC2",
+      "target": "mutation:MI_IC2"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_IC3",
+      "target": "mutation:MI_IC3"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_IC4",
+      "target": "mutation:MI_IC4"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_IC5",
+      "target": "mutation:MI_IC5"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_IC6",
+      "target": "mutation:MI_IC6"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_IC7",
+      "target": "mutation:MI_IC7"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_IC8",
+      "target": "mutation:MI_IC8"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_IC9",
+      "target": "mutation:MI_IC9"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_RC1",
+      "target": "mutation:MI_RC1"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_WS1",
+      "target": "mutation:MI_WS1"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_WS10",
+      "target": "mutation:MI_WS10"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_WS11",
+      "target": "mutation:MI_WS11"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_WS12",
+      "target": "mutation:MI_WS12"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_WS2",
+      "target": "mutation:MI_WS2"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_WS3",
+      "target": "mutation:MI_WS3"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_WS4",
+      "target": "mutation:MI_WS4"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_WS5",
+      "target": "mutation:MI_WS5"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_WS6",
+      "target": "mutation:MI_WS6"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_WS7",
+      "target": "mutation:MI_WS7"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_WS8",
+      "target": "mutation:MI_WS8"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "decision:DEC_MI_WS9",
+      "target": "mutation:MI_WS9"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC1",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC1",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC10",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC10",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC11",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC11",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC12",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC12",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC13",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC13",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC14",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC14",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC15",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC15",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC2",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC2",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC3",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC3",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC4",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC4",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC5",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC5",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC6",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC6",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC7",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC7",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC8",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC8",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC9",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_IC9",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_RC1",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_RC1",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS1",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS1",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS10",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS10",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS11",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS11",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS12",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS12",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS2",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS2",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS3",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS3",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS4",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS4",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS5",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS5",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS6",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS6",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS7",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS7",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS8",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS8",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS9",
+      "target": "gate:self_improvement_gate"
+    },
+    {
+      "edge_type": "EVALUATED_BY",
+      "source": "mutation:MI_WS9",
+      "target": "generation:gen_0"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "mutation:MI_IC13",
+      "target": "invariant:protected_core_immutability"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "mutation:MI_IC14",
+      "target": "invariant:protected_core_immutability"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "mutation:MI_IC15",
+      "target": "invariant:protected_core_immutability"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "mutation:MI_WS10",
+      "target": "invariant:protected_core_immutability"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "mutation:MI_WS11",
+      "target": "invariant:no_hidden_authority"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "mutation:MI_WS12",
+      "target": "invariant:regression_integrity"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "mutation:MI_WS7",
+      "target": "invariant:no_hidden_authority"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "mutation:MI_WS8",
+      "target": "invariant:no_hidden_authority"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "mutation:MI_WS9",
+      "target": "invariant:regression_integrity"
+    },
+    {
+      "edge_type": "PRODUCED_BRANCH",
+      "source": "mutation:MI_RC1",
+      "target": "branch:proposal/replay_cache_v1"
+    },
+    {
+      "edge_type": "PRODUCED_BRANCH",
+      "source": "mutation:MI_WS1",
+      "target": "branch:proposal/PATCH_WS1"
+    },
+    {
+      "edge_type": "PRODUCED_BRANCH",
+      "source": "mutation:MI_WS2",
+      "target": "branch:proposal/PATCH_WS2"
+    },
+    {
+      "edge_type": "PRODUCED_BRANCH",
+      "source": "mutation:MI_WS3",
+      "target": "branch:proposal/PATCH_WS3"
+    },
+    {
+      "edge_type": "PRODUCED_BRANCH",
+      "source": "mutation:MI_WS4",
+      "target": "branch:proposal/PATCH_WS4"
+    },
+    {
+      "edge_type": "PRODUCED_BRANCH",
+      "source": "mutation:MI_WS5",
+      "target": "branch:proposal/PATCH_WS5"
+    },
+    {
+      "edge_type": "PRODUCED_BRANCH",
+      "source": "mutation:MI_WS6",
+      "target": "branch:proposal/PATCH_WS6"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_IC1",
+      "target": "agent:harvester"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_IC10",
+      "target": "agent:harvester"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_IC11",
+      "target": "agent:harvester"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_IC12",
+      "target": "agent:harvester"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_IC13",
+      "target": "agent:harvester"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_IC14",
+      "target": "agent:harvester"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_IC15",
+      "target": "agent:harvester"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_IC2",
+      "target": "agent:harvester"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_IC3",
+      "target": "agent:harvester"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_IC4",
+      "target": "agent:harvester"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_IC5",
+      "target": "agent:harvester"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_IC6",
+      "target": "agent:harvester"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_IC7",
+      "target": "agent:harvester"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_IC8",
+      "target": "agent:harvester"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_IC9",
+      "target": "agent:harvester"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_RC1",
+      "target": "agent:governor"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_WS1",
+      "target": "agent:wild_brother"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_WS10",
+      "target": "agent:wild_brother"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_WS11",
+      "target": "agent:wild_brother"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_WS12",
+      "target": "agent:wild_brother"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_WS2",
+      "target": "agent:wild_brother"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_WS3",
+      "target": "agent:wild_brother"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_WS4",
+      "target": "agent:wild_brother"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_WS5",
+      "target": "agent:wild_brother"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_WS6",
+      "target": "agent:wild_brother"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_WS7",
+      "target": "agent:wild_brother"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_WS8",
+      "target": "agent:wild_brother"
+    },
+    {
+      "edge_type": "PROPOSED_BY",
+      "source": "mutation:MI_WS9",
+      "target": "agent:wild_brother"
+    },
+    {
+      "edge_type": "REJECTED_BECAUSE",
+      "source": "mutation:MI_IC13",
+      "target": "risk:forbidden_core_target"
+    },
+    {
+      "edge_type": "REJECTED_BECAUSE",
+      "source": "mutation:MI_IC14",
+      "target": "risk:forbidden_core_target"
+    },
+    {
+      "edge_type": "REJECTED_BECAUSE",
+      "source": "mutation:MI_IC15",
+      "target": "risk:forbidden_core_target"
+    },
+    {
+      "edge_type": "REJECTED_BECAUSE",
+      "source": "mutation:MI_WS10",
+      "target": "risk:forbidden_core_target"
+    },
+    {
+      "edge_type": "REJECTED_BECAUSE",
+      "source": "mutation:MI_WS11",
+      "target": "risk:authority_escalation"
+    },
+    {
+      "edge_type": "REJECTED_BECAUSE",
+      "source": "mutation:MI_WS12",
+      "target": "risk:test_disabling"
+    },
+    {
+      "edge_type": "REJECTED_BECAUSE",
+      "source": "mutation:MI_WS7",
+      "target": "risk:authority_escalation"
+    },
+    {
+      "edge_type": "REJECTED_BECAUSE",
+      "source": "mutation:MI_WS8",
+      "target": "risk:authority_escalation"
+    },
+    {
+      "edge_type": "REJECTED_BECAUSE",
+      "source": "mutation:MI_WS9",
+      "target": "risk:test_disabling"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_IC1",
+      "target": "module:replay_performance"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_IC10",
+      "target": "module:harvester_structure"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_IC11",
+      "target": "module:cache_strategies"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_IC12",
+      "target": "module:branch_testing"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_IC13",
+      "target": "module:replay_kernel"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_IC14",
+      "target": "module:determinism_scanner"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_IC15",
+      "target": "module:concept_gates"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_IC2",
+      "target": "module:memoization"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_IC3",
+      "target": "module:graph_queries"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_IC4",
+      "target": "module:claim_extraction"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_IC5",
+      "target": "module:traceability"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_IC6",
+      "target": "module:citation_governance"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_IC7",
+      "target": "module:output_ports"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_IC8",
+      "target": "module:scientific_rendering"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_IC9",
+      "target": "module:ecology_efficiency"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_RC1",
+      "target": "module:replay_performance"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_WS1",
+      "target": "module:memoization"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_WS10",
+      "target": "module:replay_kernel"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_WS11",
+      "target": "module:concept_gates"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_WS12",
+      "target": "module:regression_integrity"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_WS2",
+      "target": "module:graph_queries"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_WS3",
+      "target": "module:output_ports"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_WS4",
+      "target": "module:ecology_efficiency"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_WS5",
+      "target": "module:claim_extraction"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_WS6",
+      "target": "module:branch_testing"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_WS7",
+      "target": "module:harvester_structure"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_WS8",
+      "target": "module:branch_testing"
+    },
+    {
+      "edge_type": "TARGETS",
+      "source": "mutation:MI_WS9",
+      "target": "module:determinism_scanner"
+    },
+    {
+      "edge_type": "VALIDATED_BY",
+      "source": "branch:proposal/replay_cache_v1",
+      "target": "regression:regression_v29"
+    }
+  ],
+  "evolution_traceability": 1.0,
+  "graph_signature": "bd48d854034dfeb94c17d01a9d3da5fe701388e3ff64a495065a5052212ebc07",
+  "invalid_edges": [],
+  "lineage_visibility": 1.0,
+  "mutations": [
+    {
+      "accepted": true,
+      "evolution_metric": "PERFORMANCE",
+      "mutation_id": "MI_IC1",
+      "produced_branch": "",
+      "proposed_by": "harvester",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "C6d",
+      "target_area": "replay_performance"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "EXTRACTION",
+      "mutation_id": "MI_IC10",
+      "produced_branch": "",
+      "proposed_by": "harvester",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "G12d",
+      "target_area": "harvester_structure"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "CACHE",
+      "mutation_id": "MI_IC11",
+      "produced_branch": "",
+      "proposed_by": "harvester",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "G16d",
+      "target_area": "cache_strategies"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "PERFORMANCE",
+      "mutation_id": "MI_IC12",
+      "produced_branch": "",
+      "proposed_by": "harvester",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "G20d",
+      "target_area": "branch_testing"
+    },
+    {
+      "accepted": false,
+      "evolution_metric": "",
+      "mutation_id": "MI_IC13",
+      "produced_branch": "",
+      "proposed_by": "harvester",
+      "regression_run": "",
+      "risk": "forbidden_core_target",
+      "source_claim_id": "G36d",
+      "target_area": "replay_kernel"
+    },
+    {
+      "accepted": false,
+      "evolution_metric": "",
+      "mutation_id": "MI_IC14",
+      "produced_branch": "",
+      "proposed_by": "harvester",
+      "regression_run": "",
+      "risk": "forbidden_core_target",
+      "source_claim_id": "G40d",
+      "target_area": "determinism_scanner"
+    },
+    {
+      "accepted": false,
+      "evolution_metric": "",
+      "mutation_id": "MI_IC15",
+      "produced_branch": "",
+      "proposed_by": "harvester",
+      "regression_run": "",
+      "risk": "forbidden_core_target",
+      "source_claim_id": "G44d",
+      "target_area": "concept_gates"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "CACHE",
+      "mutation_id": "MI_IC2",
+      "produced_branch": "",
+      "proposed_by": "harvester",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "C1d",
+      "target_area": "memoization"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "GRAPH",
+      "mutation_id": "MI_IC3",
+      "produced_branch": "",
+      "proposed_by": "harvester",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "C4c",
+      "target_area": "graph_queries"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "EXTRACTION",
+      "mutation_id": "MI_IC4",
+      "produced_branch": "",
+      "proposed_by": "harvester",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "C7b",
+      "target_area": "claim_extraction"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "TRACEABILITY",
+      "mutation_id": "MI_IC5",
+      "produced_branch": "",
+      "proposed_by": "harvester",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "C0c",
+      "target_area": "traceability"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "GOVERNANCE",
+      "mutation_id": "MI_IC6",
+      "produced_branch": "",
+      "proposed_by": "harvester",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "C2d",
+      "target_area": "citation_governance"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "RENDERING",
+      "mutation_id": "MI_IC7",
+      "produced_branch": "",
+      "proposed_by": "harvester",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "C5d",
+      "target_area": "output_ports"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "RENDERING",
+      "mutation_id": "MI_IC8",
+      "produced_branch": "",
+      "proposed_by": "harvester",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "C3d",
+      "target_area": "scientific_rendering"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "EXPLORATION",
+      "mutation_id": "MI_IC9",
+      "produced_branch": "",
+      "proposed_by": "harvester",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "G8d",
+      "target_area": "ecology_efficiency"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "runtime_reduction",
+      "mutation_id": "MI_RC1",
+      "produced_branch": "proposal/replay_cache_v1",
+      "proposed_by": "governor",
+      "regression_run": "regression_v29",
+      "risk": "",
+      "source_claim_id": "C6d",
+      "target_area": "replay_performance"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "novelty",
+      "mutation_id": "MI_WS1",
+      "produced_branch": "proposal/PATCH_WS1",
+      "proposed_by": "wild_brother",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "",
+      "target_area": "memoization"
+    },
+    {
+      "accepted": false,
+      "evolution_metric": "",
+      "mutation_id": "MI_WS10",
+      "produced_branch": "",
+      "proposed_by": "wild_brother",
+      "regression_run": "",
+      "risk": "forbidden_core_target",
+      "source_claim_id": "",
+      "target_area": "replay_kernel"
+    },
+    {
+      "accepted": false,
+      "evolution_metric": "",
+      "mutation_id": "MI_WS11",
+      "produced_branch": "",
+      "proposed_by": "wild_brother",
+      "regression_run": "",
+      "risk": "authority_escalation",
+      "source_claim_id": "",
+      "target_area": "concept_gates"
+    },
+    {
+      "accepted": false,
+      "evolution_metric": "",
+      "mutation_id": "MI_WS12",
+      "produced_branch": "",
+      "proposed_by": "wild_brother",
+      "regression_run": "",
+      "risk": "test_disabling",
+      "source_claim_id": "",
+      "target_area": "regression_integrity"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "novelty",
+      "mutation_id": "MI_WS2",
+      "produced_branch": "proposal/PATCH_WS2",
+      "proposed_by": "wild_brother",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "",
+      "target_area": "graph_queries"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "novelty",
+      "mutation_id": "MI_WS3",
+      "produced_branch": "proposal/PATCH_WS3",
+      "proposed_by": "wild_brother",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "",
+      "target_area": "output_ports"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "novelty",
+      "mutation_id": "MI_WS4",
+      "produced_branch": "proposal/PATCH_WS4",
+      "proposed_by": "wild_brother",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "",
+      "target_area": "ecology_efficiency"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "novelty",
+      "mutation_id": "MI_WS5",
+      "produced_branch": "proposal/PATCH_WS5",
+      "proposed_by": "wild_brother",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "",
+      "target_area": "claim_extraction"
+    },
+    {
+      "accepted": true,
+      "evolution_metric": "novelty",
+      "mutation_id": "MI_WS6",
+      "produced_branch": "proposal/PATCH_WS6",
+      "proposed_by": "wild_brother",
+      "regression_run": "",
+      "risk": "",
+      "source_claim_id": "",
+      "target_area": "branch_testing"
+    },
+    {
+      "accepted": false,
+      "evolution_metric": "",
+      "mutation_id": "MI_WS7",
+      "produced_branch": "",
+      "proposed_by": "wild_brother",
+      "regression_run": "",
+      "risk": "authority_escalation",
+      "source_claim_id": "",
+      "target_area": "harvester_structure"
+    },
+    {
+      "accepted": false,
+      "evolution_metric": "",
+      "mutation_id": "MI_WS8",
+      "produced_branch": "",
+      "proposed_by": "wild_brother",
+      "regression_run": "",
+      "risk": "authority_escalation",
+      "source_claim_id": "",
+      "target_area": "branch_testing"
+    },
+    {
+      "accepted": false,
+      "evolution_metric": "",
+      "mutation_id": "MI_WS9",
+      "produced_branch": "",
+      "proposed_by": "wild_brother",
+      "regression_run": "",
+      "risk": "test_disabling",
+      "source_claim_id": "",
+      "target_area": "determinism_scanner"
+    }
+  ],
+  "node_types": [
+    "MutationIdea",
+    "Branch",
+    "RegressionRun",
+    "Invariant",
+    "Risk",
+    "Decision",
+    "EvolutionMetric",
+    "Generation",
+    "PaperClaim",
+    "Agent",
+    "Module",
+    "ConceptGate"
+  ],
+  "nodes": [
+    {
+      "label": "governor",
+      "node_id": "agent:governor",
+      "node_type": "Agent"
+    },
+    {
+      "label": "harvester",
+      "node_id": "agent:harvester",
+      "node_type": "Agent"
+    },
+    {
+      "label": "wild_brother",
+      "node_id": "agent:wild_brother",
+      "node_type": "Agent"
+    },
+    {
+      "label": "proposal/PATCH_WS1",
+      "node_id": "branch:proposal/PATCH_WS1",
+      "node_type": "Branch"
+    },
+    {
+      "label": "proposal/PATCH_WS2",
+      "node_id": "branch:proposal/PATCH_WS2",
+      "node_type": "Branch"
+    },
+    {
+      "label": "proposal/PATCH_WS3",
+      "node_id": "branch:proposal/PATCH_WS3",
+      "node_type": "Branch"
+    },
+    {
+      "label": "proposal/PATCH_WS4",
+      "node_id": "branch:proposal/PATCH_WS4",
+      "node_type": "Branch"
+    },
+    {
+      "label": "proposal/PATCH_WS5",
+      "node_id": "branch:proposal/PATCH_WS5",
+      "node_type": "Branch"
+    },
+    {
+      "label": "proposal/PATCH_WS6",
+      "node_id": "branch:proposal/PATCH_WS6",
+      "node_type": "Branch"
+    },
+    {
+      "label": "proposal/replay_cache_v1",
+      "node_id": "branch:proposal/replay_cache_v1",
+      "node_type": "Branch"
+    },
+    {
+      "label": "isolated sandbox base (never main)",
+      "node_id": "branch:sandbox_base",
+      "node_type": "Branch"
+    },
+    {
+      "label": "self-improvement concept gate",
+      "node_id": "gate:self_improvement_gate",
+      "node_type": "ConceptGate"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_IC1",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_IC10",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_IC11",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_IC12",
+      "node_type": "Decision"
+    },
+    {
+      "label": "REJECT",
+      "node_id": "decision:DEC_MI_IC13",
+      "node_type": "Decision"
+    },
+    {
+      "label": "REJECT",
+      "node_id": "decision:DEC_MI_IC14",
+      "node_type": "Decision"
+    },
+    {
+      "label": "REJECT",
+      "node_id": "decision:DEC_MI_IC15",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_IC2",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_IC3",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_IC4",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_IC5",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_IC6",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_IC7",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_IC8",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_IC9",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_RC1",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_WS1",
+      "node_type": "Decision"
+    },
+    {
+      "label": "REJECT",
+      "node_id": "decision:DEC_MI_WS10",
+      "node_type": "Decision"
+    },
+    {
+      "label": "REJECT",
+      "node_id": "decision:DEC_MI_WS11",
+      "node_type": "Decision"
+    },
+    {
+      "label": "REJECT",
+      "node_id": "decision:DEC_MI_WS12",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_WS2",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_WS3",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_WS4",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_WS5",
+      "node_type": "Decision"
+    },
+    {
+      "label": "ACCEPT",
+      "node_id": "decision:DEC_MI_WS6",
+      "node_type": "Decision"
+    },
+    {
+      "label": "REJECT",
+      "node_id": "decision:DEC_MI_WS7",
+      "node_type": "Decision"
+    },
+    {
+      "label": "REJECT",
+      "node_id": "decision:DEC_MI_WS8",
+      "node_type": "Decision"
+    },
+    {
+      "label": "REJECT",
+      "node_id": "decision:DEC_MI_WS9",
+      "node_type": "Decision"
+    },
+    {
+      "label": "CACHE",
+      "node_id": "metric:CACHE",
+      "node_type": "EvolutionMetric"
+    },
+    {
+      "label": "EXPLORATION",
+      "node_id": "metric:EXPLORATION",
+      "node_type": "EvolutionMetric"
+    },
+    {
+      "label": "EXTRACTION",
+      "node_id": "metric:EXTRACTION",
+      "node_type": "EvolutionMetric"
+    },
+    {
+      "label": "GOVERNANCE",
+      "node_id": "metric:GOVERNANCE",
+      "node_type": "EvolutionMetric"
+    },
+    {
+      "label": "GRAPH",
+      "node_id": "metric:GRAPH",
+      "node_type": "EvolutionMetric"
+    },
+    {
+      "label": "PERFORMANCE",
+      "node_id": "metric:PERFORMANCE",
+      "node_type": "EvolutionMetric"
+    },
+    {
+      "label": "RENDERING",
+      "node_id": "metric:RENDERING",
+      "node_type": "EvolutionMetric"
+    },
+    {
+      "label": "TRACEABILITY",
+      "node_id": "metric:TRACEABILITY",
+      "node_type": "EvolutionMetric"
+    },
+    {
+      "label": "novelty",
+      "node_id": "metric:novelty",
+      "node_type": "EvolutionMetric"
+    },
+    {
+      "label": "runtime_reduction",
+      "node_id": "metric:runtime_reduction",
+      "node_type": "EvolutionMetric"
+    },
+    {
+      "label": "evolution generation 0",
+      "node_id": "generation:gen_0",
+      "node_type": "Generation"
+    },
+    {
+      "label": "no_hidden_authority",
+      "node_id": "invariant:no_hidden_authority",
+      "node_type": "Invariant"
+    },
+    {
+      "label": "protected_core_immutability",
+      "node_id": "invariant:protected_core_immutability",
+      "node_type": "Invariant"
+    },
+    {
+      "label": "regression_integrity",
+      "node_id": "invariant:regression_integrity",
+      "node_type": "Invariant"
+    },
+    {
+      "label": "branch_testing",
+      "node_id": "module:branch_testing",
+      "node_type": "Module"
+    },
+    {
+      "label": "cache_strategies",
+      "node_id": "module:cache_strategies",
+      "node_type": "Module"
+    },
+    {
+      "label": "citation_governance",
+      "node_id": "module:citation_governance",
+      "node_type": "Module"
+    },
+    {
+      "label": "claim_extraction",
+      "node_id": "module:claim_extraction",
+      "node_type": "Module"
+    },
+    {
+      "label": "concept_gates",
+      "node_id": "module:concept_gates",
+      "node_type": "Module"
+    },
+    {
+      "label": "determinism_scanner",
+      "node_id": "module:determinism_scanner",
+      "node_type": "Module"
+    },
+    {
+      "label": "ecology_efficiency",
+      "node_id": "module:ecology_efficiency",
+      "node_type": "Module"
+    },
+    {
+      "label": "graph_queries",
+      "node_id": "module:graph_queries",
+      "node_type": "Module"
+    },
+    {
+      "label": "harvester_structure",
+      "node_id": "module:harvester_structure",
+      "node_type": "Module"
+    },
+    {
+      "label": "memoization",
+      "node_id": "module:memoization",
+      "node_type": "Module"
+    },
+    {
+      "label": "output_ports",
+      "node_id": "module:output_ports",
+      "node_type": "Module"
+    },
+    {
+      "label": "regression_integrity",
+      "node_id": "module:regression_integrity",
+      "node_type": "Module"
+    },
+    {
+      "label": "replay_kernel",
+      "node_id": "module:replay_kernel",
+      "node_type": "Module"
+    },
+    {
+      "label": "replay_performance",
+      "node_id": "module:replay_performance",
+      "node_type": "Module"
+    },
+    {
+      "label": "scientific_rendering",
+      "node_id": "module:scientific_rendering",
+      "node_type": "Module"
+    },
+    {
+      "label": "traceability",
+      "node_id": "module:traceability",
+      "node_type": "Module"
+    },
+    {
+      "label": "harvester -> replay_performance",
+      "node_id": "mutation:MI_IC1",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "harvester -> harvester_structure",
+      "node_id": "mutation:MI_IC10",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "harvester -> cache_strategies",
+      "node_id": "mutation:MI_IC11",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "harvester -> branch_testing",
+      "node_id": "mutation:MI_IC12",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "harvester -> replay_kernel",
+      "node_id": "mutation:MI_IC13",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "harvester -> determinism_scanner",
+      "node_id": "mutation:MI_IC14",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "harvester -> concept_gates",
+      "node_id": "mutation:MI_IC15",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "harvester -> memoization",
+      "node_id": "mutation:MI_IC2",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "harvester -> graph_queries",
+      "node_id": "mutation:MI_IC3",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "harvester -> claim_extraction",
+      "node_id": "mutation:MI_IC4",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "harvester -> traceability",
+      "node_id": "mutation:MI_IC5",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "harvester -> citation_governance",
+      "node_id": "mutation:MI_IC6",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "harvester -> output_ports",
+      "node_id": "mutation:MI_IC7",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "harvester -> scientific_rendering",
+      "node_id": "mutation:MI_IC8",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "harvester -> ecology_efficiency",
+      "node_id": "mutation:MI_IC9",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "governor -> replay_performance",
+      "node_id": "mutation:MI_RC1",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "wild_brother -> memoization",
+      "node_id": "mutation:MI_WS1",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "wild_brother -> replay_kernel",
+      "node_id": "mutation:MI_WS10",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "wild_brother -> concept_gates",
+      "node_id": "mutation:MI_WS11",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "wild_brother -> regression_integrity",
+      "node_id": "mutation:MI_WS12",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "wild_brother -> graph_queries",
+      "node_id": "mutation:MI_WS2",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "wild_brother -> output_ports",
+      "node_id": "mutation:MI_WS3",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "wild_brother -> ecology_efficiency",
+      "node_id": "mutation:MI_WS4",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "wild_brother -> claim_extraction",
+      "node_id": "mutation:MI_WS5",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "wild_brother -> branch_testing",
+      "node_id": "mutation:MI_WS6",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "wild_brother -> harvester_structure",
+      "node_id": "mutation:MI_WS7",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "wild_brother -> branch_testing",
+      "node_id": "mutation:MI_WS8",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "wild_brother -> determinism_scanner",
+      "node_id": "mutation:MI_WS9",
+      "node_type": "MutationIdea"
+    },
+    {
+      "label": "C0c",
+      "node_id": "paperclaim:C0c",
+      "node_type": "PaperClaim"
+    },
+    {
+      "label": "C1d",
+      "node_id": "paperclaim:C1d",
+      "node_type": "PaperClaim"
+    },
+    {
+      "label": "C2d",
+      "node_id": "paperclaim:C2d",
+      "node_type": "PaperClaim"
+    },
+    {
+      "label": "C3d",
+      "node_id": "paperclaim:C3d",
+      "node_type": "PaperClaim"
+    },
+    {
+      "label": "C4c",
+      "node_id": "paperclaim:C4c",
+      "node_type": "PaperClaim"
+    },
+    {
+      "label": "C5d",
+      "node_id": "paperclaim:C5d",
+      "node_type": "PaperClaim"
+    },
+    {
+      "label": "C6d",
+      "node_id": "paperclaim:C6d",
+      "node_type": "PaperClaim"
+    },
+    {
+      "label": "C7b",
+      "node_id": "paperclaim:C7b",
+      "node_type": "PaperClaim"
+    },
+    {
+      "label": "G12d",
+      "node_id": "paperclaim:G12d",
+      "node_type": "PaperClaim"
+    },
+    {
+      "label": "G16d",
+      "node_id": "paperclaim:G16d",
+      "node_type": "PaperClaim"
+    },
+    {
+      "label": "G20d",
+      "node_id": "paperclaim:G20d",
+      "node_type": "PaperClaim"
+    },
+    {
+      "label": "G36d",
+      "node_id": "paperclaim:G36d",
+      "node_type": "PaperClaim"
+    },
+    {
+      "label": "G40d",
+      "node_id": "paperclaim:G40d",
+      "node_type": "PaperClaim"
+    },
+    {
+      "label": "G44d",
+      "node_id": "paperclaim:G44d",
+      "node_type": "PaperClaim"
+    },
+    {
+      "label": "G8d",
+      "node_id": "paperclaim:G8d",
+      "node_type": "PaperClaim"
+    },
+    {
+      "label": "regression_v29",
+      "node_id": "regression:regression_v29",
+      "node_type": "RegressionRun"
+    },
+    {
+      "label": "authority_escalation",
+      "node_id": "risk:authority_escalation",
+      "node_type": "Risk"
+    },
+    {
+      "label": "forbidden_core_target",
+      "node_id": "risk:forbidden_core_target",
+      "node_type": "Risk"
+    },
+    {
+      "label": "test_disabling",
+      "node_id": "risk:test_disabling",
+      "node_type": "Risk"
+    }
+  ],
+  "recommendation": "EVOLUTION_MEMORY_STRUCTURED",
+  "rejection_visibility": 1.0,
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "EVOLUTION_MEMORY_STRUCTURED",
+    "EVOLUTION_MEMORY_INCOMPLETE",
+    "MEMORY_DRIFT_HALT"
+  ],
+  "schema_version": "v30_0_mutation_memory_topology"
+}
