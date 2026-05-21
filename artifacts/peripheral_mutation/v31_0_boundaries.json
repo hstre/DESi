@@ -1,0 +1,172 @@
+{
+  "allowed_evolution_space": [
+    "replay_cache",
+    "memoization",
+    "graph_queries",
+    "claim_extraction",
+    "scientific_rendering",
+    "citation_governance",
+    "output_ports",
+    "harvester_layer",
+    "neo4j_projection",
+    "evolution_memory_queries",
+    "branch_ecology_visualization",
+    "runtime_scheduling",
+    "artifact_compression",
+    "provenance_rendering"
+  ],
+  "boundary_enforcement": 1.0,
+  "core_fingerprint": "718b436d8d85c411a9dc11ef847b79fe3af611695b8864a689ad026f8decd3c2",
+  "core_identity": 1.0,
+  "core_protection": 1.0,
+  "disclaimer": "Defines the completely-immutable protected core (replay kernel, determinism scanner, concept gates, governance core, authority filters, regression integrity, human-approval enforcement) and the allowed peripheral evolution space, and enforces the boundary: every mutation that touches the core - directly or indirectly - is FORBIDDEN_CORE_MUTATION and REJECTED. Nothing is mutated here; the core fingerprint is pinned. Human approval is mandatory. Deterministic and replay-stable.",
+  "governance_preservation": 1.0,
+  "human_approval_required": true,
+  "mutation_traceability": 1.0,
+  "proposed_mutations": [
+    {
+      "decision": "ACCEPTED",
+      "mutation_id": "PM_A1",
+      "status": "PERIPHERAL_MUTATION",
+      "target_area": "replay_cache"
+    },
+    {
+      "decision": "ACCEPTED",
+      "mutation_id": "PM_A2",
+      "status": "PERIPHERAL_MUTATION",
+      "target_area": "memoization"
+    },
+    {
+      "decision": "ACCEPTED",
+      "mutation_id": "PM_A3",
+      "status": "PERIPHERAL_MUTATION",
+      "target_area": "graph_queries"
+    },
+    {
+      "decision": "ACCEPTED",
+      "mutation_id": "PM_A4",
+      "status": "PERIPHERAL_MUTATION",
+      "target_area": "claim_extraction"
+    },
+    {
+      "decision": "ACCEPTED",
+      "mutation_id": "PM_A5",
+      "status": "PERIPHERAL_MUTATION",
+      "target_area": "scientific_rendering"
+    },
+    {
+      "decision": "ACCEPTED",
+      "mutation_id": "PM_A6",
+      "status": "PERIPHERAL_MUTATION",
+      "target_area": "citation_governance"
+    },
+    {
+      "decision": "ACCEPTED",
+      "mutation_id": "PM_A7",
+      "status": "PERIPHERAL_MUTATION",
+      "target_area": "output_ports"
+    },
+    {
+      "decision": "ACCEPTED",
+      "mutation_id": "PM_A8",
+      "status": "PERIPHERAL_MUTATION",
+      "target_area": "harvester_layer"
+    },
+    {
+      "decision": "ACCEPTED",
+      "mutation_id": "PM_A9",
+      "status": "PERIPHERAL_MUTATION",
+      "target_area": "neo4j_projection"
+    },
+    {
+      "decision": "ACCEPTED",
+      "mutation_id": "PM_A10",
+      "status": "PERIPHERAL_MUTATION",
+      "target_area": "evolution_memory_queries"
+    },
+    {
+      "decision": "ACCEPTED",
+      "mutation_id": "PM_A11",
+      "status": "PERIPHERAL_MUTATION",
+      "target_area": "branch_ecology_visualization"
+    },
+    {
+      "decision": "ACCEPTED",
+      "mutation_id": "PM_A12",
+      "status": "PERIPHERAL_MUTATION",
+      "target_area": "runtime_scheduling"
+    },
+    {
+      "decision": "ACCEPTED",
+      "mutation_id": "PM_A13",
+      "status": "PERIPHERAL_MUTATION",
+      "target_area": "artifact_compression"
+    },
+    {
+      "decision": "ACCEPTED",
+      "mutation_id": "PM_A14",
+      "status": "PERIPHERAL_MUTATION",
+      "target_area": "provenance_rendering"
+    },
+    {
+      "decision": "REJECTED",
+      "mutation_id": "PM_C1",
+      "status": "FORBIDDEN_CORE_MUTATION",
+      "target_area": "replay_kernel"
+    },
+    {
+      "decision": "REJECTED",
+      "mutation_id": "PM_C2",
+      "status": "FORBIDDEN_CORE_MUTATION",
+      "target_area": "determinism_scanner"
+    },
+    {
+      "decision": "REJECTED",
+      "mutation_id": "PM_C3",
+      "status": "FORBIDDEN_CORE_MUTATION",
+      "target_area": "concept_gates"
+    },
+    {
+      "decision": "REJECTED",
+      "mutation_id": "PM_C4",
+      "status": "FORBIDDEN_CORE_MUTATION",
+      "target_area": "governance_core"
+    },
+    {
+      "decision": "REJECTED",
+      "mutation_id": "PM_C5",
+      "status": "FORBIDDEN_CORE_MUTATION",
+      "target_area": "authority_filters"
+    },
+    {
+      "decision": "REJECTED",
+      "mutation_id": "PM_C6",
+      "status": "FORBIDDEN_CORE_MUTATION",
+      "target_area": "regression_integrity"
+    },
+    {
+      "decision": "REJECTED",
+      "mutation_id": "PM_C7",
+      "status": "FORBIDDEN_CORE_MUTATION",
+      "target_area": "human_approval_enforcement"
+    }
+  ],
+  "protected_core": [
+    "replay_kernel",
+    "determinism_scanner",
+    "concept_gates",
+    "governance_core",
+    "authority_filters",
+    "regression_integrity",
+    "human_approval_enforcement"
+  ],
+  "recommendation": "CORE_INVARIANT_BOUNDARY_ENFORCED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "CORE_INVARIANT_BOUNDARY_ENFORCED",
+    "CORE_BOUNDARY_LEAK",
+    "BOUNDARY_DRIFT_HALT"
+  ],
+  "schema_version": "v31_0_mutation_boundaries",
+  "signature": "8982d605c2804e8f05bbe96c796870354cd437ed318366ec32a4e6f0a924a963"
+}
