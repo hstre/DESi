@@ -1,0 +1,92 @@
+{
+  "aspect_breakdown": {
+    "critical_branches": 10,
+    "hard_pruned": 0,
+    "low_information_branches": 25,
+    "novelty_branches": 35,
+    "redundant_branches": 40,
+    "replay_reuse": 20,
+    "soft_reweighted": 25
+  },
+  "compute_reduction": 0.533333,
+  "core_identity": 1.0,
+  "critical_branch_preservation": 1.0,
+  "critical_safe": true,
+  "disclaimer": "Controlled external search-compression benchmark run executed through the v33 search adapter (no new adapter, no score hacking). Reduction comes from lossless replay reuse / redundant-branch compression and reversible soft-reweighting; critical (load-bearing) branches stay visible and are never hard-pruned. Novelty and quality are preserved. The search space is a deterministic synthetic set, not a live planner trace. Human approval is mandatory.",
+  "hard_pruned_count": 0,
+  "human_approval_required": true,
+  "node_reduction": 0.533333,
+  "novelty_preservation": 1.0,
+  "quality_preservation": 1.0,
+  "recommendation": "SEARCH_COMPRESSION_RUN_PASSED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "SEARCH_COMPRESSION_RUN_PASSED",
+    "SEARCH_COMPRESSION_RUN_PARTIAL",
+    "SEARCH_COMPRESSION_RUN_HALT"
+  ],
+  "schema_version": "v34_1_search_run",
+  "scorecard": {
+    "aspect_breakdown": [
+      [
+        "critical_branches",
+        10
+      ],
+      [
+        "hard_pruned",
+        0
+      ],
+      [
+        "low_information_branches",
+        25
+      ],
+      [
+        "novelty_branches",
+        35
+      ],
+      [
+        "redundant_branches",
+        40
+      ],
+      [
+        "replay_reuse",
+        20
+      ],
+      [
+        "soft_reweighted",
+        25
+      ]
+    ],
+    "critical_safe": true,
+    "governance_status": "GOVERNANCE_INDEPENDENT",
+    "metrics": [
+      [
+        "branch_compression",
+        0.866667
+      ],
+      [
+        "compute_reduction",
+        0.533333
+      ],
+      [
+        "critical_branch_preservation",
+        1.0
+      ],
+      [
+        "node_reduction",
+        0.533333
+      ],
+      [
+        "novelty_preservation",
+        1.0
+      ],
+      [
+        "quality_preservation",
+        1.0
+      ]
+    ],
+    "replay_hash": "739a8b4f1715893290fa2655c68d2cec725cd2a9659fab20914dadf52619d380"
+  },
+  "scorecard_traceable": true,
+  "signature": "ac988e0afc0e75e0cdc3764faa7b91258e3ae971471e1520ba26d955df4d66c9"
+}
