@@ -1,0 +1,183 @@
+{
+  "auto_blocks_future_ideas": false,
+  "disclaimer": "Remembers evolution risks from the preserved rejection history: recurring unsafe ideas, risk clusters and escalation patterns are made visible. DESi marks risks but never auto-blocks a future idea - there is no implicit policy-learning layer, no automatic policy adaptation and no governance change. Rejected ideas are never deleted. Deterministic and replay-stable.",
+  "escalation_pattern": [
+    "MI_WS11",
+    "MI_WS7",
+    "MI_WS8"
+  ],
+  "governance_neutrality": 1.0,
+  "recommendation": "RISK_MEMORY_NEUTRAL",
+  "recurrent_risks": [
+    "authority_escalation",
+    "forbidden_core_target",
+    "test_disabling"
+  ],
+  "rejection_history": [
+    {
+      "agent": "harvester",
+      "invariant": "protected_core_immutability",
+      "mutation_id": "MI_IC13",
+      "risk_type": "forbidden_core_target",
+      "target_area": "replay_kernel"
+    },
+    {
+      "agent": "harvester",
+      "invariant": "protected_core_immutability",
+      "mutation_id": "MI_IC14",
+      "risk_type": "forbidden_core_target",
+      "target_area": "determinism_scanner"
+    },
+    {
+      "agent": "harvester",
+      "invariant": "protected_core_immutability",
+      "mutation_id": "MI_IC15",
+      "risk_type": "forbidden_core_target",
+      "target_area": "concept_gates"
+    },
+    {
+      "agent": "wild_brother",
+      "invariant": "protected_core_immutability",
+      "mutation_id": "MI_WS10",
+      "risk_type": "forbidden_core_target",
+      "target_area": "replay_kernel"
+    },
+    {
+      "agent": "wild_brother",
+      "invariant": "no_hidden_authority",
+      "mutation_id": "MI_WS11",
+      "risk_type": "authority_escalation",
+      "target_area": "concept_gates"
+    },
+    {
+      "agent": "wild_brother",
+      "invariant": "regression_integrity",
+      "mutation_id": "MI_WS12",
+      "risk_type": "test_disabling",
+      "target_area": "regression_integrity"
+    },
+    {
+      "agent": "wild_brother",
+      "invariant": "no_hidden_authority",
+      "mutation_id": "MI_WS7",
+      "risk_type": "authority_escalation",
+      "target_area": "harvester_structure"
+    },
+    {
+      "agent": "wild_brother",
+      "invariant": "no_hidden_authority",
+      "mutation_id": "MI_WS8",
+      "risk_type": "authority_escalation",
+      "target_area": "branch_testing"
+    },
+    {
+      "agent": "wild_brother",
+      "invariant": "regression_integrity",
+      "mutation_id": "MI_WS9",
+      "risk_type": "test_disabling",
+      "target_area": "determinism_scanner"
+    }
+  ],
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "RISK_MEMORY_NEUTRAL",
+    "RISK_MEMORY_POLICY_LEAK",
+    "RISK_DRIFT_HALT"
+  ],
+  "risk_by_agent": {
+    "harvester": 3,
+    "wild_brother": 6
+  },
+  "risk_by_invariant": {
+    "no_hidden_authority": 3,
+    "protected_core_immutability": 4,
+    "regression_integrity": 2
+  },
+  "risk_clusters": {
+    "authority_escalation": [
+      "MI_WS11",
+      "MI_WS7",
+      "MI_WS8"
+    ],
+    "forbidden_core_target": [
+      "MI_IC13",
+      "MI_IC14",
+      "MI_IC15",
+      "MI_WS10"
+    ],
+    "test_disabling": [
+      "MI_WS12",
+      "MI_WS9"
+    ]
+  },
+  "risk_occurrences": [
+    {
+      "agent": "harvester",
+      "invariant": "protected_core_immutability",
+      "mutation_id": "MI_IC13",
+      "occurrence_id": "RO_MI_IC13",
+      "risk_type": "forbidden_core_target"
+    },
+    {
+      "agent": "harvester",
+      "invariant": "protected_core_immutability",
+      "mutation_id": "MI_IC14",
+      "occurrence_id": "RO_MI_IC14",
+      "risk_type": "forbidden_core_target"
+    },
+    {
+      "agent": "harvester",
+      "invariant": "protected_core_immutability",
+      "mutation_id": "MI_IC15",
+      "occurrence_id": "RO_MI_IC15",
+      "risk_type": "forbidden_core_target"
+    },
+    {
+      "agent": "wild_brother",
+      "invariant": "protected_core_immutability",
+      "mutation_id": "MI_WS10",
+      "occurrence_id": "RO_MI_WS10",
+      "risk_type": "forbidden_core_target"
+    },
+    {
+      "agent": "wild_brother",
+      "invariant": "no_hidden_authority",
+      "mutation_id": "MI_WS11",
+      "occurrence_id": "RO_MI_WS11",
+      "risk_type": "authority_escalation"
+    },
+    {
+      "agent": "wild_brother",
+      "invariant": "regression_integrity",
+      "mutation_id": "MI_WS12",
+      "occurrence_id": "RO_MI_WS12",
+      "risk_type": "test_disabling"
+    },
+    {
+      "agent": "wild_brother",
+      "invariant": "no_hidden_authority",
+      "mutation_id": "MI_WS7",
+      "occurrence_id": "RO_MI_WS7",
+      "risk_type": "authority_escalation"
+    },
+    {
+      "agent": "wild_brother",
+      "invariant": "no_hidden_authority",
+      "mutation_id": "MI_WS8",
+      "occurrence_id": "RO_MI_WS8",
+      "risk_type": "authority_escalation"
+    },
+    {
+      "agent": "wild_brother",
+      "invariant": "regression_integrity",
+      "mutation_id": "MI_WS9",
+      "occurrence_id": "RO_MI_WS9",
+      "risk_type": "test_disabling"
+    }
+  ],
+  "risk_pattern_visibility": 1.0,
+  "risk_traceability": 1.0,
+  "schema_version": "v30_1_rejection_risk_memory",
+  "signature": "8520d0b16ebf70f36e3644915a2448ca123088ae8df47e5f2b42f7d0b7a157aa",
+  "unsafe_recurrence_visibility": 1.0
+}
