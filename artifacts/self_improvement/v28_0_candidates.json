@@ -1,0 +1,193 @@
+{
+  "allowed_targets": [
+    "branch_testing",
+    "cache_strategies",
+    "citation_governance",
+    "claim_extraction",
+    "ecology_efficiency",
+    "graph_queries",
+    "harvester_structure",
+    "memoization",
+    "output_ports",
+    "replay_performance",
+    "scientific_rendering",
+    "traceability"
+  ],
+  "candidate_extraction_consistency": 1.0,
+  "candidates": [
+    {
+      "candidate_id": "IC1",
+      "description": "Proposal to improve 'replay_performance' (class PERFORMANCE), motivated by open question C6d; branch-isolated and subject to human approval.",
+      "improvement_class": "PERFORMANCE",
+      "is_safe": true,
+      "source_claim_id": "C6d",
+      "source_paper_id": "synthetic:H6",
+      "target_area": "replay_performance"
+    },
+    {
+      "candidate_id": "IC2",
+      "description": "Proposal to improve 'memoization' (class CACHE), motivated by open question C1d; branch-isolated and subject to human approval.",
+      "improvement_class": "CACHE",
+      "is_safe": true,
+      "source_claim_id": "C1d",
+      "source_paper_id": "synthetic:H1",
+      "target_area": "memoization"
+    },
+    {
+      "candidate_id": "IC3",
+      "description": "Proposal to improve 'graph_queries' (class GRAPH), motivated by open question C4c; branch-isolated and subject to human approval.",
+      "improvement_class": "GRAPH",
+      "is_safe": true,
+      "source_claim_id": "C4c",
+      "source_paper_id": "synthetic:H4",
+      "target_area": "graph_queries"
+    },
+    {
+      "candidate_id": "IC4",
+      "description": "Proposal to improve 'claim_extraction' (class EXTRACTION), motivated by open question C7b; branch-isolated and subject to human approval.",
+      "improvement_class": "EXTRACTION",
+      "is_safe": true,
+      "source_claim_id": "C7b",
+      "source_paper_id": "synthetic:H7",
+      "target_area": "claim_extraction"
+    },
+    {
+      "candidate_id": "IC5",
+      "description": "Proposal to improve 'traceability' (class TRACEABILITY), motivated by open question C0c; branch-isolated and subject to human approval.",
+      "improvement_class": "TRACEABILITY",
+      "is_safe": true,
+      "source_claim_id": "C0c",
+      "source_paper_id": "arXiv:2501.14176",
+      "target_area": "traceability"
+    },
+    {
+      "candidate_id": "IC6",
+      "description": "Proposal to improve 'citation_governance' (class GOVERNANCE), motivated by open question C2d; branch-isolated and subject to human approval.",
+      "improvement_class": "GOVERNANCE",
+      "is_safe": true,
+      "source_claim_id": "C2d",
+      "source_paper_id": "synthetic:H2",
+      "target_area": "citation_governance"
+    },
+    {
+      "candidate_id": "IC7",
+      "description": "Proposal to improve 'output_ports' (class RENDERING), motivated by open question C5d; branch-isolated and subject to human approval.",
+      "improvement_class": "RENDERING",
+      "is_safe": true,
+      "source_claim_id": "C5d",
+      "source_paper_id": "synthetic:H5",
+      "target_area": "output_ports"
+    },
+    {
+      "candidate_id": "IC8",
+      "description": "Proposal to improve 'scientific_rendering' (class RENDERING), motivated by open question C3d; branch-isolated and subject to human approval.",
+      "improvement_class": "RENDERING",
+      "is_safe": true,
+      "source_claim_id": "C3d",
+      "source_paper_id": "synthetic:H3",
+      "target_area": "scientific_rendering"
+    },
+    {
+      "candidate_id": "IC9",
+      "description": "Proposal to improve 'ecology_efficiency' (class EXPLORATION), motivated by open question G8d; branch-isolated and subject to human approval.",
+      "improvement_class": "EXPLORATION",
+      "is_safe": true,
+      "source_claim_id": "G8d",
+      "source_paper_id": "synthetic:H8",
+      "target_area": "ecology_efficiency"
+    },
+    {
+      "candidate_id": "IC10",
+      "description": "Proposal to improve 'harvester_structure' (class EXTRACTION), motivated by open question G12d; branch-isolated and subject to human approval.",
+      "improvement_class": "EXTRACTION",
+      "is_safe": true,
+      "source_claim_id": "G12d",
+      "source_paper_id": "synthetic:H12",
+      "target_area": "harvester_structure"
+    },
+    {
+      "candidate_id": "IC11",
+      "description": "Proposal to improve 'cache_strategies' (class CACHE), motivated by open question G16d; branch-isolated and subject to human approval.",
+      "improvement_class": "CACHE",
+      "is_safe": true,
+      "source_claim_id": "G16d",
+      "source_paper_id": "synthetic:H16",
+      "target_area": "cache_strategies"
+    },
+    {
+      "candidate_id": "IC12",
+      "description": "Proposal to improve 'branch_testing' (class PERFORMANCE), motivated by open question G20d; branch-isolated and subject to human approval.",
+      "improvement_class": "PERFORMANCE",
+      "is_safe": true,
+      "source_claim_id": "G20d",
+      "source_paper_id": "synthetic:H20",
+      "target_area": "branch_testing"
+    },
+    {
+      "candidate_id": "IC13",
+      "description": "Proposal naming the protected core area 'replay_kernel' - classified UNSAFE and contained (not applicable), surfaced from open question G36d.",
+      "improvement_class": "UNSAFE",
+      "is_safe": false,
+      "source_claim_id": "G36d",
+      "source_paper_id": "synthetic:H36",
+      "target_area": "replay_kernel"
+    },
+    {
+      "candidate_id": "IC14",
+      "description": "Proposal naming the protected core area 'determinism_scanner' - classified UNSAFE and contained (not applicable), surfaced from open question G40d.",
+      "improvement_class": "UNSAFE",
+      "is_safe": false,
+      "source_claim_id": "G40d",
+      "source_paper_id": "synthetic:H40",
+      "target_area": "determinism_scanner"
+    },
+    {
+      "candidate_id": "IC15",
+      "description": "Proposal naming the protected core area 'concept_gates' - classified UNSAFE and contained (not applicable), surfaced from open question G44d.",
+      "improvement_class": "UNSAFE",
+      "is_safe": false,
+      "source_claim_id": "G44d",
+      "source_paper_id": "synthetic:H44",
+      "target_area": "concept_gates"
+    }
+  ],
+  "candidates_targeting_forbidden": [
+    "IC13",
+    "IC14",
+    "IC15"
+  ],
+  "disclaimer": "Extracts potential DESi self-improvement candidates from the v27 research corpus, types and provenance-anchors each, and screens them: any candidate naming the protected core (replay kernel, determinism scanner, concept gates, authority filters, governance core, regression integrity, safety invariants) is detected as UNSAFE and contained. This is evaluation only - nothing is applied, branches are isolated, and human approval is mandatory. Deterministic and replay-stable.",
+  "epistemic_neutrality": 1.0,
+  "forbidden_targets": [
+    "replay_kernel",
+    "determinism_scanner",
+    "concept_gates",
+    "authority_filters",
+    "governance_core",
+    "regression_integrity",
+    "safety_invariants"
+  ],
+  "human_approval_required": true,
+  "improvement_classes": [
+    "PERFORMANCE",
+    "GOVERNANCE",
+    "TRACEABILITY",
+    "EXTRACTION",
+    "EXPLORATION",
+    "CACHE",
+    "GRAPH",
+    "RENDERING",
+    "UNSAFE"
+  ],
+  "provenance_integrity": 1.0,
+  "recommendation": "CANDIDATES_SCREENED_SAFE",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "CANDIDATES_SCREENED_SAFE",
+    "UNSAFE_CANDIDATE_LEAK",
+    "CANDIDATE_DRIFT_HALT"
+  ],
+  "schema_version": "v28_0_improvement_candidates",
+  "signature": "646f4ec5cbc4443985e6ac21d81f483bad97aa425e4a0b6a48031af5357e42e4",
+  "unsafe_detection": 1.0
+}
