@@ -15,6 +15,34 @@ and Skill Stitching".
 
 ---
 
+## ⚠️ Data provenance — read first: everything here is synthetic
+
+These are **not** real-world experiments and the corpus is **not** real
+literature. Specifically:
+
+- **All numeric "results" are synthetic.** The values R1–R8
+  (redundancy_reduction 0.9, novelty_gain 0.733333, productivity_gain
+  2.75, etc.) and every metric in this file are deterministic outputs of
+  the DESi **synthetic sandbox** (fixed fixtures, no PRNG, no learned
+  model, no real environment). They describe the fixtures, not external
+  performance. "Experiment results" here means *sandbox computations*.
+- **The v27 paper corpus is invented.** 57 of 58 papers are explicitly
+  synthetic, illustrative fixtures — flagged `is_synthetic = True`, with
+  `synthetic:`-prefixed ids, placeholder authors ("Synthetic Group N")
+  and titles marked "(synthetic illustrative)". They are **not** real
+  papers, authors, findings or citations. No real-looking citations were
+  fabricated, deliberately.
+- **The one "real" anchor is unverified.** The base paper (Rentschler &
+  Roberts, 2025; arXiv:2501.14176) was supplied in the task directive and
+  used as-is; its existence and details were **not** independently
+  verified here.
+- **No claim is made about the real world** — about reinforcement
+  learning, about any real research field, or about the correctness of
+  any synthetic claim. The work demonstrates *structure, determinism and
+  governance*, not empirical findings.
+
+---
+
 ## Cross-cutting invariants (held in every sprint)
 
 - Closed enums; frozen dataclasses; deterministic, **replay-stable**
