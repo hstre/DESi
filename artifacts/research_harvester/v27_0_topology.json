@@ -1,0 +1,491 @@
+{
+  "claim_classes": [
+    "EXPERIMENTAL",
+    "THEORETICAL",
+    "EMPIRICAL",
+    "SPECULATIVE",
+    "LIMITATION",
+    "OPEN_QUESTION",
+    "REPRODUCIBILITY",
+    "COMPARATIVE"
+  ],
+  "claim_extraction_consistency": 1.0,
+  "disclaimer": "Models AI/ML papers as temporary epistemic states - typed, paper-anchored claims with explicit limitations and open questions - over a deterministic fixture corpus. Exactly one paper is real (the base-paper anchor); every other is explicitly synthetic and illustrative, so nothing here is a fabricated real citation. DESi structures research; it does not rank, score, peer-review, judge truth or debunk. Deterministic and replay-stable.",
+  "limitation_visibility": 1.0,
+  "missing_claim_classes": [],
+  "open_question_visibility": 1.0,
+  "papers": [
+    {
+      "assumptions": [
+        "exploration_matters",
+        "sparse_reward_is_hard"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "C0a",
+          "paper_id": "arXiv:2501.14176",
+          "text": "In-context RL can handle variable action spaces and stitch skills."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "C0b",
+          "paper_id": "arXiv:2501.14176",
+          "text": "Exploration can collapse; sparse reward and repetitive trajectories remain open (Section 4.6)."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "C0c",
+          "paper_id": "arXiv:2501.14176",
+          "text": "How can exploration be governed without replacing the policy?"
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_action_space"
+      ],
+      "extends": [],
+      "metadata": {
+        "abstract": "Studies in-context RL for variable action spaces and skill stitching; Section 4.6 lists open exploration problems.",
+        "authors": [
+          "Rentschler",
+          "Roberts"
+        ],
+        "categories": [
+          "RL",
+          "Agents"
+        ],
+        "date": "2025-01",
+        "is_synthetic": false,
+        "paper_id": "arXiv:2501.14176",
+        "source": "arXiv",
+        "title": "In-Context Reinforcement Learning for Variable Action Spaces and Skill Stitching"
+      },
+      "methods": [
+        "in_context_rl",
+        "skill_stitching"
+      ],
+      "metrics": [
+        "distinct_state_coverage"
+      ]
+    },
+    {
+      "assumptions": [
+        "exploration_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "C1a",
+          "paper_id": "synthetic:H1",
+          "text": "A read-only governance layer reduces redundant search on a synthetic corpus."
+        },
+        {
+          "claim_class": "COMPARATIVE",
+          "claim_id": "C1b",
+          "paper_id": "synthetic:H1",
+          "text": "A generator/governor split increases distinct-state coverage versus a single explorer."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "C1c",
+          "paper_id": "synthetic:H1",
+          "text": "Results are limited to synthetic fixtures."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "C1d",
+          "paper_id": "synthetic:H1",
+          "text": "Does the effect hold under a trained policy?"
+        },
+        {
+          "claim_class": "REPRODUCIBILITY",
+          "claim_id": "C1e",
+          "paper_id": "synthetic:H1",
+          "text": "All reported numbers are replay-exact."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "arXiv:2501.14176"
+      ],
+      "metadata": {
+        "abstract": "Synthetic study of a read-only governance layer over in-context exploration.",
+        "authors": [
+          "Synthetic Group 1"
+        ],
+        "categories": [
+          "RL",
+          "Agents"
+        ],
+        "date": "2025-02",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H1",
+        "source": "arXiv",
+        "title": "Read-Only Exploration Governance for In-Context Agents (synthetic illustrative)"
+      },
+      "methods": [
+        "read_only_governance",
+        "generator_governor_split"
+      ],
+      "metrics": [
+        "redundancy_reduction",
+        "distinct_state_coverage"
+      ]
+    },
+    {
+      "assumptions": [
+        "diversity_matters",
+        "exploration_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "C2a",
+          "paper_id": "synthetic:H2",
+          "text": "Separating generation and governance preserves exploration diversity on synthetic runs."
+        },
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "C2b",
+          "paper_id": "synthetic:H2",
+          "text": "Soft re-weighting bounds accumulated authority drift."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "C2c",
+          "paper_id": "synthetic:H2",
+          "text": "Agents are rule-based stand-ins, not trained."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "C2d",
+          "paper_id": "synthetic:H2",
+          "text": "How does the split scale to many agents?"
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "synthetic:H1"
+      ],
+      "metadata": {
+        "abstract": "Synthetic study of generation/governance separation across multiple agents.",
+        "authors": [
+          "Synthetic Group 2"
+        ],
+        "categories": [
+          "Multi-Agent",
+          "RL"
+        ],
+        "date": "2025-03",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H2",
+        "source": "arXiv",
+        "title": "Generator/Governor Splits in Multi-Agent Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "generator_governor_split",
+        "soft_reweighting"
+      ],
+      "metrics": [
+        "exploration_diversity",
+        "authority_drift"
+      ]
+    },
+    {
+      "assumptions": [
+        "hallucination_is_risk"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "C3a",
+          "paper_id": "synthetic:H3",
+          "text": "Containment caps high-certainty incoherent paths on synthetic fixtures."
+        },
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "C3b",
+          "paper_id": "synthetic:H3",
+          "text": "Containment may generalise beyond the fixtures."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "C3c",
+          "paper_id": "synthetic:H3",
+          "text": "Only a synthetic generator is evaluated."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "C3d",
+          "paper_id": "synthetic:H3",
+          "text": "How does containment behave with a real generator?"
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [],
+      "metadata": {
+        "abstract": "Synthetic study of containment for high-certainty incoherent paths.",
+        "authors": [
+          "Synthetic Group 3"
+        ],
+        "categories": [
+          "LLM",
+          "Safety",
+          "Agents"
+        ],
+        "date": "2025-03",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H3",
+        "source": "arXiv",
+        "title": "Residual Hallucination in Tool-Using LLM Agents (synthetic illustrative)"
+      },
+      "methods": [
+        "containment"
+      ],
+      "metrics": [
+        "residual_hallucination"
+      ]
+    },
+    {
+      "assumptions": [
+        "interpretability_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "C4a",
+          "paper_id": "synthetic:H4",
+          "text": "Structural classification explains soft re-weighting decisions."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "C4b",
+          "paper_id": "synthetic:H4",
+          "text": "The account is post-hoc, not causal."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "C4c",
+          "paper_id": "synthetic:H4",
+          "text": "Can governance be interpreted causally?"
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [],
+      "metadata": {
+        "abstract": "Synthetic study of structural classification of exploration trajectories.",
+        "authors": [
+          "Synthetic Group 4"
+        ],
+        "categories": [
+          "Interpretability",
+          "RL"
+        ],
+        "date": "2025-04",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H4",
+        "source": "SSRN",
+        "title": "Interpretability of Exploration Policies (synthetic illustrative)"
+      },
+      "methods": [
+        "structural_classification"
+      ],
+      "metrics": [
+        "redundancy_reduction"
+      ]
+    },
+    {
+      "assumptions": [
+        "alignment_matters",
+        "exploration_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "C5a",
+          "paper_id": "synthetic:H5",
+          "text": "Read-only constraints avoid hidden optimisation authority."
+        },
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "C5b",
+          "paper_id": "synthetic:H5",
+          "text": "Non-authoritative layers may reduce misalignment pressure."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "C5c",
+          "paper_id": "synthetic:H5",
+          "text": "No real-world deployment is evaluated."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "C5d",
+          "paper_id": "synthetic:H5",
+          "text": "How do constraints behave under distribution shift?"
+        }
+      ],
+      "conflicts": [
+        "synthetic:H2"
+      ],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "synthetic:H1"
+      ],
+      "metadata": {
+        "abstract": "Synthetic position on read-only constraints and optimisation authority.",
+        "authors": [
+          "Synthetic Group 5"
+        ],
+        "categories": [
+          "Alignment",
+          "Safety"
+        ],
+        "date": "2025-04",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H5",
+        "source": "SSRN",
+        "title": "Alignment Constraints as Read-Only Governance (synthetic illustrative)"
+      },
+      "methods": [
+        "read_only_governance"
+      ],
+      "metrics": [
+        "capture_resistance"
+      ]
+    },
+    {
+      "assumptions": [
+        "reproducibility_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "REPRODUCIBILITY",
+          "claim_id": "C6a",
+          "paper_id": "synthetic:H6",
+          "text": "Exploration benchmarks are replay-exact under fixed fixtures."
+        },
+        {
+          "claim_class": "COMPARATIVE",
+          "claim_id": "C6b",
+          "paper_id": "synthetic:H6",
+          "text": "Fragile and reproducible claims differ by fixture sensitivity."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "C6c",
+          "paper_id": "synthetic:H6",
+          "text": "Only a small benchmark suite is covered."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "C6d",
+          "paper_id": "synthetic:H6",
+          "text": "Does reproducibility hold across labs?"
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [],
+      "metadata": {
+        "abstract": "Synthetic study of replay-exact exploration benchmarks.",
+        "authors": [
+          "Synthetic Group 6"
+        ],
+        "categories": [
+          "ML",
+          "RL"
+        ],
+        "date": "2025-05",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H6",
+        "source": "arXiv",
+        "title": "Reproducibility of Exploration Benchmarks (synthetic illustrative)"
+      },
+      "methods": [
+        "deterministic_replay"
+      ],
+      "metrics": [
+        "replay_stability"
+      ]
+    },
+    {
+      "assumptions": [
+        "reasoning_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "C7a",
+          "paper_id": "synthetic:H7",
+          "text": "Reasoning chains might guide exploration breadth."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "C7b",
+          "paper_id": "synthetic:H7",
+          "text": "Can reasoning traces be linked to exploration breadth?"
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "C7c",
+          "paper_id": "synthetic:H7",
+          "text": "No empirical test is provided."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [],
+      "metadata": {
+        "abstract": "Synthetic speculation on reasoning traces and exploration breadth.",
+        "authors": [
+          "Synthetic Group 7"
+        ],
+        "categories": [
+          "Reasoning",
+          "LLM"
+        ],
+        "date": "2025-05",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H7",
+        "source": "arXiv",
+        "title": "Reasoning Chains and Open Exploration Questions (synthetic illustrative)"
+      },
+      "methods": [
+        "reasoning_trace"
+      ],
+      "metrics": [
+        "novelty_gain"
+      ]
+    }
+  ],
+  "provenance_integrity": 1.0,
+  "recommendation": "PAPERS_AS_CLAIM_STRUCTURES",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "PAPERS_AS_CLAIM_STRUCTURES",
+    "CLAIM_STRUCTURE_INCOMPLETE",
+    "TOPOLOGY_DRIFT_HALT"
+  ],
+  "schema_version": "v27_0_claim_harvester_topology",
+  "signature": "fd308986b5d43e44894647d94b19ef0f1a32b9256cef8d137c8a9da0e55d2925"
+}
