@@ -1,0 +1,85 @@
+{
+  "class_rank": 5,
+  "classification": "externally_benchmark_robust_epistemic_system",
+  "disclaimer": "Final verdict on the real external benchmark runs. Aggregates one score per dimension from the v35.0-v35.3 layers and classifies on a closed A-E taxonomy. DESi was tested against connector-loaded drift and search datasets and a reproducibility run, through the v33 adapters and v25 output ports - no benchmark-specific core optimisation, no hidden adaptation, no score hacking, no citation fabrication, no benchmark steering. The epistemic core stayed unchanged, governance stayed stable and replay stayed stable. IMPORTANT: the datasets are locally-vendored reference sets in the published families' formats (network-free environment); the scores are NOT official leaderboard results. Human approval is mandatory.",
+  "families": [
+    "BeliefShift",
+    "MemEvoBench",
+    "AgentDrift",
+    "ToolChain",
+    "Reproducibility",
+    "ScientificRendering"
+  ],
+  "gate_conditions": [
+    {
+      "comparator": ">=",
+      "name": "real_drift_score",
+      "passed": true,
+      "threshold": 0.85,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "real_search_score",
+      "passed": true,
+      "threshold": 0.85,
+      "value": 0.883333
+    },
+    {
+      "comparator": ">=",
+      "name": "reproducibility_score",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "governance_stability",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "core_identity",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi besteht reale externe Benchmark-Suites als replay-governed epistemic governance system.",
+  "human_approval_required": true,
+  "metrics": {
+    "core_identity": 1.0,
+    "governance_stability": 1.0,
+    "real_drift_score": 1.0,
+    "real_search_score": 0.883333,
+    "replay_stability": 1.0,
+    "reproducibility_score": 1.0
+  },
+  "real_benchmark_classes": [
+    "externally_benchmark_robust_epistemic_system",
+    "externally_benchmark_compatible",
+    "partially_robust_but_unstable",
+    "benchmark_fragile",
+    "benchmark_unsafe"
+  ],
+  "recommendation": "REAL_EXTERNAL_BENCHMARKS_PASSED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "REAL_EXTERNAL_BENCHMARKS_PASSED",
+    "REAL_EXTERNAL_BENCHMARKS_UNVALIDATED",
+    "REAL_EXTERNAL_BENCHMARKS_HALT"
+  ],
+  "schema_version": "v35_4_real_external_benchmark_verdict",
+  "signature": "0e569d6c8883e43c520ef2c93e33e82443eec043fec975d43eabccd71176ee27"
+}
