@@ -1,0 +1,79 @@
+{
+  "branch": "proposal/peripheral_mutation_v1",
+  "class_rank": 5,
+  "classification": "stable_peripheral_evolution",
+  "disclaimer": "Final verdict on the controlled peripheral mutation branch. Aggregates one signal per dimension from the v31.0-v31.3 layers and classifies on a closed A-E taxonomy. Every mutation is a real, branch-isolated code change OUTSIDE the protected core; the protected core stays byte-identical (core_identity == 1.0), governance is unchanged, mutations are traceable and replay-stable, and per-mutation regression survival is confirmed by the mandatory v1-v31 full regression. No core module is touched, nothing is merged, and human approval is mandatory.",
+  "gate_conditions": [
+    {
+      "comparator": ">=",
+      "name": "replay_integrity",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "core_identity",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "governance_identity",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "lineage_integrity",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "human_approval_enforcement",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "mutation_traceability",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi kann reale, branch-isolierte Infrastruktur-Mutationen ausserhalb des geschuetzten Kerns durchfuehren - replay-validiert, kern-invariant und unter menschlicher Governance.",
+  "human_approval_required": true,
+  "metrics": {
+    "core_identity": 1.0,
+    "governance_identity": 1.0,
+    "human_approval_enforcement": 1.0,
+    "lineage_integrity": 1.0,
+    "mutation_traceability": 1.0,
+    "replay_integrity": 1.0
+  },
+  "mutation_classes": [
+    "stable_peripheral_evolution",
+    "replay_safe_mutation",
+    "productive_but_drifting",
+    "hidden_core_erosion",
+    "epistemically_unstable"
+  ],
+  "recommendation": "PERIPHERAL_MUTATION_REPLAY_VALIDATED",
+  "regression_survival": 1.0,
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "PERIPHERAL_MUTATION_REPLAY_VALIDATED",
+    "PERIPHERAL_MUTATION_UNSTABLE",
+    "PERIPHERAL_MUTATION_CORE_DRIFT_HALT"
+  ],
+  "schema_version": "v31_4_peripheral_mutation_verdict",
+  "signature": "cb1339139fb97764f2c1d14ea14496a6f048848431350b5eacc4b6fda3852dbd"
+}
