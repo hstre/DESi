@@ -2,10 +2,70 @@
   "authority_marker_hits": [],
   "conflict_lines": [
     {
+      "paper_a": "synthetic:H10",
+      "paper_b": "synthetic:H8",
+      "stance_a": "Synthetic study H10 develops a theoretical account of AI exploration using skill_composition on a synthetic corpus.",
+      "stance_b": "Synthetic study H8 presents an empirical observation about Multi-Agent exploration using trajectory_clustering on a synthetic corpus."
+    },
+    {
+      "paper_a": "synthetic:H15",
+      "paper_b": "synthetic:H13",
+      "stance_a": "Synthetic study H15 reports an experimental result on Alignment exploration using containment on a synthetic corpus.",
+      "stance_b": "Synthetic study H13 develops a theoretical account of RL exploration using generator_governor_split on a synthetic corpus."
+    },
+    {
+      "paper_a": "synthetic:H20",
+      "paper_b": "synthetic:H18",
+      "stance_a": "Synthetic study H20 presents an empirical observation about AI exploration using trajectory_clustering on a synthetic corpus.",
+      "stance_b": "Synthetic study H18 reports an experimental result on Multi-Agent exploration using reasoning_trace on a synthetic corpus."
+    },
+    {
+      "paper_a": "synthetic:H25",
+      "paper_b": "synthetic:H23",
+      "stance_a": "Synthetic study H25 develops a theoretical account of Alignment exploration using generator_governor_split on a synthetic corpus.",
+      "stance_b": "Synthetic study H23 presents an empirical observation about RL exploration using exploration_scheduling on a synthetic corpus."
+    },
+    {
+      "paper_a": "synthetic:H30",
+      "paper_b": "synthetic:H28",
+      "stance_a": "Synthetic study H30 reports an experimental result on AI exploration using reasoning_trace on a synthetic corpus.",
+      "stance_b": "Synthetic study H28 develops a theoretical account of Multi-Agent exploration using structural_classification on a synthetic corpus."
+    },
+    {
+      "paper_a": "synthetic:H35",
+      "paper_b": "synthetic:H33",
+      "stance_a": "Synthetic study H35 presents an empirical observation about Alignment exploration using exploration_scheduling on a synthetic corpus.",
+      "stance_b": "Synthetic study H33 reports an experimental result on RL exploration using uncertainty_gating on a synthetic corpus."
+    },
+    {
+      "paper_a": "synthetic:H40",
+      "paper_b": "synthetic:H38",
+      "stance_a": "Synthetic study H40 develops a theoretical account of AI exploration using structural_classification on a synthetic corpus.",
+      "stance_b": "Synthetic study H38 presents an empirical observation about Multi-Agent exploration using soft_reweighting on a synthetic corpus."
+    },
+    {
+      "paper_a": "synthetic:H45",
+      "paper_b": "synthetic:H43",
+      "stance_a": "Synthetic study H45 reports an experimental result on Alignment exploration using uncertainty_gating on a synthetic corpus.",
+      "stance_b": "Synthetic study H43 develops a theoretical account of RL exploration using negotiation on a synthetic corpus."
+    },
+    {
       "paper_a": "synthetic:H5",
       "paper_b": "synthetic:H2",
       "stance_a": "Read-only constraints avoid hidden optimisation authority.",
       "stance_b": "Separating generation and governance preserves exploration diversity on synthetic runs."
+    },
+    {
+      "paper_a": "synthetic:H50",
+      "paper_b": "synthetic:H48",
+      "stance_a": "Synthetic study H50 presents an empirical observation about AI exploration using soft_reweighting on a synthetic corpus.",
+      "stance_b": "Synthetic study H48 reports an experimental result on Multi-Agent exploration using read_only_governance on a synthetic corpus."
+    },
+    {
+      "paper_a": "synthetic:H55",
+      "paper_b": "synthetic:H53",
+      "stance_a": "Synthetic study H55 develops a theoretical account of Alignment exploration using negotiation on a synthetic corpus.",
+      "stance_b": "Synthetic study H53 presents an empirical observation about RL exploration using deterministic_replay on a synthetic corpus."
     }
   ],
   "conflict_structure_visibility": 1.0,
@@ -13,37 +73,152 @@
   "disclaimer": "Surfaces convergences, conflict lines, method clusters and emergent trends across the corpus, strictly as structure. DESi detects trends but never evaluates them, names a winner or indicates a right direction; emergent trends are reported as frequencies, not scores. Epistemic neutrality is audited (no research-authority markers). Deterministic and replay-stable.",
   "emergent_trends": [
     {
-      "frequency": 4,
+      "frequency": 13,
+      "kind": "assumption",
+      "name": "alignment_matters"
+    },
+    {
+      "frequency": 14,
+      "kind": "assumption",
+      "name": "diversity_matters"
+    },
+    {
+      "frequency": 17,
       "kind": "assumption",
       "name": "exploration_matters"
     },
     {
-      "frequency": 2,
+      "frequency": 12,
+      "kind": "assumption",
+      "name": "governance_helps"
+    },
+    {
+      "frequency": 14,
+      "kind": "assumption",
+      "name": "hallucination_is_risk"
+    },
+    {
+      "frequency": 14,
+      "kind": "assumption",
+      "name": "interpretability_matters"
+    },
+    {
+      "frequency": 13,
+      "kind": "assumption",
+      "name": "reasoning_matters"
+    },
+    {
+      "frequency": 13,
+      "kind": "assumption",
+      "name": "reproducibility_matters"
+    },
+    {
+      "frequency": 9,
+      "kind": "method",
+      "name": "containment"
+    },
+    {
+      "frequency": 9,
+      "kind": "method",
+      "name": "deterministic_replay"
+    },
+    {
+      "frequency": 8,
+      "kind": "method",
+      "name": "exploration_scheduling"
+    },
+    {
+      "frequency": 11,
       "kind": "method",
       "name": "generator_governor_split"
     },
     {
-      "frequency": 2,
+      "frequency": 8,
+      "kind": "method",
+      "name": "negotiation"
+    },
+    {
+      "frequency": 10,
       "kind": "method",
       "name": "read_only_governance"
     },
     {
-      "frequency": 3,
+      "frequency": 9,
+      "kind": "method",
+      "name": "reasoning_trace"
+    },
+    {
+      "frequency": 8,
+      "kind": "method",
+      "name": "skill_composition"
+    },
+    {
+      "frequency": 10,
+      "kind": "method",
+      "name": "soft_reweighting"
+    },
+    {
+      "frequency": 9,
+      "kind": "method",
+      "name": "structural_classification"
+    },
+    {
+      "frequency": 9,
+      "kind": "method",
+      "name": "trajectory_clustering"
+    },
+    {
+      "frequency": 9,
+      "kind": "method",
+      "name": "uncertainty_gating"
+    },
+    {
+      "frequency": 10,
+      "kind": "topic",
+      "name": "AI"
+    },
+    {
+      "frequency": 13,
       "kind": "topic",
       "name": "Agents"
     },
     {
-      "frequency": 2,
+      "frequency": 11,
+      "kind": "topic",
+      "name": "Alignment"
+    },
+    {
+      "frequency": 11,
+      "kind": "topic",
+      "name": "Interpretability"
+    },
+    {
+      "frequency": 12,
       "kind": "topic",
       "name": "LLM"
     },
     {
-      "frequency": 5,
+      "frequency": 11,
+      "kind": "topic",
+      "name": "ML"
+    },
+    {
+      "frequency": 11,
+      "kind": "topic",
+      "name": "Multi-Agent"
+    },
+    {
+      "frequency": 15,
       "kind": "topic",
       "name": "RL"
     },
     {
-      "frequency": 2,
+      "frequency": 11,
+      "kind": "topic",
+      "name": "Reasoning"
+    },
+    {
+      "frequency": 12,
       "kind": "topic",
       "name": "Safety"
     }
@@ -52,38 +227,160 @@
   "fragile_claims": [
     "C3b",
     "C5b",
-    "C7a"
+    "C7a",
+    "G10b",
+    "G14b",
+    "G18b",
+    "G22b",
+    "G26b",
+    "G30b",
+    "G34b",
+    "G38b",
+    "G42b",
+    "G46b",
+    "G50b",
+    "G54b"
   ],
   "method_cluster_visibility": 1.0,
   "method_clusters": {
     "containment": [
-      "synthetic:H3"
+      "synthetic:H10",
+      "synthetic:H15",
+      "synthetic:H22",
+      "synthetic:H27",
+      "synthetic:H3",
+      "synthetic:H34",
+      "synthetic:H39",
+      "synthetic:H46",
+      "synthetic:H51"
     ],
     "deterministic_replay": [
+      "synthetic:H12",
+      "synthetic:H17",
+      "synthetic:H24",
+      "synthetic:H29",
+      "synthetic:H36",
+      "synthetic:H41",
+      "synthetic:H48",
+      "synthetic:H53",
       "synthetic:H6"
+    ],
+    "exploration_scheduling": [
+      "synthetic:H11",
+      "synthetic:H18",
+      "synthetic:H23",
+      "synthetic:H30",
+      "synthetic:H35",
+      "synthetic:H42",
+      "synthetic:H47",
+      "synthetic:H54"
     ],
     "generator_governor_split": [
       "synthetic:H1",
-      "synthetic:H2"
+      "synthetic:H13",
+      "synthetic:H2",
+      "synthetic:H20",
+      "synthetic:H25",
+      "synthetic:H32",
+      "synthetic:H37",
+      "synthetic:H44",
+      "synthetic:H49",
+      "synthetic:H56",
+      "synthetic:H8"
     ],
     "in_context_rl": [
       "arXiv:2501.14176"
     ],
+    "negotiation": [
+      "synthetic:H14",
+      "synthetic:H19",
+      "synthetic:H26",
+      "synthetic:H31",
+      "synthetic:H38",
+      "synthetic:H43",
+      "synthetic:H50",
+      "synthetic:H55"
+    ],
     "read_only_governance": [
       "synthetic:H1",
-      "synthetic:H5"
+      "synthetic:H12",
+      "synthetic:H19",
+      "synthetic:H24",
+      "synthetic:H31",
+      "synthetic:H36",
+      "synthetic:H43",
+      "synthetic:H48",
+      "synthetic:H5",
+      "synthetic:H55"
     ],
     "reasoning_trace": [
+      "synthetic:H13",
+      "synthetic:H18",
+      "synthetic:H25",
+      "synthetic:H30",
+      "synthetic:H37",
+      "synthetic:H42",
+      "synthetic:H49",
+      "synthetic:H54",
       "synthetic:H7"
+    ],
+    "skill_composition": [
+      "synthetic:H10",
+      "synthetic:H17",
+      "synthetic:H22",
+      "synthetic:H29",
+      "synthetic:H34",
+      "synthetic:H41",
+      "synthetic:H46",
+      "synthetic:H53"
     ],
     "skill_stitching": [
       "arXiv:2501.14176"
     ],
     "soft_reweighting": [
-      "synthetic:H2"
+      "synthetic:H14",
+      "synthetic:H2",
+      "synthetic:H21",
+      "synthetic:H26",
+      "synthetic:H33",
+      "synthetic:H38",
+      "synthetic:H45",
+      "synthetic:H50",
+      "synthetic:H57",
+      "synthetic:H9"
     ],
     "structural_classification": [
-      "synthetic:H4"
+      "synthetic:H11",
+      "synthetic:H16",
+      "synthetic:H23",
+      "synthetic:H28",
+      "synthetic:H35",
+      "synthetic:H4",
+      "synthetic:H40",
+      "synthetic:H47",
+      "synthetic:H52"
+    ],
+    "trajectory_clustering": [
+      "synthetic:H15",
+      "synthetic:H20",
+      "synthetic:H27",
+      "synthetic:H32",
+      "synthetic:H39",
+      "synthetic:H44",
+      "synthetic:H51",
+      "synthetic:H56",
+      "synthetic:H8"
+    ],
+    "uncertainty_gating": [
+      "synthetic:H16",
+      "synthetic:H21",
+      "synthetic:H28",
+      "synthetic:H33",
+      "synthetic:H40",
+      "synthetic:H45",
+      "synthetic:H52",
+      "synthetic:H57",
+      "synthetic:H9"
     ]
   },
   "recommendation": "STRUCTURE_VISIBLE_NEUTRAL",
@@ -95,29 +392,308 @@
   ],
   "reproducible_claims": [
     "C1e",
-    "C6a"
+    "C6a",
+    "G13b",
+    "G17b",
+    "G21b",
+    "G25b",
+    "G29b",
+    "G33b",
+    "G37b",
+    "G41b",
+    "G45b",
+    "G49b",
+    "G53b",
+    "G57b",
+    "G9b"
   ],
   "schema_version": "v27_2_research_convergence",
   "shared_assumptions": [
+    {
+      "assumption": "alignment_matters",
+      "papers": [
+        "synthetic:H10",
+        "synthetic:H12",
+        "synthetic:H18",
+        "synthetic:H20",
+        "synthetic:H26",
+        "synthetic:H28",
+        "synthetic:H34",
+        "synthetic:H36",
+        "synthetic:H42",
+        "synthetic:H44",
+        "synthetic:H5",
+        "synthetic:H50",
+        "synthetic:H52"
+      ]
+    },
+    {
+      "assumption": "diversity_matters",
+      "papers": [
+        "synthetic:H15",
+        "synthetic:H17",
+        "synthetic:H2",
+        "synthetic:H23",
+        "synthetic:H25",
+        "synthetic:H31",
+        "synthetic:H33",
+        "synthetic:H39",
+        "synthetic:H41",
+        "synthetic:H47",
+        "synthetic:H49",
+        "synthetic:H55",
+        "synthetic:H57",
+        "synthetic:H9"
+      ]
+    },
     {
       "assumption": "exploration_matters",
       "papers": [
         "arXiv:2501.14176",
         "synthetic:H1",
+        "synthetic:H14",
+        "synthetic:H16",
         "synthetic:H2",
-        "synthetic:H5"
+        "synthetic:H22",
+        "synthetic:H24",
+        "synthetic:H30",
+        "synthetic:H32",
+        "synthetic:H38",
+        "synthetic:H40",
+        "synthetic:H46",
+        "synthetic:H48",
+        "synthetic:H5",
+        "synthetic:H54",
+        "synthetic:H56",
+        "synthetic:H8"
+      ]
+    },
+    {
+      "assumption": "governance_helps",
+      "papers": [
+        "synthetic:H13",
+        "synthetic:H15",
+        "synthetic:H21",
+        "synthetic:H23",
+        "synthetic:H29",
+        "synthetic:H31",
+        "synthetic:H37",
+        "synthetic:H39",
+        "synthetic:H45",
+        "synthetic:H47",
+        "synthetic:H53",
+        "synthetic:H55"
+      ]
+    },
+    {
+      "assumption": "hallucination_is_risk",
+      "papers": [
+        "synthetic:H10",
+        "synthetic:H16",
+        "synthetic:H18",
+        "synthetic:H24",
+        "synthetic:H26",
+        "synthetic:H3",
+        "synthetic:H32",
+        "synthetic:H34",
+        "synthetic:H40",
+        "synthetic:H42",
+        "synthetic:H48",
+        "synthetic:H50",
+        "synthetic:H56",
+        "synthetic:H8"
+      ]
+    },
+    {
+      "assumption": "interpretability_matters",
+      "papers": [
+        "synthetic:H11",
+        "synthetic:H17",
+        "synthetic:H19",
+        "synthetic:H25",
+        "synthetic:H27",
+        "synthetic:H33",
+        "synthetic:H35",
+        "synthetic:H4",
+        "synthetic:H41",
+        "synthetic:H43",
+        "synthetic:H49",
+        "synthetic:H51",
+        "synthetic:H57",
+        "synthetic:H9"
+      ]
+    },
+    {
+      "assumption": "reasoning_matters",
+      "papers": [
+        "synthetic:H12",
+        "synthetic:H14",
+        "synthetic:H20",
+        "synthetic:H22",
+        "synthetic:H28",
+        "synthetic:H30",
+        "synthetic:H36",
+        "synthetic:H38",
+        "synthetic:H44",
+        "synthetic:H46",
+        "synthetic:H52",
+        "synthetic:H54",
+        "synthetic:H7"
+      ]
+    },
+    {
+      "assumption": "reproducibility_matters",
+      "papers": [
+        "synthetic:H11",
+        "synthetic:H13",
+        "synthetic:H19",
+        "synthetic:H21",
+        "synthetic:H27",
+        "synthetic:H29",
+        "synthetic:H35",
+        "synthetic:H37",
+        "synthetic:H43",
+        "synthetic:H45",
+        "synthetic:H51",
+        "synthetic:H53",
+        "synthetic:H6"
       ]
     }
   ],
   "shared_method_clusters": {
+    "containment": [
+      "synthetic:H10",
+      "synthetic:H15",
+      "synthetic:H22",
+      "synthetic:H27",
+      "synthetic:H3",
+      "synthetic:H34",
+      "synthetic:H39",
+      "synthetic:H46",
+      "synthetic:H51"
+    ],
+    "deterministic_replay": [
+      "synthetic:H12",
+      "synthetic:H17",
+      "synthetic:H24",
+      "synthetic:H29",
+      "synthetic:H36",
+      "synthetic:H41",
+      "synthetic:H48",
+      "synthetic:H53",
+      "synthetic:H6"
+    ],
+    "exploration_scheduling": [
+      "synthetic:H11",
+      "synthetic:H18",
+      "synthetic:H23",
+      "synthetic:H30",
+      "synthetic:H35",
+      "synthetic:H42",
+      "synthetic:H47",
+      "synthetic:H54"
+    ],
     "generator_governor_split": [
       "synthetic:H1",
-      "synthetic:H2"
+      "synthetic:H13",
+      "synthetic:H2",
+      "synthetic:H20",
+      "synthetic:H25",
+      "synthetic:H32",
+      "synthetic:H37",
+      "synthetic:H44",
+      "synthetic:H49",
+      "synthetic:H56",
+      "synthetic:H8"
+    ],
+    "negotiation": [
+      "synthetic:H14",
+      "synthetic:H19",
+      "synthetic:H26",
+      "synthetic:H31",
+      "synthetic:H38",
+      "synthetic:H43",
+      "synthetic:H50",
+      "synthetic:H55"
     ],
     "read_only_governance": [
       "synthetic:H1",
-      "synthetic:H5"
+      "synthetic:H12",
+      "synthetic:H19",
+      "synthetic:H24",
+      "synthetic:H31",
+      "synthetic:H36",
+      "synthetic:H43",
+      "synthetic:H48",
+      "synthetic:H5",
+      "synthetic:H55"
+    ],
+    "reasoning_trace": [
+      "synthetic:H13",
+      "synthetic:H18",
+      "synthetic:H25",
+      "synthetic:H30",
+      "synthetic:H37",
+      "synthetic:H42",
+      "synthetic:H49",
+      "synthetic:H54",
+      "synthetic:H7"
+    ],
+    "skill_composition": [
+      "synthetic:H10",
+      "synthetic:H17",
+      "synthetic:H22",
+      "synthetic:H29",
+      "synthetic:H34",
+      "synthetic:H41",
+      "synthetic:H46",
+      "synthetic:H53"
+    ],
+    "soft_reweighting": [
+      "synthetic:H14",
+      "synthetic:H2",
+      "synthetic:H21",
+      "synthetic:H26",
+      "synthetic:H33",
+      "synthetic:H38",
+      "synthetic:H45",
+      "synthetic:H50",
+      "synthetic:H57",
+      "synthetic:H9"
+    ],
+    "structural_classification": [
+      "synthetic:H11",
+      "synthetic:H16",
+      "synthetic:H23",
+      "synthetic:H28",
+      "synthetic:H35",
+      "synthetic:H4",
+      "synthetic:H40",
+      "synthetic:H47",
+      "synthetic:H52"
+    ],
+    "trajectory_clustering": [
+      "synthetic:H15",
+      "synthetic:H20",
+      "synthetic:H27",
+      "synthetic:H32",
+      "synthetic:H39",
+      "synthetic:H44",
+      "synthetic:H51",
+      "synthetic:H56",
+      "synthetic:H8"
+    ],
+    "uncertainty_gating": [
+      "synthetic:H16",
+      "synthetic:H21",
+      "synthetic:H28",
+      "synthetic:H33",
+      "synthetic:H40",
+      "synthetic:H45",
+      "synthetic:H52",
+      "synthetic:H57",
+      "synthetic:H9"
     ]
   },
-  "signature": "82e732e69f2a1b431f3c2937f4e59f9b0445d7f92e9a3c84642593ed795c3f96"
+  "signature": "4336449c1cfecc56fd0a485537a95d11b4375d4158d34ef7f11cddafdd201e71"
 }

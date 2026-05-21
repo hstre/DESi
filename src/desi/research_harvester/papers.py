@@ -14,6 +14,7 @@ from dataclasses import dataclass, field
 from .claims import Claim
 from .metadata import PaperMetadata
 from .taxonomy import ClaimClass as K
+from .taxonomy import SOURCES, TOPIC_AREAS
 
 
 @dataclass(frozen=True)
@@ -275,7 +276,138 @@ def _build_corpus() -> tuple[PaperRecord, ...]:
     return (p0, h1, h2, h3, h4, h5, h6, h7)
 
 
-_CORPUS: tuple[PaperRecord, ...] = _build_corpus()
+# --- deterministic synthetic expansion (50 papers) ----------
+# Index-based generation, no PRNG. Every generated paper is an
+# explicitly synthetic, illustrative fixture in the AI/ML topic
+# areas - never a fabricated real citation. Each carries a
+# primary claim, a supporting claim, a limitation and an open
+# question, plus shared methods/metrics/assumptions (for
+# clustering) and acyclic extends/conflicts (high index -> low).
+_METHOD_POOL: tuple[str, ...] = (
+    "read_only_governance", "generator_governor_split",
+    "soft_reweighting", "containment",
+    "structural_classification", "deterministic_replay",
+    "reasoning_trace", "negotiation", "trajectory_clustering",
+    "uncertainty_gating", "skill_composition",
+    "exploration_scheduling",
+)
+_METRIC_POOL: tuple[str, ...] = (
+    "redundancy_reduction", "novelty_gain",
+    "exploration_diversity", "residual_hallucination",
+    "authority_drift", "capture_resistance", "productivity_gain",
+    "replay_stability", "coverage_ratio", "containment_rate",
+    "drift_bound", "diversity_index",
+)
+_DATASET_POOL: tuple[str, ...] = (
+    "synthetic_trajectories", "synthetic_action_space",
+    "synthetic_state_graph", "synthetic_benchmark_suite",
+)
+_ASSUMPTION_POOL: tuple[str, ...] = (
+    "exploration_matters", "diversity_matters",
+    "hallucination_is_risk", "interpretability_matters",
+    "alignment_matters", "reproducibility_matters",
+    "reasoning_matters", "governance_helps",
+)
+_PRIMARY_ROTATION: tuple[str, ...] = (
+    K.EXPERIMENTAL.value, K.THEORETICAL.value, K.EMPIRICAL.value,
+)
+_SUPPORT_ROTATION: tuple[str, ...] = (
+    K.COMPARATIVE.value, K.REPRODUCIBILITY.value,
+    K.SPECULATIVE.value, K.EMPIRICAL.value,
+)
+_PRIMARY_VERB: dict[str, str] = {
+    K.EXPERIMENTAL.value: "reports an experimental result on",
+    K.THEORETICAL.value: "develops a theoretical account of",
+    K.EMPIRICAL.value: "presents an empirical observation about",
+}
+_SUPPORT_FLAVOUR: dict[str, str] = {
+    K.COMPARATIVE.value: "comparative",
+    K.REPRODUCIBILITY.value: "reproducibility",
+    K.SPECULATIVE.value: "speculative",
+    K.EMPIRICAL.value: "secondary empirical",
+}
+_GENERATED_START = 8
+_GENERATED_COUNT = 50
+
+
+def _generated_corpus() -> tuple[PaperRecord, ...]:
+    out: list[PaperRecord] = []
+    for k in range(
+        _GENERATED_START, _GENERATED_START + _GENERATED_COUNT,
+    ):
+        topic_a = TOPIC_AREAS[k % len(TOPIC_AREAS)]
+        topic_b = TOPIC_AREAS[(k + 3) % len(TOPIC_AREAS)]
+        method_a = _METHOD_POOL[k % len(_METHOD_POOL)]
+        method_b = _METHOD_POOL[(k + 5) % len(_METHOD_POOL)]
+        metric_a = _METRIC_POOL[k % len(_METRIC_POOL)]
+        metric_b = _METRIC_POOL[(k + 4) % len(_METRIC_POOL)]
+        dataset = _DATASET_POOL[k % len(_DATASET_POOL)]
+        assum_a = _ASSUMPTION_POOL[k % len(_ASSUMPTION_POOL)]
+        assum_b = _ASSUMPTION_POOL[(k + 2) % len(_ASSUMPTION_POOL)]
+        pclass = _PRIMARY_ROTATION[k % len(_PRIMARY_ROTATION)]
+        sclass = _SUPPORT_ROTATION[k % len(_SUPPORT_ROTATION)]
+        source = SOURCES[k % len(SOURCES)]
+        month = (k % 12) + 1
+        pid = f"synthetic:H{k}"
+        methods = (
+            (method_a,) if method_a == method_b
+            else (method_a, method_b)
+        )
+        metrics = (
+            (metric_a,) if metric_a == metric_b
+            else (metric_a, metric_b)
+        )
+        assumptions = (
+            (assum_a,) if assum_a == assum_b
+            else (assum_a, assum_b)
+        )
+        extends = (
+            ("arXiv:2501.14176",) if k == _GENERATED_START
+            else (f"synthetic:H{k - 1}",)
+        )
+        conflicts = (
+            (f"synthetic:H{k - 2}",) if k % 5 == 0 else ()
+        )
+        claims = (
+            Claim(
+                f"G{k}a", pid, pclass,
+                f"Synthetic study H{k} {_PRIMARY_VERB[pclass]} "
+                f"{topic_a} exploration using {method_a} on a "
+                "synthetic corpus."),
+            Claim(
+                f"G{k}b", pid, sclass,
+                f"A {_SUPPORT_FLAVOUR[sclass]} observation links "
+                f"{method_b} to {metric_a} on the synthetic "
+                "corpus."),
+            Claim(
+                f"G{k}c", pid, K.LIMITATION.value,
+                "Results are limited to a synthetic fixture "
+                "corpus and are not evaluated on real systems."),
+            Claim(
+                f"G{k}d", pid, K.OPEN_QUESTION.value,
+                f"Whether the {topic_a} effect holds beyond the "
+                "synthetic corpus remains an open question."),
+        )
+        out.append(PaperRecord(
+            PaperMetadata(
+                pid,
+                f"Synthetic Study H{k}: {topic_a} / {topic_b} "
+                "Exploration (synthetic illustrative)",
+                f"Synthetic illustrative study H{k} on {topic_a} "
+                f"exploration using {method_a} over a synthetic "
+                "corpus.",
+                (f"Synthetic Group {k}",),
+                f"2025-{month:02d}",
+                (topic_a, topic_b), source, True),
+            claims, methods, metrics, (dataset,), assumptions,
+            extends=extends, conflicts=conflicts,
+        ))
+    return tuple(out)
+
+
+_CORPUS: tuple[PaperRecord, ...] = (
+    _build_corpus() + _generated_corpus()
+)
 
 
 def papers() -> tuple[PaperRecord, ...]:
