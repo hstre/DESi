@@ -1,0 +1,14 @@
+{
+  "name": "reclor_ref",
+  "family": "ReClor",
+  "version": "1.0.0",
+  "provenance": "offline_reference_dataset",
+  "license": "CC0-1.0",
+  "source_note": "Locally vendored reference dataset in the ReClor reading-comprehension logic format. Network-free: NOT a live download of the official ReClor suite and NOT official leaderboard scores. Tasks test DESi's deterministic logical-form analysis and distractor resistance, not LLM accuracy.",
+  "tasks": [
+    {"task_id": "rc_001", "form": "modus_ponens", "condition_type": "sufficient", "unstated_assumptions": ["context_applies"], "correct_option": "B", "distractor_option": "A"},
+    {"task_id": "rc_002", "form": "false_dichotomy", "condition_type": "none", "unstated_assumptions": ["only_two_options"], "correct_option": "D", "distractor_option": "C"},
+    {"task_id": "rc_003", "form": "modus_tollens", "condition_type": "sufficient", "unstated_assumptions": ["rule_holds"], "correct_option": "A", "distractor_option": "B"},
+    {"task_id": "rc_004", "form": "affirming_consequent", "condition_type": "necessary", "unstated_assumptions": ["converse_assumed"], "correct_option": "C", "distractor_option": "D"}
+  ]
+}
