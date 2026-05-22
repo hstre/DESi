@@ -1,0 +1,52 @@
+{
+  "captures": [
+    {
+      "content_hash": "9f7bdabb344db3f84c06366f045184d9a2ae82b8bf97c4b2ee6e413fe4ee5e68",
+      "finish_reason": "stop",
+      "messages": [
+        {
+          "content": "Classify the sentiment of 'revenue fell sharply' as positive, negative, or neutral. Reply with one word.",
+          "role": "user"
+        }
+      ],
+      "model_version": "ibm-granite/granite-4.1-8b-20260429",
+      "provenance": "live_openrouter_capture",
+      "raw_content": "Negative",
+      "record_hash": "bbcb8f42792473641779ab6c7ad6352bc2738cdd589bdd8a79b9457a9622b3fc",
+      "requested_model": "ibm-granite/granite-4.1-8b",
+      "response_id": "gen-1779419997-UV8SfDj29WQYvii3Ebw7",
+      "role": "granite_structured",
+      "task_id": "sample_classify",
+      "usage": {
+        "completion_tokens": 2,
+        "cost": 1.8e-06,
+        "prompt_tokens": 32,
+        "total_tokens": 34
+      }
+    },
+    {
+      "content_hash": "1a6562590ef19d1045d06c4055742d38288e9e6dcd71ccde5cee80f1d5a774eb",
+      "finish_reason": "stop",
+      "messages": [
+        {
+          "content": "Extract the single numeric claim from: 'Net income was 50 million.' Reply with just the number.",
+          "role": "user"
+        }
+      ],
+      "model_version": "ibm-granite/granite-4.1-8b-20260429",
+      "provenance": "live_openrouter_capture",
+      "raw_content": "50",
+      "record_hash": "a9be0df67cd7583328ec8f769b2499efb6720234ac6fd4e3b06ddd8695447c36",
+      "requested_model": "ibm-granite/granite-4.1-8b",
+      "response_id": "gen-1779419997-DdjLnr5jFxEpQStSF1So",
+      "role": "granite_structured",
+      "task_id": "sample_extract",
+      "usage": {
+        "completion_tokens": 2,
+        "cost": 1.65e-06,
+        "prompt_tokens": 29,
+        "total_tokens": 31
+      }
+    }
+  ]
+}

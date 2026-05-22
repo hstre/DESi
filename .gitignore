@@ -209,3 +209,10 @@ artifacts/frozen_benchmark/_full_regression_started.txt
 # artifacts/benchmark_api/_regression_status.json.
 artifacts/benchmark_api/_full_regression.log
 artifacts/benchmark_api/_full_regression_started.txt
+
+# v38 live LLM validation - never commit API keys or local key files
+*.key
+.env
+.env.local
+.env.*
+src/desi/live_llm_validation/**/secret*
