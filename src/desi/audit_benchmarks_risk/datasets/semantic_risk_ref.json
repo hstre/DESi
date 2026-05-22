@@ -1,0 +1,15 @@
+{
+  "name": "semantic_risk_ref",
+  "family": "SemanticAuditRisk",
+  "version": "1.0.0",
+  "provenance": "offline_reference_dataset",
+  "license": "CC0-1.0",
+  "source_note": "Locally vendored synthetic semantic-audit-risk scenarios. Network-free; NOT official exam content and NO official results claimed. Each scenario carries explicit structured signal flags (no fuzzy NLP) and the risks DESi should surface; risks are flags requiring evidence, never fraud assertions.",
+  "scenarios": [
+    {"scenario_id": "as_001", "signals": {"revenue_deferred_early": true, "cashflow_adjusted": true, "narrative_cash_positive": true}, "expected_risks": ["revenue_recognition", "cashflow_vs_narrative"]},
+    {"scenario_id": "as_002", "signals": {"debt_covenant": true, "narrative_profit_positive": true, "nonrecurring_gain": true, "narrative_all_segments": true}, "expected_risks": ["debt_footnote_inconsistency", "narrative_tension"]},
+    {"scenario_id": "as_003", "signals": {"policy_change": true, "narrative_no_change": true}, "expected_risks": ["implicit_inconsistency"]},
+    {"scenario_id": "as_004", "signals": {"ageing_up": true, "narrative_collections_positive": true}, "expected_risks": ["narrative_tension"]},
+    {"scenario_id": "as_005", "signals": {"going_concern_doubt": true, "debt_covenant": true}, "expected_risks": ["going_concern"]}
+  ]
+}
