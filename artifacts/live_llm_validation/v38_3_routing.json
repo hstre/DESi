@@ -1,0 +1,147 @@
+{
+  "all_deepseek_cost_usd": 0.011697819,
+  "all_granite_cost_usd": 0.00018375,
+  "core_identity": 1.0,
+  "deepseek_escalation_rate": 0.454545,
+  "disclaimer": "LLM routing & governance run over REAL captured OpenRouter costs and qualities. DESi routes low-complexity structured tasks to cheap Granite and escalates only hard semantic tasks to DeepSeek; the cost reduction is measured against a real all-DeepSeek baseline. Routing changes only which model produces the observed evidence, never governance, and quality preservation confirms the cheap route did not sacrifice quality. No benchmark-specific routing hacks. Human approval is mandatory.",
+  "governance_stability": 1.0,
+  "human_approval_required": true,
+  "quality_preservation": 1.0,
+  "recommendation": "ROUTING_RUN_PASSED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "ROUTING_RUN_PASSED",
+    "ROUTING_RUN_PARTIAL",
+    "ROUTING_RUN_HALT"
+  ],
+  "routed_cost_usd": 0.010846053,
+  "routed_down_efficiency": 0.985765,
+  "routed_tasks": [
+    {
+      "complexity": "low",
+      "deepseek_cost": 0.000187326,
+      "deepseek_quality": 1.0,
+      "granite_cost": 2.1e-06,
+      "granite_quality": 1.0,
+      "routed_cost": 2.1e-06,
+      "routed_model": "granite",
+      "routed_quality": 1.0,
+      "task_id": "gr_classify"
+    },
+    {
+      "complexity": "low",
+      "deepseek_cost": 0.00017052,
+      "deepseek_quality": 1.0,
+      "granite_cost": 1.65e-06,
+      "granite_quality": 1.0,
+      "routed_cost": 1.65e-06,
+      "routed_model": "granite",
+      "routed_quality": 1.0,
+      "task_id": "gr_extract"
+    },
+    {
+      "complexity": "low",
+      "deepseek_cost": 7.482e-05,
+      "deepseek_quality": 1.0,
+      "granite_cost": 2.7e-06,
+      "granite_quality": 1.0,
+      "routed_cost": 2.7e-06,
+      "routed_model": "granite",
+      "routed_quality": 1.0,
+      "task_id": "gr_json"
+    },
+    {
+      "complexity": "low",
+      "deepseek_cost": 0.00018066,
+      "deepseek_quality": 1.0,
+      "granite_cost": 1.35e-06,
+      "granite_quality": 1.0,
+      "routed_cost": 1.35e-06,
+      "routed_model": "granite",
+      "routed_quality": 1.0,
+      "task_id": "gr_oneword"
+    },
+    {
+      "complexity": "low",
+      "deepseek_cost": 0.00018984,
+      "deepseek_quality": 1.0,
+      "granite_cost": 1.95e-06,
+      "granite_quality": 1.0,
+      "routed_cost": 1.95e-06,
+      "routed_model": "granite",
+      "routed_quality": 1.0,
+      "task_id": "gr_evidence"
+    },
+    {
+      "complexity": "low",
+      "deepseek_cost": 6.09e-05,
+      "deepseek_quality": 1.0,
+      "granite_cost": 2.55e-06,
+      "granite_quality": 1.0,
+      "routed_cost": 2.55e-06,
+      "routed_model": "granite",
+      "routed_quality": 1.0,
+      "task_id": "gr_audit"
+    },
+    {
+      "complexity": "high",
+      "deepseek_cost": 0.00286623,
+      "deepseek_quality": 1.0,
+      "granite_cost": 7.05e-06,
+      "granite_quality": 1.0,
+      "routed_cost": 0.00286623,
+      "routed_model": "deepseek",
+      "routed_quality": 1.0,
+      "task_id": "ds_audit_tension"
+    },
+    {
+      "complexity": "high",
+      "deepseek_cost": 0.00225624,
+      "deepseek_quality": 1.0,
+      "granite_cost": 4.135e-05,
+      "granite_quality": 1.0,
+      "routed_cost": 0.00225624,
+      "routed_model": "deepseek",
+      "routed_quality": 1.0,
+      "task_id": "ds_multihop"
+    },
+    {
+      "complexity": "high",
+      "deepseek_cost": 0.000512256,
+      "deepseek_quality": 1.0,
+      "granite_cost": 3.47e-05,
+      "granite_quality": 1.0,
+      "routed_cost": 0.000512256,
+      "routed_model": "deepseek",
+      "routed_quality": 1.0,
+      "task_id": "ds_narrative_conflict"
+    },
+    {
+      "complexity": "high",
+      "deepseek_cost": 0.003681567,
+      "deepseek_quality": 1.0,
+      "granite_cost": 5.605e-05,
+      "granite_quality": 1.0,
+      "routed_cost": 0.003681567,
+      "routed_model": "deepseek",
+      "routed_quality": 1.0,
+      "task_id": "ds_evidence_gap"
+    },
+    {
+      "complexity": "high",
+      "deepseek_cost": 0.00151746,
+      "deepseek_quality": 1.0,
+      "granite_cost": 3.23e-05,
+      "granite_quality": 1.0,
+      "routed_cost": 0.00151746,
+      "routed_model": "deepseek",
+      "routed_quality": 1.0,
+      "task_id": "ds_complex_conflict"
+    }
+  ],
+  "routing_cost_reduction": 0.534855,
+  "schema_version": "v38_3_routing_run",
+  "signature": "e37003378fc9436b7e40200b5dfd45147b7eb731cea63dcc994e72621256bdcb",
+  "total_workload_cost_reduction": 0.072814,
+  "unnecessary_escalations": 0
+}
