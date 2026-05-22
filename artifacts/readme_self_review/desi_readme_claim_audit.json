@@ -1,0 +1,365 @@
+{
+  "audit_framing": "DESi performs an internal consistency and overreach audit of its own documentation. DESi does not validate itself.",
+  "claim_statuses_used": {
+    "EXTERNAL_VALIDATION_REQUIRED": 1,
+    "FORBIDDEN_OR_HYPE_RISK": 2,
+    "NEEDS_ARTIFACT_CHECK": 4,
+    "OVERSTATED": 2,
+    "SUPPORTED": 8,
+    "SUPPORTED_WITH_SCOPE_LIMIT": 5,
+    "UNSUPPORTED": 1
+  },
+  "claims": [
+    {
+      "artifact_support": "artifacts/frozen_benchmark/v32_4_verdict.json (measured_improvement=0.889)",
+      "claim_id": "RM-01",
+      "claim_text": "Recompute reduction from 36 to 4 operations (88.9%) under the frozen longitudinal benchmark with byte-identical outputs (v32).",
+      "claim_type": "metric",
+      "evidence_source": "abstract / \u00a75.4",
+      "numeric": true,
+      "recommended_action": "Keep; already scope-limited to the frozen workload.",
+      "risk_level": "low",
+      "verdict": "SUPPORTED"
+    },
+    {
+      "artifact_support": "artifacts/external_benchmarks/v35_2_real_search.json (node_reduction=0.4167)",
+      "claim_id": "RM-02",
+      "claim_text": "Real external benchmark node_reduction = 41.7% with critical_branch_preservation = 1.0 (v35.2).",
+      "claim_type": "metric",
+      "evidence_source": "\u00a76.3 / \u00a79.3",
+      "numeric": true,
+      "recommended_action": "Keep.",
+      "risk_level": "low",
+      "verdict": "SUPPORTED"
+    },
+    {
+      "artifact_support": "artifacts/live_llm_validation/v38_4_verdict.json; the metric is visibility-based, not absence of hallucination",
+      "claim_id": "RM-03",
+      "claim_text": "hallucination_containment = 1.0 under live OpenRouter calls (v38).",
+      "claim_type": "metric",
+      "evidence_source": "abstract / \u00a77.2",
+      "numeric": true,
+      "recommended_action": "Carry the \u00a72.3/\u00a77.2 caveat ('visibility, not absence') INTO the abstract; the bare phrase 'containment at 1.0' reads as 'no hallucinations', which is false.",
+      "risk_level": "high",
+      "verdict": "SUPPORTED_WITH_SCOPE_LIMIT"
+    },
+    {
+      "artifact_support": "artifacts/live_llm_validation/v38_3_routing.json: 53.5% is the mean per-task saving; total-workload saving is 7.3%",
+      "claim_id": "RM-04",
+      "claim_text": "Routing cost reduction of 53.5% with quality preservation at 1.0 (v38.3).",
+      "claim_type": "metric",
+      "evidence_source": "abstract / \u00a77.2 / \u00a712",
+      "numeric": true,
+      "recommended_action": "State alongside 53.5% the total-workload figure (7.3%) and routed-down efficiency (98.6%); the headline alone is favourable-framing.",
+      "risk_level": "medium",
+      "verdict": "SUPPORTED_WITH_SCOPE_LIMIT"
+    },
+    {
+      "artifact_support": "artifacts/frozen_benchmark/v32_3_utility.json",
+      "claim_id": "RM-05",
+      "claim_text": "The system identified one overengineered component (neo4j_evolution_graph, efficiency = -0.5).",
+      "claim_type": "limitation",
+      "evidence_source": "\u00a75.4 / \u00a710",
+      "numeric": true,
+      "recommended_action": "Keep; this honest negative result is a strength.",
+      "risk_level": "low",
+      "verdict": "SUPPORTED"
+    },
+    {
+      "artifact_support": "v31/v32/v38 verdict artifacts (core_identity=1.0, replay_stability=1.0)",
+      "claim_id": "RM-06",
+      "claim_text": "core_identity = 1.0 and replay_stability = 1.0 maintained across the evolution and live phases.",
+      "claim_type": "metric",
+      "evidence_source": "\u00a75.3 / \u00a77 / Appendix B",
+      "numeric": false,
+      "recommended_action": "Scope explicitly to v28-v38 (this audit verified those); state v1-v27 separately.",
+      "risk_level": "low",
+      "verdict": "SUPPORTED_WITH_SCOPE_LIMIT"
+    },
+    {
+      "artifact_support": "consistent across the paper; v38 separated cleanly",
+      "claim_id": "ST-01",
+      "claim_text": "All results are derived from synthetic or locally vendored fixtures unless explicitly noted; v38 is the only phase with real API calls.",
+      "claim_type": "safety_governance",
+      "evidence_source": "abstract / \u00a76.2 / \u00a77 / \u00a79.1",
+      "numeric": false,
+      "recommended_action": "Keep; clean synthetic-vs-real separation.",
+      "risk_level": "low",
+      "verdict": "SUPPORTED"
+    },
+    {
+      "artifact_support": "guard present and explicit",
+      "claim_id": "ST-02",
+      "claim_text": "Explicit non-generalization guards: results do not generalize to production LLM workloads; the \u00a79.3 extrapolation is 'an engineering implication, not a measured result'.",
+      "claim_type": "production_generalization",
+      "evidence_source": "\u00a79.2 / \u00a79.3 / \u00a710",
+      "numeric": false,
+      "recommended_action": "Keep; strong guard. Watch \u00a79.3 superlinear-savings extrapolation - keep it clearly labelled.",
+      "risk_level": "low",
+      "verdict": "SUPPORTED"
+    },
+    {
+      "artifact_support": "explanation correct and thorough",
+      "claim_id": "ST-03",
+      "claim_text": "Replay stability is explained correctly (bit-exact, hashlib.sha256, no PRNG; deterministic projection over a stochastic proposal operator).",
+      "claim_type": "reproducibility",
+      "evidence_source": "\u00a71 / \u00a72.3 / Appendix B / Appendix C",
+      "numeric": false,
+      "recommended_action": "Keep.",
+      "risk_level": "low",
+      "verdict": "SUPPORTED"
+    },
+    {
+      "artifact_support": "limitation stated explicitly",
+      "claim_id": "ST-04",
+      "claim_text": "Replay stability is a property of DESi, not of the LLMs it governs; LLM stochasticity is observed, not eliminated.",
+      "claim_type": "limitation",
+      "evidence_source": "\u00a710",
+      "numeric": false,
+      "recommended_action": "Keep.",
+      "risk_level": "low",
+      "verdict": "SUPPORTED"
+    },
+    {
+      "artifact_support": "framing correct; but 'frequently introduces agentic drift / hidden state' is an unsupported empirical sub-claim about LangGraph",
+      "claim_id": "ST-05",
+      "claim_text": "LangGraph is treated as an optional execution substrate, not a foundation ('DESi is execution-framework agnostic').",
+      "claim_type": "production_generalization",
+      "evidence_source": "\u00a711.2",
+      "numeric": false,
+      "recommended_action": "Keep the 'optional substrate' framing; soften or cite the unsupported claim that LangGraph 'frequently' introduces drift.",
+      "risk_level": "medium",
+      "verdict": "SUPPORTED_WITH_SCOPE_LIMIT"
+    },
+    {
+      "artifact_support": "limitations broad and visible",
+      "claim_id": "ST-06",
+      "claim_text": "Limitations section enumerates synthetic fixtures, minimal live validation, no peer review, the overengineered neo4j component, two sub-ceiling gate scores, replay != LLM stability, and 362 ungrounded tokens.",
+      "claim_type": "limitation",
+      "evidence_source": "\u00a710",
+      "numeric": false,
+      "recommended_action": "Keep; add the open v1-v27 artifact-traceability caveat (see NC-* claims).",
+      "risk_level": "low",
+      "verdict": "SUPPORTED"
+    },
+    {
+      "artifact_support": "v1-v22 base-system artifacts NOT verified in this audit round",
+      "claim_id": "NC-01",
+      "claim_text": "Failure-taxonomy results (Table 2): precision 0.5->1.0, gate-ablation trajectory AUC 0.283, 228/250 trajectories rescued, 36/52 unrecoverable pools, replay hash 1f4d9dfe44cb16e1.",
+      "claim_type": "metric",
+      "evidence_source": "\u00a73 Table 2",
+      "numeric": true,
+      "recommended_action": "Cross-check each value against its v1-v22 artifact JSON before public release; cite the artifact path per row.",
+      "risk_level": "medium",
+      "verdict": "NEEDS_ARTIFACT_CHECK"
+    },
+    {
+      "artifact_support": "v19-v21 artifacts NOT verified in this audit round",
+      "claim_id": "NC-02",
+      "claim_text": "Canonical result values (\u00a73.1): redundancy_reduction 0.900, productivity_gain 2.750, etc.",
+      "claim_type": "metric",
+      "evidence_source": "\u00a73.1",
+      "numeric": true,
+      "recommended_action": "Verify against v19-v21 artifacts; add per-value source paths.",
+      "risk_level": "medium",
+      "verdict": "NEEDS_ARTIFACT_CHECK"
+    },
+    {
+      "artifact_support": "v11.1/v15.3 artifacts NOT verified in this audit round (v35.2 and v38.3 ARE verified)",
+      "claim_id": "NC-03",
+      "claim_text": "v11.1 chess search 53.3% and v15.3 financial audit 60.4% node/search reduction with critical preservation 1.0 (\u00a79.3 four-context table).",
+      "claim_type": "metric",
+      "evidence_source": "\u00a79.3",
+      "numeric": true,
+      "recommended_action": "Verify v11.1/v15.3 artifacts; otherwise scope the 41-60% range to the two verified contexts.",
+      "risk_level": "medium",
+      "verdict": "NEEDS_ARTIFACT_CHECK"
+    },
+    {
+      "artifact_support": "v6-v22 verdict artifacts NOT verified in this audit round",
+      "claim_id": "NC-04",
+      "claim_text": "All 17 domains (v6-v22) achieved Class A with six-condition Concept Gate passage.",
+      "claim_type": "metric",
+      "evidence_source": "\u00a73.2 / Table 1 / Appendix A",
+      "numeric": false,
+      "recommended_action": "Verify each verdict artifact; an all-Class-A table invites reviewer scepticism - cite sources.",
+      "risk_level": "medium",
+      "verdict": "NEEDS_ARTIFACT_CHECK"
+    },
+    {
+      "artifact_support": "internal inconsistency detected by the consistency scanner",
+      "claim_id": "IN-01",
+      "claim_text": "Headline search-compression range is stated inconsistently: '41-60%' (abstract/\u00a79.3), '~42-50%' (\u00a79.1), '~42%' (\u00a712).",
+      "claim_type": "metric",
+      "evidence_source": "abstract / \u00a79.1 / \u00a79.3 / \u00a712",
+      "numeric": true,
+      "recommended_action": "Pick ONE range (the verified contexts give 41.7-60.4%) and use it consistently everywhere.",
+      "risk_level": "medium",
+      "verdict": "OVERSTATED"
+    },
+    {
+      "artifact_support": "contradicted by committed _regression_status.json artifacts (v31=7573, v32=7683)",
+      "claim_id": "IN-02",
+      "claim_text": "The regression-milestones table (\u00a78) ends at v27 (7,204 passed) and omits the committed v31 (7,573) and v32 (7,683) full-regression runs.",
+      "claim_type": "metric",
+      "evidence_source": "\u00a78",
+      "numeric": true,
+      "recommended_action": "Update \u00a78 with the v31/v32 (and later) full regressions, or scope the table to 'through v27'.",
+      "risk_level": "medium",
+      "verdict": "UNSUPPORTED"
+    },
+    {
+      "artifact_support": "metaphor; not falsifiable; grandiose framing",
+      "claim_id": "HY-01",
+      "claim_text": "'DESi ... is a different category of system entirely - an epistemic operating system with its own ontology.'",
+      "claim_type": "overreach",
+      "evidence_source": "\u00a71",
+      "numeric": false,
+      "recommended_action": "Demote 'epistemic operating system' to a descriptive phrase or remove; it reads as marketing and is not a testable claim.",
+      "risk_level": "high",
+      "verdict": "FORBIDDEN_OR_HYPE_RISK"
+    },
+    {
+      "artifact_support": "'mapping unknown unknowns' is self-undermining by definition; the section partly hedges",
+      "claim_id": "HY-02",
+      "claim_text": "'Epistemic cartography and the map of unknown unknowns' (\u00a79.5).",
+      "claim_type": "overreach",
+      "evidence_source": "\u00a79.5",
+      "numeric": false,
+      "recommended_action": "Rename to what is actually done (marking interrupted/compressed/blinded exploration); drop 'map of unknown unknowns'.",
+      "risk_level": "high",
+      "verdict": "OVERSTATED"
+    },
+    {
+      "artifact_support": "no src/desi/reviewer_port.py module exists; the capability maps to scientific_reviewers / output ports / the SKEPTICAL_AUDITOR role",
+      "claim_id": "HY-03",
+      "claim_text": "'At the heart of DESi lies the Reviewer Port ... epistemic topology analysis ... native meta-governance.'",
+      "claim_type": "overreach",
+      "evidence_source": "\u00a711.3",
+      "numeric": false,
+      "recommended_action": "Name the actual modules that implement the Reviewer Port; soften 'epistemic topology analysis' to its concrete operations.",
+      "risk_level": "medium",
+      "verdict": "SUPPORTED_WITH_SCOPE_LIMIT"
+    },
+    {
+      "artifact_support": "comparative dismissal of an external tool with no comparative experiment",
+      "claim_id": "HY-04",
+      "claim_text": "'External runtime-oriented tools such as LangSmith are consequently largely unnecessary ... and potentially counterproductive.'",
+      "claim_type": "production_generalization",
+      "evidence_source": "\u00a711.3",
+      "numeric": false,
+      "recommended_action": "Remove or reframe as 'DESi's replay-bound capture reduces reliance on external runtime tracing'; do not assert another tool is counterproductive without evidence.",
+      "risk_level": "high",
+      "verdict": "EXTERNAL_VALIDATION_REQUIRED"
+    },
+    {
+      "artifact_support": "forbidden_term scanner returns 11 hits on the README",
+      "claim_id": "SC-01",
+      "claim_text": "The README itself contains all 11 forbidden terms (\u00a72.2 governance listing) and would therefore trip DESi's own forbidden-term Determinism Scanner.",
+      "claim_type": "safety_governance",
+      "evidence_source": "\u00a72.2",
+      "numeric": false,
+      "recommended_action": "This is documentation, not a rendered output, so it is acceptable for humans - but note explicitly that the README is exempt from the rendered-output scanner, or move the term listing to a code constant / appendix the scanner whitelists.",
+      "risk_level": "high",
+      "verdict": "FORBIDDEN_OR_HYPE_RISK"
+    }
+  ],
+  "disclaimer": "Internal consistency and overreach audit of DESi's own documentation, performed by the Reviewer Port against a fixed snapshot of the README (System Paper v1.1). This is NOT self-validation: the README is treated as an external claim artifact, and DESi confers no authority on it. Claims this audit could not trace to a committed artifact are marked NEEDS_ARTIFACT_CHECK rather than assumed supported. The outcome of this hard audit is a NO-GO pending revisions.",
+  "gate_conditions": [
+    {
+      "comparator": "==",
+      "name": "unsupported_numeric_claims",
+      "passed": false,
+      "threshold": 0.0,
+      "value": 2.0
+    },
+    {
+      "comparator": ">=",
+      "name": "artifact_backing_rate",
+      "passed": false,
+      "threshold": 0.95,
+      "value": 0.6
+    },
+    {
+      "comparator": "<=",
+      "name": "overreach_claims",
+      "passed": false,
+      "threshold": 3.0,
+      "value": 4.0
+    },
+    {
+      "comparator": "==",
+      "name": "forbidden_term_risk",
+      "passed": false,
+      "threshold": 0.0,
+      "value": 11.0
+    },
+    {
+      "comparator": "==",
+      "name": "synthetic_vs_real_separation",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "external_generalization_guard",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_explanation_correct",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [
+    "unsupported_numeric_claims",
+    "artifact_backing_rate",
+    "overreach_claims",
+    "forbidden_term_risk"
+  ],
+  "gate_passes_all": false,
+  "gate_passing_conditions": [
+    "synthetic_vs_real_separation",
+    "external_generalization_guard",
+    "replay_explanation_correct"
+  ],
+  "recommendation": "README_NOT_FINAL_PUBLIC_FACING_REVISIONS_REQUIRED",
+  "report_verdicts": [
+    "README_PUBLIC_FACING_READY_WITH_SCOPE_LIMITS",
+    "README_NOT_FINAL_PUBLIC_FACING_REVISIONS_REQUIRED"
+  ],
+  "reviewed_document": "DESi System Paper v1.1 (README on main)",
+  "reviewed_snapshot_sha256": "52c78c6b4c1583aa8c18e15d8f0021f6d0332e3898d19b85a9b850b0b8c21906",
+  "scanner_facts": {
+    "compression_range_phrasings": {
+      "41\u201360%": 2,
+      "42\u201350%": 1,
+      "42\u201360%": 1,
+      "~42%": 1
+    },
+    "forbidden_term_hits": [
+      "AGI",
+      "Superintelligence",
+      "Consciousness",
+      "Civilization layer",
+      "Kant",
+      "Popper",
+      "Truth engine",
+      "World model",
+      "Revolutionary",
+      "Breakthrough",
+      "Human-level"
+    ],
+    "reviewer_port_module_present": false,
+    "stale_regression_runs_omitted_by_readme": [
+      "v31=7573",
+      "v32=7683"
+    ]
+  },
+  "schema_version": "readme_self_review_claim_audit"
+}
