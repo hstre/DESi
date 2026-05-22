@@ -1,0 +1,13 @@
+{
+  "name": "musique_ref",
+  "family": "MuSiQue",
+  "version": "1.0.0",
+  "provenance": "offline_reference_dataset",
+  "license": "CC0-1.0",
+  "source_note": "Locally vendored reference dataset in the MuSiQue multi-hop format. Network-free: NOT a live download of the official MuSiQue suite and NOT official leaderboard scores. Tasks test DESi's deterministic hop-graph structuring and gap detection, not LLM accuracy.",
+  "tasks": [
+    {"task_id": "mq_001", "question": "where was the director of film X born?", "hops": [{"hop_id": "h1", "fact": "X directed by D", "redundant": false}, {"hop_id": "h2", "fact": "D born in C", "redundant": false}], "required_hops": ["h1", "h2"]},
+    {"task_id": "mq_002", "question": "what country is the capital of the author's birthplace in?", "hops": [{"hop_id": "h1", "fact": "author born in B", "redundant": false}, {"hop_id": "h2", "fact": "B capital of country K", "redundant": false}, {"hop_id": "h2b", "fact": "B capital of country K", "redundant": true}], "required_hops": ["h1", "h2"]},
+    {"task_id": "mq_003", "question": "who founded the company that makes product P?", "hops": [{"hop_id": "h1", "fact": "P made by company Co", "redundant": false}], "required_hops": ["h1", "h2"]}
+  ]
+}
