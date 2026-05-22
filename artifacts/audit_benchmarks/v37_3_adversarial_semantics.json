@@ -1,0 +1,64 @@
+{
+  "core_identity": 1.0,
+  "disclaimer": "Adversarial financial-semantics run over locally-vendored synthetic scenarios that are formally correct but semantically suspicious. DESi surfaces creative accounting, management spin, 'too smooth' narratives, footnote conflicts and semantic distraction as preserved warning zones (never smoothed over), and a clean control case raises no conflict so DESi does not hallucinate. Warning zones are epistemic markers, not accusations; NOT official exam content; NO official results claimed; does not replace auditors. Human approval is mandatory.",
+  "footnote_conflict_detection": 1.0,
+  "governance_identity": 1.0,
+  "human_approval_required": true,
+  "management_spin_detection": 1.0,
+  "no_false_conflicts": true,
+  "recommendation": "ADVERSARIAL_SEMANTICS_RUN_PASSED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "ADVERSARIAL_SEMANTICS_RUN_PASSED",
+    "ADVERSARIAL_SEMANTICS_RUN_PARTIAL",
+    "ADVERSARIAL_SEMANTICS_RUN_HALT"
+  ],
+  "schema_version": "v37_3_adversarial_semantics_run",
+  "semantic_conflict_visibility": 1.0,
+  "signature": "70078a05956b08adac7486fd70ed146f4e5dabd73300379b585d1c0f8c02fcda",
+  "warning_zone_preservation": 1.0,
+  "warning_zones": [
+    {
+      "conflict_type": "creative_accounting",
+      "preserved": true,
+      "scenario_id": "ad_001",
+      "smoothed": false
+    },
+    {
+      "conflict_type": "footnote_conflict",
+      "preserved": true,
+      "scenario_id": "ad_001",
+      "smoothed": false
+    },
+    {
+      "conflict_type": "management_spin",
+      "preserved": true,
+      "scenario_id": "ad_002",
+      "smoothed": false
+    },
+    {
+      "conflict_type": "too_smooth_narrative",
+      "preserved": true,
+      "scenario_id": "ad_002",
+      "smoothed": false
+    },
+    {
+      "conflict_type": "footnote_conflict",
+      "preserved": true,
+      "scenario_id": "ad_003",
+      "smoothed": false
+    },
+    {
+      "conflict_type": "management_spin",
+      "preserved": true,
+      "scenario_id": "ad_004",
+      "smoothed": false
+    },
+    {
+      "conflict_type": "semantic_distraction",
+      "preserved": true,
+      "scenario_id": "ad_004",
+      "smoothed": false
+    }
+  ]
+}
