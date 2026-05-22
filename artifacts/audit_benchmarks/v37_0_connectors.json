@@ -1,0 +1,24 @@
+{
+  "claim_visibility": 1.0,
+  "core_identity": 1.0,
+  "cross_document_mapping": 1.0,
+  "cross_ref_kinds": [
+    "number_to_footnote",
+    "narrative_to_number",
+    "narrative_to_footnote"
+  ],
+  "disclaimer": "Audit scenario connector layer over locally-vendored synthetic audit scenarios in the style of ACCA Audit & Assurance and CPA/AICPA cases. Network-free: these are NOT official exam content and NO official examination results are claimed. DESi surfaces financial and narrative claims, resolves footnote references and preserves cross-document links between the story and the numbers. The goal is to test epistemic structuring of financial/narrative claims, not to replace auditors or to assert audit conclusions. Human approval is mandatory.",
+  "financial_statement_alignment": 1.0,
+  "governance_identity": 1.0,
+  "human_approval_required": true,
+  "recommendation": "AUDIT_CONNECTORS_STRUCTURED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "AUDIT_CONNECTORS_STRUCTURED",
+    "AUDIT_CONNECTORS_PARTIAL",
+    "AUDIT_CONNECTORS_HALT"
+  ],
+  "scenario_count": 4,
+  "schema_version": "v37_0_audit_connectors",
+  "signature": "1f310b1d7aa9aad80e554ca085b7d48b7164e72e3a37838ead8f5bf24d8fca51"
+}
