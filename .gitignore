@@ -222,3 +222,7 @@ src/desi/live_llm_validation/**/secret*
 /dist/
 *.egg-info/
 src/*.egg-info/
+
+# DESi usability config + secrets (never commit real keys)
+config/desi.local.ini
+secrets/

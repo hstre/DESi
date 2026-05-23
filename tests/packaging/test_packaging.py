@@ -87,11 +87,12 @@ def test_cli_replay_reports_stable() -> None:
     assert main(["replay"]) == 0
 
 
-def test_cli_parser_has_four_subcommands() -> None:
+def test_cli_parser_has_core_subcommands() -> None:
     from desi.governance_cli import _DISPATCH
-    assert set(_DISPATCH) == {
-        "replay", "audit", "benchmark", "review",
-    }
+    # the four core subcommands plus the dummy-install helpers
+    assert {"replay", "audit", "benchmark", "review"}.issubset(
+        set(_DISPATCH))
+    assert {"config", "doctor"}.issubset(set(_DISPATCH))
 
 
 # --- pyproject ----------------------------------
