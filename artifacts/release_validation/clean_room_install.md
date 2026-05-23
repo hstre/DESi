@@ -11,7 +11,7 @@ python -c 'from desi.core import replay_kernel; from desi.gates import concept_g
 ```
 
 - `facade_imports_ok` = `True`
-- `cli_subcommands` = `['audit', 'benchmark', 'replay', 'review']`
+- `cli_subcommands` = `['audit', 'benchmark', 'config', 'doctor', 'replay', 'review']`
 - `cli_complete` = `True`
 - `clean_room_install_verified` = `True`
 - `passed` = `True`
