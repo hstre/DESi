@@ -1,0 +1,86 @@
+{
+  "adverse_flip_count": 0,
+  "deployment_decision": "DEPLOYED_ARCHITECTURE_RULE",
+  "failing_conditions": [],
+  "full_regression_passed": true,
+  "hash_checks": [
+    {
+      "equal": true,
+      "frozen": "1f4d9dfe44cb16e1",
+      "label": "v2_8_reconstruction",
+      "live": "1f4d9dfe44cb16e1"
+    },
+    {
+      "equal": true,
+      "frozen": "d83d81ab8417c022",
+      "label": "v2_8_failcase",
+      "live": "d83d81ab8417c022"
+    }
+  ],
+  "hash_stability": 1.0,
+  "historical_far": 0.0,
+  "historical_tpr": 1.0,
+  "matrix_drift_count": 9,
+  "matrix_drift_entries": [
+    {
+      "equal": false,
+      "frozen": "aefa8f1e3429225a",
+      "label": "matrix:v4_0",
+      "live": "24cc539f9a177d4d"
+    },
+    {
+      "equal": false,
+      "frozen": "f7ec695f17aa341b",
+      "label": "matrix:v4_1",
+      "live": "d2acdf18bd425bbe"
+    },
+    {
+      "equal": false,
+      "frozen": "181ec3cb1febf62f",
+      "label": "matrix:v4_2",
+      "live": "c892a194ff3ae896"
+    },
+    {
+      "equal": false,
+      "frozen": "7c63bcae4cf3fb37",
+      "label": "matrix:v4_3",
+      "live": "741f95728f2f284b"
+    },
+    {
+      "equal": false,
+      "frozen": "bf4147b89f398224",
+      "label": "matrix:v4_4",
+      "live": "5ef0c40e39f80bff"
+    },
+    {
+      "equal": false,
+      "frozen": "86418c9d976cc147",
+      "label": "matrix:v4_5",
+      "live": "9221fe43bb5210e0"
+    },
+    {
+      "equal": false,
+      "frozen": "58268fd9c4437e49",
+      "label": "matrix:v4_6",
+      "live": "569ede06b031a661"
+    },
+    {
+      "equal": false,
+      "frozen": "2774818766a8035a",
+      "label": "matrix:v4_7",
+      "live": "e1bcb1887834c875"
+    },
+    {
+      "equal": false,
+      "frozen": "d0835b564453cfc0",
+      "label": "matrix:v4_8",
+      "live": "4d70a780575f4343"
+    }
+  ],
+  "regression_error_count": 0,
+  "regression_failed_count": 0,
+  "regression_passed_count": 5024,
+  "regression_summary": "5024 passed in 3592.47s (0:59:52)",
+  "rule_roi": 100.0,
+  "schema_version": "v3_124_full_regression_validation"
+}

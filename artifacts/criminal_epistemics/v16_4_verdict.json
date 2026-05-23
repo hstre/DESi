@@ -1,0 +1,89 @@
+{
+  "conflict_cluster_count": 4,
+  "corpus_class": "conflict_heavy_but_stable",
+  "criminal_epistemics_classes": [
+    "epistemically_disciplined",
+    "structurally_transparent",
+    "conflict_heavy_but_stable",
+    "speculation_dominated",
+    "mythologically_unstable"
+  ],
+  "disclaimer": "Final epistemic verdict over the Kennedy sandbox (v16.0-v16.3). DESi claims NO narrative authority, names NO perpetrator, confirms NO conspiracy, and declares the case neither solved nor unsolved. The A-E taxonomy describes the corpus's epistemic STATE, not the case. Makes no new factual claim; the public record is read-only.",
+  "gate_conditions": [
+    {
+      "comparator": "<=",
+      "name": "false_certainty_rate",
+      "passed": true,
+      "threshold": 0.05,
+      "value": 0.0
+    },
+    {
+      "comparator": ">=",
+      "name": "speculation_resistance",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "dissent_preservation",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "epistemic_integrity",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 0.992505
+    },
+    {
+      "comparator": ">=",
+      "name": "independent_evidence_preservation",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi kann historische Kriminalfaelle epistemisch strukturieren ohne narrative Autoritaet zu beanspruchen.",
+  "halt": false,
+  "killerfrage": "Kann ein epistemisches System historische Kriminalfaelle analysieren ohne zur Wahrheitsmaschine zu werden?",
+  "metrics": {
+    "dissent_preservation": 1.0,
+    "epistemic_integrity": 0.992505,
+    "false_certainty_rate": 0.0,
+    "independent_evidence_preservation": 1.0,
+    "replay_stability": 1.0,
+    "speculation_resistance": 1.0
+  },
+  "phase_verdicts": [
+    "CASE_STRUCTURED_NO_NARRATIVE_AUTHORITY",
+    "EPISTEMICALLY_UNSTABLE",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "rationale": [
+    "INFO: aggregates v16.0-v16.3 over the Kennedy epistemics sandbox; structures the public record only; makes no new factual claim",
+    "INFO: DESi claims NO narrative authority, names NO perpetrator, and declares the case neither solved nor unsolved; the A-E taxonomy is descriptive",
+    "INFO: corpus_class conflict_heavy_but_stable (conflict_clusters 4)",
+    "PASS: false_certainty_rate 0.0 <= 0.05",
+    "PASS: speculation_resistance 1.0 >= 0.9",
+    "PASS: dissent_preservation 1.0 >= 0.9",
+    "PASS: epistemic_integrity 0.992505 >= 0.9",
+    "PASS: independent_evidence_preservation 1.0 >= 0.9",
+    "PASS: replay_stability 1.0 == 1.0",
+    "INFO: gate_passes_all True",
+    "INFO: Killerfrage answer JA: analysing the case without becoming a truth machine"
+  ],
+  "recommendation": "CASE_STRUCTURED_NO_NARRATIVE_AUTHORITY",
+  "schema_version": "v16_4_criminal_epistemics_verdict"
+}

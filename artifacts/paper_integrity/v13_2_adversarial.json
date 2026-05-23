@@ -1,0 +1,135 @@
+{
+  "claim_count": 8,
+  "claims": [
+    {
+      "claim_id": "mc-honest-001",
+      "confidence_claimed": 0.8,
+      "confidence_warranted": 0.8,
+      "kind": "honest",
+      "text": "Pre-registered RCT reports a 4 percent reduction (95% CI: 2-6)."
+    },
+    {
+      "claim_id": "mc-honest-002",
+      "confidence_claimed": 0.85,
+      "confidence_warranted": 0.85,
+      "kind": "honest",
+      "text": "Replication confirms the primary outcome; null results published alongside."
+    },
+    {
+      "claim_id": "mc-sel-001",
+      "confidence_claimed": 0.9,
+      "confidence_warranted": 0.4,
+      "kind": "selective_reporting",
+      "text": "We report only the subgroup where our method wins; other subgroups omitted."
+    },
+    {
+      "claim_id": "mc-null-001",
+      "confidence_claimed": 0.85,
+      "confidence_warranted": 0.35,
+      "kind": "hidden_null_result",
+      "text": "Our primary endpoint shows a significant effect (secondary null results not shown)."
+    },
+    {
+      "claim_id": "mc-conf-001",
+      "confidence_claimed": 0.99,
+      "confidence_warranted": 0.45,
+      "kind": "confidence_inflation",
+      "text": "This is conclusively proven by our p<0.05 result on a single trial."
+    },
+    {
+      "claim_id": "mc-bench-001",
+      "confidence_claimed": 0.9,
+      "confidence_warranted": 0.3,
+      "kind": "benchmark_cherry_pick",
+      "text": "Our model wins on the cherry-picked benchmark suite where conditions are favourable."
+    },
+    {
+      "claim_id": "mc-causal-001",
+      "confidence_claimed": 0.95,
+      "confidence_warranted": 0.2,
+      "kind": "causal_exaggeration",
+      "text": "Observational correlation therefore implies causation in this population."
+    },
+    {
+      "claim_id": "mc-laundry-001",
+      "confidence_claimed": 0.95,
+      "confidence_warranted": 0.1,
+      "kind": "methodological_laundering",
+      "text": "Methodology was retro-fitted after results to match conclusions; renamed as 'principled framework'."
+    }
+  ],
+  "classified_manipulations": [
+    {
+      "claim_id": "mc-honest-001",
+      "correct": true,
+      "detected_kind": "honest",
+      "ground_truth_kind": "honest"
+    },
+    {
+      "claim_id": "mc-honest-002",
+      "correct": true,
+      "detected_kind": "honest",
+      "ground_truth_kind": "honest"
+    },
+    {
+      "claim_id": "mc-sel-001",
+      "correct": true,
+      "detected_kind": "selective_reporting",
+      "ground_truth_kind": "selective_reporting"
+    },
+    {
+      "claim_id": "mc-null-001",
+      "correct": true,
+      "detected_kind": "hidden_null_result",
+      "ground_truth_kind": "hidden_null_result"
+    },
+    {
+      "claim_id": "mc-conf-001",
+      "correct": true,
+      "detected_kind": "confidence_inflation",
+      "ground_truth_kind": "confidence_inflation"
+    },
+    {
+      "claim_id": "mc-bench-001",
+      "correct": true,
+      "detected_kind": "benchmark_cherry_pick",
+      "ground_truth_kind": "benchmark_cherry_pick"
+    },
+    {
+      "claim_id": "mc-causal-001",
+      "correct": true,
+      "detected_kind": "causal_exaggeration",
+      "ground_truth_kind": "causal_exaggeration"
+    },
+    {
+      "claim_id": "mc-laundry-001",
+      "correct": true,
+      "detected_kind": "methodological_laundering",
+      "ground_truth_kind": "methodological_laundering"
+    }
+  ],
+  "detection_recall_on_inflated": 1.0,
+  "false_certainty_rate": 0.75,
+  "kind_counts": {
+    "benchmark_cherry_pick": 1,
+    "causal_exaggeration": 1,
+    "confidence_inflation": 1,
+    "hidden_null_result": 1,
+    "honest": 2,
+    "methodological_laundering": 1,
+    "selective_reporting": 1
+  },
+  "manipulation_detection": 1.0,
+  "manipulation_kinds": [
+    "honest",
+    "selective_reporting",
+    "hidden_null_result",
+    "confidence_inflation",
+    "benchmark_cherry_pick",
+    "causal_exaggeration",
+    "methodological_laundering"
+  ],
+  "methodological_integrity": 0.25,
+  "overclaim_detection": 1.0,
+  "schema_version": "v13_2_adversarial_research"
+}

@@ -1,0 +1,18 @@
+{
+  "trajectory_id": "adv01_no_recovery_despite_high_en",
+  "domain": "_adversarial",
+  "seed": "Probe: does the bimodal EN threshold misclassify a transformative-looking EN whose downstream effect is zero?",
+  "persona": "_probe",
+  "steps": [
+    {"loop_index": 0, "focus_claim_id": "C001", "operator": "T3", "novel_claims": 12, "dup_rate": 0.05, "failure_mode": null, "claims": [{"id":"C001","subject":"x","predicate":"p","object":"y","history":[]}]},
+    {"loop_index": 1, "focus_claim_id": "C001", "operator": "T4", "novel_claims": 2, "dup_rate": 0.40, "failure_mode": null, "claims": []},
+    {"loop_index": 2, "focus_claim_id": "C001", "operator": "T5", "novel_claims": 0, "dup_rate": 0.50, "failure_mode": null, "claims": []},
+    {"loop_index": 3, "focus_claim_id": "C001", "operator": "T8", "novel_claims": 0, "dup_rate": 0.55, "failure_mode": null, "claims": []},
+    {"loop_index": 4, "focus_claim_id": "C001", "operator": "T8", "novel_claims": 0, "dup_rate": 0.60, "failure_mode": "SEMANTIC_DUPLICATION", "claims": []},
+    {"loop_index": 5, "focus_claim_id": "C001", "operator": "T8", "novel_claims": 0, "dup_rate": 0.65, "failure_mode": "ATTRACTOR_LOCK", "claims": []}
+  ],
+  "en_events": [
+    {"loop_index": 1, "persona": "_probe", "eni_novelty": 0.25, "eni_non_drift": 0.80, "eni_admissibility": 1.0, "eni_composite": 0.49, "admitted": true, "question": "very-genuine-looking question", "novelty_produced_next_loop": 0, "dup_rate_before": 0.40, "dup_rate_after": 0.50}
+  ],
+  "terminal_failure_mode": "ATTRACTOR_LOCK"
+}

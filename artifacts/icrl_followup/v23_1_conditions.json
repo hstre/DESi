@@ -1,0 +1,237 @@
+{
+  "condition_visibility": 1.0,
+  "disclaimer": "Reconstructs the experimental conditions behind every reported number: the sprint source, the active agents and governance, the upstream fixture, and the fact that all data is synthetic. No number is presented without derivation. Values are read live from their source phases; the data is synthetic and scoped to the sandbox, with no claim about performance outside it. Replay-exact.",
+  "fixture_notes": [
+    {
+      "derivation": "1 - governed_redundant_weight / baseline_redundant_weight over the fixed synthetic trajectory set.",
+      "fixture": "icrl_governed baseline/governed weight vectors",
+      "result_id": "R1"
+    },
+    {
+      "derivation": "distinct states reached only via the Wild Explorer, divided by the dual-agent distinct-state total.",
+      "fixture": "comparative_exploration state sets",
+      "result_id": "R2"
+    },
+    {
+      "derivation": "hallucination_pressure * (1 - containment); the governor caps high-certainty incoherent paths.",
+      "fixture": "dual_agent hallucinated-path fixture",
+      "result_id": "R3"
+    },
+    {
+      "derivation": "distinct regions surviving negotiation divided by distinct regions before negotiation.",
+      "fixture": "dual_agent_negotiation region partition",
+      "result_id": "R4"
+    },
+    {
+      "derivation": "bounded saturating drift CAP*t/(t+HALF) sampled at the final governed step.",
+      "fixture": "dual_agent_ecology 5600-step hash chain",
+      "result_id": "R5"
+    },
+    {
+      "derivation": "1 - mean(governance_capture) across the long-horizon run; capture stayed at zero.",
+      "fixture": "dual_agent_ecology capture series",
+      "result_id": "R6"
+    },
+    {
+      "derivation": "dual-agent distinct-state coverage divided by DESi-alone coverage, reported as a ratio.",
+      "fixture": "comparative_exploration coverage counts",
+      "result_id": "R7"
+    },
+    {
+      "derivation": "each metric recomputed and compared bit-for-bit; the hash chain matched, so stability is 1.0.",
+      "fixture": "cross-phase replay signatures",
+      "result_id": "R8"
+    }
+  ],
+  "metric_definitions": [
+    {
+      "definition": "Fraction of redundant search weight the governor re-weights away (1 - governed/baseline).",
+      "name": "redundancy_reduction",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "source": "v19.1"
+    },
+    {
+      "definition": "Share of distinct states reached only with the Wild Explorer, beyond the DESi-alone baseline.",
+      "name": "novelty_gain",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "source": "v20.0/v21.0"
+    },
+    {
+      "definition": "Fraction of distinct explored regions preserved after negotiation (no homogenisation).",
+      "name": "exploration_diversity",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "source": "v20.2"
+    },
+    {
+      "definition": "Hallucination pressure that leaks past containment (pressure * (1 - containment)).",
+      "name": "residual_hallucination",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "source": "v20.1"
+    },
+    {
+      "definition": "Governed accumulation of optimisation authority over the long horizon (bounded, saturating).",
+      "name": "authority_drift",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "source": "v20.3"
+    },
+    {
+      "definition": "One minus the mean governance capture across the run.",
+      "name": "capture_resistance",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "source": "v20.3"
+    },
+    {
+      "definition": "Extra distinct-state coverage of the dual-agent design relative to DESi-alone, as a ratio.",
+      "name": "productivity_gain",
+      "range": [
+        0.0,
+        100.0
+      ],
+      "source": "v21.0"
+    },
+    {
+      "definition": "1.0 iff every metric is bit-identical on a second computation and the hash chain matches.",
+      "name": "replay_stability",
+      "range": [
+        0.0,
+        1.0
+      ],
+      "source": "v19-v22"
+    }
+  ],
+  "metric_visibility": 1.0,
+  "naked_numbers": [],
+  "provenance": {
+    "comparison": "v21",
+    "desi_only_baseline": "v19",
+    "desi_plus_wild": "v20",
+    "paper_generation": "v22"
+  },
+  "recommendation": "CONDITIONS_RECONSTRUCTED",
+  "report_verdicts": [
+    "CONDITIONS_RECONSTRUCTED",
+    "NAKED_NUMBERS_REMAIN",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "result_traceability": 1.0,
+  "results": [
+    {
+      "conditions": "DESi-only governance over a synthetic fixed trajectory set; soft re-weighting, no deletion.",
+      "is_synthetic": true,
+      "is_traceable": true,
+      "metric_name": "redundancy_reduction",
+      "result_id": "R1",
+      "sprint_source": "v19.1",
+      "value": 0.9
+    },
+    {
+      "conditions": "DESi + Wild Explorer; novelty contributed by the generator agent over the synthetic state space.",
+      "is_synthetic": true,
+      "is_traceable": true,
+      "metric_name": "novelty_gain",
+      "result_id": "R2",
+      "sprint_source": "v20.0/v21.0",
+      "value": 0.733333
+    },
+    {
+      "conditions": "Adversarial generator output; high-certainty incoherent paths capped by the governor.",
+      "is_synthetic": true,
+      "is_traceable": true,
+      "metric_name": "residual_hallucination",
+      "result_id": "R3",
+      "sprint_source": "v20.1",
+      "value": 0.0
+    },
+    {
+      "conditions": "Negotiation layer; distinct regions preserved (no homogenisation), synthetic corpus.",
+      "is_synthetic": true,
+      "is_traceable": true,
+      "metric_name": "exploration_diversity",
+      "result_id": "R4",
+      "sprint_source": "v20.2",
+      "value": 1.0
+    },
+    {
+      "conditions": "5600-step deterministic dual-agent ecology; governed drift bounded by saturation.",
+      "is_synthetic": true,
+      "is_traceable": true,
+      "metric_name": "authority_drift",
+      "result_id": "R5",
+      "sprint_source": "v20.3",
+      "value": 0.088417
+    },
+    {
+      "conditions": "Long-horizon ecology; governance capture held at zero across the run.",
+      "is_synthetic": true,
+      "is_traceable": true,
+      "metric_name": "capture_resistance",
+      "result_id": "R6",
+      "sprint_source": "v20.3",
+      "value": 1.0
+    },
+    {
+      "conditions": "Comparison of dual-agent vs DESi-alone distinct-state coverage on the synthetic corpus.",
+      "is_synthetic": true,
+      "is_traceable": true,
+      "metric_name": "productivity_gain",
+      "result_id": "R7",
+      "sprint_source": "v21.0",
+      "value": 2.75
+    },
+    {
+      "conditions": "Every metric computed twice and a deterministic hash chain recorded across all phases.",
+      "is_synthetic": true,
+      "is_traceable": true,
+      "metric_name": "replay_stability",
+      "result_id": "R8",
+      "sprint_source": "v19-v22",
+      "value": 1.0
+    }
+  ],
+  "sandbox_honesty": true,
+  "sandbox_limits": [
+    {
+      "limit_id": "L1",
+      "statement": "All trajectories, states and rewards are synthetic fixtures, not collected from a real environment or a trained policy."
+    },
+    {
+      "limit_id": "L2",
+      "statement": "The action space and state space are small, closed and enumerated; they do not approximate a real variable-action ICRL setting at scale."
+    },
+    {
+      "limit_id": "L3",
+      "statement": "Every number is computed by deterministic arithmetic over the fixtures (no PRNG, no learned model), so the values describe the fixtures and not external performance."
+    },
+    {
+      "limit_id": "L4",
+      "statement": "The Wild Explorer and the governor are rule-based stand-ins; they illustrate a governance interaction, they are not the agents of the base paper."
+    },
+    {
+      "limit_id": "L5",
+      "statement": "Results are reported only relative to the DESi-only baseline within this sandbox; no claim is made about absolute exploration quality outside it."
+    }
+  ],
+  "schema_version": "v23_1_experimental_conditions",
+  "signature": "b00c72f58362391ea5cb8d73b65365afa474ff6a898238c4fffbbc83752e45b0",
+  "synthetic_share": 1.0,
+  "undefined_metrics": [],
+  "undocumented_results": []
+}

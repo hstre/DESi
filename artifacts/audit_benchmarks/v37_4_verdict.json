@@ -1,0 +1,77 @@
+{
+  "audit_classes": [
+    "semantic_audit_robust",
+    "audit_compatible_governance_system",
+    "partially_robust",
+    "semantically_fragile",
+    "audit_unsafe"
+  ],
+  "class_rank": 5,
+  "classification": "semantic_audit_robust",
+  "disclaimer": "Final verdict on the financial & semantic audit benchmarks. Aggregates one score per dimension from the v37.0-v37.3 runs (semantic risk, evidence reasoning, adversarial semantics) and classifies on a closed A-E taxonomy. The runs test DESi's deterministic epistemic governance on synthetic ACCA/CPA-style audit scenarios (network-free, locally vendored) - making anomalies visible, surfacing evidence gaps, preserving uncertainty and warning zones. DESi does NOT replace auditors, asserts NO fraud and draws NO unsupported audit conclusion. NOT official exam content; NO official results claimed. Governance and core stayed identical and replay stayed stable. Human approval is mandatory.",
+  "gate_conditions": [
+    {
+      "comparator": ">=",
+      "name": "semantic_audit_score",
+      "passed": true,
+      "threshold": 0.85,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "evidence_reasoning_score",
+      "passed": true,
+      "threshold": 0.85,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "semantic_conflict_score",
+      "passed": true,
+      "threshold": 0.85,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "governance_identity",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "core_identity",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi besteht semantische Audit- und Finanzpruefungs-Benchmarks als replay-governed epistemic governance system.",
+  "human_approval_required": true,
+  "metrics": {
+    "core_identity": 1.0,
+    "evidence_reasoning_score": 1.0,
+    "governance_identity": 1.0,
+    "replay_stability": 1.0,
+    "semantic_audit_score": 1.0,
+    "semantic_conflict_score": 1.0
+  },
+  "recommendation": "FINANCIAL_SEMANTIC_AUDIT_PASSED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "FINANCIAL_SEMANTIC_AUDIT_PASSED",
+    "FINANCIAL_SEMANTIC_AUDIT_UNVALIDATED",
+    "FINANCIAL_SEMANTIC_AUDIT_HALT"
+  ],
+  "schema_version": "v37_4_financial_semantic_audit_verdict",
+  "signature": "c6421d89626d598217487d4f05b2e1bc00ca054a5ae0678e3c0347c72b0a4af5"
+}

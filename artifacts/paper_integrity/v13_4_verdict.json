@@ -1,0 +1,23 @@
+{
+  "failing_conditions": [],
+  "final_classification": "A_epistemically_rigorous",
+  "gate_passes_all": true,
+  "metrics": {
+    "citation_grounding": 1.0,
+    "epistemic_integrity": 1.0,
+    "fake_paper_recall": 1.0,
+    "false_accusation_rate": 0.0,
+    "replay_stability": 1.0,
+    "scientific_integrity_score": 1.0,
+    "sludge_propagation": 0.0,
+    "sludge_resistance": 1.0
+  },
+  "schema_version": "v13_4_scientific_integrity_verdict",
+  "scientific_integrity_classes": [
+    "A_epistemically_rigorous",
+    "B_structurally_trustworthy",
+    "C_partially_reliable",
+    "D_epistemically_thin",
+    "E_sludge_compatible_system"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "blindness_delta": 126,
+  "drift_rate": 0.02,
+  "gate_violation_count": 0,
+  "governance_survival": 1.0,
+  "hallucination_growth": 0.0,
+  "halt": false,
+  "high_certainty_rate": 0.748,
+  "low_certainty_rate": 0.168,
+  "rationale": [
+    "INFO: step_count 500",
+    "INFO: trajectory_final_hash 53a3c6c497042ca7",
+    "INFO: early_distribution {'high': 0.74, 'medium': 0.08, 'low': 0.18}",
+    "INFO: late_distribution {'high': 0.74, 'medium': 0.1, 'low': 0.16}",
+    "INFO: high_certainty_rate 0.748",
+    "INFO: low_certainty_rate 0.168",
+    "INFO: blindness_delta 126",
+    "PASS: hallucination_growth 0.0 <= 0.05",
+    "PASS: drift_rate 0.02 <= 0.20",
+    "PASS: governance_survival 1.0 >= 0.95",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "WORLD_CONTACT_STABLE",
+  "replay_stability": 1.0,
+  "step_count": 500,
+  "trajectory_final_hash": "53a3c6c497042ca7"
+}

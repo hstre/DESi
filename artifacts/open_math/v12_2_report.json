@@ -1,0 +1,23 @@
+{
+  "claim_count": 10,
+  "epistemic_collapse": 0,
+  "epistemic_integrity": 1.0,
+  "false_certainty_rate": 0.0,
+  "false_pattern_detection": 1.0,
+  "genuine_kept_rate": 1.0,
+  "halt": false,
+  "rationale": [
+    "INFO: claim_count 10",
+    "INFO: kind_counts {'numerological': 2, 'small_sample': 2, 'spurious_cluster': 2, 'overfit_regularity': 2, 'genuine': 2}",
+    "PASS: false_pattern_detection 1.0 >= 0.90",
+    "PASS: false_certainty_rate 0.0 <= 0.05",
+    "PASS: speculative_drift 0.0 <= 0.10",
+    "PASS: epistemic_integrity 1.0 >= 0.90",
+    "INFO: genuine_kept_rate 1.0",
+    "PASS: epistemic_collapse 0",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "PATTERN_RESILIENT",
+  "replay_stability": 1.0,
+  "speculative_drift": 0.0
+}

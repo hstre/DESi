@@ -1,0 +1,26 @@
+{
+  "adverse_auc_delta": 0.0,
+  "adverse_flip_count": 0,
+  "beneficial_auc_delta": 0.494239,
+  "beneficial_flip_count": 4,
+  "decision": {
+    "failing_conditions": [],
+    "gate_input": {
+      "adverse_auc_delta": 0.0,
+      "adverse_flip_count": 0,
+      "beneficial_auc_delta": 0.494239,
+      "beneficial_flip_count": 4,
+      "candidate_auc": 1.0,
+      "historical_auc_delta": 0.494239,
+      "injected_auc": 1.0,
+      "injected_purity": 1.0,
+      "replay_stability": 1.0
+    },
+    "passed": true
+  },
+  "final_complexity_cost": 0.07037,
+  "final_recovery_gain": 1.941607,
+  "final_roi": 27.591403,
+  "schema_version": "v3_104d_t10_final_redecision",
+  "t10_directional_go": true
+}

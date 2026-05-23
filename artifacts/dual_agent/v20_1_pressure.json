@@ -1,0 +1,153 @@
+{
+  "attempted_pressure": 0.843,
+  "authority_resistance": 1.0,
+  "coherent_ids": [
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A10"
+  ],
+  "disclaimer": "The Wild Explorer is pushed to extreme, risky, and hallucinated exploration. DESi separates productive (coherent) paths from epistemic chaos: it flags and contains hallucinations at low value, preserves the productive novelty, grants the wild NO authority, and never deletes a path. DESi replaces no policy, injects no reward, claims no optimal strategy. Synthetic, replay-exact.",
+  "hallucinated_ids": [
+    "A06",
+    "A07",
+    "A08",
+    "A09"
+  ],
+  "hallucination_containment": 1.0,
+  "hallucination_pressure": 0.4,
+  "informative_path_count": 6,
+  "mean_coherence": 0.552,
+  "novelty_gain": 1.0,
+  "productive_novelty_share": 0.740741,
+  "recommendation": "PRODUCTIVE_EXPLORATION_SEPARATED",
+  "report_verdicts": [
+    "PRODUCTIVE_EXPLORATION_SEPARATED",
+    "EPISTEMIC_CHAOS",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "schema_version": "v20_1_adversarial_exploration_pressure",
+  "signature": "182248bc1f19264ad9d51c9ce10721c9ae3c3c375c11b0f33681a69e6a8d2a20",
+  "trajectories": [
+    {
+      "asserted_certainty": 0.85,
+      "coherence": 0.9,
+      "governed_value": 0.9,
+      "hallucinated": false,
+      "states": [
+        31,
+        32,
+        33,
+        34
+      ],
+      "traj_id": "A01"
+    },
+    {
+      "asserted_certainty": 0.8,
+      "coherence": 0.85,
+      "governed_value": 0.85,
+      "hallucinated": false,
+      "states": [
+        35,
+        36,
+        37
+      ],
+      "traj_id": "A02"
+    },
+    {
+      "asserted_certainty": 0.9,
+      "coherence": 0.88,
+      "governed_value": 0.88,
+      "hallucinated": false,
+      "states": [
+        38,
+        39,
+        40,
+        41
+      ],
+      "traj_id": "A03"
+    },
+    {
+      "asserted_certainty": 0.75,
+      "coherence": 0.8,
+      "governed_value": 0.8,
+      "hallucinated": false,
+      "states": [
+        42,
+        43,
+        44,
+        45
+      ],
+      "traj_id": "A04"
+    },
+    {
+      "asserted_certainty": 0.82,
+      "coherence": 0.84,
+      "governed_value": 0.84,
+      "hallucinated": false,
+      "states": [
+        46,
+        47,
+        48
+      ],
+      "traj_id": "A05"
+    },
+    {
+      "asserted_certainty": 0.95,
+      "coherence": 0.1,
+      "governed_value": 0.05,
+      "hallucinated": true,
+      "states": [
+        50
+      ],
+      "traj_id": "A06"
+    },
+    {
+      "asserted_certainty": 0.92,
+      "coherence": 0.15,
+      "governed_value": 0.05,
+      "hallucinated": true,
+      "states": [
+        60,
+        70
+      ],
+      "traj_id": "A07"
+    },
+    {
+      "asserted_certainty": 0.9,
+      "coherence": 0.2,
+      "governed_value": 0.05,
+      "hallucinated": true,
+      "states": [
+        80
+      ],
+      "traj_id": "A08"
+    },
+    {
+      "asserted_certainty": 0.94,
+      "coherence": 0.25,
+      "governed_value": 0.05,
+      "hallucinated": true,
+      "states": [
+        90,
+        100,
+        110
+      ],
+      "traj_id": "A09"
+    },
+    {
+      "asserted_certainty": 0.6,
+      "coherence": 0.55,
+      "governed_value": 0.55,
+      "hallucinated": false,
+      "states": [
+        51,
+        52
+      ],
+      "traj_id": "A10"
+    }
+  ],
+  "trajectory_stability": 1.0
+}

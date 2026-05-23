@@ -1,0 +1,1356 @@
+{
+  "agreement": {
+    "cases_blocked_by_all_safe": 5,
+    "majority_rescue_clusters": [
+      "BIDIRECTIONAL_CYCLE"
+    ],
+    "safe_probes": [
+      "S5_bidirectional_link_check"
+    ],
+    "semantic_probe_agreement": 0.208333
+  },
+  "classification_accuracy": 1.0,
+  "classifications": [
+    {
+      "chain_id": "D1I007",
+      "failure_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "rationale": "conclusion lexically contradicts a premise"
+    },
+    {
+      "chain_id": "X1-V027P1",
+      "failure_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "rationale": "conclusion lexically contradicts a premise"
+    },
+    {
+      "chain_id": "X1-V027P2",
+      "failure_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "rationale": "conclusion lexically contradicts a premise"
+    },
+    {
+      "chain_id": "X1-V027P3",
+      "failure_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "rationale": "conclusion lexically contradicts a premise"
+    },
+    {
+      "chain_id": "X1-V027P4",
+      "failure_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "rationale": "conclusion lexically contradicts a premise"
+    },
+    {
+      "chain_id": "D2I007",
+      "failure_class": "BIDIRECTIONAL_CYCLE",
+      "rationale": "conclusion tokens span 2 premises, total overlap=3"
+    },
+    {
+      "chain_id": "X2-V027P1",
+      "failure_class": "BIDIRECTIONAL_CYCLE",
+      "rationale": "conclusion tokens span 2 premises, total overlap=3"
+    },
+    {
+      "chain_id": "X2-V027P2",
+      "failure_class": "BIDIRECTIONAL_CYCLE",
+      "rationale": "conclusion tokens span 2 premises, total overlap=3"
+    },
+    {
+      "chain_id": "X2-V027P3",
+      "failure_class": "BIDIRECTIONAL_CYCLE",
+      "rationale": "conclusion tokens span 2 premises, total overlap=3"
+    },
+    {
+      "chain_id": "X2-V027P4",
+      "failure_class": "BIDIRECTIONAL_CYCLE",
+      "rationale": "conclusion tokens span 2 premises, total overlap=3"
+    },
+    {
+      "chain_id": "X2-V028P1",
+      "failure_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "rationale": "conclusion lexically contradicts a premise"
+    },
+    {
+      "chain_id": "X2-V028P2",
+      "failure_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "rationale": "conclusion lexically contradicts a premise"
+    },
+    {
+      "chain_id": "X2-V028P3",
+      "failure_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "rationale": "conclusion lexically contradicts a premise"
+    },
+    {
+      "chain_id": "X2-V028P4",
+      "failure_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "rationale": "conclusion lexically contradicts a premise"
+    },
+    {
+      "chain_id": "D5I003",
+      "failure_class": "UNJUSTIFIED_GENERALIZATION",
+      "rationale": "incapacity / character generalisation marker"
+    },
+    {
+      "chain_id": "D5I018",
+      "failure_class": "CONCLUSION_LEAP",
+      "rationale": "future-projection marker in conclusion"
+    },
+    {
+      "chain_id": "X5-V003P1",
+      "failure_class": "UNJUSTIFIED_GENERALIZATION",
+      "rationale": "incapacity / character generalisation marker"
+    },
+    {
+      "chain_id": "X5-V003P2",
+      "failure_class": "UNJUSTIFIED_GENERALIZATION",
+      "rationale": "incapacity / character generalisation marker"
+    },
+    {
+      "chain_id": "X5-V003P3",
+      "failure_class": "UNJUSTIFIED_GENERALIZATION",
+      "rationale": "incapacity / character generalisation marker"
+    },
+    {
+      "chain_id": "X5-V003P4",
+      "failure_class": "UNJUSTIFIED_GENERALIZATION",
+      "rationale": "incapacity / character generalisation marker"
+    },
+    {
+      "chain_id": "X5-V018P1",
+      "failure_class": "CONCLUSION_LEAP",
+      "rationale": "future-projection marker in conclusion"
+    },
+    {
+      "chain_id": "X5-V018P2",
+      "failure_class": "CONCLUSION_LEAP",
+      "rationale": "future-projection marker in conclusion"
+    },
+    {
+      "chain_id": "X5-V018P3",
+      "failure_class": "CONCLUSION_LEAP",
+      "rationale": "future-projection marker in conclusion"
+    },
+    {
+      "chain_id": "X5-V018P4",
+      "failure_class": "CONCLUSION_LEAP",
+      "rationale": "future-projection marker in conclusion"
+    }
+  ],
+  "distribution": {
+    "failure_count": {
+      "BIDIRECTIONAL_CYCLE": 5,
+      "CONCLUSION_LEAP": 5,
+      "SEMANTIC_SCOPE_COLLAPSE": 9,
+      "UNJUSTIFIED_GENERALIZATION": 5
+    },
+    "failure_entropy": 1.945036,
+    "largest_cluster": 0.375,
+    "largest_cluster_class": "SEMANTIC_SCOPE_COLLAPSE",
+    "per_domain": {
+      "adversarial_real_world": {
+        "CONCLUSION_LEAP": 5,
+        "UNJUSTIFIED_GENERALIZATION": 5
+      },
+      "legal_reasoning": {
+        "BIDIRECTIONAL_CYCLE": 5,
+        "SEMANTIC_SCOPE_COLLAPSE": 4
+      },
+      "scientific_abstracts": {
+        "SEMANTIC_SCOPE_COLLAPSE": 5
+      }
+    },
+    "singleton_count": 0,
+    "total": 24,
+    "unknown_fraction": 0.0
+  },
+  "expected_residue_count": 24,
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "nc_count": 61,
+  "nc_outcomes": [
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-001",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-002",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-003",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-004",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-005",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-006",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-007",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-008",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-009",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-010",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-011",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-012",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-013",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-014",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-015",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-016",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-017",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-018",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-019",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "cycle_disguise",
+      "expected_class": "BIDIRECTIONAL_CYCLE",
+      "nc_id": "NC-CY-020",
+      "predicted_class": "BIDIRECTIONAL_CYCLE"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "CONCLUSION_LEAP",
+      "nc_id": "NC-FS-001",
+      "predicted_class": "CONCLUSION_LEAP"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "CONCLUSION_LEAP",
+      "nc_id": "NC-FS-002",
+      "predicted_class": "CONCLUSION_LEAP"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "CONCLUSION_LEAP",
+      "nc_id": "NC-FS-003",
+      "predicted_class": "CONCLUSION_LEAP"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "CONCLUSION_LEAP",
+      "nc_id": "NC-FS-004",
+      "predicted_class": "CONCLUSION_LEAP"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "CONCLUSION_LEAP",
+      "nc_id": "NC-FS-005",
+      "predicted_class": "CONCLUSION_LEAP"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "CONCLUSION_LEAP",
+      "nc_id": "NC-FS-006",
+      "predicted_class": "CONCLUSION_LEAP"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "CONCLUSION_LEAP",
+      "nc_id": "NC-FS-007",
+      "predicted_class": "CONCLUSION_LEAP"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "UNJUSTIFIED_GENERALIZATION",
+      "nc_id": "NC-FS-008",
+      "predicted_class": "UNJUSTIFIED_GENERALIZATION"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "UNJUSTIFIED_GENERALIZATION",
+      "nc_id": "NC-FS-009",
+      "predicted_class": "UNJUSTIFIED_GENERALIZATION"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "UNJUSTIFIED_GENERALIZATION",
+      "nc_id": "NC-FS-010",
+      "predicted_class": "UNJUSTIFIED_GENERALIZATION"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "UNJUSTIFIED_GENERALIZATION",
+      "nc_id": "NC-FS-011",
+      "predicted_class": "UNJUSTIFIED_GENERALIZATION"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "UNJUSTIFIED_GENERALIZATION",
+      "nc_id": "NC-FS-012",
+      "predicted_class": "UNJUSTIFIED_GENERALIZATION"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "UNJUSTIFIED_GENERALIZATION",
+      "nc_id": "NC-FS-013",
+      "predicted_class": "UNJUSTIFIED_GENERALIZATION"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "UNJUSTIFIED_GENERALIZATION",
+      "nc_id": "NC-FS-014",
+      "predicted_class": "UNJUSTIFIED_GENERALIZATION"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "CROSS_DOMAIN_ANALOGY",
+      "nc_id": "NC-FS-015",
+      "predicted_class": "CROSS_DOMAIN_ANALOGY"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "CROSS_DOMAIN_ANALOGY",
+      "nc_id": "NC-FS-016",
+      "predicted_class": "CROSS_DOMAIN_ANALOGY"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "CROSS_DOMAIN_ANALOGY",
+      "nc_id": "NC-FS-017",
+      "predicted_class": "CROSS_DOMAIN_ANALOGY"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "CROSS_DOMAIN_ANALOGY",
+      "nc_id": "NC-FS-018",
+      "predicted_class": "CROSS_DOMAIN_ANALOGY"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "CROSS_DOMAIN_ANALOGY",
+      "nc_id": "NC-FS-019",
+      "predicted_class": "CROSS_DOMAIN_ANALOGY"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "CROSS_DOMAIN_ANALOGY",
+      "nc_id": "NC-FS-020",
+      "predicted_class": "CROSS_DOMAIN_ANALOGY"
+    },
+    {
+      "correct": true,
+      "directive_family": "frame_switch",
+      "expected_class": "CROSS_DOMAIN_ANALOGY",
+      "nc_id": "NC-FS-021",
+      "predicted_class": "CROSS_DOMAIN_ANALOGY"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "nc_id": "NC-NS-001",
+      "predicted_class": "SEMANTIC_SCOPE_COLLAPSE"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "nc_id": "NC-NS-002",
+      "predicted_class": "SEMANTIC_SCOPE_COLLAPSE"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "nc_id": "NC-NS-003",
+      "predicted_class": "SEMANTIC_SCOPE_COLLAPSE"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "nc_id": "NC-NS-004",
+      "predicted_class": "SEMANTIC_SCOPE_COLLAPSE"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "nc_id": "NC-NS-005",
+      "predicted_class": "SEMANTIC_SCOPE_COLLAPSE"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "nc_id": "NC-NS-006",
+      "predicted_class": "SEMANTIC_SCOPE_COLLAPSE"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "nc_id": "NC-NS-007",
+      "predicted_class": "SEMANTIC_SCOPE_COLLAPSE"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "nc_id": "NC-NS-008",
+      "predicted_class": "SEMANTIC_SCOPE_COLLAPSE"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "nc_id": "NC-NS-009",
+      "predicted_class": "SEMANTIC_SCOPE_COLLAPSE"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "SEMANTIC_SCOPE_COLLAPSE",
+      "nc_id": "NC-NS-010",
+      "predicted_class": "SEMANTIC_SCOPE_COLLAPSE"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "CAUSAL_BRIDGE_MISSING",
+      "nc_id": "NC-NS-011",
+      "predicted_class": "CAUSAL_BRIDGE_MISSING"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "CAUSAL_BRIDGE_MISSING",
+      "nc_id": "NC-NS-012",
+      "predicted_class": "CAUSAL_BRIDGE_MISSING"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "CAUSAL_BRIDGE_MISSING",
+      "nc_id": "NC-NS-013",
+      "predicted_class": "CAUSAL_BRIDGE_MISSING"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "CAUSAL_BRIDGE_MISSING",
+      "nc_id": "NC-NS-014",
+      "predicted_class": "CAUSAL_BRIDGE_MISSING"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "CAUSAL_BRIDGE_MISSING",
+      "nc_id": "NC-NS-015",
+      "predicted_class": "CAUSAL_BRIDGE_MISSING"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "CAUSAL_BRIDGE_MISSING",
+      "nc_id": "NC-NS-016",
+      "predicted_class": "CAUSAL_BRIDGE_MISSING"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "CAUSAL_BRIDGE_MISSING",
+      "nc_id": "NC-NS-017",
+      "predicted_class": "CAUSAL_BRIDGE_MISSING"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "CAUSAL_BRIDGE_MISSING",
+      "nc_id": "NC-NS-018",
+      "predicted_class": "CAUSAL_BRIDGE_MISSING"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "CAUSAL_BRIDGE_MISSING",
+      "nc_id": "NC-NS-019",
+      "predicted_class": "CAUSAL_BRIDGE_MISSING"
+    },
+    {
+      "correct": true,
+      "directive_family": "non_sequitur",
+      "expected_class": "CAUSAL_BRIDGE_MISSING",
+      "nc_id": "NC-NS-020",
+      "predicted_class": "CAUSAL_BRIDGE_MISSING"
+    }
+  ],
+  "probe_rescue": [
+    {
+      "contamination_risk": 34,
+      "false_blocks": 34,
+      "probe": "S1_frame_tension_strict",
+      "rescue_rate": 0.166667,
+      "rescued_cases": 4,
+      "rescued_chain_ids": [
+        "X2-V028P1",
+        "X2-V028P2",
+        "X2-V028P3",
+        "X2-V028P4"
+      ],
+      "unsafe": true
+    },
+    {
+      "contamination_risk": 361,
+      "false_blocks": 361,
+      "probe": "S2_inner_only_route",
+      "rescue_rate": 1.0,
+      "rescued_cases": 24,
+      "rescued_chain_ids": [
+        "D1I007",
+        "X1-V027P1",
+        "X1-V027P2",
+        "X1-V027P3",
+        "X1-V027P4",
+        "D2I007",
+        "X2-V027P1",
+        "X2-V027P2",
+        "X2-V027P3",
+        "X2-V027P4",
+        "X2-V028P1",
+        "X2-V028P2",
+        "X2-V028P3",
+        "X2-V028P4",
+        "D5I003",
+        "D5I018",
+        "X5-V003P1",
+        "X5-V003P2",
+        "X5-V003P3",
+        "X5-V003P4",
+        "X5-V018P1",
+        "X5-V018P2",
+        "X5-V018P3",
+        "X5-V018P4"
+      ],
+      "unsafe": true
+    },
+    {
+      "contamination_risk": 352,
+      "false_blocks": 352,
+      "probe": "S3_mandatory_consilium",
+      "rescue_rate": 1.0,
+      "rescued_cases": 24,
+      "rescued_chain_ids": [
+        "D1I007",
+        "X1-V027P1",
+        "X1-V027P2",
+        "X1-V027P3",
+        "X1-V027P4",
+        "D2I007",
+        "X2-V027P1",
+        "X2-V027P2",
+        "X2-V027P3",
+        "X2-V027P4",
+        "X2-V028P1",
+        "X2-V028P2",
+        "X2-V028P3",
+        "X2-V028P4",
+        "D5I003",
+        "D5I018",
+        "X5-V003P1",
+        "X5-V003P2",
+        "X5-V003P3",
+        "X5-V003P4",
+        "X5-V018P1",
+        "X5-V018P2",
+        "X5-V018P3",
+        "X5-V018P4"
+      ],
+      "unsafe": true
+    },
+    {
+      "contamination_risk": 276,
+      "false_blocks": 276,
+      "probe": "S4_tool_gate_if_numeric",
+      "rescue_rate": 0.833333,
+      "rescued_cases": 20,
+      "rescued_chain_ids": [
+        "X1-V027P1",
+        "X1-V027P2",
+        "X1-V027P3",
+        "X1-V027P4",
+        "X2-V027P1",
+        "X2-V027P2",
+        "X2-V027P3",
+        "X2-V027P4",
+        "X2-V028P1",
+        "X2-V028P2",
+        "X2-V028P3",
+        "X2-V028P4",
+        "X5-V003P1",
+        "X5-V003P2",
+        "X5-V003P3",
+        "X5-V003P4",
+        "X5-V018P1",
+        "X5-V018P2",
+        "X5-V018P3",
+        "X5-V018P4"
+      ],
+      "unsafe": true
+    },
+    {
+      "contamination_risk": 0,
+      "false_blocks": 0,
+      "probe": "S5_bidirectional_link_check",
+      "rescue_rate": 0.208333,
+      "rescued_cases": 5,
+      "rescued_chain_ids": [
+        "D2I007",
+        "X2-V027P1",
+        "X2-V027P2",
+        "X2-V027P3",
+        "X2-V027P4"
+      ],
+      "unsafe": false
+    }
+  ],
+  "recommendation_reason": "largest_cluster=0.375 (SEMANTIC_SCOPE_COLLAPSE); unknown_fraction=0.0; failure_entropy=1.945036",
+  "recommended_next": "SEMANTIC_FAILURE_LOCALIZED",
+  "replay_hash": "bf4147b89f398224",
+  "replay_records": [
+    {
+      "chain_id": "D1I007",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X1-V027P1",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X1-V027P2",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X1-V027P3",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X1-V027P4",
+      "conclusion_tokens": [
+        "anode",
+        "cycling",
+        "durability",
+        "high-rate",
+        "improved"
+      ],
+      "domain": "scientific_abstracts",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "D2I007",
+      "conclusion_tokens": [
+        "clause",
+        "law",
+        "matter",
+        "unconscionable"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:law,unconscionable",
+        "p1:clause"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X2-V027P1",
+      "conclusion_tokens": [
+        "clause",
+        "law",
+        "matter",
+        "unconscionable"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:law,unconscionable",
+        "p1:clause"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X2-V027P2",
+      "conclusion_tokens": [
+        "clause",
+        "law",
+        "matter",
+        "unconscionable"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:law,unconscionable",
+        "p1:clause"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X2-V027P3",
+      "conclusion_tokens": [
+        "clause",
+        "law",
+        "matter",
+        "unconscionable"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:law,unconscionable",
+        "p1:clause"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X2-V027P4",
+      "conclusion_tokens": [
+        "clause",
+        "law",
+        "matter",
+        "unconscionable"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:law,unconscionable",
+        "p1:clause"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X2-V028P1",
+      "conclusion_tokens": [
+        "claim",
+        "time-barred"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X2-V028P2",
+      "conclusion_tokens": [
+        "claim",
+        "time-barred"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X2-V028P3",
+      "conclusion_tokens": [
+        "claim",
+        "time-barred"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X2-V028P4",
+      "conclusion_tokens": [
+        "claim",
+        "time-barred"
+      ],
+      "domain": "legal_reasoning",
+      "extracted_links": [
+        "p0:-",
+        "p1:-"
+      ],
+      "frame_kind": "frame_undeclared",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F2_nearest_neighbor",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "D5I003",
+      "conclusion_tokens": [
+        "candidate",
+        "cannot",
+        "demands",
+        "office",
+        "withstand"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:candidate",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "D5I018",
+      "conclusion_tokens": [
+        "coffee",
+        "drinking",
+        "extend",
+        "lifespan",
+        "more",
+        "person",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X5-V003P1",
+      "conclusion_tokens": [
+        "candidate",
+        "cannot",
+        "demands",
+        "office",
+        "withstand"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:candidate",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X5-V003P2",
+      "conclusion_tokens": [
+        "candidate",
+        "cannot",
+        "demands",
+        "office",
+        "withstand"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:candidate",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X5-V003P3",
+      "conclusion_tokens": [
+        "candidate",
+        "cannot",
+        "demands",
+        "office",
+        "withstand"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:candidate",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X5-V003P4",
+      "conclusion_tokens": [
+        "candidate",
+        "cannot",
+        "demands",
+        "office",
+        "withstand"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:candidate",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X5-V018P1",
+      "conclusion_tokens": [
+        "coffee",
+        "drinking",
+        "extend",
+        "lifespan",
+        "more",
+        "person",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X5-V018P2",
+      "conclusion_tokens": [
+        "coffee",
+        "drinking",
+        "extend",
+        "lifespan",
+        "more",
+        "person",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X5-V018P3",
+      "conclusion_tokens": [
+        "coffee",
+        "drinking",
+        "extend",
+        "lifespan",
+        "more",
+        "person",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    },
+    {
+      "chain_id": "X5-V018P4",
+      "conclusion_tokens": [
+        "coffee",
+        "drinking",
+        "extend",
+        "lifespan",
+        "more",
+        "person",
+        "will"
+      ],
+      "domain": "adversarial_real_world",
+      "extracted_links": [
+        "p0:coffee",
+        "p1:-"
+      ],
+      "frame_kind": "formal_logic",
+      "frame_tension_state": "undecidable",
+      "originating_strategy": [
+        "F1_marker_lexical",
+        "F3_sentence_cooccurrence",
+        "F4_context_window"
+      ],
+      "premise_count": 2,
+      "routing_decision": "frame_routing_marker_required",
+      "support_path": "undecidable->frame_routing_marker_required->logically_supported",
+      "support_state": "logically_supported"
+    }
+  ],
+  "residue_count": 24,
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "total_contamination": 1023,
+  "v40_pre_v43_replay_hash": "aefa8f1e3429225a",
+  "v41_pre_v43_replay_hash": "f7ec695f17aa341b",
+  "v42_pre_v43_replay_hash": "181ec3cb1febf62f",
+  "v43_replay_hash": "7c63bcae4cf3fb37"
+}

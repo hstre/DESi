@@ -1,0 +1,86 @@
+{
+  "name": "audit_scenarios_ref",
+  "family": "AuditScenarios",
+  "version": "1.0.0",
+  "provenance": "offline_reference_dataset",
+  "license": "CC0-1.0",
+  "source_note": "Locally vendored synthetic audit scenarios in the style of ACCA Audit & Assurance and CPA/AICPA audit cases. Network-free: these are NOT official exam content and NO official examination results are claimed. Authored to test DESi's deterministic epistemic structuring of financial and narrative claims, not audit-firm accuracy.",
+  "scenarios": [
+    {
+      "scenario_id": "as_001",
+      "style": "ACCA_style",
+      "financial_claims": [
+        {"id": "f1", "statement": "revenue", "value": 1000, "footnote_ref": "n1"},
+        {"id": "f2", "statement": "operating_cashflow", "value": 180, "footnote_ref": "n2"}
+      ],
+      "footnotes": [
+        {"id": "n1", "text": "revenue includes 300 of deferred performance obligations recognised early"},
+        {"id": "n2", "text": "operating cashflow excludes 120 of one-off receipts"}
+      ],
+      "narrative_claims": [
+        {"id": "c1", "text": "the year showed strong and sustainable cash generation", "source_doc": "md_and_a"}
+      ],
+      "cross_refs": [
+        {"from": "f1", "to": "n1", "kind": "number_to_footnote"},
+        {"from": "f2", "to": "n2", "kind": "number_to_footnote"},
+        {"from": "c1", "to": "f2", "kind": "narrative_to_number"}
+      ]
+    },
+    {
+      "scenario_id": "as_002",
+      "style": "CPA_style",
+      "financial_claims": [
+        {"id": "f3", "statement": "net_income", "value": 50, "footnote_ref": "n3"},
+        {"id": "f4", "statement": "total_debt", "value": 900, "footnote_ref": "n4"}
+      ],
+      "footnotes": [
+        {"id": "n3", "text": "net income includes 40 of non-recurring gains"},
+        {"id": "n4", "text": "debt covenants require coverage ratio above threshold"}
+      ],
+      "narrative_claims": [
+        {"id": "c2", "text": "profitability improved across all core segments", "source_doc": "chair_letter"}
+      ],
+      "cross_refs": [
+        {"from": "f3", "to": "n3", "kind": "number_to_footnote"},
+        {"from": "f4", "to": "n4", "kind": "number_to_footnote"},
+        {"from": "c2", "to": "f3", "kind": "narrative_to_number"}
+      ]
+    },
+    {
+      "scenario_id": "as_003",
+      "style": "narrative",
+      "financial_claims": [
+        {"id": "f5", "statement": "inventory", "value": 600, "footnote_ref": "n5"}
+      ],
+      "footnotes": [
+        {"id": "n5", "text": "inventory valuation method changed this period"}
+      ],
+      "narrative_claims": [
+        {"id": "c3", "text": "no significant accounting policy changes occurred", "source_doc": "md_and_a"},
+        {"id": "c4", "text": "demand remained robust throughout", "source_doc": "chair_letter"}
+      ],
+      "cross_refs": [
+        {"from": "f5", "to": "n5", "kind": "number_to_footnote"},
+        {"from": "c3", "to": "n5", "kind": "narrative_to_footnote"}
+      ]
+    },
+    {
+      "scenario_id": "as_004",
+      "style": "cross_document",
+      "financial_claims": [
+        {"id": "f6", "statement": "receivables", "value": 400, "footnote_ref": "n6"}
+      ],
+      "footnotes": [
+        {"id": "n6", "text": "receivables ageing over 90 days increased materially"}
+      ],
+      "narrative_claims": [
+        {"id": "c5", "text": "collections accelerated versus prior year", "source_doc": "investor_deck"}
+      ],
+      "cross_refs": [
+        {"from": "f6", "to": "n6", "kind": "number_to_footnote"},
+        {"from": "c5", "to": "f6", "kind": "narrative_to_number"},
+        {"from": "c5", "to": "n6", "kind": "narrative_to_footnote"}
+      ]
+    }
+  ]
+}

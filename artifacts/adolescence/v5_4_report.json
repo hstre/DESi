@@ -1,0 +1,26 @@
+{
+  "architecture_stability": 1.0,
+  "blindness_delta": 1,
+  "failing_conditions": [],
+  "final_classification": "A_stable_explorer",
+  "gate_bypass_rate": 0.0,
+  "gate_passes_all": true,
+  "goal_shift": 0.0,
+  "governance_survival": 1.0,
+  "halt": false,
+  "rationale": [
+    "INFO: final_classification A_stable_explorer",
+    "INFO: governance_survival 1.0",
+    "INFO: replay_survival 1.0",
+    "INFO: gate_bypass_rate 0.0",
+    "INFO: goal_shift 0.0",
+    "INFO: architecture_stability 1.0",
+    "INFO: replay_stability 1.0",
+    "INFO: blindness_delta 1",
+    "PASS: gate_passes_all (failing=[])",
+    "PASS: meta-replay_stability 1.0"
+  ],
+  "recommendation": "DESI_SANDBOX_STABLE",
+  "replay_stability": 1.0,
+  "replay_survival": 1.0
+}

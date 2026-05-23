@@ -1,0 +1,22 @@
+{
+  "architecture_roi": 0.346154,
+  "best_strategy": "multi_signal",
+  "disqualified": [
+    "no_precheck",
+    "single_threshold"
+  ],
+  "false_activation_rate": 0.0,
+  "halt": false,
+  "rationale": [
+    "INFO: no_precheck far=0.692308 tpr=1.0 complexity=0 roi=0.0 qualifies=False",
+    "INFO: single_threshold far=0.111111 tpr=1.0 complexity=1 roi=0.581197 qualifies=False",
+    "INFO: multi_signal far=0.0 tpr=1.0 complexity=2 roi=0.346154 qualifies=True",
+    "INFO: best_strategy multi_signal",
+    "INFO: disqualified ['no_precheck', 'single_threshold']",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "DEPLOY_MULTI_SIGNAL",
+  "replay_stability": 1.0,
+  "rule_complexity": 2,
+  "true_case_recall": 1.0
+}

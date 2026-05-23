@@ -1,0 +1,1535 @@
+{
+  "builtin_hash_hits": [
+    {
+      "description": "Python's randomized built-in hash",
+      "excerpt": "frame_id=float(hash(s.get(\"operator\", \"\")) % 9),",
+      "kind": "builtin_hash",
+      "line_number": 236,
+      "path": "src/desi/epistemic_trajectory/extractor.py"
+    }
+  ],
+  "classifications": [
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 119,
+      "path": "src/desi/anti_anchor/ablation.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "ids = set(select_anti_anchor_ids(kind, n))",
+      "kind": "raw_set_literal",
+      "line_number": 93,
+      "path": "src/desi/anti_anchor/anchors.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "ids: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 68,
+      "path": "src/desi/bidirectional_cycle_patch/effect.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "by_class_before.setdefault(cluster, set()).add(chain_id)",
+      "kind": "raw_set_literal",
+      "line_number": 103,
+      "path": "src/desi/bidirectional_cycle_patch/effect.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "covered: set[int] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 25,
+      "path": "src/desi/blind_spot_mapping/blindspots.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "chain_types.setdefault(link.chain_id, set()).add(link_type.value)",
+      "kind": "raw_set_literal",
+      "line_number": 63,
+      "path": "src/desi/causal_link_typing/report.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "a_classes = set(sent_marker_counts[i])",
+      "kind": "raw_set_literal",
+      "line_number": 219,
+      "path": "src/desi/causal_naturalness/features.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "b_classes = set(sent_marker_counts[i + 1])",
+      "kind": "raw_set_literal",
+      "line_number": 220,
+      "path": "src/desi/causal_naturalness/features.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "a, b = set(sent_tokens[i]), set(sent_tokens[i + 1])",
+      "kind": "raw_set_literal",
+      "line_number": 231,
+      "path": "src/desi/causal_naturalness/features.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "and not (set(c.risk_flags) & risky_flags)",
+      "kind": "raw_set_literal",
+      "line_number": 113,
+      "path": "src/desi/causal_probe/metrics.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "out: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 116,
+      "path": "src/desi/causal_probe/pattern.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "return tuple(sorted(set(flags), key=lambda f: enum_order[f]))",
+      "kind": "raw_set_literal",
+      "line_number": 191,
+      "path": "src/desi/causal_probe/runner.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "out: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 31,
+      "path": "src/desi/causal_redteam/independence.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "upstream_set = set(upstream_texts)",
+      "kind": "raw_set_literal",
+      "line_number": 122,
+      "path": "src/desi/causal_redteam/independence.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 49,
+      "path": "src/desi/claim_field_interaction/attribution.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 116,
+      "path": "src/desi/claim_field_interaction/interaction.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 155,
+      "path": "src/desi/claim_field_interaction/interaction.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "out: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 157,
+      "path": "src/desi/claim_field_interaction/interaction.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "premise_words = set()",
+      "kind": "raw_set_literal",
+      "line_number": 188,
+      "path": "src/desi/consilium/review.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "premise_words = set()",
+      "kind": "raw_set_literal",
+      "line_number": 386,
+      "path": "src/desi/consilium/review.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "seen: set[ConsiliumRole] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 441,
+      "path": "src/desi/consilium/review.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "missing = set(_REVIEWERS) - seen",
+      "kind": "raw_set_literal",
+      "line_number": 448,
+      "path": "src/desi/consilium/review.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "out: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 70,
+      "path": "src/desi/content_audit_probe/content_probes.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "premise_union = set()",
+      "kind": "raw_set_literal",
+      "line_number": 89,
+      "path": "src/desi/content_audit_probe/content_probes.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "concl = set(_content_tokens(conclusion_text))",
+      "kind": "raw_set_literal",
+      "line_number": 43,
+      "path": "src/desi/content_audit_probe/replay.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "shared = sorted(concl & set(_content_tokens(p.text)))",
+      "kind": "raw_set_literal",
+      "line_number": 46,
+      "path": "src/desi/content_audit_probe/replay.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "concl_set = set(_content_tokens(conclusion_text))",
+      "kind": "raw_set_literal",
+      "line_number": 139,
+      "path": "src/desi/content_audit_probe/replay.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "set(p) for p in premise_token_lists",
+      "kind": "raw_set_literal",
+      "line_number": 145,
+      "path": "src/desi/content_audit_probe/replay.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "]) if premise_token_lists else set()",
+      "kind": "raw_set_literal",
+      "line_number": 146,
+      "path": "src/desi/content_audit_probe/replay.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "rescued_by_any_safe: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 102,
+      "path": "src/desi/content_audit_probe/rescue.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "ids: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 72,
+      "path": "src/desi/content_inversion_patch/effect.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "by_class_before.setdefault(cluster, set()).add(chain_id)",
+      "kind": "raw_set_literal",
+      "line_number": 103,
+      "path": "src/desi/content_inversion_patch/effect.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "return len(set(labels))",
+      "kind": "raw_set_literal",
+      "line_number": 84,
+      "path": "src/desi/content_method/decompose.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "clusters.setdefault(lab, set()).add(f.cohort)",
+      "kind": "raw_set_literal",
+      "line_number": 144,
+      "path": "src/desi/content_method/decompose.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "set(CONTENT_DIMS) | set(METHOD_DIMS)",
+      "kind": "raw_set_literal",
+      "line_number": 54,
+      "path": "src/desi/content_method/features.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": ") == set(DIMENSION_NAMES), (",
+      "kind": "raw_set_literal",
+      "line_number": 55,
+      "path": "src/desi/content_method/features.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "set(CONTENT_DIMS) & set(METHOD_DIMS)",
+      "kind": "raw_set_literal",
+      "line_number": 60,
+      "path": "src/desi/content_method/features.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": ") == set(), (",
+      "kind": "raw_set_literal",
+      "line_number": 61,
+      "path": "src/desi/content_method/features.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "for tok in set(ca) | set(cb):",
+      "kind": "raw_set_literal",
+      "line_number": 54,
+      "path": "src/desi/corpus_bias_audit/diff.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "ids = set(rollback_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 72,
+      "path": "src/desi/counterfactual_survival/report.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 78,
+      "path": "src/desi/cross_corpus/corpus_loader.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 92,
+      "path": "src/desi/cross_corpus/corpus_loader.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "anti_ids = set(per_corpus_anti_ids(corpus))",
+      "kind": "raw_set_literal",
+      "line_number": 85,
+      "path": "src/desi/cross_corpus_anti_anchor/suppression.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "levels = sorted(set(levels))",
+      "kind": "raw_set_literal",
+      "line_number": 85,
+      "path": "src/desi/cross_corpus_phase/transition.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "cum: set[int] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 94,
+      "path": "src/desi/cross_corpus_phase/transition.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "seen: set[int] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 106,
+      "path": "src/desi/cross_corpus_phase/transition.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "jittery: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 149,
+      "path": "src/desi/determinism/jitter.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "affected_dims: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 150,
+      "path": "src/desi/determinism/jitter.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "* ``set_literal``  - set() constructor.",
+      "kind": "raw_set_literal",
+      "line_number": 8,
+      "path": "src/desi/determinism_root_cause/containers.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "proven_dead = set(self._inventory.dead_knobs())",
+      "kind": "raw_set_literal",
+      "line_number": 140,
+      "path": "src/desi/diagnostic/runner.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "live_set = set(live_knobs)",
+      "kind": "raw_set_literal",
+      "line_number": 274,
+      "path": "src/desi/diagnostic/runner.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "return None, sorted(set(blocked))",
+      "kind": "raw_set_literal",
+      "line_number": 287,
+      "path": "src/desi/diagnostic/runner.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "return candidates[0][2], sorted(set(blocked))",
+      "kind": "raw_set_literal",
+      "line_number": 290,
+      "path": "src/desi/diagnostic/runner.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "if set(bc.members) == set(cls.members):",
+      "kind": "raw_set_literal",
+      "line_number": 102,
+      "path": "src/desi/doppelgaenger/blind_cluster.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "set(cl.members) & set(cls.members)",
+      "kind": "raw_set_literal",
+      "line_number": 134,
+      "path": "src/desi/doppelgaenger/blind_cluster.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "set(",
+      "kind": "raw_set_literal",
+      "line_number": 140,
+      "path": "src/desi/doppelgaenger/blind_cluster.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "if best_id != -1 else set()",
+      "kind": "raw_set_literal",
+      "line_number": 146,
+      "path": "src/desi/doppelgaenger/blind_cluster.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "and set(cl.members) == matched_set",
+      "kind": "raw_set_literal",
+      "line_number": 150,
+      "path": "src/desi/doppelgaenger/blind_cluster.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "proxy = set(proxy_dims())",
+      "kind": "raw_set_literal",
+      "line_number": 53,
+      "path": "src/desi/entangled/residual.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "ids = set(entangled_members())",
+      "kind": "raw_set_literal",
+      "line_number": 50,
+      "path": "src/desi/entangled/variance.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "g_ids = set(fams.get(\"G_v316susp\", ()))",
+      "kind": "raw_set_literal",
+      "line_number": 136,
+      "path": "src/desi/entangled/variance.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "e_ids = set(fams.get(\"E_v317h\", ()))",
+      "kind": "raw_set_literal",
+      "line_number": 137,
+      "path": "src/desi/entangled/variance.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "keep_idx: set[int] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 49,
+      "path": "src/desi/entangled_ablation/ablation.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "members = set(entangled_members())",
+      "kind": "raw_set_literal",
+      "line_number": 95,
+      "path": "src/desi/entangled_method/method.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "keep_res_idx: set[int] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 113,
+      "path": "src/desi/entangled_resolution/resolve.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "frame_id=float(hash(s.get(\"operator\", \"\")) % 9),",
+      "kind": "builtin_hash",
+      "line_number": 236,
+      "path": "src/desi/epistemic_trajectory/extractor.py",
+      "suggested_fix": "stable_hash"
+    },
+    {
+      "excerpt": "if len(set(seeds)) != len(seeds):",
+      "kind": "raw_set_literal",
+      "line_number": 307,
+      "path": "src/desi/evolution/multi_seed.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "return set()",
+      "kind": "raw_set_literal",
+      "line_number": 288,
+      "path": "src/desi/evolution/promotion.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "related: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 220,
+      "path": "src/desi/evolution/reflection.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "failing_seeds=tuple(sorted(set(guard_failures))),",
+      "kind": "raw_set_literal",
+      "line_number": 277,
+      "path": "src/desi/evolution/significance.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "f\"{sorted(set(guard_failures))}; promotion blocked.\"",
+      "kind": "raw_set_literal",
+      "line_number": 280,
+      "path": "src/desi/evolution/significance.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "failing_seeds=tuple(sorted(set(candidate_failures))),",
+      "kind": "raw_set_literal",
+      "line_number": 295,
+      "path": "src/desi/evolution/significance.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "f\"{sorted(set(candidate_failures))}; promotion blocked.\"",
+      "kind": "raw_set_literal",
+      "line_number": 298,
+      "path": "src/desi/evolution/significance.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "supporting_seeds=tuple(sorted(set(best_improved))),",
+      "kind": "raw_set_literal",
+      "line_number": 346,
+      "path": "src/desi/evolution/significance.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "failing_seeds=tuple(sorted(set(best_not_improved))),",
+      "kind": "raw_set_literal",
+      "line_number": 347,
+      "path": "src/desi/evolution/significance.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "supporting_seeds=tuple(sorted(set(supporting))),",
+      "kind": "raw_set_literal",
+      "line_number": 366,
+      "path": "src/desi/evolution/significance.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "supporting_seeds=tuple(sorted(set(supporting))),",
+      "kind": "raw_set_literal",
+      "line_number": 377,
+      "path": "src/desi/evolution/significance.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "for cluster in sorted(set(before_counts) | set(after_counts)):",
+      "kind": "raw_set_literal",
+      "line_number": 189,
+      "path": "src/desi/external_audit_patch/effect.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "concl = set(record.conclusion_tokens)",
+      "kind": "raw_set_literal",
+      "line_number": 95,
+      "path": "src/desi/external_audit_probe/classifier.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "toks = set(body.split(\",\"))",
+      "kind": "raw_set_literal",
+      "line_number": 102,
+      "path": "src/desi/external_audit_probe/classifier.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "reduced_ids: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 147,
+      "path": "src/desi/external_audit_probe/counterfactual.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "contam_texts: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 148,
+      "path": "src/desi/external_audit_probe/counterfactual.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "actual_guard_hits=tuple(sorted(set(actual))),",
+      "kind": "raw_set_literal",
+      "line_number": 71,
+      "path": "src/desi/external_audit_probe/guards.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "return tuple(sorted(set(fired)))",
+      "kind": "raw_set_literal",
+      "line_number": 136,
+      "path": "src/desi/external_audit_probe/replay.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "concl = set(_content_tokens(conclusion_text))",
+      "kind": "raw_set_literal",
+      "line_number": 176,
+      "path": "src/desi/external_audit_probe/replay.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "ptoks = set(_content_tokens(p.text))",
+      "kind": "raw_set_literal",
+      "line_number": 179,
+      "path": "src/desi/external_audit_probe/replay.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "desi_set = set(desi)",
+      "kind": "raw_set_literal",
+      "line_number": 102,
+      "path": "src/desi/external_probe/contamination.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 87,
+      "path": "src/desi/field_leakage/census.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 105,
+      "path": "src/desi/field_radius_sweep/ablation.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 129,
+      "path": "src/desi/frame_artifact_audit/ablation.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pool: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 63,
+      "path": "src/desi/frame_disambiguator_probe/candidates.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "out: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 40,
+      "path": "src/desi/frame_failure_audit/patchability.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "members = [f for f in failures if f.case_id in set(cluster.members)]",
+      "kind": "raw_set_literal",
+      "line_number": 116,
+      "path": "src/desi/frame_failure_audit/patchability.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "members = [f for f in failures if f.case_id in set(cluster.members)]",
+      "kind": "raw_set_literal",
+      "line_number": 153,
+      "path": "src/desi/frame_failure_audit/patchability.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "seen_groups: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 85,
+      "path": "src/desi/frame_invariance/metrics.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "anchors = set(all_novel_anchors())",
+      "kind": "raw_set_literal",
+      "line_number": 71,
+      "path": "src/desi/frame_normalization/contribution.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "set(_frame_indices()),",
+      "kind": "raw_set_literal",
+      "line_number": 110,
+      "path": "src/desi/frame_normalization/contribution.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "frame = set(_frame_indices())",
+      "kind": "raw_set_literal",
+      "line_number": 118,
+      "path": "src/desi/frame_normalization/contribution.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "drop = set(_all_indices()) - frame",
+      "kind": "raw_set_literal",
+      "line_number": 119,
+      "path": "src/desi/frame_normalization/contribution.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "frame_idx = set(_frame_indices())",
+      "kind": "raw_set_literal",
+      "line_number": 134,
+      "path": "src/desi/frame_normalization/contribution.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "if set(bc.members) == set(fam.members):",
+      "kind": "raw_set_literal",
+      "line_number": 114,
+      "path": "src/desi/frame_normalized_cluster/cluster.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "keep_idx: set[int] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 53,
+      "path": "src/desi/frame_normalized_minimal/minimal.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "unique = tuple(dict.fromkeys(buckets))  # preserves order, dedupes",
+      "kind": "dict_fromkeys",
+      "line_number": 160,
+      "path": "src/desi/frames/detector.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "return tuple(dict.fromkeys(_rule_buckets(source_text)))",
+      "kind": "dict_fromkeys",
+      "line_number": 229,
+      "path": "src/desi/frames/detector.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "out: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 50,
+      "path": "src/desi/heldout_causal/independence.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "upstream_set = set(upstream_texts)",
+      "kind": "raw_set_literal",
+      "line_number": 150,
+      "path": "src/desi/heldout_causal/independence.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "upstream_clauses = set()",
+      "kind": "raw_set_literal",
+      "line_number": 151,
+      "path": "src/desi/heldout_causal/independence.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "upstream_shapes = set()",
+      "kind": "raw_set_literal",
+      "line_number": 155,
+      "path": "src/desi/heldout_causal/independence.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "out: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 433,
+      "path": "src/desi/logic/inference.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "token_to_premises.setdefault(t, set()).add(idx)",
+      "kind": "raw_set_literal",
+      "line_number": 513,
+      "path": "src/desi/logic/inference.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "owners = token_to_premises.get(t, set())",
+      "kind": "raw_set_literal",
+      "line_number": 523,
+      "path": "src/desi/logic/inference.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "self._seen_claim_ids: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 80,
+      "path": "src/desi/memory/hook.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "self._seen_claim_ids = set()",
+      "kind": "raw_set_literal",
+      "line_number": 143,
+      "path": "src/desi/memory/hook.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "seen: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 82,
+      "path": "src/desi/memory/view.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "return json.dumps(trajectory.model_dump(mode=\"json\"), indent=2, ensure_ascii=False)",
+      "kind": "json_dumps_no_sort",
+      "line_number": 137,
+      "path": "src/desi/meta_analyzer.py",
+      "suggested_fix": "json_sort_keys"
+    },
+    {
+      "excerpt": "premise_token_union: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 146,
+      "path": "src/desi/methodology_transfer/feature_extraction.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "union = set()",
+      "kind": "raw_set_literal",
+      "line_number": 151,
+      "path": "src/desi/methodology_transfer/probe_generator.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "drop_idx: set[int] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 93,
+      "path": "src/desi/minimal_features/ablation.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "kept = set(DIMENSION_NAMES)",
+      "kind": "raw_set_literal",
+      "line_number": 108,
+      "path": "src/desi/minimal_features/importance.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "dropped: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 109,
+      "path": "src/desi/minimal_features/importance.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "minimal = set(minimal_feature_set())",
+      "kind": "raw_set_literal",
+      "line_number": 124,
+      "path": "src/desi/minimal_features/importance.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "elif needs <= set(best_feats):",
+      "kind": "raw_set_literal",
+      "line_number": 95,
+      "path": "src/desi/minimal_predictor/report.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "f\"{'PASS' if needs <= set(best_feats) else 'FAIL'}: \"",
+      "kind": "raw_set_literal",
+      "line_number": 108,
+      "path": "src/desi/minimal_predictor/report.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "actual = set(_hidden_role_labels())",
+      "kind": "raw_set_literal",
+      "line_number": 160,
+      "path": "src/desi/missing_blind/recover.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "recovered: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 161,
+      "path": "src/desi/missing_blind/recover.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "out: set[int] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 124,
+      "path": "src/desi/missing_claim/remove.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "new_cov: set[int] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 163,
+      "path": "src/desi/missing_negative_controls/null_space.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "ids: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 72,
+      "path": "src/desi/modality_patch/effect.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "by_class_before.setdefault(cluster, set()).add(chain_id)",
+      "kind": "raw_set_literal",
+      "line_number": 103,
+      "path": "src/desi/modality_patch/effect.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "len(set(s.frame_id for s in states)),",
+      "kind": "raw_set_literal",
+      "line_number": 59,
+      "path": "src/desi/mozart_coverage_source/claims.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "out: set = set()",
+      "kind": "raw_set_literal",
+      "line_number": 50,
+      "path": "src/desi/mozart_coverage_source/regions.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "out: set = set()",
+      "kind": "raw_set_literal",
+      "line_number": 63,
+      "path": "src/desi/mozart_coverage_source/regions.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "set(s.frame_id for s in states)",
+      "kind": "raw_set_literal",
+      "line_number": 81,
+      "path": "src/desi/mozart_probe/coverage.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "mozart = set(HISTORICAL_PROBES)",
+      "kind": "raw_set_literal",
+      "line_number": 48,
+      "path": "src/desi/novel_families/select.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "if set(bc.members) == set(fam.members):",
+      "kind": "raw_set_literal",
+      "line_number": 96,
+      "path": "src/desi/novel_family_cluster/cluster.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "anchors = set(all_novel_anchors())",
+      "kind": "raw_set_literal",
+      "line_number": 26,
+      "path": "src/desi/novel_family_cluster/distance.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "keep_idx: set[int] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 58,
+      "path": "src/desi/novel_minimal_features/minimal.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "anchors = set(all_novel_anchors())",
+      "kind": "raw_set_literal",
+      "line_number": 61,
+      "path": "src/desi/novel_minimal_features/minimal.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "proxy = set(PROXY_DIMS())",
+      "kind": "raw_set_literal",
+      "line_number": 115,
+      "path": "src/desi/novel_minimal_features/transfer.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "self._known_claims: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 49,
+      "path": "src/desi/observe/session.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "return json.dumps(self.to_dict(), indent=indent, sort_keys=False)",
+      "kind": "json_dumps_no_sort",
+      "line_number": 54,
+      "path": "src/desi/observe/snapshot.py",
+      "suggested_fix": "json_sort_keys"
+    },
+    {
+      "excerpt": "return json.dumps(v)",
+      "kind": "json_dumps_no_sort",
+      "line_number": 198,
+      "path": "src/desi/observe/snapshot.py",
+      "suggested_fix": "json_sort_keys"
+    },
+    {
+      "excerpt": "return json.dumps(s)",
+      "kind": "json_dumps_no_sort",
+      "line_number": 202,
+      "path": "src/desi/observe/snapshot.py",
+      "suggested_fix": "json_sort_keys"
+    },
+    {
+      "excerpt": "return json.dumps([e.to_dict() for e in events], indent=indent,",
+      "kind": "json_dumps_no_sort",
+      "line_number": 82,
+      "path": "src/desi/observe/timeline.py",
+      "suggested_fix": "json_sort_keys"
+    },
+    {
+      "excerpt": "out: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 79,
+      "path": "src/desi/pair_resonance/coverage.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 40,
+      "path": "src/desi/plateau_causes/cause_distribution.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 93,
+      "path": "src/desi/plateau_causes/report.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "plateau_ids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 135,
+      "path": "src/desi/plateau_cross_transfer/transfer.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 104,
+      "path": "src/desi/plateau_hold_sweep/report.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 90,
+      "path": "src/desi/plateau_noise_timing/report.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 152,
+      "path": "src/desi/plateau_resolution/report.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 181,
+      "path": "src/desi/plateau_resolution/report.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 277,
+      "path": "src/desi/plateau_resolution/report.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 297,
+      "path": "src/desi/plateau_resolution/report.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "uniq = sorted(set(values))",
+      "kind": "raw_set_literal",
+      "line_number": 54,
+      "path": "src/desi/plateau_separation/boundary.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "edges = set()",
+      "kind": "raw_set_literal",
+      "line_number": 37,
+      "path": "src/desi/plateau_separation/clustering.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "is_pure=len(set(cls)) == 1,",
+      "kind": "raw_set_literal",
+      "line_number": 111,
+      "path": "src/desi/plateau_separation/clustering.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 136,
+      "path": "src/desi/plateau_specificity_recovery/ablation.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "premise_token_set = set()",
+      "kind": "raw_set_literal",
+      "line_number": 166,
+      "path": "src/desi/premise_audit/signals.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "set(_tokens(conclusion.text)) if conclusion else set()",
+      "kind": "raw_set_literal",
+      "line_number": 170,
+      "path": "src/desi/premise_audit/signals.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "return tuple(sorted(set(self.edges)))",
+      "kind": "raw_set_literal",
+      "line_number": 66,
+      "path": "src/desi/recursive/graph.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "agg_resolved: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 375,
+      "path": "src/desi/recursive/resolver.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "agg_blocked: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 376,
+      "path": "src/desi/recursive/resolver.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "agg_open: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 377,
+      "path": "src/desi/recursive/resolver.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "blocking = set(cons_result.verdict.blocking_roles)",
+      "kind": "raw_set_literal",
+      "line_number": 594,
+      "path": "src/desi/recursive/resolver.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "out: set[int] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 41,
+      "path": "src/desi/redundancy_aware_neptun/masking.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "baseline = set()",
+      "kind": "raw_set_literal",
+      "line_number": 80,
+      "path": "src/desi/redundancy_aware_neptun/neptun_retest.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "new_cov = set()",
+      "kind": "raw_set_literal",
+      "line_number": 87,
+      "path": "src/desi/redundancy_aware_neptun/neptun_retest.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "out: set[int] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 97,
+      "path": "src/desi/redundancy_pair/removal.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "concl = set(_content_tokens(conclusion_text))",
+      "kind": "raw_set_literal",
+      "line_number": 49,
+      "path": "src/desi/residual_semantic_probe/replay.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "ptoks = set(_content_tokens(p.text))",
+      "kind": "raw_set_literal",
+      "line_number": 52,
+      "path": "src/desi/residual_semantic_probe/replay.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "rescued_by_any_safe: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 117,
+      "path": "src/desi/residual_semantic_probe/rescue.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "concl = set(_content_tokens(e.conclusion.text))",
+      "kind": "raw_set_literal",
+      "line_number": 56,
+      "path": "src/desi/residual_semantic_probe/semantic_probes.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "shared = concl & set(_content_tokens(p.text))",
+      "kind": "raw_set_literal",
+      "line_number": 60,
+      "path": "src/desi/residual_semantic_probe/semantic_probes.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "seen: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 92,
+      "path": "src/desi/self_audit/extractor.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "seen: set[tuple[str, str]] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 159,
+      "path": "src/desi/self_audit/extractor.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "if traj.trajectory_id in set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 120,
+      "path": "src/desi/self_explanation/explainer.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "pids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 84,
+      "path": "src/desi/semantic_phase_transition/curve.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "return json.dumps(doc, indent=2) + \"\\n\"",
+      "kind": "json_dumps_no_sort",
+      "line_number": 183,
+      "path": "src/desi/showcase/runner.py",
+      "suggested_fix": "json_sort_keys"
+    },
+    {
+      "excerpt": "non_rescued = set(non_rescued_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 89,
+      "path": "src/desi/support_plateau/metrics.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "non_rescued = set(non_rescued_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 74,
+      "path": "src/desi/support_plateau/report.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "plateau_ids = set(plateau_trajectory_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 75,
+      "path": "src/desi/support_plateau/report.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "non_rescued = set(non_rescued_ids())",
+      "kind": "raw_set_literal",
+      "line_number": 136,
+      "path": "src/desi/support_plateau/report.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "c.name: set(c.member_ids) for c in baseline.clusters",
+      "kind": "raw_set_literal",
+      "line_number": 79,
+      "path": "src/desi/taxonomy_stability/cluster_mapper.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "survivors = tuple(sorted(set(targets)))",
+      "kind": "raw_set_literal",
+      "line_number": 112,
+      "path": "src/desi/taxonomy_stability/cluster_mapper.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "n for n in canonical_names if n not in set(targets)",
+      "kind": "raw_set_literal",
+      "line_number": 114,
+      "path": "src/desi/taxonomy_stability/cluster_mapper.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "hit = set(rm.canonical_targets)",
+      "kind": "raw_set_literal",
+      "line_number": 143,
+      "path": "src/desi/taxonomy_stability/cluster_mapper.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "labels: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 217,
+      "path": "src/desi/taxonomy_stability/negative_controls.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "hit: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 232,
+      "path": "src/desi/taxonomy_stability/negative_controls.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "c.name: set(c.member_ids) for c in baseline.clusters",
+      "kind": "raw_set_literal",
+      "line_number": 99,
+      "path": "src/desi/taxonomy_stability/stability_metrics.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "common = set(a) & set(b)",
+      "kind": "raw_set_literal",
+      "line_number": 269,
+      "path": "src/desi/taxonomy_stability/stability_metrics.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "return set()",
+      "kind": "raw_set_literal",
+      "line_number": 100,
+      "path": "src/desi/tools/detector.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "return set(items)",
+      "kind": "raw_set_literal",
+      "line_number": 103,
+      "path": "src/desi/tools/detector.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "contaminated = set(scan.claim_ids)",
+      "kind": "raw_set_literal",
+      "line_number": 149,
+      "path": "src/desi/tools/impact.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "downstream: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 150,
+      "path": "src/desi/tools/impact.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "seen = set(contaminated)",
+      "kind": "raw_set_literal",
+      "line_number": 153,
+      "path": "src/desi/tools/impact.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "target = set(str(chars).lower())",
+      "kind": "raw_set_literal",
+      "line_number": 167,
+      "path": "src/desi/tools/runners.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "return {\"value\": str(len(set(items))), \"operation\": op}",
+      "kind": "raw_set_literal",
+      "line_number": 173,
+      "path": "src/desi/tools/runners.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "a = set(payload.get(\"a\", []))",
+      "kind": "raw_set_literal",
+      "line_number": 232,
+      "path": "src/desi/tools/runners.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "b = set(payload.get(\"b\", []))",
+      "kind": "raw_set_literal",
+      "line_number": 233,
+      "path": "src/desi/tools/runners.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "concl_set = set(record.conclusion_tokens)",
+      "kind": "raw_set_literal",
+      "line_number": 97,
+      "path": "src/desi/warrant_probe/classifier.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "if len(concl_set & set(ptoks)) >= threshold:",
+      "kind": "raw_set_literal",
+      "line_number": 100,
+      "path": "src/desi/warrant_probe/classifier.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "concl = set(_content_tokens(conclusion_text))",
+      "kind": "raw_set_literal",
+      "line_number": 44,
+      "path": "src/desi/warrant_probe/replay.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "shared = sorted(concl & set(_content_tokens(p.text)))",
+      "kind": "raw_set_literal",
+      "line_number": 47,
+      "path": "src/desi/warrant_probe/replay.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "concl_set = set(_content_tokens(conclusion_text))",
+      "kind": "raw_set_literal",
+      "line_number": 141,
+      "path": "src/desi/warrant_probe/replay.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "*[set(p) for p in premise_token_lists]",
+      "kind": "raw_set_literal",
+      "line_number": 147,
+      "path": "src/desi/warrant_probe/replay.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": ") if premise_token_lists else set()",
+      "kind": "raw_set_literal",
+      "line_number": 148,
+      "path": "src/desi/warrant_probe/replay.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "rescued_by_any_safe: set[str] = set()",
+      "kind": "raw_set_literal",
+      "line_number": 102,
+      "path": "src/desi/warrant_probe/rescue.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "concl_toks = set(_tokens(e.conclusion.text))",
+      "kind": "raw_set_literal",
+      "line_number": 87,
+      "path": "src/desi/warrant_probe/warrant_probes.py",
+      "suggested_fix": "sorted_keys"
+    },
+    {
+      "excerpt": "ptoks = set(_tokens(p.text))",
+      "kind": "raw_set_literal",
+      "line_number": 91,
+      "path": "src/desi/warrant_probe/warrant_probes.py",
+      "suggested_fix": "sorted_keys"
+    }
+  ],
+  "container_kind_counts": [
+    {
+      "count": 1,
+      "kind": "builtin_hash"
+    },
+    {
+      "count": 2,
+      "kind": "dict_fromkeys"
+    },
+    {
+      "count": 6,
+      "kind": "json_dumps_no_sort"
+    },
+    {
+      "count": 201,
+      "kind": "raw_set_literal"
+    }
+  ],
+  "halt": false,
+  "high_risk_hit_count": 1,
+  "ordering_dependency": [
+    "json_sort_keys",
+    "sorted_keys",
+    "stable_hash"
+  ],
+  "rationale": [
+    "INFO: total_hit_count 210",
+    "INFO: high_risk_hit_count 1",
+    "PASS: root_cause_found True",
+    "INFO: unstable_function ['src/desi/epistemic_trajectory/extractor.py:236', 'src/desi/meta_analyzer.py:137', 'src/desi/observe/snapshot.py:198', 'src/desi/observe/snapshot.py:202', 'src/desi/observe/snapshot.py:54', 'src/desi/observe/timeline.py:82', 'src/desi/showcase/runner.py:183']",
+    "INFO: unstable_container ['builtin_hash']",
+    "INFO: ordering_dependency ['json_sort_keys', 'sorted_keys', 'stable_hash']",
+    "INFO: builtin_hash_hits [{'path': 'src/desi/epistemic_trajectory/extractor.py', 'line_number': 236, 'kind': 'builtin_hash', 'excerpt': 'frame_id=float(hash(s.get(\"operator\", \"\")) % 9),', 'description': \"Python's randomized built-in hash\"}]",
+    "INFO: container_kind_counts {'raw_set_literal': 201, 'builtin_hash': 1, 'dict_fromkeys': 2, 'json_dumps_no_sort': 6}",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "ROOT_CAUSE_IDENTIFIED",
+  "replay_stability": 1.0,
+  "root_cause_found": true,
+  "total_hit_count": 210,
+  "unstable_container": [
+    "builtin_hash"
+  ],
+  "unstable_function": [
+    "src/desi/epistemic_trajectory/extractor.py:236",
+    "src/desi/meta_analyzer.py:137",
+    "src/desi/observe/snapshot.py:198",
+    "src/desi/observe/snapshot.py:202",
+    "src/desi/observe/snapshot.py:54",
+    "src/desi/observe/timeline.py:82",
+    "src/desi/showcase/runner.py:183"
+  ]
+}

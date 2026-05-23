@@ -1,0 +1,15 @@
+{
+  "name": "adversarial_semantics_ref",
+  "family": "AdversarialFinancialSemantics",
+  "version": "1.0.0",
+  "provenance": "offline_reference_dataset",
+  "license": "CC0-1.0",
+  "source_note": "Locally vendored synthetic adversarial financial-semantics scenarios: formally correct but semantically suspicious. Network-free; NOT official exam content and NO official results claimed. Each scenario carries explicit structured signal flags and the conflicts DESi should surface. Includes a clean control case to confirm DESi does not hallucinate conflicts.",
+  "scenarios": [
+    {"scenario_id": "ad_001", "signals": {"creative_accounting": true, "footnote_conflict": true}, "expected_conflicts": ["creative_accounting", "footnote_conflict"]},
+    {"scenario_id": "ad_002", "signals": {"management_spin": true, "too_smooth": true}, "expected_conflicts": ["management_spin", "too_smooth_narrative"]},
+    {"scenario_id": "ad_003", "signals": {"footnote_conflict": true}, "expected_conflicts": ["footnote_conflict"]},
+    {"scenario_id": "ad_004", "signals": {"semantic_distraction": true, "management_spin": true}, "expected_conflicts": ["semantic_distraction", "management_spin"]},
+    {"scenario_id": "ad_005", "signals": {}, "expected_conflicts": []}
+  ]
+}

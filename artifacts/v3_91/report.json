@@ -1,0 +1,113 @@
+{
+  "best_minimal_feature_set": [
+    "branch_cost",
+    "contradiction_load"
+  ],
+  "halt": false,
+  "informative_subset_outcomes": [
+    {
+      "cluster_count": 2,
+      "cluster_sizes": [
+        33,
+        5
+      ],
+      "dims": [
+        "branch_cost"
+      ],
+      "purity": 0.421053
+    },
+    {
+      "cluster_count": 2,
+      "cluster_sizes": [
+        30,
+        8
+      ],
+      "dims": [
+        "contradiction_load"
+      ],
+      "purity": 0.473684
+    },
+    {
+      "cluster_count": 2,
+      "cluster_sizes": [
+        33,
+        5
+      ],
+      "dims": [
+        "novelty"
+      ],
+      "purity": 0.421053
+    },
+    {
+      "cluster_count": 3,
+      "cluster_sizes": [
+        25,
+        8,
+        5
+      ],
+      "dims": [
+        "branch_cost",
+        "contradiction_load"
+      ],
+      "purity": 0.605263
+    },
+    {
+      "cluster_count": 2,
+      "cluster_sizes": [
+        33,
+        5
+      ],
+      "dims": [
+        "branch_cost",
+        "novelty"
+      ],
+      "purity": 0.421053
+    },
+    {
+      "cluster_count": 2,
+      "cluster_sizes": [
+        30,
+        8
+      ],
+      "dims": [
+        "contradiction_load",
+        "novelty"
+      ],
+      "purity": 0.473684
+    },
+    {
+      "cluster_count": 3,
+      "cluster_sizes": [
+        25,
+        8,
+        5
+      ],
+      "dims": [
+        "branch_cost",
+        "contradiction_load",
+        "novelty"
+      ],
+      "purity": 0.605263
+    }
+  ],
+  "marginal_frame_gain": 0.315789,
+  "normalized_predictive_auc": 0.711661,
+  "normalized_proxy_accuracy": 0.605263,
+  "proxy_dims": [
+    "branch_cost",
+    "contradiction_load"
+  ],
+  "rationale": [
+    "INFO: proxy_dims ['branch_cost', 'contradiction_load']",
+    "INFO: raw_proxy_accuracy 0.605263",
+    "FAIL: normalized_proxy_accuracy 0.605263 (threshold 0.7)",
+    "INFO: normalized_predictive_auc 0.711661",
+    "INFO: best_minimal_feature_set ['branch_cost', 'contradiction_load']",
+    "INFO: marginal_frame_gain 0.315789 (residual_full_purity minus raw_full_purity)",
+    "INFO: informative_subset_outcomes [{'dims': ['branch_cost'], 'cluster_count': 2, 'cluster_sizes': [33, 5], 'purity': 0.421053}, {'dims': ['contradiction_load'], 'cluster_count': 2, 'cluster_sizes': [30, 8], 'purity': 0.473684}, {'dims': ['novelty'], 'cluster_count': 2, 'cluster_sizes': [33, 5], 'purity': 0.421053}, {'dims': ['branch_cost', 'contradiction_load'], 'cluster_count': 3, 'cluster_sizes': [25, 8, 5], 'purity': 0.605263}, {'dims': ['branch_cost', 'novelty'], 'cluster_count': 2, 'cluster_sizes': [33, 5], 'purity': 0.421053}, {'dims': ['contradiction_load', 'novelty'], 'cluster_count': 2, 'cluster_sizes': [30, 8], 'purity': 0.473684}, {'dims': ['branch_cost', 'contradiction_load', 'novelty'], 'cluster_count': 3, 'cluster_sizes': [25, 8, 5], 'purity': 0.605263}]",
+    "PASS: replay_stability 1.0"
+  ],
+  "raw_proxy_accuracy": 0.605263,
+  "recommendation": "PROXY_NOT_FRAME_HIDDEN",
+  "replay_stability": 1.0
+}

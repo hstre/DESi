@@ -1,0 +1,13 @@
+{
+  "name": "hotpotqa_ref",
+  "family": "HotpotQA",
+  "version": "1.0.0",
+  "provenance": "offline_reference_dataset",
+  "license": "CC0-1.0",
+  "source_note": "Locally vendored reference dataset in the HotpotQA multi-hop format. Network-free: NOT a live download of the official HotpotQA suite and NOT official leaderboard scores. Tasks test DESi's deterministic hop-graph structuring and gap detection, not LLM accuracy.",
+  "tasks": [
+    {"task_id": "hp_001", "question": "are entities A and B of the same type?", "hops": [{"hop_id": "h1", "fact": "A is type T", "redundant": false}, {"hop_id": "h2", "fact": "B is type T", "redundant": false}], "required_hops": ["h1", "h2"]},
+    {"task_id": "hp_002", "question": "which award did the actor of role R win?", "hops": [{"hop_id": "h1", "fact": "role R played by actor Ac", "redundant": false}, {"hop_id": "h2", "fact": "Ac won award Aw", "redundant": false}, {"hop_id": "h3", "fact": "Aw given in year Y", "redundant": false}, {"hop_id": "h3b", "fact": "Aw given in year Y", "redundant": true}], "required_hops": ["h1", "h2", "h3"]},
+    {"task_id": "hp_003", "question": "what river runs through the city hosting event E?", "hops": [{"hop_id": "h1", "fact": "event E hosted by city Ci", "redundant": false}, {"hop_id": "h3", "fact": "river Ri length L", "redundant": false}], "required_hops": ["h1", "h2", "h3"]}
+  ]
+}

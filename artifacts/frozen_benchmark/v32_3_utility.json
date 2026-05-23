@@ -1,0 +1,71 @@
+{
+  "baseline_novelty_per_runtime": 0.111111,
+  "disclaimer": "A real, measured utility analysis of the evolution features. Benefit (runtime recompute reduction, epistemic structuring or exploration) and complexity are measured from the v29-v31 layers, not projected. The evolution phase produced real net utility, and the analysis is honest about local attractors: the overengineering detector flags features whose complexity exceeds their measured benefit. Governance is identical, replay is stable, and human approval is mandatory.",
+  "evolution_utility": 0.611111,
+  "feature_efficiency": {
+    "evolution_ecology": 0.166667,
+    "mutation_memory": 0.5,
+    "neo4j_evolution_graph": -0.5,
+    "replay_cache": 0.488889,
+    "wild_brother": 0.0
+  },
+  "features": [
+    {
+      "benefit": 0.888889,
+      "complexity": 0.4,
+      "is_overengineered": false,
+      "kind": "runtime",
+      "name": "replay_cache"
+    },
+    {
+      "benefit": 0.666667,
+      "complexity": 0.5,
+      "is_overengineered": false,
+      "kind": "runtime",
+      "name": "evolution_ecology"
+    },
+    {
+      "benefit": 1.0,
+      "complexity": 0.5,
+      "is_overengineered": false,
+      "kind": "epistemic",
+      "name": "mutation_memory"
+    },
+    {
+      "benefit": 0.0,
+      "complexity": 0.5,
+      "is_overengineered": true,
+      "kind": "projection",
+      "name": "neo4j_evolution_graph"
+    },
+    {
+      "benefit": 0.5,
+      "complexity": 0.5,
+      "is_overengineered": false,
+      "kind": "exploration",
+      "name": "wild_brother"
+    }
+  ],
+  "governance_identity": 1.0,
+  "human_approval_required": true,
+  "local_attractors": [
+    "neo4j_evolution_graph"
+  ],
+  "memory_utility": 1.0,
+  "novelty_per_runtime": 1.0,
+  "novelty_per_runtime_gain": 0.888889,
+  "overengineered_features": [
+    "neo4j_evolution_graph"
+  ],
+  "overengineering_detection": 1.0,
+  "recommendation": "REAL_UTILITY_WITH_LOCAL_ATTRACTORS",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "REAL_EVOLUTION_UTILITY",
+    "REAL_UTILITY_WITH_LOCAL_ATTRACTORS",
+    "COMPLEXITY_WITHOUT_UTILITY",
+    "UTILITY_ANALYSIS_HALT"
+  ],
+  "schema_version": "v32_3_evolution_utility",
+  "signature": "128a9928b75c01ae1966f515c71d0ce7a4b366078678d21ec2c2eab329dc3696"
+}

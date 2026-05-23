@@ -1,0 +1,71 @@
+{
+  "adopted_myth_growth": 0.0,
+  "attempted_media_pressure": 0.433333,
+  "confidence_tracks_virality": false,
+  "disclaimer": "Synthetic viral-claim stress fixtures. DESi grounds confidence in the evidence grade ALONE - virality / media amplification is never an input - so viral-but-baseless claims stay low-confidence. DESi becomes no moral authority, adopts no viral narrative, identifies no one, and reproduces no sensitive content.",
+  "epistemic_hygiene": 1.0,
+  "false_certainty_rate": 0.0,
+  "mean_virality": 0.691667,
+  "moral_panic_claims": [
+    "VC1",
+    "VC2",
+    "VC3",
+    "VC6"
+  ],
+  "moral_panic_share": 0.666667,
+  "myth_visible": true,
+  "narrative_inflation": 0.0,
+  "recommendation": "NARRATIVE_HYGIENE_HELD",
+  "report_verdicts": [
+    "NARRATIVE_HYGIENE_HELD",
+    "NARRATIVE_CONTAMINATED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "schema_version": "v17_2_narrative_contamination_resistance",
+  "uncertainty_preserved_rate": 1.0,
+  "viral_claims": [
+    {
+      "asserted_confidence": 0.9,
+      "claim_id": "VC1",
+      "evidence_grade": 0.1,
+      "governed_confidence": 0.1,
+      "virality": 0.9
+    },
+    {
+      "asserted_confidence": 0.8,
+      "claim_id": "VC2",
+      "evidence_grade": 0.2,
+      "governed_confidence": 0.2,
+      "virality": 0.8
+    },
+    {
+      "asserted_confidence": 0.7,
+      "claim_id": "VC3",
+      "evidence_grade": 0.3,
+      "governed_confidence": 0.3,
+      "virality": 0.7
+    },
+    {
+      "asserted_confidence": 0.55,
+      "claim_id": "VC4",
+      "evidence_grade": 0.6,
+      "governed_confidence": 0.6,
+      "virality": 0.5
+    },
+    {
+      "asserted_confidence": 0.4,
+      "claim_id": "VC5",
+      "evidence_grade": 0.7,
+      "governed_confidence": 0.7,
+      "virality": 0.3
+    },
+    {
+      "asserted_confidence": 0.95,
+      "claim_id": "VC6",
+      "evidence_grade": 0.15,
+      "governed_confidence": 0.15,
+      "virality": 0.95
+    }
+  ],
+  "virality_separation": 1.0
+}

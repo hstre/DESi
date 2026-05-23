@@ -1,0 +1,63 @@
+{
+  "core_identity": 1.0,
+  "disclaimer": "Semantic audit risk run over locally-vendored synthetic scenarios. DESi surfaces semantic risks (revenue recognition, going concern, cashflow-vs-narrative, debt/footnote inconsistency, implicit inconsistency, narrative tension) from explicit structured signals - no fuzzy NLP, no hallucination. Every risk is a flag that REQUIRES evidence and marks uncertainty; DESi never asserts fraud or a definitive conclusion. The scenarios are NOT official exam content and NO official results are claimed; this does not replace auditors. Human approval is mandatory.",
+  "governance_identity": 1.0,
+  "human_approval_required": true,
+  "implicit_inconsistency_detection": 1.0,
+  "narrative_tension_detection": 1.0,
+  "recommendation": "SEMANTIC_RISK_RUN_PASSED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "SEMANTIC_RISK_RUN_PASSED",
+    "SEMANTIC_RISK_RUN_PARTIAL",
+    "SEMANTIC_RISK_RUN_HALT"
+  ],
+  "risk_flags": [
+    {
+      "requires_evidence": true,
+      "risk_type": "revenue_recognition",
+      "scenario_id": "as_001",
+      "severity": "flag"
+    },
+    {
+      "requires_evidence": true,
+      "risk_type": "cashflow_vs_narrative",
+      "scenario_id": "as_001",
+      "severity": "flag"
+    },
+    {
+      "requires_evidence": true,
+      "risk_type": "debt_footnote_inconsistency",
+      "scenario_id": "as_002",
+      "severity": "flag"
+    },
+    {
+      "requires_evidence": true,
+      "risk_type": "narrative_tension",
+      "scenario_id": "as_002",
+      "severity": "flag"
+    },
+    {
+      "requires_evidence": true,
+      "risk_type": "implicit_inconsistency",
+      "scenario_id": "as_003",
+      "severity": "flag"
+    },
+    {
+      "requires_evidence": true,
+      "risk_type": "narrative_tension",
+      "scenario_id": "as_004",
+      "severity": "flag"
+    },
+    {
+      "requires_evidence": true,
+      "risk_type": "going_concern",
+      "scenario_id": "as_005",
+      "severity": "flag"
+    }
+  ],
+  "schema_version": "v37_1_semantic_risk_run",
+  "semantic_risk_visibility": 1.0,
+  "signature": "75bbc31c5fd3aa0e560cd43fc73bf89131129b7b8e7b58a3d2b4ba275edf7c37",
+  "uncertainty_preservation": 1.0
+}

@@ -1,0 +1,45 @@
+{
+  "architecture_roi": 1.079136,
+  "best_strategy": "proxy_alphabet",
+  "best_strategy_dims": [
+    "contradiction_type",
+    "corpus_hash",
+    "letter_prefix_hash"
+  ],
+  "schema_version": "v3_116_t10_structural_redeployment",
+  "strategy_outcomes": [
+    {
+      "architecture_roi": 0.0,
+      "complexity_score": 0.0,
+      "dims": [],
+      "historical_score": 1.0,
+      "proxy_score": 0.0,
+      "recovery_score": 0.0,
+      "strategy": "canonical_9d"
+    },
+    {
+      "architecture_roi": 1.079136,
+      "complexity_score": 0.25,
+      "dims": [
+        "contradiction_type",
+        "corpus_hash",
+        "letter_prefix_hash"
+      ],
+      "historical_score": 1.0,
+      "proxy_score": 0.666667,
+      "recovery_score": 1.0,
+      "strategy": "proxy_alphabet"
+    },
+    {
+      "architecture_roi": 0.0,
+      "complexity_score": 0.083333,
+      "dims": [
+        "support_propagation_length"
+      ],
+      "historical_score": 1.0,
+      "proxy_score": 0.0,
+      "recovery_score": 0.0,
+      "strategy": "structural_alphabet"
+    }
+  ]
+}

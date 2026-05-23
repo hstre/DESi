@@ -1,0 +1,2032 @@
+{
+  "core_lines_intact": true,
+  "disclaimer": "A >= 5000-step deterministic simulation of decades of narrative drift, document releases, media waves, new testimony, trust shifts, and myth formation. Inflation and mythologization grow in a bounded, saturating way and are made VISIBLE; DESi never adopts them as fact, never drops a verified evidence line, names no perpetrator, and makes no new factual claim.",
+  "drift_visible": true,
+  "enum_snapshot_hash": "3086cc964d3ebc026034baced6285d996414f7654075ad803a37bef8743f92d1",
+  "epistemic_stability": 0.970021,
+  "event_types": [
+    "narrative_drift",
+    "document_release",
+    "media_wave",
+    "new_witness",
+    "trust_shift",
+    "myth_formation"
+  ],
+  "final_hash": "247ac3b2c224c15d99c08809c543fcabb30e4e8fd9ce80141eba646a4ac85bc4",
+  "governance_stable": true,
+  "independent_evidence_preservation": 1.0,
+  "min_stability": 0.94006,
+  "mythologization_growth": 0.202585,
+  "narrative_inflation": 0.194021,
+  "recommendation": "ECOLOGY_STABLE",
+  "report_verdicts": [
+    "ECOLOGY_STABLE",
+    "ECOLOGY_DESTABILIZED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "sample": [
+    {
+      "chain_hash": "c032fb1412c192b1b9337c0d6ab92d180afd0215a7a81b60a67ef760ee8fbf4f",
+      "event_type": "narrative_drift",
+      "mythologization": 0.0,
+      "narrative_inflation": 0.0,
+      "preserved_lines": 4,
+      "stability": 0.99922,
+      "step": 0,
+      "trust": 0.4182
+    },
+    {
+      "chain_hash": "b312249a8576a351efd816a12c168907ace0f2f4fd17434867bcb12efe18b3fc",
+      "event_type": "media_wave",
+      "mythologization": 0.003088,
+      "narrative_inflation": 0.00426,
+      "preserved_lines": 4,
+      "stability": 0.94558,
+      "step": 26,
+      "trust": 0.4274
+    },
+    {
+      "chain_hash": "b276ed738113c8454c9a4f5fcedacfe36c1a1c9659365fe2eed01c40ae490909",
+      "event_type": "trust_shift",
+      "mythologization": 0.006113,
+      "narrative_inflation": 0.008376,
+      "preserved_lines": 4,
+      "stability": 0.95194,
+      "step": 52,
+      "trust": 0.4366
+    },
+    {
+      "chain_hash": "cf0ef8e2ebbe984a7160ea25b336a3e6d7ecd174a74ca9d3323ea3e3e526808a",
+      "event_type": "narrative_drift",
+      "mythologization": 0.009077,
+      "narrative_inflation": 0.012357,
+      "preserved_lines": 4,
+      "stability": 0.9583,
+      "step": 78,
+      "trust": 0.4458
+    },
+    {
+      "chain_hash": "07d64e35efcb9df86719b2defd6551bd4aa8bf3eada5bf5e8ba4419e61ae0e83",
+      "event_type": "media_wave",
+      "mythologization": 0.011982,
+      "narrative_inflation": 0.016209,
+      "preserved_lines": 4,
+      "stability": 0.96466,
+      "step": 104,
+      "trust": 0.455
+    },
+    {
+      "chain_hash": "69786a1f4ea3e879ed255801ece719f1e8f5bff9ab03308fd80a7a9c3db4a180",
+      "event_type": "trust_shift",
+      "mythologization": 0.014829,
+      "narrative_inflation": 0.019939,
+      "preserved_lines": 4,
+      "stability": 0.97102,
+      "step": 130,
+      "trust": 0.4642
+    },
+    {
+      "chain_hash": "61e29fb1e5235acbc96d54f0d4c25e45744c0389cddf73b1281baad2ae55a57b",
+      "event_type": "narrative_drift",
+      "mythologization": 0.01762,
+      "narrative_inflation": 0.023551,
+      "preserved_lines": 4,
+      "stability": 0.97738,
+      "step": 156,
+      "trust": 0.4734
+    },
+    {
+      "chain_hash": "1f538de37e96932d9c468ae4b6bc09bebf463f6cd98cc2c45e1a806180d76597",
+      "event_type": "media_wave",
+      "mythologization": 0.020358,
+      "narrative_inflation": 0.027051,
+      "preserved_lines": 4,
+      "stability": 0.98374,
+      "step": 182,
+      "trust": 0.4826
+    },
+    {
+      "chain_hash": "9c75d23027afcc2910e71dbb0394145334ae3f1183c9e70a0ba67608871e76ca",
+      "event_type": "trust_shift",
+      "mythologization": 0.023043,
+      "narrative_inflation": 0.030445,
+      "preserved_lines": 4,
+      "stability": 0.9901,
+      "step": 208,
+      "trust": 0.4918
+    },
+    {
+      "chain_hash": "48bbaba67da2e32ea38056ab90e5b7d3989ad5475f6846d2515620de01854a07",
+      "event_type": "narrative_drift",
+      "mythologization": 0.025677,
+      "narrative_inflation": 0.033737,
+      "preserved_lines": 4,
+      "stability": 0.99646,
+      "step": 234,
+      "trust": 0.501
+    },
+    {
+      "chain_hash": "9fd3fba7c6fa9c593fd5a72edabbd0e615e3ed222e8326b3350aabcfae8ae1cd",
+      "event_type": "media_wave",
+      "mythologization": 0.028261,
+      "narrative_inflation": 0.036932,
+      "preserved_lines": 4,
+      "stability": 0.94282,
+      "step": 260,
+      "trust": 0.5102
+    },
+    {
+      "chain_hash": "428d530fd1b10e69ac72ea31ed7881109b95f9c0c570a9a517cd726d80fbc710",
+      "event_type": "trust_shift",
+      "mythologization": 0.030797,
+      "narrative_inflation": 0.040034,
+      "preserved_lines": 4,
+      "stability": 0.94918,
+      "step": 286,
+      "trust": 0.5194
+    },
+    {
+      "chain_hash": "9b7eaeb15d11b9d5a687360604812d04cb3df38ea0a9f6049485a8678be02058",
+      "event_type": "narrative_drift",
+      "mythologization": 0.033286,
+      "narrative_inflation": 0.043046,
+      "preserved_lines": 4,
+      "stability": 0.95554,
+      "step": 312,
+      "trust": 0.5286
+    },
+    {
+      "chain_hash": "c05baab9d310c7aeab7efa7cf06f7463e05d63a8aeac2f22424ac16e6261965d",
+      "event_type": "media_wave",
+      "mythologization": 0.035729,
+      "narrative_inflation": 0.045974,
+      "preserved_lines": 4,
+      "stability": 0.9619,
+      "step": 338,
+      "trust": 0.5378
+    },
+    {
+      "chain_hash": "f6ea68ee1f292a917d9bcf04faacd0170d8d3ebd77d363a4e370b862cf90b46c",
+      "event_type": "trust_shift",
+      "mythologization": 0.038128,
+      "narrative_inflation": 0.04882,
+      "preserved_lines": 4,
+      "stability": 0.96826,
+      "step": 364,
+      "trust": 0.547
+    },
+    {
+      "chain_hash": "ecf2bbd6d0bee99da4fdb509bb8874f25c1475b903ca1d74bd3dc386a4ee0ffe",
+      "event_type": "narrative_drift",
+      "mythologization": 0.040484,
+      "narrative_inflation": 0.051587,
+      "preserved_lines": 4,
+      "stability": 0.97462,
+      "step": 390,
+      "trust": 0.5562
+    },
+    {
+      "chain_hash": "2fcab36b087e80e14248a547c3994c9ebe2801a73a8d28f3a715fbb9cb601778",
+      "event_type": "media_wave",
+      "mythologization": 0.042798,
+      "narrative_inflation": 0.05428,
+      "preserved_lines": 4,
+      "stability": 0.98098,
+      "step": 416,
+      "trust": 0.5654
+    },
+    {
+      "chain_hash": "6354640e178074ba74e4f558a1a8015e56fffae874a102d7748654cc9a1046be",
+      "event_type": "trust_shift",
+      "mythologization": 0.045071,
+      "narrative_inflation": 0.0569,
+      "preserved_lines": 4,
+      "stability": 0.98734,
+      "step": 442,
+      "trust": 0.5746
+    },
+    {
+      "chain_hash": "904c6fbc0fcf00db91c82a3947488949740b15c0a79c42e38ab3f59d50978964",
+      "event_type": "narrative_drift",
+      "mythologization": 0.047305,
+      "narrative_inflation": 0.059451,
+      "preserved_lines": 4,
+      "stability": 0.9937,
+      "step": 468,
+      "trust": 0.5838
+    },
+    {
+      "chain_hash": "d67a0f368d981bc101ac1ce0f5a86cb54c343e170a6c4883e403a125c7190192",
+      "event_type": "media_wave",
+      "mythologization": 0.049499,
+      "narrative_inflation": 0.061936,
+      "preserved_lines": 4,
+      "stability": 0.94006,
+      "step": 494,
+      "trust": 0.593
+    },
+    {
+      "chain_hash": "19c7f422bbc48e3ff61174752b879c0c1d7fdd352256977742f5bf75e553aa56",
+      "event_type": "trust_shift",
+      "mythologization": 0.051656,
+      "narrative_inflation": 0.064356,
+      "preserved_lines": 4,
+      "stability": 0.94642,
+      "step": 520,
+      "trust": 0.4022
+    },
+    {
+      "chain_hash": "4e9ad5867d71976cc1917958d614b8d7af456b2ad25ee24aec967a8be155297c",
+      "event_type": "narrative_drift",
+      "mythologization": 0.053775,
+      "narrative_inflation": 0.066716,
+      "preserved_lines": 4,
+      "stability": 0.95278,
+      "step": 546,
+      "trust": 0.4114
+    },
+    {
+      "chain_hash": "6dbfb6983e623a64506bb1530c26ec04b0d5f8162712ad33067d6173f2c9282a",
+      "event_type": "media_wave",
+      "mythologization": 0.055859,
+      "narrative_inflation": 0.069015,
+      "preserved_lines": 4,
+      "stability": 0.95914,
+      "step": 572,
+      "trust": 0.4206
+    },
+    {
+      "chain_hash": "379aa453f824690448ea1b330ffb83d678ed725b5785833329d8e6aabd0c0c80",
+      "event_type": "trust_shift",
+      "mythologization": 0.057908,
+      "narrative_inflation": 0.071258,
+      "preserved_lines": 4,
+      "stability": 0.9655,
+      "step": 598,
+      "trust": 0.4298
+    },
+    {
+      "chain_hash": "b28c24995e3fa8237cd11ec8d63bfd18b63ae1306de4e8214ea592cfe500867e",
+      "event_type": "narrative_drift",
+      "mythologization": 0.059923,
+      "narrative_inflation": 0.073446,
+      "preserved_lines": 4,
+      "stability": 0.97186,
+      "step": 624,
+      "trust": 0.439
+    },
+    {
+      "chain_hash": "5e7f1b71f46d36b23fca0df5abacd11b955e884f9427e8c725763fe310c23160",
+      "event_type": "media_wave",
+      "mythologization": 0.061905,
+      "narrative_inflation": 0.075581,
+      "preserved_lines": 4,
+      "stability": 0.97822,
+      "step": 650,
+      "trust": 0.4482
+    },
+    {
+      "chain_hash": "fe9e833bafcbca07ba77e3fb1eba0debd173267520d154112fdeff716ea4ea65",
+      "event_type": "trust_shift",
+      "mythologization": 0.063854,
+      "narrative_inflation": 0.077665,
+      "preserved_lines": 4,
+      "stability": 0.98458,
+      "step": 676,
+      "trust": 0.4574
+    },
+    {
+      "chain_hash": "4d84f60902293043372abcafad8775f5452c131b9cb00e24a03c930c2d1b272d",
+      "event_type": "narrative_drift",
+      "mythologization": 0.065771,
+      "narrative_inflation": 0.0797,
+      "preserved_lines": 4,
+      "stability": 0.99094,
+      "step": 702,
+      "trust": 0.4666
+    },
+    {
+      "chain_hash": "82102fcc01c2a023d330fa2a85b183ca4daf86307b87ff8f81e1b9182e4cac76",
+      "event_type": "media_wave",
+      "mythologization": 0.067658,
+      "narrative_inflation": 0.081688,
+      "preserved_lines": 4,
+      "stability": 0.9973,
+      "step": 728,
+      "trust": 0.4758
+    },
+    {
+      "chain_hash": "c2b313f5418de6e07bb3f44f978818ad859dd7866e135ad9906cfd4e2d06ba8e",
+      "event_type": "trust_shift",
+      "mythologization": 0.069514,
+      "narrative_inflation": 0.083629,
+      "preserved_lines": 4,
+      "stability": 0.94366,
+      "step": 754,
+      "trust": 0.485
+    },
+    {
+      "chain_hash": "d5f1d970a18ddd3a7f8d3a7fce3d050f18eb04662f9652458e47c118eceeb825",
+      "event_type": "narrative_drift",
+      "mythologization": 0.071341,
+      "narrative_inflation": 0.085526,
+      "preserved_lines": 4,
+      "stability": 0.95002,
+      "step": 780,
+      "trust": 0.4942
+    },
+    {
+      "chain_hash": "082d4df7ea69805e8d8f01bf1b5a5ae3e5eeac96e31c45dd2dbdc9f89239a4b6",
+      "event_type": "media_wave",
+      "mythologization": 0.07314,
+      "narrative_inflation": 0.087381,
+      "preserved_lines": 4,
+      "stability": 0.95638,
+      "step": 806,
+      "trust": 0.5034
+    },
+    {
+      "chain_hash": "3c6b78cf150e079c668cb4692acbf15a7203f91af067e88259d650dd18231ccc",
+      "event_type": "trust_shift",
+      "mythologization": 0.07491,
+      "narrative_inflation": 0.089194,
+      "preserved_lines": 4,
+      "stability": 0.96274,
+      "step": 832,
+      "trust": 0.5126
+    },
+    {
+      "chain_hash": "f7272d19516f7a7e89375c7628011a595f622bfd9427d435e144b5c718462054",
+      "event_type": "narrative_drift",
+      "mythologization": 0.076653,
+      "narrative_inflation": 0.090967,
+      "preserved_lines": 4,
+      "stability": 0.9691,
+      "step": 858,
+      "trust": 0.5218
+    },
+    {
+      "chain_hash": "54ff4abfa8790943df573cc4bc6d29bc740e9406cb2d19f326bd7b11842c2b87",
+      "event_type": "media_wave",
+      "mythologization": 0.078369,
+      "narrative_inflation": 0.092701,
+      "preserved_lines": 4,
+      "stability": 0.97546,
+      "step": 884,
+      "trust": 0.531
+    },
+    {
+      "chain_hash": "bd19aed512006f5aebb37dd84f3eaa283c867d26115cf88086bc1eeb66629140",
+      "event_type": "trust_shift",
+      "mythologization": 0.080059,
+      "narrative_inflation": 0.094398,
+      "preserved_lines": 4,
+      "stability": 0.98182,
+      "step": 910,
+      "trust": 0.5402
+    },
+    {
+      "chain_hash": "694b57170c0be43a481398b235b3f5cb6e5d74a9c3512b8f18f63fb29d07b50c",
+      "event_type": "narrative_drift",
+      "mythologization": 0.081723,
+      "narrative_inflation": 0.096059,
+      "preserved_lines": 4,
+      "stability": 0.98818,
+      "step": 936,
+      "trust": 0.5494
+    },
+    {
+      "chain_hash": "0fd9204e433f7112dbe9282021ab73da4bfb7255b5a15ee9dc81408cac4caef8",
+      "event_type": "media_wave",
+      "mythologization": 0.083362,
+      "narrative_inflation": 0.097685,
+      "preserved_lines": 4,
+      "stability": 0.99454,
+      "step": 962,
+      "trust": 0.5586
+    },
+    {
+      "chain_hash": "d79111b131e19e37b84b8d153d0b105d1ebb40ecffe40882eed39b54d0fca544",
+      "event_type": "trust_shift",
+      "mythologization": 0.084977,
+      "narrative_inflation": 0.099277,
+      "preserved_lines": 4,
+      "stability": 0.9409,
+      "step": 988,
+      "trust": 0.5678
+    },
+    {
+      "chain_hash": "e3212362c84e46d202d725d7c58fae16de3e5a36747fc79562f6deb5d43ec46c",
+      "event_type": "narrative_drift",
+      "mythologization": 0.086568,
+      "narrative_inflation": 0.100835,
+      "preserved_lines": 4,
+      "stability": 0.94726,
+      "step": 1014,
+      "trust": 0.577
+    },
+    {
+      "chain_hash": "c34cc00fc91eee63fbaf9d8c5c0e22fd5126eaafe75c48358c47d45df9c68a6a",
+      "event_type": "media_wave",
+      "mythologization": 0.088136,
+      "narrative_inflation": 0.102362,
+      "preserved_lines": 4,
+      "stability": 0.95362,
+      "step": 1040,
+      "trust": 0.5862
+    },
+    {
+      "chain_hash": "68028571ad1716e61cee3225e437dc013a7d9af7303cebab0f0fe1b6bf53cb3b",
+      "event_type": "trust_shift",
+      "mythologization": 0.08968,
+      "narrative_inflation": 0.103858,
+      "preserved_lines": 4,
+      "stability": 0.95998,
+      "step": 1066,
+      "trust": 0.5954
+    },
+    {
+      "chain_hash": "2859a93df319588847300a22badfb6fa6dea2ef7a27d16a15a38f4d0d1bb7d0a",
+      "event_type": "narrative_drift",
+      "mythologization": 0.091203,
+      "narrative_inflation": 0.105324,
+      "preserved_lines": 4,
+      "stability": 0.96634,
+      "step": 1092,
+      "trust": 0.4046
+    },
+    {
+      "chain_hash": "14fe5e2e98e56e5b7e22e9461aad032b4119628dd003f4f2094275b033bfcb63",
+      "event_type": "media_wave",
+      "mythologization": 0.092703,
+      "narrative_inflation": 0.106761,
+      "preserved_lines": 4,
+      "stability": 0.9727,
+      "step": 1118,
+      "trust": 0.4138
+    },
+    {
+      "chain_hash": "b01311254ef226c7f5542bf56674a389ac47f59e64d98b349be90609208f3cb7",
+      "event_type": "trust_shift",
+      "mythologization": 0.094182,
+      "narrative_inflation": 0.108169,
+      "preserved_lines": 4,
+      "stability": 0.97906,
+      "step": 1144,
+      "trust": 0.423
+    },
+    {
+      "chain_hash": "1cf051be0fd9dd69399004dd5ba59f57eb88f486c3c4aeb3d22eb4758d12bbcc",
+      "event_type": "narrative_drift",
+      "mythologization": 0.09564,
+      "narrative_inflation": 0.109551,
+      "preserved_lines": 4,
+      "stability": 0.98542,
+      "step": 1170,
+      "trust": 0.4322
+    },
+    {
+      "chain_hash": "e6f736be2d2656f22e0de03414a5cf92d0b2c22690a5d9cfa2de4b588cc1ddaf",
+      "event_type": "media_wave",
+      "mythologization": 0.097078,
+      "narrative_inflation": 0.110905,
+      "preserved_lines": 4,
+      "stability": 0.99178,
+      "step": 1196,
+      "trust": 0.4414
+    },
+    {
+      "chain_hash": "522650ecf38dec175b09cfe1563ccf78d435b4715036af253f758ca37c20ec3c",
+      "event_type": "trust_shift",
+      "mythologization": 0.098495,
+      "narrative_inflation": 0.112234,
+      "preserved_lines": 4,
+      "stability": 0.99814,
+      "step": 1222,
+      "trust": 0.4506
+    },
+    {
+      "chain_hash": "2bfdd09d2bd32a7c6553a09c2ea2dc60a99b685672dfe8e0b54fc144ec4234bc",
+      "event_type": "narrative_drift",
+      "mythologization": 0.099893,
+      "narrative_inflation": 0.113537,
+      "preserved_lines": 4,
+      "stability": 0.9445,
+      "step": 1248,
+      "trust": 0.4598
+    },
+    {
+      "chain_hash": "61840507b64a31c5e70181443911b333c36245df7112d762bd1e65c274ca5dbd",
+      "event_type": "media_wave",
+      "mythologization": 0.101272,
+      "narrative_inflation": 0.114816,
+      "preserved_lines": 4,
+      "stability": 0.95086,
+      "step": 1274,
+      "trust": 0.469
+    },
+    {
+      "chain_hash": "39b5bf939ec6e5b9756e8cbe090c4f9bcece8b7c266176c4dbf3a4192d1b8533",
+      "event_type": "trust_shift",
+      "mythologization": 0.102632,
+      "narrative_inflation": 0.116071,
+      "preserved_lines": 4,
+      "stability": 0.95722,
+      "step": 1300,
+      "trust": 0.4782
+    },
+    {
+      "chain_hash": "4ca96513e755cbf000e96fb59fe6b54d8f170e478e6b72a7f582e5c9ace3158e",
+      "event_type": "narrative_drift",
+      "mythologization": 0.103973,
+      "narrative_inflation": 0.117304,
+      "preserved_lines": 4,
+      "stability": 0.96358,
+      "step": 1326,
+      "trust": 0.4874
+    },
+    {
+      "chain_hash": "6d2d88f8a83ececeee1b9ffbf642627d0ebae024e825f2d105b0f688e3976f7e",
+      "event_type": "media_wave",
+      "mythologization": 0.105296,
+      "narrative_inflation": 0.118513,
+      "preserved_lines": 4,
+      "stability": 0.96994,
+      "step": 1352,
+      "trust": 0.4966
+    },
+    {
+      "chain_hash": "a7ff14133219515eca358744c45984ff4827995feffe66766999806bd41bb80c",
+      "event_type": "trust_shift",
+      "mythologization": 0.106601,
+      "narrative_inflation": 0.119701,
+      "preserved_lines": 4,
+      "stability": 0.9763,
+      "step": 1378,
+      "trust": 0.5058
+    },
+    {
+      "chain_hash": "295d64fc874289b74e156df510058054cdefd8b9667df365573dd33f3a47bf7d",
+      "event_type": "narrative_drift",
+      "mythologization": 0.107889,
+      "narrative_inflation": 0.120868,
+      "preserved_lines": 4,
+      "stability": 0.98266,
+      "step": 1404,
+      "trust": 0.515
+    },
+    {
+      "chain_hash": "1d34a542c476e72d95280de88ce78bf4fcda25bc461936d655199948d1ed0231",
+      "event_type": "media_wave",
+      "mythologization": 0.10916,
+      "narrative_inflation": 0.122014,
+      "preserved_lines": 4,
+      "stability": 0.98902,
+      "step": 1430,
+      "trust": 0.5242
+    },
+    {
+      "chain_hash": "af45f60345c6969320e80956e60b63f788a4ba3509e10d81af7b650de1243d28",
+      "event_type": "trust_shift",
+      "mythologization": 0.110415,
+      "narrative_inflation": 0.123139,
+      "preserved_lines": 4,
+      "stability": 0.99538,
+      "step": 1456,
+      "trust": 0.5334
+    },
+    {
+      "chain_hash": "6f9dec54427bbb93e037e31500c1469ad7e0b5a43a39601562fc9483b01fdc6d",
+      "event_type": "narrative_drift",
+      "mythologization": 0.111652,
+      "narrative_inflation": 0.124245,
+      "preserved_lines": 4,
+      "stability": 0.94174,
+      "step": 1482,
+      "trust": 0.5426
+    },
+    {
+      "chain_hash": "606d00b580986bc83b1bf869a2bcd7c80e6b190f70f53aafa211d8c39ac78c81",
+      "event_type": "media_wave",
+      "mythologization": 0.112874,
+      "narrative_inflation": 0.125332,
+      "preserved_lines": 4,
+      "stability": 0.9481,
+      "step": 1508,
+      "trust": 0.5518
+    },
+    {
+      "chain_hash": "511826353df9e3e22196c4063a92b99d6ff0bc3900547a7575526241d0d9a882",
+      "event_type": "trust_shift",
+      "mythologization": 0.11408,
+      "narrative_inflation": 0.126401,
+      "preserved_lines": 4,
+      "stability": 0.95446,
+      "step": 1534,
+      "trust": 0.561
+    },
+    {
+      "chain_hash": "81ff7d9b4d931b108b20f280a472b15d39444d9b1fe1d804663fccbbfac3c9a2",
+      "event_type": "narrative_drift",
+      "mythologization": 0.115271,
+      "narrative_inflation": 0.127451,
+      "preserved_lines": 4,
+      "stability": 0.96082,
+      "step": 1560,
+      "trust": 0.5702
+    },
+    {
+      "chain_hash": "64c2641cef6d01e897beb17c6404ce9e967abfe8aa44e07d6752628345a139a0",
+      "event_type": "media_wave",
+      "mythologization": 0.116446,
+      "narrative_inflation": 0.128483,
+      "preserved_lines": 4,
+      "stability": 0.96718,
+      "step": 1586,
+      "trust": 0.5794
+    },
+    {
+      "chain_hash": "0f039b76dde1ac352e6cdf77ace7a3751bea8c1c54c1f1cdace038846575cb0b",
+      "event_type": "trust_shift",
+      "mythologization": 0.117607,
+      "narrative_inflation": 0.129499,
+      "preserved_lines": 4,
+      "stability": 0.97354,
+      "step": 1612,
+      "trust": 0.5886
+    },
+    {
+      "chain_hash": "30ef442d1ffd22dacaedaa1a5f7c4e3c2b89b6b2dd60518da6975aa7f0893c4d",
+      "event_type": "narrative_drift",
+      "mythologization": 0.118753,
+      "narrative_inflation": 0.130497,
+      "preserved_lines": 4,
+      "stability": 0.9799,
+      "step": 1638,
+      "trust": 0.5978
+    },
+    {
+      "chain_hash": "e8063ed80722f5a26f12336ee99766ab01f0bc04adc2cb0646c42ec67081979a",
+      "event_type": "media_wave",
+      "mythologization": 0.119885,
+      "narrative_inflation": 0.131479,
+      "preserved_lines": 4,
+      "stability": 0.98626,
+      "step": 1664,
+      "trust": 0.407
+    },
+    {
+      "chain_hash": "e370dbadaf7e7cb01be0c9163034aeab79032bf9c07fa7c907775006eb1fce14",
+      "event_type": "trust_shift",
+      "mythologization": 0.121002,
+      "narrative_inflation": 0.132445,
+      "preserved_lines": 4,
+      "stability": 0.99262,
+      "step": 1690,
+      "trust": 0.4162
+    },
+    {
+      "chain_hash": "71661881ac5abfa7009687fd27537a2d2aee5b89954050b2b1b83ea5a8127394",
+      "event_type": "narrative_drift",
+      "mythologization": 0.122106,
+      "narrative_inflation": 0.133396,
+      "preserved_lines": 4,
+      "stability": 0.99898,
+      "step": 1716,
+      "trust": 0.4254
+    },
+    {
+      "chain_hash": "4f84b933fe2e41bf3004f7c76154b2d1e9ea86da996ae05d91a89e6551f564ef",
+      "event_type": "media_wave",
+      "mythologization": 0.123197,
+      "narrative_inflation": 0.134331,
+      "preserved_lines": 4,
+      "stability": 0.94534,
+      "step": 1742,
+      "trust": 0.4346
+    },
+    {
+      "chain_hash": "d3f66b8b8dc481c1115011e8ad4fe95c1b743e5c087cc7f38396632ba5729e11",
+      "event_type": "trust_shift",
+      "mythologization": 0.124274,
+      "narrative_inflation": 0.135251,
+      "preserved_lines": 4,
+      "stability": 0.9517,
+      "step": 1768,
+      "trust": 0.4438
+    },
+    {
+      "chain_hash": "ff49322f6b3a59e4968d654d22075e059b7e47417815ea8520cb6e9115a8047b",
+      "event_type": "narrative_drift",
+      "mythologization": 0.125338,
+      "narrative_inflation": 0.136157,
+      "preserved_lines": 4,
+      "stability": 0.95806,
+      "step": 1794,
+      "trust": 0.453
+    },
+    {
+      "chain_hash": "422c2ef9fcab051d2fef5f72593e4d16cf1f68245329c3a6da3d998d95129981",
+      "event_type": "media_wave",
+      "mythologization": 0.126389,
+      "narrative_inflation": 0.137048,
+      "preserved_lines": 4,
+      "stability": 0.96442,
+      "step": 1820,
+      "trust": 0.4622
+    },
+    {
+      "chain_hash": "7fc20bfaa1dabffa41fb3548f865f7788b9bad9ced2daf46fee7c5767f15b6ba",
+      "event_type": "trust_shift",
+      "mythologization": 0.127428,
+      "narrative_inflation": 0.137926,
+      "preserved_lines": 4,
+      "stability": 0.97078,
+      "step": 1846,
+      "trust": 0.4714
+    },
+    {
+      "chain_hash": "0968dbfb6a5fcc34f0a2f01f66f8b3fe1d1f6be07a6c589ab503cc8cce1df80b",
+      "event_type": "narrative_drift",
+      "mythologization": 0.128454,
+      "narrative_inflation": 0.13879,
+      "preserved_lines": 4,
+      "stability": 0.97714,
+      "step": 1872,
+      "trust": 0.4806
+    },
+    {
+      "chain_hash": "ffa245a583f3861b27b046836c707d15c78b7391f66af4dcf73b2905debfaf98",
+      "event_type": "media_wave",
+      "mythologization": 0.129468,
+      "narrative_inflation": 0.139641,
+      "preserved_lines": 4,
+      "stability": 0.9835,
+      "step": 1898,
+      "trust": 0.4898
+    },
+    {
+      "chain_hash": "50ddf7a31199da5a47ac32d7f36f4e2bf5f8af576234f8dcc33ad83580373467",
+      "event_type": "trust_shift",
+      "mythologization": 0.13047,
+      "narrative_inflation": 0.140479,
+      "preserved_lines": 4,
+      "stability": 0.98986,
+      "step": 1924,
+      "trust": 0.499
+    },
+    {
+      "chain_hash": "efa2cce560a12ee9577cf7f3c4db311f5e50ca21ba8e0c0d247b15aff8a61996",
+      "event_type": "narrative_drift",
+      "mythologization": 0.131461,
+      "narrative_inflation": 0.141304,
+      "preserved_lines": 4,
+      "stability": 0.99622,
+      "step": 1950,
+      "trust": 0.5082
+    },
+    {
+      "chain_hash": "891491876aef49fece402943607fa8613420047bbdf9810abe3e5c15c252f9ea",
+      "event_type": "media_wave",
+      "mythologization": 0.13244,
+      "narrative_inflation": 0.142117,
+      "preserved_lines": 4,
+      "stability": 0.94258,
+      "step": 1976,
+      "trust": 0.5174
+    },
+    {
+      "chain_hash": "0b1b7c52c9173f7827b97be982cfe132e3169bda809dbe9862b3d1b135872849",
+      "event_type": "trust_shift",
+      "mythologization": 0.133407,
+      "narrative_inflation": 0.142918,
+      "preserved_lines": 4,
+      "stability": 0.94894,
+      "step": 2002,
+      "trust": 0.5266
+    },
+    {
+      "chain_hash": "d60135e1daf1314a44215dc98447e842ce7da1115e38b878449de46aef5ac93f",
+      "event_type": "narrative_drift",
+      "mythologization": 0.134364,
+      "narrative_inflation": 0.143707,
+      "preserved_lines": 4,
+      "stability": 0.9553,
+      "step": 2028,
+      "trust": 0.5358
+    },
+    {
+      "chain_hash": "290e9b6c10444123d3c57ac15fce537633bdf8b4b82262031652734ab7a73921",
+      "event_type": "media_wave",
+      "mythologization": 0.13531,
+      "narrative_inflation": 0.144485,
+      "preserved_lines": 4,
+      "stability": 0.96166,
+      "step": 2054,
+      "trust": 0.545
+    },
+    {
+      "chain_hash": "357725fda32f1fda00a748474932d1c3f7e62614612bc33267738240bf81f8a0",
+      "event_type": "trust_shift",
+      "mythologization": 0.136245,
+      "narrative_inflation": 0.145251,
+      "preserved_lines": 4,
+      "stability": 0.96802,
+      "step": 2080,
+      "trust": 0.5542
+    },
+    {
+      "chain_hash": "a9fade9193b1be9f3147bec4afa57648ad91229d90ab643e093a4deede01b270",
+      "event_type": "narrative_drift",
+      "mythologization": 0.137169,
+      "narrative_inflation": 0.146007,
+      "preserved_lines": 4,
+      "stability": 0.97438,
+      "step": 2106,
+      "trust": 0.5634
+    },
+    {
+      "chain_hash": "0f065346eaca7dccaa317a349b15b0da35f4777e4c19d0d59a049aa12c3772fb",
+      "event_type": "media_wave",
+      "mythologization": 0.138083,
+      "narrative_inflation": 0.146751,
+      "preserved_lines": 4,
+      "stability": 0.98074,
+      "step": 2132,
+      "trust": 0.5726
+    },
+    {
+      "chain_hash": "a483e5110be21aa5b039e5675085591cd690f8f0b577b2e9bf0b229cc9905a94",
+      "event_type": "trust_shift",
+      "mythologization": 0.138987,
+      "narrative_inflation": 0.147485,
+      "preserved_lines": 4,
+      "stability": 0.9871,
+      "step": 2158,
+      "trust": 0.5818
+    },
+    {
+      "chain_hash": "1f7b6e079cc8b6a64a01a6f0bd0546e07ff61e349581ed9110ec8e2da967f9ba",
+      "event_type": "narrative_drift",
+      "mythologization": 0.13988,
+      "narrative_inflation": 0.148208,
+      "preserved_lines": 4,
+      "stability": 0.99346,
+      "step": 2184,
+      "trust": 0.591
+    },
+    {
+      "chain_hash": "b9486258dacca1a39d0fa5fbcf5e251d72d807cea6b91769cee08aae7be00474",
+      "event_type": "media_wave",
+      "mythologization": 0.140764,
+      "narrative_inflation": 0.148922,
+      "preserved_lines": 4,
+      "stability": 0.99982,
+      "step": 2210,
+      "trust": 0.4002
+    },
+    {
+      "chain_hash": "452250ceae0e55f3a09c9912ba4a09131f7caf1c94e0ec040b6254705c451784",
+      "event_type": "trust_shift",
+      "mythologization": 0.141639,
+      "narrative_inflation": 0.149625,
+      "preserved_lines": 4,
+      "stability": 0.94618,
+      "step": 2236,
+      "trust": 0.4094
+    },
+    {
+      "chain_hash": "848efe6aeba8a30e8da065246b4ac822c0cddec71d85a91d4293b2e3a9e8d076",
+      "event_type": "narrative_drift",
+      "mythologization": 0.142503,
+      "narrative_inflation": 0.150319,
+      "preserved_lines": 4,
+      "stability": 0.95254,
+      "step": 2262,
+      "trust": 0.4186
+    },
+    {
+      "chain_hash": "3514472e380e2dbc3f040c49960b0211a75f6ee62419e2b8ae68e85e82322329",
+      "event_type": "media_wave",
+      "mythologization": 0.143358,
+      "narrative_inflation": 0.151003,
+      "preserved_lines": 4,
+      "stability": 0.9589,
+      "step": 2288,
+      "trust": 0.4278
+    },
+    {
+      "chain_hash": "788fa107e9a5bbea4ba7f1f442d3bfb18e8bb99ef7c213dd32b7d8f9313c33de",
+      "event_type": "trust_shift",
+      "mythologization": 0.144204,
+      "narrative_inflation": 0.151678,
+      "preserved_lines": 4,
+      "stability": 0.96526,
+      "step": 2314,
+      "trust": 0.437
+    },
+    {
+      "chain_hash": "a61d1c21cc734e43714d42cf09e134b154584704971a8a41c13dfe5e5b9ccd75",
+      "event_type": "narrative_drift",
+      "mythologization": 0.145041,
+      "narrative_inflation": 0.152344,
+      "preserved_lines": 4,
+      "stability": 0.97162,
+      "step": 2340,
+      "trust": 0.4462
+    },
+    {
+      "chain_hash": "eb980e28c437f8e34c7c9f180fea6f81cf18d571f004f65f2ca09e2d1d27f724",
+      "event_type": "media_wave",
+      "mythologization": 0.145869,
+      "narrative_inflation": 0.153001,
+      "preserved_lines": 4,
+      "stability": 0.97798,
+      "step": 2366,
+      "trust": 0.4554
+    },
+    {
+      "chain_hash": "5319c5eb70e567054bfb89484ef7b5ae55014975605cf1084d47f6f1678f0f9b",
+      "event_type": "trust_shift",
+      "mythologization": 0.146688,
+      "narrative_inflation": 0.153649,
+      "preserved_lines": 4,
+      "stability": 0.98434,
+      "step": 2392,
+      "trust": 0.4646
+    },
+    {
+      "chain_hash": "c74da41e4f03abb12c2563079603e7a56d688308e04fcd79e61966aa533ff55b",
+      "event_type": "narrative_drift",
+      "mythologization": 0.147499,
+      "narrative_inflation": 0.154288,
+      "preserved_lines": 4,
+      "stability": 0.9907,
+      "step": 2418,
+      "trust": 0.4738
+    },
+    {
+      "chain_hash": "e7cd8cdcfaa916d0e8ae219010b077aed29d8849be5b9fb71976cf18de4763da",
+      "event_type": "media_wave",
+      "mythologization": 0.148301,
+      "narrative_inflation": 0.154919,
+      "preserved_lines": 4,
+      "stability": 0.99706,
+      "step": 2444,
+      "trust": 0.483
+    },
+    {
+      "chain_hash": "356cced3bc37191d340c1a1a7b07c019cdfc9775203ad7dbc4757b7553cabfde",
+      "event_type": "trust_shift",
+      "mythologization": 0.149095,
+      "narrative_inflation": 0.155542,
+      "preserved_lines": 4,
+      "stability": 0.94342,
+      "step": 2470,
+      "trust": 0.4922
+    },
+    {
+      "chain_hash": "1b8c69f0d6dcde263f9ed6cf9e583c6c0db5158bf1322d0bf357b2784bdc7216",
+      "event_type": "narrative_drift",
+      "mythologization": 0.14988,
+      "narrative_inflation": 0.156156,
+      "preserved_lines": 4,
+      "stability": 0.94978,
+      "step": 2496,
+      "trust": 0.5014
+    },
+    {
+      "chain_hash": "9f1eb0891d8150f2af35e2e135b43a2d5deab1fdbcde1d095f03a2518962db36",
+      "event_type": "media_wave",
+      "mythologization": 0.150657,
+      "narrative_inflation": 0.156763,
+      "preserved_lines": 4,
+      "stability": 0.95614,
+      "step": 2522,
+      "trust": 0.5106
+    },
+    {
+      "chain_hash": "1245a6603096e5a0016c4395f344981d067d481a2120b54edfad4d046b7e3b6d",
+      "event_type": "trust_shift",
+      "mythologization": 0.151426,
+      "narrative_inflation": 0.157362,
+      "preserved_lines": 4,
+      "stability": 0.9625,
+      "step": 2548,
+      "trust": 0.5198
+    },
+    {
+      "chain_hash": "49723370ba0b01215e7fe777315de6dca6eb3c87855be69d41327fab9dded1e6",
+      "event_type": "narrative_drift",
+      "mythologization": 0.152188,
+      "narrative_inflation": 0.157953,
+      "preserved_lines": 4,
+      "stability": 0.96886,
+      "step": 2574,
+      "trust": 0.529
+    },
+    {
+      "chain_hash": "a0ff7eeca66b4e4c30153d01e3bb970a5658fdd122f1f61e835b7cef6a2ddc84",
+      "event_type": "media_wave",
+      "mythologization": 0.152941,
+      "narrative_inflation": 0.158537,
+      "preserved_lines": 4,
+      "stability": 0.97522,
+      "step": 2600,
+      "trust": 0.5382
+    },
+    {
+      "chain_hash": "2c3d025af34fec9522d05256502e29aa021618d9c79173ab5fb21b363fa2aa20",
+      "event_type": "trust_shift",
+      "mythologization": 0.153687,
+      "narrative_inflation": 0.159113,
+      "preserved_lines": 4,
+      "stability": 0.98158,
+      "step": 2626,
+      "trust": 0.5474
+    },
+    {
+      "chain_hash": "04dd828da5e5c84d46e78fb915a1b002ce0ebe75b166723f369e6e1c06c89250",
+      "event_type": "narrative_drift",
+      "mythologization": 0.154425,
+      "narrative_inflation": 0.159682,
+      "preserved_lines": 4,
+      "stability": 0.98794,
+      "step": 2652,
+      "trust": 0.5566
+    },
+    {
+      "chain_hash": "e23b5dacb3f9e4c15065aecfd29cc354782ee9fe5eab2744a44c1f88d9bf868e",
+      "event_type": "media_wave",
+      "mythologization": 0.155156,
+      "narrative_inflation": 0.160244,
+      "preserved_lines": 4,
+      "stability": 0.9943,
+      "step": 2678,
+      "trust": 0.5658
+    },
+    {
+      "chain_hash": "95f34653a70262744088f8e6e2296a1b7fc816717c920bd895878be0b466f4ff",
+      "event_type": "trust_shift",
+      "mythologization": 0.15588,
+      "narrative_inflation": 0.160799,
+      "preserved_lines": 4,
+      "stability": 0.94066,
+      "step": 2704,
+      "trust": 0.575
+    },
+    {
+      "chain_hash": "85dace1342992b65b619cc0c8444d8473943e540ab72d2b72e01b78f44e2d9c5",
+      "event_type": "narrative_drift",
+      "mythologization": 0.156597,
+      "narrative_inflation": 0.161348,
+      "preserved_lines": 4,
+      "stability": 0.94702,
+      "step": 2730,
+      "trust": 0.5842
+    },
+    {
+      "chain_hash": "00f6bec0db0bad2295b7f6302cd5466d2d0984f87e545d4f0502aa711953579d",
+      "event_type": "media_wave",
+      "mythologization": 0.157306,
+      "narrative_inflation": 0.161889,
+      "preserved_lines": 4,
+      "stability": 0.95338,
+      "step": 2756,
+      "trust": 0.5934
+    },
+    {
+      "chain_hash": "19c5a6722f1c44a5fa9034499c4d3af0fc295df67cc79aa2c1f754b194d7b706",
+      "event_type": "trust_shift",
+      "mythologization": 0.158008,
+      "narrative_inflation": 0.162424,
+      "preserved_lines": 4,
+      "stability": 0.95974,
+      "step": 2782,
+      "trust": 0.4026
+    },
+    {
+      "chain_hash": "b3e0d5a69fee680342fccfe989f11a60ad46a54b08bb524c389e15707fff970e",
+      "event_type": "narrative_drift",
+      "mythologization": 0.158704,
+      "narrative_inflation": 0.162953,
+      "preserved_lines": 4,
+      "stability": 0.9661,
+      "step": 2808,
+      "trust": 0.4118
+    },
+    {
+      "chain_hash": "ef1655a440ee8c2424ceb22434bf01b70454ba39c84b30097d63b96a1f3c2f9f",
+      "event_type": "media_wave",
+      "mythologization": 0.159393,
+      "narrative_inflation": 0.163475,
+      "preserved_lines": 4,
+      "stability": 0.97246,
+      "step": 2834,
+      "trust": 0.421
+    },
+    {
+      "chain_hash": "58c081d8e3009beeab18eba3a7ee86c1911fb693c035b96babf04bb075fb6239",
+      "event_type": "trust_shift",
+      "mythologization": 0.160075,
+      "narrative_inflation": 0.163991,
+      "preserved_lines": 4,
+      "stability": 0.97882,
+      "step": 2860,
+      "trust": 0.4302
+    },
+    {
+      "chain_hash": "ff600a6ca895e6c2d7ee0f0c5b6858e35b5bf124d446c8f381dfe7c771fd9801",
+      "event_type": "narrative_drift",
+      "mythologization": 0.16075,
+      "narrative_inflation": 0.164501,
+      "preserved_lines": 4,
+      "stability": 0.98518,
+      "step": 2886,
+      "trust": 0.4394
+    },
+    {
+      "chain_hash": "0dd0559ab934fd56a294603495c450487f015346cb1d7c931a66d298c601ef6c",
+      "event_type": "media_wave",
+      "mythologization": 0.161419,
+      "narrative_inflation": 0.165005,
+      "preserved_lines": 4,
+      "stability": 0.99154,
+      "step": 2912,
+      "trust": 0.4486
+    },
+    {
+      "chain_hash": "a24e9c67513ab0286df1bff1ce4b1e330179730cbe1c66bc4109c57c3b656413",
+      "event_type": "trust_shift",
+      "mythologization": 0.162082,
+      "narrative_inflation": 0.165502,
+      "preserved_lines": 4,
+      "stability": 0.9979,
+      "step": 2938,
+      "trust": 0.4578
+    },
+    {
+      "chain_hash": "c755af733b7486d964cb024697d77e3bf2e36c3ec39c0bc448e2613c639f02f8",
+      "event_type": "narrative_drift",
+      "mythologization": 0.162738,
+      "narrative_inflation": 0.165995,
+      "preserved_lines": 4,
+      "stability": 0.94426,
+      "step": 2964,
+      "trust": 0.467
+    },
+    {
+      "chain_hash": "8b74e324e4abe773e169540a73b70ff3573a15c08d11ffadbf1dbd41f1f9c80b",
+      "event_type": "media_wave",
+      "mythologization": 0.163388,
+      "narrative_inflation": 0.166481,
+      "preserved_lines": 4,
+      "stability": 0.95062,
+      "step": 2990,
+      "trust": 0.4762
+    },
+    {
+      "chain_hash": "f584ad17237dc92bf541773174911ae5e379f2e042cfb04ef3564fca95dd0e08",
+      "event_type": "trust_shift",
+      "mythologization": 0.164032,
+      "narrative_inflation": 0.166962,
+      "preserved_lines": 4,
+      "stability": 0.95698,
+      "step": 3016,
+      "trust": 0.4854
+    },
+    {
+      "chain_hash": "bc9c6de612b690452d0a26e526e5d304e0ed05ca1e1d1be805e540df189c4bd7",
+      "event_type": "narrative_drift",
+      "mythologization": 0.16467,
+      "narrative_inflation": 0.167437,
+      "preserved_lines": 4,
+      "stability": 0.96334,
+      "step": 3042,
+      "trust": 0.4946
+    },
+    {
+      "chain_hash": "414be1386ef8d5f926ed5e9e13654332701cbaf317baea23534a81b65328d493",
+      "event_type": "media_wave",
+      "mythologization": 0.165302,
+      "narrative_inflation": 0.167907,
+      "preserved_lines": 4,
+      "stability": 0.9697,
+      "step": 3068,
+      "trust": 0.5038
+    },
+    {
+      "chain_hash": "da37beb087560aa5fb70c06d39a40e32a4d520de868b7e675903a12cbbb3885e",
+      "event_type": "trust_shift",
+      "mythologization": 0.165928,
+      "narrative_inflation": 0.168372,
+      "preserved_lines": 4,
+      "stability": 0.97606,
+      "step": 3094,
+      "trust": 0.513
+    },
+    {
+      "chain_hash": "c5db7f1f18a15a27c117e5fb316dd8bb659635082847a4faab4dc8790ffc3cfe",
+      "event_type": "narrative_drift",
+      "mythologization": 0.166548,
+      "narrative_inflation": 0.168831,
+      "preserved_lines": 4,
+      "stability": 0.98242,
+      "step": 3120,
+      "trust": 0.5222
+    },
+    {
+      "chain_hash": "17cca9c784978779701b657930001af3bd0eab88907e8b2cc97995172f9ab102",
+      "event_type": "media_wave",
+      "mythologization": 0.167163,
+      "narrative_inflation": 0.169285,
+      "preserved_lines": 4,
+      "stability": 0.98878,
+      "step": 3146,
+      "trust": 0.5314
+    },
+    {
+      "chain_hash": "9a853b5d1b00c5cd271d40bad2d33827cfc9410c410be56a5c81971502b8fb0b",
+      "event_type": "trust_shift",
+      "mythologization": 0.167772,
+      "narrative_inflation": 0.169735,
+      "preserved_lines": 4,
+      "stability": 0.99514,
+      "step": 3172,
+      "trust": 0.5406
+    },
+    {
+      "chain_hash": "bfa92426dc364b963783321ae929ea3301879bc81489c1d69c6059da9f33271e",
+      "event_type": "narrative_drift",
+      "mythologization": 0.168375,
+      "narrative_inflation": 0.170179,
+      "preserved_lines": 4,
+      "stability": 0.9415,
+      "step": 3198,
+      "trust": 0.5498
+    },
+    {
+      "chain_hash": "4dd07c05772be79903fbacc2db65028c08841b9f6213325f461083c31856690a",
+      "event_type": "media_wave",
+      "mythologization": 0.168973,
+      "narrative_inflation": 0.170618,
+      "preserved_lines": 4,
+      "stability": 0.94786,
+      "step": 3224,
+      "trust": 0.559
+    },
+    {
+      "chain_hash": "cfe0efdbdfc82f239deff56be6844b333dde5855c9fcf5a9536539adfe1cd5db",
+      "event_type": "trust_shift",
+      "mythologization": 0.169565,
+      "narrative_inflation": 0.171053,
+      "preserved_lines": 4,
+      "stability": 0.95422,
+      "step": 3250,
+      "trust": 0.5682
+    },
+    {
+      "chain_hash": "3d0d3bf38d5e1c44736749243e3b5b6cdfd4992178d9ce2bd7407564d8692a09",
+      "event_type": "narrative_drift",
+      "mythologization": 0.170152,
+      "narrative_inflation": 0.171482,
+      "preserved_lines": 4,
+      "stability": 0.96058,
+      "step": 3276,
+      "trust": 0.5774
+    },
+    {
+      "chain_hash": "c42c2a6ad5406549e09e8d27d4be519949719d8c3c6eb0090dbd9924b636e0dc",
+      "event_type": "media_wave",
+      "mythologization": 0.170734,
+      "narrative_inflation": 0.171908,
+      "preserved_lines": 4,
+      "stability": 0.96694,
+      "step": 3302,
+      "trust": 0.5866
+    },
+    {
+      "chain_hash": "ab4140b836fe93428f77881892af911c81b3d3cce14b8a4736543efb363622d6",
+      "event_type": "trust_shift",
+      "mythologization": 0.171311,
+      "narrative_inflation": 0.172328,
+      "preserved_lines": 4,
+      "stability": 0.9733,
+      "step": 3328,
+      "trust": 0.5958
+    },
+    {
+      "chain_hash": "8baa9a1f09d0d758d539f676b93fcd41b9c86de58d8b05e3f4efbd9d319f73f1",
+      "event_type": "narrative_drift",
+      "mythologization": 0.171882,
+      "narrative_inflation": 0.172744,
+      "preserved_lines": 4,
+      "stability": 0.97966,
+      "step": 3354,
+      "trust": 0.405
+    },
+    {
+      "chain_hash": "988760263e6a681fddedc61a2958b484280d2d5db7ad4ca552e62a37f7ba4d6b",
+      "event_type": "media_wave",
+      "mythologization": 0.172449,
+      "narrative_inflation": 0.173156,
+      "preserved_lines": 4,
+      "stability": 0.98602,
+      "step": 3380,
+      "trust": 0.4142
+    },
+    {
+      "chain_hash": "bc60181c732f0813b3f665dcbb8582eb9f30842a3062b0c3410747c07d665f15",
+      "event_type": "trust_shift",
+      "mythologization": 0.17301,
+      "narrative_inflation": 0.173563,
+      "preserved_lines": 4,
+      "stability": 0.99238,
+      "step": 3406,
+      "trust": 0.4234
+    },
+    {
+      "chain_hash": "d8881b96bc32c99e97ca812b8ce2a8ed6ee7f97de69ad5eda4a8128e0d12dc08",
+      "event_type": "narrative_drift",
+      "mythologization": 0.173567,
+      "narrative_inflation": 0.173966,
+      "preserved_lines": 4,
+      "stability": 0.99874,
+      "step": 3432,
+      "trust": 0.4326
+    },
+    {
+      "chain_hash": "9bb10ce34d4b88c1816c593462901424e242c84698ded6ff15e1874df7e01aae",
+      "event_type": "media_wave",
+      "mythologization": 0.174119,
+      "narrative_inflation": 0.174365,
+      "preserved_lines": 4,
+      "stability": 0.9451,
+      "step": 3458,
+      "trust": 0.4418
+    },
+    {
+      "chain_hash": "3a601ff46ef2f83025102581135fc2ba2735db1a02523bb0a10e4252a7074120",
+      "event_type": "trust_shift",
+      "mythologization": 0.174666,
+      "narrative_inflation": 0.174759,
+      "preserved_lines": 4,
+      "stability": 0.95146,
+      "step": 3484,
+      "trust": 0.451
+    },
+    {
+      "chain_hash": "7c10d977270b1717e28a2f332ec7363e469291a77ae9f41422fc5cb28bd955e4",
+      "event_type": "narrative_drift",
+      "mythologization": 0.175208,
+      "narrative_inflation": 0.17515,
+      "preserved_lines": 4,
+      "stability": 0.95782,
+      "step": 3510,
+      "trust": 0.4602
+    },
+    {
+      "chain_hash": "296b3a4bbf75752e94c20dfd320350883536b585ebc0b47df26b57b9ddb12f0b",
+      "event_type": "media_wave",
+      "mythologization": 0.175746,
+      "narrative_inflation": 0.175536,
+      "preserved_lines": 4,
+      "stability": 0.96418,
+      "step": 3536,
+      "trust": 0.4694
+    },
+    {
+      "chain_hash": "792bdbab25f7c33467397c3189fee1492259044f92e637dab2555a577d52af31",
+      "event_type": "trust_shift",
+      "mythologization": 0.176278,
+      "narrative_inflation": 0.175919,
+      "preserved_lines": 4,
+      "stability": 0.97054,
+      "step": 3562,
+      "trust": 0.4786
+    },
+    {
+      "chain_hash": "57c232bb20f675551dad9f98074206a1ad0073bcd9b521e720505eebcb7d8633",
+      "event_type": "narrative_drift",
+      "mythologization": 0.176807,
+      "narrative_inflation": 0.176297,
+      "preserved_lines": 4,
+      "stability": 0.9769,
+      "step": 3588,
+      "trust": 0.4878
+    },
+    {
+      "chain_hash": "0002dfbd002362a26d99fd4c8dde3cdf636c758e081ed21c88e6f6685fe8dcc1",
+      "event_type": "media_wave",
+      "mythologization": 0.177331,
+      "narrative_inflation": 0.176672,
+      "preserved_lines": 4,
+      "stability": 0.98326,
+      "step": 3614,
+      "trust": 0.497
+    },
+    {
+      "chain_hash": "e142b33ed7b15d40a5fe37df1d083968742c1dce8ce1dbd0f5d899a94b1d2906",
+      "event_type": "trust_shift",
+      "mythologization": 0.17785,
+      "narrative_inflation": 0.177043,
+      "preserved_lines": 4,
+      "stability": 0.98962,
+      "step": 3640,
+      "trust": 0.5062
+    },
+    {
+      "chain_hash": "70c15f4af56c7597fd1f443525c2310e3b9dd8249ce616ed9dbfed2860a15c2b",
+      "event_type": "narrative_drift",
+      "mythologization": 0.178365,
+      "narrative_inflation": 0.17741,
+      "preserved_lines": 4,
+      "stability": 0.99598,
+      "step": 3666,
+      "trust": 0.5154
+    },
+    {
+      "chain_hash": "4ccdca9b30eec6ca2153caab5a1a80b61b232bea8101a3a320c39cfc43730592",
+      "event_type": "media_wave",
+      "mythologization": 0.178876,
+      "narrative_inflation": 0.177773,
+      "preserved_lines": 4,
+      "stability": 0.94234,
+      "step": 3692,
+      "trust": 0.5246
+    },
+    {
+      "chain_hash": "d42db75cb9b3b18be328fbac2780047eb2aeb70c8c91dc203cce58ab6e5e1c34",
+      "event_type": "trust_shift",
+      "mythologization": 0.179382,
+      "narrative_inflation": 0.178133,
+      "preserved_lines": 4,
+      "stability": 0.9487,
+      "step": 3718,
+      "trust": 0.5338
+    },
+    {
+      "chain_hash": "ee2f5266080665f9dede0be50e5b74f638783ea82ab7beea561a369ff0b3fad9",
+      "event_type": "narrative_drift",
+      "mythologization": 0.179885,
+      "narrative_inflation": 0.17849,
+      "preserved_lines": 4,
+      "stability": 0.95506,
+      "step": 3744,
+      "trust": 0.543
+    },
+    {
+      "chain_hash": "f3d6d2fd5fce9d7b76867d36089dcdb8c6c1e4f92635bfa678deed8cef6fd84b",
+      "event_type": "media_wave",
+      "mythologization": 0.180383,
+      "narrative_inflation": 0.178843,
+      "preserved_lines": 4,
+      "stability": 0.96142,
+      "step": 3770,
+      "trust": 0.5522
+    },
+    {
+      "chain_hash": "065022cb4c8b2bc05c4c38f5ed88e3c75a164daa206a0bdc58ecaa5e9514061a",
+      "event_type": "trust_shift",
+      "mythologization": 0.180877,
+      "narrative_inflation": 0.179192,
+      "preserved_lines": 4,
+      "stability": 0.96778,
+      "step": 3796,
+      "trust": 0.5614
+    },
+    {
+      "chain_hash": "0eb858dc4810428d31eff2af63d35bf365a0c1bf667ed6ff75890d690e1942a3",
+      "event_type": "narrative_drift",
+      "mythologization": 0.181367,
+      "narrative_inflation": 0.179538,
+      "preserved_lines": 4,
+      "stability": 0.97414,
+      "step": 3822,
+      "trust": 0.5706
+    },
+    {
+      "chain_hash": "eff15fd4cbcf08689b5efa5aeec3788500588161e16bd26fe0d37470defae0d3",
+      "event_type": "media_wave",
+      "mythologization": 0.181853,
+      "narrative_inflation": 0.17988,
+      "preserved_lines": 4,
+      "stability": 0.9805,
+      "step": 3848,
+      "trust": 0.5798
+    },
+    {
+      "chain_hash": "167ba446ea2934eb8e3acfe605c450ed86283c158ff03a70bbfdba43e629a538",
+      "event_type": "trust_shift",
+      "mythologization": 0.182334,
+      "narrative_inflation": 0.18022,
+      "preserved_lines": 4,
+      "stability": 0.98686,
+      "step": 3874,
+      "trust": 0.589
+    },
+    {
+      "chain_hash": "2aa126d27d4c678c4462c959f3f4f700521d92be9c45528deae509562292f327",
+      "event_type": "narrative_drift",
+      "mythologization": 0.182812,
+      "narrative_inflation": 0.180556,
+      "preserved_lines": 4,
+      "stability": 0.99322,
+      "step": 3900,
+      "trust": 0.5982
+    },
+    {
+      "chain_hash": "b4710765cccb688b8fafb2967418ce777394647b2755872416b182d9c6c0dbb2",
+      "event_type": "media_wave",
+      "mythologization": 0.183287,
+      "narrative_inflation": 0.180888,
+      "preserved_lines": 4,
+      "stability": 0.99958,
+      "step": 3926,
+      "trust": 0.4074
+    },
+    {
+      "chain_hash": "367f3cbdafd02826816fd71d2f1446a2363fc0d4c126b5ad5167bbc76cf3c291",
+      "event_type": "trust_shift",
+      "mythologization": 0.183757,
+      "narrative_inflation": 0.181218,
+      "preserved_lines": 4,
+      "stability": 0.94594,
+      "step": 3952,
+      "trust": 0.4166
+    },
+    {
+      "chain_hash": "0d08c65a5f0748d4edb09330b0dc1b25e3fc1d15395927ca57a6700010c542cd",
+      "event_type": "narrative_drift",
+      "mythologization": 0.184224,
+      "narrative_inflation": 0.181544,
+      "preserved_lines": 4,
+      "stability": 0.9523,
+      "step": 3978,
+      "trust": 0.4258
+    },
+    {
+      "chain_hash": "f7b7945ae520e3c9e8cb761199672ff68d20200e179ea315ace571ec32830b31",
+      "event_type": "media_wave",
+      "mythologization": 0.184686,
+      "narrative_inflation": 0.181868,
+      "preserved_lines": 4,
+      "stability": 0.95866,
+      "step": 4004,
+      "trust": 0.435
+    },
+    {
+      "chain_hash": "7e927021f584c7eec87cea2ed9bf24331c3ea9c78217454a15df66b30136ee6c",
+      "event_type": "trust_shift",
+      "mythologization": 0.185145,
+      "narrative_inflation": 0.182188,
+      "preserved_lines": 4,
+      "stability": 0.96502,
+      "step": 4030,
+      "trust": 0.4442
+    },
+    {
+      "chain_hash": "dd0da59379e1e96e1e4fb4753ac016db3bf5dfdfca954508424fb07b04363f11",
+      "event_type": "narrative_drift",
+      "mythologization": 0.185601,
+      "narrative_inflation": 0.182505,
+      "preserved_lines": 4,
+      "stability": 0.97138,
+      "step": 4056,
+      "trust": 0.4534
+    },
+    {
+      "chain_hash": "dd895300805930b5ace4ed88ed96f4a7a14669cc605514c060ada1926da16658",
+      "event_type": "media_wave",
+      "mythologization": 0.186053,
+      "narrative_inflation": 0.18282,
+      "preserved_lines": 4,
+      "stability": 0.97774,
+      "step": 4082,
+      "trust": 0.4626
+    },
+    {
+      "chain_hash": "94dbf29bfad39d399646c7abf91c6acc97e56f57eb4f9219eb1cf4438744fb57",
+      "event_type": "trust_shift",
+      "mythologization": 0.186501,
+      "narrative_inflation": 0.183131,
+      "preserved_lines": 4,
+      "stability": 0.9841,
+      "step": 4108,
+      "trust": 0.4718
+    },
+    {
+      "chain_hash": "c73cf24a5e5ff63687d9142ee62259971649841b915596b829b93a910226a3ef",
+      "event_type": "narrative_drift",
+      "mythologization": 0.186946,
+      "narrative_inflation": 0.18344,
+      "preserved_lines": 4,
+      "stability": 0.99046,
+      "step": 4134,
+      "trust": 0.481
+    },
+    {
+      "chain_hash": "4bfb45167c810de51d254cf9159161d5dea19847da906776539aa937ac6658b6",
+      "event_type": "media_wave",
+      "mythologization": 0.187387,
+      "narrative_inflation": 0.183746,
+      "preserved_lines": 4,
+      "stability": 0.99682,
+      "step": 4160,
+      "trust": 0.4902
+    },
+    {
+      "chain_hash": "c776c4d3bcc7f02bff7dc1901634e8a5bd0b5a620917a8598e3403876a7336c6",
+      "event_type": "trust_shift",
+      "mythologization": 0.187825,
+      "narrative_inflation": 0.184049,
+      "preserved_lines": 4,
+      "stability": 0.94318,
+      "step": 4186,
+      "trust": 0.4994
+    },
+    {
+      "chain_hash": "c7d87741612a45444d459d99c98484e97c0dec65cdf35c7ba5fe1f42602280b9",
+      "event_type": "narrative_drift",
+      "mythologization": 0.18826,
+      "narrative_inflation": 0.184349,
+      "preserved_lines": 4,
+      "stability": 0.94954,
+      "step": 4212,
+      "trust": 0.5086
+    },
+    {
+      "chain_hash": "a6423c6d24a3e4b79d9a46d1d1993aa28e7bfbe656cdf2f5c29c416f341615b8",
+      "event_type": "media_wave",
+      "mythologization": 0.188691,
+      "narrative_inflation": 0.184646,
+      "preserved_lines": 4,
+      "stability": 0.9559,
+      "step": 4238,
+      "trust": 0.5178
+    },
+    {
+      "chain_hash": "5d84a4d2fbbff4016c0608f253c51a102cbfbe1da769d2694d57126e4362cc2d",
+      "event_type": "trust_shift",
+      "mythologization": 0.189119,
+      "narrative_inflation": 0.184941,
+      "preserved_lines": 4,
+      "stability": 0.96226,
+      "step": 4264,
+      "trust": 0.527
+    },
+    {
+      "chain_hash": "9214443d0526a6222cf856c190b6bf7c58175a41837bf5c63829afe8d5496fbb",
+      "event_type": "narrative_drift",
+      "mythologization": 0.189543,
+      "narrative_inflation": 0.185233,
+      "preserved_lines": 4,
+      "stability": 0.96862,
+      "step": 4290,
+      "trust": 0.5362
+    },
+    {
+      "chain_hash": "d2eff6ac9218984fc70143dabaf3d35b192b75cf221aca4ee0625dc2fc7dcfcd",
+      "event_type": "media_wave",
+      "mythologization": 0.189965,
+      "narrative_inflation": 0.185523,
+      "preserved_lines": 4,
+      "stability": 0.97498,
+      "step": 4316,
+      "trust": 0.5454
+    },
+    {
+      "chain_hash": "23405a66b5d299ae02808b0e213d022bdfcb5b906d5ff218d037212585e9c113",
+      "event_type": "trust_shift",
+      "mythologization": 0.190383,
+      "narrative_inflation": 0.18581,
+      "preserved_lines": 4,
+      "stability": 0.98134,
+      "step": 4342,
+      "trust": 0.5546
+    },
+    {
+      "chain_hash": "57404f8d27841ef20204e83f4800e1986d0671a1b0c5daeada37213fbd63ae22",
+      "event_type": "narrative_drift",
+      "mythologization": 0.190798,
+      "narrative_inflation": 0.186094,
+      "preserved_lines": 4,
+      "stability": 0.9877,
+      "step": 4368,
+      "trust": 0.5638
+    },
+    {
+      "chain_hash": "a6a2071bfe7f449d02899263f2062f4b83220ba307304e0fcbdcd94c0b05d994",
+      "event_type": "media_wave",
+      "mythologization": 0.19121,
+      "narrative_inflation": 0.186376,
+      "preserved_lines": 4,
+      "stability": 0.99406,
+      "step": 4394,
+      "trust": 0.573
+    },
+    {
+      "chain_hash": "c247f5032d34ce0abc8c011b4aa17686a4c1957a8da67bbdfea43f97772d6c34",
+      "event_type": "trust_shift",
+      "mythologization": 0.191618,
+      "narrative_inflation": 0.186655,
+      "preserved_lines": 4,
+      "stability": 0.94042,
+      "step": 4420,
+      "trust": 0.5822
+    },
+    {
+      "chain_hash": "d294ed25f6391c2131cbfe2d3727f546096b328dcf476226755153e4fd54ede1",
+      "event_type": "narrative_drift",
+      "mythologization": 0.192024,
+      "narrative_inflation": 0.186932,
+      "preserved_lines": 4,
+      "stability": 0.94678,
+      "step": 4446,
+      "trust": 0.5914
+    },
+    {
+      "chain_hash": "ad7674012bf0b80d583bf81c2fc1b5bd1231d8f090c1eeae9c155c59efc0c3d2",
+      "event_type": "media_wave",
+      "mythologization": 0.192427,
+      "narrative_inflation": 0.187207,
+      "preserved_lines": 4,
+      "stability": 0.95314,
+      "step": 4472,
+      "trust": 0.4006
+    },
+    {
+      "chain_hash": "cc70b88fa9375144ed31114b96a2175e66003c48732c212b34c51d1541772072",
+      "event_type": "trust_shift",
+      "mythologization": 0.192827,
+      "narrative_inflation": 0.187479,
+      "preserved_lines": 4,
+      "stability": 0.9595,
+      "step": 4498,
+      "trust": 0.4098
+    },
+    {
+      "chain_hash": "f7b16a9e06651e32f79d3d05c5f9b6f06a310900937bc825cad588d74f35f70e",
+      "event_type": "narrative_drift",
+      "mythologization": 0.193223,
+      "narrative_inflation": 0.187749,
+      "preserved_lines": 4,
+      "stability": 0.96586,
+      "step": 4524,
+      "trust": 0.419
+    },
+    {
+      "chain_hash": "d1a7f1493a89af31a11f3a2015cbee68feede3807de9e1eb7373c8cbfb261bf4",
+      "event_type": "media_wave",
+      "mythologization": 0.193617,
+      "narrative_inflation": 0.188017,
+      "preserved_lines": 4,
+      "stability": 0.97222,
+      "step": 4550,
+      "trust": 0.4282
+    },
+    {
+      "chain_hash": "357886b2b2bbdfb0cc70603b6d28ac5894201133f3ac90f0572cd65029e409b8",
+      "event_type": "trust_shift",
+      "mythologization": 0.194008,
+      "narrative_inflation": 0.188282,
+      "preserved_lines": 4,
+      "stability": 0.97858,
+      "step": 4576,
+      "trust": 0.4374
+    },
+    {
+      "chain_hash": "52bbc152a4585c9129553120ea87026faee1f40db0186a17abf9d71e31db5eb3",
+      "event_type": "narrative_drift",
+      "mythologization": 0.194396,
+      "narrative_inflation": 0.188545,
+      "preserved_lines": 4,
+      "stability": 0.98494,
+      "step": 4602,
+      "trust": 0.4466
+    },
+    {
+      "chain_hash": "24c334b6e94d2970b7c4d355a26972422747c8c38387dd2a7aeb820c27a80d00",
+      "event_type": "media_wave",
+      "mythologization": 0.194781,
+      "narrative_inflation": 0.188805,
+      "preserved_lines": 4,
+      "stability": 0.9913,
+      "step": 4628,
+      "trust": 0.4558
+    },
+    {
+      "chain_hash": "ad8ef2fa65f3be30f81a74173083ed033b6cf84672e60160480764033f886fab",
+      "event_type": "trust_shift",
+      "mythologization": 0.195164,
+      "narrative_inflation": 0.189064,
+      "preserved_lines": 4,
+      "stability": 0.99766,
+      "step": 4654,
+      "trust": 0.465
+    },
+    {
+      "chain_hash": "ecb6eacacbdd70dfcecca0df84b4f4c94dfe6b5a623be45b0d28c6f7d5be50c6",
+      "event_type": "narrative_drift",
+      "mythologization": 0.195543,
+      "narrative_inflation": 0.18932,
+      "preserved_lines": 4,
+      "stability": 0.94402,
+      "step": 4680,
+      "trust": 0.4742
+    },
+    {
+      "chain_hash": "217d18dda64adc57863ca08432e29e39a6d50c2d3dd3f36703a60ab09209a03a",
+      "event_type": "media_wave",
+      "mythologization": 0.19592,
+      "narrative_inflation": 0.189575,
+      "preserved_lines": 4,
+      "stability": 0.95038,
+      "step": 4706,
+      "trust": 0.4834
+    },
+    {
+      "chain_hash": "b0743d2599172e86a98d2f4e5db656fffffd783dcd2bdc2f310c2b72d24cff8d",
+      "event_type": "trust_shift",
+      "mythologization": 0.196294,
+      "narrative_inflation": 0.189827,
+      "preserved_lines": 4,
+      "stability": 0.95674,
+      "step": 4732,
+      "trust": 0.4926
+    },
+    {
+      "chain_hash": "491f45c1c1db95779c24ad156d47a8c19121d2ce1623ddd5997c4577ce53f4e8",
+      "event_type": "narrative_drift",
+      "mythologization": 0.196666,
+      "narrative_inflation": 0.190077,
+      "preserved_lines": 4,
+      "stability": 0.9631,
+      "step": 4758,
+      "trust": 0.5018
+    },
+    {
+      "chain_hash": "4026eb1587547e7b6e95af86f3556e030fa029495697f0ab2bf9c3602941a7b0",
+      "event_type": "media_wave",
+      "mythologization": 0.197035,
+      "narrative_inflation": 0.190325,
+      "preserved_lines": 4,
+      "stability": 0.96946,
+      "step": 4784,
+      "trust": 0.511
+    },
+    {
+      "chain_hash": "a0d70ed4360c54f95e70140240b45b548c2d2417fda8151142ce8d2c6b628b2e",
+      "event_type": "trust_shift",
+      "mythologization": 0.197401,
+      "narrative_inflation": 0.190571,
+      "preserved_lines": 4,
+      "stability": 0.97582,
+      "step": 4810,
+      "trust": 0.5202
+    },
+    {
+      "chain_hash": "cf0670f576d03300bfc3b1a0ee533d4b84cb02dfebb847293f0fa2ce12dfaef9",
+      "event_type": "narrative_drift",
+      "mythologization": 0.197764,
+      "narrative_inflation": 0.190814,
+      "preserved_lines": 4,
+      "stability": 0.98218,
+      "step": 4836,
+      "trust": 0.5294
+    },
+    {
+      "chain_hash": "b297c40b95072d7e9a8a144d4f408f56275ede489046cede8688391d860c0838",
+      "event_type": "media_wave",
+      "mythologization": 0.198126,
+      "narrative_inflation": 0.191056,
+      "preserved_lines": 4,
+      "stability": 0.98854,
+      "step": 4862,
+      "trust": 0.5386
+    },
+    {
+      "chain_hash": "bb4d0282635fba7a822edd6fb65c81a74f6ad8e4691cefc79b99c18ebeba025a",
+      "event_type": "trust_shift",
+      "mythologization": 0.198484,
+      "narrative_inflation": 0.191296,
+      "preserved_lines": 4,
+      "stability": 0.9949,
+      "step": 4888,
+      "trust": 0.5478
+    },
+    {
+      "chain_hash": "f80b79f6cc94abda6f95f055d3a1fea972123527155c499d030cc74ee8131665",
+      "event_type": "narrative_drift",
+      "mythologization": 0.19884,
+      "narrative_inflation": 0.191534,
+      "preserved_lines": 4,
+      "stability": 0.94126,
+      "step": 4914,
+      "trust": 0.557
+    },
+    {
+      "chain_hash": "97bb9d641b063e841a781877e8365300673b6bc5487c16286a032f46dfc30bcd",
+      "event_type": "media_wave",
+      "mythologization": 0.199194,
+      "narrative_inflation": 0.19177,
+      "preserved_lines": 4,
+      "stability": 0.94762,
+      "step": 4940,
+      "trust": 0.5662
+    },
+    {
+      "chain_hash": "a8772cde362abe912385b92c0e3c84f28f06dca1af17b5972ff250bd199f3d46",
+      "event_type": "trust_shift",
+      "mythologization": 0.199545,
+      "narrative_inflation": 0.192004,
+      "preserved_lines": 4,
+      "stability": 0.95398,
+      "step": 4966,
+      "trust": 0.5754
+    },
+    {
+      "chain_hash": "d46590c1d82b967aaf36414e0e220fb4d685e85185a805a2a31530a6dddf0f5d",
+      "event_type": "narrative_drift",
+      "mythologization": 0.199893,
+      "narrative_inflation": 0.192237,
+      "preserved_lines": 4,
+      "stability": 0.96034,
+      "step": 4992,
+      "trust": 0.5846
+    },
+    {
+      "chain_hash": "068be2211831fce2493c0360b94b8276a1289f2b31b54ea1060803ae1696a274",
+      "event_type": "media_wave",
+      "mythologization": 0.200239,
+      "narrative_inflation": 0.192467,
+      "preserved_lines": 4,
+      "stability": 0.9667,
+      "step": 5018,
+      "trust": 0.5938
+    },
+    {
+      "chain_hash": "3ecbca3e248fc0a68cc2a9b43b52061bb39a8af3c1e6d5db7983e8b07cff6724",
+      "event_type": "trust_shift",
+      "mythologization": 0.200583,
+      "narrative_inflation": 0.192696,
+      "preserved_lines": 4,
+      "stability": 0.97306,
+      "step": 5044,
+      "trust": 0.403
+    },
+    {
+      "chain_hash": "aa21adc26e96888d84686c5e6958a976a3a1086dfe1cc944c75b1d88614739ac",
+      "event_type": "narrative_drift",
+      "mythologization": 0.200925,
+      "narrative_inflation": 0.192922,
+      "preserved_lines": 4,
+      "stability": 0.97942,
+      "step": 5070,
+      "trust": 0.4122
+    },
+    {
+      "chain_hash": "8cb1c68a51e4543ccd55414148a7304589c3a9b6e61c1dd1b923fb9c5107a62e",
+      "event_type": "media_wave",
+      "mythologization": 0.201264,
+      "narrative_inflation": 0.193147,
+      "preserved_lines": 4,
+      "stability": 0.98578,
+      "step": 5096,
+      "trust": 0.4214
+    },
+    {
+      "chain_hash": "2db274b7993f893bd0cf830aacb038edc4f4a706fd640a37d3ea25904426c5cb",
+      "event_type": "trust_shift",
+      "mythologization": 0.201601,
+      "narrative_inflation": 0.193371,
+      "preserved_lines": 4,
+      "stability": 0.99214,
+      "step": 5122,
+      "trust": 0.4306
+    },
+    {
+      "chain_hash": "950d84a227503c26e81395f95e09ee3bb4d4d24e0b2197be0dd615fb0fee4852",
+      "event_type": "narrative_drift",
+      "mythologization": 0.201935,
+      "narrative_inflation": 0.193592,
+      "preserved_lines": 4,
+      "stability": 0.9985,
+      "step": 5148,
+      "trust": 0.4398
+    },
+    {
+      "chain_hash": "f4432f57af2b0c2591b27e94ead7f5c0a405e245ceadbaba5ef307a2ea585fdf",
+      "event_type": "media_wave",
+      "mythologization": 0.202267,
+      "narrative_inflation": 0.193812,
+      "preserved_lines": 4,
+      "stability": 0.94486,
+      "step": 5174,
+      "trust": 0.449
+    }
+  ],
+  "schema_version": "v16_3_long_horizon_historical_ecology",
+  "steps": 5200,
+  "trust_volatility": 0.1998
+}

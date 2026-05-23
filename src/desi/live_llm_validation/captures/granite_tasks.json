@@ -1,0 +1,148 @@
+{
+  "captures": [
+    {
+      "content_hash": "14e9f4e33cfe528659fd19eb54f49e70abc9232c0439e52e8ecbc0a160f8285f",
+      "finish_reason": "stop",
+      "messages": [
+        {
+          "content": "Classify the sentiment of the statement 'profits doubled this year' as exactly one of: positive, negative, neutral. Reply with one word only.",
+          "role": "user"
+        }
+      ],
+      "model_version": "ibm-granite/granite-4.1-8b-20260429",
+      "provenance": "live_openrouter_capture",
+      "raw_content": "Positive",
+      "record_hash": "0d0bf118f02755548a44f8e5fc6b79a8ebfdf5752068abad33db071b706a1ca2",
+      "requested_model": "ibm-granite/granite-4.1-8b",
+      "response_id": "gen-1779420203-CRmqXxke4HaQoFWIW3Ql",
+      "role": "granite_structured",
+      "task_id": "gr_classify",
+      "usage": {
+        "completion_tokens": 2,
+        "cost": 2.1e-06,
+        "prompt_tokens": 38,
+        "total_tokens": 40
+      }
+    },
+    {
+      "content_hash": "40510175845988f13f6162ed8526f0b09f73384467fa855e1e79b44a56562a58",
+      "finish_reason": "stop",
+      "messages": [
+        {
+          "content": "Extract the numeric value from 'Total revenue was 1000.' Reply with only the number.",
+          "role": "user"
+        }
+      ],
+      "model_version": "ibm-granite/granite-4.1-8b-20260429",
+      "provenance": "live_openrouter_capture",
+      "raw_content": "1000",
+      "record_hash": "6a402c48ccac5737ddfc882b04fc91c4505f7f294da483030900744162c13708",
+      "requested_model": "ibm-granite/granite-4.1-8b",
+      "response_id": "gen-1779420203-cEkmO6mAsTLnCs5Z2juv",
+      "role": "granite_structured",
+      "task_id": "gr_extract",
+      "usage": {
+        "completion_tokens": 3,
+        "cost": 1.65e-06,
+        "prompt_tokens": 27,
+        "total_tokens": 30
+      }
+    },
+    {
+      "content_hash": "9d3f06f5c7c18df653d8976e8b7af3e2424ea043b3105cb24d6d9d943fd69649",
+      "finish_reason": "stop",
+      "messages": [
+        {
+          "content": "Return only a JSON object with a key \"risk\" whose value is \"high\" for an overdue receivable. No prose.",
+          "role": "user"
+        }
+      ],
+      "model_version": "ibm-granite/granite-4.1-8b-20260429",
+      "provenance": "live_openrouter_capture",
+      "raw_content": "{\n  \"risk\": \"high\"\n}",
+      "record_hash": "00adefeafaa1d2a69f0751dc3ea0234feea1e92ccf15ebd6009f2a10cd319e04",
+      "requested_model": "ibm-granite/granite-4.1-8b",
+      "response_id": "gen-1779420203-cT9ATO8rRVCUe0PA5amP",
+      "role": "granite_structured",
+      "task_id": "gr_json",
+      "usage": {
+        "completion_tokens": 10,
+        "cost": 2.7e-06,
+        "prompt_tokens": 34,
+        "total_tokens": 44
+      }
+    },
+    {
+      "content_hash": "991e5ab396c965a13cb35024d915f5e6241280e0bfa1cfb70f01b61cf4332bba",
+      "finish_reason": "stop",
+      "messages": [
+        {
+          "content": "Reply with exactly one word: the antonym of 'increase'.",
+          "role": "user"
+        }
+      ],
+      "model_version": "ibm-granite/granite-4.1-8b-20260429",
+      "provenance": "live_openrouter_capture",
+      "raw_content": "Decrease",
+      "record_hash": "19409d79aa7d30ddb01ef24d526560b7b20f613688206d9d78ef887934d78fd7",
+      "requested_model": "ibm-granite/granite-4.1-8b",
+      "response_id": "gen-1779420205-cDYf4vulZfIj0fvfKrYq",
+      "role": "granite_structured",
+      "task_id": "gr_oneword",
+      "usage": {
+        "completion_tokens": 3,
+        "cost": 1.35e-06,
+        "prompt_tokens": 21,
+        "total_tokens": 24
+      }
+    },
+    {
+      "content_hash": "ac0f09c0f8bf5e7a4b063d863255f16d8ce9abe600e288d934cf313bcbff63eb",
+      "finish_reason": "stop",
+      "messages": [
+        {
+          "content": "Claim c1 is supported only by evidence e2. Which evidence id supports claim c1? Reply with the id only.",
+          "role": "user"
+        }
+      ],
+      "model_version": "ibm-granite/granite-4.1-8b-20260429",
+      "provenance": "live_openrouter_capture",
+      "raw_content": "e2",
+      "record_hash": "1262ee28e9304fa6f2f198835166a2e4799a341a1a1b6c35ea731924215d7d28",
+      "requested_model": "ibm-granite/granite-4.1-8b",
+      "response_id": "gen-1779420205-nrMx1ZqpAoqjM2MvIc38",
+      "role": "granite_structured",
+      "task_id": "gr_evidence",
+      "usage": {
+        "completion_tokens": 3,
+        "cost": 1.95e-06,
+        "prompt_tokens": 33,
+        "total_tokens": 36
+      }
+    },
+    {
+      "content_hash": "a3823cba82b6d2f0229cd8455e24949711bba8c5fac0353763668917527d9764",
+      "finish_reason": "stop",
+      "messages": [
+        {
+          "content": "A footnote states that revenue was recognised early. Name the audit risk this raises in 2 to 4 words.",
+          "role": "user"
+        }
+      ],
+      "model_version": "ibm-granite/granite-4.1-8b-20260429",
+      "provenance": "live_openrouter_capture",
+      "raw_content": "Misstatement risk due to early revenue recognition.",
+      "record_hash": "b404461ac4bc090cc37c3e2c957ff9a245d3dbaa2e1f73894ba42782ffd57ea4",
+      "requested_model": "ibm-granite/granite-4.1-8b",
+      "response_id": "gen-1779420205-fF4nB8WZqSiY7kcEdid7",
+      "role": "granite_structured",
+      "task_id": "gr_audit",
+      "usage": {
+        "completion_tokens": 10,
+        "cost": 2.55e-06,
+        "prompt_tokens": 31,
+        "total_tokens": 41
+      }
+    }
+  ]
+}

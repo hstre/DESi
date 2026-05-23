@@ -1,0 +1,8 @@
+{
+  "error_count": 0,
+  "failed_count": 0,
+  "passed": true,
+  "passed_count": 7683,
+  "scope": "v1-v32 full regression (end of v32.4)",
+  "summary": "7683 passed in 4502.19s (1:15:02)"
+}

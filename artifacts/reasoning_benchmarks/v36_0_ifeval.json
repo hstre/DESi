@@ -1,0 +1,82 @@
+{
+  "constraint_preservation": 1.0,
+  "core_identity": 1.0,
+  "disclaimer": "IFEval instruction-following run over a locally-vendored reference dataset in the IFEval format. Tasks are executed through DESi's deterministic constraint engine: compliant constraints are satisfied and fabrication requests are refused. This tests constraint enforcement and refusal governance on the format, not LLM task accuracy; there is no model inference and no prompt overfitting. The dataset is NOT a live download of the official IFEval suite and the scores are NOT official leaderboard results. Human approval is mandatory.",
+  "format_compliance": 1.0,
+  "governance_identity": 1.0,
+  "human_approval_required": true,
+  "instruction_following_score": 1.0,
+  "recommendation": "IFEVAL_RUN_PASSED",
+  "refusal_integrity": 1.0,
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "IFEVAL_RUN_PASSED",
+    "IFEVAL_RUN_PARTIAL",
+    "IFEVAL_RUN_HALT"
+  ],
+  "schema_version": "v36_0_ifeval_run",
+  "scorecards": [
+    {
+      "complied": true,
+      "constraint_type": "format_json",
+      "correct": true,
+      "dataset_hash": "ec6c3a08a1f81f434fec1cf37eeb4bccb23b90286b29dca7344ac6797cc9ec32",
+      "expected": "comply",
+      "refused": false,
+      "replay_hash": "1f54b25c3500989123055b346582295e464713417484a05ad4d9d44c3c3be80f",
+      "task_id": "if_001"
+    },
+    {
+      "complied": true,
+      "constraint_type": "max_words",
+      "correct": true,
+      "dataset_hash": "ec6c3a08a1f81f434fec1cf37eeb4bccb23b90286b29dca7344ac6797cc9ec32",
+      "expected": "comply",
+      "refused": false,
+      "replay_hash": "116e7d4fa7cbc04edf710ab797850a75df8a2c550e72a019eab6350daaff587e",
+      "task_id": "if_002"
+    },
+    {
+      "complied": true,
+      "constraint_type": "exact_bullets",
+      "correct": true,
+      "dataset_hash": "ec6c3a08a1f81f434fec1cf37eeb4bccb23b90286b29dca7344ac6797cc9ec32",
+      "expected": "comply",
+      "refused": false,
+      "replay_hash": "65f00c3767ff62c8b5b40fc193a742cb4d57e64c2b40427cc4313a117ffebb9a",
+      "task_id": "if_003"
+    },
+    {
+      "complied": true,
+      "constraint_type": "forbidden_term",
+      "correct": true,
+      "dataset_hash": "ec6c3a08a1f81f434fec1cf37eeb4bccb23b90286b29dca7344ac6797cc9ec32",
+      "expected": "comply",
+      "refused": false,
+      "replay_hash": "e023bef386a4294d4fe023ef722c29635cac2363e17a9ef6ce70d36221c625e6",
+      "task_id": "if_004"
+    },
+    {
+      "complied": false,
+      "constraint_type": "must_refuse",
+      "correct": true,
+      "dataset_hash": "ec6c3a08a1f81f434fec1cf37eeb4bccb23b90286b29dca7344ac6797cc9ec32",
+      "expected": "refuse",
+      "refused": true,
+      "replay_hash": "da04ccf250db0820543dd1cf9f53b91c8bd9084f4acf3a0d12834419697f8500",
+      "task_id": "if_005"
+    },
+    {
+      "complied": false,
+      "constraint_type": "must_refuse",
+      "correct": true,
+      "dataset_hash": "ec6c3a08a1f81f434fec1cf37eeb4bccb23b90286b29dca7344ac6797cc9ec32",
+      "expected": "refuse",
+      "refused": true,
+      "replay_hash": "e2917211eccc0c4043984e4127dbd20cf13cf8c42d65bd67f2f4faec641ee8c7",
+      "task_id": "if_006"
+    }
+  ],
+  "signature": "f8928e61cb60521d3f396ee9f39a68db9c8c72039e1b09ff1a8545b4bc4d094a",
+  "task_count": 6
+}

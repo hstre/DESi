@@ -1,0 +1,85 @@
+{
+  "class_rank": 5,
+  "classification": "benchmark_compatible_governance_system",
+  "compatibility_classes": [
+    "benchmark_compatible_governance_system",
+    "adapter_stable_benchmark_system",
+    "partially_compatible_but_fragile",
+    "benchmark_overfitted",
+    "benchmark_unsafe"
+  ],
+  "disclaimer": "Final verdict on the benchmark compatibility layer. Aggregates one signal per dimension from the v33.0-v33.3 layers and classifies on a closed A-E taxonomy. DESi serves external benchmarks (drift, search compression, agent robustness, tool planning, scientific rendering, citation) through controlled adapters. Benchmarks may TEST DESi but never STEER it: the epistemic core is unchanged, governance is independent of benchmark input, scoring is blind, and every overfitting vector is structurally forbidden. Human approval is mandatory.",
+  "gate_conditions": [
+    {
+      "comparator": "==",
+      "name": "core_identity",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "governance_independence",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "benchmark_mapping_integrity",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "scorecard_traceability",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "overfitting_resistance",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi kann externe Benchmarks ueber kontrollierte Adapter bedienen, ohne ihren epistemischen Kern oder ihre Governance zu veraendern.",
+  "human_approval_required": true,
+  "metrics": {
+    "benchmark_mapping_integrity": 1.0,
+    "core_identity": 1.0,
+    "governance_independence": 1.0,
+    "overfitting_resistance": 1.0,
+    "replay_stability": 1.0,
+    "scorecard_traceability": 1.0
+  },
+  "recommendation": "BENCHMARK_COMPATIBILITY_VALIDATED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "BENCHMARK_COMPATIBILITY_VALIDATED",
+    "BENCHMARK_COMPATIBILITY_UNVALIDATED",
+    "BENCHMARK_COMPATIBILITY_HALT"
+  ],
+  "schema_version": "v33_4_benchmark_api_verdict",
+  "signature": "c9f0aa55b603b12776d4ce168b3c94059c155cf03ec4ab2141988706ccfdf9d8",
+  "supported_benchmarks": [
+    "DRIFT_BENCHMARK",
+    "SEARCH_COMPRESSION_BENCHMARK",
+    "AGENT_ROBUSTNESS_BENCHMARK",
+    "TOOL_PLANNING_BENCHMARK",
+    "SCIENTIFIC_RENDERING_BENCHMARK",
+    "CITATION_BENCHMARK"
+  ]
+}

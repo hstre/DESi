@@ -1,0 +1,46 @@
+{
+  "benchmark_hash_after": "",
+  "benchmark_hash_before": "",
+  "created_guards": [],
+  "fail_reason": "missing_guards: at least two guards required",
+  "passed": false,
+  "patch_id": "pp_9f22836a6f75dc50",
+  "phase": "guard_synthesis",
+  "phase_outcomes": [
+    {
+      "data": {
+        "artefact_hashes": {
+          "v2_4/report.json": "146f8ef47bfcee47",
+          "v2_5/report.json": "9f12e57f257d94e2",
+          "v2_6/report.json": "6f67c0c617540208"
+        }
+      },
+      "passed": true,
+      "phase": "discovery",
+      "reason": "all required artefacts present"
+    },
+    {
+      "data": {
+        "safe_to_implement": true
+      },
+      "passed": true,
+      "phase": "risk_probe",
+      "reason": "probe clean"
+    },
+    {
+      "data": {
+        "guard_count": 0
+      },
+      "passed": false,
+      "phase": "guard_synthesis",
+      "reason": "missing_guards: at least two guards required"
+    }
+  ],
+  "replay_hash": "d83d81ab8417c022",
+  "source_branch": "feature/v2-8-fail-fixture",
+  "target_rule": "fake_rule",
+  "timestamp": "2026-05-15T09:14:14.980129+00:00",
+  "touched_files": [
+    "src/desi/logic/inference.py"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "comparison_table": {
+    "authority_drift": {
+      "delta": 0.000421,
+      "desi_alone": 0.087996,
+      "dual_agent": 0.088417
+    },
+    "capture_resistance": {
+      "delta": 0.0,
+      "desi_alone": 1.0,
+      "dual_agent": 1.0
+    },
+    "exploration_diversity": {
+      "delta": 0.59322,
+      "desi_alone": 0.40678,
+      "dual_agent": 1.0
+    },
+    "hallucination_pressure": {
+      "delta": 0.4,
+      "desi_alone": 0.0,
+      "dual_agent": 0.4
+    },
+    "novelty_gain": {
+      "delta": 0.733333,
+      "desi_alone": 0.0,
+      "dual_agent": 0.733333
+    },
+    "redundancy_reduction": {
+      "delta": -0.1,
+      "desi_alone": 0.9,
+      "dual_agent": 0.8
+    },
+    "replay_stability": {
+      "delta": 0.0,
+      "desi_alone": 1.0,
+      "dual_agent": 1.0
+    }
+  },
+  "delta_authority_drift": 0.000421,
+  "delta_exploration_diversity": 0.59322,
+  "delta_hallucination_pressure": 0.0,
+  "delta_novelty_gain": 0.733333,
+  "delta_redundancy_reduction": -0.1,
+  "delta_replay_stability": 0.0,
+  "desi_alone": {
+    "authority_drift": 0.087996,
+    "capture_resistance": 1.0,
+    "exploration_diversity": 0.40678,
+    "hallucination_pressure": 0.0,
+    "novelty_gain": 0.0,
+    "redundancy_reduction": 0.9,
+    "replay_stability": 1.0,
+    "residual_hallucination": 0.0
+  },
+  "disclaimer": "Comparison of DESi-alone ICRL governance (v19) with DESi + Wild Explorer dual-agent governance (v20). Numbers are read directly from both phases' modules. No RL is replaced, no reward injected, no optimal strategy claimed. The thesis is an empirical claim on this synthetic corpus, not an AGI or world-model claim. Replay-exact.",
+  "dual_agent": {
+    "authority_drift": 0.088417,
+    "capture_resistance": 1.0,
+    "exploration_diversity": 1.0,
+    "hallucination_pressure": 0.4,
+    "novelty_gain": 0.733333,
+    "redundancy_reduction": 0.8,
+    "replay_stability": 1.0,
+    "residual_hallucination": 0.0
+  },
+  "gate_passes_all": true,
+  "paper_readiness_score": 1.0,
+  "productivity_gain": 2.75,
+  "readiness_checklist": {
+    "authority_safe": true,
+    "diversity_improved": true,
+    "dual_agent_gate_passed": true,
+    "hallucination_safe": true,
+    "novelty_improved": true,
+    "replay_preserved": true
+  },
+  "recommendation": "DUAL_AGENT_ADDS_EPISTEMIC_VALUE",
+  "report_verdicts": [
+    "DUAL_AGENT_ADDS_EPISTEMIC_VALUE",
+    "DUAL_AGENT_NO_CLEAR_GAIN",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "schema_version": "v21_0_comparative_exploration_governance",
+  "thesis": "Controlled wild exploration improves ICRL-governed exploration without breaking epistemic safety."
+}

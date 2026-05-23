@@ -1,0 +1,73 @@
+{
+  "core_identity": 1.0,
+  "dataset_hash_visibility": 1.0,
+  "dataset_version_visibility": 1.0,
+  "datasets": [
+    {
+      "byte_hash": "2ccc4b2f94215e6f522942bd0d096e152d5ac4743efbb7a168ee04665ad97e98",
+      "content_hash": "8d9f951f962ec0e000fb11030b29ed5382aac8d2316c6c09d83ad4012ac30cfb",
+      "family": "AgentDrift",
+      "item_count": 4,
+      "license": "CC0-1.0",
+      "name": "agentdrift_ref",
+      "provenance": "offline_reference_dataset",
+      "source_note": "Locally vendored reference dataset in the AgentDrift-style objective-drift format. Network-free; NOT a live download and NOT official scores. Ingested by real bytes/hash; ready for the published suite when provided locally.",
+      "version": "1.0.0"
+    },
+    {
+      "byte_hash": "a4f964b3b54135a7b78144adeda17d99f76c233666f542a37b205c47c1da7f56",
+      "content_hash": "2520e000a933901a330fc984bb4ad95e9387b953b7800bd6a3981b77adc55a8b",
+      "family": "BeliefShift",
+      "item_count": 5,
+      "license": "CC0-1.0",
+      "name": "beliefshift_ref",
+      "provenance": "offline_reference_dataset",
+      "source_note": "Locally vendored reference dataset in the BeliefShift-style belief-revision format. This environment is network-free: this is NOT a live download of an official published suite and the scores are NOT official leaderboard results. The connector ingests this file by its real bytes/hash and is built to ingest the published suite unchanged when provided locally.",
+      "version": "1.0.0"
+    },
+    {
+      "byte_hash": "5c5583289c585e3d68079cce614f970a0b8e65ab12f518dd3c9515c811ead0bd",
+      "content_hash": "e0f8bf264cc539bb0f04f3ab219a5ef17ce4e07ec50f8817941fb829d9c2080d",
+      "family": "MemEvoBench",
+      "item_count": 4,
+      "license": "CC0-1.0",
+      "name": "memevo_ref",
+      "provenance": "offline_reference_dataset",
+      "source_note": "Locally vendored reference dataset in the MemEvoBench-style memory-poisoning format. Network-free; NOT a live download of an official suite and NOT official leaderboard scores. Ingested by real bytes/hash; the connector accepts the published suite unchanged when provided locally.",
+      "version": "1.0.0"
+    },
+    {
+      "byte_hash": "2cfa610bf56087ce49f9321c6bb6f2744eadd64bdd5a735cde54dfa95f693bcb",
+      "content_hash": "b648a033d2e0da5f7555a16dcff2151824087fb392e1844ad52421944b1ffd39",
+      "family": "ToolChain",
+      "item_count": 12,
+      "license": "CC0-1.0",
+      "name": "toolchain_ref",
+      "provenance": "offline_reference_dataset",
+      "source_note": "Locally vendored reference dataset in the ToolChain*/planning search-compression format. Network-free; NOT a live download and NOT official scores. Branches are ingested by real bytes/hash; ready for the published suite when provided locally.",
+      "version": "1.0.0"
+    }
+  ],
+  "disclaimer": "Network-free external benchmark connector layer. External datasets enter DESi only as local files, which are versioned, hashed (byte + content), normalised and replay-bound; governance is read from the core, never from the dataset. IMPORTANT honesty note: in this environment the datasets are locally-vendored reference sets in the published benchmark families' formats. They are NOT live downloads of the official published suites and their scores are NOT official leaderboard results. The connector is built so that dropping the published dataset files into the local datasets directory makes the same pipeline run against them unchanged. Human approval is mandatory.",
+  "families": [
+    "BeliefShift",
+    "MemEvoBench",
+    "AgentDrift",
+    "ToolChain",
+    "Reproducibility",
+    "ScientificRendering"
+  ],
+  "governance_independence": 1.0,
+  "human_approval_required": true,
+  "network_free": true,
+  "recommendation": "EXTERNAL_CONNECTORS_REPLAY_STABLE",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "EXTERNAL_CONNECTORS_REPLAY_STABLE",
+    "EXTERNAL_CONNECTORS_PARTIAL",
+    "EXTERNAL_CONNECTORS_HALT"
+  ],
+  "schema_version": "v35_0_external_connectors",
+  "signature": "1cdf7fe6cf4c115584d3a903489fb685d3de66cc4c69459a3afdd09170ed7102",
+  "task_normalization_integrity": 1.0
+}

@@ -1,0 +1,432 @@
+{
+  "adversarial": {
+    "detected": 20,
+    "detection_rate": 1.0,
+    "false_inheritance_allowed": 0,
+    "results": [
+      {
+        "case_id": "M01",
+        "consistency": "undecidable",
+        "event": "frame_undecidable_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M02",
+        "consistency": "undecidable",
+        "event": "frame_undecidable_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M03",
+        "consistency": "undecidable",
+        "event": "frame_undecidable_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M04",
+        "consistency": "tension",
+        "event": "frame_inheritance_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M05",
+        "consistency": "tension",
+        "event": "frame_inheritance_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M06",
+        "consistency": "tension",
+        "event": "frame_inheritance_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M07",
+        "consistency": "undecidable",
+        "event": "frame_undecidable_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M08",
+        "consistency": "conflict",
+        "event": "frame_conflict_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M09",
+        "consistency": "undecidable",
+        "event": "frame_undecidable_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M10",
+        "consistency": "undecidable",
+        "event": "frame_undecidable_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M11",
+        "consistency": "conflict",
+        "event": "frame_conflict_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M12",
+        "consistency": "conflict",
+        "event": "frame_conflict_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M13",
+        "consistency": "conflict",
+        "event": "frame_conflict_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M14",
+        "consistency": "conflict",
+        "event": "frame_conflict_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M15",
+        "consistency": "conflict",
+        "event": "frame_conflict_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M16",
+        "consistency": "conflict",
+        "event": "frame_conflict_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M17",
+        "consistency": "conflict",
+        "event": "frame_conflict_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M18",
+        "consistency": "undecidable",
+        "event": "frame_undecidable_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M19",
+        "consistency": "conflict",
+        "event": "frame_conflict_blocked",
+        "inherited_allowed": false
+      },
+      {
+        "case_id": "M20",
+        "consistency": "undecidable",
+        "event": "frame_undecidable_blocked",
+        "inherited_allowed": false
+      }
+    ],
+    "total": 20
+  },
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "layer_benchmark": {
+    "accuracy": 1.0,
+    "correct": 40,
+    "results": [
+      {
+        "case_id": "CF01",
+        "event": "frame_inheritance_allowed",
+        "expected": "confirmed",
+        "inherited_allowed": true,
+        "observed": "confirmed"
+      },
+      {
+        "case_id": "CF02",
+        "event": "frame_inheritance_allowed",
+        "expected": "confirmed",
+        "inherited_allowed": true,
+        "observed": "confirmed"
+      },
+      {
+        "case_id": "CF03",
+        "event": "frame_inheritance_allowed",
+        "expected": "confirmed",
+        "inherited_allowed": true,
+        "observed": "confirmed"
+      },
+      {
+        "case_id": "CF04",
+        "event": "frame_inheritance_allowed",
+        "expected": "confirmed",
+        "inherited_allowed": true,
+        "observed": "confirmed"
+      },
+      {
+        "case_id": "CF05",
+        "event": "frame_inheritance_allowed",
+        "expected": "confirmed",
+        "inherited_allowed": true,
+        "observed": "confirmed"
+      },
+      {
+        "case_id": "CF06",
+        "event": "frame_inheritance_allowed",
+        "expected": "confirmed",
+        "inherited_allowed": true,
+        "observed": "confirmed"
+      },
+      {
+        "case_id": "CF07",
+        "event": "frame_inheritance_allowed",
+        "expected": "confirmed",
+        "inherited_allowed": true,
+        "observed": "confirmed"
+      },
+      {
+        "case_id": "CF08",
+        "event": "frame_inheritance_allowed",
+        "expected": "confirmed",
+        "inherited_allowed": true,
+        "observed": "confirmed"
+      },
+      {
+        "case_id": "CF09",
+        "event": "frame_inheritance_allowed",
+        "expected": "confirmed",
+        "inherited_allowed": true,
+        "observed": "confirmed"
+      },
+      {
+        "case_id": "CF10",
+        "event": "frame_inheritance_allowed",
+        "expected": "confirmed",
+        "inherited_allowed": true,
+        "observed": "confirmed"
+      },
+      {
+        "case_id": "TN01",
+        "event": "frame_inheritance_blocked",
+        "expected": "tension",
+        "inherited_allowed": false,
+        "observed": "tension"
+      },
+      {
+        "case_id": "TN02",
+        "event": "frame_inheritance_blocked",
+        "expected": "tension",
+        "inherited_allowed": false,
+        "observed": "tension"
+      },
+      {
+        "case_id": "TN03",
+        "event": "frame_inheritance_blocked",
+        "expected": "tension",
+        "inherited_allowed": false,
+        "observed": "tension"
+      },
+      {
+        "case_id": "TN04",
+        "event": "frame_inheritance_blocked",
+        "expected": "tension",
+        "inherited_allowed": false,
+        "observed": "tension"
+      },
+      {
+        "case_id": "TN05",
+        "event": "frame_inheritance_blocked",
+        "expected": "tension",
+        "inherited_allowed": false,
+        "observed": "tension"
+      },
+      {
+        "case_id": "TN06",
+        "event": "frame_inheritance_blocked",
+        "expected": "tension",
+        "inherited_allowed": false,
+        "observed": "tension"
+      },
+      {
+        "case_id": "TN07",
+        "event": "frame_inheritance_blocked",
+        "expected": "tension",
+        "inherited_allowed": false,
+        "observed": "tension"
+      },
+      {
+        "case_id": "TN08",
+        "event": "frame_inheritance_blocked",
+        "expected": "tension",
+        "inherited_allowed": false,
+        "observed": "tension"
+      },
+      {
+        "case_id": "TN09",
+        "event": "frame_inheritance_blocked",
+        "expected": "tension",
+        "inherited_allowed": false,
+        "observed": "tension"
+      },
+      {
+        "case_id": "TN10",
+        "event": "frame_inheritance_blocked",
+        "expected": "tension",
+        "inherited_allowed": false,
+        "observed": "tension"
+      },
+      {
+        "case_id": "CO01",
+        "event": "frame_conflict_blocked",
+        "expected": "conflict",
+        "inherited_allowed": false,
+        "observed": "conflict"
+      },
+      {
+        "case_id": "CO02",
+        "event": "frame_conflict_blocked",
+        "expected": "conflict",
+        "inherited_allowed": false,
+        "observed": "conflict"
+      },
+      {
+        "case_id": "CO03",
+        "event": "frame_conflict_blocked",
+        "expected": "conflict",
+        "inherited_allowed": false,
+        "observed": "conflict"
+      },
+      {
+        "case_id": "CO04",
+        "event": "frame_conflict_blocked",
+        "expected": "conflict",
+        "inherited_allowed": false,
+        "observed": "conflict"
+      },
+      {
+        "case_id": "CO05",
+        "event": "frame_conflict_blocked",
+        "expected": "conflict",
+        "inherited_allowed": false,
+        "observed": "conflict"
+      },
+      {
+        "case_id": "CO06",
+        "event": "frame_conflict_blocked",
+        "expected": "conflict",
+        "inherited_allowed": false,
+        "observed": "conflict"
+      },
+      {
+        "case_id": "CO07",
+        "event": "frame_conflict_blocked",
+        "expected": "conflict",
+        "inherited_allowed": false,
+        "observed": "conflict"
+      },
+      {
+        "case_id": "CO08",
+        "event": "frame_conflict_blocked",
+        "expected": "conflict",
+        "inherited_allowed": false,
+        "observed": "conflict"
+      },
+      {
+        "case_id": "CO09",
+        "event": "frame_conflict_blocked",
+        "expected": "conflict",
+        "inherited_allowed": false,
+        "observed": "conflict"
+      },
+      {
+        "case_id": "CO10",
+        "event": "frame_conflict_blocked",
+        "expected": "conflict",
+        "inherited_allowed": false,
+        "observed": "conflict"
+      },
+      {
+        "case_id": "UD01",
+        "event": "frame_undecidable_blocked",
+        "expected": "undecidable",
+        "inherited_allowed": false,
+        "observed": "undecidable"
+      },
+      {
+        "case_id": "UD02",
+        "event": "frame_undecidable_blocked",
+        "expected": "undecidable",
+        "inherited_allowed": false,
+        "observed": "undecidable"
+      },
+      {
+        "case_id": "UD03",
+        "event": "frame_undecidable_blocked",
+        "expected": "undecidable",
+        "inherited_allowed": false,
+        "observed": "undecidable"
+      },
+      {
+        "case_id": "UD04",
+        "event": "frame_undecidable_blocked",
+        "expected": "undecidable",
+        "inherited_allowed": false,
+        "observed": "undecidable"
+      },
+      {
+        "case_id": "UD05",
+        "event": "frame_undecidable_blocked",
+        "expected": "undecidable",
+        "inherited_allowed": false,
+        "observed": "undecidable"
+      },
+      {
+        "case_id": "UD06",
+        "event": "frame_undecidable_blocked",
+        "expected": "undecidable",
+        "inherited_allowed": false,
+        "observed": "undecidable"
+      },
+      {
+        "case_id": "UD07",
+        "event": "frame_undecidable_blocked",
+        "expected": "undecidable",
+        "inherited_allowed": false,
+        "observed": "undecidable"
+      },
+      {
+        "case_id": "UD08",
+        "event": "frame_undecidable_blocked",
+        "expected": "undecidable",
+        "inherited_allowed": false,
+        "observed": "undecidable"
+      },
+      {
+        "case_id": "UD09",
+        "event": "frame_undecidable_blocked",
+        "expected": "undecidable",
+        "inherited_allowed": false,
+        "observed": "undecidable"
+      },
+      {
+        "case_id": "UD10",
+        "event": "frame_undecidable_blocked",
+        "expected": "undecidable",
+        "inherited_allowed": false,
+        "observed": "undecidable"
+      }
+    ],
+    "total": 40
+  },
+  "ledger_event_counts_adversarial": {
+    "frame_conflict_blocked": 9,
+    "frame_inheritance_allowed": 0,
+    "frame_inheritance_blocked": 3,
+    "frame_undecidable_blocked": 8
+  },
+  "ledger_event_counts_benchmark": {
+    "frame_conflict_blocked": 10,
+    "frame_inheritance_allowed": 10,
+    "frame_inheritance_blocked": 10,
+    "frame_undecidable_blocked": 10
+  },
+  "replay_hash": "1c8e6d0e0b90905c",
+  "started_at": "2026-05-16T00:00:00+00:00"
+}

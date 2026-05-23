@@ -1,0 +1,45 @@
+{
+  "ambiguous_dims": [],
+  "classifications": [
+    {
+      "dim": "contradiction_type",
+      "in_collapsed_candidates": true,
+      "verdict": "epistemic"
+    },
+    {
+      "dim": "corpus_hash",
+      "in_collapsed_candidates": true,
+      "verdict": "proxy"
+    },
+    {
+      "dim": "letter_prefix_hash",
+      "in_collapsed_candidates": false,
+      "verdict": "proxy"
+    }
+  ],
+  "epistemic_dims": [
+    "contradiction_type"
+  ],
+  "halt": false,
+  "proxy_dims": [
+    "corpus_hash",
+    "letter_prefix_hash"
+  ],
+  "rationale": [
+    "INFO: small_vocab_dims ['contradiction_type', 'corpus_hash', 'letter_prefix_hash']",
+    "INFO: epistemic_dims ['contradiction_type']",
+    "INFO: proxy_dims ['corpus_hash', 'letter_prefix_hash']",
+    "INFO: ambiguous_dims []",
+    "FAIL: validated_vocab_size 1 (minimum 2)",
+    "INFO: classifications [{'dim': 'contradiction_type', 'verdict': 'epistemic', 'in_collapsed_candidates': True}, {'dim': 'corpus_hash', 'verdict': 'proxy', 'in_collapsed_candidates': True}, {'dim': 'letter_prefix_hash', 'verdict': 'proxy', 'in_collapsed_candidates': False}]",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "SINGLE_EPISTEMIC_DIM_ONLY",
+  "replay_stability": 1.0,
+  "small_vocab_dims": [
+    "contradiction_type",
+    "corpus_hash",
+    "letter_prefix_hash"
+  ],
+  "validated_vocab_size": 1
+}

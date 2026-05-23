@@ -1,0 +1,112 @@
+{
+  "artifact_diff_count": 0,
+  "artifact_diffs": [
+    {
+      "matches": true,
+      "path": "v3_85/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_85/novel_claim_families.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_86/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_86/novel_family_clusters.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_87/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_87/novel_family_proxy.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_88/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_88/novel_family_predictive.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_89/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_89/frame_contribution_audit.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_90/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_90/frame_normalized_clusters.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_91/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_91/frame_normalized_minimal_features.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_92/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_92/frame_normalized_prediction.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_93/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_93/entangled_dimensions.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_94/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_94/entangled_ablation.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_95/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_95/entangled_method_signal.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_96/report.json"
+    },
+    {
+      "matches": true,
+      "path": "v3_96/entangled_resolution.json"
+    }
+  ],
+  "jittery_trajectories_post_patch": [],
+  "numerical_delta": 6.0,
+  "patch": {
+    "fix_kind": "stable_hash",
+    "helper_added": "_stable_frame_id",
+    "line_number": 236,
+    "path": "src/desi/epistemic_trajectory/extractor.py"
+  },
+  "post_patch_jitter_rate": 0.0,
+  "regression_breakage": 0,
+  "schema_version": "v3_96c_deterministic_patch"
+}

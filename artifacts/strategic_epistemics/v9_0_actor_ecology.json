@@ -1,0 +1,235 @@
+{
+  "actor_count": 12,
+  "actor_counts": {
+    "goodhart_agent": 2,
+    "honest": 2,
+    "opportunist": 2,
+    "propagandist": 2,
+    "replay_attacker": 2,
+    "resource_parasite": 2
+  },
+  "actor_kinds": [
+    "honest",
+    "opportunist",
+    "propagandist",
+    "goodhart_agent",
+    "replay_attacker",
+    "resource_parasite"
+  ],
+  "actors": [
+    {
+      "actor_id": "act-honest-1",
+      "coordination_index": 0.1,
+      "governance_compliance": 1.0,
+      "ground_truth_kind": "honest",
+      "metric_concentration": 0.2,
+      "replay_stability_emitted": 1.0,
+      "resource_take": 0.2,
+      "truth_alignment": 0.95
+    },
+    {
+      "actor_id": "act-honest-2",
+      "coordination_index": 0.15,
+      "governance_compliance": 1.0,
+      "ground_truth_kind": "honest",
+      "metric_concentration": 0.25,
+      "replay_stability_emitted": 1.0,
+      "resource_take": 0.25,
+      "truth_alignment": 0.9
+    },
+    {
+      "actor_id": "act-opp-1",
+      "coordination_index": 0.2,
+      "governance_compliance": 0.85,
+      "ground_truth_kind": "opportunist",
+      "metric_concentration": 0.45,
+      "replay_stability_emitted": 0.95,
+      "resource_take": 0.5,
+      "truth_alignment": 0.55
+    },
+    {
+      "actor_id": "act-opp-2",
+      "coordination_index": 0.25,
+      "governance_compliance": 0.8,
+      "ground_truth_kind": "opportunist",
+      "metric_concentration": 0.5,
+      "replay_stability_emitted": 0.92,
+      "resource_take": 0.55,
+      "truth_alignment": 0.5
+    },
+    {
+      "actor_id": "act-prop-1",
+      "coordination_index": 0.95,
+      "governance_compliance": 0.7,
+      "ground_truth_kind": "propagandist",
+      "metric_concentration": 0.4,
+      "replay_stability_emitted": 0.9,
+      "resource_take": 0.4,
+      "truth_alignment": 0.3
+    },
+    {
+      "actor_id": "act-prop-2",
+      "coordination_index": 0.92,
+      "governance_compliance": 0.65,
+      "ground_truth_kind": "propagandist",
+      "metric_concentration": 0.45,
+      "replay_stability_emitted": 0.88,
+      "resource_take": 0.35,
+      "truth_alignment": 0.25
+    },
+    {
+      "actor_id": "act-good-1",
+      "coordination_index": 0.15,
+      "governance_compliance": 0.95,
+      "ground_truth_kind": "goodhart_agent",
+      "metric_concentration": 0.95,
+      "replay_stability_emitted": 1.0,
+      "resource_take": 0.4,
+      "truth_alignment": 0.65
+    },
+    {
+      "actor_id": "act-good-2",
+      "coordination_index": 0.2,
+      "governance_compliance": 0.9,
+      "ground_truth_kind": "goodhart_agent",
+      "metric_concentration": 0.92,
+      "replay_stability_emitted": 1.0,
+      "resource_take": 0.45,
+      "truth_alignment": 0.6
+    },
+    {
+      "actor_id": "act-repl-1",
+      "coordination_index": 0.3,
+      "governance_compliance": 0.75,
+      "ground_truth_kind": "replay_attacker",
+      "metric_concentration": 0.3,
+      "replay_stability_emitted": 0.2,
+      "resource_take": 0.4,
+      "truth_alignment": 0.5
+    },
+    {
+      "actor_id": "act-repl-2",
+      "coordination_index": 0.28,
+      "governance_compliance": 0.7,
+      "ground_truth_kind": "replay_attacker",
+      "metric_concentration": 0.35,
+      "replay_stability_emitted": 0.15,
+      "resource_take": 0.42,
+      "truth_alignment": 0.45
+    },
+    {
+      "actor_id": "act-par-1",
+      "coordination_index": 0.2,
+      "governance_compliance": 0.95,
+      "ground_truth_kind": "resource_parasite",
+      "metric_concentration": 0.3,
+      "replay_stability_emitted": 0.95,
+      "resource_take": 0.95,
+      "truth_alignment": 0.55
+    },
+    {
+      "actor_id": "act-par-2",
+      "coordination_index": 0.22,
+      "governance_compliance": 0.92,
+      "ground_truth_kind": "resource_parasite",
+      "metric_concentration": 0.32,
+      "replay_stability_emitted": 0.93,
+      "resource_take": 0.92,
+      "truth_alignment": 0.52
+    }
+  ],
+  "classified_actors": [
+    {
+      "actor_id": "act-honest-1",
+      "correct": true,
+      "detected_kind": "honest",
+      "ground_truth_kind": "honest"
+    },
+    {
+      "actor_id": "act-honest-2",
+      "correct": true,
+      "detected_kind": "honest",
+      "ground_truth_kind": "honest"
+    },
+    {
+      "actor_id": "act-opp-1",
+      "correct": true,
+      "detected_kind": "opportunist",
+      "ground_truth_kind": "opportunist"
+    },
+    {
+      "actor_id": "act-opp-2",
+      "correct": true,
+      "detected_kind": "opportunist",
+      "ground_truth_kind": "opportunist"
+    },
+    {
+      "actor_id": "act-prop-1",
+      "correct": true,
+      "detected_kind": "propagandist",
+      "ground_truth_kind": "propagandist"
+    },
+    {
+      "actor_id": "act-prop-2",
+      "correct": true,
+      "detected_kind": "propagandist",
+      "ground_truth_kind": "propagandist"
+    },
+    {
+      "actor_id": "act-good-1",
+      "correct": true,
+      "detected_kind": "goodhart_agent",
+      "ground_truth_kind": "goodhart_agent"
+    },
+    {
+      "actor_id": "act-good-2",
+      "correct": true,
+      "detected_kind": "goodhart_agent",
+      "ground_truth_kind": "goodhart_agent"
+    },
+    {
+      "actor_id": "act-repl-1",
+      "correct": true,
+      "detected_kind": "replay_attacker",
+      "ground_truth_kind": "replay_attacker"
+    },
+    {
+      "actor_id": "act-repl-2",
+      "correct": true,
+      "detected_kind": "replay_attacker",
+      "ground_truth_kind": "replay_attacker"
+    },
+    {
+      "actor_id": "act-par-1",
+      "correct": true,
+      "detected_kind": "resource_parasite",
+      "ground_truth_kind": "resource_parasite"
+    },
+    {
+      "actor_id": "act-par-2",
+      "correct": true,
+      "detected_kind": "resource_parasite",
+      "ground_truth_kind": "resource_parasite"
+    }
+  ],
+  "epistemic_poisoning": 0.0,
+  "governance_integrity": 1.0,
+  "mean_trust": 0.383333,
+  "schema_version": "v9_0_strategic_actor_ecology",
+  "strategy_detection": 1.0,
+  "trust_stability": 1.0,
+  "trust_table": {
+    "act-good-1": 0.35,
+    "act-good-2": 0.35,
+    "act-honest-1": 1.0,
+    "act-honest-2": 1.0,
+    "act-opp-1": 0.5,
+    "act-opp-2": 0.5,
+    "act-par-1": 0.3,
+    "act-par-2": 0.3,
+    "act-prop-1": 0.1,
+    "act-prop-2": 0.1,
+    "act-repl-1": 0.05,
+    "act-repl-2": 0.05
+  }
+}

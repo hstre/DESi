@@ -1,0 +1,89 @@
+{
+  "cluster_class_matches": [
+    {
+      "cluster_id": 0,
+      "is_exact": true,
+      "matched_class_id": 1,
+      "member_overlap": 8
+    },
+    {
+      "cluster_id": 1,
+      "is_exact": true,
+      "matched_class_id": 0,
+      "member_overlap": 8
+    },
+    {
+      "cluster_id": 2,
+      "is_exact": true,
+      "matched_class_id": 2,
+      "member_overlap": 4
+    }
+  ],
+  "cluster_purity": 1.0,
+  "cluster_recall": 1.0,
+  "cluster_sizes": [
+    8,
+    8,
+    4
+  ],
+  "cluster_threshold": 1.376041,
+  "clusters": [
+    {
+      "cluster_id": 0,
+      "max_intra_distance": 0.516015,
+      "mean_intra_distance": 0.281044,
+      "members": [
+        "v23:R5_02",
+        "v23:R5_03",
+        "v23:R5_05",
+        "v23:R5_06",
+        "v317:R5_02",
+        "v317:R5_03",
+        "v317:R5_05",
+        "v317:R5_06"
+      ]
+    },
+    {
+      "cluster_id": 1,
+      "max_intra_distance": 0.279508,
+      "mean_intra_distance": 0.121877,
+      "members": [
+        "v23:R5_04",
+        "v314:D02",
+        "v314:D05",
+        "v315:G10",
+        "v316-susp:G10",
+        "v317-h:D02",
+        "v317-h:D05",
+        "v317:R5_04"
+      ]
+    },
+    {
+      "cluster_id": 2,
+      "max_intra_distance": 0.019966,
+      "mean_intra_distance": 0.013311,
+      "members": [
+        "v23:R4_04",
+        "v314:C02",
+        "v317-h:C02",
+        "v317:R4_04"
+      ]
+    }
+  ],
+  "halt": false,
+  "predicted_cluster_count": 3,
+  "probe_radius": 3.5,
+  "rationale": [
+    "INFO: probe_radius 3.5",
+    "INFO: cluster_threshold 1.376041 (largest-gap midpoint)",
+    "INFO: predicted_cluster_count 3",
+    "INFO: cluster_sizes [8, 8, 4]",
+    "PASS: cluster_purity 1.0 (threshold 0.7)",
+    "INFO: cluster_recall 1.0",
+    "INFO: clusters [{'cluster_id': 0, 'members': ['v23:R5_02', 'v23:R5_03', 'v23:R5_05', 'v23:R5_06', 'v317:R5_02', 'v317:R5_03', 'v317:R5_05', 'v317:R5_06'], 'mean_intra_distance': 0.281044, 'max_intra_distance': 0.516015}, {'cluster_id': 1, 'members': ['v23:R5_04', 'v314:D02', 'v314:D05', 'v315:G10', 'v316-susp:G10', 'v317-h:D02', 'v317-h:D05', 'v317:R5_04'], 'mean_intra_distance': 0.121877, 'max_intra_distance': 0.279508}, {'cluster_id': 2, 'members': ['v23:R4_04', 'v314:C02', 'v317-h:C02', 'v317:R4_04'], 'mean_intra_distance': 0.013311, 'max_intra_distance': 0.019966}]",
+    "INFO: cluster_class_matches [{'cluster_id': 0, 'matched_class_id': 1, 'member_overlap': 8, 'is_exact': True}, {'cluster_id': 1, 'matched_class_id': 0, 'member_overlap': 8, 'is_exact': True}, {'cluster_id': 2, 'matched_class_id': 2, 'member_overlap': 4, 'is_exact': True}]",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "DOPPELGAENGER_DETECTED_BLIND",
+  "replay_stability": 1.0
+}

@@ -1,0 +1,3611 @@
+{
+  "claim_classes": [
+    "EXPERIMENTAL",
+    "THEORETICAL",
+    "EMPIRICAL",
+    "SPECULATIVE",
+    "LIMITATION",
+    "OPEN_QUESTION",
+    "REPRODUCIBILITY",
+    "COMPARATIVE"
+  ],
+  "claim_extraction_consistency": 1.0,
+  "disclaimer": "Models AI/ML papers as temporary epistemic states - typed, paper-anchored claims with explicit limitations and open questions - over a deterministic fixture corpus. Exactly one paper is real (the base-paper anchor); every other is explicitly synthetic and illustrative, so nothing here is a fabricated real citation. DESi structures research; it does not rank, score, peer-review, judge truth or debunk. Deterministic and replay-stable.",
+  "limitation_visibility": 1.0,
+  "missing_claim_classes": [],
+  "open_question_visibility": 1.0,
+  "papers": [
+    {
+      "assumptions": [
+        "exploration_matters",
+        "sparse_reward_is_hard"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "C0a",
+          "paper_id": "arXiv:2501.14176",
+          "text": "In-context RL can handle variable action spaces and stitch skills."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "C0b",
+          "paper_id": "arXiv:2501.14176",
+          "text": "Exploration can collapse; sparse reward and repetitive trajectories remain open (Section 4.6)."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "C0c",
+          "paper_id": "arXiv:2501.14176",
+          "text": "How can exploration be governed without replacing the policy?"
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_action_space"
+      ],
+      "extends": [],
+      "metadata": {
+        "abstract": "Studies in-context RL for variable action spaces and skill stitching; Section 4.6 lists open exploration problems.",
+        "authors": [
+          "Rentschler",
+          "Roberts"
+        ],
+        "categories": [
+          "RL",
+          "Agents"
+        ],
+        "date": "2025-01",
+        "is_synthetic": false,
+        "paper_id": "arXiv:2501.14176",
+        "source": "arXiv",
+        "title": "In-Context Reinforcement Learning for Variable Action Spaces and Skill Stitching"
+      },
+      "methods": [
+        "in_context_rl",
+        "skill_stitching"
+      ],
+      "metrics": [
+        "distinct_state_coverage"
+      ]
+    },
+    {
+      "assumptions": [
+        "exploration_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "C1a",
+          "paper_id": "synthetic:H1",
+          "text": "A read-only governance layer reduces redundant search on a synthetic corpus."
+        },
+        {
+          "claim_class": "COMPARATIVE",
+          "claim_id": "C1b",
+          "paper_id": "synthetic:H1",
+          "text": "A generator/governor split increases distinct-state coverage versus a single explorer."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "C1c",
+          "paper_id": "synthetic:H1",
+          "text": "Results are limited to synthetic fixtures."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "C1d",
+          "paper_id": "synthetic:H1",
+          "text": "Does the effect hold under a trained policy?"
+        },
+        {
+          "claim_class": "REPRODUCIBILITY",
+          "claim_id": "C1e",
+          "paper_id": "synthetic:H1",
+          "text": "All reported numbers are replay-exact."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "arXiv:2501.14176"
+      ],
+      "metadata": {
+        "abstract": "Synthetic study of a read-only governance layer over in-context exploration.",
+        "authors": [
+          "Synthetic Group 1"
+        ],
+        "categories": [
+          "RL",
+          "Agents"
+        ],
+        "date": "2025-02",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H1",
+        "source": "arXiv",
+        "title": "Read-Only Exploration Governance for In-Context Agents (synthetic illustrative)"
+      },
+      "methods": [
+        "read_only_governance",
+        "generator_governor_split"
+      ],
+      "metrics": [
+        "redundancy_reduction",
+        "distinct_state_coverage"
+      ]
+    },
+    {
+      "assumptions": [
+        "diversity_matters",
+        "exploration_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "C2a",
+          "paper_id": "synthetic:H2",
+          "text": "Separating generation and governance preserves exploration diversity on synthetic runs."
+        },
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "C2b",
+          "paper_id": "synthetic:H2",
+          "text": "Soft re-weighting bounds accumulated authority drift."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "C2c",
+          "paper_id": "synthetic:H2",
+          "text": "Agents are rule-based stand-ins, not trained."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "C2d",
+          "paper_id": "synthetic:H2",
+          "text": "How does the split scale to many agents?"
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "synthetic:H1"
+      ],
+      "metadata": {
+        "abstract": "Synthetic study of generation/governance separation across multiple agents.",
+        "authors": [
+          "Synthetic Group 2"
+        ],
+        "categories": [
+          "Multi-Agent",
+          "RL"
+        ],
+        "date": "2025-03",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H2",
+        "source": "arXiv",
+        "title": "Generator/Governor Splits in Multi-Agent Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "generator_governor_split",
+        "soft_reweighting"
+      ],
+      "metrics": [
+        "exploration_diversity",
+        "authority_drift"
+      ]
+    },
+    {
+      "assumptions": [
+        "hallucination_is_risk"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "C3a",
+          "paper_id": "synthetic:H3",
+          "text": "Containment caps high-certainty incoherent paths on synthetic fixtures."
+        },
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "C3b",
+          "paper_id": "synthetic:H3",
+          "text": "Containment may generalise beyond the fixtures."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "C3c",
+          "paper_id": "synthetic:H3",
+          "text": "Only a synthetic generator is evaluated."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "C3d",
+          "paper_id": "synthetic:H3",
+          "text": "How does containment behave with a real generator?"
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [],
+      "metadata": {
+        "abstract": "Synthetic study of containment for high-certainty incoherent paths.",
+        "authors": [
+          "Synthetic Group 3"
+        ],
+        "categories": [
+          "LLM",
+          "Safety",
+          "Agents"
+        ],
+        "date": "2025-03",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H3",
+        "source": "arXiv",
+        "title": "Residual Hallucination in Tool-Using LLM Agents (synthetic illustrative)"
+      },
+      "methods": [
+        "containment"
+      ],
+      "metrics": [
+        "residual_hallucination"
+      ]
+    },
+    {
+      "assumptions": [
+        "interpretability_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "C4a",
+          "paper_id": "synthetic:H4",
+          "text": "Structural classification explains soft re-weighting decisions."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "C4b",
+          "paper_id": "synthetic:H4",
+          "text": "The account is post-hoc, not causal."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "C4c",
+          "paper_id": "synthetic:H4",
+          "text": "Can governance be interpreted causally?"
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [],
+      "metadata": {
+        "abstract": "Synthetic study of structural classification of exploration trajectories.",
+        "authors": [
+          "Synthetic Group 4"
+        ],
+        "categories": [
+          "Interpretability",
+          "RL"
+        ],
+        "date": "2025-04",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H4",
+        "source": "SSRN",
+        "title": "Interpretability of Exploration Policies (synthetic illustrative)"
+      },
+      "methods": [
+        "structural_classification"
+      ],
+      "metrics": [
+        "redundancy_reduction"
+      ]
+    },
+    {
+      "assumptions": [
+        "alignment_matters",
+        "exploration_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "C5a",
+          "paper_id": "synthetic:H5",
+          "text": "Read-only constraints avoid hidden optimisation authority."
+        },
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "C5b",
+          "paper_id": "synthetic:H5",
+          "text": "Non-authoritative layers may reduce misalignment pressure."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "C5c",
+          "paper_id": "synthetic:H5",
+          "text": "No real-world deployment is evaluated."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "C5d",
+          "paper_id": "synthetic:H5",
+          "text": "How do constraints behave under distribution shift?"
+        }
+      ],
+      "conflicts": [
+        "synthetic:H2"
+      ],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "synthetic:H1"
+      ],
+      "metadata": {
+        "abstract": "Synthetic position on read-only constraints and optimisation authority.",
+        "authors": [
+          "Synthetic Group 5"
+        ],
+        "categories": [
+          "Alignment",
+          "Safety"
+        ],
+        "date": "2025-04",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H5",
+        "source": "SSRN",
+        "title": "Alignment Constraints as Read-Only Governance (synthetic illustrative)"
+      },
+      "methods": [
+        "read_only_governance"
+      ],
+      "metrics": [
+        "capture_resistance"
+      ]
+    },
+    {
+      "assumptions": [
+        "reproducibility_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "REPRODUCIBILITY",
+          "claim_id": "C6a",
+          "paper_id": "synthetic:H6",
+          "text": "Exploration benchmarks are replay-exact under fixed fixtures."
+        },
+        {
+          "claim_class": "COMPARATIVE",
+          "claim_id": "C6b",
+          "paper_id": "synthetic:H6",
+          "text": "Fragile and reproducible claims differ by fixture sensitivity."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "C6c",
+          "paper_id": "synthetic:H6",
+          "text": "Only a small benchmark suite is covered."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "C6d",
+          "paper_id": "synthetic:H6",
+          "text": "Does reproducibility hold across labs?"
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [],
+      "metadata": {
+        "abstract": "Synthetic study of replay-exact exploration benchmarks.",
+        "authors": [
+          "Synthetic Group 6"
+        ],
+        "categories": [
+          "ML",
+          "RL"
+        ],
+        "date": "2025-05",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H6",
+        "source": "arXiv",
+        "title": "Reproducibility of Exploration Benchmarks (synthetic illustrative)"
+      },
+      "methods": [
+        "deterministic_replay"
+      ],
+      "metrics": [
+        "replay_stability"
+      ]
+    },
+    {
+      "assumptions": [
+        "reasoning_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "C7a",
+          "paper_id": "synthetic:H7",
+          "text": "Reasoning chains might guide exploration breadth."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "C7b",
+          "paper_id": "synthetic:H7",
+          "text": "Can reasoning traces be linked to exploration breadth?"
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "C7c",
+          "paper_id": "synthetic:H7",
+          "text": "No empirical test is provided."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [],
+      "metadata": {
+        "abstract": "Synthetic speculation on reasoning traces and exploration breadth.",
+        "authors": [
+          "Synthetic Group 7"
+        ],
+        "categories": [
+          "Reasoning",
+          "LLM"
+        ],
+        "date": "2025-05",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H7",
+        "source": "arXiv",
+        "title": "Reasoning Chains and Open Exploration Questions (synthetic illustrative)"
+      },
+      "methods": [
+        "reasoning_trace"
+      ],
+      "metrics": [
+        "novelty_gain"
+      ]
+    },
+    {
+      "assumptions": [
+        "exploration_matters",
+        "hallucination_is_risk"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G8a",
+          "paper_id": "synthetic:H8",
+          "text": "Synthetic study H8 presents an empirical observation about Multi-Agent exploration using trajectory_clustering on a synthetic corpus."
+        },
+        {
+          "claim_class": "COMPARATIVE",
+          "claim_id": "G8b",
+          "paper_id": "synthetic:H8",
+          "text": "A comparative observation links generator_governor_split to coverage_ratio on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G8c",
+          "paper_id": "synthetic:H8",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G8d",
+          "paper_id": "synthetic:H8",
+          "text": "Whether the Multi-Agent effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "arXiv:2501.14176"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H8 on Multi-Agent exploration using trajectory_clustering over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 8"
+        ],
+        "categories": [
+          "Multi-Agent",
+          "ML"
+        ],
+        "date": "2025-09",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H8",
+        "source": "arXiv",
+        "title": "Synthetic Study H8: Multi-Agent / ML Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "trajectory_clustering",
+        "generator_governor_split"
+      ],
+      "metrics": [
+        "coverage_ratio",
+        "redundancy_reduction"
+      ]
+    },
+    {
+      "assumptions": [
+        "diversity_matters",
+        "interpretability_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "G9a",
+          "paper_id": "synthetic:H9",
+          "text": "Synthetic study H9 reports an experimental result on Reasoning exploration using uncertainty_gating on a synthetic corpus."
+        },
+        {
+          "claim_class": "REPRODUCIBILITY",
+          "claim_id": "G9b",
+          "paper_id": "synthetic:H9",
+          "text": "A reproducibility observation links soft_reweighting to containment_rate on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G9c",
+          "paper_id": "synthetic:H9",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G9d",
+          "paper_id": "synthetic:H9",
+          "text": "Whether the Reasoning effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_action_space"
+      ],
+      "extends": [
+        "synthetic:H8"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H9 on Reasoning exploration using uncertainty_gating over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 9"
+        ],
+        "categories": [
+          "Reasoning",
+          "LLM"
+        ],
+        "date": "2025-10",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H9",
+        "source": "SSRN",
+        "title": "Synthetic Study H9: Reasoning / LLM Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "uncertainty_gating",
+        "soft_reweighting"
+      ],
+      "metrics": [
+        "containment_rate",
+        "novelty_gain"
+      ]
+    },
+    {
+      "assumptions": [
+        "hallucination_is_risk",
+        "alignment_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "G10a",
+          "paper_id": "synthetic:H10",
+          "text": "Synthetic study H10 develops a theoretical account of AI exploration using skill_composition on a synthetic corpus."
+        },
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "G10b",
+          "paper_id": "synthetic:H10",
+          "text": "A speculative observation links containment to drift_bound on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G10c",
+          "paper_id": "synthetic:H10",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G10d",
+          "paper_id": "synthetic:H10",
+          "text": "Whether the AI effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [
+        "synthetic:H8"
+      ],
+      "datasets": [
+        "synthetic_state_graph"
+      ],
+      "extends": [
+        "synthetic:H9"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H10 on AI exploration using skill_composition over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 10"
+        ],
+        "categories": [
+          "AI",
+          "RL"
+        ],
+        "date": "2025-11",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H10",
+        "source": "arXiv",
+        "title": "Synthetic Study H10: AI / RL Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "skill_composition",
+        "containment"
+      ],
+      "metrics": [
+        "drift_bound",
+        "exploration_diversity"
+      ]
+    },
+    {
+      "assumptions": [
+        "interpretability_matters",
+        "reproducibility_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G11a",
+          "paper_id": "synthetic:H11",
+          "text": "Synthetic study H11 presents an empirical observation about ML exploration using exploration_scheduling on a synthetic corpus."
+        },
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G11b",
+          "paper_id": "synthetic:H11",
+          "text": "A secondary empirical observation links structural_classification to diversity_index on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G11c",
+          "paper_id": "synthetic:H11",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G11d",
+          "paper_id": "synthetic:H11",
+          "text": "Whether the ML effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_benchmark_suite"
+      ],
+      "extends": [
+        "synthetic:H10"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H11 on ML exploration using exploration_scheduling over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 11"
+        ],
+        "categories": [
+          "ML",
+          "Agents"
+        ],
+        "date": "2025-12",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H11",
+        "source": "SSRN",
+        "title": "Synthetic Study H11: ML / Agents Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "exploration_scheduling",
+        "structural_classification"
+      ],
+      "metrics": [
+        "diversity_index",
+        "residual_hallucination"
+      ]
+    },
+    {
+      "assumptions": [
+        "alignment_matters",
+        "reasoning_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "G12a",
+          "paper_id": "synthetic:H12",
+          "text": "Synthetic study H12 reports an experimental result on LLM exploration using read_only_governance on a synthetic corpus."
+        },
+        {
+          "claim_class": "COMPARATIVE",
+          "claim_id": "G12b",
+          "paper_id": "synthetic:H12",
+          "text": "A comparative observation links deterministic_replay to redundancy_reduction on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G12c",
+          "paper_id": "synthetic:H12",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G12d",
+          "paper_id": "synthetic:H12",
+          "text": "Whether the LLM effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "synthetic:H11"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H12 on LLM exploration using read_only_governance over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 12"
+        ],
+        "categories": [
+          "LLM",
+          "Alignment"
+        ],
+        "date": "2025-01",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H12",
+        "source": "arXiv",
+        "title": "Synthetic Study H12: LLM / Alignment Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "read_only_governance",
+        "deterministic_replay"
+      ],
+      "metrics": [
+        "redundancy_reduction",
+        "authority_drift"
+      ]
+    },
+    {
+      "assumptions": [
+        "reproducibility_matters",
+        "governance_helps"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "G13a",
+          "paper_id": "synthetic:H13",
+          "text": "Synthetic study H13 develops a theoretical account of RL exploration using generator_governor_split on a synthetic corpus."
+        },
+        {
+          "claim_class": "REPRODUCIBILITY",
+          "claim_id": "G13b",
+          "paper_id": "synthetic:H13",
+          "text": "A reproducibility observation links reasoning_trace to novelty_gain on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G13c",
+          "paper_id": "synthetic:H13",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G13d",
+          "paper_id": "synthetic:H13",
+          "text": "Whether the RL effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_action_space"
+      ],
+      "extends": [
+        "synthetic:H12"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H13 on RL exploration using generator_governor_split over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 13"
+        ],
+        "categories": [
+          "RL",
+          "Safety"
+        ],
+        "date": "2025-02",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H13",
+        "source": "SSRN",
+        "title": "Synthetic Study H13: RL / Safety Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "generator_governor_split",
+        "reasoning_trace"
+      ],
+      "metrics": [
+        "novelty_gain",
+        "capture_resistance"
+      ]
+    },
+    {
+      "assumptions": [
+        "reasoning_matters",
+        "exploration_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G14a",
+          "paper_id": "synthetic:H14",
+          "text": "Synthetic study H14 presents an empirical observation about Agents exploration using soft_reweighting on a synthetic corpus."
+        },
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "G14b",
+          "paper_id": "synthetic:H14",
+          "text": "A speculative observation links negotiation to exploration_diversity on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G14c",
+          "paper_id": "synthetic:H14",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G14d",
+          "paper_id": "synthetic:H14",
+          "text": "Whether the Agents effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_state_graph"
+      ],
+      "extends": [
+        "synthetic:H13"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H14 on Agents exploration using soft_reweighting over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 14"
+        ],
+        "categories": [
+          "Agents",
+          "Interpretability"
+        ],
+        "date": "2025-03",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H14",
+        "source": "arXiv",
+        "title": "Synthetic Study H14: Agents / Interpretability Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "soft_reweighting",
+        "negotiation"
+      ],
+      "metrics": [
+        "exploration_diversity",
+        "productivity_gain"
+      ]
+    },
+    {
+      "assumptions": [
+        "governance_helps",
+        "diversity_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "G15a",
+          "paper_id": "synthetic:H15",
+          "text": "Synthetic study H15 reports an experimental result on Alignment exploration using containment on a synthetic corpus."
+        },
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G15b",
+          "paper_id": "synthetic:H15",
+          "text": "A secondary empirical observation links trajectory_clustering to residual_hallucination on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G15c",
+          "paper_id": "synthetic:H15",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G15d",
+          "paper_id": "synthetic:H15",
+          "text": "Whether the Alignment effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [
+        "synthetic:H13"
+      ],
+      "datasets": [
+        "synthetic_benchmark_suite"
+      ],
+      "extends": [
+        "synthetic:H14"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H15 on Alignment exploration using containment over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 15"
+        ],
+        "categories": [
+          "Alignment",
+          "Multi-Agent"
+        ],
+        "date": "2025-04",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H15",
+        "source": "SSRN",
+        "title": "Synthetic Study H15: Alignment / Multi-Agent Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "containment",
+        "trajectory_clustering"
+      ],
+      "metrics": [
+        "residual_hallucination",
+        "replay_stability"
+      ]
+    },
+    {
+      "assumptions": [
+        "exploration_matters",
+        "hallucination_is_risk"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "G16a",
+          "paper_id": "synthetic:H16",
+          "text": "Synthetic study H16 develops a theoretical account of Safety exploration using structural_classification on a synthetic corpus."
+        },
+        {
+          "claim_class": "COMPARATIVE",
+          "claim_id": "G16b",
+          "paper_id": "synthetic:H16",
+          "text": "A comparative observation links uncertainty_gating to authority_drift on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G16c",
+          "paper_id": "synthetic:H16",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G16d",
+          "paper_id": "synthetic:H16",
+          "text": "Whether the Safety effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "synthetic:H15"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H16 on Safety exploration using structural_classification over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 16"
+        ],
+        "categories": [
+          "Safety",
+          "Reasoning"
+        ],
+        "date": "2025-05",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H16",
+        "source": "arXiv",
+        "title": "Synthetic Study H16: Safety / Reasoning Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "structural_classification",
+        "uncertainty_gating"
+      ],
+      "metrics": [
+        "authority_drift",
+        "coverage_ratio"
+      ]
+    },
+    {
+      "assumptions": [
+        "diversity_matters",
+        "interpretability_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G17a",
+          "paper_id": "synthetic:H17",
+          "text": "Synthetic study H17 presents an empirical observation about Interpretability exploration using deterministic_replay on a synthetic corpus."
+        },
+        {
+          "claim_class": "REPRODUCIBILITY",
+          "claim_id": "G17b",
+          "paper_id": "synthetic:H17",
+          "text": "A reproducibility observation links skill_composition to capture_resistance on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G17c",
+          "paper_id": "synthetic:H17",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G17d",
+          "paper_id": "synthetic:H17",
+          "text": "Whether the Interpretability effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_action_space"
+      ],
+      "extends": [
+        "synthetic:H16"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H17 on Interpretability exploration using deterministic_replay over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 17"
+        ],
+        "categories": [
+          "Interpretability",
+          "AI"
+        ],
+        "date": "2025-06",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H17",
+        "source": "SSRN",
+        "title": "Synthetic Study H17: Interpretability / AI Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "deterministic_replay",
+        "skill_composition"
+      ],
+      "metrics": [
+        "capture_resistance",
+        "containment_rate"
+      ]
+    },
+    {
+      "assumptions": [
+        "hallucination_is_risk",
+        "alignment_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "G18a",
+          "paper_id": "synthetic:H18",
+          "text": "Synthetic study H18 reports an experimental result on Multi-Agent exploration using reasoning_trace on a synthetic corpus."
+        },
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "G18b",
+          "paper_id": "synthetic:H18",
+          "text": "A speculative observation links exploration_scheduling to productivity_gain on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G18c",
+          "paper_id": "synthetic:H18",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G18d",
+          "paper_id": "synthetic:H18",
+          "text": "Whether the Multi-Agent effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_state_graph"
+      ],
+      "extends": [
+        "synthetic:H17"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H18 on Multi-Agent exploration using reasoning_trace over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 18"
+        ],
+        "categories": [
+          "Multi-Agent",
+          "ML"
+        ],
+        "date": "2025-07",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H18",
+        "source": "arXiv",
+        "title": "Synthetic Study H18: Multi-Agent / ML Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "reasoning_trace",
+        "exploration_scheduling"
+      ],
+      "metrics": [
+        "productivity_gain",
+        "drift_bound"
+      ]
+    },
+    {
+      "assumptions": [
+        "interpretability_matters",
+        "reproducibility_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "G19a",
+          "paper_id": "synthetic:H19",
+          "text": "Synthetic study H19 develops a theoretical account of Reasoning exploration using negotiation on a synthetic corpus."
+        },
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G19b",
+          "paper_id": "synthetic:H19",
+          "text": "A secondary empirical observation links read_only_governance to replay_stability on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G19c",
+          "paper_id": "synthetic:H19",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G19d",
+          "paper_id": "synthetic:H19",
+          "text": "Whether the Reasoning effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_benchmark_suite"
+      ],
+      "extends": [
+        "synthetic:H18"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H19 on Reasoning exploration using negotiation over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 19"
+        ],
+        "categories": [
+          "Reasoning",
+          "LLM"
+        ],
+        "date": "2025-08",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H19",
+        "source": "SSRN",
+        "title": "Synthetic Study H19: Reasoning / LLM Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "negotiation",
+        "read_only_governance"
+      ],
+      "metrics": [
+        "replay_stability",
+        "diversity_index"
+      ]
+    },
+    {
+      "assumptions": [
+        "alignment_matters",
+        "reasoning_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G20a",
+          "paper_id": "synthetic:H20",
+          "text": "Synthetic study H20 presents an empirical observation about AI exploration using trajectory_clustering on a synthetic corpus."
+        },
+        {
+          "claim_class": "COMPARATIVE",
+          "claim_id": "G20b",
+          "paper_id": "synthetic:H20",
+          "text": "A comparative observation links generator_governor_split to coverage_ratio on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G20c",
+          "paper_id": "synthetic:H20",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G20d",
+          "paper_id": "synthetic:H20",
+          "text": "Whether the AI effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [
+        "synthetic:H18"
+      ],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "synthetic:H19"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H20 on AI exploration using trajectory_clustering over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 20"
+        ],
+        "categories": [
+          "AI",
+          "RL"
+        ],
+        "date": "2025-09",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H20",
+        "source": "arXiv",
+        "title": "Synthetic Study H20: AI / RL Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "trajectory_clustering",
+        "generator_governor_split"
+      ],
+      "metrics": [
+        "coverage_ratio",
+        "redundancy_reduction"
+      ]
+    },
+    {
+      "assumptions": [
+        "reproducibility_matters",
+        "governance_helps"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "G21a",
+          "paper_id": "synthetic:H21",
+          "text": "Synthetic study H21 reports an experimental result on ML exploration using uncertainty_gating on a synthetic corpus."
+        },
+        {
+          "claim_class": "REPRODUCIBILITY",
+          "claim_id": "G21b",
+          "paper_id": "synthetic:H21",
+          "text": "A reproducibility observation links soft_reweighting to containment_rate on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G21c",
+          "paper_id": "synthetic:H21",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G21d",
+          "paper_id": "synthetic:H21",
+          "text": "Whether the ML effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_action_space"
+      ],
+      "extends": [
+        "synthetic:H20"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H21 on ML exploration using uncertainty_gating over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 21"
+        ],
+        "categories": [
+          "ML",
+          "Agents"
+        ],
+        "date": "2025-10",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H21",
+        "source": "SSRN",
+        "title": "Synthetic Study H21: ML / Agents Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "uncertainty_gating",
+        "soft_reweighting"
+      ],
+      "metrics": [
+        "containment_rate",
+        "novelty_gain"
+      ]
+    },
+    {
+      "assumptions": [
+        "reasoning_matters",
+        "exploration_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "G22a",
+          "paper_id": "synthetic:H22",
+          "text": "Synthetic study H22 develops a theoretical account of LLM exploration using skill_composition on a synthetic corpus."
+        },
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "G22b",
+          "paper_id": "synthetic:H22",
+          "text": "A speculative observation links containment to drift_bound on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G22c",
+          "paper_id": "synthetic:H22",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G22d",
+          "paper_id": "synthetic:H22",
+          "text": "Whether the LLM effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_state_graph"
+      ],
+      "extends": [
+        "synthetic:H21"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H22 on LLM exploration using skill_composition over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 22"
+        ],
+        "categories": [
+          "LLM",
+          "Alignment"
+        ],
+        "date": "2025-11",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H22",
+        "source": "arXiv",
+        "title": "Synthetic Study H22: LLM / Alignment Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "skill_composition",
+        "containment"
+      ],
+      "metrics": [
+        "drift_bound",
+        "exploration_diversity"
+      ]
+    },
+    {
+      "assumptions": [
+        "governance_helps",
+        "diversity_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G23a",
+          "paper_id": "synthetic:H23",
+          "text": "Synthetic study H23 presents an empirical observation about RL exploration using exploration_scheduling on a synthetic corpus."
+        },
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G23b",
+          "paper_id": "synthetic:H23",
+          "text": "A secondary empirical observation links structural_classification to diversity_index on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G23c",
+          "paper_id": "synthetic:H23",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G23d",
+          "paper_id": "synthetic:H23",
+          "text": "Whether the RL effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_benchmark_suite"
+      ],
+      "extends": [
+        "synthetic:H22"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H23 on RL exploration using exploration_scheduling over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 23"
+        ],
+        "categories": [
+          "RL",
+          "Safety"
+        ],
+        "date": "2025-12",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H23",
+        "source": "SSRN",
+        "title": "Synthetic Study H23: RL / Safety Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "exploration_scheduling",
+        "structural_classification"
+      ],
+      "metrics": [
+        "diversity_index",
+        "residual_hallucination"
+      ]
+    },
+    {
+      "assumptions": [
+        "exploration_matters",
+        "hallucination_is_risk"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "G24a",
+          "paper_id": "synthetic:H24",
+          "text": "Synthetic study H24 reports an experimental result on Agents exploration using read_only_governance on a synthetic corpus."
+        },
+        {
+          "claim_class": "COMPARATIVE",
+          "claim_id": "G24b",
+          "paper_id": "synthetic:H24",
+          "text": "A comparative observation links deterministic_replay to redundancy_reduction on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G24c",
+          "paper_id": "synthetic:H24",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G24d",
+          "paper_id": "synthetic:H24",
+          "text": "Whether the Agents effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "synthetic:H23"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H24 on Agents exploration using read_only_governance over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 24"
+        ],
+        "categories": [
+          "Agents",
+          "Interpretability"
+        ],
+        "date": "2025-01",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H24",
+        "source": "arXiv",
+        "title": "Synthetic Study H24: Agents / Interpretability Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "read_only_governance",
+        "deterministic_replay"
+      ],
+      "metrics": [
+        "redundancy_reduction",
+        "authority_drift"
+      ]
+    },
+    {
+      "assumptions": [
+        "diversity_matters",
+        "interpretability_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "G25a",
+          "paper_id": "synthetic:H25",
+          "text": "Synthetic study H25 develops a theoretical account of Alignment exploration using generator_governor_split on a synthetic corpus."
+        },
+        {
+          "claim_class": "REPRODUCIBILITY",
+          "claim_id": "G25b",
+          "paper_id": "synthetic:H25",
+          "text": "A reproducibility observation links reasoning_trace to novelty_gain on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G25c",
+          "paper_id": "synthetic:H25",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G25d",
+          "paper_id": "synthetic:H25",
+          "text": "Whether the Alignment effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [
+        "synthetic:H23"
+      ],
+      "datasets": [
+        "synthetic_action_space"
+      ],
+      "extends": [
+        "synthetic:H24"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H25 on Alignment exploration using generator_governor_split over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 25"
+        ],
+        "categories": [
+          "Alignment",
+          "Multi-Agent"
+        ],
+        "date": "2025-02",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H25",
+        "source": "SSRN",
+        "title": "Synthetic Study H25: Alignment / Multi-Agent Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "generator_governor_split",
+        "reasoning_trace"
+      ],
+      "metrics": [
+        "novelty_gain",
+        "capture_resistance"
+      ]
+    },
+    {
+      "assumptions": [
+        "hallucination_is_risk",
+        "alignment_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G26a",
+          "paper_id": "synthetic:H26",
+          "text": "Synthetic study H26 presents an empirical observation about Safety exploration using soft_reweighting on a synthetic corpus."
+        },
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "G26b",
+          "paper_id": "synthetic:H26",
+          "text": "A speculative observation links negotiation to exploration_diversity on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G26c",
+          "paper_id": "synthetic:H26",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G26d",
+          "paper_id": "synthetic:H26",
+          "text": "Whether the Safety effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_state_graph"
+      ],
+      "extends": [
+        "synthetic:H25"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H26 on Safety exploration using soft_reweighting over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 26"
+        ],
+        "categories": [
+          "Safety",
+          "Reasoning"
+        ],
+        "date": "2025-03",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H26",
+        "source": "arXiv",
+        "title": "Synthetic Study H26: Safety / Reasoning Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "soft_reweighting",
+        "negotiation"
+      ],
+      "metrics": [
+        "exploration_diversity",
+        "productivity_gain"
+      ]
+    },
+    {
+      "assumptions": [
+        "interpretability_matters",
+        "reproducibility_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "G27a",
+          "paper_id": "synthetic:H27",
+          "text": "Synthetic study H27 reports an experimental result on Interpretability exploration using containment on a synthetic corpus."
+        },
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G27b",
+          "paper_id": "synthetic:H27",
+          "text": "A secondary empirical observation links trajectory_clustering to residual_hallucination on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G27c",
+          "paper_id": "synthetic:H27",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G27d",
+          "paper_id": "synthetic:H27",
+          "text": "Whether the Interpretability effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_benchmark_suite"
+      ],
+      "extends": [
+        "synthetic:H26"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H27 on Interpretability exploration using containment over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 27"
+        ],
+        "categories": [
+          "Interpretability",
+          "AI"
+        ],
+        "date": "2025-04",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H27",
+        "source": "SSRN",
+        "title": "Synthetic Study H27: Interpretability / AI Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "containment",
+        "trajectory_clustering"
+      ],
+      "metrics": [
+        "residual_hallucination",
+        "replay_stability"
+      ]
+    },
+    {
+      "assumptions": [
+        "alignment_matters",
+        "reasoning_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "G28a",
+          "paper_id": "synthetic:H28",
+          "text": "Synthetic study H28 develops a theoretical account of Multi-Agent exploration using structural_classification on a synthetic corpus."
+        },
+        {
+          "claim_class": "COMPARATIVE",
+          "claim_id": "G28b",
+          "paper_id": "synthetic:H28",
+          "text": "A comparative observation links uncertainty_gating to authority_drift on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G28c",
+          "paper_id": "synthetic:H28",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G28d",
+          "paper_id": "synthetic:H28",
+          "text": "Whether the Multi-Agent effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "synthetic:H27"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H28 on Multi-Agent exploration using structural_classification over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 28"
+        ],
+        "categories": [
+          "Multi-Agent",
+          "ML"
+        ],
+        "date": "2025-05",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H28",
+        "source": "arXiv",
+        "title": "Synthetic Study H28: Multi-Agent / ML Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "structural_classification",
+        "uncertainty_gating"
+      ],
+      "metrics": [
+        "authority_drift",
+        "coverage_ratio"
+      ]
+    },
+    {
+      "assumptions": [
+        "reproducibility_matters",
+        "governance_helps"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G29a",
+          "paper_id": "synthetic:H29",
+          "text": "Synthetic study H29 presents an empirical observation about Reasoning exploration using deterministic_replay on a synthetic corpus."
+        },
+        {
+          "claim_class": "REPRODUCIBILITY",
+          "claim_id": "G29b",
+          "paper_id": "synthetic:H29",
+          "text": "A reproducibility observation links skill_composition to capture_resistance on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G29c",
+          "paper_id": "synthetic:H29",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G29d",
+          "paper_id": "synthetic:H29",
+          "text": "Whether the Reasoning effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_action_space"
+      ],
+      "extends": [
+        "synthetic:H28"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H29 on Reasoning exploration using deterministic_replay over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 29"
+        ],
+        "categories": [
+          "Reasoning",
+          "LLM"
+        ],
+        "date": "2025-06",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H29",
+        "source": "SSRN",
+        "title": "Synthetic Study H29: Reasoning / LLM Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "deterministic_replay",
+        "skill_composition"
+      ],
+      "metrics": [
+        "capture_resistance",
+        "containment_rate"
+      ]
+    },
+    {
+      "assumptions": [
+        "reasoning_matters",
+        "exploration_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "G30a",
+          "paper_id": "synthetic:H30",
+          "text": "Synthetic study H30 reports an experimental result on AI exploration using reasoning_trace on a synthetic corpus."
+        },
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "G30b",
+          "paper_id": "synthetic:H30",
+          "text": "A speculative observation links exploration_scheduling to productivity_gain on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G30c",
+          "paper_id": "synthetic:H30",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G30d",
+          "paper_id": "synthetic:H30",
+          "text": "Whether the AI effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [
+        "synthetic:H28"
+      ],
+      "datasets": [
+        "synthetic_state_graph"
+      ],
+      "extends": [
+        "synthetic:H29"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H30 on AI exploration using reasoning_trace over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 30"
+        ],
+        "categories": [
+          "AI",
+          "RL"
+        ],
+        "date": "2025-07",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H30",
+        "source": "arXiv",
+        "title": "Synthetic Study H30: AI / RL Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "reasoning_trace",
+        "exploration_scheduling"
+      ],
+      "metrics": [
+        "productivity_gain",
+        "drift_bound"
+      ]
+    },
+    {
+      "assumptions": [
+        "governance_helps",
+        "diversity_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "G31a",
+          "paper_id": "synthetic:H31",
+          "text": "Synthetic study H31 develops a theoretical account of ML exploration using negotiation on a synthetic corpus."
+        },
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G31b",
+          "paper_id": "synthetic:H31",
+          "text": "A secondary empirical observation links read_only_governance to replay_stability on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G31c",
+          "paper_id": "synthetic:H31",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G31d",
+          "paper_id": "synthetic:H31",
+          "text": "Whether the ML effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_benchmark_suite"
+      ],
+      "extends": [
+        "synthetic:H30"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H31 on ML exploration using negotiation over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 31"
+        ],
+        "categories": [
+          "ML",
+          "Agents"
+        ],
+        "date": "2025-08",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H31",
+        "source": "SSRN",
+        "title": "Synthetic Study H31: ML / Agents Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "negotiation",
+        "read_only_governance"
+      ],
+      "metrics": [
+        "replay_stability",
+        "diversity_index"
+      ]
+    },
+    {
+      "assumptions": [
+        "exploration_matters",
+        "hallucination_is_risk"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G32a",
+          "paper_id": "synthetic:H32",
+          "text": "Synthetic study H32 presents an empirical observation about LLM exploration using trajectory_clustering on a synthetic corpus."
+        },
+        {
+          "claim_class": "COMPARATIVE",
+          "claim_id": "G32b",
+          "paper_id": "synthetic:H32",
+          "text": "A comparative observation links generator_governor_split to coverage_ratio on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G32c",
+          "paper_id": "synthetic:H32",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G32d",
+          "paper_id": "synthetic:H32",
+          "text": "Whether the LLM effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "synthetic:H31"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H32 on LLM exploration using trajectory_clustering over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 32"
+        ],
+        "categories": [
+          "LLM",
+          "Alignment"
+        ],
+        "date": "2025-09",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H32",
+        "source": "arXiv",
+        "title": "Synthetic Study H32: LLM / Alignment Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "trajectory_clustering",
+        "generator_governor_split"
+      ],
+      "metrics": [
+        "coverage_ratio",
+        "redundancy_reduction"
+      ]
+    },
+    {
+      "assumptions": [
+        "diversity_matters",
+        "interpretability_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "G33a",
+          "paper_id": "synthetic:H33",
+          "text": "Synthetic study H33 reports an experimental result on RL exploration using uncertainty_gating on a synthetic corpus."
+        },
+        {
+          "claim_class": "REPRODUCIBILITY",
+          "claim_id": "G33b",
+          "paper_id": "synthetic:H33",
+          "text": "A reproducibility observation links soft_reweighting to containment_rate on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G33c",
+          "paper_id": "synthetic:H33",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G33d",
+          "paper_id": "synthetic:H33",
+          "text": "Whether the RL effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_action_space"
+      ],
+      "extends": [
+        "synthetic:H32"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H33 on RL exploration using uncertainty_gating over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 33"
+        ],
+        "categories": [
+          "RL",
+          "Safety"
+        ],
+        "date": "2025-10",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H33",
+        "source": "SSRN",
+        "title": "Synthetic Study H33: RL / Safety Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "uncertainty_gating",
+        "soft_reweighting"
+      ],
+      "metrics": [
+        "containment_rate",
+        "novelty_gain"
+      ]
+    },
+    {
+      "assumptions": [
+        "hallucination_is_risk",
+        "alignment_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "G34a",
+          "paper_id": "synthetic:H34",
+          "text": "Synthetic study H34 develops a theoretical account of Agents exploration using skill_composition on a synthetic corpus."
+        },
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "G34b",
+          "paper_id": "synthetic:H34",
+          "text": "A speculative observation links containment to drift_bound on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G34c",
+          "paper_id": "synthetic:H34",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G34d",
+          "paper_id": "synthetic:H34",
+          "text": "Whether the Agents effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_state_graph"
+      ],
+      "extends": [
+        "synthetic:H33"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H34 on Agents exploration using skill_composition over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 34"
+        ],
+        "categories": [
+          "Agents",
+          "Interpretability"
+        ],
+        "date": "2025-11",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H34",
+        "source": "arXiv",
+        "title": "Synthetic Study H34: Agents / Interpretability Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "skill_composition",
+        "containment"
+      ],
+      "metrics": [
+        "drift_bound",
+        "exploration_diversity"
+      ]
+    },
+    {
+      "assumptions": [
+        "interpretability_matters",
+        "reproducibility_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G35a",
+          "paper_id": "synthetic:H35",
+          "text": "Synthetic study H35 presents an empirical observation about Alignment exploration using exploration_scheduling on a synthetic corpus."
+        },
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G35b",
+          "paper_id": "synthetic:H35",
+          "text": "A secondary empirical observation links structural_classification to diversity_index on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G35c",
+          "paper_id": "synthetic:H35",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G35d",
+          "paper_id": "synthetic:H35",
+          "text": "Whether the Alignment effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [
+        "synthetic:H33"
+      ],
+      "datasets": [
+        "synthetic_benchmark_suite"
+      ],
+      "extends": [
+        "synthetic:H34"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H35 on Alignment exploration using exploration_scheduling over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 35"
+        ],
+        "categories": [
+          "Alignment",
+          "Multi-Agent"
+        ],
+        "date": "2025-12",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H35",
+        "source": "SSRN",
+        "title": "Synthetic Study H35: Alignment / Multi-Agent Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "exploration_scheduling",
+        "structural_classification"
+      ],
+      "metrics": [
+        "diversity_index",
+        "residual_hallucination"
+      ]
+    },
+    {
+      "assumptions": [
+        "alignment_matters",
+        "reasoning_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "G36a",
+          "paper_id": "synthetic:H36",
+          "text": "Synthetic study H36 reports an experimental result on Safety exploration using read_only_governance on a synthetic corpus."
+        },
+        {
+          "claim_class": "COMPARATIVE",
+          "claim_id": "G36b",
+          "paper_id": "synthetic:H36",
+          "text": "A comparative observation links deterministic_replay to redundancy_reduction on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G36c",
+          "paper_id": "synthetic:H36",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G36d",
+          "paper_id": "synthetic:H36",
+          "text": "Whether the Safety effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "synthetic:H35"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H36 on Safety exploration using read_only_governance over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 36"
+        ],
+        "categories": [
+          "Safety",
+          "Reasoning"
+        ],
+        "date": "2025-01",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H36",
+        "source": "arXiv",
+        "title": "Synthetic Study H36: Safety / Reasoning Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "read_only_governance",
+        "deterministic_replay"
+      ],
+      "metrics": [
+        "redundancy_reduction",
+        "authority_drift"
+      ]
+    },
+    {
+      "assumptions": [
+        "reproducibility_matters",
+        "governance_helps"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "G37a",
+          "paper_id": "synthetic:H37",
+          "text": "Synthetic study H37 develops a theoretical account of Interpretability exploration using generator_governor_split on a synthetic corpus."
+        },
+        {
+          "claim_class": "REPRODUCIBILITY",
+          "claim_id": "G37b",
+          "paper_id": "synthetic:H37",
+          "text": "A reproducibility observation links reasoning_trace to novelty_gain on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G37c",
+          "paper_id": "synthetic:H37",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G37d",
+          "paper_id": "synthetic:H37",
+          "text": "Whether the Interpretability effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_action_space"
+      ],
+      "extends": [
+        "synthetic:H36"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H37 on Interpretability exploration using generator_governor_split over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 37"
+        ],
+        "categories": [
+          "Interpretability",
+          "AI"
+        ],
+        "date": "2025-02",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H37",
+        "source": "SSRN",
+        "title": "Synthetic Study H37: Interpretability / AI Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "generator_governor_split",
+        "reasoning_trace"
+      ],
+      "metrics": [
+        "novelty_gain",
+        "capture_resistance"
+      ]
+    },
+    {
+      "assumptions": [
+        "reasoning_matters",
+        "exploration_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G38a",
+          "paper_id": "synthetic:H38",
+          "text": "Synthetic study H38 presents an empirical observation about Multi-Agent exploration using soft_reweighting on a synthetic corpus."
+        },
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "G38b",
+          "paper_id": "synthetic:H38",
+          "text": "A speculative observation links negotiation to exploration_diversity on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G38c",
+          "paper_id": "synthetic:H38",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G38d",
+          "paper_id": "synthetic:H38",
+          "text": "Whether the Multi-Agent effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_state_graph"
+      ],
+      "extends": [
+        "synthetic:H37"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H38 on Multi-Agent exploration using soft_reweighting over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 38"
+        ],
+        "categories": [
+          "Multi-Agent",
+          "ML"
+        ],
+        "date": "2025-03",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H38",
+        "source": "arXiv",
+        "title": "Synthetic Study H38: Multi-Agent / ML Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "soft_reweighting",
+        "negotiation"
+      ],
+      "metrics": [
+        "exploration_diversity",
+        "productivity_gain"
+      ]
+    },
+    {
+      "assumptions": [
+        "governance_helps",
+        "diversity_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "G39a",
+          "paper_id": "synthetic:H39",
+          "text": "Synthetic study H39 reports an experimental result on Reasoning exploration using containment on a synthetic corpus."
+        },
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G39b",
+          "paper_id": "synthetic:H39",
+          "text": "A secondary empirical observation links trajectory_clustering to residual_hallucination on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G39c",
+          "paper_id": "synthetic:H39",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G39d",
+          "paper_id": "synthetic:H39",
+          "text": "Whether the Reasoning effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_benchmark_suite"
+      ],
+      "extends": [
+        "synthetic:H38"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H39 on Reasoning exploration using containment over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 39"
+        ],
+        "categories": [
+          "Reasoning",
+          "LLM"
+        ],
+        "date": "2025-04",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H39",
+        "source": "SSRN",
+        "title": "Synthetic Study H39: Reasoning / LLM Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "containment",
+        "trajectory_clustering"
+      ],
+      "metrics": [
+        "residual_hallucination",
+        "replay_stability"
+      ]
+    },
+    {
+      "assumptions": [
+        "exploration_matters",
+        "hallucination_is_risk"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "G40a",
+          "paper_id": "synthetic:H40",
+          "text": "Synthetic study H40 develops a theoretical account of AI exploration using structural_classification on a synthetic corpus."
+        },
+        {
+          "claim_class": "COMPARATIVE",
+          "claim_id": "G40b",
+          "paper_id": "synthetic:H40",
+          "text": "A comparative observation links uncertainty_gating to authority_drift on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G40c",
+          "paper_id": "synthetic:H40",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G40d",
+          "paper_id": "synthetic:H40",
+          "text": "Whether the AI effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [
+        "synthetic:H38"
+      ],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "synthetic:H39"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H40 on AI exploration using structural_classification over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 40"
+        ],
+        "categories": [
+          "AI",
+          "RL"
+        ],
+        "date": "2025-05",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H40",
+        "source": "arXiv",
+        "title": "Synthetic Study H40: AI / RL Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "structural_classification",
+        "uncertainty_gating"
+      ],
+      "metrics": [
+        "authority_drift",
+        "coverage_ratio"
+      ]
+    },
+    {
+      "assumptions": [
+        "diversity_matters",
+        "interpretability_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G41a",
+          "paper_id": "synthetic:H41",
+          "text": "Synthetic study H41 presents an empirical observation about ML exploration using deterministic_replay on a synthetic corpus."
+        },
+        {
+          "claim_class": "REPRODUCIBILITY",
+          "claim_id": "G41b",
+          "paper_id": "synthetic:H41",
+          "text": "A reproducibility observation links skill_composition to capture_resistance on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G41c",
+          "paper_id": "synthetic:H41",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G41d",
+          "paper_id": "synthetic:H41",
+          "text": "Whether the ML effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_action_space"
+      ],
+      "extends": [
+        "synthetic:H40"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H41 on ML exploration using deterministic_replay over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 41"
+        ],
+        "categories": [
+          "ML",
+          "Agents"
+        ],
+        "date": "2025-06",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H41",
+        "source": "SSRN",
+        "title": "Synthetic Study H41: ML / Agents Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "deterministic_replay",
+        "skill_composition"
+      ],
+      "metrics": [
+        "capture_resistance",
+        "containment_rate"
+      ]
+    },
+    {
+      "assumptions": [
+        "hallucination_is_risk",
+        "alignment_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "G42a",
+          "paper_id": "synthetic:H42",
+          "text": "Synthetic study H42 reports an experimental result on LLM exploration using reasoning_trace on a synthetic corpus."
+        },
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "G42b",
+          "paper_id": "synthetic:H42",
+          "text": "A speculative observation links exploration_scheduling to productivity_gain on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G42c",
+          "paper_id": "synthetic:H42",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G42d",
+          "paper_id": "synthetic:H42",
+          "text": "Whether the LLM effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_state_graph"
+      ],
+      "extends": [
+        "synthetic:H41"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H42 on LLM exploration using reasoning_trace over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 42"
+        ],
+        "categories": [
+          "LLM",
+          "Alignment"
+        ],
+        "date": "2025-07",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H42",
+        "source": "arXiv",
+        "title": "Synthetic Study H42: LLM / Alignment Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "reasoning_trace",
+        "exploration_scheduling"
+      ],
+      "metrics": [
+        "productivity_gain",
+        "drift_bound"
+      ]
+    },
+    {
+      "assumptions": [
+        "interpretability_matters",
+        "reproducibility_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "G43a",
+          "paper_id": "synthetic:H43",
+          "text": "Synthetic study H43 develops a theoretical account of RL exploration using negotiation on a synthetic corpus."
+        },
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G43b",
+          "paper_id": "synthetic:H43",
+          "text": "A secondary empirical observation links read_only_governance to replay_stability on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G43c",
+          "paper_id": "synthetic:H43",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G43d",
+          "paper_id": "synthetic:H43",
+          "text": "Whether the RL effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_benchmark_suite"
+      ],
+      "extends": [
+        "synthetic:H42"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H43 on RL exploration using negotiation over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 43"
+        ],
+        "categories": [
+          "RL",
+          "Safety"
+        ],
+        "date": "2025-08",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H43",
+        "source": "SSRN",
+        "title": "Synthetic Study H43: RL / Safety Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "negotiation",
+        "read_only_governance"
+      ],
+      "metrics": [
+        "replay_stability",
+        "diversity_index"
+      ]
+    },
+    {
+      "assumptions": [
+        "alignment_matters",
+        "reasoning_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G44a",
+          "paper_id": "synthetic:H44",
+          "text": "Synthetic study H44 presents an empirical observation about Agents exploration using trajectory_clustering on a synthetic corpus."
+        },
+        {
+          "claim_class": "COMPARATIVE",
+          "claim_id": "G44b",
+          "paper_id": "synthetic:H44",
+          "text": "A comparative observation links generator_governor_split to coverage_ratio on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G44c",
+          "paper_id": "synthetic:H44",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G44d",
+          "paper_id": "synthetic:H44",
+          "text": "Whether the Agents effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "synthetic:H43"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H44 on Agents exploration using trajectory_clustering over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 44"
+        ],
+        "categories": [
+          "Agents",
+          "Interpretability"
+        ],
+        "date": "2025-09",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H44",
+        "source": "arXiv",
+        "title": "Synthetic Study H44: Agents / Interpretability Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "trajectory_clustering",
+        "generator_governor_split"
+      ],
+      "metrics": [
+        "coverage_ratio",
+        "redundancy_reduction"
+      ]
+    },
+    {
+      "assumptions": [
+        "reproducibility_matters",
+        "governance_helps"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "G45a",
+          "paper_id": "synthetic:H45",
+          "text": "Synthetic study H45 reports an experimental result on Alignment exploration using uncertainty_gating on a synthetic corpus."
+        },
+        {
+          "claim_class": "REPRODUCIBILITY",
+          "claim_id": "G45b",
+          "paper_id": "synthetic:H45",
+          "text": "A reproducibility observation links soft_reweighting to containment_rate on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G45c",
+          "paper_id": "synthetic:H45",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G45d",
+          "paper_id": "synthetic:H45",
+          "text": "Whether the Alignment effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [
+        "synthetic:H43"
+      ],
+      "datasets": [
+        "synthetic_action_space"
+      ],
+      "extends": [
+        "synthetic:H44"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H45 on Alignment exploration using uncertainty_gating over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 45"
+        ],
+        "categories": [
+          "Alignment",
+          "Multi-Agent"
+        ],
+        "date": "2025-10",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H45",
+        "source": "SSRN",
+        "title": "Synthetic Study H45: Alignment / Multi-Agent Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "uncertainty_gating",
+        "soft_reweighting"
+      ],
+      "metrics": [
+        "containment_rate",
+        "novelty_gain"
+      ]
+    },
+    {
+      "assumptions": [
+        "reasoning_matters",
+        "exploration_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "G46a",
+          "paper_id": "synthetic:H46",
+          "text": "Synthetic study H46 develops a theoretical account of Safety exploration using skill_composition on a synthetic corpus."
+        },
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "G46b",
+          "paper_id": "synthetic:H46",
+          "text": "A speculative observation links containment to drift_bound on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G46c",
+          "paper_id": "synthetic:H46",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G46d",
+          "paper_id": "synthetic:H46",
+          "text": "Whether the Safety effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_state_graph"
+      ],
+      "extends": [
+        "synthetic:H45"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H46 on Safety exploration using skill_composition over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 46"
+        ],
+        "categories": [
+          "Safety",
+          "Reasoning"
+        ],
+        "date": "2025-11",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H46",
+        "source": "arXiv",
+        "title": "Synthetic Study H46: Safety / Reasoning Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "skill_composition",
+        "containment"
+      ],
+      "metrics": [
+        "drift_bound",
+        "exploration_diversity"
+      ]
+    },
+    {
+      "assumptions": [
+        "governance_helps",
+        "diversity_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G47a",
+          "paper_id": "synthetic:H47",
+          "text": "Synthetic study H47 presents an empirical observation about Interpretability exploration using exploration_scheduling on a synthetic corpus."
+        },
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G47b",
+          "paper_id": "synthetic:H47",
+          "text": "A secondary empirical observation links structural_classification to diversity_index on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G47c",
+          "paper_id": "synthetic:H47",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G47d",
+          "paper_id": "synthetic:H47",
+          "text": "Whether the Interpretability effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_benchmark_suite"
+      ],
+      "extends": [
+        "synthetic:H46"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H47 on Interpretability exploration using exploration_scheduling over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 47"
+        ],
+        "categories": [
+          "Interpretability",
+          "AI"
+        ],
+        "date": "2025-12",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H47",
+        "source": "SSRN",
+        "title": "Synthetic Study H47: Interpretability / AI Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "exploration_scheduling",
+        "structural_classification"
+      ],
+      "metrics": [
+        "diversity_index",
+        "residual_hallucination"
+      ]
+    },
+    {
+      "assumptions": [
+        "exploration_matters",
+        "hallucination_is_risk"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "G48a",
+          "paper_id": "synthetic:H48",
+          "text": "Synthetic study H48 reports an experimental result on Multi-Agent exploration using read_only_governance on a synthetic corpus."
+        },
+        {
+          "claim_class": "COMPARATIVE",
+          "claim_id": "G48b",
+          "paper_id": "synthetic:H48",
+          "text": "A comparative observation links deterministic_replay to redundancy_reduction on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G48c",
+          "paper_id": "synthetic:H48",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G48d",
+          "paper_id": "synthetic:H48",
+          "text": "Whether the Multi-Agent effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "synthetic:H47"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H48 on Multi-Agent exploration using read_only_governance over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 48"
+        ],
+        "categories": [
+          "Multi-Agent",
+          "ML"
+        ],
+        "date": "2025-01",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H48",
+        "source": "arXiv",
+        "title": "Synthetic Study H48: Multi-Agent / ML Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "read_only_governance",
+        "deterministic_replay"
+      ],
+      "metrics": [
+        "redundancy_reduction",
+        "authority_drift"
+      ]
+    },
+    {
+      "assumptions": [
+        "diversity_matters",
+        "interpretability_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "G49a",
+          "paper_id": "synthetic:H49",
+          "text": "Synthetic study H49 develops a theoretical account of Reasoning exploration using generator_governor_split on a synthetic corpus."
+        },
+        {
+          "claim_class": "REPRODUCIBILITY",
+          "claim_id": "G49b",
+          "paper_id": "synthetic:H49",
+          "text": "A reproducibility observation links reasoning_trace to novelty_gain on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G49c",
+          "paper_id": "synthetic:H49",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G49d",
+          "paper_id": "synthetic:H49",
+          "text": "Whether the Reasoning effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_action_space"
+      ],
+      "extends": [
+        "synthetic:H48"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H49 on Reasoning exploration using generator_governor_split over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 49"
+        ],
+        "categories": [
+          "Reasoning",
+          "LLM"
+        ],
+        "date": "2025-02",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H49",
+        "source": "SSRN",
+        "title": "Synthetic Study H49: Reasoning / LLM Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "generator_governor_split",
+        "reasoning_trace"
+      ],
+      "metrics": [
+        "novelty_gain",
+        "capture_resistance"
+      ]
+    },
+    {
+      "assumptions": [
+        "hallucination_is_risk",
+        "alignment_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G50a",
+          "paper_id": "synthetic:H50",
+          "text": "Synthetic study H50 presents an empirical observation about AI exploration using soft_reweighting on a synthetic corpus."
+        },
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "G50b",
+          "paper_id": "synthetic:H50",
+          "text": "A speculative observation links negotiation to exploration_diversity on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G50c",
+          "paper_id": "synthetic:H50",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G50d",
+          "paper_id": "synthetic:H50",
+          "text": "Whether the AI effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [
+        "synthetic:H48"
+      ],
+      "datasets": [
+        "synthetic_state_graph"
+      ],
+      "extends": [
+        "synthetic:H49"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H50 on AI exploration using soft_reweighting over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 50"
+        ],
+        "categories": [
+          "AI",
+          "RL"
+        ],
+        "date": "2025-03",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H50",
+        "source": "arXiv",
+        "title": "Synthetic Study H50: AI / RL Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "soft_reweighting",
+        "negotiation"
+      ],
+      "metrics": [
+        "exploration_diversity",
+        "productivity_gain"
+      ]
+    },
+    {
+      "assumptions": [
+        "interpretability_matters",
+        "reproducibility_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "G51a",
+          "paper_id": "synthetic:H51",
+          "text": "Synthetic study H51 reports an experimental result on ML exploration using containment on a synthetic corpus."
+        },
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G51b",
+          "paper_id": "synthetic:H51",
+          "text": "A secondary empirical observation links trajectory_clustering to residual_hallucination on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G51c",
+          "paper_id": "synthetic:H51",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G51d",
+          "paper_id": "synthetic:H51",
+          "text": "Whether the ML effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_benchmark_suite"
+      ],
+      "extends": [
+        "synthetic:H50"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H51 on ML exploration using containment over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 51"
+        ],
+        "categories": [
+          "ML",
+          "Agents"
+        ],
+        "date": "2025-04",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H51",
+        "source": "SSRN",
+        "title": "Synthetic Study H51: ML / Agents Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "containment",
+        "trajectory_clustering"
+      ],
+      "metrics": [
+        "residual_hallucination",
+        "replay_stability"
+      ]
+    },
+    {
+      "assumptions": [
+        "alignment_matters",
+        "reasoning_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "G52a",
+          "paper_id": "synthetic:H52",
+          "text": "Synthetic study H52 develops a theoretical account of LLM exploration using structural_classification on a synthetic corpus."
+        },
+        {
+          "claim_class": "COMPARATIVE",
+          "claim_id": "G52b",
+          "paper_id": "synthetic:H52",
+          "text": "A comparative observation links uncertainty_gating to authority_drift on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G52c",
+          "paper_id": "synthetic:H52",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G52d",
+          "paper_id": "synthetic:H52",
+          "text": "Whether the LLM effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "synthetic:H51"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H52 on LLM exploration using structural_classification over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 52"
+        ],
+        "categories": [
+          "LLM",
+          "Alignment"
+        ],
+        "date": "2025-05",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H52",
+        "source": "arXiv",
+        "title": "Synthetic Study H52: LLM / Alignment Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "structural_classification",
+        "uncertainty_gating"
+      ],
+      "metrics": [
+        "authority_drift",
+        "coverage_ratio"
+      ]
+    },
+    {
+      "assumptions": [
+        "reproducibility_matters",
+        "governance_helps"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G53a",
+          "paper_id": "synthetic:H53",
+          "text": "Synthetic study H53 presents an empirical observation about RL exploration using deterministic_replay on a synthetic corpus."
+        },
+        {
+          "claim_class": "REPRODUCIBILITY",
+          "claim_id": "G53b",
+          "paper_id": "synthetic:H53",
+          "text": "A reproducibility observation links skill_composition to capture_resistance on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G53c",
+          "paper_id": "synthetic:H53",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G53d",
+          "paper_id": "synthetic:H53",
+          "text": "Whether the RL effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_action_space"
+      ],
+      "extends": [
+        "synthetic:H52"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H53 on RL exploration using deterministic_replay over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 53"
+        ],
+        "categories": [
+          "RL",
+          "Safety"
+        ],
+        "date": "2025-06",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H53",
+        "source": "SSRN",
+        "title": "Synthetic Study H53: RL / Safety Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "deterministic_replay",
+        "skill_composition"
+      ],
+      "metrics": [
+        "capture_resistance",
+        "containment_rate"
+      ]
+    },
+    {
+      "assumptions": [
+        "reasoning_matters",
+        "exploration_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "G54a",
+          "paper_id": "synthetic:H54",
+          "text": "Synthetic study H54 reports an experimental result on Agents exploration using reasoning_trace on a synthetic corpus."
+        },
+        {
+          "claim_class": "SPECULATIVE",
+          "claim_id": "G54b",
+          "paper_id": "synthetic:H54",
+          "text": "A speculative observation links exploration_scheduling to productivity_gain on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G54c",
+          "paper_id": "synthetic:H54",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G54d",
+          "paper_id": "synthetic:H54",
+          "text": "Whether the Agents effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_state_graph"
+      ],
+      "extends": [
+        "synthetic:H53"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H54 on Agents exploration using reasoning_trace over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 54"
+        ],
+        "categories": [
+          "Agents",
+          "Interpretability"
+        ],
+        "date": "2025-07",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H54",
+        "source": "arXiv",
+        "title": "Synthetic Study H54: Agents / Interpretability Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "reasoning_trace",
+        "exploration_scheduling"
+      ],
+      "metrics": [
+        "productivity_gain",
+        "drift_bound"
+      ]
+    },
+    {
+      "assumptions": [
+        "governance_helps",
+        "diversity_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "THEORETICAL",
+          "claim_id": "G55a",
+          "paper_id": "synthetic:H55",
+          "text": "Synthetic study H55 develops a theoretical account of Alignment exploration using negotiation on a synthetic corpus."
+        },
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G55b",
+          "paper_id": "synthetic:H55",
+          "text": "A secondary empirical observation links read_only_governance to replay_stability on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G55c",
+          "paper_id": "synthetic:H55",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G55d",
+          "paper_id": "synthetic:H55",
+          "text": "Whether the Alignment effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [
+        "synthetic:H53"
+      ],
+      "datasets": [
+        "synthetic_benchmark_suite"
+      ],
+      "extends": [
+        "synthetic:H54"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H55 on Alignment exploration using negotiation over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 55"
+        ],
+        "categories": [
+          "Alignment",
+          "Multi-Agent"
+        ],
+        "date": "2025-08",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H55",
+        "source": "SSRN",
+        "title": "Synthetic Study H55: Alignment / Multi-Agent Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "negotiation",
+        "read_only_governance"
+      ],
+      "metrics": [
+        "replay_stability",
+        "diversity_index"
+      ]
+    },
+    {
+      "assumptions": [
+        "exploration_matters",
+        "hallucination_is_risk"
+      ],
+      "claims": [
+        {
+          "claim_class": "EMPIRICAL",
+          "claim_id": "G56a",
+          "paper_id": "synthetic:H56",
+          "text": "Synthetic study H56 presents an empirical observation about Safety exploration using trajectory_clustering on a synthetic corpus."
+        },
+        {
+          "claim_class": "COMPARATIVE",
+          "claim_id": "G56b",
+          "paper_id": "synthetic:H56",
+          "text": "A comparative observation links generator_governor_split to coverage_ratio on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G56c",
+          "paper_id": "synthetic:H56",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G56d",
+          "paper_id": "synthetic:H56",
+          "text": "Whether the Safety effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_trajectories"
+      ],
+      "extends": [
+        "synthetic:H55"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H56 on Safety exploration using trajectory_clustering over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 56"
+        ],
+        "categories": [
+          "Safety",
+          "Reasoning"
+        ],
+        "date": "2025-09",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H56",
+        "source": "arXiv",
+        "title": "Synthetic Study H56: Safety / Reasoning Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "trajectory_clustering",
+        "generator_governor_split"
+      ],
+      "metrics": [
+        "coverage_ratio",
+        "redundancy_reduction"
+      ]
+    },
+    {
+      "assumptions": [
+        "diversity_matters",
+        "interpretability_matters"
+      ],
+      "claims": [
+        {
+          "claim_class": "EXPERIMENTAL",
+          "claim_id": "G57a",
+          "paper_id": "synthetic:H57",
+          "text": "Synthetic study H57 reports an experimental result on Interpretability exploration using uncertainty_gating on a synthetic corpus."
+        },
+        {
+          "claim_class": "REPRODUCIBILITY",
+          "claim_id": "G57b",
+          "paper_id": "synthetic:H57",
+          "text": "A reproducibility observation links soft_reweighting to containment_rate on the synthetic corpus."
+        },
+        {
+          "claim_class": "LIMITATION",
+          "claim_id": "G57c",
+          "paper_id": "synthetic:H57",
+          "text": "Results are limited to a synthetic fixture corpus and are not evaluated on real systems."
+        },
+        {
+          "claim_class": "OPEN_QUESTION",
+          "claim_id": "G57d",
+          "paper_id": "synthetic:H57",
+          "text": "Whether the Interpretability effect holds beyond the synthetic corpus remains an open question."
+        }
+      ],
+      "conflicts": [],
+      "datasets": [
+        "synthetic_action_space"
+      ],
+      "extends": [
+        "synthetic:H56"
+      ],
+      "metadata": {
+        "abstract": "Synthetic illustrative study H57 on Interpretability exploration using uncertainty_gating over a synthetic corpus.",
+        "authors": [
+          "Synthetic Group 57"
+        ],
+        "categories": [
+          "Interpretability",
+          "AI"
+        ],
+        "date": "2025-10",
+        "is_synthetic": true,
+        "paper_id": "synthetic:H57",
+        "source": "SSRN",
+        "title": "Synthetic Study H57: Interpretability / AI Exploration (synthetic illustrative)"
+      },
+      "methods": [
+        "uncertainty_gating",
+        "soft_reweighting"
+      ],
+      "metrics": [
+        "containment_rate",
+        "novelty_gain"
+      ]
+    }
+  ],
+  "provenance_integrity": 1.0,
+  "recommendation": "PAPERS_AS_CLAIM_STRUCTURES",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "PAPERS_AS_CLAIM_STRUCTURES",
+    "CLAIM_STRUCTURE_INCOMPLETE",
+    "TOPOLOGY_DRIFT_HALT"
+  ],
+  "schema_version": "v27_0_claim_harvester_topology",
+  "signature": "5a0319685ffe0cf3f3ec5c55abfda0178667dd2aab09594b20355ee322425755"
+}

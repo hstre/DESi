@@ -1,0 +1,232 @@
+{
+  "best_candidate": "contradiction_type",
+  "best_outcome": {
+    "auc": 1.0,
+    "augmented_dim": 50,
+    "candidate": "contradiction_type",
+    "cluster_count": 2,
+    "cluster_sizes": [
+      10,
+      9
+    ],
+    "margin": 1.930198,
+    "purity": 1.0
+  },
+  "candidate_dim_count": 6,
+  "candidate_dims": [
+    "reasoning_pattern_id",
+    "premise_dependency",
+    "inference_template",
+    "contradiction_type",
+    "semantic_operator_family",
+    "claim_structure_hash"
+  ],
+  "candidate_outcomes": [
+    {
+      "auc": 0.889712,
+      "augmented_dim": 50,
+      "candidate": "reasoning_pattern_id",
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "margin": -0.020024,
+      "purity": 0.526316
+    },
+    {
+      "auc": 0.491358,
+      "augmented_dim": 50,
+      "candidate": "premise_dependency",
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "margin": -0.30587,
+      "purity": 0.526316
+    },
+    {
+      "auc": 0.588889,
+      "augmented_dim": 50,
+      "candidate": "inference_template",
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "margin": -22.356318,
+      "purity": 0.526316
+    },
+    {
+      "auc": 1.0,
+      "augmented_dim": 50,
+      "candidate": "contradiction_type",
+      "cluster_count": 2,
+      "cluster_sizes": [
+        10,
+        9
+      ],
+      "margin": 1.930198,
+      "purity": 1.0
+    },
+    {
+      "auc": 0.889712,
+      "augmented_dim": 50,
+      "candidate": "semantic_operator_family",
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "margin": -0.020024,
+      "purity": 0.526316
+    },
+    {
+      "auc": 0.499451,
+      "augmented_dim": 50,
+      "candidate": "claim_structure_hash",
+      "cluster_count": 1,
+      "cluster_sizes": [
+        19
+      ],
+      "margin": -33.54102,
+      "purity": 0.526316
+    }
+  ],
+  "candidate_value_samples": {
+    "claim_structure_hash": {
+      "v316-susp:G01": 0.0,
+      "v316-susp:G02": 12.0,
+      "v316-susp:G03": 3.0,
+      "v316-susp:G04": 14.0,
+      "v316-susp:G05": 15.0,
+      "v316-susp:G06": 6.0,
+      "v316-susp:G07": 8.0,
+      "v316-susp:G08": 4.0,
+      "v316-susp:G09": 9.0,
+      "v317-h:E01": 8.0,
+      "v317-h:E02": 9.0,
+      "v317-h:E03": 8.0,
+      "v317-h:E04": 7.0,
+      "v317-h:E05": 8.0,
+      "v317-h:E06": 9.0,
+      "v317-h:E07": 1.0,
+      "v317-h:E08": 10.0,
+      "v317-h:E09": 0.0,
+      "v317-h:E10": 2.0
+    },
+    "contradiction_type": {
+      "v316-susp:G01": 1.0,
+      "v316-susp:G02": 1.0,
+      "v316-susp:G03": 1.0,
+      "v316-susp:G04": 1.0,
+      "v316-susp:G05": 1.0,
+      "v316-susp:G06": 1.0,
+      "v316-susp:G07": 1.0,
+      "v316-susp:G08": 1.0,
+      "v316-susp:G09": 1.0,
+      "v317-h:E01": 0.0,
+      "v317-h:E02": 0.0,
+      "v317-h:E03": 0.0,
+      "v317-h:E04": 0.0,
+      "v317-h:E05": 0.0,
+      "v317-h:E06": 0.0,
+      "v317-h:E07": 0.0,
+      "v317-h:E08": 0.0,
+      "v317-h:E09": 0.0,
+      "v317-h:E10": 0.0
+    },
+    "inference_template": {
+      "v316-susp:G01": 0.0,
+      "v316-susp:G02": 1.0,
+      "v316-susp:G03": 2.0,
+      "v316-susp:G04": 3.0,
+      "v316-susp:G05": 4.0,
+      "v316-susp:G06": 5.0,
+      "v316-susp:G07": 1.0,
+      "v316-susp:G08": 6.0,
+      "v316-susp:G09": 7.0,
+      "v317-h:E01": 8.0,
+      "v317-h:E02": 10.0,
+      "v317-h:E03": 9.0,
+      "v317-h:E04": -1.0,
+      "v317-h:E05": -1.0,
+      "v317-h:E06": -1.0,
+      "v317-h:E07": 8.0,
+      "v317-h:E08": -1.0,
+      "v317-h:E09": 9.0,
+      "v317-h:E10": 10.0
+    },
+    "premise_dependency": {
+      "v316-susp:G01": 2.0,
+      "v316-susp:G02": 2.0,
+      "v316-susp:G03": 2.0,
+      "v316-susp:G04": 2.0,
+      "v316-susp:G05": 2.0,
+      "v316-susp:G06": 2.0,
+      "v316-susp:G07": 2.0,
+      "v316-susp:G08": 2.0,
+      "v316-susp:G09": 2.0,
+      "v317-h:E01": 2.0,
+      "v317-h:E02": 2.0,
+      "v317-h:E03": 2.0,
+      "v317-h:E04": 2.0,
+      "v317-h:E05": 2.0,
+      "v317-h:E06": 2.0,
+      "v317-h:E07": 2.0,
+      "v317-h:E08": 2.0,
+      "v317-h:E09": 2.0,
+      "v317-h:E10": 2.0
+    },
+    "reasoning_pattern_id": {
+      "v316-susp:G01": 0.0,
+      "v316-susp:G02": 0.0,
+      "v316-susp:G03": 0.0,
+      "v316-susp:G04": 0.0,
+      "v316-susp:G05": 0.0,
+      "v316-susp:G06": 0.0,
+      "v316-susp:G07": 0.0,
+      "v316-susp:G08": 0.0,
+      "v316-susp:G09": 0.0,
+      "v317-h:E01": 1.0,
+      "v317-h:E02": 1.0,
+      "v317-h:E03": 1.0,
+      "v317-h:E04": 2.0,
+      "v317-h:E05": 2.0,
+      "v317-h:E06": 2.0,
+      "v317-h:E07": 1.0,
+      "v317-h:E08": 2.0,
+      "v317-h:E09": 1.0,
+      "v317-h:E10": 1.0
+    },
+    "semantic_operator_family": {
+      "v316-susp:G01": 0.0,
+      "v316-susp:G02": 0.0,
+      "v316-susp:G03": 0.0,
+      "v316-susp:G04": 0.0,
+      "v316-susp:G05": 0.0,
+      "v316-susp:G06": 0.0,
+      "v316-susp:G07": 0.0,
+      "v316-susp:G08": 0.0,
+      "v316-susp:G09": 0.0,
+      "v317-h:E01": 1.0,
+      "v317-h:E02": 1.0,
+      "v317-h:E03": 1.0,
+      "v317-h:E04": 2.0,
+      "v317-h:E05": 2.0,
+      "v317-h:E06": 2.0,
+      "v317-h:E07": 1.0,
+      "v317-h:E08": 2.0,
+      "v317-h:E09": 1.0,
+      "v317-h:E10": 1.0
+    }
+  },
+  "candidates_above_auc_threshold": [
+    "reasoning_pattern_id",
+    "contradiction_type",
+    "semantic_operator_family"
+  ],
+  "entangled_family_ids": [
+    "G_v316susp",
+    "E_v317h"
+  ],
+  "has_dominant_candidate": true,
+  "schema_version": "v3_101_t10_dimension_search"
+}

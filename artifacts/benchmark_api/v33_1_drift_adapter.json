@@ -1,0 +1,91 @@
+{
+  "claim_lineage_preservation": 1.0,
+  "core_drift_dimensions": [
+    "governance_drift",
+    "lineage_drift",
+    "artifact_drift",
+    "authority_drift",
+    "replay_drift"
+  ],
+  "core_identity": 1.0,
+  "disclaimer": "Adapter mapping external drift benchmarks (belief drift, output drift, objective drift, memory poisoning, contradiction resolution, evidence sensitivity) onto DESi's six internal drift dimensions (claim, governance, lineage, artifact, authority, replay). Claims may move - a legitimate, visible, lineage-tracked epistemic update - but the protected core never drifts; objective drift and memory poisoning are resisted by governance. Drift is reported, never hidden, and DESi's governance semantics are preserved. Human approval is mandatory.",
+  "drift_forms": [
+    "belief_drift",
+    "output_drift",
+    "objective_drift",
+    "memory_poisoning",
+    "contradiction_resolution",
+    "evidence_sensitivity"
+  ],
+  "drift_mapping_integrity": 1.0,
+  "drift_visibility": 1.0,
+  "form_mappings": {
+    "belief_drift": {
+      "artifact_drift": 0.0,
+      "authority_drift": 0.0,
+      "claim_drift": 0.4,
+      "governance_drift": 0.0,
+      "lineage_drift": 0.0,
+      "replay_drift": 0.0
+    },
+    "contradiction_resolution": {
+      "artifact_drift": 0.0,
+      "authority_drift": 0.0,
+      "claim_drift": 0.5,
+      "governance_drift": 0.0,
+      "lineage_drift": 0.0,
+      "replay_drift": 0.0
+    },
+    "evidence_sensitivity": {
+      "artifact_drift": 0.0,
+      "authority_drift": 0.0,
+      "claim_drift": 0.3,
+      "governance_drift": 0.0,
+      "lineage_drift": 0.0,
+      "replay_drift": 0.0
+    },
+    "memory_poisoning": {
+      "artifact_drift": 0.0,
+      "authority_drift": 0.0,
+      "claim_drift": 0.0,
+      "governance_drift": 0.0,
+      "lineage_drift": 0.0,
+      "replay_drift": 0.0
+    },
+    "objective_drift": {
+      "artifact_drift": 0.0,
+      "authority_drift": 0.0,
+      "claim_drift": 0.0,
+      "governance_drift": 0.0,
+      "lineage_drift": 0.0,
+      "replay_drift": 0.0
+    },
+    "output_drift": {
+      "artifact_drift": 0.0,
+      "authority_drift": 0.0,
+      "claim_drift": 0.1,
+      "governance_drift": 0.0,
+      "lineage_drift": 0.0,
+      "replay_drift": 0.0
+    }
+  },
+  "governance_preservation": 1.0,
+  "human_approval_required": true,
+  "internal_dimensions": [
+    "claim_drift",
+    "governance_drift",
+    "lineage_drift",
+    "artifact_drift",
+    "authority_drift",
+    "replay_drift"
+  ],
+  "recommendation": "DRIFT_BENCHMARK_MAPPED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "DRIFT_BENCHMARK_MAPPED",
+    "DRIFT_BENCHMARK_PARTIAL",
+    "DRIFT_BENCHMARK_HALT"
+  ],
+  "schema_version": "v33_1_drift_adapter",
+  "signature": "f301fa671aaa3353013d9dec81c7180db22978d7db55078a95840860c092cdf3"
+}

@@ -1,0 +1,22 @@
+{
+  "failing_conditions": [],
+  "final_classification": "A_epistemically_constitutional",
+  "gate_passes_all": true,
+  "institutional_governance_classes": [
+    "A_epistemically_constitutional",
+    "B_bounded_institutional_drift",
+    "C_bureaucratically_vulnerable",
+    "D_governance_ossified",
+    "E_institutionally_corruptible"
+  ],
+  "metrics": {
+    "authority_drift": 0.0,
+    "bad_precedent_persistence": 0.0,
+    "epistemic_flexibility": 1.0,
+    "governance_transparency": 0.975,
+    "institutional_resilience": 0.981669,
+    "power_concentration": 0.01,
+    "replay_stability": 1.0
+  },
+  "schema_version": "v10_4_institutional_governance_verdict"
+}

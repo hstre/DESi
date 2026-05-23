@@ -1,0 +1,15 @@
+{
+  "name": "scifact_ref",
+  "family": "SciFact",
+  "version": "1.0.0",
+  "provenance": "offline_reference_dataset",
+  "license": "CC0-1.0",
+  "source_note": "Locally vendored reference dataset in the SciFact claim-verification format. Network-free: NOT a live download of the official SciFact suite and NOT official leaderboard scores. Tasks test DESi's deterministic evidence-to-label governance, not LLM accuracy.",
+  "tasks": [
+    {"claim_id": "sf_001", "claim": "treatment reduces relapse rate", "evidence": [{"id": "e1", "stance": "support"}], "cited_evidence": ["e1"], "label": "SUPPORTED"},
+    {"claim_id": "sf_002", "claim": "drug has no measurable effect", "evidence": [{"id": "e2", "stance": "refute"}], "cited_evidence": ["e2"], "label": "REFUTED"},
+    {"claim_id": "sf_003", "claim": "mechanism is fully understood", "evidence": [], "cited_evidence": [], "label": "NOT_ENOUGH_INFO"},
+    {"claim_id": "sf_004", "claim": "method generalizes across datasets", "evidence": [{"id": "e3", "stance": "support"}, {"id": "e4", "stance": "none"}], "cited_evidence": ["e3"], "label": "SUPPORTED"},
+    {"claim_id": "sf_005", "claim": "effect persists at 12 months", "evidence": [{"id": "e5", "stance": "none"}], "cited_evidence": [], "label": "NOT_ENOUGH_INFO"}
+  ]
+}

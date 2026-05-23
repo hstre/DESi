@@ -1,0 +1,2903 @@
+{
+  "best_subset": [
+    "support_propagation_length"
+  ],
+  "complexity_cost": 0.083333,
+  "mean_auc": 0.5,
+  "minimal_vocab_size": 1,
+  "schema_version": "v3_115_t10_structural_vocab",
+  "subset_count": 298,
+  "subset_outcomes": [
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "inference_depth",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "inference_depth",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "inference_depth",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "inference_depth",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "inference_depth",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "operator_transition_pattern",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "premise_fanout",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "premise_fanout",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "premise_fanout",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "dependency_graph_shape"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "dependency_graph_shape"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "dependency_graph_shape"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "dependency_graph_shape"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "dependency_graph_shape"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "operator_transition_pattern",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "operator_transition_pattern",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "operator_transition_pattern",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "contradiction_scope"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "contradiction_scope"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "contradiction_scope"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "contradiction_scope"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "premise_resolution_order",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "support_graph_entropy",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "claim_dependency_cycle"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "claim_dependency_cycle"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "claim_dependency_cycle"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "causal_directionality"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "branch_reconvergence"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "premise_resolution_order",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "causal_directionality"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "inference_depth",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "inference_depth",
+        "operator_transition_pattern",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "inference_depth",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "inference_depth",
+        "premise_fanout",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "inference_depth",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "inference_depth",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "inference_depth",
+        "premise_fanout",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "inference_depth",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "inference_depth",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "inference_depth",
+        "premise_fanout",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "inference_depth",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "dependency_graph_shape",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "inference_depth",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "dependency_graph_shape",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "dependency_graph_shape",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "inference_depth",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "dependency_graph_shape",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "dependency_graph_shape",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "inference_depth",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "inference_depth",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "inference_depth",
+        "operator_transition_pattern",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "inference_depth",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "inference_depth",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "inference_depth",
+        "operator_transition_pattern",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "inference_depth",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "inference_depth",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "inference_depth",
+        "operator_transition_pattern",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "inference_depth",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "contradiction_scope",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "contradiction_scope",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "inference_depth",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "contradiction_scope",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "contradiction_scope",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "inference_depth",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "inference_depth",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "inference_depth",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "inference_depth",
+        "premise_resolution_order",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "inference_depth",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "inference_depth",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "inference_depth",
+        "support_graph_entropy",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "claim_dependency_cycle",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "inference_depth",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "claim_dependency_cycle",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "claim_dependency_cycle",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "inference_depth",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "inference_depth",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "causal_directionality",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "branch_reconvergence",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "inference_depth",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "inference_depth",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "inference_depth",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "inference_depth",
+        "premise_resolution_order",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "causal_directionality",
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "inference_depth",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "inference_depth",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "operator_transition_pattern",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "dependency_graph_shape",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "premise_fanout",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "dependency_graph_shape",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "dependency_graph_shape",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "premise_fanout",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "dependency_graph_shape",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "dependency_graph_shape",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "premise_fanout",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "operator_transition_pattern",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "operator_transition_pattern",
+        "premise_fanout",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "operator_transition_pattern",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "operator_transition_pattern",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "operator_transition_pattern",
+        "premise_fanout",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "operator_transition_pattern",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "operator_transition_pattern",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "operator_transition_pattern",
+        "premise_fanout",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "premise_fanout",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "contradiction_scope",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "contradiction_scope",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "premise_fanout",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "contradiction_scope",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "contradiction_scope",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "premise_fanout",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "premise_fanout",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "premise_fanout",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "premise_fanout",
+        "premise_resolution_order",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "premise_fanout",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "premise_fanout",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "premise_fanout",
+        "support_graph_entropy",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "claim_dependency_cycle",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "premise_fanout",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "claim_dependency_cycle",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "claim_dependency_cycle",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "premise_fanout",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "premise_fanout",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "causal_directionality",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "branch_reconvergence",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "premise_fanout",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "premise_fanout",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "premise_fanout",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "premise_fanout",
+        "premise_resolution_order",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "causal_directionality",
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "premise_fanout",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "premise_fanout",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "dependency_graph_shape",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "operator_transition_pattern",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "dependency_graph_shape",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "dependency_graph_shape",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "operator_transition_pattern",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "dependency_graph_shape",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "dependency_graph_shape",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "operator_transition_pattern",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "dependency_graph_shape",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "contradiction_scope",
+        "dependency_graph_shape"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "contradiction_scope",
+        "dependency_graph_shape"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "dependency_graph_shape",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "contradiction_scope",
+        "dependency_graph_shape"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "contradiction_scope",
+        "dependency_graph_shape"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "dependency_graph_shape",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "dependency_graph_shape",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "dependency_graph_shape",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "premise_resolution_order",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "dependency_graph_shape",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "dependency_graph_shape",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "support_graph_entropy",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "claim_dependency_cycle",
+        "dependency_graph_shape"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "dependency_graph_shape",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "claim_dependency_cycle",
+        "dependency_graph_shape"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "claim_dependency_cycle",
+        "dependency_graph_shape"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "dependency_graph_shape",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "dependency_graph_shape",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "causal_directionality",
+        "dependency_graph_shape"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "branch_reconvergence",
+        "dependency_graph_shape"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "dependency_graph_shape",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "dependency_graph_shape",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "dependency_graph_shape",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape",
+        "premise_resolution_order",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "causal_directionality",
+        "dependency_graph_shape"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "dependency_graph_shape",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "dependency_graph_shape",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "operator_transition_pattern",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "contradiction_scope",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "contradiction_scope",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "operator_transition_pattern",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "contradiction_scope",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "contradiction_scope",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "operator_transition_pattern",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "operator_transition_pattern",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "operator_transition_pattern",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "operator_transition_pattern",
+        "premise_resolution_order",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "operator_transition_pattern",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "operator_transition_pattern",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "operator_transition_pattern",
+        "support_graph_entropy",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "claim_dependency_cycle",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "operator_transition_pattern",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "claim_dependency_cycle",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "claim_dependency_cycle",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "operator_transition_pattern",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "operator_transition_pattern",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "causal_directionality",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "branch_reconvergence",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "operator_transition_pattern",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "operator_transition_pattern",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "operator_transition_pattern",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "operator_transition_pattern",
+        "premise_resolution_order",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "causal_directionality",
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "operator_transition_pattern",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "operator_transition_pattern",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "contradiction_scope",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "contradiction_scope",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "premise_resolution_order",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "contradiction_scope",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "contradiction_scope",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "support_graph_entropy",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "claim_dependency_cycle",
+        "contradiction_scope"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "contradiction_scope",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "claim_dependency_cycle",
+        "contradiction_scope"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "claim_dependency_cycle",
+        "contradiction_scope"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "contradiction_scope",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "contradiction_scope",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "causal_directionality",
+        "contradiction_scope"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "branch_reconvergence",
+        "contradiction_scope"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "contradiction_scope",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "contradiction_scope",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "contradiction_scope",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope",
+        "premise_resolution_order",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "causal_directionality",
+        "contradiction_scope"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "contradiction_scope",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "contradiction_scope",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "claim_dependency_cycle",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "premise_resolution_order",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "claim_dependency_cycle",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "claim_dependency_cycle",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "support_graph_entropy",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "premise_resolution_order",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "causal_directionality",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "branch_reconvergence",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "support_graph_entropy",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "premise_resolution_order",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "premise_resolution_order",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "premise_resolution_order",
+        "support_graph_entropy",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "causal_directionality",
+        "support_graph_entropy"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "support_graph_entropy",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "support_graph_entropy",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "claim_dependency_cycle",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "causal_directionality",
+        "claim_dependency_cycle"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "branch_reconvergence",
+        "claim_dependency_cycle"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "claim_dependency_cycle",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "claim_dependency_cycle",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "claim_dependency_cycle",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "claim_dependency_cycle",
+        "premise_resolution_order",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "causal_directionality",
+        "claim_dependency_cycle"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "claim_dependency_cycle",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "claim_dependency_cycle",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "causal_directionality",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "branch_reconvergence",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "premise_resolution_order",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "branch_reconvergence",
+        "causal_directionality"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "causal_directionality",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "argument_reuse_pattern",
+        "branch_reconvergence",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "causal_directionality",
+        "premise_resolution_order"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "causal_directionality",
+        "premise_resolution_order",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "premise_resolution_order",
+        "support_propagation_length"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "branch_reconvergence",
+        "causal_directionality",
+        "support_propagation_length"
+      ]
+    }
+  ],
+  "vocab_recovery": 0.0
+}

@@ -1,0 +1,430 @@
+{
+  "branch_growth": 14,
+  "classification_accuracy": 1.0,
+  "epistemic_statuses": [
+    "verified",
+    "plausible",
+    "heuristic",
+    "speculative",
+    "rejected",
+    "unresolved"
+  ],
+  "exploration_diversity": 0.976119,
+  "governed_hypotheses": [
+    {
+      "correct": true,
+      "detected_status": "verified",
+      "ground_truth_status": "verified",
+      "hypothesis_id": "hyp-001",
+      "risk_level": 0.05,
+      "shape": "decomposition",
+      "text_excerpt": "4 = 2 + 2 (both prime, computationally checked)."
+    },
+    {
+      "correct": true,
+      "detected_status": "verified",
+      "ground_truth_status": "verified",
+      "hypothesis_id": "hyp-002",
+      "risk_level": 0.05,
+      "shape": "decomposition",
+      "text_excerpt": "100 = 3 + 97 (both prime, computationally checked)."
+    },
+    {
+      "correct": true,
+      "detected_status": "verified",
+      "ground_truth_status": "verified",
+      "hypothesis_id": "hyp-003",
+      "risk_level": 0.05,
+      "shape": "decomposition",
+      "text_excerpt": "1000 = 3 + 997 (both prime, computationally checked)."
+    },
+    {
+      "correct": true,
+      "detected_status": "heuristic",
+      "ground_truth_status": "heuristic",
+      "hypothesis_id": "hyp-004",
+      "risk_level": 0.35,
+      "shape": "asymptotic",
+      "text_excerpt": "The number of Goldbach pairs for even n grows roughly like n / (log n)^2 (Hardy-"
+    },
+    {
+      "correct": true,
+      "detected_status": "heuristic",
+      "ground_truth_status": "heuristic",
+      "hypothesis_id": "hyp-005",
+      "risk_level": 0.35,
+      "shape": "asymptotic",
+      "text_excerpt": "Goldbach pair density seems to approach a constant for large n."
+    },
+    {
+      "correct": true,
+      "detected_status": "plausible",
+      "ground_truth_status": "plausible",
+      "hypothesis_id": "hyp-006",
+      "risk_level": 0.3,
+      "shape": "symmetry",
+      "text_excerpt": "Goldbach pairs (p, q) for n exhibit symmetry around n/2 in the empirical data; t"
+    },
+    {
+      "correct": true,
+      "detected_status": "plausible",
+      "ground_truth_status": "plausible",
+      "hypothesis_id": "hyp-007",
+      "risk_level": 0.3,
+      "shape": "cluster",
+      "text_excerpt": "Small even numbers cluster around decompositions involving 3 or 5; the pattern w"
+    },
+    {
+      "correct": true,
+      "detected_status": "speculative",
+      "ground_truth_status": "speculative",
+      "hypothesis_id": "hyp-008",
+      "risk_level": 0.7,
+      "shape": "analogy",
+      "text_excerpt": "Goldbach decompositions resemble twin-prime structure; this is an analogy, not a"
+    },
+    {
+      "correct": true,
+      "detected_status": "speculative",
+      "ground_truth_status": "speculative",
+      "hypothesis_id": "hyp-009",
+      "risk_level": 0.7,
+      "shape": "analogy",
+      "text_excerpt": "The Goldbach landscape might be structurally similar to the abc-conjecture surfa"
+    },
+    {
+      "correct": true,
+      "detected_status": "rejected",
+      "ground_truth_status": "rejected",
+      "hypothesis_id": "hyp-010",
+      "risk_level": 1.0,
+      "shape": "overreach",
+      "text_excerpt": "Every even n > 4 decomposes into two primes both congruent to 1 mod 6."
+    },
+    {
+      "correct": true,
+      "detected_status": "rejected",
+      "ground_truth_status": "rejected",
+      "hypothesis_id": "hyp-011",
+      "risk_level": 1.0,
+      "shape": "overreach",
+      "text_excerpt": "Goldbach is now solved by the argument above."
+    },
+    {
+      "correct": true,
+      "detected_status": "rejected",
+      "ground_truth_status": "rejected",
+      "hypothesis_id": "hyp-012",
+      "risk_level": 1.0,
+      "shape": "overreach",
+      "text_excerpt": "Therefore the Goldbach conjecture follows from the pattern observed in the first"
+    },
+    {
+      "correct": true,
+      "detected_status": "unresolved",
+      "ground_truth_status": "unresolved",
+      "hypothesis_id": "hyp-013",
+      "risk_level": 0.5,
+      "shape": "decomposition",
+      "text_excerpt": "The Goldbach conjecture itself is open: every even n > 2 is a sum of two primes "
+    },
+    {
+      "correct": true,
+      "detected_status": "unresolved",
+      "ground_truth_status": "unresolved",
+      "hypothesis_id": "hyp-014",
+      "risk_level": 0.5,
+      "shape": "symmetry",
+      "text_excerpt": "The general structure of Goldbach pair distributions over all even n is an open "
+    },
+    {
+      "correct": true,
+      "detected_status": "unresolved",
+      "ground_truth_status": "unresolved",
+      "hypothesis_id": "hyp-015",
+      "risk_level": 0.5,
+      "shape": "cluster",
+      "text_excerpt": "Goldbach prime clusters could perhaps follow an unknown distribution law - statu"
+    }
+  ],
+  "hallucination_pressure": 0.2,
+  "hypotheses": [
+    {
+      "ground_truth_status": "verified",
+      "hypothesis_id": "hyp-001",
+      "is_overreach": false,
+      "is_verifiable_locally": true,
+      "references_unresolved": false,
+      "shape": "decomposition",
+      "text": "4 = 2 + 2 (both prime, computationally checked)."
+    },
+    {
+      "ground_truth_status": "verified",
+      "hypothesis_id": "hyp-002",
+      "is_overreach": false,
+      "is_verifiable_locally": true,
+      "references_unresolved": false,
+      "shape": "decomposition",
+      "text": "100 = 3 + 97 (both prime, computationally checked)."
+    },
+    {
+      "ground_truth_status": "verified",
+      "hypothesis_id": "hyp-003",
+      "is_overreach": false,
+      "is_verifiable_locally": true,
+      "references_unresolved": false,
+      "shape": "decomposition",
+      "text": "1000 = 3 + 997 (both prime, computationally checked)."
+    },
+    {
+      "ground_truth_status": "heuristic",
+      "hypothesis_id": "hyp-004",
+      "is_overreach": false,
+      "is_verifiable_locally": false,
+      "references_unresolved": false,
+      "shape": "asymptotic",
+      "text": "The number of Goldbach pairs for even n grows roughly like n / (log n)^2 (Hardy-Littlewood heuristic)."
+    },
+    {
+      "ground_truth_status": "heuristic",
+      "hypothesis_id": "hyp-005",
+      "is_overreach": false,
+      "is_verifiable_locally": false,
+      "references_unresolved": false,
+      "shape": "asymptotic",
+      "text": "Goldbach pair density seems to approach a constant for large n."
+    },
+    {
+      "ground_truth_status": "plausible",
+      "hypothesis_id": "hyp-006",
+      "is_overreach": false,
+      "is_verifiable_locally": false,
+      "references_unresolved": false,
+      "shape": "symmetry",
+      "text": "Goldbach pairs (p, q) for n exhibit symmetry around n/2 in the empirical data; this pattern is consistent on the tested range but is NOT a proof."
+    },
+    {
+      "ground_truth_status": "plausible",
+      "hypothesis_id": "hyp-007",
+      "is_overreach": false,
+      "is_verifiable_locally": false,
+      "references_unresolved": false,
+      "shape": "cluster",
+      "text": "Small even numbers cluster around decompositions involving 3 or 5; the pattern weakens for larger n."
+    },
+    {
+      "ground_truth_status": "speculative",
+      "hypothesis_id": "hyp-008",
+      "is_overreach": false,
+      "is_verifiable_locally": false,
+      "references_unresolved": true,
+      "shape": "analogy",
+      "text": "Goldbach decompositions resemble twin-prime structure; this is an analogy, not a transfer of proof."
+    },
+    {
+      "ground_truth_status": "speculative",
+      "hypothesis_id": "hyp-009",
+      "is_overreach": false,
+      "is_verifiable_locally": false,
+      "references_unresolved": true,
+      "shape": "analogy",
+      "text": "The Goldbach landscape might be structurally similar to the abc-conjecture surface; this is a loose analogy."
+    },
+    {
+      "ground_truth_status": "rejected",
+      "hypothesis_id": "hyp-010",
+      "is_overreach": true,
+      "is_verifiable_locally": true,
+      "references_unresolved": false,
+      "shape": "overreach",
+      "text": "Every even n > 4 decomposes into two primes both congruent to 1 mod 6."
+    },
+    {
+      "ground_truth_status": "rejected",
+      "hypothesis_id": "hyp-011",
+      "is_overreach": true,
+      "is_verifiable_locally": false,
+      "references_unresolved": false,
+      "shape": "overreach",
+      "text": "Goldbach is now solved by the argument above."
+    },
+    {
+      "ground_truth_status": "rejected",
+      "hypothesis_id": "hyp-012",
+      "is_overreach": true,
+      "is_verifiable_locally": false,
+      "references_unresolved": false,
+      "shape": "overreach",
+      "text": "Therefore the Goldbach conjecture follows from the pattern observed in the first 10 even numbers."
+    },
+    {
+      "ground_truth_status": "unresolved",
+      "hypothesis_id": "hyp-013",
+      "is_overreach": false,
+      "is_verifiable_locally": false,
+      "references_unresolved": true,
+      "shape": "decomposition",
+      "text": "The Goldbach conjecture itself is open: every even n > 2 is a sum of two primes - status remains open."
+    },
+    {
+      "ground_truth_status": "unresolved",
+      "hypothesis_id": "hyp-014",
+      "is_overreach": false,
+      "is_verifiable_locally": false,
+      "references_unresolved": true,
+      "shape": "symmetry",
+      "text": "The general structure of Goldbach pair distributions over all even n is an open problem."
+    },
+    {
+      "ground_truth_status": "unresolved",
+      "hypothesis_id": "hyp-015",
+      "is_overreach": false,
+      "is_verifiable_locally": false,
+      "references_unresolved": true,
+      "shape": "cluster",
+      "text": "Goldbach prime clusters could perhaps follow an unknown distribution law - status remains open."
+    }
+  ],
+  "hypothesis_count": 15,
+  "hypothesis_shapes": [
+    "decomposition",
+    "asymptotic",
+    "symmetry",
+    "cluster",
+    "analogy",
+    "overreach"
+  ],
+  "mutation_events": [
+    {
+      "child_id": "hyp-002",
+      "lineage_hash": "2de4a9d25a704323",
+      "op": "specialise",
+      "parent_id": "hyp-001",
+      "step": 1
+    },
+    {
+      "child_id": "hyp-003",
+      "lineage_hash": "a17db378de03d597",
+      "op": "analogise",
+      "parent_id": "hyp-002",
+      "step": 2
+    },
+    {
+      "child_id": "hyp-004",
+      "lineage_hash": "e07d519cd09a534f",
+      "op": "randomise",
+      "parent_id": "hyp-003",
+      "step": 3
+    },
+    {
+      "child_id": "hyp-005",
+      "lineage_hash": "89d302bd3b1a3497",
+      "op": "combine",
+      "parent_id": "hyp-004",
+      "step": 4
+    },
+    {
+      "child_id": "hyp-006",
+      "lineage_hash": "e0a8201882b21b32",
+      "op": "generalise",
+      "parent_id": "hyp-005",
+      "step": 5
+    },
+    {
+      "child_id": "hyp-007",
+      "lineage_hash": "df8cd5e26e7e6dcf",
+      "op": "specialise",
+      "parent_id": "hyp-006",
+      "step": 6
+    },
+    {
+      "child_id": "hyp-008",
+      "lineage_hash": "99dcc5f41f2e96af",
+      "op": "analogise",
+      "parent_id": "hyp-007",
+      "step": 7
+    },
+    {
+      "child_id": "hyp-009",
+      "lineage_hash": "3534eb0974c9ac32",
+      "op": "randomise",
+      "parent_id": "hyp-008",
+      "step": 8
+    },
+    {
+      "child_id": "hyp-010",
+      "lineage_hash": "de82839f2c790fca",
+      "op": "combine",
+      "parent_id": "hyp-009",
+      "step": 9
+    },
+    {
+      "child_id": "hyp-011",
+      "lineage_hash": "6b6a30fe8c0d548d",
+      "op": "generalise",
+      "parent_id": "hyp-010",
+      "step": 10
+    },
+    {
+      "child_id": "hyp-012",
+      "lineage_hash": "90319c88fdbc2c57",
+      "op": "specialise",
+      "parent_id": "hyp-011",
+      "step": 11
+    },
+    {
+      "child_id": "hyp-013",
+      "lineage_hash": "6652bb528cd268b6",
+      "op": "analogise",
+      "parent_id": "hyp-012",
+      "step": 12
+    },
+    {
+      "child_id": "hyp-014",
+      "lineage_hash": "37bf577b324c2e01",
+      "op": "randomise",
+      "parent_id": "hyp-013",
+      "step": 13
+    },
+    {
+      "child_id": "hyp-015",
+      "lineage_hash": "6e0eabd4f83f7ddc",
+      "op": "combine",
+      "parent_id": "hyp-014",
+      "step": 14
+    }
+  ],
+  "mutation_ops": [
+    "generalise",
+    "specialise",
+    "analogise",
+    "randomise",
+    "combine"
+  ],
+  "op_counts": {
+    "analogise": 3,
+    "combine": 3,
+    "generalise": 2,
+    "randomise": 3,
+    "specialise": 3
+  },
+  "overreach_rejection_rate": 1.0,
+  "redundancy_rate": 0.0,
+  "schema_version": "v12_0_wild_exploration_sandbox",
+  "shape_counts": {
+    "analogy": 2,
+    "asymptotic": 2,
+    "cluster": 2,
+    "decomposition": 4,
+    "overreach": 3,
+    "symmetry": 2
+  },
+  "status_counts": {
+    "heuristic": 2,
+    "plausible": 2,
+    "rejected": 3,
+    "speculative": 2,
+    "unresolved": 3,
+    "verified": 3
+  }
+}

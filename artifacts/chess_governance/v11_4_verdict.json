@@ -1,0 +1,22 @@
+{
+  "chess_governance_classes": [
+    "A_epistemic_search_compressor",
+    "B_bounded_compute_reducer",
+    "C_tactical_risk_optimizer",
+    "D_brute_force_dependent",
+    "E_search_degrading"
+  ],
+  "failing_conditions": [],
+  "final_classification": "A_epistemic_search_compressor",
+  "gate_passes_all": true,
+  "metrics": {
+    "compute_efficiency_gain": 0.540698,
+    "compute_reduction": 0.540698,
+    "pv_stability": 1.0,
+    "quality_preservation": 1.0,
+    "replay_stability": 1.0,
+    "search_governance_integrity": 1.0,
+    "tactical_miss_rate": 0.0
+  },
+  "schema_version": "v11_4_chess_governance_verdict"
+}

@@ -1,0 +1,145 @@
+{
+  "attractor_visibility": 1.0,
+  "attractors": {
+    "branch_testing": [
+      "MI_IC12",
+      "MI_WS6",
+      "MI_WS8"
+    ],
+    "claim_extraction": [
+      "MI_IC4",
+      "MI_WS5"
+    ],
+    "concept_gates": [
+      "MI_IC15",
+      "MI_WS11"
+    ],
+    "determinism_scanner": [
+      "MI_IC14",
+      "MI_WS9"
+    ],
+    "ecology_efficiency": [
+      "MI_IC9",
+      "MI_WS4"
+    ],
+    "graph_queries": [
+      "MI_IC3",
+      "MI_WS2"
+    ],
+    "harvester_structure": [
+      "MI_IC10",
+      "MI_WS7"
+    ],
+    "memoization": [
+      "MI_IC2",
+      "MI_WS1"
+    ],
+    "output_ports": [
+      "MI_IC7",
+      "MI_WS3"
+    ],
+    "replay_kernel": [
+      "MI_IC13",
+      "MI_WS10"
+    ],
+    "replay_performance": [
+      "MI_IC1",
+      "MI_RC1"
+    ]
+  },
+  "clusters_by_area": {
+    "branch_testing": [
+      "MI_IC12",
+      "MI_WS6",
+      "MI_WS8"
+    ],
+    "cache_strategies": [
+      "MI_IC11"
+    ],
+    "citation_governance": [
+      "MI_IC6"
+    ],
+    "claim_extraction": [
+      "MI_IC4",
+      "MI_WS5"
+    ],
+    "concept_gates": [
+      "MI_IC15",
+      "MI_WS11"
+    ],
+    "determinism_scanner": [
+      "MI_IC14",
+      "MI_WS9"
+    ],
+    "ecology_efficiency": [
+      "MI_IC9",
+      "MI_WS4"
+    ],
+    "graph_queries": [
+      "MI_IC3",
+      "MI_WS2"
+    ],
+    "harvester_structure": [
+      "MI_IC10",
+      "MI_WS7"
+    ],
+    "memoization": [
+      "MI_IC2",
+      "MI_WS1"
+    ],
+    "output_ports": [
+      "MI_IC7",
+      "MI_WS3"
+    ],
+    "regression_integrity": [
+      "MI_WS12"
+    ],
+    "replay_kernel": [
+      "MI_IC13",
+      "MI_WS10"
+    ],
+    "replay_performance": [
+      "MI_IC1",
+      "MI_RC1"
+    ],
+    "scientific_rendering": [
+      "MI_IC8"
+    ],
+    "traceability": [
+      "MI_IC5"
+    ]
+  },
+  "disclaimer": "Surfaces evolutionary attractors (areas that repeatedly attract mutation ideas), mutation clusters, optimisation traps (all-rejected areas) and branch drift over the evolution history. Descriptive only - no auto-avoidance, no policy learning, no governance change. Evolution stays diverse and replay-stable.",
+  "drift_visibility": 1.0,
+  "evolution_diversity": 0.892857,
+  "mutation_cluster_visibility": 1.0,
+  "optimization_traps": [
+    "concept_gates",
+    "determinism_scanner",
+    "regression_integrity",
+    "replay_kernel"
+  ],
+  "productive_areas": [
+    "branch_testing",
+    "cache_strategies",
+    "citation_governance",
+    "claim_extraction",
+    "ecology_efficiency",
+    "graph_queries",
+    "harvester_structure",
+    "memoization",
+    "output_ports",
+    "replay_performance",
+    "scientific_rendering",
+    "traceability"
+  ],
+  "recommendation": "STABLE_ATTRACTORS_DIVERSE",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "STABLE_ATTRACTORS_DIVERSE",
+    "EVOLUTION_COLLAPSED",
+    "ATTRACTOR_DRIFT_HALT"
+  ],
+  "schema_version": "v30_2_evolutionary_attractors",
+  "signature": "a0907745235cf77aab4c464c6c64ea5aaaf9397d54bb43f8a8744873b96b12b2"
+}

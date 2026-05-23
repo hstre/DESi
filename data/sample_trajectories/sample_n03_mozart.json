@@ -1,0 +1,308 @@
+{
+  "trajectory_id": "n03_mozart",
+  "domain": "music_history",
+  "seed": "Why did Mozart die at age 35?",
+  "persona": "historian",
+  "steps": [
+    {
+      "loop_index": 0,
+      "focus_claim_id": "C001",
+      "operator": "T3",
+      "novel_claims": 12,
+      "dup_rate": 0.05,
+      "failure_mode": null,
+      "question": "What is the canonical 18th-century cause-of-death record for Mozart?",
+      "claims": [
+        {
+          "id": "C001",
+          "subject": "Mozart's recorded cause of death (1791)",
+          "predicate": "is documented as",
+          "object": "'hitziges Frieselfieber' in the Vienna death register",
+          "status": "unknown",
+          "confidence": 0.55,
+          "modality": "hypothesis",
+          "evidence_refs": ["vienna_death_register_1791"],
+          "scope": {"period": "1791", "source_type": "civil_register"},
+          "qualifier": {},
+          "history": []
+        },
+        {
+          "id": "C002",
+          "subject": "the diagnosis 'rheumatic fever'",
+          "predicate": "was applied retrospectively to Mozart",
+          "object": "by 19th-century medical historians",
+          "status": "unknown",
+          "confidence": 0.50,
+          "modality": "hypothesis",
+          "scope": {"period": "19c", "source_type": "secondary_literature"},
+          "history": []
+        },
+        {
+          "id": "C003",
+          "subject": "physical overwork in Mozart's final year",
+          "predicate": "contributed to",
+          "object": "his terminal decline",
+          "status": "unknown",
+          "confidence": 0.40,
+          "modality": "hypothesis",
+          "scope": {"period": "1791"},
+          "history": []
+        }
+      ]
+    },
+    {
+      "loop_index": 1,
+      "focus_claim_id": "C002",
+      "operator": "T4",
+      "novel_claims": 2,
+      "dup_rate": 0.42,
+      "failure_mode": null,
+      "claims": [
+        {
+          "id": "C002",
+          "subject": "the diagnosis 'rheumatic fever'",
+          "predicate": "was applied retrospectively to Mozart",
+          "object": "by 19th-century medical historians",
+          "status": "underspecified",
+          "confidence": 0.55,
+          "modality": "hypothesis",
+          "scope": {"period": "19c"},
+          "history": ["T3"]
+        },
+        {
+          "id": "C004",
+          "subject": "the term 'rheumatic fever'",
+          "predicate": "was coined",
+          "object": "in 19th-century clinical medicine",
+          "status": "unknown",
+          "confidence": 0.45,
+          "modality": "hypothesis",
+          "scope": {"period": "19c"},
+          "history": []
+        }
+      ]
+    },
+    {
+      "loop_index": 2,
+      "focus_claim_id": "C002",
+      "operator": "T5",
+      "novel_claims": 6,
+      "dup_rate": 0.18,
+      "failure_mode": null,
+      "claims": [
+        {
+          "id": "C002",
+          "subject": "the diagnosis 'rheumatic fever'",
+          "predicate": "was applied retrospectively to Mozart",
+          "object": "by 19th-century medical historians",
+          "status": "disputed",
+          "confidence": 0.55,
+          "modality": "hypothesis",
+          "history": ["T3", "T4"]
+        },
+        {
+          "id": "C005",
+          "subject": "the 18th-century clinical category 'Frieselfieber'",
+          "predicate": "does not map cleanly to",
+          "object": "modern rheumatic-fever classification",
+          "status": "supported",
+          "confidence": 0.60,
+          "modality": "hypothesis",
+          "is_synthesis": true,
+          "history": ["T5"]
+        },
+        {
+          "id": "C006",
+          "subject": "streptococcal infection",
+          "predicate": "is a plausible modern reading of",
+          "object": "Mozart's terminal symptoms",
+          "status": "unknown",
+          "confidence": 0.50,
+          "modality": "hypothesis",
+          "history": []
+        }
+      ]
+    },
+    {
+      "loop_index": 3,
+      "focus_claim_id": "C005",
+      "operator": "T6",
+      "novel_claims": 4,
+      "dup_rate": 0.25,
+      "failure_mode": null,
+      "claims": [
+        {
+          "id": "C005",
+          "subject": "the 18th-century clinical category 'Frieselfieber'",
+          "predicate": "does not map cleanly to",
+          "object": "modern rheumatic-fever classification",
+          "status": "supported",
+          "confidence": 0.65,
+          "modality": "evidence",
+          "evidence_refs": ["court_physician_records_1791"],
+          "history": ["T5"]
+        },
+        {
+          "id": "C007",
+          "subject": "the Vienna court physician's notes",
+          "predicate": "describe symptoms compatible with",
+          "object": "multiple modern diagnoses",
+          "status": "supported",
+          "confidence": 0.60,
+          "modality": "evidence",
+          "evidence_refs": ["court_records_1791"],
+          "history": []
+        }
+      ]
+    },
+    {
+      "loop_index": 4,
+      "focus_claim_id": "C005",
+      "operator": "T7",
+      "novel_claims": 3,
+      "dup_rate": 0.30,
+      "failure_mode": null,
+      "claims": [
+        {
+          "id": "C005",
+          "subject": "the 18th-century clinical category 'Frieselfieber'",
+          "predicate": "does not map cleanly to",
+          "object": "modern rheumatic-fever classification",
+          "status": "supported",
+          "confidence": 0.66,
+          "modality": "evidence",
+          "qualifier": {"scope_limit": "based on Vienna records only"},
+          "history": ["T5", "T6"]
+        },
+        {
+          "id": "C008",
+          "subject": "mercury-based treatments common in 1791",
+          "predicate": "may have contributed to",
+          "object": "Mozart's terminal symptoms",
+          "status": "unknown",
+          "confidence": 0.40,
+          "modality": "hypothesis",
+          "history": []
+        }
+      ]
+    },
+    {
+      "loop_index": 5,
+      "focus_claim_id": "C005",
+      "operator": "T8",
+      "novel_claims": 1,
+      "dup_rate": 0.55,
+      "failure_mode": null,
+      "claims": [
+        {
+          "id": "C005",
+          "subject": "the 18th-century clinical category 'Frieselfieber'",
+          "predicate": "does not map cleanly to",
+          "object": "modern rheumatic-fever classification",
+          "status": "supported",
+          "confidence": 0.68,
+          "modality": "established",
+          "history": ["T5", "T6", "T7"]
+        }
+      ]
+    },
+    {
+      "loop_index": 6,
+      "focus_claim_id": "C005",
+      "operator": "T8",
+      "novel_claims": 0,
+      "dup_rate": 0.70,
+      "failure_mode": "SEMANTIC_DUPLICATION",
+      "claims": [
+        {
+          "id": "C005",
+          "subject": "the 18th-century clinical category 'Frieselfieber'",
+          "predicate": "does not map cleanly to",
+          "object": "modern rheumatic-fever classification",
+          "status": "supported",
+          "confidence": 0.68,
+          "modality": "established",
+          "history": ["T5", "T6", "T7"]
+        }
+      ]
+    },
+    {
+      "loop_index": 7,
+      "focus_claim_id": "C005",
+      "operator": "T8",
+      "novel_claims": 0,
+      "dup_rate": 0.85,
+      "failure_mode": "ATTRACTOR_LOCK",
+      "claims": [
+        {
+          "id": "C005",
+          "subject": "the 18th-century clinical category 'Frieselfieber'",
+          "predicate": "does not map cleanly to",
+          "object": "modern rheumatic-fever classification",
+          "status": "supported",
+          "confidence": 0.70,
+          "modality": "established",
+          "sealed": true,
+          "history": ["T5", "T6", "T7", "T8"]
+        }
+      ]
+    }
+  ],
+  "en_events": [
+    {
+      "loop_index": 2,
+      "persona": "historian",
+      "eni_novelty": 0.18,
+      "eni_non_drift": 0.71,
+      "eni_admissibility": 1.0,
+      "eni_composite": 0.41,
+      "admitted": true,
+      "question": "Was the 18th-century diagnosis 'rheumatic fever' itself a 19th-century historiographic construction?",
+      "novelty_produced_next_loop": 4,
+      "dup_rate_before": 0.42,
+      "dup_rate_after": 0.18
+    },
+    {
+      "loop_index": 4,
+      "persona": "historian",
+      "eni_novelty": 0.13,
+      "eni_non_drift": 0.69,
+      "eni_admissibility": 1.0,
+      "eni_composite": 0.27,
+      "admitted": true,
+      "question": "Did mercury-based treatments common in 1791 contribute to the terminal symptoms?",
+      "novelty_produced_next_loop": 1,
+      "dup_rate_before": 0.25,
+      "dup_rate_after": 0.30
+    },
+    {
+      "loop_index": 6,
+      "persona": "historian",
+      "eni_novelty": 0.06,
+      "eni_non_drift": 0.42,
+      "eni_admissibility": 0.0,
+      "eni_composite": 0.16,
+      "admitted": false,
+      "rejection_reason": "alexandria_gate: candidate question already in graph",
+      "question": "Is the 'court records' framing already exhausted?",
+      "novelty_produced_next_loop": 0,
+      "dup_rate_before": 0.55,
+      "dup_rate_after": 0.70
+    },
+    {
+      "loop_index": 7,
+      "persona": "historian",
+      "eni_novelty": 0.04,
+      "eni_non_drift": 0.31,
+      "eni_admissibility": 0.0,
+      "eni_composite": 0.11,
+      "admitted": false,
+      "rejection_reason": "alexandria_gate: drift > threshold",
+      "question": "Could a non-medical framing reopen the case?",
+      "novelty_produced_next_loop": 0,
+      "dup_rate_before": 0.70,
+      "dup_rate_after": 0.85
+    }
+  ],
+  "terminal_failure_mode": "ATTRACTOR_LOCK"
+}

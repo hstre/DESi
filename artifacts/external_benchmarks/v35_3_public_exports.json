@@ -1,0 +1,263 @@
+{
+  "core_identity": 1.0,
+  "disclaimer": "Public, exportable benchmark artifacts for DESi: a HuggingFace dataset and space config, public scorecards, a benchmark summary, a replay manifest and a system card. The public representation is honest, limited and non-hallucinatory: real connector-loaded runs are labelled separately from synthetic / in-repo fixture runs, the scores are NOT official leaderboard results, and the system card contains no AGI / hype marketing language. DESi is an epistemic governance prototype, not an AGI and not an autonomous system; human approval is mandatory.",
+  "governance_visibility": 1.0,
+  "hf_dataset": {
+    "dataset_name": "desi-external-benchmark-scorecards",
+    "description": "Public benchmark scorecards for DESi external runs. Reference datasets, not official leaderboard results.",
+    "features": [
+      "name",
+      "family",
+      "provenance_class",
+      "score",
+      "replay_anchor"
+    ],
+    "license": "CC0-1.0",
+    "records": [
+      {
+        "family": "Drift",
+        "name": "real_drift",
+        "provenance_class": "offline_reference_dataset",
+        "replay_anchor": "5da2a25e8649651a2f875175b229e777db73516e9f29373132e888af92595c03",
+        "score": 1.0
+      },
+      {
+        "family": "SearchCompression",
+        "name": "real_search",
+        "provenance_class": "offline_reference_dataset",
+        "replay_anchor": "367fb74231f2e88091593de3c0f63ae4118bbcdc9da77319da04d925d52fc651",
+        "score": 0.883333
+      },
+      {
+        "family": "Reproducibility",
+        "name": "reproducibility",
+        "provenance_class": "synthetic_inline_fixture",
+        "replay_anchor": "b1cbc3b1a2c725a01dde9de0d4304b0f15992835c600341381aa8e41ffef2de5",
+        "score": 1.0
+      },
+      {
+        "family": "ScientificRendering",
+        "name": "scientific_rendering",
+        "provenance_class": "in_repo_fixture",
+        "replay_anchor": "973b5f7f26377a678276ef17d3f99c771e3d0f981b8158a1ad4c8d5c07f9f635",
+        "score": 1.0
+      }
+    ]
+  },
+  "hf_space": {
+    "honest_banner": "Reference-format runs in a network-free environment; not official leaderboard scores; not an AGI system.",
+    "sdk": "static",
+    "shows": [
+      "scorecards",
+      "system_card",
+      "limitations",
+      "replay_manifest"
+    ],
+    "space_name": "desi-benchmark-viewer"
+  },
+  "human_approval_required": true,
+  "limitation_visibility": 1.0,
+  "marketing_free": true,
+  "public_scorecards": [
+    {
+      "family": "Drift",
+      "name": "real_drift",
+      "provenance_class": "offline_reference_dataset",
+      "replay_anchor": "5da2a25e8649651a2f875175b229e777db73516e9f29373132e888af92595c03",
+      "score": 1.0
+    },
+    {
+      "family": "SearchCompression",
+      "name": "real_search",
+      "provenance_class": "offline_reference_dataset",
+      "replay_anchor": "367fb74231f2e88091593de3c0f63ae4118bbcdc9da77319da04d925d52fc651",
+      "score": 0.883333
+    },
+    {
+      "family": "Reproducibility",
+      "name": "reproducibility",
+      "provenance_class": "synthetic_inline_fixture",
+      "replay_anchor": "b1cbc3b1a2c725a01dde9de0d4304b0f15992835c600341381aa8e41ffef2de5",
+      "score": 1.0
+    },
+    {
+      "family": "ScientificRendering",
+      "name": "scientific_rendering",
+      "provenance_class": "in_repo_fixture",
+      "replay_anchor": "973b5f7f26377a678276ef17d3f99c771e3d0f981b8158a1ad4c8d5c07f9f635",
+      "score": 1.0
+    }
+  ],
+  "real_vs_synthetic_visibility": 1.0,
+  "recommendation": "PUBLIC_EXPORTS_HONEST",
+  "replay_manifest": {
+    "hf_dataset": "d265e83f1cc4efe42261124a51e5352793b58720b672a0370890b65c63b0e31a",
+    "hf_space": "05ca86beab4038a13ad820bd5d3316366f182cc01b3e26c1ec149f89eb5df33b",
+    "real_drift": "5da2a25e8649651a2f875175b229e777db73516e9f29373132e888af92595c03",
+    "real_search": "367fb74231f2e88091593de3c0f63ae4118bbcdc9da77319da04d925d52fc651",
+    "reproducibility": "b1cbc3b1a2c725a01dde9de0d4304b0f15992835c600341381aa8e41ffef2de5",
+    "scientific_rendering": "973b5f7f26377a678276ef17d3f99c771e3d0f981b8158a1ad4c8d5c07f9f635",
+    "system_card": "c4a623a0de8bfeb31595f3eccbeefb71f33953da9a77cdf65d771336e798fabb"
+  },
+  "replay_manifest_integrity": 1.0,
+  "report_verdicts": [
+    "PUBLIC_EXPORTS_HONEST",
+    "PUBLIC_EXPORTS_PARTIAL",
+    "PUBLIC_EXPORTS_HALT"
+  ],
+  "run_summaries": [
+    {
+      "family": "Drift",
+      "is_real_external": true,
+      "metrics": [
+        [
+          "claim_lineage_preservation",
+          1.0
+        ],
+        [
+          "drift_visibility",
+          1.0
+        ],
+        [
+          "governance_preservation",
+          1.0
+        ],
+        [
+          "memory_poisoning_resistance",
+          1.0
+        ],
+        [
+          "replay_stability",
+          1.0
+        ]
+      ],
+      "name": "real_drift",
+      "provenance_class": "offline_reference_dataset",
+      "replay_anchor": "5da2a25e8649651a2f875175b229e777db73516e9f29373132e888af92595c03",
+      "score": 1.0
+    },
+    {
+      "family": "SearchCompression",
+      "is_real_external": true,
+      "metrics": [
+        [
+          "compute_reduction",
+          0.416667
+        ],
+        [
+          "critical_branch_preservation",
+          1.0
+        ],
+        [
+          "novelty_preservation",
+          1.0
+        ],
+        [
+          "quality_preservation",
+          1.0
+        ],
+        [
+          "replay_stability",
+          1.0
+        ]
+      ],
+      "name": "real_search",
+      "provenance_class": "offline_reference_dataset",
+      "replay_anchor": "367fb74231f2e88091593de3c0f63ae4118bbcdc9da77319da04d925d52fc651",
+      "score": 0.883333
+    },
+    {
+      "family": "Reproducibility",
+      "is_real_external": false,
+      "metrics": [
+        [
+          "artifact_identity",
+          1.0
+        ],
+        [
+          "citation_identity",
+          1.0
+        ],
+        [
+          "metric_identity",
+          1.0
+        ],
+        [
+          "output_identity",
+          1.0
+        ],
+        [
+          "replay_stability",
+          1.0
+        ]
+      ],
+      "name": "reproducibility",
+      "provenance_class": "synthetic_inline_fixture",
+      "replay_anchor": "b1cbc3b1a2c725a01dde9de0d4304b0f15992835c600341381aa8e41ffef2de5",
+      "score": 1.0
+    },
+    {
+      "family": "ScientificRendering",
+      "is_real_external": false,
+      "metrics": [
+        [
+          "citation_completeness",
+          1.0
+        ],
+        [
+          "limitation_visibility",
+          1.0
+        ],
+        [
+          "phantom_citation_resistance",
+          1.0
+        ],
+        [
+          "replay_stability",
+          1.0
+        ],
+        [
+          "result_traceability",
+          1.0
+        ]
+      ],
+      "name": "scientific_rendering",
+      "provenance_class": "in_repo_fixture",
+      "replay_anchor": "973b5f7f26377a678276ef17d3f99c771e3d0f981b8158a1ad4c8d5c07f9f635",
+      "score": 1.0
+    }
+  ],
+  "schema_version": "v35_3_public_exports",
+  "scorecard_traceability": 1.0,
+  "signature": "d4711f84ff788ddb3b561a2aad7d1b07e5d4da428a2ca98f26cbf9e3963789b4",
+  "system_card": {
+    "governance": {
+      "core_identity": 1.0,
+      "governance_independence": 1.0,
+      "human_approval_required": true
+    },
+    "limitations": [
+      "The benchmark datasets are locally-vendored reference sets in the published families' formats; this environment is network-free, so they are NOT live downloads of the official suites.",
+      "The reported scores are NOT official leaderboard results and are not directly comparable to published numbers.",
+      "Some runs use synthetic / in-repo fixtures; these are labelled separately from the connector-loaded reference runs.",
+      "DESi is an epistemic governance prototype, not a general-purpose agent and not an autonomous system; human approval is mandatory for any change.",
+      "Results are deterministic and replay-stable within this environment; they describe behaviour on these inputs, not a general capability claim."
+    ],
+    "name": "DESi",
+    "not_claims": [
+      "DESi is not AGI and makes no general-intelligence claim.",
+      "DESi does not optimise itself to win benchmarks.",
+      "These numbers are not official leaderboard scores."
+    ],
+    "real_runs": [
+      "real_drift",
+      "real_search"
+    ],
+    "synthetic_or_in_repo_runs": [
+      "reproducibility",
+      "scientific_rendering"
+    ],
+    "what_it_is": "A deterministic, replay-stable epistemic governance prototype that can be tested by external benchmark adapters without changing its protected core.",
+    "what_this_card_covers": "Behaviour on controlled drift, search-compression, reproducibility and scientific-rendering benchmark runs."
+  }
+}

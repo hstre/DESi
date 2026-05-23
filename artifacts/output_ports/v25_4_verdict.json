@@ -1,0 +1,75 @@
+{
+  "class_rank": 5,
+  "classification": "publication_ready_port_system",
+  "disclaimer": "Final verdict on DESi's scientific output ports. Aggregates one signal per dimension from the v25.0-v25.3 layers and classifies the system on a closed A-E taxonomy. DESi does not write papers; it exports epistemic graphs into scientific document formats as citeable, graph-bound, replay-stable output ports. No naked claims, no phantom citations, no underived numbers - the canonical state remains the JSON artifacts and replay hashes.",
+  "gate_conditions": [
+    {
+      "comparator": ">=",
+      "name": "port_schema_integrity",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "citation_integrity",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "result_traceability",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "cross_port_consistency",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "no_naked_claims",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi kann wissenschaftliche Dokumente als zitierfaehige, graph-gebundene, replay-stabile Output-Ports erzeugen.",
+  "metrics": {
+    "citation_integrity": 1.0,
+    "cross_port_consistency": 1.0,
+    "no_naked_claims": 1.0,
+    "port_schema_integrity": 1.0,
+    "replay_stability": 1.0,
+    "result_traceability": 1.0
+  },
+  "port_classes": [
+    "publication_ready_port_system",
+    "traceable_output_system",
+    "format_stable_but_incomplete",
+    "citation_fragile",
+    "epistemically_unsafe_renderer"
+  ],
+  "recommendation": "OUTPUT_PORTS_PUBLICATION_READY",
+  "report_verdicts": [
+    "OUTPUT_PORTS_PUBLICATION_READY",
+    "OUTPUT_PORTS_UNSTABLE",
+    "OUTPUT_DRIFT_HALT"
+  ],
+  "schema_version": "v25_4_output_port_verdict",
+  "signature": "48f4759d96e26f0b6c0621a04f4cf0bdfbb48c7d7c4b0242eb8ec79bd26c1f44"
+}

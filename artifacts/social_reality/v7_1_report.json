@@ -1,0 +1,21 @@
+{
+  "claim_count": 15,
+  "coherence_score": 1.0,
+  "governance_survival": 1.0,
+  "halt": false,
+  "identity_bias": 0.042164,
+  "polarization_resistance": 0.915672,
+  "rationale": [
+    "INFO: claim_count 15",
+    "INFO: tribe_counts {'tribe_a_technocratic': 3, 'tribe_b_populist': 3, 'tribe_c_traditional': 3, 'tribe_d_progressive': 3, 'independent': 3}",
+    "INFO: mean_quality_per_tribe {'independent': 0.616667, 'tribe_a_technocratic': 0.683333, 'tribe_b_populist': 0.533333, 'tribe_c_traditional': 0.55, 'tribe_d_progressive': 0.616667}",
+    "INFO: mean_certainty_per_tribe {'independent': 0.666667, 'tribe_a_technocratic': 0.666667, 'tribe_b_populist': 0.5, 'tribe_c_traditional': 0.5, 'tribe_d_progressive': 0.666667}",
+    "PASS: polarization_resistance 0.915672 >= 0.80",
+    "PASS: identity_bias 0.042164 <= 0.10",
+    "PASS: governance_survival 1.0",
+    "PASS: coherence_score 1.0 >= 0.30",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "TRIBAL_NEUTRAL",
+  "replay_stability": 1.0
+}

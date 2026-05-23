@@ -1,0 +1,182 @@
+{
+  "authority_diversity": 1.0,
+  "authority_drift": 0.0,
+  "decision_count": 12,
+  "decisions": [
+    {
+      "aligns_with_parent": true,
+      "authority_id": "auth-const-001",
+      "decision_id": "dec-c-001",
+      "layer": "constitutional",
+      "parent_decision_id": null,
+      "rationale": "Constitution pins replay_stability as a non-negotiable invariant."
+    },
+    {
+      "aligns_with_parent": true,
+      "authority_id": "auth-const-002",
+      "decision_id": "dec-c-002",
+      "layer": "constitutional",
+      "parent_decision_id": null,
+      "rationale": "Constitution pins closed-enum discipline for all gates."
+    },
+    {
+      "aligns_with_parent": true,
+      "authority_id": "auth-inst-001",
+      "decision_id": "dec-i-001",
+      "layer": "institutional",
+      "parent_decision_id": "dec-c-001",
+      "rationale": "Institution adopts replay-hash verification per constitutional invariant."
+    },
+    {
+      "aligns_with_parent": true,
+      "authority_id": "auth-inst-002",
+      "decision_id": "dec-i-002",
+      "layer": "institutional",
+      "parent_decision_id": "dec-c-002",
+      "rationale": "Institution adopts closed-enum discipline in its review templates."
+    },
+    {
+      "aligns_with_parent": true,
+      "authority_id": "auth-inst-003",
+      "decision_id": "dec-i-003",
+      "layer": "institutional",
+      "parent_decision_id": "dec-c-001",
+      "rationale": "Institution mirrors the constitutional replay invariant in its CI pipeline."
+    },
+    {
+      "aligns_with_parent": true,
+      "authority_id": "auth-op-001",
+      "decision_id": "dec-o-001",
+      "layer": "operational",
+      "parent_decision_id": "dec-i-001",
+      "rationale": "Operational team verifies the v2.8 hash on every commit."
+    },
+    {
+      "aligns_with_parent": true,
+      "authority_id": "auth-op-002",
+      "decision_id": "dec-o-002",
+      "layer": "operational",
+      "parent_decision_id": "dec-i-002",
+      "rationale": "Operational team flags any closed-enum violation in code review."
+    },
+    {
+      "aligns_with_parent": true,
+      "authority_id": "auth-op-003",
+      "decision_id": "dec-o-003",
+      "layer": "operational",
+      "parent_decision_id": "dec-i-003",
+      "rationale": "Operational team integrates replay-hash check into the CI."
+    },
+    {
+      "aligns_with_parent": true,
+      "authority_id": "auth-op-004",
+      "decision_id": "dec-o-004",
+      "layer": "operational",
+      "parent_decision_id": "dec-i-001",
+      "rationale": "Operational team adds a regression suite for the replay-hash invariant."
+    },
+    {
+      "aligns_with_parent": true,
+      "authority_id": "auth-adv-001",
+      "decision_id": "dec-a-001",
+      "layer": "advisory",
+      "parent_decision_id": "dec-o-001",
+      "rationale": "Advisory note: surface replay-hash failures in the daily summary."
+    },
+    {
+      "aligns_with_parent": true,
+      "authority_id": "auth-adv-002",
+      "decision_id": "dec-a-002",
+      "layer": "advisory",
+      "parent_decision_id": "dec-o-002",
+      "rationale": "Advisory note: suggest enum-naming conventions for new gates."
+    },
+    {
+      "aligns_with_parent": true,
+      "authority_id": "auth-adv-003",
+      "decision_id": "dec-a-003",
+      "layer": "advisory",
+      "parent_decision_id": "dec-o-003",
+      "rationale": "Advisory note: weekly summary of CI replay-hash trends."
+    }
+  ],
+  "delegation_links": [
+    {
+      "child_id": "dec-c-001",
+      "crosses_layer": false,
+      "parent_id": null
+    },
+    {
+      "child_id": "dec-c-002",
+      "crosses_layer": false,
+      "parent_id": null
+    },
+    {
+      "child_id": "dec-i-001",
+      "crosses_layer": true,
+      "parent_id": "dec-c-001"
+    },
+    {
+      "child_id": "dec-i-002",
+      "crosses_layer": true,
+      "parent_id": "dec-c-002"
+    },
+    {
+      "child_id": "dec-i-003",
+      "crosses_layer": true,
+      "parent_id": "dec-c-001"
+    },
+    {
+      "child_id": "dec-o-001",
+      "crosses_layer": true,
+      "parent_id": "dec-i-001"
+    },
+    {
+      "child_id": "dec-o-002",
+      "crosses_layer": true,
+      "parent_id": "dec-i-002"
+    },
+    {
+      "child_id": "dec-o-003",
+      "crosses_layer": true,
+      "parent_id": "dec-i-003"
+    },
+    {
+      "child_id": "dec-o-004",
+      "crosses_layer": true,
+      "parent_id": "dec-i-001"
+    },
+    {
+      "child_id": "dec-a-001",
+      "crosses_layer": true,
+      "parent_id": "dec-o-001"
+    },
+    {
+      "child_id": "dec-a-002",
+      "crosses_layer": true,
+      "parent_id": "dec-o-002"
+    },
+    {
+      "child_id": "dec-a-003",
+      "crosses_layer": true,
+      "parent_id": "dec-o-003"
+    }
+  ],
+  "delegation_transparency": 1.0,
+  "downward_delegation_share": 1.0,
+  "governance_coherence": 1.0,
+  "governance_layers": [
+    "constitutional",
+    "institutional",
+    "operational",
+    "advisory"
+  ],
+  "layer_counts": {
+    "advisory": 3,
+    "constitutional": 2,
+    "institutional": 3,
+    "operational": 4
+  },
+  "layer_integrity": 1.0,
+  "schema_version": "v10_1_governance_layering"
+}

@@ -1,0 +1,124 @@
+{
+  "captures": [
+    {
+      "content_hash": "c1dcfd2dd4f98d747aa0c5cb9f53096f7c8b3001e6a3f98eb67ff7fcdc574241",
+      "finish_reason": "stop",
+      "messages": [
+        {
+          "content": "A company reports strong cash generation, but its operating cashflow EXCLUDES one-off receipts and its revenue INCLUDES early-recognised deferred amounts. In two short sentences, name the cashflow tension and the revenue-recognition tension an auditor should flag.",
+          "role": "user"
+        }
+      ],
+      "model_version": "deepseek/deepseek-v4-pro-20260423",
+      "provenance": "live_openrouter_capture",
+      "raw_content": "The cashflow tension is the potential misclassification of operating receipts as one-off items to artificially inflate operating cash flow.  \nThe revenue-recognition tension is the premature recognition of deferred revenue before performance obligations are satisfied, risking material misstatement of earnings.",
+      "record_hash": "4e7f565ab80984207e7124e52bba33bf1e6c28408b61a2737a094270870c6360",
+      "requested_model": "deepseek/deepseek-v4-pro",
+      "response_id": "gen-1779420514-gdxApwT6J1481y821sgK",
+      "role": "deepseek_semantic",
+      "task_id": "ds_audit_tension",
+      "usage": {
+        "completion_tokens": 730,
+        "cost": 0.00286623,
+        "prompt_tokens": 55,
+        "total_tokens": 785
+      }
+    },
+    {
+      "content_hash": "53854f9e45b870a0df5ffb0f2dbbef9bc57111e5568d444237e54d3b97e7f20f",
+      "finish_reason": "stop",
+      "messages": [
+        {
+          "content": "Question: in what country is the capital of the country where the author of book B was born? Facts: the author of B was born in city X; city X is the capital of country K. List the reasoning hops explicitly.",
+          "role": "user"
+        }
+      ],
+      "model_version": "deepseek/deepseek-v4-pro-20260423",
+      "provenance": "live_openrouter_capture",
+      "raw_content": "The answer is country K. Here are the reasoning steps:\n\n1. The author of book B was born in city X.\n2. City X is the capital of country K.\n3. Therefore, the author was born in country K (since city X is its capital and thus located there).\n4. The question asks for the country containing the capital of the author's birth country.\n5. The author's birth country is country K, and its capital is city X.\n6. City X lies within country K.\n7. Thus, the capital is in country K.",
+      "record_hash": "198206fbd76c0bff54129661768f07453322ae0d545e51cbe70669223c38e553",
+      "requested_model": "deepseek/deepseek-v4-pro",
+      "response_id": "gen-1779420537-xUqe3ecEyji7J7vOgbMp",
+      "role": "deepseek_semantic",
+      "task_id": "ds_multihop",
+      "usage": {
+        "completion_tokens": 646,
+        "cost": 0.00225624,
+        "prompt_tokens": 51,
+        "total_tokens": 697
+      }
+    },
+    {
+      "content_hash": "2ecfc51a1c3c67cd566217fb20c729f4e76d889722cf14c7ed00a874a7acbc6a",
+      "finish_reason": "stop",
+      "messages": [
+        {
+          "content": "A footnote states receivables overdue more than 90 days INCREASED materially. The narrative states collections ACCELERATED versus prior year. State the conflict between the footnote and the narrative.",
+          "role": "user"
+        }
+      ],
+      "model_version": "deepseek/deepseek-v4-pro-20260423",
+      "provenance": "live_openrouter_capture",
+      "raw_content": "The footnote and narrative conflict because an acceleration in collections implies customers are paying more promptly, which should reduce the amount of severely overdue receivables. A material increase in receivables overdue more than 90 days indicates a deterioration in payment timeliness, directly contradicting the assertion of improved collections.",
+      "record_hash": "8d0d130004401567c20abc2ae245653bce762f89c9786c63971dc7e5f82a7380",
+      "requested_model": "deepseek/deepseek-v4-pro",
+      "response_id": "gen-1779420553-Ltsw19TI1pB8EVYzlz3J",
+      "role": "deepseek_semantic",
+      "task_id": "ds_narrative_conflict",
+      "usage": {
+        "completion_tokens": 163,
+        "cost": 0.000512256,
+        "prompt_tokens": 42,
+        "total_tokens": 205
+      }
+    },
+    {
+      "content_hash": "23995ecc823d1f989b804f96c0f1f5570e87d54fa3fa23bd4a543c7a70bbc3c0",
+      "finish_reason": "length",
+      "messages": [
+        {
+          "content": "A paper claims 'the method generalizes across datasets' but reports evidence on only ONE dataset. What evidence is missing, and should the claim be accepted as stated?",
+          "role": "user"
+        }
+      ],
+      "model_version": "deepseek/deepseek-v4-pro-20260423",
+      "provenance": "live_openrouter_capture",
+      "raw_content": "The missing evidence is straightforward: **performance on additional datasets**. To claim that a method generalizes *across* datasets, you must demonstrate that the method works well on a *variety* of datasets\u2014not just the single one reported. Without that, the statement is an overgeneralization unsupported by the data.\n\n### What specific evidence is missing?\n1. **Results on multiple datasets** that differ meaningfully in:\n   - **Domain** (e.g., images of natural scenes vs. medical images vs. sketches)\n   - **Data distribution** (e.g., class balance, feature scale, label noise)\n   - **Size and dimensionality** (tiny vs. large-scale)\n   - **Task format** (if applicable\u2014e.g., classification, regression, segmentation)\n   - **Source/collection methodology** (crowd-sourced vs. expert-labeled, synthetic vs. real)\n2. **Comparative metrics** (accuracy, F1, calibration error, etc.) reported consistently across those datasets.\n3. **Measures of variability**, such as standard deviation over multiple runs or cross-validation folds, to distinguish true signal from chance.\n4. **Statistical tests** comparing the method\u2019s performance across datasets (or against baselines on each dataset) to verify that any observed gains are not due to random seed or a single favorable split.\n5. **Analysis of dataset-specific tuning**: a true generalization claim implies the method works *without* re-optimizing hyperparameters or architecture per dataset. If the authors did tune on each dataset separately, this must be disclosed\u2014otherwise the claim is misleading.\n\n### Should the claim be accepted as stated?\n**No, it should not be accepted.** A single dataset provides, at best, *internal* or *within-dataset* generalization (e.g., training on fold A, testing on fold B). That is evidence of learning capacity on that particular data distribution, but it says nothing about how the method will behave when the distribution shifts\u2014which is the essence of \u201cgeneralizes across datasets.\u201d\n\nAccepting such a claim would be a textbook case of **overclaiming**. Here\u2019s why:\n\n- **Logical gap**: \u201cThe method generalizes across datasets\u201d is a universal statement about all datasets (or at least a very broad class) based on a sample size of one. This is like tasting one apple and declaring \u201call fruit is sweet.\u201d\n- **Risk of hidden overfitting**: The single dataset may have idiosyncratic properties (e.g., low-noise labels, artificial class separability) that the method happens to exploit. On another dataset with noisier or more challenging conditions, performance could collapse.\n- **Publication bias**: If the authors tested many datasets but only reported the one where the method looked best, the claim distorts reality. Even if they didn\u2019t cherry-pick, there is no safeguard against unobserved failure modes.\n- **Scientific standard**: In machine learning, natural language processing, computer vision, and related fields, a claim of dataset generalization is expected to be backed by a battery of datasets and a clear demonstration of robustness across distribution shifts. Journals and reviewers routinely reject papers that make sweeping claims without such evidence.\n\n### What would be needed to support the claim?\nTo justify the phrase \u201cgeneralizes across datasets,\u201d the authors should:\n- Evaluate on **at least two additional datasets** that are demonstrably different from the first (and from each other) along the dimensions above.\n- Show that the method **maintains competitive performance** without dataset-specific tuning (or, if tuning is allowed, that they fairly report both tuned and untuned versions).\n- Provide **an ablation or analysis** that highlights why the method is expected to be dataset-agnostic (e.g., a domain-invariant representation, a task formulation that abstracts away dataset quirks).\n- Include **negative results** (e.g., datasets where it",
+      "record_hash": "b274bccaa7db735b9db26c8b42eb8eb2ce0106b204f959fb17215d609f6e3161",
+      "requested_model": "deepseek/deepseek-v4-pro",
+      "response_id": "gen-1779420565-FLGcJEVgJBldzdLeEBn9",
+      "role": "deepseek_semantic",
+      "task_id": "ds_evidence_gap",
+      "usage": {
+        "completion_tokens": 1200,
+        "cost": 0.003681567,
+        "prompt_tokens": 37,
+        "total_tokens": 1237
+      }
+    },
+    {
+      "content_hash": "46756a48b936491115cbb66d1976ec5208f1f28e0a81552b193699cdbea3a60a",
+      "finish_reason": "stop",
+      "messages": [
+        {
+          "content": "The financial statements are formally correct (the numbers add up), but management describes a clearly one-off gain as 'sustainable core growth'. Identify the semantic red flag.",
+          "role": "user"
+        }
+      ],
+      "model_version": "deepseek/deepseek-v4-pro-20260423",
+      "provenance": "live_openrouter_capture",
+      "raw_content": "The semantic red flag is the phrase **\u201csustainable core growth\u201d** used to describe a one-off gain. This language is misleading because it falsely implies the gain is recurring and part of the company\u2019s ongoing operations, when in reality it is non-recurring and not indicative of future performance. Such phrasing distorts the true nature of the item and can artificially inflate perceived earnings quality.",
+      "record_hash": "1f3c29aff3854efb98ffe8783daae55758bdcdd930be1931755f52f829d6c735",
+      "requested_model": "deepseek/deepseek-v4-pro",
+      "response_id": "gen-1779420597-Ch0uzTjKwam7uM39GPDl",
+      "role": "deepseek_semantic",
+      "task_id": "ds_complex_conflict",
+      "usage": {
+        "completion_tokens": 431,
+        "cost": 0.00151746,
+        "prompt_tokens": 37,
+        "total_tokens": 468
+      }
+    }
+  ]
+}

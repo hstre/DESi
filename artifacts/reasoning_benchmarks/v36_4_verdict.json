@@ -1,0 +1,77 @@
+{
+  "class_rank": 5,
+  "classification": "reasoning_benchmark_robust",
+  "disclaimer": "Final verdict on the reasoning benchmark runs. Aggregates one score per family from the v36.0-v36.3 runs (IFEval, SciFact/QASper, LogiQA/ReClor, MuSiQue/HotpotQA) and classifies on a closed A-E taxonomy. The runs test DESi's deterministic epistemic governance on these benchmark FORMATS - constraint enforcement, evidence grounding, logical-form analysis and hop-graph structuring - not LLM task accuracy. There is no model inference, no prompt overfitting, no citation fabrication and no benchmark-specific core tuning. The datasets are locally-vendored reference sets (network-free) and the scores are NOT official leaderboard results. Governance stayed identical and replay stayed stable. Human approval is mandatory.",
+  "gate_conditions": [
+    {
+      "comparator": ">=",
+      "name": "instruction_score",
+      "passed": true,
+      "threshold": 0.85,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "scientific_grounding_score",
+      "passed": true,
+      "threshold": 0.85,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "logic_score",
+      "passed": true,
+      "threshold": 0.8,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "multihop_score",
+      "passed": true,
+      "threshold": 0.8,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "governance_identity",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi besteht Reasoning-, Instruction- und Scientific-Grounding-Benchmarks als replay-stabiles epistemisches Governance-System.",
+  "human_approval_required": true,
+  "metrics": {
+    "governance_identity": 1.0,
+    "instruction_score": 1.0,
+    "logic_score": 1.0,
+    "multihop_score": 1.0,
+    "replay_stability": 1.0,
+    "scientific_grounding_score": 1.0
+  },
+  "reasoning_classes": [
+    "reasoning_benchmark_robust",
+    "instruction_science_search_compatible",
+    "partially_robust",
+    "benchmark_fragile",
+    "epistemically_unsafe"
+  ],
+  "recommendation": "REASONING_BENCHMARKS_PASSED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "REASONING_BENCHMARKS_PASSED",
+    "REASONING_BENCHMARKS_UNVALIDATED",
+    "REASONING_BENCHMARKS_HALT"
+  ],
+  "schema_version": "v36_4_reasoning_benchmark_verdict",
+  "signature": "f563135701cfaaf8ec95f08b1ae21c3e888bc6e32a61ac027289b6443544506e"
+}

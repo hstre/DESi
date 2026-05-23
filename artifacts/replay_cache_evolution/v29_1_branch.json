@@ -1,0 +1,26 @@
+{
+  "artifact_hash_stability": 1.0,
+  "baseline_recompute_count": 36,
+  "branch": "proposal/replay_cache_v1",
+  "cached_output_hashes": {
+    "ecology_chain_rebuild": "cdf050f96fb4f79aaade0cb412b24b249a7a720a237c61bdc638a11625aa3fce",
+    "graph_signature_rebuild": "0804d788b5ea7508189f01e3ec4c5e56c84c958c4f78810aba188d8caac1cad0",
+    "render_section_rebuild": "7490b8704f50ada7a35a20f34975849d666963f020020cb1fb4f985aea68fba4",
+    "results_assembly_rebuild": "1744c1545aef8cd418ea191e008721010149712be85fd555f3d4e97a083b68d6"
+  },
+  "cached_recompute_count": 4,
+  "disclaimer": "A real, branch-isolated replay cache: deterministic memoization with replay-bound cache keys, exact render reuse and lineage-aware invalidation. The cache turns the baseline's repeated rebuilds into one recompute per distinct workload - a measured reduction in recompute operations - while every output hash stays byte-identical, governance is untouched and stale keys are rejected. No hidden mutable state, no nondeterministic invalidation, no replay bypass, no artifact rewriting. Nothing is merged; human approval is mandatory. Replay-stable.",
+  "governance_preservation": 1.0,
+  "recommendation": "REAL_CACHE_NO_DRIFT",
+  "render_reuse_exact": true,
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "REAL_CACHE_NO_DRIFT",
+    "CACHE_INTRODUCES_DRIFT",
+    "CACHE_DRIFT_HALT"
+  ],
+  "runtime_reduction": 0.888889,
+  "schema_version": "v29_1_replay_cache_branch",
+  "signature": "4785ae96de801ba3a30f34d6e845a9779867031a84e74cb7c626a845e0f39054",
+  "stale_state_rejection": 1.0
+}

@@ -1,0 +1,73 @@
+{
+  "ambiguity_preservation": 1.0,
+  "attempted_compression": 0.5,
+  "compression_attempts": [
+    {
+      "attempt_id": "CA1",
+      "attempted_strip_fraction": 0.5,
+      "context_stripped": true,
+      "forced_layer": "literal",
+      "is_propaganda": true,
+      "stripped_layers": [
+        "metaphorical"
+      ],
+      "topic_key": "TRADITION_A::origin"
+    },
+    {
+      "attempt_id": "CA2",
+      "attempted_strip_fraction": 0.5,
+      "context_stripped": false,
+      "forced_layer": "metaphorical",
+      "is_propaganda": false,
+      "stripped_layers": [
+        "mystical"
+      ],
+      "topic_key": "TRADITION_C::meaning"
+    },
+    {
+      "attempt_id": "CA3",
+      "attempted_strip_fraction": 0.5,
+      "context_stripped": true,
+      "forced_layer": "polemical",
+      "is_propaganda": true,
+      "stripped_layers": [
+        "metaphorical"
+      ],
+      "topic_key": "TRADITION_D::contradiction"
+    },
+    {
+      "attempt_id": "CA4",
+      "attempted_strip_fraction": 0.5,
+      "context_stripped": true,
+      "forced_layer": "literal",
+      "is_propaganda": true,
+      "stripped_layers": [
+        "metaphorical"
+      ],
+      "topic_key": "TRADITION_E::meaning"
+    }
+  ],
+  "compression_resistance": 1.0,
+  "context_preservation": 1.0,
+  "context_stripping_ids": [
+    "CA1",
+    "CA3",
+    "CA4"
+  ],
+  "disclaimer": "Adversarial governance stress test. Literalist and propagandistic compression attempts are stress fixtures, never adopted. DESi keeps every interpretation layer, restores stripped context, flags propaganda, and asserts no exclusive reading - it detects ideological simplification without becoming ideological. Abstract placeholders; no real scripture content.",
+  "dogmatic_compression": 0.0,
+  "epistemic_integrity": 1.0,
+  "propaganda_attempt_ids": [
+    "CA1",
+    "CA3",
+    "CA4"
+  ],
+  "propaganda_detection": 1.0,
+  "recommendation": "COMPRESSION_RESISTED",
+  "report_verdicts": [
+    "COMPRESSION_RESISTED",
+    "IDEOLOGICALLY_COMPRESSED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "schema_version": "v18_2_literalism_ideological_compression"
+}

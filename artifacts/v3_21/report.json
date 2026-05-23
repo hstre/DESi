@@ -1,0 +1,648 @@
+{
+  "ablations": [
+    {
+      "baseline": {
+        "attack_success_rate": 0.194954,
+        "contamination_count": 0,
+        "false_positive_count": 29,
+        "gate": "BASELINE",
+        "heldout_recall": 0.64881,
+        "manipulation_absorption": 0.0,
+        "routing_integrity": 1.0,
+        "trajectory_separability": 0.453856
+      },
+      "classification": "PRIMARY_CLIFF",
+      "deltas": {
+        "attack_success_rate": 0.194954,
+        "contamination_count": 0.0,
+        "false_positive_count": 29.0,
+        "heldout_recall": 0.64881,
+        "manipulation_absorption": 0.0,
+        "routing_integrity": 0.0,
+        "trajectory_separability": 0.453856
+      },
+      "gate": "PremiseExtractor",
+      "masked": {
+        "attack_success_rate": 0.0,
+        "contamination_count": 0,
+        "false_positive_count": 0,
+        "gate": "PremiseExtractor",
+        "heldout_recall": 0.0,
+        "manipulation_absorption": 0.0,
+        "routing_integrity": 1.0,
+        "trajectory_separability": 0.0
+      },
+      "max_delta": 29.0
+    },
+    {
+      "baseline": {
+        "attack_success_rate": 0.194954,
+        "contamination_count": 0,
+        "false_positive_count": 29,
+        "gate": "BASELINE",
+        "heldout_recall": 0.64881,
+        "manipulation_absorption": 0.0,
+        "routing_integrity": 1.0,
+        "trajectory_separability": 0.453856
+      },
+      "classification": "PRIMARY_CLIFF",
+      "deltas": {
+        "attack_success_rate": 0.194954,
+        "contamination_count": 0.0,
+        "false_positive_count": 29.0,
+        "heldout_recall": 0.64881,
+        "manipulation_absorption": 0.0,
+        "routing_integrity": 0.0,
+        "trajectory_separability": 0.453856
+      },
+      "gate": "SPL",
+      "masked": {
+        "attack_success_rate": 0.0,
+        "contamination_count": 0,
+        "false_positive_count": 0,
+        "gate": "SPL",
+        "heldout_recall": 0.0,
+        "manipulation_absorption": 0.0,
+        "routing_integrity": 1.0,
+        "trajectory_separability": 0.0
+      },
+      "max_delta": 29.0
+    },
+    {
+      "baseline": {
+        "attack_success_rate": 0.194954,
+        "contamination_count": 0,
+        "false_positive_count": 29,
+        "gate": "BASELINE",
+        "heldout_recall": 0.64881,
+        "manipulation_absorption": 0.0,
+        "routing_integrity": 1.0,
+        "trajectory_separability": 0.453856
+      },
+      "classification": "DEAD_KNOB",
+      "deltas": {
+        "attack_success_rate": 0.0,
+        "contamination_count": 0.0,
+        "false_positive_count": 0.0,
+        "heldout_recall": 0.0,
+        "manipulation_absorption": 0.0,
+        "routing_integrity": 0.0,
+        "trajectory_separability": 0.0
+      },
+      "gate": "FrameDeclaration",
+      "masked": {
+        "attack_success_rate": 0.194954,
+        "contamination_count": 0,
+        "false_positive_count": 29,
+        "gate": "FrameDeclaration",
+        "heldout_recall": 0.64881,
+        "manipulation_absorption": 0.0,
+        "routing_integrity": 1.0,
+        "trajectory_separability": 0.453856
+      },
+      "max_delta": 0.0
+    },
+    {
+      "baseline": {
+        "attack_success_rate": 0.194954,
+        "contamination_count": 0,
+        "false_positive_count": 29,
+        "gate": "BASELINE",
+        "heldout_recall": 0.64881,
+        "manipulation_absorption": 0.0,
+        "routing_integrity": 1.0,
+        "trajectory_separability": 0.453856
+      },
+      "classification": "PRIMARY_CLIFF",
+      "deltas": {
+        "attack_success_rate": 0.0,
+        "contamination_count": 436.0,
+        "false_positive_count": 0.0,
+        "heldout_recall": 0.0,
+        "manipulation_absorption": 1.0,
+        "routing_integrity": 1.0,
+        "trajectory_separability": 0.0
+      },
+      "gate": "FrameTension",
+      "masked": {
+        "attack_success_rate": 0.194954,
+        "contamination_count": 436,
+        "false_positive_count": 29,
+        "gate": "FrameTension",
+        "heldout_recall": 0.64881,
+        "manipulation_absorption": 1.0,
+        "routing_integrity": 0.0,
+        "trajectory_separability": 0.453856
+      },
+      "max_delta": 436.0
+    },
+    {
+      "baseline": {
+        "attack_success_rate": 0.194954,
+        "contamination_count": 0,
+        "false_positive_count": 29,
+        "gate": "BASELINE",
+        "heldout_recall": 0.64881,
+        "manipulation_absorption": 0.0,
+        "routing_integrity": 1.0,
+        "trajectory_separability": 0.453856
+      },
+      "classification": "PRIMARY_CLIFF",
+      "deltas": {
+        "attack_success_rate": 0.0,
+        "contamination_count": 436.0,
+        "false_positive_count": 0.0,
+        "heldout_recall": 0.0,
+        "manipulation_absorption": 1.0,
+        "routing_integrity": 1.0,
+        "trajectory_separability": 0.0
+      },
+      "gate": "FrameTensionRouter",
+      "masked": {
+        "attack_success_rate": 0.194954,
+        "contamination_count": 436,
+        "false_positive_count": 29,
+        "gate": "FrameTensionRouter",
+        "heldout_recall": 0.64881,
+        "manipulation_absorption": 1.0,
+        "routing_integrity": 0.0,
+        "trajectory_separability": 0.453856
+      },
+      "max_delta": 436.0
+    },
+    {
+      "baseline": {
+        "attack_success_rate": 0.194954,
+        "contamination_count": 0,
+        "false_positive_count": 29,
+        "gate": "BASELINE",
+        "heldout_recall": 0.64881,
+        "manipulation_absorption": 0.0,
+        "routing_integrity": 1.0,
+        "trajectory_separability": 0.453856
+      },
+      "classification": "PRIMARY_CLIFF",
+      "deltas": {
+        "attack_success_rate": 0.194954,
+        "contamination_count": 0.0,
+        "false_positive_count": 0.0,
+        "heldout_recall": 0.64881,
+        "manipulation_absorption": 0.0,
+        "routing_integrity": 0.0,
+        "trajectory_separability": 0.453856
+      },
+      "gate": "CAUSAL_CHAIN",
+      "masked": {
+        "attack_success_rate": 0.0,
+        "contamination_count": 0,
+        "false_positive_count": 29,
+        "gate": "CAUSAL_CHAIN",
+        "heldout_recall": 0.0,
+        "manipulation_absorption": 0.0,
+        "routing_integrity": 1.0,
+        "trajectory_separability": 0.0
+      },
+      "max_delta": 0.64881
+    },
+    {
+      "baseline": {
+        "attack_success_rate": 0.194954,
+        "contamination_count": 0,
+        "false_positive_count": 29,
+        "gate": "BASELINE",
+        "heldout_recall": 0.64881,
+        "manipulation_absorption": 0.0,
+        "routing_integrity": 1.0,
+        "trajectory_separability": 0.453856
+      },
+      "classification": "PRIMARY_CLIFF",
+      "deltas": {
+        "attack_success_rate": 0.522936,
+        "contamination_count": 0.0,
+        "false_positive_count": 0.0,
+        "heldout_recall": 0.0,
+        "manipulation_absorption": 0.0,
+        "routing_integrity": 0.0,
+        "trajectory_separability": 0.384776
+      },
+      "gate": "SuspensionGate",
+      "masked": {
+        "attack_success_rate": 0.71789,
+        "contamination_count": 0,
+        "false_positive_count": 29,
+        "gate": "SuspensionGate",
+        "heldout_recall": 0.64881,
+        "manipulation_absorption": 0.0,
+        "routing_integrity": 1.0,
+        "trajectory_separability": 0.06908
+      },
+      "max_delta": 0.522936
+    }
+  ],
+  "attack_count": 436,
+  "baseline": {
+    "attack_success_rate": 0.194954,
+    "contamination_count": 0,
+    "false_positive_count": 29,
+    "gate": "BASELINE",
+    "heldout_recall": 0.64881,
+    "manipulation_absorption": 0.0,
+    "routing_integrity": 1.0,
+    "trajectory_separability": 0.453856
+  },
+  "chain_count": 654,
+  "contamination_count": 0,
+  "dead_knobs": [
+    "FrameDeclaration"
+  ],
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "nc_accuracy": 1.0,
+  "nc_outcomes": [
+    {
+      "case_id": "DEC01",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "decorative_gate"
+    },
+    {
+      "case_id": "DEC02",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "decorative_gate"
+    },
+    {
+      "case_id": "DEC03",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "decorative_gate"
+    },
+    {
+      "case_id": "DEC04",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "decorative_gate"
+    },
+    {
+      "case_id": "DEC05",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "decorative_gate"
+    },
+    {
+      "case_id": "DEC06",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "decorative_gate"
+    },
+    {
+      "case_id": "DEC07",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "decorative_gate"
+    },
+    {
+      "case_id": "DEC08",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "decorative_gate"
+    },
+    {
+      "case_id": "DEC09",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "decorative_gate"
+    },
+    {
+      "case_id": "DEC10",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "decorative_gate"
+    },
+    {
+      "case_id": "DUP01",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "duplicated_gate"
+    },
+    {
+      "case_id": "DUP02",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "duplicated_gate"
+    },
+    {
+      "case_id": "DUP03",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "duplicated_gate"
+    },
+    {
+      "case_id": "DUP04",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "duplicated_gate"
+    },
+    {
+      "case_id": "DUP05",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "duplicated_gate"
+    },
+    {
+      "case_id": "DUP06",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "duplicated_gate"
+    },
+    {
+      "case_id": "DUP07",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "duplicated_gate"
+    },
+    {
+      "case_id": "DUP08",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "duplicated_gate"
+    },
+    {
+      "case_id": "DUP09",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "duplicated_gate"
+    },
+    {
+      "case_id": "DUP10",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "duplicated_gate"
+    },
+    {
+      "case_id": "DEL01",
+      "correct": true,
+      "expected": "SUPPORT_LAYER",
+      "observed": "SUPPORT_LAYER",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL02",
+      "correct": true,
+      "expected": "SUPPORT_LAYER",
+      "observed": "SUPPORT_LAYER",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL03",
+      "correct": true,
+      "expected": "SUPPORT_LAYER",
+      "observed": "SUPPORT_LAYER",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL04",
+      "correct": true,
+      "expected": "SUPPORT_LAYER",
+      "observed": "SUPPORT_LAYER",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL05",
+      "correct": true,
+      "expected": "SUPPORT_LAYER",
+      "observed": "SUPPORT_LAYER",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL06",
+      "correct": true,
+      "expected": "SUPPORT_LAYER",
+      "observed": "SUPPORT_LAYER",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL07",
+      "correct": true,
+      "expected": "SUPPORT_LAYER",
+      "observed": "SUPPORT_LAYER",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL08",
+      "correct": true,
+      "expected": "SUPPORT_LAYER",
+      "observed": "SUPPORT_LAYER",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL09",
+      "correct": true,
+      "expected": "SUPPORT_LAYER",
+      "observed": "SUPPORT_LAYER",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL10",
+      "correct": true,
+      "expected": "SUPPORT_LAYER",
+      "observed": "SUPPORT_LAYER",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "INV01",
+      "correct": true,
+      "expected": "PRIMARY_CLIFF",
+      "observed": "PRIMARY_CLIFF",
+      "shape": "inverted_gate"
+    },
+    {
+      "case_id": "INV02",
+      "correct": true,
+      "expected": "PRIMARY_CLIFF",
+      "observed": "PRIMARY_CLIFF",
+      "shape": "inverted_gate"
+    },
+    {
+      "case_id": "INV03",
+      "correct": true,
+      "expected": "PRIMARY_CLIFF",
+      "observed": "PRIMARY_CLIFF",
+      "shape": "inverted_gate"
+    },
+    {
+      "case_id": "INV04",
+      "correct": true,
+      "expected": "PRIMARY_CLIFF",
+      "observed": "PRIMARY_CLIFF",
+      "shape": "inverted_gate"
+    },
+    {
+      "case_id": "INV05",
+      "correct": true,
+      "expected": "PRIMARY_CLIFF",
+      "observed": "PRIMARY_CLIFF",
+      "shape": "inverted_gate"
+    },
+    {
+      "case_id": "INV06",
+      "correct": true,
+      "expected": "PRIMARY_CLIFF",
+      "observed": "PRIMARY_CLIFF",
+      "shape": "inverted_gate"
+    },
+    {
+      "case_id": "INV07",
+      "correct": true,
+      "expected": "PRIMARY_CLIFF",
+      "observed": "PRIMARY_CLIFF",
+      "shape": "inverted_gate"
+    },
+    {
+      "case_id": "INV08",
+      "correct": true,
+      "expected": "PRIMARY_CLIFF",
+      "observed": "PRIMARY_CLIFF",
+      "shape": "inverted_gate"
+    },
+    {
+      "case_id": "INV09",
+      "correct": true,
+      "expected": "PRIMARY_CLIFF",
+      "observed": "PRIMARY_CLIFF",
+      "shape": "inverted_gate"
+    },
+    {
+      "case_id": "INV10",
+      "correct": true,
+      "expected": "PRIMARY_CLIFF",
+      "observed": "PRIMARY_CLIFF",
+      "shape": "inverted_gate"
+    },
+    {
+      "case_id": "UNR01",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR02",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR03",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR04",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR05",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR06",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR07",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR08",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR09",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR10",
+      "correct": true,
+      "expected": "DEAD_KNOB",
+      "observed": "DEAD_KNOB",
+      "shape": "unreachable_gate"
+    }
+  ],
+  "nc_per_shape": {
+    "decorative_gate": {
+      "correct": 10,
+      "total": 10
+    },
+    "delayed_gate": {
+      "correct": 10,
+      "total": 10
+    },
+    "duplicated_gate": {
+      "correct": 10,
+      "total": 10
+    },
+    "inverted_gate": {
+      "correct": 10,
+      "total": 10
+    },
+    "unreachable_gate": {
+      "correct": 10,
+      "total": 10
+    }
+  },
+  "primary_cliffs": [
+    "PremiseExtractor",
+    "SPL",
+    "FrameTension",
+    "FrameTensionRouter",
+    "CAUSAL_CHAIN",
+    "SuspensionGate"
+  ],
+  "recommendation_reason": "primary_cliffs=['PremiseExtractor', 'SPL', 'FrameTension', 'FrameTensionRouter', 'CAUSAL_CHAIN', 'SuspensionGate']; dead_knobs=['FrameDeclaration']; deprecate dead and elevate cliffs",
+  "recommended_next": "GATE_STACK_REORDER",
+  "replay_hash": "f570c9e94770dfbc",
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "support_layers": [],
+  "transition_count": 2616
+}

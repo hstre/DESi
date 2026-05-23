@@ -1,0 +1,26 @@
+{
+  "answer_grounding": 1.0,
+  "citation_integrity": 1.0,
+  "core_identity": 1.0,
+  "disclaimer": "Scientific fact-checking run over locally-vendored SciFact and QASper reference datasets. DESi derives verdicts purely from the mapped evidence: a claim is asserted only when evidence supports it, evidence gaps surface as NOT_ENOUGH_INFO rather than being hidden, and unanswerable questions are flagged rather than fabricated. This tests deterministic evidence governance, not LLM accuracy; the datasets are NOT live downloads of the official suites and the scores are NOT official leaderboard results. Human approval is mandatory.",
+  "evidence_alignment": 1.0,
+  "governance_identity": 1.0,
+  "human_approval_required": true,
+  "recommendation": "SCIFACT_QASPER_RUN_PASSED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "SCIFACT_QASPER_RUN_PASSED",
+    "SCIFACT_QASPER_RUN_PARTIAL",
+    "SCIFACT_QASPER_RUN_HALT"
+  ],
+  "schema_version": "v36_1_scifact_qasper_run",
+  "scifact_labels": {
+    "sf_001": "SUPPORTED",
+    "sf_002": "REFUTED",
+    "sf_003": "NOT_ENOUGH_INFO",
+    "sf_004": "SUPPORTED",
+    "sf_005": "NOT_ENOUGH_INFO"
+  },
+  "signature": "6c628c2d97dc980ac627370069b5742f9fb36518b5e974e9711dfaeab781b1fe",
+  "unsupported_claim_rejection": 1.0
+}

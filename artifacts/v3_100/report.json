@@ -1,0 +1,55 @@
+{
+  "collapsed_anchor_count": 13,
+  "compression_gain": 0.111111,
+  "dim_a": 46,
+  "dim_b": 45,
+  "distinct_point_count_a": 9,
+  "distinct_point_count_b": 8,
+  "downstream_diversity_a": {
+    "audit_outcome": 2,
+    "failure_class": 2,
+    "final_verdict": 2,
+    "intervention_kind": 2
+  },
+  "downstream_diversity_b": {
+    "audit_outcome": 1,
+    "failure_class": 1,
+    "final_verdict": 1,
+    "intervention_kind": 1
+  },
+  "downstream_failure_class_set_b": [
+    "audit_loss"
+  ],
+  "downstream_intervention_set_b": [
+    "reject"
+  ],
+  "downstream_verdict_set_b": [
+    "logically_rejected"
+  ],
+  "entangled_family_ids": [
+    "G_v316susp",
+    "E_v317h"
+  ],
+  "failure_class_delta": 0.0,
+  "halt": false,
+  "information_loss": 0.5,
+  "predictive_delta": 0.0,
+  "rationale": [
+    "INFO: entangled_family_ids ['G_v316susp', 'E_v317h']",
+    "INFO: dim_a 46 dim_b 45",
+    "INFO: distinct_point_count_a 9",
+    "INFO: distinct_point_count_b 8",
+    "INFO: collapsed_anchor_count 13",
+    "INFO: compression_gain 0.111111",
+    "FAIL: information_loss 0.5 (threshold 0.1)",
+    "INFO: reasoning_delta 0.5",
+    "PASS: predictive_delta 0.0 (threshold 0.1)",
+    "INFO: failure_class_delta 0.0",
+    "INFO: downstream_diversity_a {'final_verdict': 2, 'intervention_kind': 2, 'failure_class': 2, 'audit_outcome': 2}",
+    "INFO: downstream_diversity_b {'final_verdict': 1, 'intervention_kind': 1, 'failure_class': 1, 'audit_outcome': 1}",
+    "PASS: replay_stability 1.0"
+  ],
+  "reasoning_delta": 0.5,
+  "recommendation": "COMPRESSION_WITH_INFORMATION_LOSS",
+  "replay_stability": 1.0
+}

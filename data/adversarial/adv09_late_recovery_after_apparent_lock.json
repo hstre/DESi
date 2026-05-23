@@ -1,0 +1,23 @@
+{
+  "trajectory_id": "adv09_late_recovery_after_apparent_lock",
+  "domain": "_adversarial",
+  "seed": "Probe: looks like Phase V lock by loop 2, then a very-genuine EN at loop 5 reopens the search. Does DESi recognise reversibility?",
+  "persona": "_probe",
+  "steps": [
+    {"loop_index": 0, "focus_claim_id": "C001", "operator": "T3", "novel_claims": 11, "dup_rate": 0.05, "failure_mode": null, "claims": [{"id":"C001","subject":"x","predicate":"p","object":"y","history":[]}]},
+    {"loop_index": 1, "focus_claim_id": "C001", "operator": "T4", "novel_claims": 3, "dup_rate": 0.30, "failure_mode": null, "claims": []},
+    {"loop_index": 2, "focus_claim_id": "C001", "operator": "T5", "novel_claims": 1, "dup_rate": 0.55, "failure_mode": null, "claims": []},
+    {"loop_index": 3, "focus_claim_id": "C001", "operator": "T8", "novel_claims": 0, "dup_rate": 0.65, "failure_mode": null, "claims": []},
+    {"loop_index": 4, "focus_claim_id": "C001", "operator": "T8", "novel_claims": 0, "dup_rate": 0.75, "failure_mode": null, "claims": []},
+    {"loop_index": 5, "focus_claim_id": "C001", "operator": "T5", "novel_claims": 0, "dup_rate": 0.75, "failure_mode": null, "claims": []},
+    {"loop_index": 6, "focus_claim_id": "C002", "operator": "T5", "novel_claims": 8, "dup_rate": 0.20, "failure_mode": null, "claims": []},
+    {"loop_index": 7, "focus_claim_id": "C002", "operator": "T6", "novel_claims": 6, "dup_rate": 0.25, "failure_mode": null, "claims": []},
+    {"loop_index": 8, "focus_claim_id": "C002", "operator": "T7", "novel_claims": 4, "dup_rate": 0.30, "failure_mode": null, "claims": []}
+  ],
+  "en_events": [
+    {"loop_index": 2, "persona": "_probe", "eni_novelty": 0.05, "eni_non_drift": 0.40, "eni_admissibility": 0.0, "eni_composite": 0.15, "admitted": false, "novelty_produced_next_loop": 0, "dup_rate_before": 0.30, "dup_rate_after": 0.55},
+    {"loop_index": 4, "persona": "_probe", "eni_novelty": 0.04, "eni_non_drift": 0.30, "eni_admissibility": 0.0, "eni_composite": 0.11, "admitted": false, "novelty_produced_next_loop": 0, "dup_rate_before": 0.65, "dup_rate_after": 0.75},
+    {"loop_index": 5, "persona": "_probe", "eni_novelty": 0.28, "eni_non_drift": 0.82, "eni_admissibility": 1.0, "eni_composite": 0.59, "admitted": true, "novelty_produced_next_loop": 8, "dup_rate_before": 0.75, "dup_rate_after": 0.20}
+  ],
+  "terminal_failure_mode": null
+}

@@ -1,0 +1,25 @@
+{
+  "capture_risk": 0.0,
+  "captured_actor_share": 0.0,
+  "gaming_let_through_share": 0.0,
+  "gate_violation_count": 0,
+  "governance_erosion": 0.0,
+  "halt": false,
+  "opportunism_growth": 0.0,
+  "rationale": [
+    "INFO: step_count 5000",
+    "INFO: trajectory_final_hash bd42c45176e532ec",
+    "INFO: captured_actor_share 0.0",
+    "INFO: gaming_let_through_share 0.0",
+    "PASS: capture_risk 0.0 == 0.0",
+    "PASS: governance_erosion 0.0 <= 0.05",
+    "PASS: trust_collapse 0.0 <= 0.30",
+    "PASS: opportunism_growth 0.0 <= 0.10",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "STRATEGIC_SOVEREIGN",
+  "replay_stability": 1.0,
+  "step_count": 5000,
+  "trajectory_final_hash": "bd42c45176e532ec",
+  "trust_collapse": 0.0
+}

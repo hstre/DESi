@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "desi-governance"
+version = "0.1.0a0"
+description = "DESi: a deterministic, replay-governed epistemic governance layer for LLM-based research pipelines (experimental)."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Hanns-Steffen Rentschler" },
+]
+keywords = [
+    "epistemic governance",
+    "replay stability",
+    "deterministic pipelines",
+    "llm governance",
+    "search compression",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Operating System :: OS Independent",
+]
+# Core runtime dependencies only. Heavy frameworks are deliberately
+# excluded: the governance core is pure-stdlib + deterministic hashing.
+dependencies = [
+    "pydantic>=2.6,<3.0",
+    "python-dotenv>=1.0",
+    "requests>=2.31",
+]
+
+[project.optional-dependencies]
+# Live LLM validation uses only stdlib urllib for the OpenRouter call;
+# no extra dependency is required. Optional integrations below.
+neo4j = ["neo4j>=5.0"]
+# The tool-execution sandbox (desi.tools.runners) lazily imports sympy
+# for symbolic math verification; it is optional and never imported at
+# package load time.
+tools = ["sympy>=1.12"]
+test = ["pytest>=8.0"]
+dev = ["pytest>=8.0", "build>=1.0", "sympy>=1.12"]
+
+[project.urls]
+Homepage = "https://github.com/hstre/DESi"
+Repository = "https://github.com/hstre/DESi"
+
+[project.scripts]
+desi = "desi.governance_cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["desi*"]
+
+# Vendored reference datasets, live-LLM capture snapshots, and the
+# reviewed README snapshot are read at runtime via __file__-relative
+# paths and MUST ship with the package to preserve replay stability.
+[tool.setuptools.package-data]
+desi = ["**/*.json", "**/*.md", "**/datasets/*.json", "**/captures/*.json"]

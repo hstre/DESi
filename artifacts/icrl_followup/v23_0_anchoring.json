@@ -1,0 +1,99 @@
+{
+  "addressed_problem_ids": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "addresses_section_4_6": true,
+  "claims": [
+    {
+      "anchors": [
+        "P1",
+        "P3"
+      ],
+      "claim_id": "DC1",
+      "is_anchored": true,
+      "sprint_source": "v19.1",
+      "text": "A read-only governance layer reduces redundant search while preserving novel-state reachability."
+    },
+    {
+      "anchors": [
+        "P1"
+      ],
+      "claim_id": "DC2",
+      "is_anchored": true,
+      "sprint_source": "v20.1",
+      "text": "Capping high-certainty incoherent paths keeps the uncontained hallucination rate at zero under pressure."
+    },
+    {
+      "anchors": [
+        "P2",
+        "P1"
+      ],
+      "claim_id": "DC3",
+      "is_anchored": true,
+      "sprint_source": "v20.2/v21.0",
+      "text": "A generator/governor split raises distinct-state coverage under sparse-reward-like conditions."
+    },
+    {
+      "anchors": [
+        "P3",
+        "P1"
+      ],
+      "claim_id": "DC4",
+      "is_anchored": true,
+      "sprint_source": "v19.0/v20.2",
+      "text": "Repetitive loops and dead ends are detected and deprioritised rather than deleted."
+    },
+    {
+      "anchors": [
+        "P4",
+        "P1"
+      ],
+      "claim_id": "DC5",
+      "is_anchored": true,
+      "sprint_source": "v19.3/v20.3",
+      "text": "The governance layer keeps exploration plural under variable-action-space and non-stationary shifts over a long horizon."
+    }
+  ],
+  "disclaimer": "Anchors each central DESi claim to a base-paper open exploration problem (Section 4.6) and to the sprint that produced it. DESi is framed as a complementary, read-only governance layer - not a replacement for reinforcement learning - and makes no global or universal claim. Replay-exact.",
+  "exploration_gap_mapping": 1.0,
+  "generic_claim_reduction": 1.0,
+  "paper_alignment": 1.0,
+  "problems": [
+    {
+      "problem_id": "P1",
+      "section": "Section 4.6",
+      "text": "Exploration can collapse into repeated suboptimal behaviour."
+    },
+    {
+      "problem_id": "P2",
+      "section": "Section 4.6",
+      "text": "Under sparse reward the goal stays undiscovered for long stretches."
+    },
+    {
+      "problem_id": "P3",
+      "section": "Section 4.6",
+      "text": "Repetitive trajectories provide little new information."
+    },
+    {
+      "problem_id": "P4",
+      "section": "Section 4.6",
+      "text": "Variable action spaces complicate consistent exploration."
+    }
+  ],
+  "recommendation": "DIRECTLY_ANCHORED",
+  "related_work_section": "## Relation to the base paper\n\nThe base paper notes, in its Section 4.6 discussion of limitations, several open exploration problems. We address them as a complementary, read-only governance layer rather than a replacement:\n\n- **DC1** (v19.1): A read-only governance layer reduces redundant search while preserving novel-state reachability. This relates to P1 (Exploration can collapse into repeated suboptimal behaviour.), P3 (Repetitive trajectories provide little new information.).\n- **DC2** (v20.1): Capping high-certainty incoherent paths keeps the uncontained hallucination rate at zero under pressure. This relates to P1 (Exploration can collapse into repeated suboptimal behaviour.).\n- **DC3** (v20.2/v21.0): A generator/governor split raises distinct-state coverage under sparse-reward-like conditions. This relates to P2 (Under sparse reward the goal stays undiscovered for long stretches.), P1 (Exploration can collapse into repeated suboptimal behaviour.).\n- **DC4** (v19.0/v20.2): Repetitive loops and dead ends are detected and deprioritised rather than deleted. This relates to P3 (Repetitive trajectories provide little new information.), P1 (Exploration can collapse into repeated suboptimal behaviour.).\n- **DC5** (v19.3/v20.3): The governance layer keeps exploration plural under variable-action-space and non-stationary shifts over a long horizon. This relates to P4 (Variable action spaces complicate consistent exploration.), P1 (Exploration can collapse into repeated suboptimal behaviour.).\n\nEach statement above is scoped to the synthetic sandbox and is not a claim about reinforcement learning in general.\n",
+  "report_verdicts": [
+    "DIRECTLY_ANCHORED",
+    "STILL_UNCONNECTED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "schema_version": "v23_0_direct_paper_anchoring",
+  "section_forbidden_hits": [],
+  "section_grounding": 1.0,
+  "signature": "70f0cc05bac76220164ecf9d4650f0c6ee67eb0cf6087adf3defa051530c6430",
+  "unaddressed_problem_ids": [],
+  "unconnected_claims": []
+}

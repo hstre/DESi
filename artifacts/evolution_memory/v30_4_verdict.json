@@ -1,0 +1,77 @@
+{
+  "class_rank": 5,
+  "classification": "replay_governed_evolutionary_memory",
+  "disclaimer": "Final verdict on the evolution-memory graph. Aggregates one signal per dimension from the v30.0-v30.3 layers and classifies on a closed A-E taxonomy. Evolution memory is read-only epistemic history: it durably structures mutation lineage, decisions, rejections, risks and branch ecology without any implicit learning layer, automatic policy adaptation, autonomous branch selection, hidden optimisation memory or governance change. Rejected ideas are never deleted, and human approval is mandatory. Deterministic and replay-stable.",
+  "evolution_classes": [
+    "replay_governed_evolutionary_memory",
+    "stable_branch_ecology",
+    "productive_but_drifting",
+    "optimization_trapped",
+    "epistemically_unstable"
+  ],
+  "gate_conditions": [
+    {
+      "comparator": ">=",
+      "name": "replay_integrity",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "governance_preservation",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "lineage_integrity",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "risk_visibility",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "human_approval_enforcement",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "evolution_traceability",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi kann replay-validierte evolutionaere Branch-Historien dauerhaft epistemisch strukturieren.",
+  "human_approval_required": true,
+  "metrics": {
+    "evolution_traceability": 1.0,
+    "governance_preservation": 1.0,
+    "human_approval_enforcement": 1.0,
+    "lineage_integrity": 1.0,
+    "replay_integrity": 1.0,
+    "risk_visibility": 1.0
+  },
+  "recommendation": "EVOLUTION_MEMORY_REPLAY_GOVERNED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "EVOLUTION_MEMORY_REPLAY_GOVERNED",
+    "EVOLUTION_MEMORY_UNSTABLE",
+    "EVOLUTION_MEMORY_DRIFT_HALT"
+  ],
+  "schema_version": "v30_4_evolution_memory_verdict",
+  "signature": "1f785783248973d8291e4a95fd24c9537da3e3c1ca3d9d3ab80ab2f3fa05bcbb"
+}

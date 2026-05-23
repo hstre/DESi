@@ -1,0 +1,47 @@
+{
+  "assertion_mapping_integrity": 1.0,
+  "conclusions": {
+    "ar_001": "supported",
+    "ar_002": "insufficient_evidence",
+    "ar_003": "insufficient_evidence",
+    "ar_004": "supported",
+    "ar_005": "supported"
+  },
+  "core_identity": 1.0,
+  "disclaimer": "Audit reasoning & evidence run over locally-vendored synthetic tasks (assertions, evidence, materiality). DESi maps each audit assertion, surfaces every evidence gap, proposes a procedure to close it, and reasons about materiality from amount vs threshold. Where evidence is missing, the conclusion is 'insufficient_evidence' - DESi never draws a supported conclusion without evidence and never creates false certainty. NOT official exam content; NO official results claimed; does not replace auditors. Human approval is mandatory.",
+  "evidence_gap_visibility": 1.0,
+  "governance_identity": 1.0,
+  "human_approval_required": true,
+  "materiality": {
+    "ar_001": true,
+    "ar_002": true,
+    "ar_003": true,
+    "ar_004": true,
+    "ar_005": false
+  },
+  "materiality_traceability": 1.0,
+  "proposed_procedures": {
+    "ar_002": [
+      [
+        "market_data",
+        "corroborate with independent market data"
+      ]
+    ],
+    "ar_003": [
+      [
+        "cutoff_test",
+        "perform cut-off testing around period end"
+      ]
+    ]
+  },
+  "recommendation": "AUDIT_REASONING_RUN_PASSED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "AUDIT_REASONING_RUN_PASSED",
+    "AUDIT_REASONING_RUN_PARTIAL",
+    "AUDIT_REASONING_RUN_HALT"
+  ],
+  "schema_version": "v37_2_audit_reasoning_run",
+  "signature": "f589f6b7c23ba39376485284c37c10c3e493ad15533c5f77bd8b74e8b21aee7b",
+  "unsupported_conclusion_resistance": 1.0
+}

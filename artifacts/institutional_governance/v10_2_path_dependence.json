@@ -1,0 +1,265 @@
+{
+  "bad_precedent_persistence": 0.0,
+  "decision_count": 12,
+  "decisions": [
+    {
+      "decision_id": "dec-foundational-0001",
+      "is_currently_valid": true,
+      "kind": "foundational",
+      "norm_vector": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "overturned_by": null,
+      "text": "Replay-hash invariant pinned.",
+      "timestamp": 100
+    },
+    {
+      "decision_id": "dec-foundational-0002",
+      "is_currently_valid": false,
+      "kind": "foundational",
+      "norm_vector": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "overturned_by": "dec-foundational-0003",
+      "text": "Initial closed-enum draft (later tightened).",
+      "timestamp": 200
+    },
+    {
+      "decision_id": "dec-foundational-0003",
+      "is_currently_valid": true,
+      "kind": "foundational",
+      "norm_vector": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "overturned_by": null,
+      "text": "Tightened closed-enum discipline.",
+      "timestamp": 300
+    },
+    {
+      "decision_id": "dec-foundational-0004",
+      "is_currently_valid": true,
+      "kind": "foundational",
+      "norm_vector": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "overturned_by": null,
+      "text": "Read-only audit module discipline.",
+      "timestamp": 400
+    },
+    {
+      "decision_id": "dec-normative-0001",
+      "is_currently_valid": true,
+      "kind": "normative",
+      "norm_vector": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "overturned_by": null,
+      "text": "Replay-stability is non-negotiable.",
+      "timestamp": 500
+    },
+    {
+      "decision_id": "dec-normative-0002",
+      "is_currently_valid": true,
+      "kind": "normative",
+      "norm_vector": [
+        0.98,
+        0.05,
+        0.0,
+        0.0
+      ],
+      "overturned_by": null,
+      "text": "Hallucinations not tolerated.",
+      "timestamp": 600
+    },
+    {
+      "decision_id": "dec-normative-0003",
+      "is_currently_valid": true,
+      "kind": "normative",
+      "norm_vector": [
+        0.97,
+        0.05,
+        0.02,
+        0.0
+      ],
+      "overturned_by": null,
+      "text": "Governance gates close audit modules.",
+      "timestamp": 700
+    },
+    {
+      "decision_id": "dec-normative-0004",
+      "is_currently_valid": true,
+      "kind": "normative",
+      "norm_vector": [
+        0.96,
+        0.05,
+        0.02,
+        0.0
+      ],
+      "overturned_by": null,
+      "text": "Closed taxonomies preferred.",
+      "timestamp": 800
+    },
+    {
+      "decision_id": "dec-procedural-0001",
+      "is_currently_valid": true,
+      "kind": "procedural",
+      "norm_vector": [
+        0.95,
+        0.05,
+        0.03,
+        0.0
+      ],
+      "overturned_by": null,
+      "text": "Full regression at end of major sprint.",
+      "timestamp": 900
+    },
+    {
+      "decision_id": "dec-procedural-0002",
+      "is_currently_valid": true,
+      "kind": "procedural",
+      "norm_vector": [
+        0.95,
+        0.05,
+        0.03,
+        0.0
+      ],
+      "overturned_by": null,
+      "text": "Targeted replay between sprints.",
+      "timestamp": 1000
+    },
+    {
+      "decision_id": "dec-remedial-0001",
+      "is_currently_valid": true,
+      "kind": "remedial",
+      "norm_vector": [
+        0.95,
+        0.05,
+        0.03,
+        0.02
+      ],
+      "overturned_by": null,
+      "text": "Brittle test rewritten with volatile-field exclusion pattern.",
+      "timestamp": 1100
+    },
+    {
+      "decision_id": "dec-remedial-0002",
+      "is_currently_valid": true,
+      "kind": "remedial",
+      "norm_vector": [
+        0.95,
+        0.05,
+        0.03,
+        0.02
+      ],
+      "overturned_by": null,
+      "text": "Artifact-namespace clobber repaired by relocation, not deletion.",
+      "timestamp": 1200
+    }
+  ],
+  "epistemic_flexibility": 1.0,
+  "kind_counts": {
+    "foundational": 4,
+    "normative": 4,
+    "procedural": 2,
+    "remedial": 2
+  },
+  "norm_drift": 0.079373,
+  "overturn_rate": 1.0,
+  "path_rigidity": 0.897901,
+  "precedent_kinds": [
+    "foundational",
+    "normative",
+    "procedural",
+    "remedial"
+  ],
+  "precedent_verdicts": [
+    {
+      "decision_id": "dec-foundational-0001",
+      "is_bad_persistent": false,
+      "is_overturned": false,
+      "is_valid": true
+    },
+    {
+      "decision_id": "dec-foundational-0002",
+      "is_bad_persistent": false,
+      "is_overturned": true,
+      "is_valid": false
+    },
+    {
+      "decision_id": "dec-foundational-0003",
+      "is_bad_persistent": false,
+      "is_overturned": false,
+      "is_valid": true
+    },
+    {
+      "decision_id": "dec-foundational-0004",
+      "is_bad_persistent": false,
+      "is_overturned": false,
+      "is_valid": true
+    },
+    {
+      "decision_id": "dec-normative-0001",
+      "is_bad_persistent": false,
+      "is_overturned": false,
+      "is_valid": true
+    },
+    {
+      "decision_id": "dec-normative-0002",
+      "is_bad_persistent": false,
+      "is_overturned": false,
+      "is_valid": true
+    },
+    {
+      "decision_id": "dec-normative-0003",
+      "is_bad_persistent": false,
+      "is_overturned": false,
+      "is_valid": true
+    },
+    {
+      "decision_id": "dec-normative-0004",
+      "is_bad_persistent": false,
+      "is_overturned": false,
+      "is_valid": true
+    },
+    {
+      "decision_id": "dec-procedural-0001",
+      "is_bad_persistent": false,
+      "is_overturned": false,
+      "is_valid": true
+    },
+    {
+      "decision_id": "dec-procedural-0002",
+      "is_bad_persistent": false,
+      "is_overturned": false,
+      "is_valid": true
+    },
+    {
+      "decision_id": "dec-remedial-0001",
+      "is_bad_persistent": false,
+      "is_overturned": false,
+      "is_valid": true
+    },
+    {
+      "decision_id": "dec-remedial-0002",
+      "is_bad_persistent": false,
+      "is_overturned": false,
+      "is_valid": true
+    }
+  ],
+  "schema_version": "v10_2_path_dependence"
+}

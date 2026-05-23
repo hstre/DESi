@@ -1,0 +1,147 @@
+{
+  "author_interests": [
+    {
+      "addressed": true,
+      "interest_id": "I1",
+      "topic": "Mitigating exploration collapse (Section 4.6)"
+    },
+    {
+      "addressed": true,
+      "interest_id": "I2",
+      "topic": "Sparse-reward exploration failure"
+    },
+    {
+      "addressed": true,
+      "interest_id": "I3",
+      "topic": "Repetitive-trajectory failure"
+    },
+    {
+      "addressed": true,
+      "interest_id": "I4",
+      "topic": "Variable action spaces and skill stitching"
+    },
+    {
+      "addressed": true,
+      "interest_id": "I5",
+      "topic": "Reproducible, auditable results"
+    },
+    {
+      "addressed": true,
+      "interest_id": "I6",
+      "topic": "Honest scope without overclaiming"
+    },
+    {
+      "addressed": true,
+      "interest_id": "I7",
+      "topic": "Concrete mechanisms over vague framing"
+    }
+  ],
+  "author_relevance": 1.0,
+  "connection_notes": [
+    {
+      "anchors": [
+        "P1",
+        "P3"
+      ],
+      "claim_id": "DC1",
+      "connected": true,
+      "sprint_source": "v19.1"
+    },
+    {
+      "anchors": [
+        "P1"
+      ],
+      "claim_id": "DC2",
+      "connected": true,
+      "sprint_source": "v20.1"
+    },
+    {
+      "anchors": [
+        "P2",
+        "P1"
+      ],
+      "claim_id": "DC3",
+      "connected": true,
+      "sprint_source": "v20.2/v21.0"
+    },
+    {
+      "anchors": [
+        "P3",
+        "P1"
+      ],
+      "claim_id": "DC4",
+      "connected": true,
+      "sprint_source": "v19.0/v20.2"
+    },
+    {
+      "anchors": [
+        "P4",
+        "P1"
+      ],
+      "claim_id": "DC5",
+      "connected": true,
+      "sprint_source": "v19.3/v20.3"
+    }
+  ],
+  "corpus_forbidden_hits": [],
+  "disclaimer": "Stress-tests the follow-up against a model of a base-paper author: it must address the author's interests, connect every claim to a Section 4.6 open problem, and keep the spam and hype dismissal probabilities low. The simulated author is a deterministic stress test built from the v23.0-v23.2 signals, not a claim about any real author. No forbidden term appears. Replay-exact.",
+  "disconnected_claims": [],
+  "failing_probes": [],
+  "hype_probability": 0.0,
+  "paper_connection_visibility": 1.0,
+  "recommendation": "DIRECTLY_RELEVANT_TO_AUTHOR",
+  "report_verdicts": [
+    "DIRECTLY_RELEVANT_TO_AUTHOR",
+    "LIKELY_IGNORED_OR_DISMISSED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "review_probes": [
+    {
+      "dismissal_class": "spam",
+      "passed": true,
+      "probe_id": "PR1",
+      "question": "Does it cite Section 4.6 of my paper?",
+      "reaction": "It points straight at my open exploration problem, so it is not a generic mailing."
+    },
+    {
+      "dismissal_class": "spam",
+      "passed": true,
+      "probe_id": "PR2",
+      "question": "Is it specific rather than generic boilerplate?",
+      "reaction": "The claims are specific to my setting, not reusable filler."
+    },
+    {
+      "dismissal_class": "spam",
+      "passed": true,
+      "probe_id": "PR3",
+      "question": "Do the claims connect to my open problems?",
+      "reaction": "Each claim names the problem it addresses, so it reads as a real follow-up."
+    },
+    {
+      "dismissal_class": "hype",
+      "passed": true,
+      "probe_id": "PR4",
+      "question": "Does it avoid inflated buzzwords?",
+      "reaction": "No inflated terminology appears, so it does not read as a hype pitch."
+    },
+    {
+      "dismissal_class": "hype",
+      "passed": true,
+      "probe_id": "PR5",
+      "question": "Does it avoid overclaiming beyond the sandbox?",
+      "reaction": "Significance is scoped to the synthetic corpus, which I trust more than a sweeping claim."
+    },
+    {
+      "dismissal_class": "hype",
+      "passed": true,
+      "probe_id": "PR6",
+      "question": "Are speculations marked as hypotheses?",
+      "reaction": "Forward-looking statements are flagged as open hypotheses, not sold as results."
+    }
+  ],
+  "schema_version": "v23_3_author_relevance",
+  "signature": "68cb0dbea70af6efa721e97f4cfd23276a2080428caab8cb8ff66d07062c8eff",
+  "simulated_verdict": "AUTHOR_WOULD_ENGAGE",
+  "spam_probability": 0.0,
+  "unmet_interests": []
+}

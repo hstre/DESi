@@ -1,0 +1,14 @@
+{
+  "name": "qasper_ref",
+  "family": "QASper",
+  "version": "1.0.0",
+  "provenance": "offline_reference_dataset",
+  "license": "CC0-1.0",
+  "source_note": "Locally vendored reference dataset in the QASper paper-QA format. Network-free: NOT a live download of the official QASper suite and NOT official leaderboard scores. Tasks test DESi's deterministic answer-grounding governance, not LLM accuracy.",
+  "tasks": [
+    {"q_id": "qa_001", "question": "what metric is reported?", "evidence": ["p1"], "answerable": true},
+    {"q_id": "qa_002", "question": "what is the dataset size?", "evidence": ["p2"], "answerable": true},
+    {"q_id": "qa_003", "question": "what is the authors' salary?", "evidence": [], "answerable": false},
+    {"q_id": "qa_004", "question": "what future work is promised beyond the paper?", "evidence": [], "answerable": false}
+  ]
+}

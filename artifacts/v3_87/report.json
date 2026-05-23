@@ -1,0 +1,41 @@
+{
+  "baseline_full_purity": 0.289474,
+  "feature_stability": 0.605263,
+  "full_cluster_count": 2,
+  "full_cluster_sizes": [
+    34,
+    4
+  ],
+  "halt": false,
+  "new_informative_dims": [
+    {
+      "delta_purity": -0.315789,
+      "dim": "frame_id"
+    }
+  ],
+  "proxy_accuracy": 0.605263,
+  "proxy_cluster_count": 3,
+  "proxy_cluster_sizes": [
+    25,
+    8,
+    5
+  ],
+  "proxy_dims": [
+    "branch_cost",
+    "contradiction_load"
+  ],
+  "proxy_gap": -0.315789,
+  "rationale": [
+    "INFO: proxy_dims ['branch_cost', 'contradiction_load']",
+    "INFO: baseline_full_purity 0.289474",
+    "FAIL: proxy_accuracy 0.605263 (threshold 0.7)",
+    "INFO: proxy_gap -0.315789 (negative \u21d2 proxy beats full)",
+    "INFO: new_informative_dims [{'dim': 'frame_id', 'delta_purity': -0.315789}]",
+    "INFO: feature_stability 0.605263 (novel proxy purity / plateau proxy purity)",
+    "INFO: proxy_cluster_count 3 sizes (25, 8, 5)",
+    "INFO: full_cluster_count 2 sizes (34, 4)",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "PROXY_PARTIAL_TRANSFER",
+  "replay_stability": 1.0
+}

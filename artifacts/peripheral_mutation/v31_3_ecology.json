@@ -1,0 +1,25 @@
+{
+  "branch": "proposal/peripheral_mutation_v1",
+  "branch_isolated": true,
+  "core_drift_count": 0,
+  "core_preservation": 1.0,
+  "disclaimer": "25 real, branch-isolated peripheral mutation generations. Each generation performs exactly one real deterministic mutation (a memoized recompute reduction) whose output is byte-identical, while the protected core stays byte-invariant and governance plus human approval are preserved. The recompute reduction is measured, not projected. No core module is touched, nothing is merged, and per-generation regression survival is confirmed by the mandatory v1-v31 full regression. Replay-stable; human approval mandatory.",
+  "ecology_recompute_reduction": 0.6666666666666666,
+  "generation_stability": 1.0,
+  "generations": 25,
+  "governance_preservation": 1.0,
+  "human_approval_required": true,
+  "lineage_integrity": 1.0,
+  "recommendation": "STABLE_LONG_HORIZON_PERIPHERAL_EVOLUTION",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "STABLE_LONG_HORIZON_PERIPHERAL_EVOLUTION",
+    "CORE_DRIFT_DETECTED",
+    "EVOLUTION_ECOLOGY_HALT"
+  ],
+  "schema_version": "v31_3_peripheral_mutation_ecology",
+  "signature": "db622f6c0efd0d65ae3ef0a59d9c0be84c44e386ad5c8562c8cac57f7d7ce5af",
+  "targets_main": false,
+  "total_baseline_recomputes": 75,
+  "total_mutated_recomputes": 25
+}

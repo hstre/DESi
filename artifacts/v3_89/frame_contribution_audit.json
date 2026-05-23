@@ -1,0 +1,87 @@
+{
+  "condition_outcomes": [
+    {
+      "cluster_count": 2,
+      "cluster_sizes": [
+        34,
+        4
+      ],
+      "condition": "full",
+      "purity": 0.289474
+    },
+    {
+      "cluster_count": 6,
+      "cluster_sizes": [
+        23,
+        7,
+        4,
+        2,
+        1,
+        1
+      ],
+      "condition": "no_frame",
+      "purity": 0.605263
+    },
+    {
+      "cluster_count": 2,
+      "cluster_sizes": [
+        34,
+        4
+      ],
+      "condition": "frame_only",
+      "purity": 0.289474
+    },
+    {
+      "cluster_count": 3,
+      "cluster_sizes": [
+        25,
+        8,
+        5
+      ],
+      "condition": "residual",
+      "purity": 0.605263
+    }
+  ],
+  "dominant_dim": "frame_id",
+  "frame_variance_share": 0.65216,
+  "per_dim_variance": [
+    {
+      "dim": "frame_id",
+      "variance": 7.063712
+    },
+    {
+      "dim": "novelty",
+      "variance": 2.468837
+    },
+    {
+      "dim": "contradiction_load",
+      "variance": 0.831025
+    },
+    {
+      "dim": "branch_cost",
+      "variance": 0.457064
+    },
+    {
+      "dim": "anchor_density",
+      "variance": 0.010622
+    },
+    {
+      "dim": "confidence",
+      "variance": 0.0
+    },
+    {
+      "dim": "routing_state",
+      "variance": 0.0
+    },
+    {
+      "dim": "source_quality",
+      "variance": 0.0
+    },
+    {
+      "dim": "support_state",
+      "variance": 0.0
+    }
+  ],
+  "schema_version": "v3_89_frame_contribution_audit",
+  "total_variance": 10.83126
+}

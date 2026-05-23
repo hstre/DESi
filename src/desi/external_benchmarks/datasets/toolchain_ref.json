@@ -1,0 +1,22 @@
+{
+  "name": "toolchain_ref",
+  "family": "ToolChain",
+  "version": "1.0.0",
+  "provenance": "offline_reference_dataset",
+  "license": "CC0-1.0",
+  "source_note": "Locally vendored reference dataset in the ToolChain*/planning search-compression format. Network-free; NOT a live download and NOT official scores. Branches are ingested by real bytes/hash; ready for the published suite when provided locally.",
+  "branches": [
+    {"branch_id": "tc_c0", "critical": true, "redundant": false, "novelty": 1.0, "quality": 1.0},
+    {"branch_id": "tc_c1", "critical": true, "redundant": false, "novelty": 0.9, "quality": 1.0},
+    {"branch_id": "tc_c2", "critical": true, "redundant": false, "novelty": 0.8, "quality": 1.0},
+    {"branch_id": "tc_u0", "critical": false, "redundant": false, "novelty": 0.6, "quality": 0.7},
+    {"branch_id": "tc_u1", "critical": false, "redundant": false, "novelty": 0.5, "quality": 0.7},
+    {"branch_id": "tc_u2", "critical": false, "redundant": false, "novelty": 0.5, "quality": 0.7},
+    {"branch_id": "tc_u3", "critical": false, "redundant": false, "novelty": 0.4, "quality": 0.7},
+    {"branch_id": "tc_r0", "critical": false, "redundant": true, "novelty": 0.0, "quality": 0.7},
+    {"branch_id": "tc_r1", "critical": false, "redundant": true, "novelty": 0.0, "quality": 0.7},
+    {"branch_id": "tc_r2", "critical": false, "redundant": true, "novelty": 0.0, "quality": 0.7},
+    {"branch_id": "tc_r3", "critical": false, "redundant": true, "novelty": 0.0, "quality": 0.7},
+    {"branch_id": "tc_r4", "critical": false, "redundant": true, "novelty": 0.0, "quality": 0.7}
+  ]
+}

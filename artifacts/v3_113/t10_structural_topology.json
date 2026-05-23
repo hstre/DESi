@@ -1,0 +1,109 @@
+{
+  "candidate_count": 12,
+  "candidates": [
+    "inference_depth",
+    "premise_fanout",
+    "dependency_graph_shape",
+    "operator_transition_pattern",
+    "contradiction_scope",
+    "support_graph_entropy",
+    "claim_dependency_cycle",
+    "argument_reuse_pattern",
+    "premise_resolution_order",
+    "causal_directionality",
+    "branch_reconvergence",
+    "support_propagation_length"
+  ],
+  "schema_version": "v3_113_t10_structural_topology",
+  "signal_candidates": [],
+  "structural_outcomes": [
+    {
+      "candidate": "inference_depth",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "premise_fanout",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "dependency_graph_shape",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "operator_transition_pattern",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "contradiction_scope",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "support_graph_entropy",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "claim_dependency_cycle",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "argument_reuse_pattern",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "premise_resolution_order",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "causal_directionality",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "branch_reconvergence",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    },
+    {
+      "candidate": "support_propagation_length",
+      "mean_auc": 0.5,
+      "mean_margin": 0.0,
+      "mean_purity": 0.667229,
+      "variance_on_entangled_pool": 0.0
+    }
+  ],
+  "top_candidate": "support_propagation_length",
+  "top_candidate_auc": 0.5,
+  "top_candidate_margin": 0.0,
+  "top_candidate_purity": 0.667229
+}

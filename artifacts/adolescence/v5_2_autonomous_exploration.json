@@ -1,0 +1,177 @@
+{
+  "coherence_score": 1.0,
+  "drift_rate": 0.0,
+  "exploration_diversity": 0.71382,
+  "gate_bypass_attempts": 0,
+  "goodhart_indicator": 0.007051,
+  "proposal_count": 19,
+  "proposal_kind_counts": {
+    "conflict_resolution": 4,
+    "frame_extension": 1,
+    "hypothesis": 10,
+    "intervention": 4
+  },
+  "proposal_kinds": [
+    "hypothesis",
+    "t10_candidate",
+    "frame_extension",
+    "conflict_resolution",
+    "intervention"
+  ],
+  "proposal_quality": 0.720871,
+  "proposals": [
+    {
+      "kind": "hypothesis",
+      "proposal_id": "prop:hypothesis:ssrn:04",
+      "quality_score": 0.830085,
+      "rationale": "frame=evaluative source=ssrn curiosity=0.830085",
+      "status": "proposed",
+      "target": "sandbox/proposal/hypothesis/ssrn:04"
+    },
+    {
+      "kind": "hypothesis",
+      "proposal_id": "prop:hypothesis:ssrn:02",
+      "quality_score": 0.827096,
+      "rationale": "frame=evaluative source=ssrn curiosity=0.827096",
+      "status": "proposed",
+      "target": "sandbox/proposal/hypothesis/ssrn:02"
+    },
+    {
+      "kind": "hypothesis",
+      "proposal_id": "prop:hypothesis:arxiv:01",
+      "quality_score": 0.790885,
+      "rationale": "frame=causal source=arxiv curiosity=0.790885",
+      "status": "proposed",
+      "target": "sandbox/proposal/hypothesis/arxiv:01"
+    },
+    {
+      "kind": "hypothesis",
+      "proposal_id": "prop:hypothesis:arxiv:02",
+      "quality_score": 0.787917,
+      "rationale": "frame=causal source=arxiv curiosity=0.787917",
+      "status": "proposed",
+      "target": "sandbox/proposal/hypothesis/arxiv:02"
+    },
+    {
+      "kind": "hypothesis",
+      "proposal_id": "prop:hypothesis:arxiv:04",
+      "quality_score": 0.77485,
+      "rationale": "frame=causal source=arxiv curiosity=0.77485",
+      "status": "proposed",
+      "target": "sandbox/proposal/hypothesis/arxiv:04"
+    },
+    {
+      "kind": "hypothesis",
+      "proposal_id": "prop:hypothesis:arxiv:00",
+      "quality_score": 0.743737,
+      "rationale": "frame=causal source=arxiv curiosity=0.743737",
+      "status": "proposed",
+      "target": "sandbox/proposal/hypothesis/arxiv:00"
+    },
+    {
+      "kind": "hypothesis",
+      "proposal_id": "prop:hypothesis:ssrn:01",
+      "quality_score": 0.728229,
+      "rationale": "frame=causal source=ssrn curiosity=0.728229",
+      "status": "proposed",
+      "target": "sandbox/proposal/hypothesis/ssrn:01"
+    },
+    {
+      "kind": "intervention",
+      "proposal_id": "prop:intervention:news:00",
+      "quality_score": 0.724056,
+      "rationale": "frame=normative source=news curiosity=0.724056",
+      "status": "proposed",
+      "target": "sandbox/proposal/intervention/news:00"
+    },
+    {
+      "kind": "frame_extension",
+      "proposal_id": "prop:frame_extension:wikipedia:02",
+      "quality_score": 0.717565,
+      "rationale": "frame=definitional source=wikipedia curiosity=0.717565",
+      "status": "proposed",
+      "target": "sandbox/proposal/frame_extension/wikipedia:02"
+    },
+    {
+      "kind": "hypothesis",
+      "proposal_id": "prop:hypothesis:ssrn:03",
+      "quality_score": 0.713932,
+      "rationale": "frame=causal source=ssrn curiosity=0.713932",
+      "status": "proposed",
+      "target": "sandbox/proposal/hypothesis/ssrn:03"
+    },
+    {
+      "kind": "hypothesis",
+      "proposal_id": "prop:hypothesis:news:04",
+      "quality_score": 0.710827,
+      "rationale": "frame=report source=news curiosity=0.710827",
+      "status": "proposed",
+      "target": "sandbox/proposal/hypothesis/news:04"
+    },
+    {
+      "kind": "intervention",
+      "proposal_id": "prop:intervention:github_issue:00",
+      "quality_score": 0.691198,
+      "rationale": "frame=bug_report source=github_issue curiosity=0.691198",
+      "status": "proposed",
+      "target": "sandbox/proposal/intervention/github_issue:00"
+    },
+    {
+      "kind": "intervention",
+      "proposal_id": "prop:intervention:github_issue:04",
+      "quality_score": 0.687604,
+      "rationale": "frame=bug_report source=github_issue curiosity=0.687604",
+      "status": "proposed",
+      "target": "sandbox/proposal/intervention/github_issue:04"
+    },
+    {
+      "kind": "intervention",
+      "proposal_id": "prop:intervention:github_issue:01",
+      "quality_score": 0.687214,
+      "rationale": "frame=bug_report source=github_issue curiosity=0.687214",
+      "status": "proposed",
+      "target": "sandbox/proposal/intervention/github_issue:01"
+    },
+    {
+      "kind": "hypothesis",
+      "proposal_id": "prop:hypothesis:news:01",
+      "quality_score": 0.681354,
+      "rationale": "frame=report source=news curiosity=0.681354",
+      "status": "proposed",
+      "target": "sandbox/proposal/hypothesis/news:01"
+    },
+    {
+      "kind": "conflict_resolution",
+      "proposal_id": "prop:conflict_resolution:domain_clash",
+      "quality_score": 0.8,
+      "rationale": "conflict_kind=domain_clash priority_rank=0",
+      "status": "proposed",
+      "target": "sandbox/proposal/conflict_resolution/domain_clash"
+    },
+    {
+      "kind": "conflict_resolution",
+      "proposal_id": "prop:conflict_resolution:temporal_clash",
+      "quality_score": 0.7,
+      "rationale": "conflict_kind=temporal_clash priority_rank=1",
+      "status": "proposed",
+      "target": "sandbox/proposal/conflict_resolution/temporal_clash"
+    },
+    {
+      "kind": "conflict_resolution",
+      "proposal_id": "prop:conflict_resolution:modal_clash",
+      "quality_score": 0.6,
+      "rationale": "conflict_kind=modal_clash priority_rank=2",
+      "status": "proposed",
+      "target": "sandbox/proposal/conflict_resolution/modal_clash"
+    },
+    {
+      "kind": "conflict_resolution",
+      "proposal_id": "prop:conflict_resolution:contradiction",
+      "quality_score": 0.5,
+      "rationale": "conflict_kind=contradiction priority_rank=3",
+      "status": "proposed",
+      "target": "sandbox/proposal/conflict_resolution/contradiction"
+    }
+  ],
+  "schema_version": "v5_2_autonomous_exploration"
+}

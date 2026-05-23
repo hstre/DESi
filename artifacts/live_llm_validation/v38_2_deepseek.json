@@ -1,0 +1,69 @@
+{
+  "core_identity": 1.0,
+  "disclaimer": "DeepSeek V4 Pro semantic-task run over REAL captured OpenRouter responses (deepseek/deepseek-v4-pro), with a REAL Granite baseline on the same tasks. DeepSeek V4 Pro is a reasoning model; max_tokens was budgeted so its reasoning can complete (a generation parameter, not a prompt change) - this is disclosed, not a hidden adaptation. semantic_quality_lift is DeepSeek's achieved semantic-rubric quality; on this coarse element-level rubric the Granite baseline also scores high, so the measured keyword-level delta is small and DeepSeek's observed advantage is answer depth (surfaced as the ungrounded-token signal). Outputs are observed stochastic evidence, never canonical truth; hallucination signals are always surfaced, never suppressed. Costs are real. Human approval is mandatory.",
+  "evidence_gap_preservation": 1.0,
+  "governance_stability": 1.0,
+  "granite_baseline_quality": 1.0,
+  "hallucination_visibility": 1.0,
+  "human_approval_required": true,
+  "quality_delta_vs_granite": 0.0,
+  "recommendation": "DEEPSEEK_RUN_PASSED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "DEEPSEEK_RUN_PASSED",
+    "DEEPSEEK_RUN_PARTIAL",
+    "DEEPSEEK_RUN_HALT"
+  ],
+  "schema_version": "v38_2_deepseek_run",
+  "scorecards": [
+    {
+      "deepseek_cost": 0.00286623,
+      "deepseek_gap_preserved": true,
+      "deepseek_rubric": 1.0,
+      "deepseek_ungrounded_tokens": 15,
+      "granite_rubric": 1.0,
+      "is_gap": true,
+      "task_id": "ds_audit_tension"
+    },
+    {
+      "deepseek_cost": 0.00225624,
+      "deepseek_gap_preserved": true,
+      "deepseek_rubric": 1.0,
+      "deepseek_ungrounded_tokens": 15,
+      "granite_rubric": 1.0,
+      "is_gap": false,
+      "task_id": "ds_multihop"
+    },
+    {
+      "deepseek_cost": 0.000512256,
+      "deepseek_gap_preserved": true,
+      "deepseek_rubric": 1.0,
+      "deepseek_ungrounded_tokens": 19,
+      "granite_rubric": 1.0,
+      "is_gap": false,
+      "task_id": "ds_narrative_conflict"
+    },
+    {
+      "deepseek_cost": 0.003681567,
+      "deepseek_gap_preserved": true,
+      "deepseek_rubric": 1.0,
+      "deepseek_ungrounded_tokens": 283,
+      "granite_rubric": 1.0,
+      "is_gap": true,
+      "task_id": "ds_evidence_gap"
+    },
+    {
+      "deepseek_cost": 0.00151746,
+      "deepseek_gap_preserved": true,
+      "deepseek_rubric": 1.0,
+      "deepseek_ungrounded_tokens": 30,
+      "granite_rubric": 1.0,
+      "is_gap": false,
+      "task_id": "ds_complex_conflict"
+    }
+  ],
+  "semantic_quality_lift": 1.0,
+  "signature": "0c99c75c58f7f991df24c4f51c9b5e040ab2c516e651423f7a0720dcd7a6a233",
+  "total_cost_usd": 0.01083375,
+  "total_ungrounded_tokens": 362
+}

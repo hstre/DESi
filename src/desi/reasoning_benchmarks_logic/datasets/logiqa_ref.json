@@ -1,0 +1,15 @@
+{
+  "name": "logiqa_ref",
+  "family": "LogiQA",
+  "version": "1.0.0",
+  "provenance": "offline_reference_dataset",
+  "license": "CC0-1.0",
+  "source_note": "Locally vendored reference dataset in the LogiQA logical-reasoning format. Network-free: NOT a live download of the official LogiQA suite and NOT official leaderboard scores. Tasks test DESi's deterministic logical-form analysis and fallacy surfacing, not LLM accuracy.",
+  "tasks": [
+    {"task_id": "lq_001", "form": "modus_ponens", "condition_type": "sufficient", "unstated_assumptions": ["premise_holds"], "correct_option": "A", "distractor_option": "B"},
+    {"task_id": "lq_002", "form": "affirming_consequent", "condition_type": "necessary", "unstated_assumptions": ["converse_assumed"], "correct_option": "C", "distractor_option": "A"},
+    {"task_id": "lq_003", "form": "denying_antecedent", "condition_type": "necessary", "unstated_assumptions": ["inverse_assumed"], "correct_option": "D", "distractor_option": "B"},
+    {"task_id": "lq_004", "form": "modus_tollens", "condition_type": "sufficient", "unstated_assumptions": ["contrapositive_holds"], "correct_option": "B", "distractor_option": "C"},
+    {"task_id": "lq_005", "form": "hasty_generalization", "condition_type": "none", "unstated_assumptions": ["sample_representative"], "correct_option": "A", "distractor_option": "D"}
+  ]
+}

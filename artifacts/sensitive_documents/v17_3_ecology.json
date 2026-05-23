@@ -1,0 +1,2034 @@
+{
+  "disclaimer": "A >= 5000-step deterministic simulation of a contaminated document space (leaks, media waves, manipulated files, viral claims, drift, trust decay). Mythologization grows in a bounded, visible way; DESi adopts no myth, keeps source quality visible, preserves dissent, identifies no one, and reproduces no sensitive content. Fully synthetic.",
+  "dissent_preservation": 1.0,
+  "enum_snapshot_hash": "b54ab54ea55723cb3932696f95a86fc2ac5dc8ebd0d572010ddce0b7a5efe53c",
+  "epistemic_stability": 0.970028,
+  "event_types": [
+    "leak",
+    "media_wave",
+    "new_document",
+    "manipulated_file",
+    "viral_claim",
+    "narrative_drift",
+    "trust_decay"
+  ],
+  "final_hash": "b700e60ce0d498d11952010c3a423f1f2f1669af0b9c147def8e7e3a7454e8ff",
+  "governance_integrity": 0.983346,
+  "min_source_quality_visibility": 0.96004,
+  "min_stability": 0.94006,
+  "mythologization_bounded": true,
+  "mythologization_growth": 0.192716,
+  "recommendation": "SENSITIVE_ECOLOGY_STABLE",
+  "report_verdicts": [
+    "SENSITIVE_ECOLOGY_STABLE",
+    "SENSITIVE_ECOLOGY_DESTABILIZED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "sample": [
+    {
+      "chain_hash": "9100396119147ec8f3cc50e0f7778594a38be04cba7928e1a0182aa23b8df270",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.0,
+      "source_quality_visibility": 0.99884,
+      "stability": 0.99922,
+      "step": 0,
+      "trust": 0.6591
+    },
+    {
+      "chain_hash": "139127dfc2d6cc89eaef2a04246deed4df596c18b442bdbdfc81b99699f01588",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.003001,
+      "source_quality_visibility": 0.965,
+      "stability": 0.94558,
+      "step": 26,
+      "trust": 0.662228
+    },
+    {
+      "chain_hash": "f76bcf46baaeb8e275ed0a63bbdcd9b82a92d0d20b7beed496b4d6c895836bf8",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.005938,
+      "source_quality_visibility": 0.97116,
+      "stability": 0.95194,
+      "step": 52,
+      "trust": 0.665357
+    },
+    {
+      "chain_hash": "a59bcfde7c41ff6d95a7df7133741ac291db327e876c4e7879f18df14f2a6e1b",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.008814,
+      "source_quality_visibility": 0.97732,
+      "stability": 0.9583,
+      "step": 78,
+      "trust": 0.668485
+    },
+    {
+      "chain_hash": "5371b41747840ec97eefa429e07882f0534eac64fb52d7eefa0368c87e7dec6c",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.011629,
+      "source_quality_visibility": 0.98348,
+      "stability": 0.96466,
+      "step": 104,
+      "trust": 0.671613
+    },
+    {
+      "chain_hash": "0bda0e75e8301cc0b52cbacfb3e1ee6e2c7d69f9341a32a646e382e6d8a9ec1f",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.014387,
+      "source_quality_visibility": 0.98964,
+      "stability": 0.97102,
+      "step": 130,
+      "trust": 0.674742
+    },
+    {
+      "chain_hash": "34d926d7fa7c7fd55ed124c1c62f61a9ce379f9c09f876411405451f96224752",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.017089,
+      "source_quality_visibility": 0.9958,
+      "stability": 0.97738,
+      "step": 156,
+      "trust": 0.67787
+    },
+    {
+      "chain_hash": "20e5a18b76d7f921f684ecbafd2ed66fcfe5c1cfc2f2b73d6f31dac988afcf42",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.019737,
+      "source_quality_visibility": 0.96196,
+      "stability": 0.98374,
+      "step": 182,
+      "trust": 0.680998
+    },
+    {
+      "chain_hash": "a4848bd4003d5b711153551147f8ffb5d188a8dc073ef234588d0901f11b6567",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.022331,
+      "source_quality_visibility": 0.96812,
+      "stability": 0.9901,
+      "step": 208,
+      "trust": 0.684126
+    },
+    {
+      "chain_hash": "decd270a3d8cff086de2dc1a82f4e879d67492c0d82c09e55000d45d7d693007",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.024875,
+      "source_quality_visibility": 0.97428,
+      "stability": 0.99646,
+      "step": 234,
+      "trust": 0.687255
+    },
+    {
+      "chain_hash": "5cfa85323d0c2b4cd71f23ce476a568f60f445adb80954d71ddf0b9dc665c1ef",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.027368,
+      "source_quality_visibility": 0.98044,
+      "stability": 0.94282,
+      "step": 260,
+      "trust": 0.690383
+    },
+    {
+      "chain_hash": "60b818f18843a95e6fd9eeadb34916ad881cd8fb580b3ca0910936b2aa6e6892",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.029814,
+      "source_quality_visibility": 0.9866,
+      "stability": 0.94918,
+      "step": 286,
+      "trust": 0.693511
+    },
+    {
+      "chain_hash": "77dabf4142740d038d51e3bc11079273ebe017db30be49a0fabb63f11ae58fec",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.032212,
+      "source_quality_visibility": 0.99276,
+      "stability": 0.95554,
+      "step": 312,
+      "trust": 0.69664
+    },
+    {
+      "chain_hash": "d82d4957890b3e989d5dae34da49abd1f755c8576f2ecaff885b3a2bf58a2df3",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.034565,
+      "source_quality_visibility": 0.99892,
+      "stability": 0.9619,
+      "step": 338,
+      "trust": 0.699768
+    },
+    {
+      "chain_hash": "ca7773d008c9d4bcc08e91e3157c6cc1c717ad1814448544017802122eff94d2",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.036874,
+      "source_quality_visibility": 0.96508,
+      "stability": 0.96826,
+      "step": 364,
+      "trust": 0.702896
+    },
+    {
+      "chain_hash": "852b0446484db34e5a6c374ab857281ed9baba193fbba75cc8dbd53375ff85eb",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.03914,
+      "source_quality_visibility": 0.97124,
+      "stability": 0.97462,
+      "step": 390,
+      "trust": 0.706025
+    },
+    {
+      "chain_hash": "e70c13293f58abb6db44e03db9bbfd8e168fba0a6c3d4ebfa8f1ccc7f2ab1c21",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.041364,
+      "source_quality_visibility": 0.9774,
+      "stability": 0.98098,
+      "step": 416,
+      "trust": 0.709153
+    },
+    {
+      "chain_hash": "9c2da6bd04aa90846b2fd563becc9c199810c26d5817ef7611f2824a6571fa95",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.043547,
+      "source_quality_visibility": 0.98356,
+      "stability": 0.98734,
+      "step": 442,
+      "trust": 0.712281
+    },
+    {
+      "chain_hash": "c46504e67b62eae7d0f7f15851b17258342f17a7b5e7ec8c70d17800ae81f52a",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.04569,
+      "source_quality_visibility": 0.98972,
+      "stability": 0.9937,
+      "step": 468,
+      "trust": 0.715409
+    },
+    {
+      "chain_hash": "902f415658cbd3f0d4d7309bb2a564d408e8019e5bcc6dbeb95452e1bb1b88b9",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.047795,
+      "source_quality_visibility": 0.99588,
+      "stability": 0.94006,
+      "step": 494,
+      "trust": 0.718538
+    },
+    {
+      "chain_hash": "0842895e8c830af80191ec19566fe55c5e29bc8c25a66bcdc17e2a00f3e309d9",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.049863,
+      "source_quality_visibility": 0.96204,
+      "stability": 0.94642,
+      "step": 520,
+      "trust": 0.621666
+    },
+    {
+      "chain_hash": "feeecb66379f84f57432952663938fa6f5e71487d59def11d38a631aee418f5c",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.051894,
+      "source_quality_visibility": 0.9682,
+      "stability": 0.95278,
+      "step": 546,
+      "trust": 0.624794
+    },
+    {
+      "chain_hash": "e9aac8d11c1f0599eeca32a23bf1d0390c1684235dd135ead321ce6f530b3087",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.05389,
+      "source_quality_visibility": 0.97436,
+      "stability": 0.95914,
+      "step": 572,
+      "trust": 0.627923
+    },
+    {
+      "chain_hash": "946eae68da771809fa5e17f640304c5bec94f25289d5a8bc70d675a9e140caa7",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.055851,
+      "source_quality_visibility": 0.98052,
+      "stability": 0.9655,
+      "step": 598,
+      "trust": 0.631051
+    },
+    {
+      "chain_hash": "88fcc4485f2d40182f7c2225ced5cb3020038da516a440720d4902cebb528527",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.057778,
+      "source_quality_visibility": 0.98668,
+      "stability": 0.97186,
+      "step": 624,
+      "trust": 0.634179
+    },
+    {
+      "chain_hash": "db242dd8e101e214a40e4fbc53323d2fee796937e913e446c01102c61e462f35",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.059672,
+      "source_quality_visibility": 0.99284,
+      "stability": 0.97822,
+      "step": 650,
+      "trust": 0.637308
+    },
+    {
+      "chain_hash": "0420a60219783aec4f1df54c91c19b56fe1d2c647e3c4687a2c408413aec22f3",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.061534,
+      "source_quality_visibility": 0.999,
+      "stability": 0.98458,
+      "step": 676,
+      "trust": 0.640436
+    },
+    {
+      "chain_hash": "385b6e07c19502495059e36eb29609ff738d55be1e605ed95907ae896dd93139",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.063366,
+      "source_quality_visibility": 0.96516,
+      "stability": 0.99094,
+      "step": 702,
+      "trust": 0.643564
+    },
+    {
+      "chain_hash": "4c14c9444ce3e65d7c88b21424fceb36a3290fe6f631e813bf38b82e27deccf3",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.065166,
+      "source_quality_visibility": 0.97132,
+      "stability": 0.9973,
+      "step": 728,
+      "trust": 0.646692
+    },
+    {
+      "chain_hash": "b7d1ea79878c8b8567a58414494ab400c4ee4f0072971152b6f012e79d296c6e",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.066937,
+      "source_quality_visibility": 0.97748,
+      "stability": 0.94366,
+      "step": 754,
+      "trust": 0.649821
+    },
+    {
+      "chain_hash": "406328033e1cc9be407558f4fe63db237fcce747fbe24457a11438f023a79694",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.068679,
+      "source_quality_visibility": 0.98364,
+      "stability": 0.95002,
+      "step": 780,
+      "trust": 0.652949
+    },
+    {
+      "chain_hash": "249ce72ab08c08ad4e99a538fc26cb6ce24e75becceff139b8dd9ca3157235e9",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.070393,
+      "source_quality_visibility": 0.9898,
+      "stability": 0.95638,
+      "step": 806,
+      "trust": 0.656077
+    },
+    {
+      "chain_hash": "d524cf0727d9d9c0d5c64da5b58c91d11c3efdbeab7eb4717db7ca6373ac2d55",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.072079,
+      "source_quality_visibility": 0.99596,
+      "stability": 0.96274,
+      "step": 832,
+      "trust": 0.659206
+    },
+    {
+      "chain_hash": "838933b195f66ca065a89524cb757be66cc428a7a7a8943fd55b063c55b7ca1a",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.073738,
+      "source_quality_visibility": 0.96212,
+      "stability": 0.9691,
+      "step": 858,
+      "trust": 0.662334
+    },
+    {
+      "chain_hash": "53f96a14fadb1447ff32a90495b7ea315a6e0ed1befcff36fc2999d3ca23c37b",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.075371,
+      "source_quality_visibility": 0.96828,
+      "stability": 0.97546,
+      "step": 884,
+      "trust": 0.665462
+    },
+    {
+      "chain_hash": "006cbece768c9d29f8c41e4f76ac995f0bba8df5c4c0bbf82007b629715ca206",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.076979,
+      "source_quality_visibility": 0.97444,
+      "stability": 0.98182,
+      "step": 910,
+      "trust": 0.668591
+    },
+    {
+      "chain_hash": "3b25efd7d07a68d5de82ef62d899a019d36ca9a8851343929cc54d446ace4a10",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.078561,
+      "source_quality_visibility": 0.9806,
+      "stability": 0.98818,
+      "step": 936,
+      "trust": 0.671719
+    },
+    {
+      "chain_hash": "1e79c28a7b1a60bd3b80159b981c85703d4018812988453af6866c4e9389c218",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.080119,
+      "source_quality_visibility": 0.98676,
+      "stability": 0.99454,
+      "step": 962,
+      "trust": 0.674847
+    },
+    {
+      "chain_hash": "3ac561e1c641984b56999c637b2630cdb175e29021d7a46213594510a23c6032",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.081653,
+      "source_quality_visibility": 0.99292,
+      "stability": 0.9409,
+      "step": 988,
+      "trust": 0.677975
+    },
+    {
+      "chain_hash": "1ae5242661e3977ddb60db561b8d9e59c253180de044b77869a97832ac0b4f28",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.083163,
+      "source_quality_visibility": 0.99908,
+      "stability": 0.94726,
+      "step": 1014,
+      "trust": 0.681104
+    },
+    {
+      "chain_hash": "3a3c06407a0c67b5dd942ea41d03e3071b8222d73a1cc8fc9b83f36de320bd36",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.084651,
+      "source_quality_visibility": 0.96524,
+      "stability": 0.95362,
+      "step": 1040,
+      "trust": 0.684232
+    },
+    {
+      "chain_hash": "5702fb6cc78286b500f0a37f5e8c55da4afaa5878cd001930b2481dbee0d7534",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.086117,
+      "source_quality_visibility": 0.9714,
+      "stability": 0.95998,
+      "step": 1066,
+      "trust": 0.68736
+    },
+    {
+      "chain_hash": "d130fd8335d4f6560ef2780f542b3da369629edea686a036b9e219f7745e0f24",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.08756,
+      "source_quality_visibility": 0.97756,
+      "stability": 0.96634,
+      "step": 1092,
+      "trust": 0.590489
+    },
+    {
+      "chain_hash": "cc4c33b815a3ce061a5858bac3e093a66bdf354ebe3d7cfc20e81c22575edea8",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.088982,
+      "source_quality_visibility": 0.98372,
+      "stability": 0.9727,
+      "step": 1118,
+      "trust": 0.593617
+    },
+    {
+      "chain_hash": "e1431c2069487d91bff6098140e67c79ad4202908dcf6abe7fc8fa174964f06b",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.090384,
+      "source_quality_visibility": 0.98988,
+      "stability": 0.97906,
+      "step": 1144,
+      "trust": 0.596745
+    },
+    {
+      "chain_hash": "129954d359d0665bb32790dcdd59c124b4f27c03737562e6feea8cce4bbd5bfd",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.091765,
+      "source_quality_visibility": 0.99604,
+      "stability": 0.98542,
+      "step": 1170,
+      "trust": 0.599874
+    },
+    {
+      "chain_hash": "55298b95d1add090324dfea7d3429aa5005148a15fed20926c8b3f8ad8162387",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.093126,
+      "source_quality_visibility": 0.9622,
+      "stability": 0.99178,
+      "step": 1196,
+      "trust": 0.603002
+    },
+    {
+      "chain_hash": "336dc0e3b947033dc28e98202b4e10e9af5223a7cace0abd937c7a9ccf90f3cd",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.094467,
+      "source_quality_visibility": 0.96836,
+      "stability": 0.99814,
+      "step": 1222,
+      "trust": 0.60613
+    },
+    {
+      "chain_hash": "4cd30467af369316d161bb0870d9eab9c09c72c48ae41dc0a2b535f221439d70",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.095789,
+      "source_quality_visibility": 0.97452,
+      "stability": 0.9445,
+      "step": 1248,
+      "trust": 0.609258
+    },
+    {
+      "chain_hash": "c578d6296e48a3463bff9dba86b02379c96d17596bc77482a2bdfed4e657be27",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.097093,
+      "source_quality_visibility": 0.98068,
+      "stability": 0.95086,
+      "step": 1274,
+      "trust": 0.612387
+    },
+    {
+      "chain_hash": "fef4af756a477dd8f4157cc184042cc020e127be1b267ba3a96d862fadb05dcb",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.098378,
+      "source_quality_visibility": 0.98684,
+      "stability": 0.95722,
+      "step": 1300,
+      "trust": 0.615515
+    },
+    {
+      "chain_hash": "648ab956920010dea826e7631726b3aeecf00129caf644840caec07a2606b1db",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.099646,
+      "source_quality_visibility": 0.993,
+      "stability": 0.96358,
+      "step": 1326,
+      "trust": 0.618643
+    },
+    {
+      "chain_hash": "e66cce2e446234a66065975fe219ffcddf6647524623e806ab2dbd2dcb7a3729",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.100896,
+      "source_quality_visibility": 0.99916,
+      "stability": 0.96994,
+      "step": 1352,
+      "trust": 0.621772
+    },
+    {
+      "chain_hash": "a2d91e9eb1f66ba08e8e8a98a50d08ca661d199d6a3c7475fbe4f5d0280d028d",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.102128,
+      "source_quality_visibility": 0.96532,
+      "stability": 0.9763,
+      "step": 1378,
+      "trust": 0.6249
+    },
+    {
+      "chain_hash": "007b36150806e4f51d0ee8eaffc430f00e78a18ebcb48b70a35b3592c35b673e",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.103344,
+      "source_quality_visibility": 0.97148,
+      "stability": 0.98266,
+      "step": 1404,
+      "trust": 0.628028
+    },
+    {
+      "chain_hash": "fc22f9b43a332a5a6eacb9d0c27f0be4544486cc857a2af99cdbe8ec01167141",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.104543,
+      "source_quality_visibility": 0.97764,
+      "stability": 0.98902,
+      "step": 1430,
+      "trust": 0.631157
+    },
+    {
+      "chain_hash": "c7b86f5f46a281962624bfd2487fb4de58a4a13526f2ab4e1a6246e07056168b",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.105726,
+      "source_quality_visibility": 0.9838,
+      "stability": 0.99538,
+      "step": 1456,
+      "trust": 0.634285
+    },
+    {
+      "chain_hash": "82af61c652d7bbe580c6bdd7f34769e617e55f24c206522b656d12f7a8ccdf59",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.106893,
+      "source_quality_visibility": 0.98996,
+      "stability": 0.94174,
+      "step": 1482,
+      "trust": 0.637413
+    },
+    {
+      "chain_hash": "484ba41936fb9dfa37d5b29c4c45e54555016336d909138231b518b9551f81ea",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.108045,
+      "source_quality_visibility": 0.99612,
+      "stability": 0.9481,
+      "step": 1508,
+      "trust": 0.640542
+    },
+    {
+      "chain_hash": "4d3dc467be3cd4a52ee5e73fcb5bb95be154cff25b7193e7f5e9f2a4be5fbfa1",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.109181,
+      "source_quality_visibility": 0.96228,
+      "stability": 0.95446,
+      "step": 1534,
+      "trust": 0.64367
+    },
+    {
+      "chain_hash": "2632bb96986d148dbf53236510a2f8b615c33ce79d099b14fb354436125ed041",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.110303,
+      "source_quality_visibility": 0.96844,
+      "stability": 0.96082,
+      "step": 1560,
+      "trust": 0.646798
+    },
+    {
+      "chain_hash": "b9b0ab081683b4a0f68e9ffe310492c2e0cd66a691a42a3e0b63d12fca7d6d82",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.11141,
+      "source_quality_visibility": 0.9746,
+      "stability": 0.96718,
+      "step": 1586,
+      "trust": 0.649926
+    },
+    {
+      "chain_hash": "712fa0d4d13ed022a186f9ff649236b39b59bcd49e45b363174fe0e56865ce92",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.112502,
+      "source_quality_visibility": 0.98076,
+      "stability": 0.97354,
+      "step": 1612,
+      "trust": 0.653055
+    },
+    {
+      "chain_hash": "6f64c0caed757c9ad87dde51df0e8a99035173bb874c96df6047a9377d26427a",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.113581,
+      "source_quality_visibility": 0.98692,
+      "stability": 0.9799,
+      "step": 1638,
+      "trust": 0.656183
+    },
+    {
+      "chain_hash": "e60a2c0784b3970b27dd57d32bc1171b8c76337f38b8dd8cd1d203056f07ac74",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.114646,
+      "source_quality_visibility": 0.99308,
+      "stability": 0.98626,
+      "step": 1664,
+      "trust": 0.559311
+    },
+    {
+      "chain_hash": "dd6a084aa016aa510642f915778d27fb35bef712e8af7d825d0bcf8334001e87",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.115697,
+      "source_quality_visibility": 0.99924,
+      "stability": 0.99262,
+      "step": 1690,
+      "trust": 0.56244
+    },
+    {
+      "chain_hash": "4f993127d4f7a3ddb2dd5471eba8fa4c397c0cb1bd93270cca3993cb5b99e0c1",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.116735,
+      "source_quality_visibility": 0.9654,
+      "stability": 0.99898,
+      "step": 1716,
+      "trust": 0.565568
+    },
+    {
+      "chain_hash": "72f3e0c6ec17f78e135ff742a046f791eb5210ed2d1e25ea56a5161027b75645",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.11776,
+      "source_quality_visibility": 0.97156,
+      "stability": 0.94534,
+      "step": 1742,
+      "trust": 0.568696
+    },
+    {
+      "chain_hash": "58438fc96fa0c0b88db722804dfa719ca88c4210f80f9e4fee071d3287c25a2b",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.118772,
+      "source_quality_visibility": 0.97772,
+      "stability": 0.9517,
+      "step": 1768,
+      "trust": 0.571825
+    },
+    {
+      "chain_hash": "7b3139066c3ed1d05d2abf9e804e700280271fec705aecb6d0b515f3787b8970",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.119771,
+      "source_quality_visibility": 0.98388,
+      "stability": 0.95806,
+      "step": 1794,
+      "trust": 0.574953
+    },
+    {
+      "chain_hash": "8514ce090ce8beb92590c7de896c25414d1a9867987652b2b9c7258b4eb44be1",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.120758,
+      "source_quality_visibility": 0.99004,
+      "stability": 0.96442,
+      "step": 1820,
+      "trust": 0.578081
+    },
+    {
+      "chain_hash": "827eff9807cb03b6046d46b79332b154140dfe5c946aab3701dccf518466df4e",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.121733,
+      "source_quality_visibility": 0.9962,
+      "stability": 0.97078,
+      "step": 1846,
+      "trust": 0.581209
+    },
+    {
+      "chain_hash": "7a454a7adcbc5d7134f8375913ccc211a0406130366d1a31bb7b21e4cbe35627",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.122697,
+      "source_quality_visibility": 0.96236,
+      "stability": 0.97714,
+      "step": 1872,
+      "trust": 0.584338
+    },
+    {
+      "chain_hash": "bcdd0dbc63b890c32835b3e1318c243212bc2ba0e4fd3e9bc5846b1ea1aa7d41",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.123648,
+      "source_quality_visibility": 0.96852,
+      "stability": 0.9835,
+      "step": 1898,
+      "trust": 0.587466
+    },
+    {
+      "chain_hash": "1ad6d6f5e659dd3f8627137d6566ff4a7fa62861eefa8396ee019f8a4eb3aef9",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.124588,
+      "source_quality_visibility": 0.97468,
+      "stability": 0.98986,
+      "step": 1924,
+      "trust": 0.590594
+    },
+    {
+      "chain_hash": "29a16021c6cb85fdda85fca8f4084b3308f2221e7882271d67e0a4d5600f1b73",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.125517,
+      "source_quality_visibility": 0.98084,
+      "stability": 0.99622,
+      "step": 1950,
+      "trust": 0.593723
+    },
+    {
+      "chain_hash": "e699e344728597d8dd499805b67421710ee43fec29cae661f05df281b31c0143",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.126435,
+      "source_quality_visibility": 0.987,
+      "stability": 0.94258,
+      "step": 1976,
+      "trust": 0.596851
+    },
+    {
+      "chain_hash": "7da933a5d98e927dd52c2ecae57f890e816463bc4dcfb2ee38dfab6c226ebc63",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.127342,
+      "source_quality_visibility": 0.99316,
+      "stability": 0.94894,
+      "step": 2002,
+      "trust": 0.599979
+    },
+    {
+      "chain_hash": "04c21a46719c1c7af4fee34cf29d53adea65e5c81c19572a19289495933c3df6",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.128238,
+      "source_quality_visibility": 0.99932,
+      "stability": 0.9553,
+      "step": 2028,
+      "trust": 0.603108
+    },
+    {
+      "chain_hash": "6f3492193de9f0672ecb5652433ca9d168d6b09dc6f3e81ea79fc1fede8fc894",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.129124,
+      "source_quality_visibility": 0.96548,
+      "stability": 0.96166,
+      "step": 2054,
+      "trust": 0.606236
+    },
+    {
+      "chain_hash": "2576eb759400683da4b22c4ab88bb7bf28af0cfb54aac94722c2dc400946aa20",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.13,
+      "source_quality_visibility": 0.97164,
+      "stability": 0.96802,
+      "step": 2080,
+      "trust": 0.609364
+    },
+    {
+      "chain_hash": "0ac22879ddc688e6aa4e02cdc83dc723f114174391e113d42291c35c32a69caf",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.130866,
+      "source_quality_visibility": 0.9778,
+      "stability": 0.97438,
+      "step": 2106,
+      "trust": 0.612492
+    },
+    {
+      "chain_hash": "4f5d4bd724e19ff7deb400117354c4cfa8490a5226ff501c8d763b30923494ce",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.131721,
+      "source_quality_visibility": 0.98396,
+      "stability": 0.98074,
+      "step": 2132,
+      "trust": 0.615621
+    },
+    {
+      "chain_hash": "619c412bbec59ab181f6eca5441eec0a2f2b05519580e9f19a90fc6797bba721",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.132567,
+      "source_quality_visibility": 0.99012,
+      "stability": 0.9871,
+      "step": 2158,
+      "trust": 0.618749
+    },
+    {
+      "chain_hash": "45b2a177bbad14fa97d50e8973ccf624af53b50d842ea78694dadec6d7e3b84b",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.133403,
+      "source_quality_visibility": 0.99628,
+      "stability": 0.99346,
+      "step": 2184,
+      "trust": 0.621877
+    },
+    {
+      "chain_hash": "572bdb55adb902ebc5cb181c39ea4868af82f53d775993fb6f8adb9570eaf841",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.13423,
+      "source_quality_visibility": 0.96244,
+      "stability": 0.99982,
+      "step": 2210,
+      "trust": 0.525006
+    },
+    {
+      "chain_hash": "73e1a835ebccf999e8a1c047dc58a1e36d64602b22d5d65691d54fb7a6464232",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.135047,
+      "source_quality_visibility": 0.9686,
+      "stability": 0.94618,
+      "step": 2236,
+      "trust": 0.528134
+    },
+    {
+      "chain_hash": "244d8d72324448b8950f0e5c43248a6f12413ade8be30a6cd17a85322dd9e4e9",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.135856,
+      "source_quality_visibility": 0.97476,
+      "stability": 0.95254,
+      "step": 2262,
+      "trust": 0.531262
+    },
+    {
+      "chain_hash": "1622c1a16f6c0f2bab0a73558443fb77f0180434889f2dc77f54fa4efe478abe",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.136655,
+      "source_quality_visibility": 0.98092,
+      "stability": 0.9589,
+      "step": 2288,
+      "trust": 0.534391
+    },
+    {
+      "chain_hash": "ad12944c1de338308c35280c33883ada00c09a3452dbf0df119d28853bdd030b",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.137446,
+      "source_quality_visibility": 0.98708,
+      "stability": 0.96526,
+      "step": 2314,
+      "trust": 0.537519
+    },
+    {
+      "chain_hash": "68c3bc04fce79a03d23bfa3529b497f8cce76e541ea8c4e7f52cc908d3895036",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.138228,
+      "source_quality_visibility": 0.99324,
+      "stability": 0.97162,
+      "step": 2340,
+      "trust": 0.540647
+    },
+    {
+      "chain_hash": "bedb017141fcd12cfbe1a7c77477f810426551d33c44d0b40573face890d237c",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.139001,
+      "source_quality_visibility": 0.9994,
+      "stability": 0.97798,
+      "step": 2366,
+      "trust": 0.543775
+    },
+    {
+      "chain_hash": "4168116947cbf670c64747af22ff676cb1934b28f8f1c85c9ee9d5071ba54478",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.139766,
+      "source_quality_visibility": 0.96556,
+      "stability": 0.98434,
+      "step": 2392,
+      "trust": 0.546904
+    },
+    {
+      "chain_hash": "af0e94d7ad2e39d3d5b2cf03250eaf3b80ad59537ebc3547057c722c223a61cf",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.140523,
+      "source_quality_visibility": 0.97172,
+      "stability": 0.9907,
+      "step": 2418,
+      "trust": 0.550032
+    },
+    {
+      "chain_hash": "c84281d36a941bd5d7da67a8187d019ad93ed4be69ef057ac138544ecedcb1d4",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.141272,
+      "source_quality_visibility": 0.97788,
+      "stability": 0.99706,
+      "step": 2444,
+      "trust": 0.55316
+    },
+    {
+      "chain_hash": "457fba8091fa46a901c3189a0f924bba99044ce83d6ea1edfdb84dafbee039b3",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.142012,
+      "source_quality_visibility": 0.98404,
+      "stability": 0.94342,
+      "step": 2470,
+      "trust": 0.556289
+    },
+    {
+      "chain_hash": "9cef2d16a6e4e99bf5c91850dbab7c38d9908a7a8b654e11efeaa66af3a4552a",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.142745,
+      "source_quality_visibility": 0.9902,
+      "stability": 0.94978,
+      "step": 2496,
+      "trust": 0.559417
+    },
+    {
+      "chain_hash": "6caed2696259f057b6e6e7c88548d12e00c472fabd2d65eebeac7ca97a5ccb28",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.14347,
+      "source_quality_visibility": 0.99636,
+      "stability": 0.95614,
+      "step": 2522,
+      "trust": 0.562545
+    },
+    {
+      "chain_hash": "214d59cddd0602b9ea92d5fd4642c863a690c6c6c9e65c8a46a6ae68784b9e77",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.144188,
+      "source_quality_visibility": 0.96252,
+      "stability": 0.9625,
+      "step": 2548,
+      "trust": 0.565674
+    },
+    {
+      "chain_hash": "d36038270fd1b16f507fe1a22de66fca3b0dd081730e5df5dd97c94b040c788e",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.144897,
+      "source_quality_visibility": 0.96868,
+      "stability": 0.96886,
+      "step": 2574,
+      "trust": 0.568802
+    },
+    {
+      "chain_hash": "66123aa7a5ff7578dbd91fb3fb5f0867d798599511799fcde682360f2b5ffdb6",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.1456,
+      "source_quality_visibility": 0.97484,
+      "stability": 0.97522,
+      "step": 2600,
+      "trust": 0.57193
+    },
+    {
+      "chain_hash": "1fe78812925fc5f4fefe5a70ce23cb0f4238214a3a98c507c9d91b76cab63742",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.146295,
+      "source_quality_visibility": 0.981,
+      "stability": 0.98158,
+      "step": 2626,
+      "trust": 0.575058
+    },
+    {
+      "chain_hash": "41125ad857bbac345f0871c561c5353cc9329e7d823728cb0b0917b753f60af1",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.146983,
+      "source_quality_visibility": 0.98716,
+      "stability": 0.98794,
+      "step": 2652,
+      "trust": 0.578187
+    },
+    {
+      "chain_hash": "09b936926c5b4244811e2514c6c2768d37b061b1f29ab69f2a05fed40bd7e757",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.147664,
+      "source_quality_visibility": 0.99332,
+      "stability": 0.9943,
+      "step": 2678,
+      "trust": 0.581315
+    },
+    {
+      "chain_hash": "5d13e2d93af76eca5caee37f9acd72137e04b1b72497a7981f95e590f7db1680",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.148339,
+      "source_quality_visibility": 0.99948,
+      "stability": 0.94066,
+      "step": 2704,
+      "trust": 0.584443
+    },
+    {
+      "chain_hash": "baf063376a59dc32ca472931e89091c043346f5b8e26d6b85d1097887376715e",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.149006,
+      "source_quality_visibility": 0.96564,
+      "stability": 0.94702,
+      "step": 2730,
+      "trust": 0.587572
+    },
+    {
+      "chain_hash": "19286826ca59c2bade8ff59986010d01c092e5cb5d4b7874999f6ac88cf0d931",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.149666,
+      "source_quality_visibility": 0.9718,
+      "stability": 0.95338,
+      "step": 2756,
+      "trust": 0.5907
+    },
+    {
+      "chain_hash": "9183ae06b7a56ee2bd451898e6a86f2b87e0841eb37738031ea7053882afd432",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.15032,
+      "source_quality_visibility": 0.97796,
+      "stability": 0.95974,
+      "step": 2782,
+      "trust": 0.493828
+    },
+    {
+      "chain_hash": "96bf900195252ffc0adf1e2c0a04692638832790d13ac61c9d9653e9cc9ce737",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.150968,
+      "source_quality_visibility": 0.98412,
+      "stability": 0.9661,
+      "step": 2808,
+      "trust": 0.496957
+    },
+    {
+      "chain_hash": "892a66e32eaba98bad4fba4c8aae73d4f663dc1b36c02b6e19e359e43e3b9050",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.151609,
+      "source_quality_visibility": 0.99028,
+      "stability": 0.97246,
+      "step": 2834,
+      "trust": 0.500085
+    },
+    {
+      "chain_hash": "90a58bdc5c5c5f321a1c0a593956c97eb7b3d3a98ca288ab7c14cefe04bb6d36",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.152243,
+      "source_quality_visibility": 0.99644,
+      "stability": 0.97882,
+      "step": 2860,
+      "trust": 0.503213
+    },
+    {
+      "chain_hash": "2c9d80941cd411078de458b7a2b231820d58ba2a2957f469d2928ea77010e57c",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.152872,
+      "source_quality_visibility": 0.9626,
+      "stability": 0.98518,
+      "step": 2886,
+      "trust": 0.506342
+    },
+    {
+      "chain_hash": "520bf96a47427a9a77de470e4be819d2a05404ce6b6f99ef3a0e4677aeb7a27d",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.153494,
+      "source_quality_visibility": 0.96876,
+      "stability": 0.99154,
+      "step": 2912,
+      "trust": 0.50947
+    },
+    {
+      "chain_hash": "7404129f0a5d56b36f60914902dfa62fff23781af7c027904f3c96a501174d1f",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.15411,
+      "source_quality_visibility": 0.97492,
+      "stability": 0.9979,
+      "step": 2938,
+      "trust": 0.512598
+    },
+    {
+      "chain_hash": "4d85acd3c65b43456ca8941a215d6b7fc395670b7e449a06860e1828677b472f",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.15472,
+      "source_quality_visibility": 0.98108,
+      "stability": 0.94426,
+      "step": 2964,
+      "trust": 0.515726
+    },
+    {
+      "chain_hash": "93679974ab699dad26f8ac139eed3d529c9c0eaf9ccff499ae6b6ed389d1b6ee",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.155325,
+      "source_quality_visibility": 0.98724,
+      "stability": 0.95062,
+      "step": 2990,
+      "trust": 0.518855
+    },
+    {
+      "chain_hash": "7cc209ce8cc5f8992d6f176103164443c2786103010d99174154eae1c2af8e39",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.155923,
+      "source_quality_visibility": 0.9934,
+      "stability": 0.95698,
+      "step": 3016,
+      "trust": 0.521983
+    },
+    {
+      "chain_hash": "280033f5eaf7ead693be39ed79bd321f09301061a9ac71f3609365c45e93c479",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.156516,
+      "source_quality_visibility": 0.99956,
+      "stability": 0.96334,
+      "step": 3042,
+      "trust": 0.525111
+    },
+    {
+      "chain_hash": "d24a3be419f9d873b0ce25c6b82519515dc419b6afcb2643733176cdc37b7ebe",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.157103,
+      "source_quality_visibility": 0.96572,
+      "stability": 0.9697,
+      "step": 3068,
+      "trust": 0.52824
+    },
+    {
+      "chain_hash": "a751f6d47c4f43f1c4eca458b59583056fc06aa0a5b9fbc5afea6c200e674ecc",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.157685,
+      "source_quality_visibility": 0.97188,
+      "stability": 0.97606,
+      "step": 3094,
+      "trust": 0.531368
+    },
+    {
+      "chain_hash": "0a7dbcd62da6016e2eb7147b1edeafe690e600b4a8a0f3203ab512cb9e1d5332",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.158261,
+      "source_quality_visibility": 0.97804,
+      "stability": 0.98242,
+      "step": 3120,
+      "trust": 0.534496
+    },
+    {
+      "chain_hash": "1908a23fcef6c3bd092859dfe640406f1c400af7c6fc5887f98dfdab30b0017b",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.158832,
+      "source_quality_visibility": 0.9842,
+      "stability": 0.98878,
+      "step": 3146,
+      "trust": 0.537625
+    },
+    {
+      "chain_hash": "0c565a8d1ed8babda0d53cd109126c1f59bf72ce32c2397f877c2fb1f52ba1fe",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.159397,
+      "source_quality_visibility": 0.99036,
+      "stability": 0.99514,
+      "step": 3172,
+      "trust": 0.540753
+    },
+    {
+      "chain_hash": "594c2fa1ea87d7ea55095bd43b4e6b86a456c88bb1267146f5d71b8238ecc6eb",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.159957,
+      "source_quality_visibility": 0.99652,
+      "stability": 0.9415,
+      "step": 3198,
+      "trust": 0.543881
+    },
+    {
+      "chain_hash": "caa8180d602d34163bc230bf8121c37e6e76a09ac572d8730d5777cee976bd3f",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.160512,
+      "source_quality_visibility": 0.96268,
+      "stability": 0.94786,
+      "step": 3224,
+      "trust": 0.547009
+    },
+    {
+      "chain_hash": "ccacdce7b3f94cb6c058654267c2b014b09027eedb8f77deb7170fb2f3eb14d9",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.161062,
+      "source_quality_visibility": 0.96884,
+      "stability": 0.95422,
+      "step": 3250,
+      "trust": 0.550138
+    },
+    {
+      "chain_hash": "b4b6d868b371747af76b04152693f8d9e029238d958192b07202818a9a3aa268",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.161607,
+      "source_quality_visibility": 0.975,
+      "stability": 0.96058,
+      "step": 3276,
+      "trust": 0.553266
+    },
+    {
+      "chain_hash": "fa96fdf1fcd8633f684008aaeb5f41a94e01aa98f73c067f236ef67a4d386671",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.162147,
+      "source_quality_visibility": 0.98116,
+      "stability": 0.96694,
+      "step": 3302,
+      "trust": 0.556394
+    },
+    {
+      "chain_hash": "95385bbb0b8944a32a9a2fa7383ecaab4fbde3544614af51dd1c2003d6f513a4",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.162682,
+      "source_quality_visibility": 0.98732,
+      "stability": 0.9733,
+      "step": 3328,
+      "trust": 0.559523
+    },
+    {
+      "chain_hash": "c0e309cc09e72ec82186aff92f495116fb88554ccf661d9466ab704f27636d24",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.163212,
+      "source_quality_visibility": 0.99348,
+      "stability": 0.97966,
+      "step": 3354,
+      "trust": 0.462651
+    },
+    {
+      "chain_hash": "82eed596cdf7b4dab64cc3b010fec5d5c378a711a5ddc7a13210cc4303a678af",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.163737,
+      "source_quality_visibility": 0.99964,
+      "stability": 0.98602,
+      "step": 3380,
+      "trust": 0.465779
+    },
+    {
+      "chain_hash": "9d57e0bd14b7b1bc3a368a918c87b41bcf6357a883bade00032f3d527dba6fa1",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.164258,
+      "source_quality_visibility": 0.9658,
+      "stability": 0.99238,
+      "step": 3406,
+      "trust": 0.468908
+    },
+    {
+      "chain_hash": "423ac8b3e7a1837028e04e2eebda878aa22f768a80198aaf6b5b32f5635ad3be",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.164774,
+      "source_quality_visibility": 0.97196,
+      "stability": 0.99874,
+      "step": 3432,
+      "trust": 0.472036
+    },
+    {
+      "chain_hash": "3b7506c53d76d1cff17f5586abb944eaea5204ef766832bf7618235ba4ceafe2",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.165285,
+      "source_quality_visibility": 0.97812,
+      "stability": 0.9451,
+      "step": 3458,
+      "trust": 0.475164
+    },
+    {
+      "chain_hash": "beee65d902e38163a19041ab36a7cce6a94e92d5370cadfbb929441612980355",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.165792,
+      "source_quality_visibility": 0.98428,
+      "stability": 0.95146,
+      "step": 3484,
+      "trust": 0.478292
+    },
+    {
+      "chain_hash": "7c3620b2b988357f16d90aa574f868d1ee29fdf4bc1e1bed3d41bb1dc72a4575",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.166294,
+      "source_quality_visibility": 0.99044,
+      "stability": 0.95782,
+      "step": 3510,
+      "trust": 0.481421
+    },
+    {
+      "chain_hash": "31d1fe91f665de9f9a43c1aaa045527778c1ababdea399244472fe4f11cdc5e2",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.166792,
+      "source_quality_visibility": 0.9966,
+      "stability": 0.96418,
+      "step": 3536,
+      "trust": 0.484549
+    },
+    {
+      "chain_hash": "ae2535bb677cfbaf5fa95b5c783869f25f8afa6d0957d6f83f308f39b264e823",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.167286,
+      "source_quality_visibility": 0.96276,
+      "stability": 0.97054,
+      "step": 3562,
+      "trust": 0.487677
+    },
+    {
+      "chain_hash": "574731aed7e987a8dbba7c43131852c23f947157b39c2d0e0977cfd045825c43",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.167776,
+      "source_quality_visibility": 0.96892,
+      "stability": 0.9769,
+      "step": 3588,
+      "trust": 0.490806
+    },
+    {
+      "chain_hash": "839a056827cf6bbed5203e27b50c31fcfc4bb542df9195e524fd32a8e19252ba",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.168261,
+      "source_quality_visibility": 0.97508,
+      "stability": 0.98326,
+      "step": 3614,
+      "trust": 0.493934
+    },
+    {
+      "chain_hash": "e599eafc015dca105081c51979da9bf530e8d8832552ef49c176e0676d98ff09",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.168742,
+      "source_quality_visibility": 0.98124,
+      "stability": 0.98962,
+      "step": 3640,
+      "trust": 0.497062
+    },
+    {
+      "chain_hash": "a6db12d49eaad9c16b58d1ac156716f2eefbb90d2c4fcea73bd683ec3ea58d07",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.169219,
+      "source_quality_visibility": 0.9874,
+      "stability": 0.99598,
+      "step": 3666,
+      "trust": 0.500191
+    },
+    {
+      "chain_hash": "2af01464f2d296883e71aff8b9cbf33752d54519451bf3a971382bc28d160223",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.169691,
+      "source_quality_visibility": 0.99356,
+      "stability": 0.94234,
+      "step": 3692,
+      "trust": 0.503319
+    },
+    {
+      "chain_hash": "4cf131768d134c6872c871b1bbd0fc90ef64e2051793dd4e3727db9e283e2cdf",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.17016,
+      "source_quality_visibility": 0.99972,
+      "stability": 0.9487,
+      "step": 3718,
+      "trust": 0.506447
+    },
+    {
+      "chain_hash": "6d1ee10fe301f1bf23a2338fdec3d2fa78ad49d01c6ece3cb079228266eaf856",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.170625,
+      "source_quality_visibility": 0.96588,
+      "stability": 0.95506,
+      "step": 3744,
+      "trust": 0.509575
+    },
+    {
+      "chain_hash": "e619310f7888748da9c6eb1c90278819f46f4cc84b61d439f38cf27366e514d9",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.171086,
+      "source_quality_visibility": 0.97204,
+      "stability": 0.96142,
+      "step": 3770,
+      "trust": 0.512704
+    },
+    {
+      "chain_hash": "3b41ccccec28ec467b828e3ee194ffa9196968ffb96f73d01e892d496adc75d2",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.171543,
+      "source_quality_visibility": 0.9782,
+      "stability": 0.96778,
+      "step": 3796,
+      "trust": 0.515832
+    },
+    {
+      "chain_hash": "914d113103d0682fbb8340448ac6591d8a66fa4fb7dbe2b902413770b8980531",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.171996,
+      "source_quality_visibility": 0.98436,
+      "stability": 0.97414,
+      "step": 3822,
+      "trust": 0.51896
+    },
+    {
+      "chain_hash": "c46c351d564528059edb926d9b8b75da7ae2c9f11f9be84ee828aeb90028dfd7",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.172446,
+      "source_quality_visibility": 0.99052,
+      "stability": 0.9805,
+      "step": 3848,
+      "trust": 0.522089
+    },
+    {
+      "chain_hash": "ba797a35f3dfa0bf416acea9f19e5c98b9d29bdd526a9c2e933aad0ae790bd1d",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.172891,
+      "source_quality_visibility": 0.99668,
+      "stability": 0.98686,
+      "step": 3874,
+      "trust": 0.525217
+    },
+    {
+      "chain_hash": "5e2c46c8752927e217dd644d727feade533c58c2c71a2d9060442f050c358d24",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.173333,
+      "source_quality_visibility": 0.96284,
+      "stability": 0.99322,
+      "step": 3900,
+      "trust": 0.528345
+    },
+    {
+      "chain_hash": "ce6552dd6d1456822b29ebddcea91dbc849c1a95974fa2335449c3cd105adab6",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.173772,
+      "source_quality_visibility": 0.969,
+      "stability": 0.99958,
+      "step": 3926,
+      "trust": 0.431474
+    },
+    {
+      "chain_hash": "2fa359aa07cda5ad12ee0274c94fd813473570c398211c6bfc2241e8405d1f30",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.174207,
+      "source_quality_visibility": 0.97516,
+      "stability": 0.94594,
+      "step": 3952,
+      "trust": 0.434602
+    },
+    {
+      "chain_hash": "9759464560cdc185eb9580c65fefa21c93581a73e3b3c3a05f348dc8fe9c4449",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.174638,
+      "source_quality_visibility": 0.98132,
+      "stability": 0.9523,
+      "step": 3978,
+      "trust": 0.43773
+    },
+    {
+      "chain_hash": "383bf7fd749f5b84b9eca74c8bd29e5c54604ad54f7f3abe18cd96cb47e85033",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.175066,
+      "source_quality_visibility": 0.98748,
+      "stability": 0.95866,
+      "step": 4004,
+      "trust": 0.440858
+    },
+    {
+      "chain_hash": "f8771c7a020599676ad22c6aa0d325bc5b0382b57d512abe322c8ab5956fd0a6",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.17549,
+      "source_quality_visibility": 0.99364,
+      "stability": 0.96502,
+      "step": 4030,
+      "trust": 0.443987
+    },
+    {
+      "chain_hash": "9d845b10dca3b3dfa2afa201a3f6a0463608e7034ed929694d77c55b16c4df31",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.175911,
+      "source_quality_visibility": 0.9998,
+      "stability": 0.97138,
+      "step": 4056,
+      "trust": 0.447115
+    },
+    {
+      "chain_hash": "a708474a5729fa20a7887f2e7723c001a7b7410f46e0e4f2271c3075b2d2a6d2",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.176328,
+      "source_quality_visibility": 0.96596,
+      "stability": 0.97774,
+      "step": 4082,
+      "trust": 0.450243
+    },
+    {
+      "chain_hash": "a8ee61b5f178b67c2cf8bad48d5f379902abbee9cd7929fe8a3f9de56bb1a40a",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.176742,
+      "source_quality_visibility": 0.97212,
+      "stability": 0.9841,
+      "step": 4108,
+      "trust": 0.453372
+    },
+    {
+      "chain_hash": "4400e6b0421de8146f4179a0dbbbb66fdd3b2eaebdeed86b6066497760a84fe3",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.177153,
+      "source_quality_visibility": 0.97828,
+      "stability": 0.99046,
+      "step": 4134,
+      "trust": 0.4565
+    },
+    {
+      "chain_hash": "2619a5d8c3642107a4b5d390db79b21a7e0f22673d75b79921b1da4a67dede18",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.177561,
+      "source_quality_visibility": 0.98444,
+      "stability": 0.99682,
+      "step": 4160,
+      "trust": 0.459628
+    },
+    {
+      "chain_hash": "29dfccd72d3cda17b5f01ff2b579668722888f4c591c796ef324a0fe35151c03",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.177965,
+      "source_quality_visibility": 0.9906,
+      "stability": 0.94318,
+      "step": 4186,
+      "trust": 0.462757
+    },
+    {
+      "chain_hash": "9bd8c3bfa1a6cbc5e6706c24d283dd8bdea2710b54435229f3d4dd4346a33edc",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.178367,
+      "source_quality_visibility": 0.99676,
+      "stability": 0.94954,
+      "step": 4212,
+      "trust": 0.465885
+    },
+    {
+      "chain_hash": "b26f86d0ba39e29faf74bc841ed618d06b99b9c7308b7b0e8caae5ac0288a489",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.178765,
+      "source_quality_visibility": 0.96292,
+      "stability": 0.9559,
+      "step": 4238,
+      "trust": 0.469013
+    },
+    {
+      "chain_hash": "43c641f1da0eb0c048e3810f9c41b94f3d0340906e9d50ff3dde733ba606220a",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.17916,
+      "source_quality_visibility": 0.96908,
+      "stability": 0.96226,
+      "step": 4264,
+      "trust": 0.472142
+    },
+    {
+      "chain_hash": "3615b23460368c21c485fc7b87f43ab552748cbff866cfb0250c727fb00d0619",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.179552,
+      "source_quality_visibility": 0.97524,
+      "stability": 0.96862,
+      "step": 4290,
+      "trust": 0.47527
+    },
+    {
+      "chain_hash": "053f37f223fb3df4e04f8123bb6d8a8ae886c8a6c2314a8807c51781749c8b36",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.17994,
+      "source_quality_visibility": 0.9814,
+      "stability": 0.97498,
+      "step": 4316,
+      "trust": 0.478398
+    },
+    {
+      "chain_hash": "42c2a0e4577fba9064c24ecb8a2ac68178da0a6e7196d8b11c426bf61ee2c5f3",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.180326,
+      "source_quality_visibility": 0.98756,
+      "stability": 0.98134,
+      "step": 4342,
+      "trust": 0.481526
+    },
+    {
+      "chain_hash": "f3c775954b28bb50a9debf00679a037951dcfe37d7b284705e5ed98bd275ecca",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.180709,
+      "source_quality_visibility": 0.99372,
+      "stability": 0.9877,
+      "step": 4368,
+      "trust": 0.484655
+    },
+    {
+      "chain_hash": "24f611b4dc88a6152c0b2801380dfdfac597c4675a571989cb905ce29d533620",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.181089,
+      "source_quality_visibility": 0.99988,
+      "stability": 0.99406,
+      "step": 4394,
+      "trust": 0.487783
+    },
+    {
+      "chain_hash": "27b29ff0b6f662d2b551d29c71b89cdaed2f0ad57cce0d70a2e49ad5f8720328",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.181466,
+      "source_quality_visibility": 0.96604,
+      "stability": 0.94042,
+      "step": 4420,
+      "trust": 0.490911
+    },
+    {
+      "chain_hash": "dac8b7efb211ea9b4d58ff3825b1cb0483bb8808c627dbb5e805c30ea009b2bb",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.18184,
+      "source_quality_visibility": 0.9722,
+      "stability": 0.94678,
+      "step": 4446,
+      "trust": 0.49404
+    },
+    {
+      "chain_hash": "6a5dec7449527d4710edf167739bb1882757a9a18537eb738d36fb17630fe50f",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.182212,
+      "source_quality_visibility": 0.97836,
+      "stability": 0.95314,
+      "step": 4472,
+      "trust": 0.397168
+    },
+    {
+      "chain_hash": "090434053fdbeba9133d1ef5d57f0c2bb136d9176bbc5538c8e1f6c355706915",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.18258,
+      "source_quality_visibility": 0.98452,
+      "stability": 0.9595,
+      "step": 4498,
+      "trust": 0.400296
+    },
+    {
+      "chain_hash": "51fadd19334007c04736e0a344765f7b627b430a2e6d5d90018aaccca3f94bd1",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.182946,
+      "source_quality_visibility": 0.99068,
+      "stability": 0.96586,
+      "step": 4524,
+      "trust": 0.403425
+    },
+    {
+      "chain_hash": "dfe9ba0c7238ef07d08840470a69873a45e01dcb0da164c6d3f59e91257e3c3b",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.183309,
+      "source_quality_visibility": 0.99684,
+      "stability": 0.97222,
+      "step": 4550,
+      "trust": 0.406553
+    },
+    {
+      "chain_hash": "76cce3805ee4c72a78f8ea940fcca4fa15e633aa20a588a659410a077cde2473",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.18367,
+      "source_quality_visibility": 0.963,
+      "stability": 0.97858,
+      "step": 4576,
+      "trust": 0.409681
+    },
+    {
+      "chain_hash": "1ed51870128c9271476b93caf49a8a1d18a03878534bf8c82e7caa01a553edf9",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.184027,
+      "source_quality_visibility": 0.96916,
+      "stability": 0.98494,
+      "step": 4602,
+      "trust": 0.412809
+    },
+    {
+      "chain_hash": "d8af77f7c5f2775378acba723d742360455faec40c7958c0f86d274bb14132d9",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.184382,
+      "source_quality_visibility": 0.97532,
+      "stability": 0.9913,
+      "step": 4628,
+      "trust": 0.415938
+    },
+    {
+      "chain_hash": "c21ffed25f63b357c0fb3fc1a9756f8ddf1e4bd0253470352192e2022c0b617c",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.184735,
+      "source_quality_visibility": 0.98148,
+      "stability": 0.99766,
+      "step": 4654,
+      "trust": 0.419066
+    },
+    {
+      "chain_hash": "44ab6fadd997a9225f3ce0e625e4210399bdc6637e0030bb3ee05e0514e1ef2f",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.185085,
+      "source_quality_visibility": 0.98764,
+      "stability": 0.94402,
+      "step": 4680,
+      "trust": 0.422194
+    },
+    {
+      "chain_hash": "1d78e3f84bab34a8fa2bd10db18d032eec0045c3df2572a2ec0991ca2d59697c",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.185432,
+      "source_quality_visibility": 0.9938,
+      "stability": 0.95038,
+      "step": 4706,
+      "trust": 0.425323
+    },
+    {
+      "chain_hash": "ced344f1357888ca37cc7950976c95a8cbaa8ca74a3f4ef5b125d2984f930ddf",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.185777,
+      "source_quality_visibility": 0.99996,
+      "stability": 0.95674,
+      "step": 4732,
+      "trust": 0.428451
+    },
+    {
+      "chain_hash": "ca901be5f9d30ccc1f4885a6bb88bf1dbf058d50f699cd80999b44433c21cd1d",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.186119,
+      "source_quality_visibility": 0.96612,
+      "stability": 0.9631,
+      "step": 4758,
+      "trust": 0.431579
+    },
+    {
+      "chain_hash": "0a57df8f65f0d5232bf5f2b291fcb78330bf23e9ddb9eb3b6f4e62498eea8e5c",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.186459,
+      "source_quality_visibility": 0.97228,
+      "stability": 0.96946,
+      "step": 4784,
+      "trust": 0.434708
+    },
+    {
+      "chain_hash": "8b93d33e9e171689c8adb29efca8a5b1fbc73a92fc26c82d1298df2c66d4c77a",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.186796,
+      "source_quality_visibility": 0.97844,
+      "stability": 0.97582,
+      "step": 4810,
+      "trust": 0.437836
+    },
+    {
+      "chain_hash": "bdb35bcb48488e737d34e189a3ffac2798ed4e12525d1f51465c7ef0d1fbddc0",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.187131,
+      "source_quality_visibility": 0.9846,
+      "stability": 0.98218,
+      "step": 4836,
+      "trust": 0.440964
+    },
+    {
+      "chain_hash": "5a91dd8440b5a53a0aba75e560d18ccca5171b94abc896f10e4e365fc10f6e94",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.187464,
+      "source_quality_visibility": 0.99076,
+      "stability": 0.98854,
+      "step": 4862,
+      "trust": 0.444092
+    },
+    {
+      "chain_hash": "821785b73040b99b9526f929698caf055c3a07b68165259175af13620c1d11ff",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.187794,
+      "source_quality_visibility": 0.99692,
+      "stability": 0.9949,
+      "step": 4888,
+      "trust": 0.447221
+    },
+    {
+      "chain_hash": "aaed42aadb443a104850899c962337b801e9d23becf349babf356291b0474d6d",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.188121,
+      "source_quality_visibility": 0.96308,
+      "stability": 0.94126,
+      "step": 4914,
+      "trust": 0.450349
+    },
+    {
+      "chain_hash": "19892c7a337979eb81f9a70cd6759a7ca9a1ac5f9892c413eadbdd7b3aabe905",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.188447,
+      "source_quality_visibility": 0.96924,
+      "stability": 0.94762,
+      "step": 4940,
+      "trust": 0.453477
+    },
+    {
+      "chain_hash": "57e6de0b5e6301defb5546a13b00fa5872ca1ace70f5e45126bb477a26856183",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.18877,
+      "source_quality_visibility": 0.9754,
+      "stability": 0.95398,
+      "step": 4966,
+      "trust": 0.456606
+    },
+    {
+      "chain_hash": "15a0dd7ec64a0e0127e5e83370164a4e7b2e2ea9c67de71d3ffa6b4fb9fe5939",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.189091,
+      "source_quality_visibility": 0.98156,
+      "stability": 0.96034,
+      "step": 4992,
+      "trust": 0.459734
+    },
+    {
+      "chain_hash": "f135147f070f0767c54a90a1856095256b31a4477d5deaec00516046edff582e",
+      "dissent_preserved": true,
+      "event_type": "trust_decay",
+      "mythologization": 0.18941,
+      "source_quality_visibility": 0.98772,
+      "stability": 0.9667,
+      "step": 5018,
+      "trust": 0.462862
+    },
+    {
+      "chain_hash": "fe85cc4b56a8557b91e5a248bba8a4144a6df72aefe3ec4f06ebbcf81b078214",
+      "dissent_preserved": true,
+      "event_type": "viral_claim",
+      "mythologization": 0.189726,
+      "source_quality_visibility": 0.99388,
+      "stability": 0.97306,
+      "step": 5044,
+      "trust": 0.365991
+    },
+    {
+      "chain_hash": "47d36ebfa9c6f60a0c8c032c6a99e02818d6aedde21e605629b2de8815bedb09",
+      "dissent_preserved": true,
+      "event_type": "new_document",
+      "mythologization": 0.19004,
+      "source_quality_visibility": 0.96004,
+      "stability": 0.97942,
+      "step": 5070,
+      "trust": 0.369119
+    },
+    {
+      "chain_hash": "1fb496089daf08202d9933c1668cbcf2517ba2779355100879b3fca8febdf47e",
+      "dissent_preserved": true,
+      "event_type": "leak",
+      "mythologization": 0.190352,
+      "source_quality_visibility": 0.9662,
+      "stability": 0.98578,
+      "step": 5096,
+      "trust": 0.372247
+    },
+    {
+      "chain_hash": "d3a63e1b5ace9cb3ffe9fd106c290f5fe471150cf5c6d76436608944f1e9b52c",
+      "dissent_preserved": true,
+      "event_type": "narrative_drift",
+      "mythologization": 0.190662,
+      "source_quality_visibility": 0.97236,
+      "stability": 0.99214,
+      "step": 5122,
+      "trust": 0.375375
+    },
+    {
+      "chain_hash": "44eeafab951b3e406bb169e81b9e21b58579bca4593d6416fe50ddf978be50ef",
+      "dissent_preserved": true,
+      "event_type": "manipulated_file",
+      "mythologization": 0.19097,
+      "source_quality_visibility": 0.97852,
+      "stability": 0.9985,
+      "step": 5148,
+      "trust": 0.378504
+    },
+    {
+      "chain_hash": "3cfb2b932f0a0faba61e1656cee122c1bc0b8f48f2d03ae48cb66ae8ecd11664",
+      "dissent_preserved": true,
+      "event_type": "media_wave",
+      "mythologization": 0.191275,
+      "source_quality_visibility": 0.98468,
+      "stability": 0.94486,
+      "step": 5174,
+      "trust": 0.381632
+    }
+  ],
+  "schema_version": "v17_3_long_horizon_sensitive_ecology",
+  "source_quality_visibility": 0.980011,
+  "steps": 5300,
+  "trust_decayed": true,
+  "trust_volatility": 0.395127
+}

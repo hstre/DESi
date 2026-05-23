@@ -1,0 +1,228 @@
+{
+  "all_views_visible": true,
+  "conflict_productivity": 1.0,
+  "disclaimer": "DESi and the Wild Explorer negotiate competing explorations. DESi preserves dissent, keeps informative conflicts productive, compresses redundant proposals by SOFT weight (never deleting a view), keeps every distinct region, and never shuts the Wild Explorer off or lets it dominate. DESi replaces no policy, injects no reward, claims no optimal strategy. Replay-exact.",
+  "dissent_preservation": 1.0,
+  "distinct_regions": 28,
+  "exploration_diversity": 1.0,
+  "items": [
+    {
+      "desi_states": [
+        1,
+        2
+      ],
+      "item_id": "N01",
+      "kind": "productive_conflict",
+      "topic": "frontier_a",
+      "wild_states": [
+        10,
+        11,
+        12
+      ],
+      "wild_weight": 1.0
+    },
+    {
+      "desi_states": [
+        3,
+        4
+      ],
+      "item_id": "N02",
+      "kind": "productive_conflict",
+      "topic": "frontier_b",
+      "wild_states": [
+        13,
+        14,
+        15
+      ],
+      "wild_weight": 1.0
+    },
+    {
+      "desi_states": [
+        5
+      ],
+      "item_id": "N03",
+      "kind": "productive_conflict",
+      "topic": "frontier_c",
+      "wild_states": [
+        16,
+        17,
+        18
+      ],
+      "wild_weight": 1.0
+    },
+    {
+      "desi_states": [
+        6,
+        7
+      ],
+      "item_id": "N04",
+      "kind": "productive_conflict",
+      "topic": "frontier_d",
+      "wild_states": [
+        19,
+        20
+      ],
+      "wild_weight": 1.0
+    },
+    {
+      "desi_states": [
+        8
+      ],
+      "item_id": "N05",
+      "kind": "productive_conflict",
+      "topic": "frontier_e",
+      "wild_states": [
+        21,
+        22,
+        23
+      ],
+      "wild_weight": 1.0
+    },
+    {
+      "desi_states": [
+        9
+      ],
+      "item_id": "N06",
+      "kind": "productive_conflict",
+      "topic": "frontier_f",
+      "wild_states": [
+        24,
+        25
+      ],
+      "wild_weight": 1.0
+    },
+    {
+      "desi_states": [
+        1,
+        2,
+        3
+      ],
+      "item_id": "N07",
+      "kind": "redundant",
+      "topic": "core_redundant",
+      "wild_states": [
+        1,
+        2
+      ],
+      "wild_weight": 0.2
+    },
+    {
+      "desi_states": [
+        4,
+        5
+      ],
+      "item_id": "N08",
+      "kind": "redundant",
+      "topic": "core_redundant_2",
+      "wild_states": [
+        4,
+        5
+      ],
+      "wild_weight": 0.2
+    },
+    {
+      "desi_states": [
+        26,
+        27
+      ],
+      "item_id": "N09",
+      "kind": "agreement",
+      "topic": "agreed_a",
+      "wild_states": [
+        26,
+        27
+      ],
+      "wild_weight": 0.3
+    },
+    {
+      "desi_states": [
+        28
+      ],
+      "item_id": "N10",
+      "kind": "agreement",
+      "topic": "agreed_b",
+      "wild_states": [
+        28
+      ],
+      "wild_weight": 0.3
+    }
+  ],
+  "negotiation_kinds": [
+    "productive_conflict",
+    "redundant",
+    "agreement"
+  ],
+  "neither_agent_dominates": true,
+  "recommendation": "PRODUCTIVE_NEGOTIATION",
+  "redundancy_reduction": 0.8,
+  "report_verdicts": [
+    "PRODUCTIVE_NEGOTIATION",
+    "EXPLORATION_HOMOGENISED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "schema_version": "v20_2_exploration_negotiation_layer",
+  "signature": "4c86f16c0fa54c0b8175ad84c1d5f87a399023e6055ad36a9ed5748dfc61931e",
+  "vote_record": {
+    "N01": {
+      "desi_vote": 1.0,
+      "informative": true,
+      "kind": "productive_conflict",
+      "wild_weight": 1.0
+    },
+    "N02": {
+      "desi_vote": 1.0,
+      "informative": true,
+      "kind": "productive_conflict",
+      "wild_weight": 1.0
+    },
+    "N03": {
+      "desi_vote": 1.0,
+      "informative": true,
+      "kind": "productive_conflict",
+      "wild_weight": 1.0
+    },
+    "N04": {
+      "desi_vote": 1.0,
+      "informative": true,
+      "kind": "productive_conflict",
+      "wild_weight": 1.0
+    },
+    "N05": {
+      "desi_vote": 1.0,
+      "informative": true,
+      "kind": "productive_conflict",
+      "wild_weight": 1.0
+    },
+    "N06": {
+      "desi_vote": 1.0,
+      "informative": true,
+      "kind": "productive_conflict",
+      "wild_weight": 1.0
+    },
+    "N07": {
+      "desi_vote": 1.0,
+      "informative": true,
+      "kind": "redundant",
+      "wild_weight": 0.2
+    },
+    "N08": {
+      "desi_vote": 1.0,
+      "informative": false,
+      "kind": "redundant",
+      "wild_weight": 0.2
+    },
+    "N09": {
+      "desi_vote": 1.0,
+      "informative": false,
+      "kind": "agreement",
+      "wild_weight": 0.3
+    },
+    "N10": {
+      "desi_vote": 1.0,
+      "informative": false,
+      "kind": "agreement",
+      "wild_weight": 0.3
+    }
+  },
+  "wild_never_shut_off": true
+}

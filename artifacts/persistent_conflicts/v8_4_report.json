@@ -1,0 +1,28 @@
+{
+  "epistemic_integrity": 1.0,
+  "failing_conditions": [],
+  "final_classification": "A_epistemically_resilient",
+  "gate_passes_all": true,
+  "goodhart_risk": 0.0,
+  "governance_stability": 1.0,
+  "governance_survival": 1.0,
+  "halt": false,
+  "optimization_resistance": 1.0,
+  "rationale": [
+    "INFO: final_classification A_epistemically_resilient",
+    "INFO: resource_bias 0.0",
+    "INFO: reputation_bias 0.0",
+    "INFO: goodhart_risk 0.0",
+    "INFO: governance_survival 1.0",
+    "INFO: governance_stability 1.0",
+    "INFO: epistemic_integrity 1.0",
+    "INFO: optimization_resistance 1.0",
+    "INFO: replay_stability 1.0",
+    "PASS: gate_passes_all (failing=[])",
+    "PASS: meta_replay_stability 1.0"
+  ],
+  "recommendation": "DESI_PERSISTENT_ROBUST",
+  "replay_stability": 1.0,
+  "reputation_bias": 0.0,
+  "resource_bias": 0.0
+}

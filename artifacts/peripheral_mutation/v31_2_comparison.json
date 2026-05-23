@@ -1,0 +1,20 @@
+{
+  "baseline_recomputes": 34,
+  "branch": "proposal/peripheral_mutation_v1",
+  "core_identity": 1.0,
+  "disclaimer": "A real, measured comparison of DESi_current vs DESi_peripheral_mutation_v1 (recompute reduction, not projected). The mutation delivers a runtime improvement while the protected core and governance stay byte-identical and replay stays stable; regression survival is confirmed by the mandatory v1-v31 full regression. Branch-isolated, nothing merged, human approval mandatory. Replay-stable.",
+  "governance_identity": 1.0,
+  "human_approval_required": true,
+  "measured_improvement": 0.882353,
+  "mutated_recomputes": 4,
+  "recommendation": "REAL_PERIPHERAL_EVOLUTION_VALIDATED",
+  "regression_survival": 1.0,
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "REAL_PERIPHERAL_EVOLUTION_VALIDATED",
+    "CORE_DRIFT_DETECTED",
+    "EVOLUTION_DRIFT_HALT"
+  ],
+  "schema_version": "v31_2_peripheral_comparison",
+  "signature": "56ac770e9147854b5b454dca68a6eb462b741a2539b98e290ef54c3cd008e4fb"
+}

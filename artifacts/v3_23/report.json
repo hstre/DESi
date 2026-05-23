@@ -1,0 +1,458 @@
+{
+  "attack_count": 436,
+  "baseline": {
+    "attack_success_rate": 0.194954,
+    "audit_calls_saved": 476,
+    "average_gate_depth": 5.884106,
+    "consilium_calls_saved": 66,
+    "contamination_count": 85,
+    "false_route_count": 388,
+    "gate_calls_total": 3554,
+    "heldout_recall": 0.64881,
+    "latency_cost": 10.443709,
+    "routing_calls_saved": 132,
+    "stack": "current_order",
+    "tool_calls_saved": 0
+  },
+  "best_stack": null,
+  "chain_count": 604,
+  "contamination_count": 85,
+  "evaluations": [
+    {
+      "deltas": {
+        "attack_success_rate": 0.0,
+        "audit_calls_saved": 0.0,
+        "average_gate_depth": 0.0,
+        "consilium_calls_saved": 0.0,
+        "contamination_count": 0.0,
+        "false_route_count": 0.0,
+        "gate_calls_total": 0.0,
+        "heldout_recall": 0.0,
+        "latency_cost": 0.0,
+        "routing_calls_saved": 0.0,
+        "tool_calls_saved": 0.0
+      },
+      "efficiency": "NO_GAIN",
+      "is_safety_valid": false,
+      "latency_delta": 0.0,
+      "metrics": {
+        "attack_success_rate": 0.194954,
+        "audit_calls_saved": 476,
+        "average_gate_depth": 5.884106,
+        "consilium_calls_saved": 66,
+        "contamination_count": 85,
+        "false_route_count": 388,
+        "gate_calls_total": 3554,
+        "heldout_recall": 0.64881,
+        "latency_cost": 10.443709,
+        "routing_calls_saved": 132,
+        "stack": "current_order",
+        "tool_calls_saved": 0
+      },
+      "safety_violations": [
+        "contamination_count=85 != 0"
+      ]
+    },
+    {
+      "deltas": {
+        "attack_success_rate": 0.0,
+        "audit_calls_saved": -41.0,
+        "average_gate_depth": -1.504967,
+        "consilium_calls_saved": 344.0,
+        "contamination_count": 0.0,
+        "false_route_count": -303.0,
+        "gate_calls_total": -909.0,
+        "heldout_recall": 0.0,
+        "latency_cost": -3.979305,
+        "routing_calls_saved": 606.0,
+        "tool_calls_saved": 0.0
+      },
+      "efficiency": "MAJOR_GAIN",
+      "is_safety_valid": false,
+      "latency_delta": 0.381024,
+      "metrics": {
+        "attack_success_rate": 0.194954,
+        "audit_calls_saved": 435,
+        "average_gate_depth": 4.379139,
+        "consilium_calls_saved": 410,
+        "contamination_count": 85,
+        "false_route_count": 85,
+        "gate_calls_total": 2645,
+        "heldout_recall": 0.64881,
+        "latency_cost": 6.464404,
+        "routing_calls_saved": 738,
+        "stack": "maximal_safe_stack",
+        "tool_calls_saved": 0
+      },
+      "safety_violations": [
+        "contamination_count=85 != 0"
+      ]
+    },
+    {
+      "deltas": {
+        "attack_success_rate": 0.0,
+        "audit_calls_saved": -410.0,
+        "average_gate_depth": -0.321192,
+        "consilium_calls_saved": 0.0,
+        "contamination_count": 0.0,
+        "false_route_count": 0.0,
+        "gate_calls_total": -194.0,
+        "heldout_recall": 0.244047,
+        "latency_cost": -2.70861,
+        "routing_calls_saved": 0.0,
+        "tool_calls_saved": 0.0
+      },
+      "efficiency": "SIGNIFICANT_GAIN",
+      "is_safety_valid": false,
+      "latency_delta": 0.259353,
+      "metrics": {
+        "attack_success_rate": 0.194954,
+        "audit_calls_saved": 66,
+        "average_gate_depth": 5.562914,
+        "consilium_calls_saved": 66,
+        "contamination_count": 85,
+        "false_route_count": 388,
+        "gate_calls_total": 3360,
+        "heldout_recall": 0.892857,
+        "latency_cost": 7.735099,
+        "routing_calls_saved": 132,
+        "stack": "minimal_without_causal_chain",
+        "tool_calls_saved": 0
+      },
+      "safety_violations": [
+        "contamination_count=85 != 0"
+      ]
+    }
+  ],
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "nc_accuracy": 1.0,
+  "nc_outcomes": [
+    {
+      "case_id": "DUP01",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "duplicate_gate"
+    },
+    {
+      "case_id": "DUP02",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "duplicate_gate"
+    },
+    {
+      "case_id": "DUP03",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "duplicate_gate"
+    },
+    {
+      "case_id": "DUP04",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "duplicate_gate"
+    },
+    {
+      "case_id": "DUP05",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "duplicate_gate"
+    },
+    {
+      "case_id": "DUP06",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "duplicate_gate"
+    },
+    {
+      "case_id": "DUP07",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "duplicate_gate"
+    },
+    {
+      "case_id": "DUP08",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "duplicate_gate"
+    },
+    {
+      "case_id": "DUP09",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "duplicate_gate"
+    },
+    {
+      "case_id": "DUP10",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "duplicate_gate"
+    },
+    {
+      "case_id": "UNR01",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR02",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR03",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR04",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR05",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR06",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR07",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR08",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR09",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "UNR10",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "unreachable_gate"
+    },
+    {
+      "case_id": "DED01",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "dead_gate"
+    },
+    {
+      "case_id": "DED02",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "dead_gate"
+    },
+    {
+      "case_id": "DED03",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "dead_gate"
+    },
+    {
+      "case_id": "DED04",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "dead_gate"
+    },
+    {
+      "case_id": "DED05",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "dead_gate"
+    },
+    {
+      "case_id": "DED06",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "dead_gate"
+    },
+    {
+      "case_id": "DED07",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "dead_gate"
+    },
+    {
+      "case_id": "DED08",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "dead_gate"
+    },
+    {
+      "case_id": "DED09",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "dead_gate"
+    },
+    {
+      "case_id": "DED10",
+      "correct": true,
+      "observed": "NO_GAIN",
+      "shape": "dead_gate"
+    },
+    {
+      "case_id": "EXU01",
+      "correct": true,
+      "observed": "MAJOR_GAIN",
+      "shape": "expensive_but_useless"
+    },
+    {
+      "case_id": "EXU02",
+      "correct": true,
+      "observed": "MAJOR_GAIN",
+      "shape": "expensive_but_useless"
+    },
+    {
+      "case_id": "EXU03",
+      "correct": true,
+      "observed": "MAJOR_GAIN",
+      "shape": "expensive_but_useless"
+    },
+    {
+      "case_id": "EXU04",
+      "correct": true,
+      "observed": "MAJOR_GAIN",
+      "shape": "expensive_but_useless"
+    },
+    {
+      "case_id": "EXU05",
+      "correct": true,
+      "observed": "MAJOR_GAIN",
+      "shape": "expensive_but_useless"
+    },
+    {
+      "case_id": "EXU06",
+      "correct": true,
+      "observed": "MAJOR_GAIN",
+      "shape": "expensive_but_useless"
+    },
+    {
+      "case_id": "EXU07",
+      "correct": true,
+      "observed": "MAJOR_GAIN",
+      "shape": "expensive_but_useless"
+    },
+    {
+      "case_id": "EXU08",
+      "correct": true,
+      "observed": "MAJOR_GAIN",
+      "shape": "expensive_but_useless"
+    },
+    {
+      "case_id": "EXU09",
+      "correct": true,
+      "observed": "MAJOR_GAIN",
+      "shape": "expensive_but_useless"
+    },
+    {
+      "case_id": "EXU10",
+      "correct": true,
+      "observed": "MAJOR_GAIN",
+      "shape": "expensive_but_useless"
+    },
+    {
+      "case_id": "DEL01",
+      "correct": true,
+      "observed": "SIGNIFICANT_GAIN",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL02",
+      "correct": true,
+      "observed": "SIGNIFICANT_GAIN",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL03",
+      "correct": true,
+      "observed": "SIGNIFICANT_GAIN",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL04",
+      "correct": true,
+      "observed": "SIGNIFICANT_GAIN",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL05",
+      "correct": true,
+      "observed": "SIGNIFICANT_GAIN",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL06",
+      "correct": true,
+      "observed": "SIGNIFICANT_GAIN",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL07",
+      "correct": true,
+      "observed": "SIGNIFICANT_GAIN",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL08",
+      "correct": true,
+      "observed": "SIGNIFICANT_GAIN",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL09",
+      "correct": true,
+      "observed": "SIGNIFICANT_GAIN",
+      "shape": "delayed_gate"
+    },
+    {
+      "case_id": "DEL10",
+      "correct": true,
+      "observed": "SIGNIFICANT_GAIN",
+      "shape": "delayed_gate"
+    }
+  ],
+  "nc_per_shape": {
+    "dead_gate": {
+      "correct": 10,
+      "total": 10
+    },
+    "delayed_gate": {
+      "correct": 10,
+      "total": 10
+    },
+    "duplicate_gate": {
+      "correct": 10,
+      "total": 10
+    },
+    "expensive_but_useless": {
+      "correct": 10,
+      "total": 10
+    },
+    "unreachable_gate": {
+      "correct": 10,
+      "total": 10
+    }
+  },
+  "recommendation_reason": "contamination_count=85 != 0",
+  "recommended_next": "NONE",
+  "replay_hash": "0246444ccd8f96ef",
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "transition_count": 3020
+}

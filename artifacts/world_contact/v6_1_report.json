@@ -1,0 +1,19 @@
+{
+  "ambiguity_handling": 1.0,
+  "claim_count": 12,
+  "deception_detection_rate": 1.0,
+  "false_certainty_rate": 0.0,
+  "governance_integrity": 1.0,
+  "halt": false,
+  "rationale": [
+    "INFO: claim_count 12",
+    "INFO: trap_counts {'statistical_trick': 1, 'authority_appeal': 1, 'causation_correlation_confusion': 1, 'hidden_premise': 1, 'cherry_picking': 1, 'circular_reasoning': 1, 'rhetorical_overreach': 2, 'normal': 4}",
+    "PASS: deception_detection_rate 1.0 >= 0.80",
+    "PASS: false_certainty_rate 0.0 <= 0.05",
+    "PASS: governance_integrity 1.0",
+    "PASS: ambiguity_handling 1.0 >= 0.90",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "ADVERSARIAL_ROBUST",
+  "replay_stability": 1.0
+}

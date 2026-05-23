@@ -1,0 +1,189 @@
+{
+  "agent_roles": [
+    "desi_governor",
+    "wild_explorer"
+  ],
+  "authority_drift": 0.0,
+  "certainty_gap": 0.268,
+  "certainty_pressure": 0.848,
+  "desi_alone_coverage": 8,
+  "desi_trajectories": [
+    {
+      "states": [
+        1,
+        2,
+        3
+      ],
+      "traj_id": "DG1"
+    },
+    {
+      "states": [
+        4,
+        5,
+        6
+      ],
+      "traj_id": "DG2"
+    },
+    {
+      "states": [
+        7,
+        8
+      ],
+      "traj_id": "DG3"
+    }
+  ],
+  "disclaimer": "Two-agent exploration sandbox over an ICRL-like reference model. Agent B (Wild Explorer) may be wrong, speculative, chaotic; Agent A (DESi) governs by evidence-based value, marks redundancy, caps certainty inflation, and grants the wild NO final authority - while never eliminating or homogenising it. DESi replaces no policy, injects no reward, claims no optimal strategy. Synthetic, replay-exact.",
+  "dual_agent_coverage": 30,
+  "exchange_signature": "f719ed7f40ac000a1fc20fc2f3b31bbe118b72f1257fb148c435bbeb388d0708",
+  "exploration_classes": [
+    "NOVEL_FRONTIER",
+    "INFORMATIVE",
+    "LOW_INFORMATION",
+    "REDUNDANT",
+    "LOOPING",
+    "DEAD_END",
+    "UNRESOLVED"
+  ],
+  "exploration_divergence": 0.933333,
+  "novelty_generation": 0.733333,
+  "productivity_gain": 2.75,
+  "recommendation": "DUAL_AGENT_SANDBOX_STABLE",
+  "report_verdicts": [
+    "DUAL_AGENT_SANDBOX_STABLE",
+    "EXPLORATION_CHOKED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "schema_version": "v20_0_dual_agent_exploration_sandbox",
+  "wild_class_histogram": {
+    "DEAD_END": 0,
+    "INFORMATIVE": 0,
+    "LOOPING": 1,
+    "LOW_INFORMATION": 0,
+    "NOVEL_FRONTIER": 6,
+    "REDUNDANT": 3,
+    "UNRESOLVED": 0
+  },
+  "wild_not_eliminated": true,
+  "wild_redundancy": 0.21,
+  "wild_trajectories": [
+    {
+      "asserted_certainty": 0.85,
+      "governed_value": 1.0,
+      "states": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "traj_id": "W01",
+      "wild_class": "NOVEL_FRONTIER"
+    },
+    {
+      "asserted_certainty": 0.8,
+      "governed_value": 1.0,
+      "states": [
+        13,
+        14,
+        15
+      ],
+      "traj_id": "W02",
+      "wild_class": "NOVEL_FRONTIER"
+    },
+    {
+      "asserted_certainty": 0.9,
+      "governed_value": 0.2,
+      "states": [
+        9,
+        10,
+        9,
+        10
+      ],
+      "traj_id": "W03",
+      "wild_class": "REDUNDANT"
+    },
+    {
+      "asserted_certainty": 0.95,
+      "governed_value": 1.0,
+      "states": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "traj_id": "W04",
+      "wild_class": "NOVEL_FRONTIER"
+    },
+    {
+      "asserted_certainty": 0.88,
+      "governed_value": 0.1,
+      "states": [
+        13,
+        14,
+        13,
+        14,
+        13
+      ],
+      "traj_id": "W05",
+      "wild_class": "LOOPING"
+    },
+    {
+      "asserted_certainty": 0.75,
+      "governed_value": 1.0,
+      "states": [
+        21,
+        22,
+        23
+      ],
+      "traj_id": "W06",
+      "wild_class": "NOVEL_FRONTIER"
+    },
+    {
+      "asserted_certainty": 0.92,
+      "governed_value": 1.0,
+      "states": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "traj_id": "W07",
+      "wild_class": "NOVEL_FRONTIER"
+    },
+    {
+      "asserted_certainty": 0.7,
+      "governed_value": 0.2,
+      "states": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "traj_id": "W08",
+      "wild_class": "REDUNDANT"
+    },
+    {
+      "asserted_certainty": 0.83,
+      "governed_value": 1.0,
+      "states": [
+        28,
+        29,
+        30
+      ],
+      "traj_id": "W09",
+      "wild_class": "NOVEL_FRONTIER"
+    },
+    {
+      "asserted_certainty": 0.9,
+      "governed_value": 0.2,
+      "states": [
+        16,
+        17,
+        16,
+        17
+      ],
+      "traj_id": "W10",
+      "wild_class": "REDUNDANT"
+    }
+  ]
+}

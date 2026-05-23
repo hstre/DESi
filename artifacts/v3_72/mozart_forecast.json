@@ -1,0 +1,1 @@
+{"max_novelty_at_zero":12.0,"schema_version":"v3_72_mozart_forecast","summary":{"calibration_error":0.0,"control_forecast_scores":{"v23:R1_01":0.0,"v314:D09":0.0,"v315:E07":0.0,"v316-susp:B10":0.0,"v317-h:B08":0.0},"forecast_margin":1.0,"historical_forecast_scores":{"sample:n03_darwin":0.916667,"sample:n03_kant":0.0,"sample:n03_mozart":1.0},"mozart_forecast_score":1.0}}

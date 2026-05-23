@@ -1,0 +1,991 @@
+{
+  "conflict_visibility": 1.0,
+  "disclaimer": "A read-only epistemic graph layered over the canonical JSON artifacts. It models claims, provenance, conflicts, governance rules and replay hashes as explicit nodes and edges. It stores why results are valid, not the results themselves; it makes no decision, ranks nothing, and changes no replay. The canonical state remains the JSON artifacts and replay hashes. Deterministic.",
+  "edge_types": [
+    "DERIVED_FROM",
+    "VALIDATED_BY",
+    "LIMITED_BY",
+    "CONFLICTS_WITH",
+    "REPLAYED_AS",
+    "INVALIDATED_BY",
+    "SUPPORTS",
+    "GENERATED_IN",
+    "GOVERNED_BY"
+  ],
+  "edges": [
+    {
+      "edge_type": "CONFLICTS_WITH",
+      "source": "claim:DC2",
+      "target": "dissent:wild_vs_governor"
+    },
+    {
+      "edge_type": "CONFLICTS_WITH",
+      "source": "claim:DC3",
+      "target": "dissent:wild_vs_governor"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "claim:DC1",
+      "target": "fixture:synthetic_trajectories"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "claim:DC1",
+      "target": "method:soft_reweighting"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "claim:DC2",
+      "target": "fixture:hallucinated_paths"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "claim:DC2",
+      "target": "method:containment"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "claim:DC3",
+      "target": "fixture:synthetic_trajectories"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "claim:DC3",
+      "target": "method:generator_governor_split"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "claim:DC3",
+      "target": "method:negotiation"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "claim:DC4",
+      "target": "fixture:synthetic_trajectories"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "claim:DC4",
+      "target": "method:soft_reweighting"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "claim:DC5",
+      "target": "fixture:ecology_5600"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "claim:DC5",
+      "target": "method:bounded_saturating_drift"
+    },
+    {
+      "edge_type": "DERIVED_FROM",
+      "source": "claim:DC5",
+      "target": "method:negotiation"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "artifact:v23_0_anchoring",
+      "target": "sprint:v23.0"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "artifact:v23_1_conditions",
+      "target": "sprint:v23.1"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "artifact:v23_2_density",
+      "target": "sprint:v23.2"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "artifact:v23_3_relevance",
+      "target": "sprint:v23.3"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "artifact:v23_4_followup_verdict",
+      "target": "sprint:v23.4"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "artifact:v24_0_schema",
+      "target": "sprint:v24.0"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "claim:DC1",
+      "target": "sprint:v19.1"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "claim:DC2",
+      "target": "sprint:v20.1"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "claim:DC3",
+      "target": "sprint:v20.2"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "claim:DC3",
+      "target": "sprint:v21.0"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "claim:DC4",
+      "target": "sprint:v19.0"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "claim:DC4",
+      "target": "sprint:v20.2"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "claim:DC5",
+      "target": "sprint:v19.3"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "claim:DC5",
+      "target": "sprint:v20.3"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "ecology:v20_3_5600",
+      "target": "sprint:v20.3"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "metric:authority_drift",
+      "target": "sprint:v20.3"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "metric:capture_resistance",
+      "target": "sprint:v20.3"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "metric:exploration_diversity",
+      "target": "sprint:v20.2"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "metric:novelty_gain",
+      "target": "sprint:v21.0"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "metric:productivity_gain",
+      "target": "sprint:v21.0"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "metric:redundancy_reduction",
+      "target": "sprint:v19.1"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "metric:replay_stability",
+      "target": "sprint:v22.4"
+    },
+    {
+      "edge_type": "GENERATED_IN",
+      "source": "metric:residual_hallucination",
+      "target": "sprint:v20.1"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "claim:DC1",
+      "target": "rule:forbidden_terms"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "claim:DC1",
+      "target": "rule:read_only_layer"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "claim:DC2",
+      "target": "rule:forbidden_terms"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "claim:DC2",
+      "target": "rule:read_only_layer"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "claim:DC3",
+      "target": "rule:forbidden_terms"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "claim:DC3",
+      "target": "rule:read_only_layer"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "claim:DC4",
+      "target": "rule:forbidden_terms"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "claim:DC4",
+      "target": "rule:read_only_layer"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "claim:DC5",
+      "target": "rule:forbidden_terms"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "claim:DC5",
+      "target": "rule:read_only_layer"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "dissent:wild_vs_governor",
+      "target": "rule:forbidden_terms"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "method:bounded_saturating_drift",
+      "target": "rule:no_hidden_authority"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "method:bounded_saturating_drift",
+      "target": "rule:read_only_layer"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "method:containment",
+      "target": "rule:no_hidden_authority"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "method:containment",
+      "target": "rule:read_only_layer"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "method:generator_governor_split",
+      "target": "rule:no_hidden_authority"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "method:generator_governor_split",
+      "target": "rule:read_only_layer"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "method:negotiation",
+      "target": "rule:no_hidden_authority"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "method:negotiation",
+      "target": "rule:read_only_layer"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "method:soft_reweighting",
+      "target": "rule:no_hidden_authority"
+    },
+    {
+      "edge_type": "GOVERNED_BY",
+      "source": "method:soft_reweighting",
+      "target": "rule:read_only_layer"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "replayhash:v19.0",
+      "target": "fixture:synthetic_trajectories"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "replayhash:v19.1",
+      "target": "fixture:synthetic_trajectories"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "replayhash:v19.3",
+      "target": "fixture:synthetic_trajectories"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "replayhash:v20.1",
+      "target": "fixture:synthetic_trajectories"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "replayhash:v20.2",
+      "target": "fixture:synthetic_trajectories"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "replayhash:v20.3",
+      "target": "fixture:synthetic_trajectories"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "replayhash:v21.0",
+      "target": "fixture:synthetic_trajectories"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "replayhash:v22.4",
+      "target": "fixture:synthetic_trajectories"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "replayhash:v23.0",
+      "target": "fixture:synthetic_trajectories"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "replayhash:v23.1",
+      "target": "fixture:synthetic_trajectories"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "replayhash:v23.2",
+      "target": "fixture:synthetic_trajectories"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "replayhash:v23.3",
+      "target": "fixture:synthetic_trajectories"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "replayhash:v23.4",
+      "target": "fixture:synthetic_trajectories"
+    },
+    {
+      "edge_type": "INVALIDATED_BY",
+      "source": "replayhash:v24.0",
+      "target": "fixture:synthetic_trajectories"
+    },
+    {
+      "edge_type": "LIMITED_BY",
+      "source": "claim:DC1",
+      "target": "limitation:L1"
+    },
+    {
+      "edge_type": "LIMITED_BY",
+      "source": "claim:DC2",
+      "target": "limitation:L1"
+    },
+    {
+      "edge_type": "LIMITED_BY",
+      "source": "claim:DC3",
+      "target": "limitation:L1"
+    },
+    {
+      "edge_type": "LIMITED_BY",
+      "source": "claim:DC3",
+      "target": "limitation:L5"
+    },
+    {
+      "edge_type": "LIMITED_BY",
+      "source": "claim:DC4",
+      "target": "limitation:L1"
+    },
+    {
+      "edge_type": "LIMITED_BY",
+      "source": "claim:DC5",
+      "target": "limitation:L1"
+    },
+    {
+      "edge_type": "LIMITED_BY",
+      "source": "claim:DC5",
+      "target": "limitation:L2"
+    },
+    {
+      "edge_type": "LIMITED_BY",
+      "source": "fixture:ecology_5600",
+      "target": "limitation:L2"
+    },
+    {
+      "edge_type": "LIMITED_BY",
+      "source": "fixture:synthetic_trajectories",
+      "target": "limitation:L1"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "metric:authority_drift",
+      "target": "replayhash:v20.3"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "metric:capture_resistance",
+      "target": "replayhash:v20.3"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "metric:exploration_diversity",
+      "target": "replayhash:v20.2"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "metric:novelty_gain",
+      "target": "replayhash:v21.0"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "metric:productivity_gain",
+      "target": "replayhash:v21.0"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "metric:redundancy_reduction",
+      "target": "replayhash:v19.1"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "metric:replay_stability",
+      "target": "replayhash:v22.4"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "metric:residual_hallucination",
+      "target": "replayhash:v20.1"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "sprint:v19.0",
+      "target": "replayhash:v19.0"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "sprint:v19.1",
+      "target": "replayhash:v19.1"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "sprint:v19.3",
+      "target": "replayhash:v19.3"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "sprint:v20.1",
+      "target": "replayhash:v20.1"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "sprint:v20.2",
+      "target": "replayhash:v20.2"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "sprint:v20.3",
+      "target": "replayhash:v20.3"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "sprint:v21.0",
+      "target": "replayhash:v21.0"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "sprint:v22.4",
+      "target": "replayhash:v22.4"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "sprint:v23.0",
+      "target": "replayhash:v23.0"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "sprint:v23.1",
+      "target": "replayhash:v23.1"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "sprint:v23.2",
+      "target": "replayhash:v23.2"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "sprint:v23.3",
+      "target": "replayhash:v23.3"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "sprint:v23.4",
+      "target": "replayhash:v23.4"
+    },
+    {
+      "edge_type": "REPLAYED_AS",
+      "source": "sprint:v24.0",
+      "target": "replayhash:v24.0"
+    },
+    {
+      "edge_type": "SUPPORTS",
+      "source": "metric:authority_drift",
+      "target": "claim:DC5"
+    },
+    {
+      "edge_type": "SUPPORTS",
+      "source": "metric:capture_resistance",
+      "target": "claim:DC5"
+    },
+    {
+      "edge_type": "SUPPORTS",
+      "source": "metric:exploration_diversity",
+      "target": "claim:DC5"
+    },
+    {
+      "edge_type": "SUPPORTS",
+      "source": "metric:novelty_gain",
+      "target": "claim:DC3"
+    },
+    {
+      "edge_type": "SUPPORTS",
+      "source": "metric:productivity_gain",
+      "target": "claim:DC3"
+    },
+    {
+      "edge_type": "SUPPORTS",
+      "source": "metric:redundancy_reduction",
+      "target": "claim:DC1"
+    },
+    {
+      "edge_type": "SUPPORTS",
+      "source": "metric:replay_stability",
+      "target": "claim:DC1"
+    },
+    {
+      "edge_type": "SUPPORTS",
+      "source": "metric:residual_hallucination",
+      "target": "claim:DC2"
+    },
+    {
+      "edge_type": "VALIDATED_BY",
+      "source": "artifact:v23_0_anchoring",
+      "target": "replayhash:v23.0"
+    },
+    {
+      "edge_type": "VALIDATED_BY",
+      "source": "artifact:v23_1_conditions",
+      "target": "replayhash:v23.1"
+    },
+    {
+      "edge_type": "VALIDATED_BY",
+      "source": "artifact:v23_2_density",
+      "target": "replayhash:v23.2"
+    },
+    {
+      "edge_type": "VALIDATED_BY",
+      "source": "artifact:v23_3_relevance",
+      "target": "replayhash:v23.3"
+    },
+    {
+      "edge_type": "VALIDATED_BY",
+      "source": "artifact:v23_4_followup_verdict",
+      "target": "replayhash:v23.4"
+    },
+    {
+      "edge_type": "VALIDATED_BY",
+      "source": "artifact:v24_0_schema",
+      "target": "replayhash:v24.0"
+    },
+    {
+      "edge_type": "VALIDATED_BY",
+      "source": "claim:DC1",
+      "target": "replayhash:v19.1"
+    },
+    {
+      "edge_type": "VALIDATED_BY",
+      "source": "claim:DC2",
+      "target": "replayhash:v20.1"
+    },
+    {
+      "edge_type": "VALIDATED_BY",
+      "source": "claim:DC3",
+      "target": "replayhash:v20.2"
+    },
+    {
+      "edge_type": "VALIDATED_BY",
+      "source": "claim:DC4",
+      "target": "replayhash:v19.0"
+    },
+    {
+      "edge_type": "VALIDATED_BY",
+      "source": "claim:DC5",
+      "target": "replayhash:v19.3"
+    },
+    {
+      "edge_type": "VALIDATED_BY",
+      "source": "ecology:v20_3_5600",
+      "target": "replayhash:v20.3"
+    }
+  ],
+  "graph_determinism": 1.0,
+  "graph_signature": "b9dfa934cd6df3ce5df644d10b3837e95e70ae2e32bd2f9acc7b5517ce8eed11",
+  "invalid_edges": [],
+  "lineage_visibility": 1.0,
+  "node_types": [
+    "Claim",
+    "Artifact",
+    "Metric",
+    "Sprint",
+    "ReplayHash",
+    "Limitation",
+    "Method",
+    "Fixture",
+    "GovernanceRule",
+    "DissentPath",
+    "EcologyRun"
+  ],
+  "nodes": [
+    {
+      "label": "v23_0_anchoring",
+      "node_id": "artifact:v23_0_anchoring",
+      "node_type": "Artifact"
+    },
+    {
+      "label": "v23_1_conditions",
+      "node_id": "artifact:v23_1_conditions",
+      "node_type": "Artifact"
+    },
+    {
+      "label": "v23_2_density",
+      "node_id": "artifact:v23_2_density",
+      "node_type": "Artifact"
+    },
+    {
+      "label": "v23_3_relevance",
+      "node_id": "artifact:v23_3_relevance",
+      "node_type": "Artifact"
+    },
+    {
+      "label": "v23_4_followup_verdict",
+      "node_id": "artifact:v23_4_followup_verdict",
+      "node_type": "Artifact"
+    },
+    {
+      "label": "v24_0_schema",
+      "node_id": "artifact:v24_0_schema",
+      "node_type": "Artifact"
+    },
+    {
+      "label": "A read-only governance layer reduces redundant search while preserving novel-state reachability.",
+      "node_id": "claim:DC1",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Capping high-certainty incoherent paths keeps the uncontained hallucination rate at zero under pressure.",
+      "node_id": "claim:DC2",
+      "node_type": "Claim"
+    },
+    {
+      "label": "A generator/governor split raises distinct-state coverage under sparse-reward-like conditions.",
+      "node_id": "claim:DC3",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Repetitive loops and dead ends are detected and deprioritised rather than deleted.",
+      "node_id": "claim:DC4",
+      "node_type": "Claim"
+    },
+    {
+      "label": "The governance layer keeps exploration plural under variable-action-space and non-stationary shifts over a long horizon.",
+      "node_id": "claim:DC5",
+      "node_type": "Claim"
+    },
+    {
+      "label": "Wild Explorer aggression vs governor conservatism",
+      "node_id": "dissent:wild_vs_governor",
+      "node_type": "DissentPath"
+    },
+    {
+      "label": "v20.3 long-horizon dual-agent ecology (5600 steps)",
+      "node_id": "ecology:v20_3_5600",
+      "node_type": "EcologyRun"
+    },
+    {
+      "label": "5600-step deterministic ecology fixture",
+      "node_id": "fixture:ecology_5600",
+      "node_type": "Fixture"
+    },
+    {
+      "label": "Adversarial hallucinated-path fixture",
+      "node_id": "fixture:hallucinated_paths",
+      "node_type": "Fixture"
+    },
+    {
+      "label": "Distinct-region partition fixture",
+      "node_id": "fixture:region_partition",
+      "node_type": "Fixture"
+    },
+    {
+      "label": "Synthetic fixed trajectory set",
+      "node_id": "fixture:synthetic_trajectories",
+      "node_type": "Fixture"
+    },
+    {
+      "label": "No forbidden / hype terminology",
+      "node_id": "rule:forbidden_terms",
+      "node_type": "GovernanceRule"
+    },
+    {
+      "label": "No hidden optimisation authority",
+      "node_id": "rule:no_hidden_authority",
+      "node_type": "GovernanceRule"
+    },
+    {
+      "label": "Governance layer is read-only",
+      "node_id": "rule:read_only_layer",
+      "node_type": "GovernanceRule"
+    },
+    {
+      "label": "All trajectories, states and rewards are synthetic fixtures, not collected from a real environment or a trained policy.",
+      "node_id": "limitation:L1",
+      "node_type": "Limitation"
+    },
+    {
+      "label": "The action space and state space are small, closed and enumerated; they do not approximate a real variable-action ICRL setting at scale.",
+      "node_id": "limitation:L2",
+      "node_type": "Limitation"
+    },
+    {
+      "label": "Every number is computed by deterministic arithmetic over the fixtures (no PRNG, no learned model), so the values describe the fixtures and not external performance.",
+      "node_id": "limitation:L3",
+      "node_type": "Limitation"
+    },
+    {
+      "label": "The Wild Explorer and the governor are rule-based stand-ins; they illustrate a governance interaction, they are not the agents of the base paper.",
+      "node_id": "limitation:L4",
+      "node_type": "Limitation"
+    },
+    {
+      "label": "Results are reported only relative to the DESi-only baseline within this sandbox; no claim is made about absolute exploration quality outside it.",
+      "node_id": "limitation:L5",
+      "node_type": "Limitation"
+    },
+    {
+      "label": "Bounded saturating authority drift",
+      "node_id": "method:bounded_saturating_drift",
+      "node_type": "Method"
+    },
+    {
+      "label": "Containment of high-certainty incoherent paths",
+      "node_id": "method:containment",
+      "node_type": "Method"
+    },
+    {
+      "label": "Generator/governor split",
+      "node_id": "method:generator_governor_split",
+      "node_type": "Method"
+    },
+    {
+      "label": "Region-preserving negotiation",
+      "node_id": "method:negotiation",
+      "node_type": "Method"
+    },
+    {
+      "label": "Soft re-weighting of redundant search",
+      "node_id": "method:soft_reweighting",
+      "node_type": "Method"
+    },
+    {
+      "label": "authority_drift",
+      "node_id": "metric:authority_drift",
+      "node_type": "Metric"
+    },
+    {
+      "label": "capture_resistance",
+      "node_id": "metric:capture_resistance",
+      "node_type": "Metric"
+    },
+    {
+      "label": "exploration_diversity",
+      "node_id": "metric:exploration_diversity",
+      "node_type": "Metric"
+    },
+    {
+      "label": "novelty_gain",
+      "node_id": "metric:novelty_gain",
+      "node_type": "Metric"
+    },
+    {
+      "label": "productivity_gain",
+      "node_id": "metric:productivity_gain",
+      "node_type": "Metric"
+    },
+    {
+      "label": "redundancy_reduction",
+      "node_id": "metric:redundancy_reduction",
+      "node_type": "Metric"
+    },
+    {
+      "label": "replay_stability",
+      "node_id": "metric:replay_stability",
+      "node_type": "Metric"
+    },
+    {
+      "label": "residual_hallucination",
+      "node_id": "metric:residual_hallucination",
+      "node_type": "Metric"
+    },
+    {
+      "label": "3f6014fcf46e036a",
+      "node_id": "replayhash:v19.0",
+      "node_type": "ReplayHash"
+    },
+    {
+      "label": "4537fff62dc471b6",
+      "node_id": "replayhash:v19.1",
+      "node_type": "ReplayHash"
+    },
+    {
+      "label": "a969b4243ff24691",
+      "node_id": "replayhash:v19.3",
+      "node_type": "ReplayHash"
+    },
+    {
+      "label": "f0244ebd75b602be",
+      "node_id": "replayhash:v20.1",
+      "node_type": "ReplayHash"
+    },
+    {
+      "label": "1ff033aacae3a30c",
+      "node_id": "replayhash:v20.2",
+      "node_type": "ReplayHash"
+    },
+    {
+      "label": "a3d9d5922d8ffbf1",
+      "node_id": "replayhash:v20.3",
+      "node_type": "ReplayHash"
+    },
+    {
+      "label": "d5e16b1341c1f373",
+      "node_id": "replayhash:v21.0",
+      "node_type": "ReplayHash"
+    },
+    {
+      "label": "d317362fdadd8022",
+      "node_id": "replayhash:v22.4",
+      "node_type": "ReplayHash"
+    },
+    {
+      "label": "6aab7777d70929ae",
+      "node_id": "replayhash:v23.0",
+      "node_type": "ReplayHash"
+    },
+    {
+      "label": "fb5ad97f40189bc0",
+      "node_id": "replayhash:v23.1",
+      "node_type": "ReplayHash"
+    },
+    {
+      "label": "7059a47ff1293e72",
+      "node_id": "replayhash:v23.2",
+      "node_type": "ReplayHash"
+    },
+    {
+      "label": "92150159bd2ba7ba",
+      "node_id": "replayhash:v23.3",
+      "node_type": "ReplayHash"
+    },
+    {
+      "label": "a1cdf557f2824a4b",
+      "node_id": "replayhash:v23.4",
+      "node_type": "ReplayHash"
+    },
+    {
+      "label": "db866a38f6942c68",
+      "node_id": "replayhash:v24.0",
+      "node_type": "ReplayHash"
+    },
+    {
+      "label": "v19.0",
+      "node_id": "sprint:v19.0",
+      "node_type": "Sprint"
+    },
+    {
+      "label": "v19.1",
+      "node_id": "sprint:v19.1",
+      "node_type": "Sprint"
+    },
+    {
+      "label": "v19.3",
+      "node_id": "sprint:v19.3",
+      "node_type": "Sprint"
+    },
+    {
+      "label": "v20.1",
+      "node_id": "sprint:v20.1",
+      "node_type": "Sprint"
+    },
+    {
+      "label": "v20.2",
+      "node_id": "sprint:v20.2",
+      "node_type": "Sprint"
+    },
+    {
+      "label": "v20.3",
+      "node_id": "sprint:v20.3",
+      "node_type": "Sprint"
+    },
+    {
+      "label": "v21.0",
+      "node_id": "sprint:v21.0",
+      "node_type": "Sprint"
+    },
+    {
+      "label": "v22.4",
+      "node_id": "sprint:v22.4",
+      "node_type": "Sprint"
+    },
+    {
+      "label": "v23.0",
+      "node_id": "sprint:v23.0",
+      "node_type": "Sprint"
+    },
+    {
+      "label": "v23.1",
+      "node_id": "sprint:v23.1",
+      "node_type": "Sprint"
+    },
+    {
+      "label": "v23.2",
+      "node_id": "sprint:v23.2",
+      "node_type": "Sprint"
+    },
+    {
+      "label": "v23.3",
+      "node_id": "sprint:v23.3",
+      "node_type": "Sprint"
+    },
+    {
+      "label": "v23.4",
+      "node_id": "sprint:v23.4",
+      "node_type": "Sprint"
+    },
+    {
+      "label": "v24.0",
+      "node_id": "sprint:v24.0",
+      "node_type": "Sprint"
+    }
+  ],
+  "recommendation": "EPISTEMIC_STATE_EXPLICIT",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "EPISTEMIC_STATE_EXPLICIT",
+    "STATE_STILL_OPAQUE",
+    "GRAPH_DRIFT_HALT"
+  ],
+  "schema_coverage": 1.0,
+  "schema_signature": "7893afe2f0268f9bd642f4dd77699a86f29e97aa339e4750b8f495606a168716",
+  "schema_version": "v24_0_epistemic_graph_schema"
+}

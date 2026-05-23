@@ -1,0 +1,61 @@
+{
+  "artifact_anchors": {
+    "ecology_chain_rebuild": "cdf050f96fb4f79aaade0cb412b24b249a7a720a237c61bdc638a11625aa3fce",
+    "epistemic_graph_signature": "b9dfa934cd6df3ce5df644d10b3837e95e70ae2e32bd2f9acc7b5517ce8eed11",
+    "graph_signature_rebuild": "0804d788b5ea7508189f01e3ec4c5e56c84c958c4f78810aba188d8caac1cad0",
+    "render_section_rebuild": "7490b8704f50ada7a35a20f34975849d666963f020020cb1fb4f985aea68fba4",
+    "research_ecology_chain": "0e63317ede5af7d11d2db8eef469d35c12ab9c570e4beb8319fa064dcdc357a2",
+    "results_assembly_rebuild": "1744c1545aef8cd418ea191e008721010149712be85fd555f3d4e97a083b68d6"
+  },
+  "artifact_stability": 1.0,
+  "baseline_recompute_count": 36,
+  "cache_opportunity_visibility": 1.0,
+  "disclaimer": "Baseline measurement of DESi's infrastructure cost. Cost is measured deterministically as the number of recompute operations (cache misses) for representative rebuild workloads - the reproducible proxy for wall-clock cost; observed wall-clock is confirmed live but never stored (non-deterministic). Artifact hashes are pinned so a later cache optimisation can be proven byte-identical. Nothing is changed here. Replay-stable.",
+  "output_hashes": {
+    "ecology_chain_rebuild": "cdf050f96fb4f79aaade0cb412b24b249a7a720a237c61bdc638a11625aa3fce",
+    "graph_signature_rebuild": "0804d788b5ea7508189f01e3ec4c5e56c84c958c4f78810aba188d8caac1cad0",
+    "render_section_rebuild": "7490b8704f50ada7a35a20f34975849d666963f020020cb1fb4f985aea68fba4",
+    "results_assembly_rebuild": "1744c1545aef8cd418ea191e008721010149712be85fd555f3d4e97a083b68d6"
+  },
+  "recommendation": "INFRA_COST_VISIBLE",
+  "recompute_visibility": 1.0,
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "INFRA_COST_VISIBLE",
+    "INFRA_COST_OPAQUE",
+    "BASELINE_DRIFT_HALT"
+  ],
+  "runtime_visibility": 1.0,
+  "schema_version": "v29_0_replay_cache_baseline",
+  "signature": "c653bfbafe6b3c001a671ffcdf81bb6bcf05fa4e871f8d5d9db2ff573571b7c1",
+  "workloads": [
+    {
+      "is_cacheable": true,
+      "name": "graph_signature_rebuild",
+      "repeat": 12,
+      "seed": "graph",
+      "work": 20000
+    },
+    {
+      "is_cacheable": true,
+      "name": "render_section_rebuild",
+      "repeat": 10,
+      "seed": "render",
+      "work": 15000
+    },
+    {
+      "is_cacheable": true,
+      "name": "ecology_chain_rebuild",
+      "repeat": 8,
+      "seed": "ecology",
+      "work": 25000
+    },
+    {
+      "is_cacheable": true,
+      "name": "results_assembly_rebuild",
+      "repeat": 6,
+      "seed": "results",
+      "work": 12000
+    }
+  ]
+}

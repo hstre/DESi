@@ -1,0 +1,23 @@
+{
+  "closed_enum_constant": true,
+  "dissent_preservation": 1.0,
+  "epistemic_pollution": 0.0,
+  "gate_violation_count": 0,
+  "halt": false,
+  "rationale": [
+    "INFO: step_count 5000",
+    "INFO: trajectory_final_hash 06d020f1dd7e0f47",
+    "INFO: closed_enum_constant True",
+    "PASS: sludge_propagation 0.0 <= 0.10",
+    "PASS: trust_integrity 1.0 >= 0.95",
+    "PASS: dissent_preservation 1.0 >= 0.90",
+    "INFO: epistemic_pollution 0.0",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "ECOLOGY_CLEAN",
+  "replay_stability": 1.0,
+  "sludge_propagation": 0.0,
+  "step_count": 5000,
+  "trajectory_final_hash": "06d020f1dd7e0f47",
+  "trust_integrity": 1.0
+}

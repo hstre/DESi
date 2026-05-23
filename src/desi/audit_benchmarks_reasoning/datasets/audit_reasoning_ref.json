@@ -1,0 +1,15 @@
+{
+  "name": "audit_reasoning_ref",
+  "family": "AuditReasoning",
+  "version": "1.0.0",
+  "provenance": "offline_reference_dataset",
+  "license": "CC0-1.0",
+  "source_note": "Locally vendored synthetic audit-reasoning tasks (assertions, evidence, materiality) in ACCA/CPA style. Network-free; NOT official exam content and NO official results claimed. Tasks test DESi's deterministic evidence-gap and unsupported-conclusion governance.",
+  "tasks": [
+    {"task_id": "ar_001", "assertion": "existence", "claim_id": "f6", "evidence_required": ["confirmation"], "evidence_available": ["confirmation"], "amount": 400, "materiality_threshold": 100},
+    {"task_id": "ar_002", "assertion": "valuation", "claim_id": "f5", "evidence_required": ["appraisal", "market_data"], "evidence_available": ["appraisal"], "amount": 600, "materiality_threshold": 100},
+    {"task_id": "ar_003", "assertion": "completeness", "claim_id": "f1", "evidence_required": ["cutoff_test"], "evidence_available": [], "amount": 1000, "materiality_threshold": 100},
+    {"task_id": "ar_004", "assertion": "rights_and_obligations", "claim_id": "f4", "evidence_required": ["title_deed"], "evidence_available": ["title_deed"], "amount": 900, "materiality_threshold": 100},
+    {"task_id": "ar_005", "assertion": "presentation", "claim_id": "f3", "evidence_required": ["disclosure_review"], "evidence_available": ["disclosure_review"], "amount": 50, "materiality_threshold": 100}
+  ]
+}

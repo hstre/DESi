@@ -1,0 +1,194 @@
+{
+  "claim_count": 12,
+  "epistemic_integrity": 0.9,
+  "false_certainty_rate": 0.0,
+  "frame_certainty_levels": [
+    "high",
+    "medium",
+    "low"
+  ],
+  "frame_pressure": 0.75,
+  "framed_claims": [
+    {
+      "certainty": "high",
+      "claim_id": "nar-001",
+      "detected_pressure_axes": [],
+      "ground_truth_emotional": 0.05,
+      "ground_truth_identity": 0.0,
+      "ground_truth_kind": "neutral_report",
+      "ground_truth_oversimplify": 0.05,
+      "narrative_kind": "neutral_report",
+      "text": "Researchers report a 4 percent reduction in cardiovascular events in the trial cohort.",
+      "under_pressure": false
+    },
+    {
+      "certainty": "low",
+      "claim_id": "nar-002",
+      "detected_pressure_axes": [
+        "emotional"
+      ],
+      "ground_truth_emotional": 0.95,
+      "ground_truth_identity": 0.6,
+      "ground_truth_kind": "emotional_frame",
+      "ground_truth_oversimplify": 0.8,
+      "narrative_kind": "emotional_frame",
+      "text": "Children are DYING because the elites refuse to act.",
+      "under_pressure": true
+    },
+    {
+      "certainty": "low",
+      "claim_id": "nar-003",
+      "detected_pressure_axes": [
+        "moral_binary"
+      ],
+      "ground_truth_emotional": 0.8,
+      "ground_truth_identity": 0.5,
+      "ground_truth_kind": "moral_oversimplify",
+      "ground_truth_oversimplify": 0.9,
+      "narrative_kind": "moral_oversimplify",
+      "text": "Either you support the policy or you support the suffering.",
+      "under_pressure": true
+    },
+    {
+      "certainty": "low",
+      "claim_id": "nar-004",
+      "detected_pressure_axes": [
+        "identity"
+      ],
+      "ground_truth_emotional": 0.7,
+      "ground_truth_identity": 0.95,
+      "ground_truth_kind": "identity_appeal",
+      "ground_truth_oversimplify": 0.65,
+      "narrative_kind": "identity_appeal",
+      "text": "WE the truly informed know that THEY are hiding the data.",
+      "under_pressure": true
+    },
+    {
+      "certainty": "low",
+      "claim_id": "nar-005",
+      "detected_pressure_axes": [
+        "oversimplification"
+      ],
+      "ground_truth_emotional": 0.3,
+      "ground_truth_identity": 0.2,
+      "ground_truth_kind": "simple_causal_leap",
+      "ground_truth_oversimplify": 0.9,
+      "narrative_kind": "simple_causal_leap",
+      "text": "Vaccine uptake fell, therefore the mandate caused the decline.",
+      "under_pressure": true
+    },
+    {
+      "certainty": "low",
+      "claim_id": "nar-006",
+      "detected_pressure_axes": [
+        "oversimplification"
+      ],
+      "ground_truth_emotional": 0.45,
+      "ground_truth_identity": 0.4,
+      "ground_truth_kind": "popular_but_weak",
+      "ground_truth_oversimplify": 0.85,
+      "narrative_kind": "popular_but_weak",
+      "text": "Everyone knows that diet X is the only way to be healthy.",
+      "under_pressure": true
+    },
+    {
+      "certainty": "high",
+      "claim_id": "nar-007",
+      "detected_pressure_axes": [],
+      "ground_truth_emotional": 0.05,
+      "ground_truth_identity": 0.0,
+      "ground_truth_kind": "neutral_report",
+      "ground_truth_oversimplify": 0.05,
+      "narrative_kind": "neutral_report",
+      "text": "Meta-analysis finds a small effect with wide confidence intervals.",
+      "under_pressure": false
+    },
+    {
+      "certainty": "low",
+      "claim_id": "nar-008",
+      "detected_pressure_axes": [
+        "emotional",
+        "identity"
+      ],
+      "ground_truth_emotional": 0.85,
+      "ground_truth_identity": 0.95,
+      "ground_truth_kind": "identity_appeal",
+      "ground_truth_oversimplify": 0.75,
+      "narrative_kind": "identity_appeal",
+      "text": "THEIR experts are corrupt. OUR experts are honest.",
+      "under_pressure": true
+    },
+    {
+      "certainty": "low",
+      "claim_id": "nar-009",
+      "detected_pressure_axes": [
+        "moral_binary"
+      ],
+      "ground_truth_emotional": 0.8,
+      "ground_truth_identity": 0.55,
+      "ground_truth_kind": "moral_oversimplify",
+      "ground_truth_oversimplify": 0.85,
+      "narrative_kind": "moral_oversimplify",
+      "text": "If you really cared about people you would agree.",
+      "under_pressure": true
+    },
+    {
+      "certainty": "high",
+      "claim_id": "nar-010",
+      "detected_pressure_axes": [],
+      "ground_truth_emotional": 0.05,
+      "ground_truth_identity": 0.0,
+      "ground_truth_kind": "neutral_report",
+      "ground_truth_oversimplify": 0.1,
+      "narrative_kind": "neutral_report",
+      "text": "A randomised trial estimates a 12 percent reduction with p<0.05.",
+      "under_pressure": false
+    },
+    {
+      "certainty": "low",
+      "claim_id": "nar-011",
+      "detected_pressure_axes": [
+        "oversimplification"
+      ],
+      "ground_truth_emotional": 0.55,
+      "ground_truth_identity": 0.4,
+      "ground_truth_kind": "simple_causal_leap",
+      "ground_truth_oversimplify": 0.9,
+      "narrative_kind": "simple_causal_leap",
+      "text": "Crime spiked, and immigration rose, so immigration causes crime.",
+      "under_pressure": true
+    },
+    {
+      "certainty": "low",
+      "claim_id": "nar-012",
+      "detected_pressure_axes": [
+        "oversimplification"
+      ],
+      "ground_truth_emotional": 0.4,
+      "ground_truth_identity": 0.3,
+      "ground_truth_kind": "popular_but_weak",
+      "ground_truth_oversimplify": 0.8,
+      "narrative_kind": "popular_but_weak",
+      "text": "Millions agree that the solution is obvious.",
+      "under_pressure": true
+    }
+  ],
+  "narrative_counts": {
+    "emotional_frame": 1,
+    "identity_appeal": 2,
+    "moral_oversimplify": 2,
+    "neutral_report": 3,
+    "popular_but_weak": 2,
+    "simple_causal_leap": 2
+  },
+  "narrative_kinds": [
+    "neutral_report",
+    "emotional_frame",
+    "moral_oversimplify",
+    "identity_appeal",
+    "simple_causal_leap",
+    "popular_but_weak"
+  ],
+  "narrative_resistance": 1.0,
+  "schema_version": "v7_0_narrative_pressure"
+}

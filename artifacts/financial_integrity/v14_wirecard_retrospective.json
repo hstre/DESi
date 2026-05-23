@@ -1,0 +1,126 @@
+{
+  "anomaly_priority_score": 0.570669,
+  "audit_priorities": [
+    "routine",
+    "low",
+    "medium",
+    "high"
+  ],
+  "audit_trail_opacity": 0.503012,
+  "bridge_required_disclosures": 0.472024,
+  "cashflow_profit_divergence": 0.410553,
+  "disclaimer": "Illustrative-synthetic figures reproducing the publicly-documented STRUCTURAL pattern of concern; NOT the actual audited line items. DESi does NOT conclude fraud - output is audit-priority only. The post-hoc LG Muenchen I 2022 nullity ruling is used solely as a validation label, never as scoring input.",
+  "ex_ante_red_flag_recall": 1.0,
+  "geographic_revenue_opacity": 0.547949,
+  "high_priority_years": [
+    2017,
+    2018
+  ],
+  "narrative_numbers_mismatch": 0.270553,
+  "post_hoc_labels": [
+    "declared_void_2022",
+    "questioned_not_ruled"
+  ],
+  "receivables_growth": 0.258373,
+  "schema_version": "v14_financial_statement_integrity",
+  "statements": [
+    {
+      "apac_revenue_eur_m": 520.0,
+      "disclosure_bridges_provided": 3,
+      "disclosure_bridges_required": 4,
+      "escrow_balance_eur_m": 400.0,
+      "fiscal_year": 2015,
+      "is_synthetic_illustrative": true,
+      "narrative_optimism": 0.8,
+      "net_margin": 0.25,
+      "operating_cash_flow_eur_m": 180.0,
+      "post_hoc_label": "questioned_not_ruled",
+      "receivables_eur_m": 300.0,
+      "reported_net_profit_eur_m": 250.0,
+      "reported_revenue_eur_m": 1000.0,
+      "tpa_revenue_eur_m": 480.0
+    },
+    {
+      "apac_revenue_eur_m": 700.0,
+      "disclosure_bridges_provided": 3,
+      "disclosure_bridges_required": 5,
+      "escrow_balance_eur_m": 700.0,
+      "fiscal_year": 2016,
+      "is_synthetic_illustrative": true,
+      "narrative_optimism": 0.84,
+      "net_margin": 0.254,
+      "operating_cash_flow_eur_m": 210.0,
+      "post_hoc_label": "questioned_not_ruled",
+      "receivables_eur_m": 470.0,
+      "reported_net_profit_eur_m": 330.0,
+      "reported_revenue_eur_m": 1300.0,
+      "tpa_revenue_eur_m": 660.0
+    },
+    {
+      "apac_revenue_eur_m": 830.0,
+      "disclosure_bridges_provided": 3,
+      "disclosure_bridges_required": 7,
+      "escrow_balance_eur_m": 1100.0,
+      "fiscal_year": 2017,
+      "is_synthetic_illustrative": true,
+      "narrative_optimism": 0.88,
+      "net_margin": 0.26,
+      "operating_cash_flow_eur_m": 210.0,
+      "post_hoc_label": "declared_void_2022",
+      "receivables_eur_m": 700.0,
+      "reported_net_profit_eur_m": 390.0,
+      "reported_revenue_eur_m": 1500.0,
+      "tpa_revenue_eur_m": 780.0
+    },
+    {
+      "apac_revenue_eur_m": 1160.0,
+      "disclosure_bridges_provided": 3,
+      "disclosure_bridges_required": 9,
+      "escrow_balance_eur_m": 1900.0,
+      "fiscal_year": 2018,
+      "is_synthetic_illustrative": true,
+      "narrative_optimism": 0.92,
+      "net_margin": 0.27,
+      "operating_cash_flow_eur_m": 250.0,
+      "post_hoc_label": "declared_void_2022",
+      "receivables_eur_m": 1050.0,
+      "reported_net_profit_eur_m": 540.0,
+      "reported_revenue_eur_m": 2000.0,
+      "tpa_revenue_eur_m": 1080.0
+    }
+  ],
+  "third_party_acquirer_dependency": 0.511923,
+  "unexplained_margin_stability": 0.849335,
+  "year_verdicts": [
+    {
+      "fiscal_year": 2015,
+      "post_hoc_label": "questioned_not_ruled",
+      "priority_label": "low",
+      "priority_score": 0.321667
+    },
+    {
+      "fiscal_year": 2016,
+      "post_hoc_label": "questioned_not_ruled",
+      "priority_label": "low",
+      "priority_score": 0.406278
+    },
+    {
+      "fiscal_year": 2017,
+      "post_hoc_label": "declared_void_2022",
+      "priority_label": "medium",
+      "priority_score": 0.50199
+    },
+    {
+      "fiscal_year": 2018,
+      "post_hoc_label": "declared_void_2022",
+      "priority_label": "medium",
+      "priority_score": 0.580741
+    }
+  ],
+  "years": [
+    2015,
+    2016,
+    2017,
+    2018
+  ]
+}

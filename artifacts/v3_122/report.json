@@ -1,0 +1,1252 @@
+{
+  "avoidable_full_runs": 200,
+  "classification_counts": {
+    "analysis_only": 195,
+    "core_mutation": 3,
+    "docs_only": 5,
+    "gate_mutation": 0
+  },
+  "classified_commits": [
+    {
+      "file_count": 1,
+      "message": "Initial commit",
+      "mutation_kind": "docs_only",
+      "sha": "f69ee3eb0bfc"
+    },
+    {
+      "file_count": 23,
+      "message": "Bootstrap DESi prototype reconciled with canonical DES schema",
+      "mutation_kind": "analysis_only",
+      "sha": "6a56a24d4673"
+    },
+    {
+      "file_count": 10,
+      "message": "Add 10 adversarial trajectories for DESi falsification",
+      "mutation_kind": "docs_only",
+      "sha": "6b999b545ae3"
+    },
+    {
+      "file_count": 1,
+      "message": "Adopt DESi Role-Prefix Policy across all five roles",
+      "mutation_kind": "analysis_only",
+      "sha": "e17efd89c4c7"
+    },
+    {
+      "file_count": 6,
+      "message": "feature/claim-object-memory v0.1: Claim object + optional Neo4j memory layer",
+      "mutation_kind": "analysis_only",
+      "sha": "dcfce46483a1"
+    },
+    {
+      "file_count": 5,
+      "message": "feature/claim-object-memory v0.1 (2/2): store + tests + docs",
+      "mutation_kind": "analysis_only",
+      "sha": "ebd5c435ea4e"
+    },
+    {
+      "file_count": 1,
+      "message": ".gitignore: cover cross-branch working-tree leftovers",
+      "mutation_kind": "docs_only",
+      "sha": "2bf7db1c8713"
+    },
+    {
+      "file_count": 3,
+      "message": "v0.2 (1/3): MemoryRecorder + transaction support in store + __init__ exports",
+      "mutation_kind": "analysis_only",
+      "sha": "5203b0b72f1f"
+    },
+    {
+      "file_count": 3,
+      "message": "v0.2 (2/3): ReadOnlyMemoryView + migrations + test_recorder",
+      "mutation_kind": "analysis_only",
+      "sha": "3f6441ca01b6"
+    },
+    {
+      "file_count": 4,
+      "message": "v0.2 (3/3): test_view + test_atomics + test_migrations + docs/memory/v0_2.md",
+      "mutation_kind": "analysis_only",
+      "sha": "6839fb01a5cd"
+    },
+    {
+      "file_count": 6,
+      "message": "v0.3: MemoryHook + run_desi entrypoint (write-only observation)",
+      "mutation_kind": "analysis_only",
+      "sha": "672aec927cc2"
+    },
+    {
+      "file_count": 5,
+      "message": "v0.4 (1/3): observation + eval modules (timeline, snapshot, session, scenarios, harness)",
+      "mutation_kind": "analysis_only",
+      "sha": "f914e1b04e15"
+    },
+    {
+      "file_count": 3,
+      "message": "v0.4 (2/3): scenarios + harness + docs",
+      "mutation_kind": "analysis_only",
+      "sha": "9420ca1b1367"
+    },
+    {
+      "file_count": 7,
+      "message": "v0.4 (3/3): tests for observe + eval",
+      "mutation_kind": "analysis_only",
+      "sha": "4a0dd6e4c5be"
+    },
+    {
+      "file_count": 4,
+      "message": "v0.4.1 (1/4): showcase package source (descriptions + runner)",
+      "mutation_kind": "analysis_only",
+      "sha": "b68f9aa61e26"
+    },
+    {
+      "file_count": 4,
+      "message": "v0.4.1 (2/4): tests + v0.4.1 doc + showcase README + baseline_notes",
+      "mutation_kind": "analysis_only",
+      "sha": "4f0245ea2a27"
+    },
+    {
+      "file_count": 1,
+      "message": ".gitignore: untrack docs/showcase/{S2,S6,S7}/ \u2014 regenerable bundles",
+      "mutation_kind": "docs_only",
+      "sha": "87c763053176"
+    },
+    {
+      "file_count": 1,
+      "message": "docs/showcase/README.md: clarify that per-scenario bundles are regenerable + gitignored",
+      "mutation_kind": "docs_only",
+      "sha": "c986e7eeb3db"
+    },
+    {
+      "file_count": 4,
+      "message": "v0.5 (1/4): evolution package \u2014 init, reflection, proposal, sandbox",
+      "mutation_kind": "analysis_only",
+      "sha": "5bd17c006b53"
+    },
+    {
+      "file_count": 3,
+      "message": "v0.5 (2/4): evaluation + jury + promotion",
+      "mutation_kind": "analysis_only",
+      "sha": "86edf464ce9d"
+    },
+    {
+      "file_count": 5,
+      "message": "v0.5 (3/4): tests \u2014 init/conftest + reflection + proposal + sandbox",
+      "mutation_kind": "analysis_only",
+      "sha": "16546f911f94"
+    },
+    {
+      "file_count": 5,
+      "message": "v0.5 (4/4): remaining tests + v0_5.md design doc",
+      "mutation_kind": "analysis_only",
+      "sha": "c187405ec834"
+    },
+    {
+      "file_count": 4,
+      "message": "v0.6 (1/4): new evolution modules \u2014 ledger, veto_followup, metrics, draft",
+      "mutation_kind": "analysis_only",
+      "sha": "7ee76d995809"
+    },
+    {
+      "file_count": 2,
+      "message": "v0.6 (2/4): __init__ exports + proposal.requires_ratification",
+      "mutation_kind": "analysis_only",
+      "sha": "4867271a9a45"
+    },
+    {
+      "file_count": 1,
+      "message": "v0.6 (3/5): jury.py \u2014 JuryMember.model_label + persona labels",
+      "mutation_kind": "analysis_only",
+      "sha": "24ce1391ada7"
+    },
+    {
+      "file_count": 2,
+      "message": "v0.6 (4/5): reflection.py optional memory_view + promotion.py ledger-aware promote",
+      "mutation_kind": "analysis_only",
+      "sha": "efff01d77071"
+    },
+    {
+      "file_count": 6,
+      "message": "v0.6 (5/5): 5 new test files + v0_6.md design doc",
+      "mutation_kind": "analysis_only",
+      "sha": "ff787b0ae673"
+    },
+    {
+      "file_count": 15,
+      "message": "v0.7: Config Activation + Metrics Delta \u2014 first behaviour-effective mutation",
+      "mutation_kind": "analysis_only",
+      "sha": "50d348a1f105"
+    },
+    {
+      "file_count": 12,
+      "message": "v0.8: Multi-Seed Significance \u2014 promotion requires reproducible improvement",
+      "mutation_kind": "analysis_only",
+      "sha": "16a9e13c698a"
+    },
+    {
+      "file_count": 16,
+      "message": "v0.9: Seed-Variant Scenarios \u2014 controlled, reproducible variance",
+      "mutation_kind": "analysis_only",
+      "sha": "b9122610a215"
+    },
+    {
+      "file_count": 17,
+      "message": "v1.0: SPL DESi Adapter \u2014 semantics as sensor, not authority",
+      "mutation_kind": "analysis_only",
+      "sha": "c54ff62be86a"
+    },
+    {
+      "file_count": 18,
+      "message": "v1.1: Real LLM + Source Documents \u2014 first real-sensor release",
+      "mutation_kind": "analysis_only",
+      "sha": "68fefb977b75"
+    },
+    {
+      "file_count": 19,
+      "message": "v1.2: Logical Gap Audit \u2014 first authority-free belief gate",
+      "mutation_kind": "analysis_only",
+      "sha": "d8e1d7b2e7bb"
+    },
+    {
+      "file_count": 19,
+      "message": "v1.3: Logical Consilium / Bridge Review \u2014 first authority-free consilium",
+      "mutation_kind": "analysis_only",
+      "sha": "dd49fed5de30"
+    },
+    {
+      "file_count": 18,
+      "message": "v1.4: Recursive Bridge Resolution \u2014 every bridge must close",
+      "mutation_kind": "analysis_only",
+      "sha": "06ebfdde1fb5"
+    },
+    {
+      "file_count": 17,
+      "message": "v1.5: Real-World Benchmark + Philosophical Stress Test",
+      "mutation_kind": "analysis_only",
+      "sha": "c002dc3010d3"
+    },
+    {
+      "file_count": 14,
+      "message": "v1.6: Kill Silent Bridge Acceptance",
+      "mutation_kind": "analysis_only",
+      "sha": "00103df60491"
+    },
+    {
+      "file_count": 9,
+      "message": "v1.7: Parser Fail vs. Real Gap",
+      "mutation_kind": "analysis_only",
+      "sha": "007bc228bd77"
+    },
+    {
+      "file_count": 8,
+      "message": "v1.8: Authority Speech Acts + Parser Reality Check",
+      "mutation_kind": "analysis_only",
+      "sha": "7af3794fb3f2"
+    },
+    {
+      "file_count": 19,
+      "message": "v1.9: Tool Evidence Layer + Computational Provenance",
+      "mutation_kind": "analysis_only",
+      "sha": "e0a662fccad4"
+    },
+    {
+      "file_count": 17,
+      "message": "v2.0: Evolution Sandbox (30-step self-optimization, stable-v1.9.0 immutable)",
+      "mutation_kind": "analysis_only",
+      "sha": "2f20b2fa8880"
+    },
+    {
+      "file_count": 20,
+      "message": "v2.1: Self-Diagnostic Deficit Report (read-only over stable-v1.9.0)",
+      "mutation_kind": "analysis_only",
+      "sha": "b86550778a43"
+    },
+    {
+      "file_count": 18,
+      "message": "v2.2: Evolve RecursiveResolver.max_depth (single knob, read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "a5e11e8d2a80"
+    },
+    {
+      "file_count": 14,
+      "message": "v2.3: Multi-Step Gap Benchmark (read-only, no architecture changes)",
+      "mutation_kind": "analysis_only",
+      "sha": "0196db81ae2d"
+    },
+    {
+      "file_count": 15,
+      "message": "v2.4: Bridge Entry Audit (read-only pipeline-stage diagnostic)",
+      "mutation_kind": "analysis_only",
+      "sha": "53b793b4c596"
+    },
+    {
+      "file_count": 15,
+      "message": "v2.5: Inference Rule Coverage Audit (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "d701b7d2a735"
+    },
+    {
+      "file_count": 15,
+      "message": "v2.6: Causal-Chain Coverage Probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "206bb3a30b6d"
+    },
+    {
+      "file_count": 8,
+      "message": "v2.7: Guarded CAUSAL_CHAIN inference rule",
+      "mutation_kind": "analysis_only",
+      "sha": "7ddf9d2a1171"
+    },
+    {
+      "file_count": 17,
+      "message": "v2.8: Rule Patch Protocol (architectural extraction of v2.7)",
+      "mutation_kind": "analysis_only",
+      "sha": "d41945b816e7"
+    },
+    {
+      "file_count": 11,
+      "message": "v2.9: Rule Patch Protocol paper draft (docs + validation tests)",
+      "mutation_kind": "analysis_only",
+      "sha": "2fbdd6c6a69d"
+    },
+    {
+      "file_count": 20,
+      "message": "v3.0: Self Paper Audit (read-only epistemic self-application)",
+      "mutation_kind": "analysis_only",
+      "sha": "12b3b71fdc1a"
+    },
+    {
+      "file_count": 46,
+      "message": "v3.1: Documentation Claim Anchor Discipline (no runtime changes)",
+      "mutation_kind": "analysis_only",
+      "sha": "0af6223fa74d"
+    },
+    {
+      "file_count": 17,
+      "message": "v3.2: External Reviewer Bundle (docs + reviewer tests only)",
+      "mutation_kind": "analysis_only",
+      "sha": "58a54600e69d"
+    },
+    {
+      "file_count": 21,
+      "message": "v3.3: Cross-LLM Blind Review (infrastructure + 3 simulated reviewers)",
+      "mutation_kind": "analysis_only",
+      "sha": "ca05d6348262"
+    },
+    {
+      "file_count": 23,
+      "message": "v3.4: Frame Declaration Layer (pre-audit pipeline gating)",
+      "mutation_kind": "core_mutation",
+      "sha": "48ebf2faf0ec"
+    },
+    {
+      "file_count": 13,
+      "message": "v3.5: Frame Invariance Audit (read-only paraphrase robustness)",
+      "mutation_kind": "analysis_only",
+      "sha": "c17766b968e8"
+    },
+    {
+      "file_count": 15,
+      "message": "v3.6: Frame Failure Cluster Audit (read-only over v3.5)",
+      "mutation_kind": "analysis_only",
+      "sha": "47f383c74ee4"
+    },
+    {
+      "file_count": 14,
+      "message": "v3.7: Frame Disambiguator Probe (read-only over v3.5 + v3.6)",
+      "mutation_kind": "analysis_only",
+      "sha": "5c6aac6e4607"
+    },
+    {
+      "file_count": 17,
+      "message": "v3.8: Frame Context Inheritance Probe (read-only over v3.7)",
+      "mutation_kind": "analysis_only",
+      "sha": "14bc0955f51f"
+    },
+    {
+      "file_count": 20,
+      "message": "v3.9: Frame Consistency Probe (read-only over v3.5 + v3.8)",
+      "mutation_kind": "analysis_only",
+      "sha": "43fe3b7c1f4a"
+    },
+    {
+      "file_count": 16,
+      "message": "v3.10: Frame Tension False-Positive Audit (read-only over v3.9 + v3.8)",
+      "mutation_kind": "analysis_only",
+      "sha": "199999f6252e"
+    },
+    {
+      "file_count": 13,
+      "message": "v3.11: FRAME_TENSION_LAYER runtime gate (first runtime patch)",
+      "mutation_kind": "analysis_only",
+      "sha": "9b3814b91d07"
+    },
+    {
+      "file_count": 13,
+      "message": "v3.12: Frame Tension Integration Probe (read-only over v3.8-11)",
+      "mutation_kind": "analysis_only",
+      "sha": "6ef1cc1d1606"
+    },
+    {
+      "file_count": 10,
+      "message": "v3.13: Frame Tension Pipeline Integration (first pipeline patch)",
+      "mutation_kind": "analysis_only",
+      "sha": "895f289408f4"
+    },
+    {
+      "file_count": 12,
+      "message": "v3.14: Held-out CAUSAL_CHAIN validation (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "04674017fd5e"
+    },
+    {
+      "file_count": 12,
+      "message": "v3.15: Causal Chain Adversarial Construction (red-team)",
+      "mutation_kind": "analysis_only",
+      "sha": "1e28369a60b1"
+    },
+    {
+      "file_count": 9,
+      "message": "v3.16: Causal-Chain Suspension Gate (runtime patch on v2.7)",
+      "mutation_kind": "analysis_only",
+      "sha": "989a8ea1caa6"
+    },
+    {
+      "file_count": 13,
+      "message": "v3.17: Causal Link Typing Probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "c0746bc8ddcf"
+    },
+    {
+      "file_count": 12,
+      "message": "v3.18: Causal Naturalness Probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "485159f6b9e9"
+    },
+    {
+      "file_count": 12,
+      "message": "v3.19: Epistemic Trajectory Probe (read-only)",
+      "mutation_kind": "core_mutation",
+      "sha": "52b930d64592"
+    },
+    {
+      "file_count": 12,
+      "message": "v3.20: Premise Extractor Signal Audit (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "15b4b8d2e988"
+    },
+    {
+      "file_count": 12,
+      "message": "v3.21: Gate Ablation Study (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "098e6e7ba4d6"
+    },
+    {
+      "file_count": 10,
+      "message": "v3.22: Gate Order Causality Probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "765be6fcf664"
+    },
+    {
+      "file_count": 11,
+      "message": "v3.23: Gate Stack Latency Probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "7c9a7ce2a603"
+    },
+    {
+      "file_count": 10,
+      "message": "v3.24: Gate-Governed Architecture paper draft (frozen consolidation)",
+      "mutation_kind": "analysis_only",
+      "sha": "e3086f48aba4"
+    },
+    {
+      "file_count": 12,
+      "message": "v4.0: External Reality Probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "ad1dfc4f4a7b"
+    },
+    {
+      "file_count": 16,
+      "message": "v4.1: Implicit Frame Inference Probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "045eddc797d4"
+    },
+    {
+      "file_count": 18,
+      "message": "v4.2: External Audit Failure Probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "8cc70d5aa3a0"
+    },
+    {
+      "file_count": 19,
+      "message": "v4.3: External Audit Marker Extension Patch",
+      "mutation_kind": "analysis_only",
+      "sha": "b109b3050684"
+    },
+    {
+      "file_count": 18,
+      "message": "v4.4: Residual Semantic Failure Probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "df116874658c"
+    },
+    {
+      "file_count": 20,
+      "message": "v4.5: Bidirectional Cycle Check Patch",
+      "mutation_kind": "analysis_only",
+      "sha": "a5f451827c66"
+    },
+    {
+      "file_count": 18,
+      "message": "v4.6: Warrant Requirement Probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "46c9cf7a7056"
+    },
+    {
+      "file_count": 21,
+      "message": "v4.7: Modality Consistency Patch",
+      "mutation_kind": "analysis_only",
+      "sha": "52ce51c3d275"
+    },
+    {
+      "file_count": 18,
+      "message": "v4.8: Missing Bridge Content Audit Probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "b12fef090de1"
+    },
+    {
+      "file_count": 27,
+      "message": "v4.9: Content Inversion Check Patch",
+      "mutation_kind": "analysis_only",
+      "sha": "3ba6a77647c5"
+    },
+    {
+      "file_count": 13,
+      "message": "v4.10: External Reality Consolidation Paper",
+      "mutation_kind": "analysis_only",
+      "sha": "b288a520e7be"
+    },
+    {
+      "file_count": 18,
+      "message": "v4.11: Reproducibility Hardening Audit (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "4326b476dc26"
+    },
+    {
+      "file_count": 6,
+      "message": "v4.12: External Reality Paper Reproducibility Patch",
+      "mutation_kind": "analysis_only",
+      "sha": "66fc5262370f"
+    },
+    {
+      "file_count": 24,
+      "message": "v5.0: Methodology Transfer Probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "71de7b3dc3ab"
+    },
+    {
+      "file_count": 20,
+      "message": "v5.1: Taxonomy Stability Probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "3e47779203d3"
+    },
+    {
+      "file_count": 22,
+      "message": "v5.2: Taxonomy Generalization Probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "f495abdfc0f1"
+    },
+    {
+      "file_count": 19,
+      "message": "v5.3: Corpus Construction Bias Audit (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "664cda6a4fd0"
+    },
+    {
+      "file_count": 20,
+      "message": "v5.4: Raw-Corpus Taxonomy Generalization Probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "c8129643948e"
+    },
+    {
+      "file_count": 15,
+      "message": "v5.5: Methodology Transfer Consolidation Paper (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "01a169da808b"
+    },
+    {
+      "file_count": 9,
+      "message": "v3.25: trajectory_control observer (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "7a46cf67220d"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.26: passive intervention controller (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "39c5ea8aae3b"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.27: rollback action + trace + replay control",
+      "mutation_kind": "analysis_only",
+      "sha": "fc64a9e99cd0"
+    },
+    {
+      "file_count": 10,
+      "message": "v3.28: root-cause observer (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "d669a225dce9"
+    },
+    {
+      "file_count": 9,
+      "message": "v3.29: counterfactual survival probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "46602ce72f0c"
+    },
+    {
+      "file_count": 10,
+      "message": "v3.30: cause-aware control + paper9 go/no-go decision",
+      "mutation_kind": "analysis_only",
+      "sha": "b838bd7e8daa"
+    },
+    {
+      "file_count": 9,
+      "message": "v3.31: support-plateau census (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "05bfecd67b6c"
+    },
+    {
+      "file_count": 10,
+      "message": "v3.32: plateau cause structure (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "d8e2be1b366b"
+    },
+    {
+      "file_count": 11,
+      "message": "v3.33: plateau resolution + paper10 go/no-go decision",
+      "mutation_kind": "analysis_only",
+      "sha": "908d3b574963"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.34: plateau hold-length sweep (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "740570b85480"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.35: plateau cross-class transfer (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "46ea56ba0558"
+    },
+    {
+      "file_count": 11,
+      "message": "v3.36: plateau noise robustness + timing perturbation (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "065a0a36ec4d"
+    },
+    {
+      "file_count": 10,
+      "message": "v3.37: self-explanation audit (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "3455833c47a1"
+    },
+    {
+      "file_count": 10,
+      "message": "v3.38: plateau vs unexpected-rescue feature separation (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "43d5376afd9a"
+    },
+    {
+      "file_count": 10,
+      "message": "v3.39: plateau specificity recovery + paper10 v3 decision",
+      "mutation_kind": "analysis_only",
+      "sha": "0a727169cf31"
+    },
+    {
+      "file_count": 9,
+      "message": "v3.43: field leakage census (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "d8a984926dc9"
+    },
+    {
+      "file_count": 10,
+      "message": "v3.44: field radius sweep (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "c692b657be68"
+    },
+    {
+      "file_count": 11,
+      "message": "v3.45: claim-field interaction + paper10 v4 decision",
+      "mutation_kind": "analysis_only",
+      "sha": "110916024457"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.46: GAP_DETECTED census (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "cfb589e664b8"
+    },
+    {
+      "file_count": 9,
+      "message": "v3.47: GAP cause and geometry (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "26cb67d71d10"
+    },
+    {
+      "file_count": 10,
+      "message": "v3.48: GAP resolution strategies + concept-gate decision (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "6f06e4a02141"
+    },
+    {
+      "file_count": 1,
+      "message": "test(v3.39): mark policy_results as volatile in artifact comparison",
+      "mutation_kind": "analysis_only",
+      "sha": "ecb97bd6631f"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.49: frame artifact audit (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "91f9c6d96a20"
+    },
+    {
+      "file_count": 9,
+      "message": "v3.50: pair resonance matrix (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "71fb8090600f"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.51: anti-anchor probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "035f7fc1b8b8"
+    },
+    {
+      "file_count": 9,
+      "message": "v3.52: semantic phase transition + concept-gate decision (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "171d7dae8082"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.53: cross-corpus radius transfer (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "ba9c333a4666"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.54: cross-corpus pair resonance transfer (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "763933b3bb73"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.55: cross-corpus anti-anchor transfer (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "1fd45c11ffaf"
+    },
+    {
+      "file_count": 9,
+      "message": "v3.56: cross-corpus phase transition + paper11 cross-corpus decision (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "8de88d1b439a"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.57: content/method decomposition (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "e3889a0ee041"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.58: method-only resonance (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "d31c54b68286"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.59: content-only resonance (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "ad2c52cd67f7"
+    },
+    {
+      "file_count": 9,
+      "message": "v3.60: crossed content/method resonance + paper11 v2 decision (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "3d467a8d0110"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.61: distance vs complementarity (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "a66557694757"
+    },
+    {
+      "file_count": 9,
+      "message": "v3.62: blind-spot mapping (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "c14e705257e8"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.63: failure diversity audit (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "de3c1bd950d7"
+    },
+    {
+      "file_count": 9,
+      "message": "v3.64: causal complementarity + paper11 complementarity decision (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "7f6100278dfd"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.65: blind predictive complementarity (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "de454b3ea1b9"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.66: out-of-sample complementarity transfer (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "54f74c71e457"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.67: minimal predictor (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "8fcbf0190917"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.68: causal forecast + paper11 final decision (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "067371096dea"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.69: Mozart probe coverage reconstruction (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "b23e5ab28539"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.70: Mozart counterfactual probe swap (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "8646c3185534"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.71: Mozart coverage source audit (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "d00a0ebe7c15"
+    },
+    {
+      "file_count": 9,
+      "message": "v3.72: Mozart predictive forecast + historical decision (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "c7805b7979c3"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.73: known-claim removal perturbation (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "c94170f1f66e"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.74: missing region localization (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "f86ce23678d0"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.75: missing candidate reconstruction (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "23e13a082a8b"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.76: blind multi-claim recovery (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "ddd89beedfe1"
+    },
+    {
+      "file_count": 9,
+      "message": "v3.77: missing-claim negative controls + Neptun concept decision (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "170b889479a8"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.78: redundant pair removal (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "421d38591939"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.79: redundancy class census (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "bdffa6c5ec0f"
+    },
+    {
+      "file_count": 10,
+      "message": "v3.80: redundancy-aware Neptun + redundancy-masking decision (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "949a4342bd78"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.81: blind equivalence detection (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "e9a8854681a5"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.82: minimal feature detection (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "38550c7b44e8"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.83: cross-corpus epistemic doppelganger (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "48b66a6281b5"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.84: predictive degeneracy + doppelganger decision",
+      "mutation_kind": "analysis_only",
+      "sha": "6977b3984eb0"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.85: novel claim family isolation (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "9b9aae1363bb"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.86: blind novel doppelganger clustering (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "05f00fe2deb5"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.87: minimal feature transfer probe (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "06f6d1b1d56a"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.88: predictive novel degeneracy + structural-invariance decision",
+      "mutation_kind": "analysis_only",
+      "sha": "dd44cf61bd3f"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.89: frame contribution audit (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "466c8980d7d5"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.90: frame-normalized clustering (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "f9dc505e9617"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.91: frame-normalized minimal features (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "c0925433ba89"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.92: frame-normalized prediction + frame-normalization decision",
+      "mutation_kind": "analysis_only",
+      "sha": "b152ba5b4b86"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.93: entangled residual dimension audit (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "a72cdd2d7340"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.94: exhaustive dimension ablation search (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "a7799a6fdf8a"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.95: hidden method signal audit (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "29b514ce2744"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.96: entanglement resolution + entangled-family decision",
+      "mutation_kind": "analysis_only",
+      "sha": "cf28561c2096"
+    },
+    {
+      "file_count": 5,
+      "message": "v3.96a (scaffolding): determinism jitter census source",
+      "mutation_kind": "analysis_only",
+      "sha": "c9b87e835aa2"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.96b: root cause isolation (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "a8948fae51b4"
+    },
+    {
+      "file_count": 2,
+      "message": "v3.96a (artifact): jitter census results",
+      "mutation_kind": "analysis_only",
+      "sha": "3960127a2b2a"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.96c: deterministic patch + verification",
+      "mutation_kind": "core_mutation",
+      "sha": "3f9fa453510e"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.96d: historical replay audit + determinism patch decision",
+      "mutation_kind": "analysis_only",
+      "sha": "ed3f77b26fcf"
+    },
+    {
+      "file_count": 3,
+      "message": "v3.96 (post-patch test cleanup): tests survive full regression",
+      "mutation_kind": "analysis_only",
+      "sha": "b19c17c8288e"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.97: semantic loss audit (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "afff592291f2"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.98: downstream equivalence audit (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "c3194526322c"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.99: counterfactual divergence audit (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "66cb868b1067"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.100: compression vs information loss + representational decision",
+      "mutation_kind": "analysis_only",
+      "sha": "f6e0d69a90b3"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.101: T10 candidate dimension search (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "8351c30f10ea"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.102: T10 single-dimension injection (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "3f48a40532bb"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.103: T10 historical compatibility audit (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "5e3a6c5b9a10"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.104: T10 recovery vs complexity + activation decision",
+      "mutation_kind": "analysis_only",
+      "sha": "3a2122f59246"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.104a: T10 historical delta decomposition (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "ed7ca47a7e1f"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.104b: T10 directional gate simulation (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "5a1cfd727193"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.104c: T10 gate stress replay (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "84a5fe07affe"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.104d: T10 final re-decision + directional activation decision",
+      "mutation_kind": "analysis_only",
+      "sha": "579e3182fb5b"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.105: hidden entanglement census (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "8aefa87f60ba"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.106: T10 transfer test (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "9059ccdfc309"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.107: T10 adaptive candidate search (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "0b85bec0c415"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.108: T10 expansion vocabulary + generalization decision",
+      "mutation_kind": "analysis_only",
+      "sha": "8e851e27af2d"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.109: T10 metadata ablation (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "4f6253a3a2e1"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.110: T10 cross-rename attack (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "6308b553ac3c"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.111: T10 semantic substitution test (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "b38dab352581"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.112: T10 proxy verdict + proxy-risk decision",
+      "mutation_kind": "analysis_only",
+      "sha": "9048594b37bc"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.113: T10 structural topology census (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "52ce27d258c5"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.114: T10 single structural recovery (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "7a7a55a50f96"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.115: T10 minimal structural alphabet (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "3c2b9183eb71"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.116: T10 structural redeployment + final decision",
+      "mutation_kind": "analysis_only",
+      "sha": "b165d1fac2e1"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.117: state-vector blindness census (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "eb69b6c0300b"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.118: state-blindness taxonomy (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "63af37ae5352"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.119: T10 scope boundary (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "041d7987dbd0"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.120: pre-T10 blindness rule + state-vector blindness decision",
+      "mutation_kind": "analysis_only",
+      "sha": "988258a95133"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.120a: pre-T10 threshold sweep (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "b742d262f5fe"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.120b: pre-T10 bootstrap stability (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "479804d344d4"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.120c: pre-T10 stress replay (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "83b37c6988c8"
+    },
+    {
+      "file_count": 8,
+      "message": "v3.120d: pre-T10 final rule + activation decision",
+      "mutation_kind": "analysis_only",
+      "sha": "736490df7007"
+    },
+    {
+      "file_count": 7,
+      "message": "v3.121: runtime reality audit (read-only)",
+      "mutation_kind": "analysis_only",
+      "sha": "3961b51e3567"
+    }
+  ],
+  "commit_count": 203,
+  "core_or_gate_commit_count": 3,
+  "halt": false,
+  "historical_risk": "low",
+  "rationale": [
+    "INFO: commit_count 203",
+    "INFO: classification_counts {'core_mutation': 3, 'gate_mutation': 0, 'analysis_only': 195, 'docs_only': 5}",
+    "INFO: core_or_gate_commit_count 3",
+    "INFO: avoidable_full_runs 200",
+    "INFO: wasted_cpu_hours 200.0",
+    "INFO: recommended_policy {'core_mutation': 'full_regression', 'gate_mutation': 'full_regression', 'analysis_only': 'targeted_replay', 'docs_only': 'no_regression'}",
+    "INFO: historical_risk low",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "POLICY_RECOMMENDED",
+  "recommended_policy": {
+    "analysis_only": "targeted_replay",
+    "core_mutation": "full_regression",
+    "docs_only": "no_regression",
+    "gate_mutation": "full_regression"
+  },
+  "replay_stability": 1.0,
+  "wasted_cpu_hours": 200.0
+}

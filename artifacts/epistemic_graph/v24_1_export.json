@@ -1,0 +1,20 @@
+{
+  "canonical_preservation": 1.0,
+  "disclaimer": "A deterministic, idempotent, replay-safe export of the v24.0 epistemic graph into Neo4j-compatible Cypher. Neo4j is optional read-only infrastructure: the neo4j package is imported lazily, the test path uses an offline dry-run client, and DESi reads nothing back from the graph to steer itself. Governance is computed entirely without the graph. The canonical state remains the JSON artifacts and replay hashes.",
+  "export_determinism": 1.0,
+  "governance_independence": 1.0,
+  "graph_consistency": 1.0,
+  "graph_signature": "b9dfa934cd6df3ce5df644d10b3837e95e70ae2e32bd2f9acc7b5517ce8eed11",
+  "neo4j_available": false,
+  "recommendation": "EXPORT_REPLAY_SAFE",
+  "replay_integrity": 1.0,
+  "report_verdicts": [
+    "EXPORT_REPLAY_SAFE",
+    "EXPORT_PERTURBS_STATE",
+    "EXPORT_DRIFT_HALT"
+  ],
+  "round_trip_signature": "b9dfa934cd6df3ce5df644d10b3837e95e70ae2e32bd2f9acc7b5517ce8eed11",
+  "schema_version": "v24_1_neo4j_export",
+  "statement_count": 189,
+  "statements_signature": "973a25810081fd485ee8b5aa17e5bf2e4741a4305ec7c42c33f186980880513f"
+}

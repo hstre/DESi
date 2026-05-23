@@ -1,0 +1,27 @@
+{
+  "consensus_integrity": 1.0,
+  "dissent_integrity": 1.0,
+  "epistemic_sovereignty": 1.0,
+  "failing_conditions": [],
+  "final_classification": "A_epistemically_sovereign",
+  "gaming_detection_rate": 1.0,
+  "gate_passes_all": true,
+  "governance_stability": 1.0,
+  "governance_survival": 1.0,
+  "halt": false,
+  "rationale": [
+    "INFO: final_classification A_epistemically_sovereign",
+    "INFO: strategy_detection 1.0",
+    "INFO: gaming_detection_rate 1.0",
+    "INFO: consensus_integrity 1.0",
+    "INFO: governance_stability 1.0",
+    "INFO: epistemic_sovereignty 1.0",
+    "INFO: dissent_integrity 1.0",
+    "INFO: replay_stability 1.0",
+    "PASS: gate_passes_all (failing=[])",
+    "PASS: meta_replay_stability 1.0"
+  ],
+  "recommendation": "DESI_STRATEGIC_ROBUST",
+  "replay_stability": 1.0,
+  "strategy_detection": 1.0
+}

@@ -1,0 +1,177 @@
+{
+  "dominant_dims": [
+    "anchor_density",
+    "branch_cost"
+  ],
+  "entangled_family_ids": [
+    "G_v316susp",
+    "E_v317h"
+  ],
+  "entangled_member_count": 19,
+  "family_mean_diffs": [
+    {
+      "dim": "frame_id",
+      "mean_diff_sum": 0.0,
+      "mean_e": 0.0,
+      "mean_g": 0.0
+    },
+    {
+      "dim": "contradiction_load",
+      "mean_diff_sum": 0.013235,
+      "mean_e": -1.051933,
+      "mean_g": -1.038698
+    },
+    {
+      "dim": "anchor_density",
+      "mean_diff_sum": 0.029976,
+      "mean_e": 0.07595,
+      "mean_g": 0.045973
+    },
+    {
+      "dim": "source_quality",
+      "mean_diff_sum": 0.0,
+      "mean_e": 0.0,
+      "mean_g": 0.0
+    },
+    {
+      "dim": "novelty",
+      "mean_diff_sum": 0.0,
+      "mean_e": -0.131579,
+      "mean_g": -0.131579
+    },
+    {
+      "dim": "confidence",
+      "mean_diff_sum": 0.0,
+      "mean_e": 0.0,
+      "mean_g": 0.0
+    },
+    {
+      "dim": "branch_cost",
+      "mean_diff_sum": 0.039706,
+      "mean_e": -0.524226,
+      "mean_g": -0.48452
+    },
+    {
+      "dim": "support_state",
+      "mean_diff_sum": 0.0,
+      "mean_e": 0.0,
+      "mean_g": 0.0
+    },
+    {
+      "dim": "routing_state",
+      "mean_diff_sum": 0.0,
+      "mean_e": 0.0,
+      "mean_g": 0.0
+    }
+  ],
+  "halt": false,
+  "hidden_dim_candidates": [
+    "anchor_density"
+  ],
+  "proxy_dims": [
+    "branch_cost",
+    "contradiction_load"
+  ],
+  "proxy_information_loss": 0.791834,
+  "proxy_variance_share": 0.208166,
+  "rationale": [
+    "INFO: entangled_family_ids ['G_v316susp', 'E_v317h'] (member_count=19)",
+    "INFO: residual_total_variance 0.013984",
+    "INFO: dominant_dims ['anchor_density', 'branch_cost'] (share > 0.05)",
+    "INFO: proxy_dims ['branch_cost', 'contradiction_load'] (v3.82 minimal)",
+    "INFO: proxy_variance_share 0.208166 (share inside proxy)",
+    "INFO: proxy_information_loss 0.791834 (share outside proxy)",
+    "INFO: hidden_dim_candidates ['anchor_density']",
+    "INFO: residual_variance_by_dim [{'dim': 'anchor_density', 'variance': 0.011073, 'share': 0.791834}, {'dim': 'branch_cost', 'variance': 0.00262, 'share': 0.187357}, {'dim': 'contradiction_load', 'variance': 0.000291, 'share': 0.020809}, {'dim': 'confidence', 'variance': 0.0, 'share': 0.0}, {'dim': 'frame_id', 'variance': 0.0, 'share': 0.0}, {'dim': 'novelty', 'variance': 0.0, 'share': 0.0}, {'dim': 'routing_state', 'variance': 0.0, 'share': 0.0}, {'dim': 'source_quality', 'variance': 0.0, 'share': 0.0}, {'dim': 'support_state', 'variance': 0.0, 'share': 0.0}]",
+    "INFO: family_mean_diffs [{'dim': 'frame_id', 'mean_g': 0.0, 'mean_e': 0.0, 'mean_diff_sum': 0.0}, {'dim': 'contradiction_load', 'mean_g': -1.038698, 'mean_e': -1.051933, 'mean_diff_sum': 0.013235}, {'dim': 'anchor_density', 'mean_g': 0.045973, 'mean_e': 0.07595, 'mean_diff_sum': 0.029976}, {'dim': 'source_quality', 'mean_g': 0.0, 'mean_e': 0.0, 'mean_diff_sum': 0.0}, {'dim': 'novelty', 'mean_g': -0.131579, 'mean_e': -0.131579, 'mean_diff_sum': 0.0}, {'dim': 'confidence', 'mean_g': 0.0, 'mean_e': 0.0, 'mean_diff_sum': 0.0}, {'dim': 'branch_cost', 'mean_g': -0.48452, 'mean_e': -0.524226, 'mean_diff_sum': 0.039706}, {'dim': 'support_state', 'mean_g': 0.0, 'mean_e': 0.0, 'mean_diff_sum': 0.0}, {'dim': 'routing_state', 'mean_g': 0.0, 'mean_e': 0.0, 'mean_diff_sum': 0.0}]",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "PROXY_MISSING_HIDDEN_DIMS",
+  "replay_stability": 1.0,
+  "residual_total_variance": 0.013984,
+  "residual_variance_by_dim": [
+    {
+      "dim": "anchor_density",
+      "share": 0.791834,
+      "variance": 0.011073
+    },
+    {
+      "dim": "branch_cost",
+      "share": 0.187357,
+      "variance": 0.00262
+    },
+    {
+      "dim": "contradiction_load",
+      "share": 0.020809,
+      "variance": 0.000291
+    },
+    {
+      "dim": "confidence",
+      "share": 0.0,
+      "variance": 0.0
+    },
+    {
+      "dim": "frame_id",
+      "share": 0.0,
+      "variance": 0.0
+    },
+    {
+      "dim": "novelty",
+      "share": 0.0,
+      "variance": 0.0
+    },
+    {
+      "dim": "routing_state",
+      "share": 0.0,
+      "variance": 0.0
+    },
+    {
+      "dim": "source_quality",
+      "share": 0.0,
+      "variance": 0.0
+    },
+    {
+      "dim": "support_state",
+      "share": 0.0,
+      "variance": 0.0
+    }
+  ],
+  "variance_share_by_dim": [
+    {
+      "dim": "anchor_density",
+      "share": 0.791834
+    },
+    {
+      "dim": "branch_cost",
+      "share": 0.187357
+    },
+    {
+      "dim": "contradiction_load",
+      "share": 0.020809
+    },
+    {
+      "dim": "confidence",
+      "share": 0.0
+    },
+    {
+      "dim": "frame_id",
+      "share": 0.0
+    },
+    {
+      "dim": "novelty",
+      "share": 0.0
+    },
+    {
+      "dim": "routing_state",
+      "share": 0.0
+    },
+    {
+      "dim": "source_quality",
+      "share": 0.0
+    },
+    {
+      "dim": "support_state",
+      "share": 0.0
+    }
+  ]
+}

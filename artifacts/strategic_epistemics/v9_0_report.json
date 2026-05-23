@@ -1,0 +1,21 @@
+{
+  "actor_count": 12,
+  "epistemic_poisoning": 0.0,
+  "governance_integrity": 1.0,
+  "halt": false,
+  "mean_trust": 0.383333,
+  "rationale": [
+    "INFO: actor_count 12",
+    "INFO: actor_counts {'honest': 2, 'opportunist': 2, 'propagandist': 2, 'goodhart_agent': 2, 'replay_attacker': 2, 'resource_parasite': 2}",
+    "INFO: mean_trust 0.383333",
+    "PASS: strategy_detection 1.0 >= 0.90",
+    "PASS: trust_stability 1.0",
+    "PASS: epistemic_poisoning 0.0 <= 0.05",
+    "PASS: governance_integrity 1.0",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "ECOLOGY_SOVEREIGN",
+  "replay_stability": 1.0,
+  "strategy_detection": 1.0,
+  "trust_stability": 1.0
+}

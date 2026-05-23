@@ -1,0 +1,29 @@
+{
+  "bottleneck": "idle",
+  "ci_env": {
+    "CI": "",
+    "GITHUB_ACTIONS": "",
+    "GITHUB_RUN_ID": "",
+    "RUNNER_NAME": "",
+    "RUNNER_OS": ""
+  },
+  "hardware": {
+    "cgroup_cpu_quota": -1.0,
+    "cgroup_memory_limit_bytes": 9223372036854771712,
+    "cpu_count": 4,
+    "cpu_model": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+    "kernel": "6.18.5",
+    "machine": "x86_64",
+    "ram_available_bytes": 16282984448,
+    "ram_total_bytes": 16861757440
+  },
+  "runner_type": "non_ci_vm",
+  "runtime": {
+    "cpu_utilisation": 0.0,
+    "load1": 0.11,
+    "load15": 0.08,
+    "load5": 0.17,
+    "memory_utilisation": 0.034325
+  },
+  "schema_version": "v3_121_runtime_reality_audit"
+}

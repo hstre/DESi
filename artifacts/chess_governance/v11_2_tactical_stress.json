@@ -1,0 +1,240 @@
+{
+  "case_count": 14,
+  "cases": [
+    {
+      "case_id": "tac-mate-001",
+      "critical_move": "Qxh7+",
+      "depth_required": 3,
+      "fen_descriptor": "(mate in 3 from a king-side attack)",
+      "is_critical": true,
+      "pattern": "mate_in_n"
+    },
+    {
+      "case_id": "tac-mate-002",
+      "critical_move": "Rd8+",
+      "depth_required": 5,
+      "fen_descriptor": "(mate in 5 with queen sac)",
+      "is_critical": true,
+      "pattern": "mate_in_n"
+    },
+    {
+      "case_id": "tac-sac-001",
+      "critical_move": "Bxh7+",
+      "depth_required": 4,
+      "fen_descriptor": "(classical bishop sac)",
+      "is_critical": true,
+      "pattern": "sac_attack"
+    },
+    {
+      "case_id": "tac-sac-002",
+      "critical_move": "Nf6+",
+      "depth_required": 6,
+      "fen_descriptor": "(positional knight sac)",
+      "is_critical": true,
+      "pattern": "sac_attack"
+    },
+    {
+      "case_id": "tac-zug-001",
+      "critical_move": "Kf2",
+      "depth_required": 4,
+      "fen_descriptor": "(king triangulation zugzwang)",
+      "is_critical": true,
+      "pattern": "zugzwang"
+    },
+    {
+      "case_id": "tac-zug-002",
+      "critical_move": "Ng4",
+      "depth_required": 5,
+      "fen_descriptor": "(piece-loss zugzwang)",
+      "is_critical": true,
+      "pattern": "zugzwang"
+    },
+    {
+      "case_id": "tac-def-001",
+      "critical_move": "Bd6",
+      "depth_required": 4,
+      "fen_descriptor": "(only defensive resource)",
+      "is_critical": true,
+      "pattern": "hidden_defence"
+    },
+    {
+      "case_id": "tac-def-002",
+      "critical_move": "Rg1",
+      "depth_required": 5,
+      "fen_descriptor": "(stealth resource)",
+      "is_critical": true,
+      "pattern": "hidden_defence"
+    },
+    {
+      "case_id": "tac-hor-001",
+      "critical_move": "Nxd5",
+      "depth_required": 7,
+      "fen_descriptor": "(piece behind the horizon)",
+      "is_critical": true,
+      "pattern": "horizon_effect"
+    },
+    {
+      "case_id": "tac-hor-002",
+      "critical_move": "exf6",
+      "depth_required": 8,
+      "fen_descriptor": "(passed pawn beyond horizon)",
+      "is_critical": true,
+      "pattern": "horizon_effect"
+    },
+    {
+      "case_id": "tac-still-001",
+      "critical_move": "a4",
+      "depth_required": 4,
+      "fen_descriptor": "(quiet sweeper move)",
+      "is_critical": true,
+      "pattern": "still_resource"
+    },
+    {
+      "case_id": "tac-still-002",
+      "critical_move": "Kg1",
+      "depth_required": 5,
+      "fen_descriptor": "(prophylactic king move)",
+      "is_critical": true,
+      "pattern": "still_resource"
+    },
+    {
+      "case_id": "tac-trap-001",
+      "critical_move": "Qb5",
+      "depth_required": 5,
+      "fen_descriptor": "(visible queen trap)",
+      "is_critical": true,
+      "pattern": "trap"
+    },
+    {
+      "case_id": "tac-trap-002",
+      "critical_move": "Bg5",
+      "depth_required": 6,
+      "fen_descriptor": "(hidden piece trap)",
+      "is_critical": true,
+      "pattern": "trap"
+    }
+  ],
+  "critical_line_preservation": 1.0,
+  "horizon_risk": 0.0,
+  "pattern_counts": {
+    "hidden_defence": 2,
+    "horizon_effect": 2,
+    "mate_in_n": 2,
+    "sac_attack": 2,
+    "still_resource": 2,
+    "trap": 2,
+    "zugzwang": 2
+  },
+  "resolved_cases": [
+    {
+      "assigned_depth": 5,
+      "case_id": "tac-mate-001",
+      "critical_move": "Qxh7+",
+      "pattern": "mate_in_n",
+      "resolved": true
+    },
+    {
+      "assigned_depth": 5,
+      "case_id": "tac-mate-002",
+      "critical_move": "Rd8+",
+      "pattern": "mate_in_n",
+      "resolved": true
+    },
+    {
+      "assigned_depth": 5,
+      "case_id": "tac-sac-001",
+      "critical_move": "Bxh7+",
+      "pattern": "sac_attack",
+      "resolved": true
+    },
+    {
+      "assigned_depth": 6,
+      "case_id": "tac-sac-002",
+      "critical_move": "Nf6+",
+      "pattern": "sac_attack",
+      "resolved": true
+    },
+    {
+      "assigned_depth": 5,
+      "case_id": "tac-zug-001",
+      "critical_move": "Kf2",
+      "pattern": "zugzwang",
+      "resolved": true
+    },
+    {
+      "assigned_depth": 5,
+      "case_id": "tac-zug-002",
+      "critical_move": "Ng4",
+      "pattern": "zugzwang",
+      "resolved": true
+    },
+    {
+      "assigned_depth": 5,
+      "case_id": "tac-def-001",
+      "critical_move": "Bd6",
+      "pattern": "hidden_defence",
+      "resolved": true
+    },
+    {
+      "assigned_depth": 5,
+      "case_id": "tac-def-002",
+      "critical_move": "Rg1",
+      "pattern": "hidden_defence",
+      "resolved": true
+    },
+    {
+      "assigned_depth": 7,
+      "case_id": "tac-hor-001",
+      "critical_move": "Nxd5",
+      "pattern": "horizon_effect",
+      "resolved": true
+    },
+    {
+      "assigned_depth": 8,
+      "case_id": "tac-hor-002",
+      "critical_move": "exf6",
+      "pattern": "horizon_effect",
+      "resolved": true
+    },
+    {
+      "assigned_depth": 5,
+      "case_id": "tac-still-001",
+      "critical_move": "a4",
+      "pattern": "still_resource",
+      "resolved": true
+    },
+    {
+      "assigned_depth": 5,
+      "case_id": "tac-still-002",
+      "critical_move": "Kg1",
+      "pattern": "still_resource",
+      "resolved": true
+    },
+    {
+      "assigned_depth": 5,
+      "case_id": "tac-trap-001",
+      "critical_move": "Qb5",
+      "pattern": "trap",
+      "resolved": true
+    },
+    {
+      "assigned_depth": 6,
+      "case_id": "tac-trap-002",
+      "critical_move": "Bg5",
+      "pattern": "trap",
+      "resolved": true
+    }
+  ],
+  "schema_version": "v11_2_tactical_stress",
+  "tactical_miss_rate": 0.0,
+  "tactical_patterns": [
+    "mate_in_n",
+    "sac_attack",
+    "zugzwang",
+    "hidden_defence",
+    "horizon_effect",
+    "still_resource",
+    "trap"
+  ],
+  "trap_detection": 1.0
+}

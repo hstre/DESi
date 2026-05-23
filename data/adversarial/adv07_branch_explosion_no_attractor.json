@@ -1,0 +1,32 @@
+{
+  "trajectory_id": "adv07_branch_explosion_no_attractor",
+  "domain": "_adversarial",
+  "seed": "Probe: many branches open, novel high every loop, dup low. No saturation. No EN. Probe: does DESi see branch pathology?",
+  "persona": "_probe",
+  "steps": [
+    {"loop_index": 0, "focus_claim_id": "C001", "operator": "T3", "novel_claims": 11, "dup_rate": 0.08, "failure_mode": null, "claims": [
+      {"id":"C001","subject":"root","predicate":"p","object":"y","branch_open": true,"history":[]}
+    ]},
+    {"loop_index": 1, "focus_claim_id": "C001", "operator": "T1", "novel_claims": 8, "dup_rate": 0.10, "failure_mode": null, "claims": [
+      {"id":"B001","subject":"b1","predicate":"p","object":"y","parent_id":"C001","branch_open": true,"history":["T1"]},
+      {"id":"B002","subject":"b2","predicate":"p","object":"y","parent_id":"C001","branch_open": true,"history":["T1"]}
+    ]},
+    {"loop_index": 2, "focus_claim_id": "B001", "operator": "T1", "novel_claims": 8, "dup_rate": 0.12, "failure_mode": null, "claims": [
+      {"id":"B003","subject":"b3","predicate":"p","object":"y","parent_id":"B001","branch_open": true,"history":["T1"]},
+      {"id":"B004","subject":"b4","predicate":"p","object":"y","parent_id":"B001","branch_open": true,"history":["T1"]}
+    ]},
+    {"loop_index": 3, "focus_claim_id": "B003", "operator": "T1", "novel_claims": 8, "dup_rate": 0.10, "failure_mode": null, "claims": [
+      {"id":"B005","subject":"b5","predicate":"p","object":"y","parent_id":"B003","branch_open": true,"history":["T1"]},
+      {"id":"B006","subject":"b6","predicate":"p","object":"y","parent_id":"B003","branch_open": true,"history":["T1"]}
+    ]},
+    {"loop_index": 4, "focus_claim_id": "B005", "operator": "T1", "novel_claims": 8, "dup_rate": 0.10, "failure_mode": null, "claims": [
+      {"id":"B007","subject":"b7","predicate":"p","object":"y","parent_id":"B005","branch_open": true,"history":["T1"]},
+      {"id":"B008","subject":"b8","predicate":"p","object":"y","parent_id":"B005","branch_open": true,"history":["T1"]}
+    ]},
+    {"loop_index": 5, "focus_claim_id": "B007", "operator": "T1", "novel_claims": 8, "dup_rate": 0.12, "failure_mode": "GRAPH_TOO_LARGE", "claims": [
+      {"id":"B009","subject":"b9","predicate":"p","object":"y","parent_id":"B007","branch_open": true,"history":["T1"]}
+    ]}
+  ],
+  "en_events": [],
+  "terminal_failure_mode": "GRAPH_TOO_LARGE"
+}

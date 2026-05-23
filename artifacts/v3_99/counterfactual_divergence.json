@@ -1,0 +1,275 @@
+{
+  "baseline_auc": 0.490535,
+  "chaos_threshold": -1.0,
+  "coupling_stability": 1.0,
+  "entangled_family_ids": [
+    "G_v316susp",
+    "E_v317h"
+  ],
+  "magnitude_grid": [
+    0.0,
+    0.1,
+    0.5,
+    1.0,
+    2.0,
+    5.0,
+    10.0
+  ],
+  "perturbation_divergence": 0.014004,
+  "perturbation_kinds": [
+    "confidence",
+    "branch_cost",
+    "contradiction_load",
+    "frame_id",
+    "support_state"
+  ],
+  "perturbation_outcomes": [
+    {
+      "auc": 0.490535,
+      "auc_delta": 0.0,
+      "kind": "confidence",
+      "magnitude": 0.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.472428,
+      "auc_delta": -0.018107,
+      "kind": "confidence",
+      "magnitude": 0.1,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.494787,
+      "auc_delta": 0.004252,
+      "kind": "confidence",
+      "magnitude": 0.5,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.497257,
+      "auc_delta": 0.006722,
+      "kind": "confidence",
+      "magnitude": 1.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.495748,
+      "auc_delta": 0.005213,
+      "kind": "confidence",
+      "magnitude": 2.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.496433,
+      "auc_delta": 0.005898,
+      "kind": "confidence",
+      "magnitude": 5.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.513032,
+      "auc_delta": 0.022497,
+      "kind": "confidence",
+      "magnitude": 10.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.490535,
+      "auc_delta": 0.0,
+      "kind": "branch_cost",
+      "magnitude": 0.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.484088,
+      "auc_delta": -0.006447,
+      "kind": "branch_cost",
+      "magnitude": 0.1,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.477915,
+      "auc_delta": -0.01262,
+      "kind": "branch_cost",
+      "magnitude": 0.5,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.475309,
+      "auc_delta": -0.015226,
+      "kind": "branch_cost",
+      "magnitude": 1.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.474348,
+      "auc_delta": -0.016187,
+      "kind": "branch_cost",
+      "magnitude": 2.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.477503,
+      "auc_delta": -0.013032,
+      "kind": "branch_cost",
+      "magnitude": 5.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.473525,
+      "auc_delta": -0.01701,
+      "kind": "branch_cost",
+      "magnitude": 10.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.490535,
+      "auc_delta": 0.0,
+      "kind": "contradiction_load",
+      "magnitude": 0.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.467353,
+      "auc_delta": -0.023182,
+      "kind": "contradiction_load",
+      "magnitude": 0.1,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.469547,
+      "auc_delta": -0.020988,
+      "kind": "contradiction_load",
+      "magnitude": 0.5,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.472154,
+      "auc_delta": -0.018381,
+      "kind": "contradiction_load",
+      "magnitude": 1.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.472291,
+      "auc_delta": -0.018244,
+      "kind": "contradiction_load",
+      "magnitude": 2.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.466255,
+      "auc_delta": -0.02428,
+      "kind": "contradiction_load",
+      "magnitude": 5.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.466529,
+      "auc_delta": -0.024006,
+      "kind": "contradiction_load",
+      "magnitude": 10.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.490535,
+      "auc_delta": 0.0,
+      "kind": "frame_id",
+      "magnitude": 0.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.465432,
+      "auc_delta": -0.025103,
+      "kind": "frame_id",
+      "magnitude": 0.1,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.472016,
+      "auc_delta": -0.018519,
+      "kind": "frame_id",
+      "magnitude": 0.5,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.474074,
+      "auc_delta": -0.016461,
+      "kind": "frame_id",
+      "magnitude": 1.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.474211,
+      "auc_delta": -0.016324,
+      "kind": "frame_id",
+      "magnitude": 2.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.46406,
+      "auc_delta": -0.026475,
+      "kind": "frame_id",
+      "magnitude": 5.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.470645,
+      "auc_delta": -0.01989,
+      "kind": "frame_id",
+      "magnitude": 10.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.490535,
+      "auc_delta": 0.0,
+      "kind": "support_state",
+      "magnitude": 0.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.466667,
+      "auc_delta": -0.023868,
+      "kind": "support_state",
+      "magnitude": 0.1,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.475309,
+      "auc_delta": -0.015226,
+      "kind": "support_state",
+      "magnitude": 0.5,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.47668,
+      "auc_delta": -0.013855,
+      "kind": "support_state",
+      "magnitude": 1.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.477229,
+      "auc_delta": -0.013306,
+      "kind": "support_state",
+      "magnitude": 2.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.475034,
+      "auc_delta": -0.015501,
+      "kind": "support_state",
+      "magnitude": 5.0,
+      "separation_achieved": false
+    },
+    {
+      "auc": 0.477229,
+      "auc_delta": -0.013306,
+      "kind": "support_state",
+      "magnitude": 10.0,
+      "separation_achieved": false
+    }
+  ],
+  "schema_version": "v3_99_counterfactual_divergence",
+  "separation_rate": 0.0
+}

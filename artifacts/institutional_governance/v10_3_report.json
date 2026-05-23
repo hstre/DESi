@@ -1,0 +1,21 @@
+{
+  "bureaucracy_growth": 0.0,
+  "flexibility_loss": 0.0,
+  "gate_violation_count": 0,
+  "governance_erosion": 0.0,
+  "halt": false,
+  "institutional_capture": 0.0,
+  "rationale": [
+    "INFO: step_count 10000",
+    "INFO: trajectory_final_hash 1365e828b1a93420",
+    "PASS: bureaucracy_growth 0.0 <= 0.10",
+    "PASS: institutional_capture 0.0 == 0.0",
+    "PASS: governance_erosion 0.0 <= 0.05",
+    "PASS: flexibility_loss 0.0 <= 0.20",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "DRIFT_STABLE",
+  "replay_stability": 1.0,
+  "step_count": 10000,
+  "trajectory_final_hash": "1365e828b1a93420"
+}

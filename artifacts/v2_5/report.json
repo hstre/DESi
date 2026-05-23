@@ -1,0 +1,898 @@
+{
+  "dominant_missing_rule_class": "causal_chain",
+  "finished_at": "2026-05-15T08:34:21.202711+00:00",
+  "missing_rule_distribution": {
+    "causal_chain": 20,
+    "chained_conditional": 0,
+    "chained_temporal": 0,
+    "cycle_structural": 6,
+    "multi_hop_implication": 0,
+    "none": 0,
+    "unknown": 4
+  },
+  "multi_hop_case_coverage": 0.0,
+  "no_rule_match_rate": 1.0,
+  "parser_vs_rule_misclassification_rate": 0.766667,
+  "per_category_rule_coverage": {
+    "R1_two_step_bridge": {
+      "no_rule_match": 6
+    },
+    "R2_three_step_bridge": {
+      "no_rule_match": 6
+    },
+    "R3_four_step_closure": {
+      "no_rule_match": 6
+    },
+    "R4_hidden_contradiction": {
+      "no_rule_match": 6
+    },
+    "R5_cyclic_dependency": {
+      "no_rule_match": 6
+    }
+  },
+  "per_rule_hit_counts": {
+    "contradiction": 0,
+    "equivalence": 0,
+    "implication": 0,
+    "syllogism": 0,
+    "transitivity": 0
+  },
+  "reflection": "",
+  "replay_hash": "cf417bc8e490646c",
+  "rule_hit_rate": 0.0,
+  "started_at": "2026-05-15T08:34:21.202711+00:00",
+  "total_cases": 30,
+  "traces": [
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R1_01",
+      "category": "R1_two_step_bridge",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 1,
+      "premise_kinds": [
+        "particular"
+      ],
+      "replay_hash": "8707298a668f7dc5",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R1_02",
+      "category": "R1_two_step_bridge",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 1,
+      "premise_kinds": [
+        "particular"
+      ],
+      "replay_hash": "92c8028a93e6867d",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R1_03",
+      "category": "R1_two_step_bridge",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 1,
+      "premise_kinds": [
+        "atomic"
+      ],
+      "replay_hash": "f67850ac773e3d23",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R1_04",
+      "category": "R1_two_step_bridge",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 1,
+      "premise_kinds": [
+        "atomic"
+      ],
+      "replay_hash": "b414860e4811b38a",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R1_05",
+      "category": "R1_two_step_bridge",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 1,
+      "premise_kinds": [
+        "atomic"
+      ],
+      "replay_hash": "dc5652e50cb9636a",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R1_06",
+      "category": "R1_two_step_bridge",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 1,
+      "premise_kinds": [
+        "atomic"
+      ],
+      "replay_hash": "b8167a87d7580672",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R2_01",
+      "category": "R2_three_step_bridge",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "particular",
+        "atomic"
+      ],
+      "replay_hash": "367911d4d6ffc867",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R2_02",
+      "category": "R2_three_step_bridge",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "fae1f1c56adce60b",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R2_03",
+      "category": "R2_three_step_bridge",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "06064c3183078fd3",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R2_04",
+      "category": "R2_three_step_bridge",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "b3be6e840d76726e",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R2_05",
+      "category": "R2_three_step_bridge",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "565d52a1ed23cd15",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R2_06",
+      "category": "R2_three_step_bridge",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "5bfd168d9cbe8266",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R3_01",
+      "category": "R3_four_step_closure",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 4,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "cd97b1a1ad1f687a",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R3_02",
+      "category": "R3_four_step_closure",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 4,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "9dfaafc5a536c34e",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R3_03",
+      "category": "R3_four_step_closure",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 4,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "e4f6a597e93005b1",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R3_04",
+      "category": "R3_four_step_closure",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 4,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "9873e1065993ca79",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R3_05",
+      "category": "R3_four_step_closure",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 4,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "b7d9dad250ab7800",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R3_06",
+      "category": "R3_four_step_closure",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 4,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "b0a6bbabdb87278c",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R4_01",
+      "category": "R4_hidden_contradiction",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "59e2b3f65d0ed6a7",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R4_02",
+      "category": "R4_hidden_contradiction",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "causal_chain",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "particular",
+        "particular"
+      ],
+      "replay_hash": "77b33fd6ec5ad540",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R4_03",
+      "category": "R4_hidden_contradiction",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "unknown",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 2,
+      "premise_kinds": [
+        "universal",
+        "atomic"
+      ],
+      "replay_hash": "4894720cc2c70dfb",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [],
+      "audit_state": "gap_detected",
+      "blocking_reason": null,
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R4_04",
+      "category": "R4_hidden_contradiction",
+      "conclusion_kind": "",
+      "final_state": "resolution_complete",
+      "matched_rule": null,
+      "missing_rule_class": "unknown",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 1,
+      "premise_kinds": [
+        "particular"
+      ],
+      "replay_hash": "30d0e67334bfbea3",
+      "rule_attempts": 0
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R4_05",
+      "category": "R4_hidden_contradiction",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "unknown",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 2,
+      "premise_kinds": [
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "6475b9daac27d445",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "invalid_inference",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R4_06",
+      "category": "R4_hidden_contradiction",
+      "conclusion_kind": "universal",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "unknown",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 2,
+      "premise_kinds": [
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "a40d50e0ca548616",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "logically_rejected",
+      "blocking_reason": "parser_unsupported_form",
+      "bridge_created": false,
+      "bridge_kind": null,
+      "case_id": "R5_01",
+      "category": "R5_cyclic_dependency",
+      "conclusion_kind": "atomic",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "cycle_structural",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 2,
+      "premise_kinds": [
+        "conditional",
+        "conditional"
+      ],
+      "replay_hash": "1f96aa888c0b878c",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "bridge_required",
+      "blocking_reason": "counterexample_found",
+      "bridge_created": true,
+      "bridge_kind": "generic_fallback",
+      "case_id": "R5_02",
+      "category": "R5_cyclic_dependency",
+      "conclusion_kind": "particular",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "cycle_structural",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "20cca7af43e08f84",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "bridge_required",
+      "blocking_reason": "counterexample_found",
+      "bridge_created": true,
+      "bridge_kind": "generic_fallback",
+      "case_id": "R5_03",
+      "category": "R5_cyclic_dependency",
+      "conclusion_kind": "particular",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "cycle_structural",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "8cfcf1ff43cb618f",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "bridge_required",
+      "blocking_reason": "counterexample_found",
+      "bridge_created": true,
+      "bridge_kind": "generic_fallback",
+      "case_id": "R5_04",
+      "category": "R5_cyclic_dependency",
+      "conclusion_kind": "particular",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "cycle_structural",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 2,
+      "premise_kinds": [
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "036e0eac15730825",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "bridge_required",
+      "blocking_reason": "counterexample_found",
+      "bridge_created": true,
+      "bridge_kind": "generic_fallback",
+      "case_id": "R5_05",
+      "category": "R5_cyclic_dependency",
+      "conclusion_kind": "particular",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "cycle_structural",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "26904f09eda93a6c",
+      "rule_attempts": 5
+    },
+    {
+      "attempted_rules": [
+        "syllogism",
+        "implication",
+        "transitivity",
+        "contradiction",
+        "equivalence"
+      ],
+      "audit_state": "bridge_required",
+      "blocking_reason": "counterexample_found",
+      "bridge_created": true,
+      "bridge_kind": "generic_fallback",
+      "case_id": "R5_06",
+      "category": "R5_cyclic_dependency",
+      "conclusion_kind": "particular",
+      "final_state": "resolution_blocked",
+      "matched_rule": null,
+      "missing_rule_class": "cycle_structural",
+      "no_rule_match": true,
+      "parser_recognized": true,
+      "premise_count": 3,
+      "premise_kinds": [
+        "atomic",
+        "atomic",
+        "atomic"
+      ],
+      "replay_hash": "430a865d761a8f96",
+      "rule_attempts": 5
+    }
+  ]
+}

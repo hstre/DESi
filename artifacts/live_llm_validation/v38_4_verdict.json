@@ -1,0 +1,77 @@
+{
+  "class_rank": 5,
+  "classification": "live_validated_epistemic_governance_system",
+  "disclaimer": "Final verdict on real OpenRouter-based live-LLM validation. Aggregates one score per dimension from the v38.0-v38.3 runs over REAL captured Granite and DeepSeek V4 Pro outputs (ENV-based auth; no API key in the repo). LLM outputs are observed stochastic evidence graded deterministically by DESi - never canonical truth; only the input layer is stochastic and raw outputs are captured, hashed and replayed. Hallucinations are made visible, never silently suppressed. Costs are real. DESi does not replace LLMs; it checks whether real stochastic LLM outputs stay controllably governable. Human approval is mandatory.",
+  "gate_conditions": [
+    {
+      "comparator": ">=",
+      "name": "granite_score",
+      "passed": true,
+      "threshold": 0.8,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "deepseek_score",
+      "passed": true,
+      "threshold": 0.85,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "routing_score",
+      "passed": true,
+      "threshold": 0.85,
+      "value": 0.883714
+    },
+    {
+      "comparator": "==",
+      "name": "governance_identity",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "hallucination_containment",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi besteht echte OpenRouter-basierte Live-LLM-Validierung als replay-governed epistemic governance system.",
+  "human_approval_required": true,
+  "live_classes": [
+    "live_validated_epistemic_governance_system",
+    "stable_live_routing_system",
+    "partially_robust",
+    "live_unstable",
+    "governance_unsafe"
+  ],
+  "metrics": {
+    "deepseek_score": 1.0,
+    "governance_identity": 1.0,
+    "granite_score": 1.0,
+    "hallucination_containment": 1.0,
+    "replay_stability": 1.0,
+    "routing_score": 0.883714
+  },
+  "recommendation": "LIVE_LLM_VALIDATION_PASSED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "LIVE_LLM_VALIDATION_PASSED",
+    "LIVE_LLM_VALIDATION_UNVALIDATED",
+    "LIVE_LLM_VALIDATION_HALT"
+  ],
+  "schema_version": "v38_4_live_llm_validation_verdict",
+  "signature": "e941513ddac56f235350526f02976e8026f4c3649a29c5186e2af09a1eb2c41c"
+}

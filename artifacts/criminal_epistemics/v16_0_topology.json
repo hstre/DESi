@@ -1,0 +1,609 @@
+{
+  "ballistics_only_claim_ids": [],
+  "claim_statuses": [
+    "VERIFIED",
+    "STRONGLY_SUPPORTED",
+    "PLAUSIBLE",
+    "CONTESTED",
+    "SPECULATIVE",
+    "REJECTED",
+    "UNRESOLVED"
+  ],
+  "claims": [
+    {
+      "asserted_as": "VERIFIED",
+      "claim_id": "C01",
+      "depends_on": [],
+      "independence": 4,
+      "is_public_record_summary": true,
+      "rejected_by": [],
+      "sources": [
+        "warren_commission",
+        "hsca",
+        "public_timeline",
+        "press_report"
+      ],
+      "stance": "",
+      "status": "VERIFIED",
+      "text": "President John F. Kennedy was fatally shot in Dealey Plaza, Dallas, on 22 November 1963.",
+      "topic": ""
+    },
+    {
+      "asserted_as": "VERIFIED",
+      "claim_id": "C02",
+      "depends_on": [],
+      "independence": 4,
+      "is_public_record_summary": true,
+      "rejected_by": [],
+      "sources": [
+        "warren_commission",
+        "hsca",
+        "public_timeline",
+        "press_report"
+      ],
+      "stance": "",
+      "status": "VERIFIED",
+      "text": "Lee Harvey Oswald was arrested in Dallas on the day of the assassination.",
+      "topic": ""
+    },
+    {
+      "asserted_as": "VERIFIED",
+      "claim_id": "C03",
+      "depends_on": [],
+      "independence": 3,
+      "is_public_record_summary": true,
+      "rejected_by": [],
+      "sources": [
+        "warren_commission",
+        "public_timeline",
+        "press_report"
+      ],
+      "stance": "",
+      "status": "VERIFIED",
+      "text": "Lee Harvey Oswald was shot and killed by Jack Ruby on 24 November 1963.",
+      "topic": ""
+    },
+    {
+      "asserted_as": "VERIFIED",
+      "claim_id": "C04",
+      "depends_on": [],
+      "independence": 3,
+      "is_public_record_summary": true,
+      "rejected_by": [],
+      "sources": [
+        "warren_commission",
+        "hsca",
+        "press_report"
+      ],
+      "stance": "",
+      "status": "VERIFIED",
+      "text": "Texas Governor John Connally was wounded during the shooting.",
+      "topic": ""
+    },
+    {
+      "asserted_as": "STRONGLY_SUPPORTED",
+      "claim_id": "C05",
+      "depends_on": [
+        "C01"
+      ],
+      "independence": 3,
+      "is_public_record_summary": true,
+      "rejected_by": [],
+      "sources": [
+        "warren_commission",
+        "hsca",
+        "ballistics_report"
+      ],
+      "stance": "depository",
+      "status": "STRONGLY_SUPPORTED",
+      "text": "Shots were fired at the motorcade from the Texas School Book Depository.",
+      "topic": "shot_origin"
+    },
+    {
+      "asserted_as": "STRONGLY_SUPPORTED",
+      "claim_id": "C06",
+      "depends_on": [],
+      "independence": 3,
+      "is_public_record_summary": true,
+      "rejected_by": [],
+      "sources": [
+        "warren_commission",
+        "hsca",
+        "ballistics_report"
+      ],
+      "stance": "",
+      "status": "STRONGLY_SUPPORTED",
+      "text": "A rifle linked to Oswald was recovered on the sixth floor of the Depository.",
+      "topic": ""
+    },
+    {
+      "asserted_as": "CONTESTED",
+      "claim_id": "C07",
+      "depends_on": [
+        "C05"
+      ],
+      "independence": 2,
+      "is_public_record_summary": true,
+      "rejected_by": [],
+      "sources": [
+        "warren_commission",
+        "ballistics_report"
+      ],
+      "stance": "single",
+      "status": "CONTESTED",
+      "text": "The wounds are explained by shots from a single shooter location.",
+      "topic": "shooter_count"
+    },
+    {
+      "asserted_as": "CONTESTED",
+      "claim_id": "C08",
+      "depends_on": [
+        "C07"
+      ],
+      "independence": 2,
+      "is_public_record_summary": true,
+      "rejected_by": [],
+      "sources": [
+        "warren_commission",
+        "ballistics_report"
+      ],
+      "stance": "single",
+      "status": "CONTESTED",
+      "text": "A single bullet accounts for the non-fatal wounds to Kennedy and Connally.",
+      "topic": "single_bullet"
+    },
+    {
+      "asserted_as": "CONTESTED",
+      "claim_id": "C09",
+      "depends_on": [],
+      "independence": 1,
+      "is_public_record_summary": true,
+      "rejected_by": [],
+      "sources": [
+        "hsca",
+        "competing_hypothesis"
+      ],
+      "stance": "multiple",
+      "status": "CONTESTED",
+      "text": "Acoustic analysis was read as indicating a probable second shooter.",
+      "topic": "shooter_count"
+    },
+    {
+      "asserted_as": "CONTESTED",
+      "claim_id": "C10",
+      "depends_on": [],
+      "independence": 1,
+      "is_public_record_summary": true,
+      "rejected_by": [],
+      "sources": [
+        "hsca"
+      ],
+      "stance": "multiple",
+      "status": "CONTESTED",
+      "text": "A 1979 review concluded the assassination probably involved more than one participant, without identifying any.",
+      "topic": "participants"
+    },
+    {
+      "asserted_as": "VERIFIED",
+      "claim_id": "C11",
+      "depends_on": [],
+      "independence": 0,
+      "is_public_record_summary": true,
+      "rejected_by": [],
+      "sources": [
+        "competing_hypothesis"
+      ],
+      "stance": "organized",
+      "status": "SPECULATIVE",
+      "text": "A specific named organization directed the assassination.",
+      "topic": "participants"
+    },
+    {
+      "asserted_as": "REJECTED",
+      "claim_id": "C12",
+      "depends_on": [],
+      "independence": 0,
+      "is_public_record_summary": true,
+      "rejected_by": [
+        "ballistics_report",
+        "warren_commission"
+      ],
+      "sources": [
+        "competing_hypothesis"
+      ],
+      "stance": "",
+      "status": "REJECTED",
+      "text": "Oswald had no connection to the rifle recovered in the Depository.",
+      "topic": ""
+    },
+    {
+      "asserted_as": "UNRESOLVED",
+      "claim_id": "C13",
+      "depends_on": [],
+      "independence": 1,
+      "is_public_record_summary": true,
+      "rejected_by": [],
+      "sources": [
+        "warren_commission"
+      ],
+      "stance": "",
+      "status": "UNRESOLVED",
+      "text": "Oswald's complete motive is fully established.",
+      "topic": ""
+    },
+    {
+      "asserted_as": "PLAUSIBLE",
+      "claim_id": "C14",
+      "depends_on": [],
+      "independence": 1,
+      "is_public_record_summary": true,
+      "rejected_by": [],
+      "sources": [
+        "witness_testimony"
+      ],
+      "stance": "knoll",
+      "status": "PLAUSIBLE",
+      "text": "Some witnesses perceived shots as coming from the grassy-knoll area.",
+      "topic": "shot_origin"
+    },
+    {
+      "asserted_as": "STRONGLY_SUPPORTED",
+      "claim_id": "C15",
+      "depends_on": [],
+      "independence": 2,
+      "is_public_record_summary": true,
+      "rejected_by": [],
+      "sources": [
+        "witness_testimony",
+        "hsca"
+      ],
+      "stance": "depository",
+      "status": "STRONGLY_SUPPORTED",
+      "text": "Most surveyed witnesses associated the shots with the Depository direction.",
+      "topic": "shot_origin"
+    },
+    {
+      "asserted_as": "UNRESOLVED",
+      "claim_id": "C16",
+      "depends_on": [],
+      "independence": 0,
+      "is_public_record_summary": true,
+      "rejected_by": [],
+      "sources": [],
+      "stance": "",
+      "status": "UNRESOLVED",
+      "text": "Every individual with possible foreknowledge has been identified.",
+      "topic": ""
+    }
+  ],
+  "conflict_clusters": {
+    "participants": [
+      "multiple",
+      "organized"
+    ],
+    "shooter_count": [
+      "multiple",
+      "single"
+    ],
+    "shot_count": [
+      "more_than_three",
+      "three"
+    ],
+    "shot_origin": [
+      "depository",
+      "knoll"
+    ]
+  },
+  "conflict_detection": 1.0,
+  "disclaimer": "Structures PUBLICLY DOCUMENTED claims about a historical case (Warren Commission, HSCA, witness testimony, ballistics, public timelines, press). Makes NO new factual claim. Each status records the PUBLIC evidentiary standing of a claim, NOT DESi adjudicating historical truth. DESi NEVER names a perpetrator, NEVER declares the case solved, NEVER confirms a conspiracy, NEVER claims historical authority - it only structures evidence, marks conflicts, and keeps uncertainty visible.",
+  "evidence_independence": 1.0,
+  "lineage_map": {
+    "C01": {
+      "asserted_as": "VERIFIED",
+      "depends_on": [],
+      "independence": 4,
+      "sources": [
+        "warren_commission",
+        "hsca",
+        "public_timeline",
+        "press_report"
+      ],
+      "status": "VERIFIED"
+    },
+    "C02": {
+      "asserted_as": "VERIFIED",
+      "depends_on": [],
+      "independence": 4,
+      "sources": [
+        "warren_commission",
+        "hsca",
+        "public_timeline",
+        "press_report"
+      ],
+      "status": "VERIFIED"
+    },
+    "C03": {
+      "asserted_as": "VERIFIED",
+      "depends_on": [],
+      "independence": 3,
+      "sources": [
+        "warren_commission",
+        "public_timeline",
+        "press_report"
+      ],
+      "status": "VERIFIED"
+    },
+    "C04": {
+      "asserted_as": "VERIFIED",
+      "depends_on": [],
+      "independence": 3,
+      "sources": [
+        "warren_commission",
+        "hsca",
+        "press_report"
+      ],
+      "status": "VERIFIED"
+    },
+    "C05": {
+      "asserted_as": "STRONGLY_SUPPORTED",
+      "depends_on": [
+        "C01"
+      ],
+      "independence": 3,
+      "sources": [
+        "warren_commission",
+        "hsca",
+        "ballistics_report"
+      ],
+      "status": "STRONGLY_SUPPORTED"
+    },
+    "C06": {
+      "asserted_as": "STRONGLY_SUPPORTED",
+      "depends_on": [],
+      "independence": 3,
+      "sources": [
+        "warren_commission",
+        "hsca",
+        "ballistics_report"
+      ],
+      "status": "STRONGLY_SUPPORTED"
+    },
+    "C07": {
+      "asserted_as": "CONTESTED",
+      "depends_on": [
+        "C05"
+      ],
+      "independence": 2,
+      "sources": [
+        "warren_commission",
+        "ballistics_report"
+      ],
+      "status": "CONTESTED"
+    },
+    "C08": {
+      "asserted_as": "CONTESTED",
+      "depends_on": [
+        "C07"
+      ],
+      "independence": 2,
+      "sources": [
+        "warren_commission",
+        "ballistics_report"
+      ],
+      "status": "CONTESTED"
+    },
+    "C09": {
+      "asserted_as": "CONTESTED",
+      "depends_on": [],
+      "independence": 1,
+      "sources": [
+        "hsca",
+        "competing_hypothesis"
+      ],
+      "status": "CONTESTED"
+    },
+    "C10": {
+      "asserted_as": "CONTESTED",
+      "depends_on": [],
+      "independence": 1,
+      "sources": [
+        "hsca"
+      ],
+      "status": "CONTESTED"
+    },
+    "C11": {
+      "asserted_as": "VERIFIED",
+      "depends_on": [],
+      "independence": 0,
+      "sources": [
+        "competing_hypothesis"
+      ],
+      "status": "SPECULATIVE"
+    },
+    "C12": {
+      "asserted_as": "REJECTED",
+      "depends_on": [],
+      "independence": 0,
+      "sources": [
+        "competing_hypothesis"
+      ],
+      "status": "REJECTED"
+    },
+    "C13": {
+      "asserted_as": "UNRESOLVED",
+      "depends_on": [],
+      "independence": 1,
+      "sources": [
+        "warren_commission"
+      ],
+      "status": "UNRESOLVED"
+    },
+    "C14": {
+      "asserted_as": "PLAUSIBLE",
+      "depends_on": [],
+      "independence": 1,
+      "sources": [
+        "witness_testimony"
+      ],
+      "status": "PLAUSIBLE"
+    },
+    "C15": {
+      "asserted_as": "STRONGLY_SUPPORTED",
+      "depends_on": [],
+      "independence": 2,
+      "sources": [
+        "witness_testimony",
+        "hsca"
+      ],
+      "status": "STRONGLY_SUPPORTED"
+    },
+    "C16": {
+      "asserted_as": "UNRESOLVED",
+      "depends_on": [],
+      "independence": 0,
+      "sources": [],
+      "status": "UNRESOLVED"
+    }
+  },
+  "recommendation": "EVIDENCE_TOPOLOGY_STRUCTURED",
+  "report_verdicts": [
+    "EVIDENCE_TOPOLOGY_STRUCTURED",
+    "UNCERTAINTY_COLLAPSE",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "schema_version": "v16_0_evidence_topology_audit",
+  "source_dependency": 0.4375,
+  "status_histogram": {
+    "CONTESTED": 4,
+    "PLAUSIBLE": 1,
+    "REJECTED": 1,
+    "SPECULATIVE": 1,
+    "STRONGLY_SUPPORTED": 3,
+    "UNRESOLVED": 2,
+    "VERIFIED": 4
+  },
+  "timeline": [
+    {
+      "contested_timing": false,
+      "event_id": "T01",
+      "label": "Motorcade enters Dealey Plaza",
+      "offset_seconds": 0.0,
+      "status": "VERIFIED"
+    },
+    {
+      "contested_timing": false,
+      "event_id": "T02",
+      "label": "Shots are fired at the motorcade",
+      "offset_seconds": 8.0,
+      "status": "VERIFIED"
+    },
+    {
+      "contested_timing": true,
+      "event_id": "T03",
+      "label": "Interval between first and last shot",
+      "offset_seconds": 14.0,
+      "status": "CONTESTED"
+    },
+    {
+      "contested_timing": false,
+      "event_id": "T04",
+      "label": "Limousine accelerates toward the hospital",
+      "offset_seconds": 20.0,
+      "status": "VERIFIED"
+    },
+    {
+      "contested_timing": false,
+      "event_id": "T05",
+      "label": "Arrival at Parkland Hospital",
+      "offset_seconds": 320.0,
+      "status": "VERIFIED"
+    },
+    {
+      "contested_timing": false,
+      "event_id": "T06",
+      "label": "President pronounced dead",
+      "offset_seconds": 1920.0,
+      "status": "VERIFIED"
+    },
+    {
+      "contested_timing": true,
+      "event_id": "T07",
+      "label": "Timing some witnesses assign to a knoll-area sound",
+      "offset_seconds": 9.0,
+      "status": "CONTESTED"
+    },
+    {
+      "contested_timing": false,
+      "event_id": "T08",
+      "label": "Oswald arrested",
+      "offset_seconds": 4500.0,
+      "status": "VERIFIED"
+    },
+    {
+      "contested_timing": false,
+      "event_id": "T09",
+      "label": "Oswald killed by Ruby (two days later)",
+      "offset_seconds": 177000.0,
+      "status": "VERIFIED"
+    }
+  ],
+  "timeline_consistency": 0.777778,
+  "uncertainty_visible": true,
+  "unsupported_claim_ids": [
+    "C11",
+    "C12",
+    "C16"
+  ],
+  "unsupported_escalation_detection": 1.0,
+  "witness_conflict_pairs": [
+    [
+      "W01",
+      "W02"
+    ],
+    [
+      "W03",
+      "W04"
+    ]
+  ],
+  "witness_conflict_topics": [
+    "shot_count",
+    "shot_origin"
+  ],
+  "witness_statements": [
+    {
+      "stance": "depository",
+      "statement_id": "W01",
+      "status": "PLAUSIBLE",
+      "topic": "shot_origin",
+      "weight": 4
+    },
+    {
+      "stance": "knoll",
+      "statement_id": "W02",
+      "status": "PLAUSIBLE",
+      "topic": "shot_origin",
+      "weight": 2
+    },
+    {
+      "stance": "three",
+      "statement_id": "W03",
+      "status": "PLAUSIBLE",
+      "topic": "shot_count",
+      "weight": 3
+    },
+    {
+      "stance": "more_than_three",
+      "statement_id": "W04",
+      "status": "CONTESTED",
+      "topic": "shot_count",
+      "weight": 1
+    },
+    {
+      "stance": "uncertain",
+      "statement_id": "W05",
+      "status": "UNRESOLVED",
+      "topic": "shot_origin",
+      "weight": 2
+    }
+  ]
+}

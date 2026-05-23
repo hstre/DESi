@@ -1,0 +1,137 @@
+{
+  "adv_centroid": [
+    4.74359,
+    0.131868,
+    0.028434,
+    0.102564,
+    3.194139,
+    0.417582,
+    2.03663,
+    3.194139,
+    0.0
+  ],
+  "contamination_count": 0,
+  "dead_knob_candidate": "CAUSAL_CHAIN",
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "frame_tension_contribution": 0.011232,
+  "masked_separability": 0.268581,
+  "nc_accuracy": 1.0,
+  "nc_per_shape": {
+    "contradiction_spiking": {
+      "correct": 10,
+      "total": 10
+    },
+    "frame_flipping": {
+      "correct": 10,
+      "total": 10
+    },
+    "jagged_but_valid": {
+      "correct": 10,
+      "total": 10
+    },
+    "marker_free_non_sequitur": {
+      "correct": 10,
+      "total": 10
+    },
+    "smooth_but_false": {
+      "correct": 10,
+      "total": 10
+    }
+  },
+  "per_source_counts": {
+    "sample_trajectories": 2,
+    "v23_multistep": 60,
+    "v314_heldout": 120,
+    "v315_adversarial": 100,
+    "v316_surviving": 100,
+    "v318_weird_marker_free": 13
+  },
+  "primary_defence_layer": null,
+  "recommendation_reason": "separability=0.282796 < 0.8",
+  "recommended_next": "CAUSAL_CHAIN_DEPRECATION_PROBE",
+  "replay_hash": "3cbde141b5d90a46",
+  "separability_delta": 0.014215,
+  "started_at": "2026-05-16T00:00:00+00:00",
+  "trajectory_centroids": {
+    "sample_trajectories": [
+      2.0,
+      0.0,
+      0.685,
+      0.0,
+      0.5,
+      0.71,
+      1.0,
+      1.0,
+      2.0
+    ],
+    "v23_multistep": [
+      5.0,
+      0.1,
+      0.042748,
+      0.0,
+      3.2,
+      0.55,
+      2.6,
+      3.2,
+      0.0
+    ],
+    "v314_heldout": [
+      4.833333,
+      0.166667,
+      0.025796,
+      0.0,
+      3.45,
+      0.625,
+      2.083333,
+      3.45,
+      0.0
+    ],
+    "v315_adversarial": [
+      4.75,
+      0.08,
+      0.023334,
+      0.14,
+      3.23,
+      0.43,
+      2.0,
+      3.23,
+      0.0
+    ],
+    "v316_surviving": [
+      4.75,
+      0.08,
+      0.023334,
+      0.14,
+      3.23,
+      0.43,
+      2.0,
+      3.23,
+      0.0
+    ],
+    "v318_weird_marker_free": [
+      5.0,
+      0.0,
+      0.0,
+      0.0,
+      4.0,
+      1.0,
+      2.0,
+      4.0,
+      0.0
+    ]
+  },
+  "trajectory_count": 445,
+  "transition_count": 1786,
+  "valid_centroid": [
+    4.95082,
+    0.04918,
+    0.032253,
+    0.0,
+    3.54918,
+    0.773934,
+    2.278689,
+    3.557377,
+    0.032787
+  ],
+  "valid_vs_adversarial_separability": 0.282796
+}

@@ -1,0 +1,269 @@
+{
+  "goal_balance": 1.0,
+  "goal_weights": {
+    "accuracy_max": 1.0,
+    "coherence_max": 1.0,
+    "conflict_min": 1.0,
+    "cost_min": 1.0,
+    "exploration_max": 1.0,
+    "speed_max": 1.0
+  },
+  "goodhart_risk": 0.0,
+  "hidden_reweighting": 0.0,
+  "item_count": 8,
+  "items": [
+    {
+      "item_id": "g-001",
+      "scores": {
+        "accuracy_max": 0.95,
+        "coherence_max": 0.85,
+        "conflict_min": 0.7,
+        "cost_min": 0.3,
+        "exploration_max": 0.4,
+        "speed_max": 0.2
+      },
+      "text": "Accurate but slow analysis."
+    },
+    {
+      "item_id": "g-002",
+      "scores": {
+        "accuracy_max": 0.4,
+        "coherence_max": 0.5,
+        "conflict_min": 0.5,
+        "cost_min": 0.85,
+        "exploration_max": 0.3,
+        "speed_max": 0.9
+      },
+      "text": "Fast but shallow heuristic."
+    },
+    {
+      "item_id": "g-003",
+      "scores": {
+        "accuracy_max": 0.7,
+        "coherence_max": 0.7,
+        "conflict_min": 0.65,
+        "cost_min": 0.6,
+        "exploration_max": 0.55,
+        "speed_max": 0.6
+      },
+      "text": "Balanced compromise."
+    },
+    {
+      "item_id": "g-004",
+      "scores": {
+        "accuracy_max": 0.6,
+        "coherence_max": 0.45,
+        "conflict_min": 0.25,
+        "cost_min": 0.4,
+        "exploration_max": 0.95,
+        "speed_max": 0.4
+      },
+      "text": "Exploratory but conflict-heavy."
+    },
+    {
+      "item_id": "g-005",
+      "scores": {
+        "accuracy_max": 0.8,
+        "coherence_max": 0.95,
+        "conflict_min": 0.85,
+        "cost_min": 0.55,
+        "exploration_max": 0.2,
+        "speed_max": 0.5
+      },
+      "text": "Coherent but conservative."
+    },
+    {
+      "item_id": "g-006",
+      "scores": {
+        "accuracy_max": 0.45,
+        "coherence_max": 0.6,
+        "conflict_min": 0.9,
+        "cost_min": 0.95,
+        "exploration_max": 0.25,
+        "speed_max": 0.75
+      },
+      "text": "Cheap and conflict-free but bland."
+    },
+    {
+      "item_id": "g-007",
+      "scores": {
+        "accuracy_max": 0.85,
+        "coherence_max": 0.75,
+        "conflict_min": 0.55,
+        "cost_min": 0.4,
+        "exploration_max": 0.8,
+        "speed_max": 0.35
+      },
+      "text": "High-accuracy exploratory hybrid."
+    },
+    {
+      "item_id": "g-008",
+      "scores": {
+        "accuracy_max": 0.3,
+        "coherence_max": 0.4,
+        "conflict_min": 0.6,
+        "cost_min": 0.9,
+        "exploration_max": 0.2,
+        "speed_max": 0.95
+      },
+      "text": "Pure speed run."
+    }
+  ],
+  "optimised": [
+    {
+      "composite": 0.566667,
+      "item_id": "g-001",
+      "rationale": "composite from accuracy_max=0.95, cost_min=0.3, speed_max=0.2, conflict_min=0.7, coherence_max=0.85, exploration_max=0.4",
+      "scores": {
+        "accuracy_max": 0.95,
+        "coherence_max": 0.85,
+        "conflict_min": 0.7,
+        "cost_min": 0.3,
+        "exploration_max": 0.4,
+        "speed_max": 0.2
+      }
+    },
+    {
+      "composite": 0.575,
+      "item_id": "g-002",
+      "rationale": "composite from accuracy_max=0.4, cost_min=0.85, speed_max=0.9, conflict_min=0.5, coherence_max=0.5, exploration_max=0.3",
+      "scores": {
+        "accuracy_max": 0.4,
+        "coherence_max": 0.5,
+        "conflict_min": 0.5,
+        "cost_min": 0.85,
+        "exploration_max": 0.3,
+        "speed_max": 0.9
+      }
+    },
+    {
+      "composite": 0.633333,
+      "item_id": "g-003",
+      "rationale": "composite from accuracy_max=0.7, cost_min=0.6, speed_max=0.6, conflict_min=0.65, coherence_max=0.7, exploration_max=0.55",
+      "scores": {
+        "accuracy_max": 0.7,
+        "coherence_max": 0.7,
+        "conflict_min": 0.65,
+        "cost_min": 0.6,
+        "exploration_max": 0.55,
+        "speed_max": 0.6
+      }
+    },
+    {
+      "composite": 0.508333,
+      "item_id": "g-004",
+      "rationale": "composite from accuracy_max=0.6, cost_min=0.4, speed_max=0.4, conflict_min=0.25, coherence_max=0.45, exploration_max=0.95",
+      "scores": {
+        "accuracy_max": 0.6,
+        "coherence_max": 0.45,
+        "conflict_min": 0.25,
+        "cost_min": 0.4,
+        "exploration_max": 0.95,
+        "speed_max": 0.4
+      }
+    },
+    {
+      "composite": 0.641667,
+      "item_id": "g-005",
+      "rationale": "composite from accuracy_max=0.8, cost_min=0.55, speed_max=0.5, conflict_min=0.85, coherence_max=0.95, exploration_max=0.2",
+      "scores": {
+        "accuracy_max": 0.8,
+        "coherence_max": 0.95,
+        "conflict_min": 0.85,
+        "cost_min": 0.55,
+        "exploration_max": 0.2,
+        "speed_max": 0.5
+      }
+    },
+    {
+      "composite": 0.65,
+      "item_id": "g-006",
+      "rationale": "composite from accuracy_max=0.45, cost_min=0.95, speed_max=0.75, conflict_min=0.9, coherence_max=0.6, exploration_max=0.25",
+      "scores": {
+        "accuracy_max": 0.45,
+        "coherence_max": 0.6,
+        "conflict_min": 0.9,
+        "cost_min": 0.95,
+        "exploration_max": 0.25,
+        "speed_max": 0.75
+      }
+    },
+    {
+      "composite": 0.616667,
+      "item_id": "g-007",
+      "rationale": "composite from accuracy_max=0.85, cost_min=0.4, speed_max=0.35, conflict_min=0.55, coherence_max=0.75, exploration_max=0.8",
+      "scores": {
+        "accuracy_max": 0.85,
+        "coherence_max": 0.75,
+        "conflict_min": 0.55,
+        "cost_min": 0.4,
+        "exploration_max": 0.8,
+        "speed_max": 0.35
+      }
+    },
+    {
+      "composite": 0.558333,
+      "item_id": "g-008",
+      "rationale": "composite from accuracy_max=0.3, cost_min=0.9, speed_max=0.95, conflict_min=0.6, coherence_max=0.4, exploration_max=0.2",
+      "scores": {
+        "accuracy_max": 0.3,
+        "coherence_max": 0.4,
+        "conflict_min": 0.6,
+        "cost_min": 0.9,
+        "exploration_max": 0.2,
+        "speed_max": 0.95
+      }
+    }
+  ],
+  "optimization_goals": [
+    "accuracy_max",
+    "cost_min",
+    "speed_max",
+    "conflict_min",
+    "coherence_max",
+    "exploration_max"
+  ],
+  "schema_version": "v8_2_goal_competition",
+  "top_3": [
+    {
+      "composite": 0.65,
+      "item_id": "g-006",
+      "rationale": "composite from accuracy_max=0.45, cost_min=0.95, speed_max=0.75, conflict_min=0.9, coherence_max=0.6, exploration_max=0.25",
+      "scores": {
+        "accuracy_max": 0.45,
+        "coherence_max": 0.6,
+        "conflict_min": 0.9,
+        "cost_min": 0.95,
+        "exploration_max": 0.25,
+        "speed_max": 0.75
+      }
+    },
+    {
+      "composite": 0.641667,
+      "item_id": "g-005",
+      "rationale": "composite from accuracy_max=0.8, cost_min=0.55, speed_max=0.5, conflict_min=0.85, coherence_max=0.95, exploration_max=0.2",
+      "scores": {
+        "accuracy_max": 0.8,
+        "coherence_max": 0.95,
+        "conflict_min": 0.85,
+        "cost_min": 0.55,
+        "exploration_max": 0.2,
+        "speed_max": 0.5
+      }
+    },
+    {
+      "composite": 0.633333,
+      "item_id": "g-003",
+      "rationale": "composite from accuracy_max=0.7, cost_min=0.6, speed_max=0.6, conflict_min=0.65, coherence_max=0.7, exploration_max=0.55",
+      "scores": {
+        "accuracy_max": 0.7,
+        "coherence_max": 0.7,
+        "conflict_min": 0.65,
+        "cost_min": 0.6,
+        "exploration_max": 0.55,
+        "speed_max": 0.6
+      }
+    }
+  ],
+  "tradeoff_transparency": 1.0
+}

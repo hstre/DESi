@@ -1,0 +1,834 @@
+{
+  "audit_priorities": [
+    "LOW_AUDIT_PRIORITY",
+    "MEDIUM_AUDIT_PRIORITY",
+    "HIGH_AUDIT_PRIORITY",
+    "GOVERNANCE_REVIEW_RECOMMENDED",
+    "UNRESOLVED"
+  ],
+  "audit_search_reduction": 0.604167,
+  "audited_cells": 19,
+  "budget_fraction": 0.4,
+  "budget_size": 19,
+  "cost_reduction_proxy": 0.390226,
+  "critical_cell_count": 10,
+  "critical_signal_preservation": 1.0,
+  "disclaimer": "Audit-search compression over the synthetic v15.2 corpus; NOT real companies. The compression prunes redundant, recoverable cells and never drops a critical signal. DESi does NOT conclude fraud, does NOT rate, does NOT give investment advice - output is audit-priority only. Post-hoc labels are used solely as validation, never as scoring input.",
+  "ex_ante_critical_preservation": 1.0,
+  "false_suppression_rate": 0.0,
+  "ranked_cells": [
+    {
+      "axis": "bridge_degradation",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.831537
+    },
+    {
+      "axis": "opacity",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.79
+    },
+    {
+      "axis": "inconsistency",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.666667
+    },
+    {
+      "axis": "bridge_gap",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.625
+    },
+    {
+      "axis": "opacity",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.55
+    },
+    {
+      "axis": "bridge_gap",
+      "firm_id": "AUTO_BETA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.5
+    },
+    {
+      "axis": "cash_misalignment",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.479
+    },
+    {
+      "axis": "bridge_degradation",
+      "firm_id": "AUTO_BETA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.464206
+    },
+    {
+      "axis": "inconsistency",
+      "firm_id": "AUTO_BETA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.444444
+    },
+    {
+      "axis": "opacity",
+      "firm_id": "AUTO_BETA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.4
+    },
+    {
+      "axis": "narrative_gap",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.373
+    },
+    {
+      "axis": "narrative_drift",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.25245
+    },
+    {
+      "axis": "semantic_reframing",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.23715
+    },
+    {
+      "axis": "opacity",
+      "firm_id": "CHEM_GAMMA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.17
+    },
+    {
+      "axis": "bridge_gap",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.166667
+    },
+    {
+      "axis": "bridge_degradation",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.147619
+    },
+    {
+      "axis": "narrative_drift",
+      "firm_id": "AUTO_BETA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.13365
+    },
+    {
+      "axis": "semantic_reframing",
+      "firm_id": "AUTO_BETA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.12555
+    },
+    {
+      "axis": "inconsistency",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.111111
+    },
+    {
+      "axis": "cash_misalignment",
+      "firm_id": "AUTO_BETA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.098
+    },
+    {
+      "axis": "narrative_drift",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.03564
+    },
+    {
+      "axis": "semantic_reframing",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.03348
+    },
+    {
+      "axis": "cash_misalignment",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.02
+    },
+    {
+      "axis": "narrative_drift",
+      "firm_id": "CHEM_GAMMA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.01188
+    },
+    {
+      "axis": "semantic_reframing",
+      "firm_id": "CHEM_GAMMA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.01116
+    },
+    {
+      "axis": "narrative_gap",
+      "firm_id": "AUTO_BETA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.0
+    },
+    {
+      "axis": "bridge_degradation",
+      "firm_id": "CHEM_GAMMA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.0
+    },
+    {
+      "axis": "bridge_gap",
+      "firm_id": "CHEM_GAMMA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.0
+    },
+    {
+      "axis": "cash_misalignment",
+      "firm_id": "CHEM_GAMMA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.0
+    },
+    {
+      "axis": "inconsistency",
+      "firm_id": "CHEM_GAMMA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.0
+    },
+    {
+      "axis": "narrative_gap",
+      "firm_id": "CHEM_GAMMA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.0
+    },
+    {
+      "axis": "bridge_degradation",
+      "firm_id": "INDUSTRIAL_ZETA",
+      "is_critical": false,
+      "is_representative": false,
+      "priority": 0.0
+    },
+    {
+      "axis": "bridge_gap",
+      "firm_id": "INDUSTRIAL_ZETA",
+      "is_critical": false,
+      "is_representative": false,
+      "priority": 0.0
+    },
+    {
+      "axis": "cash_misalignment",
+      "firm_id": "INDUSTRIAL_ZETA",
+      "is_critical": false,
+      "is_representative": false,
+      "priority": 0.0
+    },
+    {
+      "axis": "inconsistency",
+      "firm_id": "INDUSTRIAL_ZETA",
+      "is_critical": false,
+      "is_representative": false,
+      "priority": 0.0
+    },
+    {
+      "axis": "narrative_drift",
+      "firm_id": "INDUSTRIAL_ZETA",
+      "is_critical": false,
+      "is_representative": false,
+      "priority": 0.0
+    },
+    {
+      "axis": "narrative_gap",
+      "firm_id": "INDUSTRIAL_ZETA",
+      "is_critical": false,
+      "is_representative": false,
+      "priority": 0.0
+    },
+    {
+      "axis": "opacity",
+      "firm_id": "INDUSTRIAL_ZETA",
+      "is_critical": false,
+      "is_representative": false,
+      "priority": 0.0
+    },
+    {
+      "axis": "semantic_reframing",
+      "firm_id": "INDUSTRIAL_ZETA",
+      "is_critical": false,
+      "is_representative": false,
+      "priority": 0.0
+    },
+    {
+      "axis": "narrative_gap",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.0
+    },
+    {
+      "axis": "bridge_degradation",
+      "firm_id": "UTILITY_DELTA",
+      "is_critical": false,
+      "is_representative": false,
+      "priority": 0.0
+    },
+    {
+      "axis": "bridge_gap",
+      "firm_id": "UTILITY_DELTA",
+      "is_critical": false,
+      "is_representative": false,
+      "priority": 0.0
+    },
+    {
+      "axis": "cash_misalignment",
+      "firm_id": "UTILITY_DELTA",
+      "is_critical": false,
+      "is_representative": false,
+      "priority": 0.0
+    },
+    {
+      "axis": "inconsistency",
+      "firm_id": "UTILITY_DELTA",
+      "is_critical": false,
+      "is_representative": false,
+      "priority": 0.0
+    },
+    {
+      "axis": "narrative_drift",
+      "firm_id": "UTILITY_DELTA",
+      "is_critical": false,
+      "is_representative": false,
+      "priority": 0.0
+    },
+    {
+      "axis": "narrative_gap",
+      "firm_id": "UTILITY_DELTA",
+      "is_critical": false,
+      "is_representative": false,
+      "priority": 0.0
+    },
+    {
+      "axis": "opacity",
+      "firm_id": "UTILITY_DELTA",
+      "is_critical": false,
+      "is_representative": false,
+      "priority": 0.0
+    },
+    {
+      "axis": "semantic_reframing",
+      "firm_id": "UTILITY_DELTA",
+      "is_critical": false,
+      "is_representative": false,
+      "priority": 0.0
+    }
+  ],
+  "recommendation": "GOVERNANCE_REVIEW_RECOMMENDED",
+  "schema_version": "v15_3_audit_search_compression",
+  "selected_cells": [
+    {
+      "axis": "bridge_degradation",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.831537
+    },
+    {
+      "axis": "opacity",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.79
+    },
+    {
+      "axis": "inconsistency",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.666667
+    },
+    {
+      "axis": "bridge_gap",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.625
+    },
+    {
+      "axis": "opacity",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.55
+    },
+    {
+      "axis": "bridge_gap",
+      "firm_id": "AUTO_BETA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.5
+    },
+    {
+      "axis": "cash_misalignment",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.479
+    },
+    {
+      "axis": "bridge_degradation",
+      "firm_id": "AUTO_BETA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.464206
+    },
+    {
+      "axis": "inconsistency",
+      "firm_id": "AUTO_BETA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.444444
+    },
+    {
+      "axis": "opacity",
+      "firm_id": "AUTO_BETA",
+      "is_critical": true,
+      "is_representative": true,
+      "priority": 0.4
+    },
+    {
+      "axis": "narrative_gap",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.373
+    },
+    {
+      "axis": "narrative_drift",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.25245
+    },
+    {
+      "axis": "semantic_reframing",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.23715
+    },
+    {
+      "axis": "opacity",
+      "firm_id": "CHEM_GAMMA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.17
+    },
+    {
+      "axis": "bridge_gap",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.166667
+    },
+    {
+      "axis": "bridge_degradation",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.147619
+    },
+    {
+      "axis": "narrative_drift",
+      "firm_id": "AUTO_BETA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.13365
+    },
+    {
+      "axis": "semantic_reframing",
+      "firm_id": "AUTO_BETA",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.12555
+    },
+    {
+      "axis": "inconsistency",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": false,
+      "is_representative": true,
+      "priority": 0.111111
+    }
+  ],
+  "suppressed_critical": [],
+  "universe": [
+    {
+      "axis": "bridge_degradation",
+      "firm_id": "AUTO_BETA",
+      "is_critical": true,
+      "sector": "automotive",
+      "value": 0.464206
+    },
+    {
+      "axis": "bridge_gap",
+      "firm_id": "AUTO_BETA",
+      "is_critical": true,
+      "sector": "automotive",
+      "value": 0.5
+    },
+    {
+      "axis": "cash_misalignment",
+      "firm_id": "AUTO_BETA",
+      "is_critical": false,
+      "sector": "automotive",
+      "value": 0.098
+    },
+    {
+      "axis": "inconsistency",
+      "firm_id": "AUTO_BETA",
+      "is_critical": true,
+      "sector": "automotive",
+      "value": 0.444444
+    },
+    {
+      "axis": "narrative_drift",
+      "firm_id": "AUTO_BETA",
+      "is_critical": false,
+      "sector": "automotive",
+      "value": 0.13365
+    },
+    {
+      "axis": "narrative_gap",
+      "firm_id": "AUTO_BETA",
+      "is_critical": false,
+      "sector": "automotive",
+      "value": 0.0
+    },
+    {
+      "axis": "opacity",
+      "firm_id": "AUTO_BETA",
+      "is_critical": true,
+      "sector": "automotive",
+      "value": 0.4
+    },
+    {
+      "axis": "semantic_reframing",
+      "firm_id": "AUTO_BETA",
+      "is_critical": false,
+      "sector": "automotive",
+      "value": 0.12555
+    },
+    {
+      "axis": "bridge_degradation",
+      "firm_id": "CHEM_GAMMA",
+      "is_critical": false,
+      "sector": "chemicals",
+      "value": 0.0
+    },
+    {
+      "axis": "bridge_gap",
+      "firm_id": "CHEM_GAMMA",
+      "is_critical": false,
+      "sector": "chemicals",
+      "value": 0.0
+    },
+    {
+      "axis": "cash_misalignment",
+      "firm_id": "CHEM_GAMMA",
+      "is_critical": false,
+      "sector": "chemicals",
+      "value": 0.0
+    },
+    {
+      "axis": "inconsistency",
+      "firm_id": "CHEM_GAMMA",
+      "is_critical": false,
+      "sector": "chemicals",
+      "value": 0.0
+    },
+    {
+      "axis": "narrative_drift",
+      "firm_id": "CHEM_GAMMA",
+      "is_critical": false,
+      "sector": "chemicals",
+      "value": 0.01188
+    },
+    {
+      "axis": "narrative_gap",
+      "firm_id": "CHEM_GAMMA",
+      "is_critical": false,
+      "sector": "chemicals",
+      "value": 0.0
+    },
+    {
+      "axis": "opacity",
+      "firm_id": "CHEM_GAMMA",
+      "is_critical": false,
+      "sector": "chemicals",
+      "value": 0.17
+    },
+    {
+      "axis": "semantic_reframing",
+      "firm_id": "CHEM_GAMMA",
+      "is_critical": false,
+      "sector": "chemicals",
+      "value": 0.01116
+    },
+    {
+      "axis": "bridge_degradation",
+      "firm_id": "INDUSTRIAL_ZETA",
+      "is_critical": false,
+      "sector": "industrials",
+      "value": 0.0
+    },
+    {
+      "axis": "bridge_gap",
+      "firm_id": "INDUSTRIAL_ZETA",
+      "is_critical": false,
+      "sector": "industrials",
+      "value": 0.0
+    },
+    {
+      "axis": "cash_misalignment",
+      "firm_id": "INDUSTRIAL_ZETA",
+      "is_critical": false,
+      "sector": "industrials",
+      "value": 0.0
+    },
+    {
+      "axis": "inconsistency",
+      "firm_id": "INDUSTRIAL_ZETA",
+      "is_critical": false,
+      "sector": "industrials",
+      "value": 0.0
+    },
+    {
+      "axis": "narrative_drift",
+      "firm_id": "INDUSTRIAL_ZETA",
+      "is_critical": false,
+      "sector": "industrials",
+      "value": 0.00891
+    },
+    {
+      "axis": "narrative_gap",
+      "firm_id": "INDUSTRIAL_ZETA",
+      "is_critical": false,
+      "sector": "industrials",
+      "value": 0.0
+    },
+    {
+      "axis": "opacity",
+      "firm_id": "INDUSTRIAL_ZETA",
+      "is_critical": false,
+      "sector": "industrials",
+      "value": 0.2
+    },
+    {
+      "axis": "semantic_reframing",
+      "firm_id": "INDUSTRIAL_ZETA",
+      "is_critical": false,
+      "sector": "industrials",
+      "value": 0.00837
+    },
+    {
+      "axis": "bridge_degradation",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": true,
+      "sector": "payments",
+      "value": 0.831537
+    },
+    {
+      "axis": "bridge_gap",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": true,
+      "sector": "payments",
+      "value": 0.625
+    },
+    {
+      "axis": "cash_misalignment",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": true,
+      "sector": "payments",
+      "value": 0.479
+    },
+    {
+      "axis": "inconsistency",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": true,
+      "sector": "payments",
+      "value": 0.666667
+    },
+    {
+      "axis": "narrative_drift",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": false,
+      "sector": "payments",
+      "value": 0.25245
+    },
+    {
+      "axis": "narrative_gap",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": false,
+      "sector": "payments",
+      "value": 0.373
+    },
+    {
+      "axis": "opacity",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": true,
+      "sector": "payments",
+      "value": 0.79
+    },
+    {
+      "axis": "semantic_reframing",
+      "firm_id": "PAYMENTS_ALPHA",
+      "is_critical": false,
+      "sector": "payments",
+      "value": 0.23715
+    },
+    {
+      "axis": "bridge_degradation",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": false,
+      "sector": "pharma",
+      "value": 0.147619
+    },
+    {
+      "axis": "bridge_gap",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": false,
+      "sector": "pharma",
+      "value": 0.166667
+    },
+    {
+      "axis": "cash_misalignment",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": false,
+      "sector": "pharma",
+      "value": 0.02
+    },
+    {
+      "axis": "inconsistency",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": false,
+      "sector": "pharma",
+      "value": 0.111111
+    },
+    {
+      "axis": "narrative_drift",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": false,
+      "sector": "pharma",
+      "value": 0.03564
+    },
+    {
+      "axis": "narrative_gap",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": false,
+      "sector": "pharma",
+      "value": 0.0
+    },
+    {
+      "axis": "opacity",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": true,
+      "sector": "pharma",
+      "value": 0.55
+    },
+    {
+      "axis": "semantic_reframing",
+      "firm_id": "PHARMA_EPSILON",
+      "is_critical": false,
+      "sector": "pharma",
+      "value": 0.03348
+    },
+    {
+      "axis": "bridge_degradation",
+      "firm_id": "UTILITY_DELTA",
+      "is_critical": false,
+      "sector": "utilities",
+      "value": 0.0
+    },
+    {
+      "axis": "bridge_gap",
+      "firm_id": "UTILITY_DELTA",
+      "is_critical": false,
+      "sector": "utilities",
+      "value": 0.0
+    },
+    {
+      "axis": "cash_misalignment",
+      "firm_id": "UTILITY_DELTA",
+      "is_critical": false,
+      "sector": "utilities",
+      "value": 0.0
+    },
+    {
+      "axis": "inconsistency",
+      "firm_id": "UTILITY_DELTA",
+      "is_critical": false,
+      "sector": "utilities",
+      "value": 0.0
+    },
+    {
+      "axis": "narrative_drift",
+      "firm_id": "UTILITY_DELTA",
+      "is_critical": false,
+      "sector": "utilities",
+      "value": 0.00594
+    },
+    {
+      "axis": "narrative_gap",
+      "firm_id": "UTILITY_DELTA",
+      "is_critical": false,
+      "sector": "utilities",
+      "value": 0.0
+    },
+    {
+      "axis": "opacity",
+      "firm_id": "UTILITY_DELTA",
+      "is_critical": false,
+      "sector": "utilities",
+      "value": 0.13
+    },
+    {
+      "axis": "semantic_reframing",
+      "firm_id": "UTILITY_DELTA",
+      "is_critical": false,
+      "sector": "utilities",
+      "value": 0.00558
+    }
+  ],
+  "universe_size": 48
+}

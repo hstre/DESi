@@ -1,0 +1,497 @@
+{
+  "action_counts": {
+    "replay": 15,
+    "search": 22,
+    "skip": 6
+  },
+  "baseline_nodes": 4300,
+  "compute_saving": 0.532558,
+  "governance_actions": [
+    "search",
+    "skip",
+    "replay"
+  ],
+  "governed_branch_count": 43,
+  "governed_branches": [
+    {
+      "action": "search",
+      "branch_id": "b-001-a",
+      "is_critical_truth": true,
+      "position_id": "pos-tact-001",
+      "verdict": "forced"
+    },
+    {
+      "action": "skip",
+      "branch_id": "b-001-b",
+      "is_critical_truth": false,
+      "position_id": "pos-tact-001",
+      "verdict": "low_info"
+    },
+    {
+      "action": "replay",
+      "branch_id": "b-001-c",
+      "is_critical_truth": false,
+      "position_id": "pos-tact-001",
+      "verdict": "redundant"
+    },
+    {
+      "action": "replay",
+      "branch_id": "b-001-d",
+      "is_critical_truth": false,
+      "position_id": "pos-tact-001",
+      "verdict": "redundant"
+    },
+    {
+      "action": "replay",
+      "branch_id": "b-001-e",
+      "is_critical_truth": false,
+      "position_id": "pos-tact-001",
+      "verdict": "redundant"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-002-a",
+      "is_critical_truth": true,
+      "position_id": "pos-tact-002",
+      "verdict": "forced"
+    },
+    {
+      "action": "skip",
+      "branch_id": "b-002-b",
+      "is_critical_truth": false,
+      "position_id": "pos-tact-002",
+      "verdict": "low_info"
+    },
+    {
+      "action": "replay",
+      "branch_id": "b-002-c",
+      "is_critical_truth": false,
+      "position_id": "pos-tact-002",
+      "verdict": "redundant"
+    },
+    {
+      "action": "replay",
+      "branch_id": "b-002-d",
+      "is_critical_truth": false,
+      "position_id": "pos-tact-002",
+      "verdict": "redundant"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-003-a",
+      "is_critical_truth": false,
+      "position_id": "pos-quiet-001",
+      "verdict": "keep"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-003-b",
+      "is_critical_truth": false,
+      "position_id": "pos-quiet-001",
+      "verdict": "keep"
+    },
+    {
+      "action": "replay",
+      "branch_id": "b-003-c",
+      "is_critical_truth": false,
+      "position_id": "pos-quiet-001",
+      "verdict": "redundant"
+    },
+    {
+      "action": "replay",
+      "branch_id": "b-003-d",
+      "is_critical_truth": false,
+      "position_id": "pos-quiet-001",
+      "verdict": "redundant"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-004-a",
+      "is_critical_truth": false,
+      "position_id": "pos-quiet-002",
+      "verdict": "keep"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-004-b",
+      "is_critical_truth": false,
+      "position_id": "pos-quiet-002",
+      "verdict": "keep"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-004-c",
+      "is_critical_truth": false,
+      "position_id": "pos-quiet-002",
+      "verdict": "keep"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-004-d",
+      "is_critical_truth": false,
+      "position_id": "pos-quiet-002",
+      "verdict": "keep"
+    },
+    {
+      "action": "replay",
+      "branch_id": "b-004-e",
+      "is_critical_truth": false,
+      "position_id": "pos-quiet-002",
+      "verdict": "redundant"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-005-a",
+      "is_critical_truth": false,
+      "position_id": "pos-middle-001",
+      "verdict": "keep"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-005-b",
+      "is_critical_truth": false,
+      "position_id": "pos-middle-001",
+      "verdict": "keep"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-005-c",
+      "is_critical_truth": false,
+      "position_id": "pos-middle-001",
+      "verdict": "keep"
+    },
+    {
+      "action": "replay",
+      "branch_id": "b-005-d",
+      "is_critical_truth": false,
+      "position_id": "pos-middle-001",
+      "verdict": "redundant"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-006-a",
+      "is_critical_truth": true,
+      "position_id": "pos-middle-002",
+      "verdict": "forced"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-006-b",
+      "is_critical_truth": false,
+      "position_id": "pos-middle-002",
+      "verdict": "keep"
+    },
+    {
+      "action": "skip",
+      "branch_id": "b-006-c",
+      "is_critical_truth": false,
+      "position_id": "pos-middle-002",
+      "verdict": "low_info"
+    },
+    {
+      "action": "replay",
+      "branch_id": "b-006-d",
+      "is_critical_truth": false,
+      "position_id": "pos-middle-002",
+      "verdict": "redundant"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-007-a",
+      "is_critical_truth": false,
+      "position_id": "pos-end-001",
+      "verdict": "forced"
+    },
+    {
+      "action": "skip",
+      "branch_id": "b-007-b",
+      "is_critical_truth": false,
+      "position_id": "pos-end-001",
+      "verdict": "low_info"
+    },
+    {
+      "action": "replay",
+      "branch_id": "b-007-c",
+      "is_critical_truth": false,
+      "position_id": "pos-end-001",
+      "verdict": "redundant"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-008-a",
+      "is_critical_truth": false,
+      "position_id": "pos-end-002",
+      "verdict": "forced"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-008-b",
+      "is_critical_truth": false,
+      "position_id": "pos-end-002",
+      "verdict": "keep"
+    },
+    {
+      "action": "skip",
+      "branch_id": "b-008-c",
+      "is_critical_truth": false,
+      "position_id": "pos-end-002",
+      "verdict": "low_info"
+    },
+    {
+      "action": "replay",
+      "branch_id": "b-008-d",
+      "is_critical_truth": false,
+      "position_id": "pos-end-002",
+      "verdict": "redundant"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-009-a",
+      "is_critical_truth": false,
+      "position_id": "pos-strat-001",
+      "verdict": "keep"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-009-b",
+      "is_critical_truth": false,
+      "position_id": "pos-strat-001",
+      "verdict": "keep"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-009-c",
+      "is_critical_truth": false,
+      "position_id": "pos-strat-001",
+      "verdict": "keep"
+    },
+    {
+      "action": "skip",
+      "branch_id": "b-009-d",
+      "is_critical_truth": false,
+      "position_id": "pos-strat-001",
+      "verdict": "low_info"
+    },
+    {
+      "action": "replay",
+      "branch_id": "b-009-e",
+      "is_critical_truth": false,
+      "position_id": "pos-strat-001",
+      "verdict": "redundant"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-010-a",
+      "is_critical_truth": false,
+      "position_id": "pos-strat-002",
+      "verdict": "keep"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-010-b",
+      "is_critical_truth": false,
+      "position_id": "pos-strat-002",
+      "verdict": "keep"
+    },
+    {
+      "action": "search",
+      "branch_id": "b-010-c",
+      "is_critical_truth": false,
+      "position_id": "pos-strat-002",
+      "verdict": "keep"
+    },
+    {
+      "action": "replay",
+      "branch_id": "b-010-d",
+      "is_critical_truth": false,
+      "position_id": "pos-strat-002",
+      "verdict": "redundant"
+    },
+    {
+      "action": "replay",
+      "branch_id": "b-010-e",
+      "is_critical_truth": false,
+      "position_id": "pos-strat-002",
+      "verdict": "redundant"
+    }
+  ],
+  "guided_nodes": 2010,
+  "node_reduction": 0.532558,
+  "priority_order": [
+    [
+      "pos-end-001",
+      "b-007-a"
+    ],
+    [
+      "pos-end-001",
+      "b-007-c"
+    ],
+    [
+      "pos-end-001",
+      "b-007-b"
+    ],
+    [
+      "pos-end-002",
+      "b-008-a"
+    ],
+    [
+      "pos-end-002",
+      "b-008-b"
+    ],
+    [
+      "pos-end-002",
+      "b-008-d"
+    ],
+    [
+      "pos-end-002",
+      "b-008-c"
+    ],
+    [
+      "pos-middle-001",
+      "b-005-a"
+    ],
+    [
+      "pos-middle-001",
+      "b-005-b"
+    ],
+    [
+      "pos-middle-001",
+      "b-005-c"
+    ],
+    [
+      "pos-middle-001",
+      "b-005-d"
+    ],
+    [
+      "pos-middle-002",
+      "b-006-a"
+    ],
+    [
+      "pos-middle-002",
+      "b-006-b"
+    ],
+    [
+      "pos-middle-002",
+      "b-006-d"
+    ],
+    [
+      "pos-middle-002",
+      "b-006-c"
+    ],
+    [
+      "pos-quiet-001",
+      "b-003-a"
+    ],
+    [
+      "pos-quiet-001",
+      "b-003-b"
+    ],
+    [
+      "pos-quiet-001",
+      "b-003-c"
+    ],
+    [
+      "pos-quiet-001",
+      "b-003-d"
+    ],
+    [
+      "pos-quiet-002",
+      "b-004-a"
+    ],
+    [
+      "pos-quiet-002",
+      "b-004-b"
+    ],
+    [
+      "pos-quiet-002",
+      "b-004-c"
+    ],
+    [
+      "pos-quiet-002",
+      "b-004-d"
+    ],
+    [
+      "pos-quiet-002",
+      "b-004-e"
+    ],
+    [
+      "pos-strat-001",
+      "b-009-a"
+    ],
+    [
+      "pos-strat-001",
+      "b-009-b"
+    ],
+    [
+      "pos-strat-001",
+      "b-009-c"
+    ],
+    [
+      "pos-strat-001",
+      "b-009-e"
+    ],
+    [
+      "pos-strat-001",
+      "b-009-d"
+    ],
+    [
+      "pos-strat-002",
+      "b-010-a"
+    ],
+    [
+      "pos-strat-002",
+      "b-010-b"
+    ],
+    [
+      "pos-strat-002",
+      "b-010-c"
+    ],
+    [
+      "pos-strat-002",
+      "b-010-d"
+    ],
+    [
+      "pos-strat-002",
+      "b-010-e"
+    ],
+    [
+      "pos-tact-001",
+      "b-001-a"
+    ],
+    [
+      "pos-tact-001",
+      "b-001-c"
+    ],
+    [
+      "pos-tact-001",
+      "b-001-d"
+    ],
+    [
+      "pos-tact-001",
+      "b-001-e"
+    ],
+    [
+      "pos-tact-001",
+      "b-001-b"
+    ],
+    [
+      "pos-tact-002",
+      "b-002-a"
+    ],
+    [
+      "pos-tact-002",
+      "b-002-c"
+    ],
+    [
+      "pos-tact-002",
+      "b-002-d"
+    ],
+    [
+      "pos-tact-002",
+      "b-002-b"
+    ]
+  ],
+  "pv_stability": 1.0,
+  "schema_version": "v11_1_desi_guided_search",
+  "tactical_recall": 1.0
+}

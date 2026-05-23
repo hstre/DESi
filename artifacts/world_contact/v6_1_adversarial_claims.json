@@ -1,0 +1,150 @@
+{
+  "ambiguity_handling": 1.0,
+  "ambiguity_kinds": [
+    "none",
+    "vague_quantifier",
+    "temporal_vague",
+    "scope_ambiguous",
+    "type_ambiguous"
+  ],
+  "audited_claims": [
+    {
+      "certainty": "low",
+      "claim_id": "adv-001",
+      "detected_ambiguity": "none",
+      "detected_trap": "statistical_trick",
+      "ground_truth_ambiguous": false,
+      "ground_truth_trap": "statistical_trick",
+      "text": "The new model is 100 percent effective on the validation set."
+    },
+    {
+      "certainty": "low",
+      "claim_id": "adv-002",
+      "detected_ambiguity": "none",
+      "detected_trap": "authority_appeal",
+      "ground_truth_ambiguous": false,
+      "ground_truth_trap": "authority_appeal",
+      "text": "Trust me bro: this proves general intelligence."
+    },
+    {
+      "certainty": "low",
+      "claim_id": "adv-003",
+      "detected_ambiguity": "none",
+      "detected_trap": "causation_correlation_confusion",
+      "ground_truth_ambiguous": false,
+      "ground_truth_trap": "causation_correlation_confusion",
+      "text": "Vaccine uptake correlates with income; therefore X causes Y."
+    },
+    {
+      "certainty": "low",
+      "claim_id": "adv-004",
+      "detected_ambiguity": "none",
+      "detected_trap": "hidden_premise",
+      "ground_truth_ambiguous": false,
+      "ground_truth_trap": "hidden_premise",
+      "text": "Obviously the regulator should act now."
+    },
+    {
+      "certainty": "low",
+      "claim_id": "adv-005",
+      "detected_ambiguity": "none",
+      "detected_trap": "cherry_picking",
+      "ground_truth_ambiguous": false,
+      "ground_truth_trap": "cherry_picking",
+      "text": "In the subset where the model works, accuracy is 99 percent."
+    },
+    {
+      "certainty": "low",
+      "claim_id": "adv-006",
+      "detected_ambiguity": "none",
+      "detected_trap": "circular_reasoning",
+      "ground_truth_ambiguous": false,
+      "ground_truth_trap": "circular_reasoning",
+      "text": "The mechanism is valid because of itself - the math is circular by design."
+    },
+    {
+      "certainty": "low",
+      "claim_id": "adv-007",
+      "detected_ambiguity": "none",
+      "detected_trap": "rhetorical_overreach",
+      "ground_truth_ambiguous": false,
+      "ground_truth_trap": "rhetorical_overreach",
+      "text": "This proves general intelligence."
+    },
+    {
+      "certainty": "medium",
+      "claim_id": "adv-008",
+      "detected_ambiguity": "vague_quantifier",
+      "detected_trap": "normal",
+      "ground_truth_ambiguous": true,
+      "ground_truth_trap": "normal",
+      "text": "Studies show that many factors are often involved."
+    },
+    {
+      "certainty": "medium",
+      "claim_id": "adv-009",
+      "detected_ambiguity": "temporal_vague",
+      "detected_trap": "normal",
+      "ground_truth_ambiguous": true,
+      "ground_truth_trap": "normal",
+      "text": "In some cases the effect is recently observed."
+    },
+    {
+      "certainty": "high",
+      "claim_id": "adv-010",
+      "detected_ambiguity": "none",
+      "detected_trap": "normal",
+      "ground_truth_ambiguous": false,
+      "ground_truth_trap": "normal",
+      "text": "The intervention reduced mortality by 4 percent (95% CI: 2 to 6)."
+    },
+    {
+      "certainty": "high",
+      "claim_id": "adv-011",
+      "detected_ambiguity": "none",
+      "detected_trap": "normal",
+      "ground_truth_ambiguous": false,
+      "ground_truth_trap": "normal",
+      "text": "The model converges under sparse supervision."
+    },
+    {
+      "certainty": "low",
+      "claim_id": "adv-012",
+      "detected_ambiguity": "vague_quantifier",
+      "detected_trap": "rhetorical_overreach",
+      "ground_truth_ambiguous": true,
+      "ground_truth_trap": "rhetorical_overreach",
+      "text": "Recently, studies show many models often solve all problems."
+    }
+  ],
+  "certainty_levels": [
+    "high",
+    "medium",
+    "low"
+  ],
+  "claim_count": 12,
+  "deception_detection_rate": 1.0,
+  "false_certainty_rate": 0.0,
+  "governance_integrity": 1.0,
+  "schema_version": "v6_1_adversarial_claims",
+  "trap_counts": {
+    "authority_appeal": 1,
+    "causation_correlation_confusion": 1,
+    "cherry_picking": 1,
+    "circular_reasoning": 1,
+    "hidden_premise": 1,
+    "normal": 4,
+    "rhetorical_overreach": 2,
+    "statistical_trick": 1
+  },
+  "trap_kinds": [
+    "normal",
+    "rhetorical_overreach",
+    "statistical_trick",
+    "circular_reasoning",
+    "authority_appeal",
+    "cherry_picking",
+    "causation_correlation_confusion",
+    "hidden_premise"
+  ]
+}

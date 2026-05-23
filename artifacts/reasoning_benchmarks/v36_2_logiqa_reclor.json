@@ -1,0 +1,111 @@
+{
+  "assumption_visibility": 1.0,
+  "core_identity": 1.0,
+  "disclaimer": "Logic & fallacy run over locally-vendored LogiQA and ReClor reference datasets. DESi classifies each canonical logical form deterministically: valid forms (modus ponens / tollens) are judged valid, fallacies (affirming the consequent, denying the antecedent, hasty generalization, false dichotomy) are named, unstated assumptions are surfaced and distractor options are resisted. An unrecognised form is reported as 'unknown' rather than asserted valid - no false confidence. This tests deterministic logical-form governance, not LLM accuracy; the datasets are NOT live downloads and the scores are NOT official leaderboard results. Human approval is mandatory.",
+  "distractor_resistance": 1.0,
+  "fallacy_detection": 1.0,
+  "governance_identity": 1.0,
+  "human_approval_required": true,
+  "logical_consistency": 1.0,
+  "recommendation": "LOGIQA_RECLOR_RUN_PASSED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "LOGIQA_RECLOR_RUN_PASSED",
+    "LOGIQA_RECLOR_RUN_PARTIAL",
+    "LOGIQA_RECLOR_RUN_HALT"
+  ],
+  "schema_version": "v36_2_logiqa_reclor_run",
+  "scorecards": [
+    {
+      "assumptions_visible": true,
+      "consistent": true,
+      "dataset_hash": "e912b5fec6e5e7cd2f3ef395ca9a118e4425c30ad24a9d847e56c196bb3fb6fd",
+      "detected_fallacy": "none",
+      "family": "LogiQA",
+      "form": "modus_ponens",
+      "resisted_distractor": true,
+      "task_id": "lq_001"
+    },
+    {
+      "assumptions_visible": true,
+      "consistent": true,
+      "dataset_hash": "e912b5fec6e5e7cd2f3ef395ca9a118e4425c30ad24a9d847e56c196bb3fb6fd",
+      "detected_fallacy": "affirming_consequent",
+      "family": "LogiQA",
+      "form": "affirming_consequent",
+      "resisted_distractor": true,
+      "task_id": "lq_002"
+    },
+    {
+      "assumptions_visible": true,
+      "consistent": true,
+      "dataset_hash": "e912b5fec6e5e7cd2f3ef395ca9a118e4425c30ad24a9d847e56c196bb3fb6fd",
+      "detected_fallacy": "denying_antecedent",
+      "family": "LogiQA",
+      "form": "denying_antecedent",
+      "resisted_distractor": true,
+      "task_id": "lq_003"
+    },
+    {
+      "assumptions_visible": true,
+      "consistent": true,
+      "dataset_hash": "e912b5fec6e5e7cd2f3ef395ca9a118e4425c30ad24a9d847e56c196bb3fb6fd",
+      "detected_fallacy": "none",
+      "family": "LogiQA",
+      "form": "modus_tollens",
+      "resisted_distractor": true,
+      "task_id": "lq_004"
+    },
+    {
+      "assumptions_visible": true,
+      "consistent": true,
+      "dataset_hash": "e912b5fec6e5e7cd2f3ef395ca9a118e4425c30ad24a9d847e56c196bb3fb6fd",
+      "detected_fallacy": "hasty_generalization",
+      "family": "LogiQA",
+      "form": "hasty_generalization",
+      "resisted_distractor": true,
+      "task_id": "lq_005"
+    },
+    {
+      "assumptions_visible": true,
+      "consistent": true,
+      "dataset_hash": "32e8c6f874b9f0c65c83d0bbdbdd77d62be72e058bf5fac033d17b00352c9d76",
+      "detected_fallacy": "none",
+      "family": "ReClor",
+      "form": "modus_ponens",
+      "resisted_distractor": true,
+      "task_id": "rc_001"
+    },
+    {
+      "assumptions_visible": true,
+      "consistent": true,
+      "dataset_hash": "32e8c6f874b9f0c65c83d0bbdbdd77d62be72e058bf5fac033d17b00352c9d76",
+      "detected_fallacy": "false_dichotomy",
+      "family": "ReClor",
+      "form": "false_dichotomy",
+      "resisted_distractor": true,
+      "task_id": "rc_002"
+    },
+    {
+      "assumptions_visible": true,
+      "consistent": true,
+      "dataset_hash": "32e8c6f874b9f0c65c83d0bbdbdd77d62be72e058bf5fac033d17b00352c9d76",
+      "detected_fallacy": "none",
+      "family": "ReClor",
+      "form": "modus_tollens",
+      "resisted_distractor": true,
+      "task_id": "rc_003"
+    },
+    {
+      "assumptions_visible": true,
+      "consistent": true,
+      "dataset_hash": "32e8c6f874b9f0c65c83d0bbdbdd77d62be72e058bf5fac033d17b00352c9d76",
+      "detected_fallacy": "affirming_consequent",
+      "family": "ReClor",
+      "form": "affirming_consequent",
+      "resisted_distractor": true,
+      "task_id": "rc_004"
+    }
+  ],
+  "signature": "7dfdc15febdc1db4f2c787df4601038383086c3f3051282106d6f331be81dfa1"
+}

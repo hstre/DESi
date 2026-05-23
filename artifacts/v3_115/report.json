@@ -1,0 +1,72 @@
+{
+  "best_subset": [
+    "support_propagation_length"
+  ],
+  "complexity_cost": 0.083333,
+  "halt": false,
+  "mean_auc": 0.5,
+  "minimal_vocab_size": 1,
+  "rationale": [
+    "INFO: subset_count 298 (sizes 1..3)",
+    "INFO: best_subset ['support_propagation_length']",
+    "INFO: minimal_vocab_size 1",
+    "FAIL: vocab_recovery 0.0 (threshold 0.9)",
+    "INFO: mean_auc 0.5",
+    "INFO: complexity_cost 0.083333",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "NO_STRUCTURAL_ALPHABET",
+  "replay_stability": 1.0,
+  "subset_count": 298,
+  "subset_outcomes_sample": [
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "inference_depth"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "premise_fanout"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "dependency_graph_shape"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "operator_transition_pattern"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "contradiction_scope"
+      ]
+    },
+    {
+      "mean_auc": 0.5,
+      "mean_purity": 0.667229,
+      "rescue_rate": 0.0,
+      "subset": [
+        "support_graph_entropy"
+      ]
+    }
+  ],
+  "vocab_recovery": 0.0
+}

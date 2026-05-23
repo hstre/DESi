@@ -1,0 +1,59 @@
+{
+  "compute_reduction": 0.416667,
+  "core_identity": 1.0,
+  "critical_branch_preservation": 1.0,
+  "critical_safe": true,
+  "disclaimer": "Real search-compression benchmark run over the connector-loaded ToolChain dataset, executed under the v33 search discipline (no synthetic inline fixtures, no score hacking). Reduction comes only from lossless replay reuse / redundant-branch compression and reversible soft-reweighting; critical (load-bearing) branches stay visible and are never hard-pruned (hard_pruned_count = 0). Novelty and quality are preserved. The dataset is a locally-vendored reference set in the ToolChain family format, not a live download of an official suite. Human approval is mandatory.",
+  "hard_pruned_count": 0,
+  "human_approval_required": true,
+  "mode_breakdown": {
+    "kept": 3,
+    "redundant_branch_compression": 2,
+    "replay_reuse": 3,
+    "soft_reweighting": 4
+  },
+  "node_reduction": 0.416667,
+  "novelty_preservation": 1.0,
+  "quality_preservation": 1.0,
+  "recommendation": "REAL_SEARCH_RUN_PASSED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "REAL_SEARCH_RUN_PASSED",
+    "REAL_SEARCH_RUN_PARTIAL",
+    "REAL_SEARCH_RUN_HALT"
+  ],
+  "schema_version": "v35_2_real_search_run",
+  "scorecard": {
+    "branch_compression": 0.75,
+    "compute_reduction": 0.416667,
+    "critical_branch_preservation": 1.0,
+    "dataset_hash": "b648a033d2e0da5f7555a16dcff2151824087fb392e1844ad52421944b1ffd39",
+    "governance_status": "GOVERNANCE_INDEPENDENT",
+    "hard_pruned_count": 0,
+    "mode_breakdown": [
+      [
+        "kept",
+        3
+      ],
+      [
+        "redundant_branch_compression",
+        2
+      ],
+      [
+        "replay_reuse",
+        3
+      ],
+      [
+        "soft_reweighting",
+        4
+      ]
+    ],
+    "node_reduction": 0.416667,
+    "novelty_preservation": 1.0,
+    "quality_preservation": 1.0,
+    "replay_hash": "63a7d6bee9eaba47a8335ab6ab52efeef989383d6f236c907dd710ee6b0f6124",
+    "total_branches": 12
+  },
+  "scorecard_traceable": true,
+  "signature": "196b19b6cc77f9ff5252d60d7a542db3f2555e5f110f75909e19795474aca13d"
+}

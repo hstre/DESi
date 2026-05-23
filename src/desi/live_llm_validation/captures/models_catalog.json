@@ -1,0 +1,31 @@
+{
+  "capture_kind": "live_openrouter_public_catalog",
+  "captured_model_count": 2,
+  "content_hash": "d066944a16f87bf9d9700f313248115d74702827b24f43ca3bd1556ac28c7a36",
+  "endpoint_auth": "public_no_key_required",
+  "models": [
+    {
+      "canonical_slug": "deepseek/deepseek-v4-pro-20260423",
+      "context_length": 1048576,
+      "created": 1777000679,
+      "id": "deepseek/deepseek-v4-pro",
+      "name": "DeepSeek: DeepSeek V4 Pro",
+      "pricing": {
+        "completion": "0.00000087",
+        "prompt": "0.000000435"
+      }
+    },
+    {
+      "canonical_slug": "ibm-granite/granite-4.1-8b-20260429",
+      "context_length": 131072,
+      "created": 1777577071,
+      "id": "ibm-granite/granite-4.1-8b",
+      "name": "IBM: Granite 4.1 8B",
+      "pricing": {
+        "completion": "0.0000001",
+        "prompt": "0.00000005"
+      }
+    }
+  ],
+  "source": "https://openrouter.ai/api/v1/models"
+}

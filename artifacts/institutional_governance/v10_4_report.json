@@ -1,0 +1,26 @@
+{
+  "authority_drift": 0.0,
+  "bad_precedent_persistence": 0.0,
+  "epistemic_flexibility": 1.0,
+  "failing_conditions": [],
+  "final_classification": "A_epistemically_constitutional",
+  "gate_passes_all": true,
+  "governance_transparency": 0.975,
+  "halt": false,
+  "institutional_resilience": 0.981669,
+  "power_concentration": 0.01,
+  "rationale": [
+    "INFO: final_classification A_epistemically_constitutional",
+    "INFO: power_concentration 0.01",
+    "INFO: authority_drift 0.0",
+    "INFO: bad_precedent_persistence 0.0",
+    "INFO: governance_transparency 0.975",
+    "INFO: epistemic_flexibility 1.0",
+    "INFO: institutional_resilience 0.981669",
+    "INFO: replay_stability 1.0",
+    "PASS: gate_passes_all (failing=[])",
+    "PASS: meta_replay_stability 1.0"
+  ],
+  "recommendation": "DESI_INSTITUTIONALLY_ROBUST",
+  "replay_stability": 1.0
+}

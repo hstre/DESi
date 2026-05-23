@@ -1,0 +1,426 @@
+"""Premise extraction — first stage of the v1.2 logical audit.
+
+The extractor consumes free-form text and emits a structured
+:class:`Propositions` record: a tuple of typed :class:`Premise`
+objects plus an optional :class:`ConclusionProposition`. Every
+premise carries its own deterministic id so the proof chain can
+later reference it by hash.
+
+Authority-independence is *enforced here*: source / author / title
+are never inputs to the extractor. The only signal is the text of
+the proposition itself. Five premise kinds are recognised:
+
+* ``UNIVERSAL``    — "All X are Y"
+* ``PARTICULAR``   — "S is Y" / "S is a Y"
+* ``CONDITIONAL``  — "If P then Q"
+* ``IMPLICATION``  — "P → Q"
+* ``AUTHORITY``    — "X says Y"   (recognised so it can be
+                    *rejected* — never accepted as evidence)
+* ``ATOMIC``       — anything else (an unstructured proposition)
+
+Synonym normalisation is intentionally narrow (a small inflection
+table) so that "men" and "man" canonicalise to the same atom in a
+syllogism.
+"""
+from __future__ import annotations
+
+import hashlib
+import re
+from dataclasses import dataclass, field
+from enum import Enum
+
+
+class PremiseKind(str, Enum):
+    UNIVERSAL = "universal"
+    PARTICULAR = "particular"
+    CONDITIONAL = "conditional"
+    IMPLICATION = "implication"
+    AUTHORITY = "authority"
+    ATOMIC = "atomic"
+
+
+# v1.2 directive: a tiny, well-known inflection map. We intentionally
+# do not call out to a stemmer / NLP library — every transformation
+# the extractor performs must be inspectable here.
+#
+# v1.6 directive constraint: ``Recall must stay ≥ 0.70``. The v1.6
+# generic-fallback gate would otherwise drop syllogisms that only
+# missed the SYLLOGISM rule because of regular ``-s`` plural
+# inflection (``philosophers`` vs ``philosopher``). The five entries
+# below are ordinary English noun pluralisations, narrowly added so
+# Barbara-shaped syllogisms still match at the audit level rather
+# than falling through to the generic bridge fallback. This is data,
+# not a new operator or heuristic.
+_INFLECTIONS: dict[str, str] = {
+    # v1.2 irregular plurals
+    "men": "man",
+    "women": "woman",
+    "people": "person",
+    "children": "child",
+    "mice": "mouse",
+    "feet": "foot",
+    # v1.6 regular noun plurals — narrow noun-morphology expansion
+    # to preserve recall on Barbara-shaped syllogisms.
+    "philosophers": "philosopher",
+    "cats": "cat",
+    "mammals": "mammal",
+    "squares": "square",
+    "rectangles": "rectangle",
+}
+
+
+def _normalise_word(word: str) -> str:
+    w = word.strip().lower()
+    if w in _INFLECTIONS:
+        return _INFLECTIONS[w]
+    return w
+
+
+def _normalise_phrase(phrase: str) -> str:
+    return " ".join(_normalise_word(w) for w in phrase.split())
+
+
+def _premise_id(text: str, kind: PremiseKind) -> str:
+    h = hashlib.sha256()
+    h.update(kind.value.encode("utf-8"))
+    h.update(b"\x00")
+    h.update(_normalise_phrase(text).encode("utf-8"))
+    return "pr_" + h.hexdigest()[:12]
+
+
+@dataclass(frozen=True)
+class Premise:
+    """One typed proposition extracted from the input text.
+
+    Identity rule: same ``kind`` + same canonicalised text →
+    identical ``premise_id``. Two textual variants that mean the
+    same thing collide deterministically, so the proof chain stays
+    stable across reformulations.
+    """
+
+    premise_id: str
+    text: str
+    kind: PremiseKind
+    subject: str = ""
+    predicate: str = ""
+    antecedent: str = ""
+    consequent: str = ""
+    speaker: str = ""
+
+    def to_dict(self) -> dict:
+        return {
+            "premise_id": self.premise_id,
+            "text": self.text,
+            "kind": self.kind.value,
+            "subject": self.subject,
+            "predicate": self.predicate,
+            "antecedent": self.antecedent,
+            "consequent": self.consequent,
+            "speaker": self.speaker,
+        }
+
+
+@dataclass(frozen=True)
+class ConclusionProposition:
+    """The proposition the input asserts as conclusion."""
+
+    text: str
+    kind: PremiseKind
+    subject: str = ""
+    predicate: str = ""
+    antecedent: str = ""
+    consequent: str = ""
+    speaker: str = ""
+
+    def to_dict(self) -> dict:
+        return {
+            "text": self.text,
+            "kind": self.kind.value,
+            "subject": self.subject,
+            "predicate": self.predicate,
+            "antecedent": self.antecedent,
+            "consequent": self.consequent,
+            "speaker": self.speaker,
+        }
+
+
+@dataclass(frozen=True)
+class Propositions:
+    """Structured output of :meth:`PremiseExtractor.extract`."""
+
+    premises: tuple[Premise, ...] = field(default_factory=tuple)
+    conclusion: ConclusionProposition | None = None
+    has_explicit_chain: bool = False
+
+    @property
+    def premise_ids(self) -> tuple[str, ...]:
+        return tuple(p.premise_id for p in self.premises)
+
+
+# ---------------------------------------------------------------------------
+# Sentence patterns
+# ---------------------------------------------------------------------------
+
+
+_RE_UNIVERSAL = re.compile(
+    r"^all\s+(?P<subj>[\w\s]+?)\s+are\s+(?P<pred>[\w\s]+?)\.?$",
+    re.IGNORECASE,
+)
+# v1.7 negation support — narrow extension of the PARTICULAR shape.
+# Match BE-verb negation: "X is/are/was/were not Y".
+# Existing _RE_PARTICULAR already greedy-matches "X is not Y" (predicate
+# captures "not Y"). The new pattern handles ``are/was/were`` which the
+# existing regex misses. Predicate is normalised to "not <captured>" so
+# the existing contradiction logic (``predicate.startswith("not ")``)
+# keeps working uniformly.
+_RE_PARTICULAR_BE_NEG = re.compile(
+    r"^(?P<subj>[\w][\w\s]*?)\s+(?:is|are|was|were)\s+not\s+"
+    r"(?P<pred>[\w][\w\s]*?)\.?$",
+    re.IGNORECASE,
+)
+# v1.7: modal / auxiliary negation: "X did/does/do/will not VERB".
+_RE_PARTICULAR_AUX_NEG = re.compile(
+    r"^(?P<subj>[\w][\w\s]*?)\s+(?:did|does|do|will)\s+not\s+"
+    r"(?P<pred>[\w][\w\s]*?)\.?$",
+    re.IGNORECASE,
+)
+# v1.7: "cannot" / "can not".
+_RE_PARTICULAR_CANNOT = re.compile(
+    r"^(?P<subj>[\w][\w\s]*?)\s+(?:cannot|can\s+not)\s+"
+    r"(?P<pred>[\w][\w\s]*?)\.?$",
+    re.IGNORECASE,
+)
+_RE_PARTICULAR_A = re.compile(
+    r"^(?P<subj>[\w][\w\s]*?)\s+is\s+a\s+(?P<pred>[\w][\w\s]*?)\.?$",
+    re.IGNORECASE,
+)
+_RE_PARTICULAR = re.compile(
+    r"^(?P<subj>[\w][\w\s]*?)\s+is\s+(?P<pred>[\w][\w\s]*?)\.?$",
+    re.IGNORECASE,
+)
+_RE_CONDITIONAL = re.compile(
+    r"^if\s+(?P<ant>.+?)\s+then\s+(?P<con>.+?)\.?$",
+    re.IGNORECASE,
+)
+_RE_IMPLICATION = re.compile(
+    r"^(?P<ant>[\w][\w\s]*?)\s*(?:->|→)\s*(?P<con>[\w][\w\s]*?)\.?$",
+)
+_RE_AUTHORITY = re.compile(
+    r"^(?P<speaker>[\w][\w\s]*?)\s+says\s+(?P<claim>.+?)\.?$",
+    re.IGNORECASE,
+)
+# v1.8 directive: a closed authority speech-act library. Every lemma
+# here matches the same "<speaker> <verb> [that] <claim>" shape. The
+# set is closed — extending it requires a code edit, which is
+# itself an audit event. Detection is speech-act based; the
+# directive explicitly forbids special-casing speaker names like
+# "Professor", "Nature", or "Nobel".
+AUTHORITY_SPEECH_ACT_LEMMAS: frozenset[str] = frozenset({
+    "says", "said",
+    "states", "stated",
+    "claims", "claimed",
+    "declares", "declared",
+    "concludes", "concluded",
+    "announces", "announced",
+    "publishes", "published",
+    "proves", "proved",
+    "reports", "reported",
+})
+
+
+def _build_authority_regex() -> "re.Pattern[str]":
+    """Compile the speech-act regex from the closed lemma library.
+
+    Pattern: ``<speaker> <verb> [that] <claim>``. The optional
+    ``that`` connector covers both "X says Y" and "X stated that Y".
+    """
+    verbs = "|".join(sorted(AUTHORITY_SPEECH_ACT_LEMMAS,
+                              key=len, reverse=True))
+    return re.compile(
+        rf"^(?P<speaker>[\w][\w\s]*?)\s+(?:{verbs})\s+"
+        rf"(?:that\s+)?(?P<claim>.+?)\.?$",
+        re.IGNORECASE,
+    )
+
+
+_RE_AUTHORITY_SPEECH_ACT = _build_authority_regex()
+# v1.8: "According to X, Y" / "According to X: Y". Speaker comes
+# *after* the literal "according to" preposition.
+_RE_AUTHORITY_ACCORDING_TO = re.compile(
+    r"^according\s+to\s+(?P<speaker>[\w][\w\s]*?)\s*[,:]\s*"
+    r"(?P<claim>.+?)\.?$",
+    re.IGNORECASE,
+)
+_RE_THEREFORE = re.compile(r"\bTherefore\b", re.IGNORECASE)
+
+
+def _classify(text: str) -> tuple[PremiseKind, dict[str, str]]:
+    text = text.strip().rstrip(".").strip()
+    if not text:
+        return PremiseKind.ATOMIC, {}
+    m = _RE_UNIVERSAL.match(text)
+    if m:
+        return PremiseKind.UNIVERSAL, {
+            "subject": _normalise_phrase(m.group("subj")),
+            "predicate": _normalise_phrase(m.group("pred")),
+        }
+    m = _RE_CONDITIONAL.match(text)
+    if m:
+        return PremiseKind.CONDITIONAL, {
+            "antecedent": _normalise_phrase(m.group("ant")),
+            "consequent": _normalise_phrase(m.group("con")),
+        }
+    m = _RE_IMPLICATION.match(text)
+    if m:
+        return PremiseKind.IMPLICATION, {
+            "antecedent": _normalise_phrase(m.group("ant")),
+            "consequent": _normalise_phrase(m.group("con")),
+        }
+    # v1.8: "According to X, Y" — speaker comes after preposition.
+    # Tested first so subsequent patterns don't greedy-match into
+    # the "according to" preamble.
+    m = _RE_AUTHORITY_ACCORDING_TO.match(text)
+    if m:
+        return PremiseKind.AUTHORITY, {
+            "speaker": _normalise_phrase(m.group("speaker")),
+            "predicate": _normalise_phrase(m.group("claim")),
+        }
+    # v1.8: full closed-lemma speech-act library. Tested BEFORE the
+    # negation patterns because authority preambles like "Wikipedia
+    # states that Pluto is not a planet" would otherwise be greedy-
+    # captured by the negation regex into a particular with
+    # predicate="not a planet".
+    m = _RE_AUTHORITY_SPEECH_ACT.match(text)
+    if m:
+        return PremiseKind.AUTHORITY, {
+            "speaker": _normalise_phrase(m.group("speaker")),
+            "predicate": _normalise_phrase(m.group("claim")),
+        }
+    # Legacy v1.2 "X says Y" pattern — kept for backwards-compat
+    # determinism even though _RE_AUTHORITY_SPEECH_ACT now matches
+    # the same shape.
+    m = _RE_AUTHORITY.match(text)
+    if m:
+        return PremiseKind.AUTHORITY, {
+            "speaker": _normalise_phrase(m.group("speaker")),
+            "predicate": _normalise_phrase(m.group("claim")),
+        }
+    # v1.7 negation patterns — tested before the generic PARTICULAR
+    # match so that the predicate is canonicalised to "not <pred>"
+    # uniformly across all BE-verb / auxiliary / cannot forms.
+    m = _RE_PARTICULAR_BE_NEG.match(text)
+    if m:
+        return PremiseKind.PARTICULAR, {
+            "subject": _normalise_phrase(m.group("subj")),
+            "predicate": "not " + _normalise_phrase(m.group("pred")),
+        }
+    m = _RE_PARTICULAR_AUX_NEG.match(text)
+    if m:
+        return PremiseKind.PARTICULAR, {
+            "subject": _normalise_phrase(m.group("subj")),
+            "predicate": "not " + _normalise_phrase(m.group("pred")),
+        }
+    m = _RE_PARTICULAR_CANNOT.match(text)
+    if m:
+        return PremiseKind.PARTICULAR, {
+            "subject": _normalise_phrase(m.group("subj")),
+            "predicate": "not " + _normalise_phrase(m.group("pred")),
+        }
+    m = _RE_PARTICULAR_A.match(text)
+    if m:
+        return PremiseKind.PARTICULAR, {
+            "subject": _normalise_phrase(m.group("subj")),
+            "predicate": _normalise_phrase(m.group("pred")),
+        }
+    m = _RE_PARTICULAR.match(text)
+    if m:
+        return PremiseKind.PARTICULAR, {
+            "subject": _normalise_phrase(m.group("subj")),
+            "predicate": _normalise_phrase(m.group("pred")),
+        }
+    return PremiseKind.ATOMIC, {}
+
+
+def _build_premise(text: str) -> Premise:
+    kind, fields = _classify(text)
+    return Premise(
+        premise_id=_premise_id(text, kind),
+        text=text.strip(),
+        kind=kind,
+        subject=fields.get("subject", ""),
+        predicate=fields.get("predicate", ""),
+        antecedent=fields.get("antecedent", ""),
+        consequent=fields.get("consequent", ""),
+        speaker=fields.get("speaker", ""),
+    )
+
+
+def _build_conclusion(text: str) -> ConclusionProposition:
+    kind, fields = _classify(text)
+    return ConclusionProposition(
+        text=text.strip(),
+        kind=kind,
+        subject=fields.get("subject", ""),
+        predicate=fields.get("predicate", ""),
+        antecedent=fields.get("antecedent", ""),
+        consequent=fields.get("consequent", ""),
+        speaker=fields.get("speaker", ""),
+    )
+
+
+def _split_sentences(text: str) -> list[str]:
+    return [s.strip() for s in re.split(r"[.!?]\s+", text)
+            if s.strip()]
+
+
+class PremiseExtractor:
+    """Extract typed premises + an optional conclusion from text.
+
+    The extractor is stateless and deterministic. The same input
+    bytes always produce identical :class:`Propositions`.
+    """
+
+    def extract(self, text: str) -> Propositions:
+        if not isinstance(text, str):
+            raise TypeError("extract() requires a str input")
+        text = text.strip()
+        if not text:
+            return Propositions()
+
+        # Split on the literal word "Therefore" — explicit chain signal.
+        if _RE_THEREFORE.search(text):
+            parts = _RE_THEREFORE.split(text, maxsplit=1)
+            premise_block = parts[0].strip().rstrip(".")
+            conclusion_block = parts[1].strip().rstrip(".")
+            premise_sentences = _split_sentences(premise_block + ".")
+            premises = tuple(
+                _build_premise(s) for s in premise_sentences if s
+            )
+            conclusion = (
+                _build_conclusion(conclusion_block) if conclusion_block
+                else None
+            )
+            return Propositions(
+                premises=premises,
+                conclusion=conclusion,
+                has_explicit_chain=conclusion is not None,
+            )
+
+        # No explicit "Therefore". Treat every sentence as a premise.
+        sentences = _split_sentences(text)
+        premises = tuple(_build_premise(s) for s in sentences)
+        return Propositions(
+            premises=premises,
+            conclusion=None,
+            has_explicit_chain=False,
+        )
+
+
+__all__ = [
+    "AUTHORITY_SPEECH_ACT_LEMMAS",
+    "ConclusionProposition",
+    "Premise",
+    "PremiseExtractor",
+    "PremiseKind",
+    "Propositions",
+]

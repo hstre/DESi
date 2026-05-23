@@ -1,0 +1,144 @@
+{
+  "anchored_fraction": 1.0,
+  "bridged_candidate_ids": [
+    "H01",
+    "H02",
+    "H03",
+    "H04"
+  ],
+  "disclaimer": "The Wild Scientific Explorer proposes follow-up hypotheses over the v19-v21 results; DESi accepts only technically grounded, low-drift, forbidden-term-free ones as paper-grade. No breakthrough / AGI / world-model language is ever adopted. DESi makes no global intelligence claim, replaces no RL, and claims no truth authority. Replay-exact.",
+  "fantasy_ids": [
+    "H05",
+    "H06",
+    "H07",
+    "H08",
+    "H09",
+    "H10"
+  ],
+  "forbidden_in_candidates": false,
+  "hypotheses": [
+    {
+      "forbidden_hits": [],
+      "hyp_id": "H01",
+      "is_overreach": false,
+      "is_paper_candidate": true,
+      "speculative_drift": 0.1,
+      "technical_grounding": 0.93,
+      "text": "Soft re-weighting of redundant trajectories reduces search redundancy while preserving novel-state reachability."
+    },
+    {
+      "forbidden_hits": [],
+      "hyp_id": "H02",
+      "is_overreach": false,
+      "is_paper_candidate": true,
+      "speculative_drift": 0.12,
+      "technical_grounding": 0.92,
+      "text": "A generator/governor split increases distinct-state coverage on the synthetic corpus relative to a single conservative explorer."
+    },
+    {
+      "forbidden_hits": [],
+      "hyp_id": "H03",
+      "is_overreach": false,
+      "is_paper_candidate": true,
+      "speculative_drift": 0.08,
+      "technical_grounding": 0.94,
+      "text": "Capping high-certainty incoherent paths keeps the uncontained hallucination rate near zero under pressure."
+    },
+    {
+      "forbidden_hits": [],
+      "hyp_id": "H04",
+      "is_overreach": false,
+      "is_paper_candidate": true,
+      "speculative_drift": 0.15,
+      "technical_grounding": 0.9,
+      "text": "Bounded authority drift can be maintained over a long horizon under deterministic replay."
+    },
+    {
+      "forbidden_hits": [
+        "AGI"
+      ],
+      "hyp_id": "H05",
+      "is_overreach": true,
+      "is_paper_candidate": false,
+      "speculative_drift": 0.8,
+      "technical_grounding": 0.2,
+      "text": "This architecture is a step toward AGI-level autonomous exploration."
+    },
+    {
+      "forbidden_hits": [
+        "World model"
+      ],
+      "hyp_id": "H06",
+      "is_overreach": true,
+      "is_paper_candidate": false,
+      "speculative_drift": 0.85,
+      "technical_grounding": 0.15,
+      "text": "Replay governance constitutes a universal world model for intelligence."
+    },
+    {
+      "forbidden_hits": [
+        "Revolutionary",
+        "Breakthrough"
+      ],
+      "hyp_id": "H07",
+      "is_overreach": true,
+      "is_paper_candidate": false,
+      "speculative_drift": 0.9,
+      "technical_grounding": 0.1,
+      "text": "This is a revolutionary breakthrough that solves reinforcement learning."
+    },
+    {
+      "forbidden_hits": [],
+      "hyp_id": "H08",
+      "is_overreach": true,
+      "is_paper_candidate": false,
+      "speculative_drift": 0.7,
+      "technical_grounding": 0.25,
+      "text": "Exploration governance reflects Popperian falsification and Kantian epistemics."
+    },
+    {
+      "forbidden_hits": [],
+      "hyp_id": "H09",
+      "is_overreach": true,
+      "is_paper_candidate": false,
+      "speculative_drift": 0.65,
+      "technical_grounding": 0.4,
+      "text": "Governed exploration probably generalises to all sequential decision problems without change."
+    },
+    {
+      "forbidden_hits": [],
+      "hyp_id": "H10",
+      "is_overreach": true,
+      "is_paper_candidate": false,
+      "speculative_drift": 0.6,
+      "technical_grounding": 0.35,
+      "text": "The dual-agent pattern could scale to arbitrary domains with no further work."
+    }
+  ],
+  "overreach_detection": 1.0,
+  "overreach_ids": [
+    "H05",
+    "H06",
+    "H07",
+    "H08",
+    "H09",
+    "H10"
+  ],
+  "paper_candidate_ids": [
+    "H01",
+    "H02",
+    "H03",
+    "H04"
+  ],
+  "paper_candidate_quality": 1.0,
+  "recommendation": "HYPOTHESES_TRIAGED",
+  "report_verdicts": [
+    "HYPOTHESES_TRIAGED",
+    "HYPOTHESES_HYPE_DRIFTED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "schema_version": "v22_0_scientific_hypothesis_exploration",
+  "signature": "62aa6e76b769e1d18230bd716c24ec0a8414e7d97d5f05c8104f0cbab7b87e8e",
+  "speculative_drift": 0.495,
+  "technical_grounding": 0.9225
+}

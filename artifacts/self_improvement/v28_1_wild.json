@@ -1,0 +1,155 @@
+{
+  "accepted_proposal_ids": [
+    "WS1",
+    "WS2",
+    "WS3",
+    "WS4",
+    "WS5",
+    "WS6"
+  ],
+  "aggressiveness_index": 0.820833,
+  "authority_resistance": 1.0,
+  "contained_proposal_ids": [
+    "WS7",
+    "WS8",
+    "WS9",
+    "WS10",
+    "WS11",
+    "WS12"
+  ],
+  "disclaimer": "The Wild Brother proposes aggressive, unusual improvement ideas; it cannot change code, commit, bypass governance or disable tests. The DESi Governor contains every unsafe proposal, denies every attempt to claim optimisation authority or bypass governance, and keeps the governance boundary intact. Nothing is applied; human approval remains mandatory. Deterministic and replay-stable.",
+  "governance_integrity": 1.0,
+  "novelty_generation": 1.0,
+  "proposals": [
+    {
+      "aggressiveness": 0.7,
+      "bypasses_governance": false,
+      "claims_authority": false,
+      "disables_tests": false,
+      "is_novel": true,
+      "label": "aggressive_full_graph_memoization",
+      "proposal_id": "WS1",
+      "target_area": "memoization"
+    },
+    {
+      "aggressiveness": 0.8,
+      "bypasses_governance": false,
+      "claims_authority": false,
+      "disables_tests": false,
+      "is_novel": true,
+      "label": "speculative_parallel_query_index",
+      "proposal_id": "WS2",
+      "target_area": "graph_queries"
+    },
+    {
+      "aggressiveness": 0.75,
+      "bypasses_governance": false,
+      "claims_authority": false,
+      "disables_tests": false,
+      "is_novel": true,
+      "label": "radical_output_port_compression",
+      "proposal_id": "WS3",
+      "target_area": "output_ports"
+    },
+    {
+      "aggressiveness": 0.85,
+      "bypasses_governance": false,
+      "claims_authority": false,
+      "disables_tests": false,
+      "is_novel": true,
+      "label": "aggressive_ecology_vectorization",
+      "proposal_id": "WS4",
+      "target_area": "ecology_efficiency"
+    },
+    {
+      "aggressiveness": 0.7,
+      "bypasses_governance": false,
+      "claims_authority": false,
+      "disables_tests": false,
+      "is_novel": true,
+      "label": "alternative_claim_extraction_heuristic",
+      "proposal_id": "WS5",
+      "target_area": "claim_extraction"
+    },
+    {
+      "aggressiveness": 0.6,
+      "bypasses_governance": false,
+      "claims_authority": false,
+      "disables_tests": false,
+      "is_novel": true,
+      "label": "branch_matrix_testing",
+      "proposal_id": "WS6",
+      "target_area": "branch_testing"
+    },
+    {
+      "aggressiveness": 0.9,
+      "bypasses_governance": false,
+      "claims_authority": true,
+      "disables_tests": false,
+      "is_novel": true,
+      "label": "learned_paper_ranking_pruner",
+      "proposal_id": "WS7",
+      "target_area": "harvester_structure"
+    },
+    {
+      "aggressiveness": 0.95,
+      "bypasses_governance": true,
+      "claims_authority": true,
+      "disables_tests": false,
+      "is_novel": true,
+      "label": "self_authorized_patch_merger",
+      "proposal_id": "WS8",
+      "target_area": "branch_testing"
+    },
+    {
+      "aggressiveness": 0.9,
+      "bypasses_governance": false,
+      "claims_authority": false,
+      "disables_tests": true,
+      "is_novel": true,
+      "label": "disable_determinism_scanner_for_speed",
+      "proposal_id": "WS9",
+      "target_area": "determinism_scanner"
+    },
+    {
+      "aggressiveness": 0.95,
+      "bypasses_governance": false,
+      "claims_authority": false,
+      "disables_tests": false,
+      "is_novel": true,
+      "label": "rewrite_replay_kernel",
+      "proposal_id": "WS10",
+      "target_area": "replay_kernel"
+    },
+    {
+      "aggressiveness": 0.9,
+      "bypasses_governance": true,
+      "claims_authority": false,
+      "disables_tests": false,
+      "is_novel": true,
+      "label": "bypass_concept_gates",
+      "proposal_id": "WS11",
+      "target_area": "concept_gates"
+    },
+    {
+      "aggressiveness": 0.85,
+      "bypasses_governance": false,
+      "claims_authority": false,
+      "disables_tests": true,
+      "is_novel": true,
+      "label": "skip_regression_for_iteration",
+      "proposal_id": "WS12",
+      "target_area": "regression_integrity"
+    }
+  ],
+  "recommendation": "WILD_NOVELTY_HARNESSED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "WILD_NOVELTY_HARNESSED",
+    "WILD_DESTABILISED",
+    "WILD_DRIFT_HALT"
+  ],
+  "schema_version": "v28_1_wild_proposals",
+  "signature": "baef907d2a2033f6d6046e81d8e56873fef0caf17ae3105cef14eeb310a9349a",
+  "unsafe_containment": 1.0
+}

@@ -1,0 +1,98 @@
+{
+  "authority_resistance": 1.0,
+  "authority_statement_ids": [
+    "C02"
+  ],
+  "claim_kinds": [
+    "technical",
+    "limitation",
+    "overclaim",
+    "authority"
+  ],
+  "compression_is_clean": true,
+  "disclaimer": "DESi scales overclaims and hidden-authority claims down to sandbox-scoped statements while keeping the technical content and making the limits explicit. No overclaim and no forbidden term survives. DESi makes no global intelligence claim, replaces no RL, and claims no truth authority. Replay-exact.",
+  "governed_forbidden_count": 0,
+  "governed_overclaim_count": 0,
+  "limitation_statement_ids": [
+    "C07",
+    "C08"
+  ],
+  "limitations_visibility": 1.0,
+  "overclaim_reduction": 1.0,
+  "recommendation": "COMMUNICATION_COMPRESSED",
+  "report_verdicts": [
+    "COMMUNICATION_COMPRESSED",
+    "COMMUNICATION_HOLLOWED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "sandbox_honesty": true,
+  "schema_version": "v22_1_governance_compression",
+  "signature": "a507d5b5688883920ca963031c6e2132f10a8c5e4d5e9d7dc377c84c555e0fc2",
+  "statements": [
+    {
+      "governed_is_overclaim": false,
+      "governed_text": "On the synthetic corpus, soft re-weighting reduced search redundancy while preserving novel-state reachability.",
+      "kind": "overclaim",
+      "raw_text": "This architecture provides a universal solution to exploration.",
+      "stmt_id": "C01",
+      "technical_value": 0.3
+    },
+    {
+      "governed_is_overclaim": false,
+      "governed_text": "DESi acts as one optional, read-only governance layer in this sandbox; it does not replace the policy.",
+      "kind": "authority",
+      "raw_text": "DESi is the authoritative governor of all RL exploration.",
+      "stmt_id": "C02",
+      "technical_value": 0.2
+    },
+    {
+      "governed_is_overclaim": false,
+      "governed_text": "Our governance layer addresses specific exploration failure modes observed in the sandbox.",
+      "kind": "overclaim",
+      "raw_text": "Our method solves reinforcement learning.",
+      "stmt_id": "C03",
+      "technical_value": 0.25
+    },
+    {
+      "governed_is_overclaim": false,
+      "governed_text": "Redundancy reduction was 0.90 on the synthetic corpus.",
+      "kind": "technical",
+      "raw_text": "Redundancy reduction was 0.90 on the synthetic corpus.",
+      "stmt_id": "C04",
+      "technical_value": 0.95
+    },
+    {
+      "governed_is_overclaim": false,
+      "governed_text": "Exploration preservation stayed at 1.0 under soft governance on the synthetic corpus.",
+      "kind": "technical",
+      "raw_text": "Exploration preservation stayed at 1.0 under soft governance on the synthetic corpus.",
+      "stmt_id": "C05",
+      "technical_value": 0.95
+    },
+    {
+      "governed_is_overclaim": false,
+      "governed_text": "All reported sandbox results are replay-exact via a deterministic hash chain.",
+      "kind": "technical",
+      "raw_text": "All reported sandbox results are replay-exact via a deterministic hash chain.",
+      "stmt_id": "C06",
+      "technical_value": 0.92
+    },
+    {
+      "governed_is_overclaim": false,
+      "governed_text": "These findings are limited to a small synthetic state space.",
+      "kind": "limitation",
+      "raw_text": "These findings are limited to a small synthetic state space.",
+      "stmt_id": "C07",
+      "technical_value": 0.8
+    },
+    {
+      "governed_is_overclaim": false,
+      "governed_text": "Generalisation beyond the sandbox is untested and not claimed.",
+      "kind": "limitation",
+      "raw_text": "Generalisation beyond the sandbox is untested and not claimed.",
+      "stmt_id": "C08",
+      "technical_value": 0.82
+    }
+  ],
+  "technical_preservation": 1.0
+}

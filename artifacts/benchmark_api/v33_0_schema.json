@@ -1,0 +1,320 @@
+{
+  "allowed_operations": [
+    "adapter",
+    "schema",
+    "scorecard",
+    "blind_runner",
+    "traceable_mapping",
+    "benchmark_specific_output_formatting",
+    "read_core_metric",
+    "render_claim",
+    "map_to_internal_metric"
+  ],
+  "canonical_tasks": [
+    {
+      "allowed_operations": [
+        "adapter",
+        "traceable_mapping",
+        "map_to_internal_metric",
+        "read_core_metric"
+      ],
+      "benchmark_name": "DRIFT_BENCHMARK",
+      "evaluation_mode": "blind",
+      "expected_output_schema": [
+        "claim_drift",
+        "governance_drift",
+        "lineage_drift",
+        "artifact_drift",
+        "authority_drift",
+        "replay_drift"
+      ],
+      "forbidden_operations": [
+        "modify_replay_kernel",
+        "modify_determinism_scanner",
+        "modify_concept_gates",
+        "modify_governance_core",
+        "modify_authority_filters",
+        "modify_regression_integrity",
+        "modify_human_approval_enforcement",
+        "benchmark_driven_core_change",
+        "benchmark_specific_governance_weakening",
+        "score_hacking",
+        "hidden_test_adaptation",
+        "benchmark_overfitting",
+        "replay_bypass",
+        "concept_gate_modification"
+      ],
+      "input_payload": [
+        [
+          "claims",
+          "8"
+        ],
+        [
+          "perturbation",
+          "evidence_swap"
+        ]
+      ],
+      "task_id": "canonical::DRIFT_BENCHMARK"
+    },
+    {
+      "allowed_operations": [
+        "adapter",
+        "traceable_mapping",
+        "map_to_internal_metric",
+        "scorecard"
+      ],
+      "benchmark_name": "SEARCH_COMPRESSION_BENCHMARK",
+      "evaluation_mode": "blind",
+      "expected_output_schema": [
+        "node_reduction",
+        "branch_compression",
+        "critical_branch_preservation",
+        "novelty_preservation",
+        "quality_preservation",
+        "compute_reduction"
+      ],
+      "forbidden_operations": [
+        "modify_replay_kernel",
+        "modify_determinism_scanner",
+        "modify_concept_gates",
+        "modify_governance_core",
+        "modify_authority_filters",
+        "modify_regression_integrity",
+        "modify_human_approval_enforcement",
+        "benchmark_driven_core_change",
+        "benchmark_specific_governance_weakening",
+        "score_hacking",
+        "hidden_test_adaptation",
+        "benchmark_overfitting",
+        "replay_bypass",
+        "concept_gate_modification"
+      ],
+      "input_payload": [
+        [
+          "branches",
+          "75"
+        ],
+        [
+          "budget",
+          "25"
+        ]
+      ],
+      "task_id": "canonical::SEARCH_COMPRESSION_BENCHMARK"
+    },
+    {
+      "allowed_operations": [
+        "adapter",
+        "blind_runner",
+        "read_core_metric"
+      ],
+      "benchmark_name": "AGENT_ROBUSTNESS_BENCHMARK",
+      "evaluation_mode": "blind",
+      "expected_output_schema": [
+        "robustness_score",
+        "refusal_integrity",
+        "objective_stability"
+      ],
+      "forbidden_operations": [
+        "modify_replay_kernel",
+        "modify_determinism_scanner",
+        "modify_concept_gates",
+        "modify_governance_core",
+        "modify_authority_filters",
+        "modify_regression_integrity",
+        "modify_human_approval_enforcement",
+        "benchmark_driven_core_change",
+        "benchmark_specific_governance_weakening",
+        "score_hacking",
+        "hidden_test_adaptation",
+        "benchmark_overfitting",
+        "replay_bypass",
+        "concept_gate_modification"
+      ],
+      "input_payload": [
+        [
+          "attacks",
+          "12"
+        ],
+        [
+          "objective",
+          "fixed"
+        ]
+      ],
+      "task_id": "canonical::AGENT_ROBUSTNESS_BENCHMARK"
+    },
+    {
+      "allowed_operations": [
+        "adapter",
+        "traceable_mapping",
+        "scorecard"
+      ],
+      "benchmark_name": "TOOL_PLANNING_BENCHMARK",
+      "evaluation_mode": "blind",
+      "expected_output_schema": [
+        "plan_validity",
+        "tool_safety",
+        "step_traceability"
+      ],
+      "forbidden_operations": [
+        "modify_replay_kernel",
+        "modify_determinism_scanner",
+        "modify_concept_gates",
+        "modify_governance_core",
+        "modify_authority_filters",
+        "modify_regression_integrity",
+        "modify_human_approval_enforcement",
+        "benchmark_driven_core_change",
+        "benchmark_specific_governance_weakening",
+        "score_hacking",
+        "hidden_test_adaptation",
+        "benchmark_overfitting",
+        "replay_bypass",
+        "concept_gate_modification"
+      ],
+      "input_payload": [
+        [
+          "goal",
+          "extract_claims"
+        ],
+        [
+          "tools",
+          "6"
+        ]
+      ],
+      "task_id": "canonical::TOOL_PLANNING_BENCHMARK"
+    },
+    {
+      "allowed_operations": [
+        "adapter",
+        "render_claim",
+        "benchmark_specific_output_formatting"
+      ],
+      "benchmark_name": "SCIENTIFIC_RENDERING_BENCHMARK",
+      "evaluation_mode": "blind",
+      "expected_output_schema": [
+        "rendered_claims",
+        "forbidden_term_hits",
+        "citation_integrity"
+      ],
+      "forbidden_operations": [
+        "modify_replay_kernel",
+        "modify_determinism_scanner",
+        "modify_concept_gates",
+        "modify_governance_core",
+        "modify_authority_filters",
+        "modify_regression_integrity",
+        "modify_human_approval_enforcement",
+        "benchmark_driven_core_change",
+        "benchmark_specific_governance_weakening",
+        "score_hacking",
+        "hidden_test_adaptation",
+        "benchmark_overfitting",
+        "replay_bypass",
+        "concept_gate_modification"
+      ],
+      "input_payload": [
+        [
+          "claims",
+          "10"
+        ],
+        [
+          "style",
+          "neutral"
+        ]
+      ],
+      "task_id": "canonical::SCIENTIFIC_RENDERING_BENCHMARK"
+    },
+    {
+      "allowed_operations": [
+        "adapter",
+        "render_claim",
+        "traceable_mapping"
+      ],
+      "benchmark_name": "CITATION_BENCHMARK",
+      "evaluation_mode": "blind",
+      "expected_output_schema": [
+        "citation_integrity",
+        "provenance_completeness",
+        "unsupported_claim_count"
+      ],
+      "forbidden_operations": [
+        "modify_replay_kernel",
+        "modify_determinism_scanner",
+        "modify_concept_gates",
+        "modify_governance_core",
+        "modify_authority_filters",
+        "modify_regression_integrity",
+        "modify_human_approval_enforcement",
+        "benchmark_driven_core_change",
+        "benchmark_specific_governance_weakening",
+        "score_hacking",
+        "hidden_test_adaptation",
+        "benchmark_overfitting",
+        "replay_bypass",
+        "concept_gate_modification"
+      ],
+      "input_payload": [
+        [
+          "citations",
+          "14"
+        ],
+        [
+          "mode",
+          "strict"
+        ]
+      ],
+      "task_id": "canonical::CITATION_BENCHMARK"
+    }
+  ],
+  "core_identity": 1.0,
+  "disclaimer": "Formal external-benchmark API for DESi. A benchmark hands DESi a BenchmarkTask (task_id, benchmark_name, input_payload, expected_output_schema, allowed_operations, forbidden_operations, evaluation_mode) and receives a replay-bound BenchmarkResult (claim_outputs, metrics, replay_hash, provenance, limitations, refusal_reason_if_any, governance_status). The protected-core boundary (replay kernel, determinism scanner, concept gates, governance core, authority filters) is imported from the v31 boundary layer and cannot be widened here. Benchmarks may TEST DESi but never STEER it; governance is read from the core, not from benchmark input. Human approval is mandatory.",
+  "forbidden_operations": [
+    "modify_replay_kernel",
+    "modify_determinism_scanner",
+    "modify_concept_gates",
+    "modify_governance_core",
+    "modify_authority_filters",
+    "modify_regression_integrity",
+    "modify_human_approval_enforcement",
+    "benchmark_driven_core_change",
+    "benchmark_specific_governance_weakening",
+    "score_hacking",
+    "hidden_test_adaptation",
+    "benchmark_overfitting",
+    "replay_bypass",
+    "concept_gate_modification"
+  ],
+  "governance_independence": 1.0,
+  "human_approval_required": true,
+  "operation_boundary_visibility": 1.0,
+  "output_traceability": 1.0,
+  "recommendation": "BENCHMARK_API_SCHEMA_DEFINED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "BENCHMARK_API_SCHEMA_DEFINED",
+    "BENCHMARK_API_SCHEMA_INCOMPLETE",
+    "BENCHMARK_API_SCHEMA_HALT"
+  ],
+  "result_fields": [
+    "task_id",
+    "claim_outputs",
+    "metrics",
+    "replay_hash",
+    "provenance",
+    "limitations",
+    "refusal_reason_if_any",
+    "governance_status"
+  ],
+  "schema_coverage": 1.0,
+  "schema_fingerprint": "4bec2920f18973c0bb42b944b55d504390adcf90111c3ae3eb947483d2592572",
+  "schema_version": "v33_0_benchmark_api_schema",
+  "signature": "71053375a786ecf00a349c5bedbde1339a04d4a0d693046d279e1279dd4c818a",
+  "supported_benchmarks": [
+    "DRIFT_BENCHMARK",
+    "SEARCH_COMPRESSION_BENCHMARK",
+    "AGENT_ROBUSTNESS_BENCHMARK",
+    "TOOL_PLANNING_BENCHMARK",
+    "SCIENTIFIC_RENDERING_BENCHMARK",
+    "CITATION_BENCHMARK"
+  ]
+}

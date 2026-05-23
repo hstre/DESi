@@ -1,0 +1,371 @@
+{
+  "audit_priorities": [
+    "LOW_AUDIT_PRIORITY",
+    "MEDIUM_AUDIT_PRIORITY",
+    "HIGH_AUDIT_PRIORITY",
+    "GOVERNANCE_REVIEW_RECOMMENDED",
+    "UNRESOLVED"
+  ],
+  "blindness_pool_count": 4,
+  "clean_firm_sound_rate": 1.0,
+  "corpus_priority_label": "GOVERNANCE_REVIEW_RECOMMENDED",
+  "cross_sector_pool_count": 1,
+  "disclaimer": "Structural blindness pools over the synthetic v15.0/v15.1 sector archetypes; clusters are built from epistemic structure only, NEVER from the sector label, and are NOT an industry classification. NOT real companies. DESi does NOT conclude fraud, does NOT rate, does NOT give investment advice - output is audit-priority only. Post-hoc labels are used solely as validation, never as scoring input.",
+  "ex_ante_pool_recall": 1.0,
+  "family_assignments": {
+    "AUTO_BETA": [
+      "disclosure_opacity",
+      "narrative_instability",
+      "disclosure_drift"
+    ],
+    "CHEM_GAMMA": [
+      "structurally_sound"
+    ],
+    "INDUSTRIAL_ZETA": [
+      "structurally_sound"
+    ],
+    "PAYMENTS_ALPHA": [
+      "cash_narrative_divergence",
+      "disclosure_opacity",
+      "narrative_instability",
+      "disclosure_drift"
+    ],
+    "PHARMA_EPSILON": [
+      "disclosure_opacity"
+    ],
+    "UTILITY_DELTA": [
+      "structurally_sound"
+    ]
+  },
+  "firm_pool_verdicts": [
+    {
+      "family_count": 3,
+      "firm_id": "AUTO_BETA",
+      "pool_id": 0,
+      "post_hoc_label": "governance_event_later",
+      "priority_label": "HIGH_AUDIT_PRIORITY",
+      "risk_families": [
+        "disclosure_opacity",
+        "narrative_instability",
+        "disclosure_drift"
+      ],
+      "sector": "automotive"
+    },
+    {
+      "family_count": 0,
+      "firm_id": "CHEM_GAMMA",
+      "pool_id": 1,
+      "post_hoc_label": "no_adverse_event",
+      "priority_label": "LOW_AUDIT_PRIORITY",
+      "risk_families": [
+        "structurally_sound"
+      ],
+      "sector": "chemicals"
+    },
+    {
+      "family_count": 0,
+      "firm_id": "INDUSTRIAL_ZETA",
+      "pool_id": 1,
+      "post_hoc_label": "no_adverse_event",
+      "priority_label": "LOW_AUDIT_PRIORITY",
+      "risk_families": [
+        "structurally_sound"
+      ],
+      "sector": "industrials"
+    },
+    {
+      "family_count": 4,
+      "firm_id": "PAYMENTS_ALPHA",
+      "pool_id": 2,
+      "post_hoc_label": "statements_later_voided",
+      "priority_label": "GOVERNANCE_REVIEW_RECOMMENDED",
+      "risk_families": [
+        "cash_narrative_divergence",
+        "disclosure_opacity",
+        "narrative_instability",
+        "disclosure_drift"
+      ],
+      "sector": "payments"
+    },
+    {
+      "family_count": 1,
+      "firm_id": "PHARMA_EPSILON",
+      "pool_id": 3,
+      "post_hoc_label": "scrutinized_not_ruled",
+      "priority_label": "MEDIUM_AUDIT_PRIORITY",
+      "risk_families": [
+        "disclosure_opacity"
+      ],
+      "sector": "pharma"
+    },
+    {
+      "family_count": 0,
+      "firm_id": "UTILITY_DELTA",
+      "pool_id": 1,
+      "post_hoc_label": "no_adverse_event",
+      "priority_label": "LOW_AUDIT_PRIORITY",
+      "risk_families": [
+        "structurally_sound"
+      ],
+      "sector": "utilities"
+    }
+  ],
+  "pools": [
+    {
+      "centroid": [
+        0.098,
+        0.0,
+        0.4,
+        0.5,
+        0.13365,
+        0.12555,
+        0.444444,
+        0.464206
+      ],
+      "is_cross_sector": false,
+      "members": [
+        "AUTO_BETA"
+      ],
+      "pool_id": 0,
+      "sectors": [
+        "automotive"
+      ],
+      "size": 1
+    },
+    {
+      "centroid": [
+        0.0,
+        0.0,
+        0.166667,
+        0.0,
+        0.00891,
+        0.00837,
+        0.0,
+        0.0
+      ],
+      "is_cross_sector": true,
+      "members": [
+        "CHEM_GAMMA",
+        "INDUSTRIAL_ZETA",
+        "UTILITY_DELTA"
+      ],
+      "pool_id": 1,
+      "sectors": [
+        "chemicals",
+        "industrials",
+        "utilities"
+      ],
+      "size": 3
+    },
+    {
+      "centroid": [
+        0.479,
+        0.373,
+        0.79,
+        0.625,
+        0.25245,
+        0.23715,
+        0.666667,
+        0.831537
+      ],
+      "is_cross_sector": false,
+      "members": [
+        "PAYMENTS_ALPHA"
+      ],
+      "pool_id": 2,
+      "sectors": [
+        "payments"
+      ],
+      "size": 1
+    },
+    {
+      "centroid": [
+        0.02,
+        0.0,
+        0.55,
+        0.166667,
+        0.03564,
+        0.03348,
+        0.111111,
+        0.147619
+      ],
+      "is_cross_sector": false,
+      "members": [
+        "PHARMA_EPSILON"
+      ],
+      "pool_id": 3,
+      "sectors": [
+        "pharma"
+      ],
+      "size": 1
+    }
+  ],
+  "recoverability_signal": 1.0,
+  "redundant_firm_fraction": 0.5,
+  "risk_families": [
+    "cash_narrative_divergence",
+    "disclosure_opacity",
+    "narrative_instability",
+    "disclosure_drift",
+    "structurally_sound"
+  ],
+  "risk_family_detection": 1.0,
+  "schema_version": "v15_2_financial_blindness_pools",
+  "signature_axes": [
+    "cash_misalignment",
+    "narrative_gap",
+    "opacity",
+    "bridge_gap",
+    "narrative_drift",
+    "semantic_reframing",
+    "inconsistency",
+    "bridge_degradation"
+  ],
+  "signatures": [
+    {
+      "axes": [
+        "cash_misalignment",
+        "narrative_gap",
+        "opacity",
+        "bridge_gap",
+        "narrative_drift",
+        "semantic_reframing",
+        "inconsistency",
+        "bridge_degradation"
+      ],
+      "firm_id": "AUTO_BETA",
+      "sector": "automotive",
+      "values": [
+        0.098,
+        0.0,
+        0.4,
+        0.5,
+        0.13365,
+        0.12555,
+        0.444444,
+        0.464206
+      ]
+    },
+    {
+      "axes": [
+        "cash_misalignment",
+        "narrative_gap",
+        "opacity",
+        "bridge_gap",
+        "narrative_drift",
+        "semantic_reframing",
+        "inconsistency",
+        "bridge_degradation"
+      ],
+      "firm_id": "CHEM_GAMMA",
+      "sector": "chemicals",
+      "values": [
+        0.0,
+        0.0,
+        0.17,
+        0.0,
+        0.01188,
+        0.01116,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "axes": [
+        "cash_misalignment",
+        "narrative_gap",
+        "opacity",
+        "bridge_gap",
+        "narrative_drift",
+        "semantic_reframing",
+        "inconsistency",
+        "bridge_degradation"
+      ],
+      "firm_id": "INDUSTRIAL_ZETA",
+      "sector": "industrials",
+      "values": [
+        0.0,
+        0.0,
+        0.2,
+        0.0,
+        0.00891,
+        0.00837,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "axes": [
+        "cash_misalignment",
+        "narrative_gap",
+        "opacity",
+        "bridge_gap",
+        "narrative_drift",
+        "semantic_reframing",
+        "inconsistency",
+        "bridge_degradation"
+      ],
+      "firm_id": "PAYMENTS_ALPHA",
+      "sector": "payments",
+      "values": [
+        0.479,
+        0.373,
+        0.79,
+        0.625,
+        0.25245,
+        0.23715,
+        0.666667,
+        0.831537
+      ]
+    },
+    {
+      "axes": [
+        "cash_misalignment",
+        "narrative_gap",
+        "opacity",
+        "bridge_gap",
+        "narrative_drift",
+        "semantic_reframing",
+        "inconsistency",
+        "bridge_degradation"
+      ],
+      "firm_id": "PHARMA_EPSILON",
+      "sector": "pharma",
+      "values": [
+        0.02,
+        0.0,
+        0.55,
+        0.166667,
+        0.03564,
+        0.03348,
+        0.111111,
+        0.147619
+      ]
+    },
+    {
+      "axes": [
+        "cash_misalignment",
+        "narrative_gap",
+        "opacity",
+        "bridge_gap",
+        "narrative_drift",
+        "semantic_reframing",
+        "inconsistency",
+        "bridge_degradation"
+      ],
+      "firm_id": "UTILITY_DELTA",
+      "sector": "utilities",
+      "values": [
+        0.0,
+        0.0,
+        0.13,
+        0.0,
+        0.00594,
+        0.00558,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "structural_redundancy": 0.2
+}

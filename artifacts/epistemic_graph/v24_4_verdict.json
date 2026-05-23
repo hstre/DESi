@@ -1,0 +1,76 @@
+{
+  "class_rank": 5,
+  "classification": "replay_governed_graph",
+  "disclaimer": "Final verdict on the read-only epistemic graph layer. Aggregates one signal per dimension from the v24.0-v24.3 layers and classifies the layer on a closed A-E taxonomy. Neo4j is optional read-only infrastructure; the graph stores why results are valid, makes no decision, ranks nothing and changes no replay. No agent soul, no hidden world model - replay-validated epistemic reuse under full provenance transparency. The canonical state remains the JSON artifacts, replay hashes and tests.",
+  "gate_conditions": [
+    {
+      "comparator": ">=",
+      "name": "replay_integrity",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "lineage_visibility",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "cache_validity",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "traceability",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "governance_independence",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi kann replay-validiertes epistemisches Gedaechtnis besitzen ohne versteckte Optimierungsautoritaet oder nichtdeterministischen Drift einzufuehren.",
+  "graph_classes": [
+    "replay_governed_graph",
+    "lineage_visible",
+    "conflict_rich_but_stable",
+    "stale_state_drifted",
+    "epistemically_fragmented"
+  ],
+  "graph_signature": "b9dfa934cd6df3ce5df644d10b3837e95e70ae2e32bd2f9acc7b5517ce8eed11",
+  "metrics": {
+    "cache_validity": 1.0,
+    "governance_independence": 1.0,
+    "lineage_visibility": 1.0,
+    "replay_integrity": 1.0,
+    "replay_stability": 1.0,
+    "traceability": 1.0
+  },
+  "recommendation": "EPISTEMIC_MEMORY_REPLAY_GOVERNED",
+  "report_verdicts": [
+    "EPISTEMIC_MEMORY_REPLAY_GOVERNED",
+    "EPISTEMIC_MEMORY_UNSTABLE",
+    "GRAPH_DRIFT_HALT"
+  ],
+  "schema_version": "v24_4_epistemic_graph_verdict",
+  "signature": "2fac409e550e7e61147eb18524c5d08bd2fb1494ad2a8f1f3b56a6e84d248e00"
+}

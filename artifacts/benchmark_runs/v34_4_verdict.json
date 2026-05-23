@@ -1,0 +1,77 @@
+{
+  "benchmark_run_classes": [
+    "benchmark_robust_epistemic_system",
+    "benchmark_compatible_but_limited",
+    "partially_robust",
+    "benchmark_fragile",
+    "benchmark_unsafe"
+  ],
+  "class_rank": 5,
+  "classification": "benchmark_robust_epistemic_system",
+  "disclaimer": "Final verdict on the external benchmark runs. Aggregates one score per family from the v34.0-v34.3 runs and classifies on a closed A-E taxonomy. DESi was tested against drift, search compression, reproducibility and scientific rendering through the v33 adapters and the v25 output ports - no new adapters, no benchmark-specific optimisation, no score hacking, no citation fabrication. The epistemic core stayed unchanged and replay stayed stable: benchmarks tested DESi without steering it. Human approval is mandatory.",
+  "gate_conditions": [
+    {
+      "comparator": ">=",
+      "name": "drift_benchmark_score",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "search_compression_score",
+      "passed": true,
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "reproducibility_score",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": ">=",
+      "name": "scientific_rendering_score",
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "core_identity",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi besteht kontrollierte externe Benchmark-Runs als replay-stabiles epistemisches Governance-System.",
+  "human_approval_required": true,
+  "metrics": {
+    "core_identity": 1.0,
+    "drift_benchmark_score": 1.0,
+    "replay_stability": 1.0,
+    "reproducibility_score": 1.0,
+    "scientific_rendering_score": 1.0,
+    "search_compression_score": 1.0
+  },
+  "recommendation": "EXTERNAL_BENCHMARK_RUNS_PASSED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "EXTERNAL_BENCHMARK_RUNS_PASSED",
+    "EXTERNAL_BENCHMARK_RUNS_UNVALIDATED",
+    "EXTERNAL_BENCHMARK_RUNS_HALT"
+  ],
+  "schema_version": "v34_4_external_benchmark_verdict",
+  "signature": "81dbaed7ae6aacf16c1e38a78f3a752a8358b181ac43eb0c680cfc68503022b8"
+}

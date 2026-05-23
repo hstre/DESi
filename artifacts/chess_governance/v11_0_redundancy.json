@@ -1,0 +1,853 @@
+{
+  "branch_count": 43,
+  "branch_verdicts": [
+    "keep",
+    "low_info",
+    "redundant",
+    "forced"
+  ],
+  "classified_branches": [
+    {
+      "branch_id": "b-001-a",
+      "information_density": 0.95,
+      "is_critical_truth": true,
+      "is_forced_truth": true,
+      "is_redundant_truth": false,
+      "position_id": "pos-tact-001",
+      "verdict": "forced"
+    },
+    {
+      "branch_id": "b-001-b",
+      "information_density": 0.3,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-tact-001",
+      "verdict": "low_info"
+    },
+    {
+      "branch_id": "b-001-c",
+      "information_density": 0.2,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": true,
+      "position_id": "pos-tact-001",
+      "verdict": "redundant"
+    },
+    {
+      "branch_id": "b-001-d",
+      "information_density": 0.15,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": true,
+      "position_id": "pos-tact-001",
+      "verdict": "redundant"
+    },
+    {
+      "branch_id": "b-001-e",
+      "information_density": 0.1,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": true,
+      "position_id": "pos-tact-001",
+      "verdict": "redundant"
+    },
+    {
+      "branch_id": "b-002-a",
+      "information_density": 0.92,
+      "is_critical_truth": true,
+      "is_forced_truth": true,
+      "is_redundant_truth": false,
+      "position_id": "pos-tact-002",
+      "verdict": "forced"
+    },
+    {
+      "branch_id": "b-002-b",
+      "information_density": 0.25,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-tact-002",
+      "verdict": "low_info"
+    },
+    {
+      "branch_id": "b-002-c",
+      "information_density": 0.18,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": true,
+      "position_id": "pos-tact-002",
+      "verdict": "redundant"
+    },
+    {
+      "branch_id": "b-002-d",
+      "information_density": 0.08,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": true,
+      "position_id": "pos-tact-002",
+      "verdict": "redundant"
+    },
+    {
+      "branch_id": "b-003-a",
+      "information_density": 0.55,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-quiet-001",
+      "verdict": "keep"
+    },
+    {
+      "branch_id": "b-003-b",
+      "information_density": 0.52,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-quiet-001",
+      "verdict": "keep"
+    },
+    {
+      "branch_id": "b-003-c",
+      "information_density": 0.2,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": true,
+      "position_id": "pos-quiet-001",
+      "verdict": "redundant"
+    },
+    {
+      "branch_id": "b-003-d",
+      "information_density": 0.18,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": true,
+      "position_id": "pos-quiet-001",
+      "verdict": "redundant"
+    },
+    {
+      "branch_id": "b-004-a",
+      "information_density": 0.5,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-quiet-002",
+      "verdict": "keep"
+    },
+    {
+      "branch_id": "b-004-b",
+      "information_density": 0.48,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-quiet-002",
+      "verdict": "keep"
+    },
+    {
+      "branch_id": "b-004-c",
+      "information_density": 0.45,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-quiet-002",
+      "verdict": "keep"
+    },
+    {
+      "branch_id": "b-004-d",
+      "information_density": 0.4,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-quiet-002",
+      "verdict": "keep"
+    },
+    {
+      "branch_id": "b-004-e",
+      "information_density": 0.15,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": true,
+      "position_id": "pos-quiet-002",
+      "verdict": "redundant"
+    },
+    {
+      "branch_id": "b-005-a",
+      "information_density": 0.7,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-middle-001",
+      "verdict": "keep"
+    },
+    {
+      "branch_id": "b-005-b",
+      "information_density": 0.55,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-middle-001",
+      "verdict": "keep"
+    },
+    {
+      "branch_id": "b-005-c",
+      "information_density": 0.4,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-middle-001",
+      "verdict": "keep"
+    },
+    {
+      "branch_id": "b-005-d",
+      "information_density": 0.15,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": true,
+      "position_id": "pos-middle-001",
+      "verdict": "redundant"
+    },
+    {
+      "branch_id": "b-006-a",
+      "information_density": 0.88,
+      "is_critical_truth": true,
+      "is_forced_truth": true,
+      "is_redundant_truth": false,
+      "position_id": "pos-middle-002",
+      "verdict": "forced"
+    },
+    {
+      "branch_id": "b-006-b",
+      "information_density": 0.4,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-middle-002",
+      "verdict": "keep"
+    },
+    {
+      "branch_id": "b-006-c",
+      "information_density": 0.3,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-middle-002",
+      "verdict": "low_info"
+    },
+    {
+      "branch_id": "b-006-d",
+      "information_density": 0.12,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": true,
+      "position_id": "pos-middle-002",
+      "verdict": "redundant"
+    },
+    {
+      "branch_id": "b-007-a",
+      "information_density": 0.95,
+      "is_critical_truth": false,
+      "is_forced_truth": true,
+      "is_redundant_truth": false,
+      "position_id": "pos-end-001",
+      "verdict": "forced"
+    },
+    {
+      "branch_id": "b-007-b",
+      "information_density": 0.3,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": true,
+      "position_id": "pos-end-001",
+      "verdict": "low_info"
+    },
+    {
+      "branch_id": "b-007-c",
+      "information_density": 0.2,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": true,
+      "position_id": "pos-end-001",
+      "verdict": "redundant"
+    },
+    {
+      "branch_id": "b-008-a",
+      "information_density": 0.85,
+      "is_critical_truth": false,
+      "is_forced_truth": true,
+      "is_redundant_truth": false,
+      "position_id": "pos-end-002",
+      "verdict": "forced"
+    },
+    {
+      "branch_id": "b-008-b",
+      "information_density": 0.5,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-end-002",
+      "verdict": "keep"
+    },
+    {
+      "branch_id": "b-008-c",
+      "information_density": 0.25,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": true,
+      "position_id": "pos-end-002",
+      "verdict": "low_info"
+    },
+    {
+      "branch_id": "b-008-d",
+      "information_density": 0.15,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": true,
+      "position_id": "pos-end-002",
+      "verdict": "redundant"
+    },
+    {
+      "branch_id": "b-009-a",
+      "information_density": 0.7,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-strat-001",
+      "verdict": "keep"
+    },
+    {
+      "branch_id": "b-009-b",
+      "information_density": 0.55,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-strat-001",
+      "verdict": "keep"
+    },
+    {
+      "branch_id": "b-009-c",
+      "information_density": 0.45,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-strat-001",
+      "verdict": "keep"
+    },
+    {
+      "branch_id": "b-009-d",
+      "information_density": 0.3,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-strat-001",
+      "verdict": "low_info"
+    },
+    {
+      "branch_id": "b-009-e",
+      "information_density": 0.12,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": true,
+      "position_id": "pos-strat-001",
+      "verdict": "redundant"
+    },
+    {
+      "branch_id": "b-010-a",
+      "information_density": 0.72,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-strat-002",
+      "verdict": "keep"
+    },
+    {
+      "branch_id": "b-010-b",
+      "information_density": 0.55,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-strat-002",
+      "verdict": "keep"
+    },
+    {
+      "branch_id": "b-010-c",
+      "information_density": 0.4,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": false,
+      "position_id": "pos-strat-002",
+      "verdict": "keep"
+    },
+    {
+      "branch_id": "b-010-d",
+      "information_density": 0.1,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": true,
+      "position_id": "pos-strat-002",
+      "verdict": "redundant"
+    },
+    {
+      "branch_id": "b-010-e",
+      "information_density": 0.08,
+      "is_critical_truth": false,
+      "is_forced_truth": false,
+      "is_redundant_truth": true,
+      "position_id": "pos-strat-002",
+      "verdict": "redundant"
+    }
+  ],
+  "critical_branch_count": 3,
+  "forced_line_detection": 1.0,
+  "kind_counts": {
+    "endgame": 2,
+    "middlegame": 2,
+    "quiet": 2,
+    "strategic": 2,
+    "tactical": 2
+  },
+  "low_information_rate": 0.488372,
+  "mean_branching_factor": 4.3,
+  "no_critical_dropped": true,
+  "position_count": 10,
+  "position_kinds": [
+    "tactical",
+    "quiet",
+    "middlegame",
+    "endgame",
+    "strategic"
+  ],
+  "positions": [
+    {
+      "branches": [
+        {
+          "branch_id": "b-001-a",
+          "information_density": 0.95,
+          "is_critical_tactic": true,
+          "is_forced": true,
+          "is_redundant": false,
+          "move": "Qxh7+"
+        },
+        {
+          "branch_id": "b-001-b",
+          "information_density": 0.3,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Qe5"
+        },
+        {
+          "branch_id": "b-001-c",
+          "information_density": 0.2,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": true,
+          "move": "Bd3"
+        },
+        {
+          "branch_id": "b-001-d",
+          "information_density": 0.15,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": true,
+          "move": "Nf3"
+        },
+        {
+          "branch_id": "b-001-e",
+          "information_density": 0.1,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": true,
+          "move": "h3"
+        }
+      ],
+      "fen_descriptor": "(tactical: mating net forced)",
+      "kind": "tactical",
+      "position_id": "pos-tact-001",
+      "pv_branch_id": "b-001-a"
+    },
+    {
+      "branches": [
+        {
+          "branch_id": "b-002-a",
+          "information_density": 0.92,
+          "is_critical_tactic": true,
+          "is_forced": true,
+          "is_redundant": false,
+          "move": "Bxh7+"
+        },
+        {
+          "branch_id": "b-002-b",
+          "information_density": 0.25,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Re1"
+        },
+        {
+          "branch_id": "b-002-c",
+          "information_density": 0.18,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": true,
+          "move": "Nbd2"
+        },
+        {
+          "branch_id": "b-002-d",
+          "information_density": 0.08,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": true,
+          "move": "a3"
+        }
+      ],
+      "fen_descriptor": "(tactical: bishop sac)",
+      "kind": "tactical",
+      "position_id": "pos-tact-002",
+      "pv_branch_id": "b-002-a"
+    },
+    {
+      "branches": [
+        {
+          "branch_id": "b-003-a",
+          "information_density": 0.55,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Nbd2"
+        },
+        {
+          "branch_id": "b-003-b",
+          "information_density": 0.52,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Nc3"
+        },
+        {
+          "branch_id": "b-003-c",
+          "information_density": 0.2,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": true,
+          "move": "h3"
+        },
+        {
+          "branch_id": "b-003-d",
+          "information_density": 0.18,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": true,
+          "move": "a4"
+        }
+      ],
+      "fen_descriptor": "(quiet: balanced development)",
+      "kind": "quiet",
+      "position_id": "pos-quiet-001",
+      "pv_branch_id": "b-003-a"
+    },
+    {
+      "branches": [
+        {
+          "branch_id": "b-004-a",
+          "information_density": 0.5,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Rfe1"
+        },
+        {
+          "branch_id": "b-004-b",
+          "information_density": 0.48,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Bd3"
+        },
+        {
+          "branch_id": "b-004-c",
+          "information_density": 0.45,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Bd2"
+        },
+        {
+          "branch_id": "b-004-d",
+          "information_density": 0.4,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Qc2"
+        },
+        {
+          "branch_id": "b-004-e",
+          "information_density": 0.15,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": true,
+          "move": "h3"
+        }
+      ],
+      "fen_descriptor": "(quiet: slow maneuver)",
+      "kind": "quiet",
+      "position_id": "pos-quiet-002",
+      "pv_branch_id": "b-004-a"
+    },
+    {
+      "branches": [
+        {
+          "branch_id": "b-005-a",
+          "information_density": 0.7,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "e5"
+        },
+        {
+          "branch_id": "b-005-b",
+          "information_density": 0.55,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Nh4"
+        },
+        {
+          "branch_id": "b-005-c",
+          "information_density": 0.4,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Re1"
+        },
+        {
+          "branch_id": "b-005-d",
+          "information_density": 0.15,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": true,
+          "move": "Kh1"
+        }
+      ],
+      "fen_descriptor": "(middlegame: pawn break)",
+      "kind": "middlegame",
+      "position_id": "pos-middle-001",
+      "pv_branch_id": "b-005-a"
+    },
+    {
+      "branches": [
+        {
+          "branch_id": "b-006-a",
+          "information_density": 0.88,
+          "is_critical_tactic": true,
+          "is_forced": true,
+          "is_redundant": false,
+          "move": "Nxg7"
+        },
+        {
+          "branch_id": "b-006-b",
+          "information_density": 0.4,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Bxh6"
+        },
+        {
+          "branch_id": "b-006-c",
+          "information_density": 0.3,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Re3"
+        },
+        {
+          "branch_id": "b-006-d",
+          "information_density": 0.12,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": true,
+          "move": "Kh1"
+        }
+      ],
+      "fen_descriptor": "(middlegame: attack with sac threat)",
+      "kind": "middlegame",
+      "position_id": "pos-middle-002",
+      "pv_branch_id": "b-006-a"
+    },
+    {
+      "branches": [
+        {
+          "branch_id": "b-007-a",
+          "information_density": 0.95,
+          "is_critical_tactic": false,
+          "is_forced": true,
+          "is_redundant": false,
+          "move": "Kd5"
+        },
+        {
+          "branch_id": "b-007-b",
+          "information_density": 0.3,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": true,
+          "move": "Kd4"
+        },
+        {
+          "branch_id": "b-007-c",
+          "information_density": 0.2,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": true,
+          "move": "Kc4"
+        }
+      ],
+      "fen_descriptor": "(endgame: forced winning king walk)",
+      "kind": "endgame",
+      "position_id": "pos-end-001",
+      "pv_branch_id": "b-007-a"
+    },
+    {
+      "branches": [
+        {
+          "branch_id": "b-008-a",
+          "information_density": 0.85,
+          "is_critical_tactic": false,
+          "is_forced": true,
+          "is_redundant": false,
+          "move": "a4"
+        },
+        {
+          "branch_id": "b-008-b",
+          "information_density": 0.5,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Kf3"
+        },
+        {
+          "branch_id": "b-008-c",
+          "information_density": 0.25,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": true,
+          "move": "Kg3"
+        },
+        {
+          "branch_id": "b-008-d",
+          "information_density": 0.15,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": true,
+          "move": "Kh3"
+        }
+      ],
+      "fen_descriptor": "(endgame: pawn race)",
+      "kind": "endgame",
+      "position_id": "pos-end-002",
+      "pv_branch_id": "b-008-a"
+    },
+    {
+      "branches": [
+        {
+          "branch_id": "b-009-a",
+          "information_density": 0.7,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Nd5"
+        },
+        {
+          "branch_id": "b-009-b",
+          "information_density": 0.55,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Bb2"
+        },
+        {
+          "branch_id": "b-009-c",
+          "information_density": 0.45,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Qd2"
+        },
+        {
+          "branch_id": "b-009-d",
+          "information_density": 0.3,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Rfe1"
+        },
+        {
+          "branch_id": "b-009-e",
+          "information_density": 0.12,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": true,
+          "move": "h3"
+        }
+      ],
+      "fen_descriptor": "(strategic: outpost squeeze)",
+      "kind": "strategic",
+      "position_id": "pos-strat-001",
+      "pv_branch_id": "b-009-a"
+    },
+    {
+      "branches": [
+        {
+          "branch_id": "b-010-a",
+          "information_density": 0.72,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "b4"
+        },
+        {
+          "branch_id": "b-010-b",
+          "information_density": 0.55,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Rfb1"
+        },
+        {
+          "branch_id": "b-010-c",
+          "information_density": 0.4,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": false,
+          "move": "Qb3"
+        },
+        {
+          "branch_id": "b-010-d",
+          "information_density": 0.1,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": true,
+          "move": "Kh1"
+        },
+        {
+          "branch_id": "b-010-e",
+          "information_density": 0.08,
+          "is_critical_tactic": false,
+          "is_forced": false,
+          "is_redundant": true,
+          "move": "a3"
+        }
+      ],
+      "fen_descriptor": "(strategic: minority attack)",
+      "kind": "strategic",
+      "position_id": "pos-strat-002",
+      "pv_branch_id": "b-010-a"
+    }
+  ],
+  "redundant_branch_rate": 0.882353,
+  "replay_reuse": 0.488372,
+  "schema_version": "v11_0_search_redundancy",
+  "verdict_distribution": {
+    "forced": 5,
+    "keep": 17,
+    "low_info": 6,
+    "redundant": 15
+  }
+}

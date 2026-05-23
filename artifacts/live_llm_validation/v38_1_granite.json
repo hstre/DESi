@@ -1,0 +1,71 @@
+{
+  "avg_cost_usd": 2.05e-06,
+  "core_identity": 1.0,
+  "cost_efficiency": 1.0,
+  "disclaimer": "Granite structured-task run over REAL captured OpenRouter responses (ibm-granite/granite-4.1-8b). The raw outputs are observed stochastic evidence captured once, hashed and replayed; DESi grades them deterministically (compliance, hallucination, cost). Outputs are never treated as canonical truth and hallucinations are never silently suppressed. Costs are the real OpenRouter usage costs. Human approval is mandatory.",
+  "governance_identity": 1.0,
+  "granite_success_rate": 1.0,
+  "hallucination_rate": 0.0,
+  "human_approval_required": true,
+  "recommendation": "GRANITE_RUN_PASSED",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "GRANITE_RUN_PASSED",
+    "GRANITE_RUN_PARTIAL",
+    "GRANITE_RUN_HALT"
+  ],
+  "results": [
+    {
+      "compliant": true,
+      "content": "Positive",
+      "cost": 2.1e-06,
+      "hallucinated": false,
+      "kind": "classification",
+      "task_id": "gr_classify"
+    },
+    {
+      "compliant": true,
+      "content": "1000",
+      "cost": 1.65e-06,
+      "hallucinated": false,
+      "kind": "extraction",
+      "task_id": "gr_extract"
+    },
+    {
+      "compliant": true,
+      "content": "{\n  \"risk\": \"high\"\n}",
+      "cost": 2.7e-06,
+      "hallucinated": false,
+      "kind": "json_schema",
+      "task_id": "gr_json"
+    },
+    {
+      "compliant": true,
+      "content": "Decrease",
+      "cost": 1.35e-06,
+      "hallucinated": false,
+      "kind": "one_word",
+      "task_id": "gr_oneword"
+    },
+    {
+      "compliant": true,
+      "content": "e2",
+      "cost": 1.95e-06,
+      "hallucinated": false,
+      "kind": "evidence_mapping",
+      "task_id": "gr_evidence"
+    },
+    {
+      "compliant": true,
+      "content": "Misstatement risk due to early revenue recognition.",
+      "cost": 2.55e-06,
+      "hallucinated": false,
+      "kind": "audit_structuring",
+      "task_id": "gr_audit"
+    }
+  ],
+  "schema_compliance": 1.0,
+  "schema_version": "v38_1_granite_run",
+  "signature": "71c6ba20bf04e3cdce4800a973821dad32f1b0b5a4908277e92a6d4ba86d1676",
+  "total_cost_usd": 1.23e-05
+}

@@ -1,0 +1,134 @@
+{
+  "ablation_outcomes": [
+    {
+      "cluster_count": 2,
+      "cluster_sizes": [
+        12,
+        8
+      ],
+      "dropped_dim": "contradiction_load",
+      "kind": "drop_contradiction_load",
+      "purity": 0.8,
+      "recall": 0.333333
+    },
+    {
+      "cluster_count": 3,
+      "cluster_sizes": [
+        8,
+        8,
+        4
+      ],
+      "dropped_dim": "anchor_density",
+      "kind": "drop_anchor_density",
+      "purity": 1.0,
+      "recall": 1.0
+    },
+    {
+      "cluster_count": 3,
+      "cluster_sizes": [
+        8,
+        8,
+        4
+      ],
+      "dropped_dim": "novelty",
+      "kind": "drop_novelty",
+      "purity": 1.0,
+      "recall": 1.0
+    },
+    {
+      "cluster_count": 2,
+      "cluster_sizes": [
+        16,
+        4
+      ],
+      "dropped_dim": "branch_cost",
+      "kind": "drop_branch_cost",
+      "purity": 0.6,
+      "recall": 0.333333
+    },
+    {
+      "cluster_count": 3,
+      "cluster_sizes": [
+        8,
+        8,
+        4
+      ],
+      "dropped_dim": "frame_id",
+      "kind": "drop_frame_id",
+      "purity": 1.0,
+      "recall": 1.0
+    },
+    {
+      "cluster_count": 3,
+      "cluster_sizes": [
+        8,
+        8,
+        4
+      ],
+      "dropped_dim": "source_quality",
+      "kind": "drop_source_quality",
+      "purity": 1.0,
+      "recall": 1.0
+    }
+  ],
+  "baseline_purity": 1.0,
+  "feature_importance": [
+    {
+      "ablated_purity": 0.6,
+      "baseline_purity": 1.0,
+      "dim": "branch_cost",
+      "importance": 0.4
+    },
+    {
+      "ablated_purity": 0.8,
+      "baseline_purity": 1.0,
+      "dim": "contradiction_load",
+      "importance": 0.2
+    },
+    {
+      "ablated_purity": 1.0,
+      "baseline_purity": 1.0,
+      "dim": "anchor_density",
+      "importance": 0.0
+    },
+    {
+      "ablated_purity": 1.0,
+      "baseline_purity": 1.0,
+      "dim": "frame_id",
+      "importance": 0.0
+    },
+    {
+      "ablated_purity": 1.0,
+      "baseline_purity": 1.0,
+      "dim": "novelty",
+      "importance": 0.0
+    },
+    {
+      "ablated_purity": 1.0,
+      "baseline_purity": 1.0,
+      "dim": "source_quality",
+      "importance": 0.0
+    }
+  ],
+  "halt": false,
+  "minimal_cluster_accuracy": 1.0,
+  "minimal_feature_count": 2,
+  "minimal_feature_set": [
+    "branch_cost",
+    "contradiction_load"
+  ],
+  "probe_radius": 3.5,
+  "proxy_score": 1.0,
+  "rationale": [
+    "INFO: probe_radius 3.5",
+    "INFO: baseline_purity 1.0",
+    "INFO: ablation_outcomes [{'kind': 'drop_contradiction_load', 'dropped_dim': 'contradiction_load', 'cluster_count': 2, 'cluster_sizes': [12, 8], 'purity': 0.8, 'recall': 0.333333}, {'kind': 'drop_anchor_density', 'dropped_dim': 'anchor_density', 'cluster_count': 3, 'cluster_sizes': [8, 8, 4], 'purity': 1.0, 'recall': 1.0}, {'kind': 'drop_novelty', 'dropped_dim': 'novelty', 'cluster_count': 3, 'cluster_sizes': [8, 8, 4], 'purity': 1.0, 'recall': 1.0}, {'kind': 'drop_branch_cost', 'dropped_dim': 'branch_cost', 'cluster_count': 2, 'cluster_sizes': [16, 4], 'purity': 0.6, 'recall': 0.333333}, {'kind': 'drop_frame_id', 'dropped_dim': 'frame_id', 'cluster_count': 3, 'cluster_sizes': [8, 8, 4], 'purity': 1.0, 'recall': 1.0}, {'kind': 'drop_source_quality', 'dropped_dim': 'source_quality', 'cluster_count': 3, 'cluster_sizes': [8, 8, 4], 'purity': 1.0, 'recall': 1.0}]",
+    "INFO: feature_importance [{'dim': 'branch_cost', 'baseline_purity': 1.0, 'ablated_purity': 0.6, 'importance': 0.4}, {'dim': 'contradiction_load', 'baseline_purity': 1.0, 'ablated_purity': 0.8, 'importance': 0.2}, {'dim': 'anchor_density', 'baseline_purity': 1.0, 'ablated_purity': 1.0, 'importance': 0.0}, {'dim': 'frame_id', 'baseline_purity': 1.0, 'ablated_purity': 1.0, 'importance': 0.0}, {'dim': 'novelty', 'baseline_purity': 1.0, 'ablated_purity': 1.0, 'importance': 0.0}, {'dim': 'source_quality', 'baseline_purity': 1.0, 'ablated_purity': 1.0, 'importance': 0.0}]",
+    "INFO: minimal_feature_set ['branch_cost', 'contradiction_load'] (count 2)",
+    "PASS: minimal_cluster_accuracy 1.0 (threshold 0.7)",
+    "INFO: proxy_score 1.0",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "MINIMAL_PROXY_FOUND",
+  "replay_stability": 1.0
+}

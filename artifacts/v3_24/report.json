@@ -1,0 +1,15 @@
+{
+  "claim_count": 105,
+  "claims_hash": "c04d16c878cf2bfc",
+  "claims_path": "docs/papers/v3_claims.json",
+  "contradiction_count": 0,
+  "drift_findings": 0,
+  "failed_hypotheses": 10,
+  "finished_at": "2026-05-16T00:00:00+00:00",
+  "paper_hash": "d593fa4c45598416",
+  "paper_path": "docs/papers/v3_gate_governed_architecture.md",
+  "recommendation_reason": "all hard gates satisfied: 105 claims, drift=0, contradiction=0",
+  "recommended_next": "V3_LINE_FROZEN",
+  "replay_hash": "af25d3c85eb83d4a",
+  "started_at": "2026-05-16T00:00:00+00:00"
+}

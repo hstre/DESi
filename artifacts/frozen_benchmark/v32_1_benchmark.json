@@ -1,0 +1,23 @@
+{
+  "artifact_identity": 1.0,
+  "baseline_recomputes": 36,
+  "baseline_version": "DESi_baseline_frozen_v1",
+  "disclaimer": "A real, measured benchmark of DESi_baseline_frozen_v1 vs DESi_mutated_v31 over the identical workload (papers / claims / queries / tasks). The mutated version performs far fewer recomputes while producing byte-identical outputs; governance is identical and replay is stable. The stored metric is the deterministic recompute reduction (not projected, no synthetic estimate); wall-clock is observed live but never stored. Regression survival is confirmed by the mandatory full regression. Human approval is mandatory.",
+  "governance_identity": 1.0,
+  "graph_integrity": 1.0,
+  "graph_query_reduction": 0.9166666666666666,
+  "human_approval_required": true,
+  "measured_improvement": 0.8888888888888888,
+  "mutated_recomputes": 4,
+  "mutated_version": "DESi_mutated_v31",
+  "recommendation": "MEASURED_EVOLUTION_IMPROVEMENT",
+  "regression_survival": 1.0,
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "MEASURED_EVOLUTION_IMPROVEMENT",
+    "NO_MEASURED_IMPROVEMENT",
+    "BENCHMARK_HALT"
+  ],
+  "schema_version": "v32_1_frozen_benchmark",
+  "signature": "d8305c822921384fd5bcddb5d30f877b88eb356f97a332a47fcc3158f7fabe5d"
+}

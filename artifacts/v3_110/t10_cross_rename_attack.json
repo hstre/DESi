@@ -1,0 +1,262 @@
+{
+  "broken_candidates": [],
+  "cell_count": 15,
+  "cell_outcomes": [
+    {
+      "best_candidate_distribution": [
+        {
+          "candidate": "corpus_hash",
+          "count": 25
+        },
+        {
+          "candidate": "letter_prefix_hash",
+          "count": 6
+        }
+      ],
+      "kind": "corpus_rename",
+      "mean_auc": 1.0,
+      "rescue_rate": 1.0,
+      "seed": 0
+    },
+    {
+      "best_candidate_distribution": [
+        {
+          "candidate": "corpus_hash",
+          "count": 24
+        },
+        {
+          "candidate": "letter_prefix_hash",
+          "count": 7
+        }
+      ],
+      "kind": "corpus_rename",
+      "mean_auc": 1.0,
+      "rescue_rate": 1.0,
+      "seed": 1
+    },
+    {
+      "best_candidate_distribution": [
+        {
+          "candidate": "corpus_hash",
+          "count": 25
+        },
+        {
+          "candidate": "letter_prefix_hash",
+          "count": 6
+        }
+      ],
+      "kind": "corpus_rename",
+      "mean_auc": 1.0,
+      "rescue_rate": 1.0,
+      "seed": 2
+    },
+    {
+      "best_candidate_distribution": [
+        {
+          "candidate": "corpus_hash",
+          "count": 25
+        },
+        {
+          "candidate": "letter_prefix_hash",
+          "count": 6
+        }
+      ],
+      "kind": "corpus_rename",
+      "mean_auc": 1.0,
+      "rescue_rate": 1.0,
+      "seed": 3
+    },
+    {
+      "best_candidate_distribution": [
+        {
+          "candidate": "corpus_hash",
+          "count": 25
+        },
+        {
+          "candidate": "letter_prefix_hash",
+          "count": 6
+        }
+      ],
+      "kind": "corpus_rename",
+      "mean_auc": 1.0,
+      "rescue_rate": 1.0,
+      "seed": 4
+    },
+    {
+      "best_candidate_distribution": [
+        {
+          "candidate": "corpus_hash",
+          "count": 22
+        },
+        {
+          "candidate": "letter_prefix_hash",
+          "count": 9
+        }
+      ],
+      "kind": "letter_rename",
+      "mean_auc": 1.0,
+      "rescue_rate": 1.0,
+      "seed": 0
+    },
+    {
+      "best_candidate_distribution": [
+        {
+          "candidate": "corpus_hash",
+          "count": 22
+        },
+        {
+          "candidate": "letter_prefix_hash",
+          "count": 9
+        }
+      ],
+      "kind": "letter_rename",
+      "mean_auc": 1.0,
+      "rescue_rate": 1.0,
+      "seed": 1
+    },
+    {
+      "best_candidate_distribution": [
+        {
+          "candidate": "corpus_hash",
+          "count": 22
+        },
+        {
+          "candidate": "letter_prefix_hash",
+          "count": 9
+        }
+      ],
+      "kind": "letter_rename",
+      "mean_auc": 1.0,
+      "rescue_rate": 1.0,
+      "seed": 2
+    },
+    {
+      "best_candidate_distribution": [
+        {
+          "candidate": "corpus_hash",
+          "count": 22
+        },
+        {
+          "candidate": "letter_prefix_hash",
+          "count": 9
+        }
+      ],
+      "kind": "letter_rename",
+      "mean_auc": 1.0,
+      "rescue_rate": 1.0,
+      "seed": 3
+    },
+    {
+      "best_candidate_distribution": [
+        {
+          "candidate": "corpus_hash",
+          "count": 22
+        },
+        {
+          "candidate": "letter_prefix_hash",
+          "count": 9
+        }
+      ],
+      "kind": "letter_rename",
+      "mean_auc": 1.0,
+      "rescue_rate": 1.0,
+      "seed": 4
+    },
+    {
+      "best_candidate_distribution": [
+        {
+          "candidate": "corpus_hash",
+          "count": 25
+        },
+        {
+          "candidate": "letter_prefix_hash",
+          "count": 6
+        }
+      ],
+      "kind": "full_rename",
+      "mean_auc": 1.0,
+      "rescue_rate": 1.0,
+      "seed": 0
+    },
+    {
+      "best_candidate_distribution": [
+        {
+          "candidate": "corpus_hash",
+          "count": 25
+        },
+        {
+          "candidate": "letter_prefix_hash",
+          "count": 6
+        }
+      ],
+      "kind": "full_rename",
+      "mean_auc": 1.0,
+      "rescue_rate": 1.0,
+      "seed": 1
+    },
+    {
+      "best_candidate_distribution": [
+        {
+          "candidate": "corpus_hash",
+          "count": 20
+        },
+        {
+          "candidate": "letter_prefix_hash",
+          "count": 10
+        }
+      ],
+      "kind": "full_rename",
+      "mean_auc": 0.983871,
+      "rescue_rate": 0.967742,
+      "seed": 2
+    },
+    {
+      "best_candidate_distribution": [
+        {
+          "candidate": "corpus_hash",
+          "count": 25
+        },
+        {
+          "candidate": "letter_prefix_hash",
+          "count": 6
+        }
+      ],
+      "kind": "full_rename",
+      "mean_auc": 1.0,
+      "rescue_rate": 1.0,
+      "seed": 3
+    },
+    {
+      "best_candidate_distribution": [
+        {
+          "candidate": "corpus_hash",
+          "count": 21
+        },
+        {
+          "candidate": "letter_prefix_hash",
+          "count": 10
+        }
+      ],
+      "kind": "full_rename",
+      "mean_auc": 1.0,
+      "rescue_rate": 1.0,
+      "seed": 4
+    }
+  ],
+  "name_leakage_score": 0.0,
+  "rename_attack_auc": 0.998925,
+  "rename_attack_rescue_rate": 0.997849,
+  "rename_kinds": [
+    "corpus_rename",
+    "letter_rename",
+    "full_rename"
+  ],
+  "rename_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "schema_version": "v3_110_t10_cross_rename_attack"
+}

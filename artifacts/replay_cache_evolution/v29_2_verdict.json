@@ -1,0 +1,65 @@
+{
+  "artifact_identity": 1.0,
+  "baseline_recompute_count": 36,
+  "branch": "proposal/replay_cache_v1",
+  "cached_recompute_count": 4,
+  "classification": "real_validated_improvement",
+  "disclaimer": "Final verdict on the first real, branch-isolated, measured DESi infrastructure evolution. The comparison DESi_current vs DESi_replay_cache_v1 is measured (recompute reduction), not projected or synthetic. The cache delivers a real runtime improvement while keeping every artifact byte-identical, governance unchanged, and replay stable; regression survival is confirmed by the mandatory end-of-phase full regression. Nothing is merged, no main modification, no auto-deployment, and human approval is mandatory. Replay-stable.",
+  "gate_conditions": [
+    {
+      "comparator": ">=",
+      "name": "measured_runtime_improvement",
+      "passed": true,
+      "threshold": 0.2,
+      "value": 0.888889
+    },
+    {
+      "comparator": "==",
+      "name": "artifact_identity",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "governance_identity",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "regression_survival",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    },
+    {
+      "comparator": "==",
+      "name": "replay_stability",
+      "passed": true,
+      "threshold": 1.0,
+      "value": 1.0
+    }
+  ],
+  "gate_failing_conditions": [],
+  "gate_passes_all": true,
+  "gate_statement": "DESi kann reale replay-validierte Infrastrukturverbesserungen branch-isoliert durchfuehren.",
+  "governance_identity": 1.0,
+  "human_approval_required": true,
+  "measured_runtime_improvement": 0.888889,
+  "recommendation": "REAL_INFRA_EVOLUTION_VALIDATED",
+  "regression_survival": 1.0,
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "REAL_INFRA_EVOLUTION_VALIDATED",
+    "INFRA_EVOLUTION_UNSAFE",
+    "EVOLUTION_DRIFT_HALT"
+  ],
+  "result_classes": [
+    "real_validated_improvement",
+    "epistemically_unsafe_improvement"
+  ],
+  "schema_version": "v29_2_replay_cache_verdict",
+  "signature": "3564f15986e6150e7def1b68871d9b8068b352f0c69f71aaaa96add5ca37a719"
+}

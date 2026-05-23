@@ -1,0 +1,47 @@
+{
+  "api_response_capture": 1.0,
+  "catalog_content_hash": "d066944a16f87bf9d9700f313248115d74702827b24f43ca3bd1556ac28c7a36",
+  "catalog_models": [
+    {
+      "canonical_slug": "deepseek/deepseek-v4-pro-20260423",
+      "context_length": 1048576,
+      "created": 1777000679,
+      "id": "deepseek/deepseek-v4-pro",
+      "name": "DeepSeek: DeepSeek V4 Pro",
+      "pricing": {
+        "completion": "0.00000087",
+        "prompt": "0.000000435"
+      }
+    },
+    {
+      "canonical_slug": "ibm-granite/granite-4.1-8b-20260429",
+      "context_length": 131072,
+      "created": 1777577071,
+      "id": "ibm-granite/granite-4.1-8b",
+      "name": "IBM: Granite 4.1 8B",
+      "pricing": {
+        "completion": "0.0000001",
+        "prompt": "0.00000005"
+      }
+    }
+  ],
+  "catalog_source": "https://openrouter.ai/api/v1/models",
+  "core_identity": 1.0,
+  "disclaimer": "OpenRouter connector layer making REAL live calls. The public models catalog and live Granite inference samples are captured from the real OpenRouter API (ENV-based auth; no API key in the repo), fully preserved, hashed and made replayable. LLM outputs are treated as observed stochastic evidence, never as canonical truth: only the input layer is stochastic, and all downstream evaluation reads the captured raw outputs deterministically and never calls the network. Human approval is mandatory.",
+  "governance_identity": 1.0,
+  "human_approval_required": true,
+  "model_version_visibility": 1.0,
+  "raw_output_replayability": 1.0,
+  "recommendation": "OPENROUTER_CONNECTORS_REPLAY_STABLE",
+  "replay_stability": 1.0,
+  "report_verdicts": [
+    "OPENROUTER_CONNECTORS_REPLAY_STABLE",
+    "OPENROUTER_CONNECTORS_PARTIAL",
+    "OPENROUTER_CONNECTORS_HALT"
+  ],
+  "response_hash_integrity": 1.0,
+  "sample_capture_count": 2,
+  "schema_version": "v38_0_openrouter_connectors",
+  "signature": "28240f6edb04443692c33816b2634b2c115e08e239d00b0225a72a8471eb2c6c",
+  "total_sample_cost_usd": 3.45e-06
+}

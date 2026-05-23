@@ -1,0 +1,11 @@
+{
+  "architecture_roi": 27.591403,
+  "base_state_dim_count": 9,
+  "complexity_cost": 0.07037,
+  "compression_delta": 0.111111,
+  "overfitting_risk": 0.0,
+  "recovery_gain": 1.941607,
+  "schema_version": "v3_104_t10_recovery_vs_complexity",
+  "state_dim_cost": 0.1,
+  "tail_vector_cost": 0.021739
+}

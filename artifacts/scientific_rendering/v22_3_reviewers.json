@@ -1,0 +1,61 @@
+{
+  "attacks": [
+    {
+      "attack_id": "RA1",
+      "criticism": "This is just a step toward general autonomous intelligence.",
+      "kind": "agi_claim",
+      "response": "The scope is a small synthetic exploration sandbox; we make no broad cognitive claim and present only measured governance behaviour.",
+      "response_clean": true
+    },
+    {
+      "attack_id": "RA2",
+      "criticism": "This replaces reinforcement learning.",
+      "kind": "solves_rl",
+      "response": "We do not replace reinforcement learning; the layer is optional and read-only and addresses specific exploration failure modes observed in the sandbox.",
+      "response_clean": true
+    },
+    {
+      "attack_id": "RA3",
+      "criticism": "This is just hype.",
+      "kind": "just_hype",
+      "response": "Each reported number is deterministic and replay-exact, and every claim is scoped to the synthetic corpus rather than stated broadly.",
+      "response_clean": true
+    },
+    {
+      "attack_id": "RA4",
+      "criticism": "This is philosophy, not engineering.",
+      "kind": "philosophy",
+      "response": "The contribution is an engineering measurement on a synthetic corpus: redundancy reduction, novel-state reachability, and replay stability, not an argument.",
+      "response_clean": true
+    },
+    {
+      "attack_id": "RA5",
+      "criticism": "This is not reproducible.",
+      "kind": "not_reproducible",
+      "response": "Every metric is computed twice and a deterministic hash chain is recorded; the reported results on the synthetic corpus are replay-exact and can be re-run.",
+      "response_clean": true
+    },
+    {
+      "attack_id": "RA6",
+      "criticism": "This is a salad of buzzwords.",
+      "kind": "buzzword",
+      "response": "Each term maps to a measured quantity: redundancy reduction 0.90, novel-state reachability 1.0, and a replay-exact hash chain on the synthetic corpus.",
+      "response_clean": true
+    }
+  ],
+  "criticism_handling": 1.0,
+  "defensive_hype": 0.0,
+  "disclaimer": "DESi answers hostile reviews by scoping claims to the synthetic sandbox, citing concrete anchors, and conceding limits. No response escalates into forbidden / hype / overclaim language or collapses into bare denial. DESi makes no global intelligence claim and claims no truth authority. Replay-exact.",
+  "epistemic_humility": 1.0,
+  "hype_resistance": 1.0,
+  "recommendation": "REVIEW_PRESSURE_WITHSTOOD",
+  "report_verdicts": [
+    "REVIEW_PRESSURE_WITHSTOOD",
+    "REVIEW_PRESSURE_COLLAPSED",
+    "REPLAY_DRIFT_HALT"
+  ],
+  "schema_version": "v22_3_adversarial_reviewer_pressure",
+  "signature": "eb6afcfcccf692911125332e9acf37b902a591e132db2dfb4726c6c53a89e6c4",
+  "technical_precision": 1.0,
+  "unanswered_attacks": []
+}

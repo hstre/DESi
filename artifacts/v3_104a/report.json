@@ -1,0 +1,244 @@
+{
+  "adverse_auc_delta": 0.0,
+  "adverse_flip_count": 0,
+  "affected_sprint_ids": [
+    "v3.100 compression_audit",
+    "v3.94 entangled_ablation",
+    "v3.96 entangled_resolution"
+  ],
+  "beneficial_auc_delta": 0.494239,
+  "beneficial_flip_count": 4,
+  "classified_count": 12,
+  "classified_outcomes": [
+    {
+      "counterfactual_value": 1.0,
+      "gate_metric": "coverage_percentile",
+      "kind": "neutral_pass",
+      "sprint_id": "v3.69 mozart_probe",
+      "stored_value": 1.0,
+      "value_delta": 0.0
+    },
+    {
+      "counterfactual_value": 4.0,
+      "gate_metric": "removal_perturbation_count",
+      "kind": "neutral_pass",
+      "sprint_id": "v3.73 missing_claim",
+      "stored_value": 4.0,
+      "value_delta": 0.0
+    },
+    {
+      "counterfactual_value": 3.0,
+      "gate_metric": "redundancy_class_count",
+      "kind": "neutral_pass",
+      "sprint_id": "v3.79 redundancy_classes",
+      "stored_value": 3.0,
+      "value_delta": 0.0
+    },
+    {
+      "counterfactual_value": 1.0,
+      "gate_metric": "cluster_purity",
+      "kind": "neutral_pass",
+      "sprint_id": "v3.81 doppelgaenger",
+      "stored_value": 1.0,
+      "value_delta": 0.0
+    },
+    {
+      "counterfactual_value": 1.0,
+      "gate_metric": "minimal_cluster_accuracy",
+      "kind": "neutral_pass",
+      "sprint_id": "v3.82 minimal_features",
+      "stored_value": 1.0,
+      "value_delta": 0.0
+    },
+    {
+      "counterfactual_value": 0.289474,
+      "gate_metric": "cluster_purity",
+      "kind": "neutral_fail",
+      "sprint_id": "v3.86 novel_family_cluster",
+      "stored_value": 0.289474,
+      "value_delta": 0.0
+    },
+    {
+      "counterfactual_value": 0.605263,
+      "gate_metric": "normalized_cluster_purity",
+      "kind": "neutral_fail",
+      "sprint_id": "v3.90 frame_normalized_cluster",
+      "stored_value": 0.605263,
+      "value_delta": 0.0
+    },
+    {
+      "counterfactual_value": 0.832345,
+      "gate_metric": "frame_normalized_auc",
+      "kind": "neutral_pass",
+      "sprint_id": "v3.92 frame_normalized_predictive",
+      "stored_value": 0.711887,
+      "value_delta": 0.120458
+    },
+    {
+      "counterfactual_value": 1.0,
+      "gate_metric": "best_purity",
+      "kind": "beneficial_flip",
+      "sprint_id": "v3.94 entangled_ablation",
+      "stored_value": 0.526316,
+      "value_delta": 0.473684
+    },
+    {
+      "counterfactual_value": 1.0,
+      "gate_metric": "resolved_purity",
+      "kind": "beneficial_flip",
+      "sprint_id": "v3.96 entangled_resolution",
+      "stored_value": 0.526316,
+      "value_delta": 0.473684
+    },
+    {
+      "counterfactual_value": 1.0,
+      "gate_metric": "resolved_auc",
+      "kind": "beneficial_flip",
+      "sprint_id": "v3.96 entangled_resolution",
+      "stored_value": 0.505761,
+      "value_delta": 0.494239
+    },
+    {
+      "counterfactual_value": 0.0,
+      "gate_metric": "information_loss",
+      "kind": "beneficial_flip",
+      "sprint_id": "v3.100 compression_audit",
+      "stored_value": 0.5,
+      "value_delta": -0.5
+    }
+  ],
+  "halt": false,
+  "historical_delta_map": {
+    "v3.100 compression_audit": [
+      {
+        "counterfactual_value": 0.0,
+        "gate_metric": "information_loss",
+        "kind": "beneficial_flip",
+        "sprint_id": "v3.100 compression_audit",
+        "stored_value": 0.5,
+        "value_delta": -0.5
+      }
+    ],
+    "v3.69 mozart_probe": [
+      {
+        "counterfactual_value": 1.0,
+        "gate_metric": "coverage_percentile",
+        "kind": "neutral_pass",
+        "sprint_id": "v3.69 mozart_probe",
+        "stored_value": 1.0,
+        "value_delta": 0.0
+      }
+    ],
+    "v3.73 missing_claim": [
+      {
+        "counterfactual_value": 4.0,
+        "gate_metric": "removal_perturbation_count",
+        "kind": "neutral_pass",
+        "sprint_id": "v3.73 missing_claim",
+        "stored_value": 4.0,
+        "value_delta": 0.0
+      }
+    ],
+    "v3.79 redundancy_classes": [
+      {
+        "counterfactual_value": 3.0,
+        "gate_metric": "redundancy_class_count",
+        "kind": "neutral_pass",
+        "sprint_id": "v3.79 redundancy_classes",
+        "stored_value": 3.0,
+        "value_delta": 0.0
+      }
+    ],
+    "v3.81 doppelgaenger": [
+      {
+        "counterfactual_value": 1.0,
+        "gate_metric": "cluster_purity",
+        "kind": "neutral_pass",
+        "sprint_id": "v3.81 doppelgaenger",
+        "stored_value": 1.0,
+        "value_delta": 0.0
+      }
+    ],
+    "v3.82 minimal_features": [
+      {
+        "counterfactual_value": 1.0,
+        "gate_metric": "minimal_cluster_accuracy",
+        "kind": "neutral_pass",
+        "sprint_id": "v3.82 minimal_features",
+        "stored_value": 1.0,
+        "value_delta": 0.0
+      }
+    ],
+    "v3.86 novel_family_cluster": [
+      {
+        "counterfactual_value": 0.289474,
+        "gate_metric": "cluster_purity",
+        "kind": "neutral_fail",
+        "sprint_id": "v3.86 novel_family_cluster",
+        "stored_value": 0.289474,
+        "value_delta": 0.0
+      }
+    ],
+    "v3.90 frame_normalized_cluster": [
+      {
+        "counterfactual_value": 0.605263,
+        "gate_metric": "normalized_cluster_purity",
+        "kind": "neutral_fail",
+        "sprint_id": "v3.90 frame_normalized_cluster",
+        "stored_value": 0.605263,
+        "value_delta": 0.0
+      }
+    ],
+    "v3.92 frame_normalized_predictive": [
+      {
+        "counterfactual_value": 0.832345,
+        "gate_metric": "frame_normalized_auc",
+        "kind": "neutral_pass",
+        "sprint_id": "v3.92 frame_normalized_predictive",
+        "stored_value": 0.711887,
+        "value_delta": 0.120458
+      }
+    ],
+    "v3.94 entangled_ablation": [
+      {
+        "counterfactual_value": 1.0,
+        "gate_metric": "best_purity",
+        "kind": "beneficial_flip",
+        "sprint_id": "v3.94 entangled_ablation",
+        "stored_value": 0.526316,
+        "value_delta": 0.473684
+      }
+    ],
+    "v3.96 entangled_resolution": [
+      {
+        "counterfactual_value": 1.0,
+        "gate_metric": "resolved_purity",
+        "kind": "beneficial_flip",
+        "sprint_id": "v3.96 entangled_resolution",
+        "stored_value": 0.526316,
+        "value_delta": 0.473684
+      },
+      {
+        "counterfactual_value": 1.0,
+        "gate_metric": "resolved_auc",
+        "kind": "beneficial_flip",
+        "sprint_id": "v3.96 entangled_resolution",
+        "stored_value": 0.505761,
+        "value_delta": 0.494239
+      }
+    ]
+  },
+  "neutral_count": 8,
+  "rationale": [
+    "INFO: classified_count 12",
+    "INFO: beneficial_flip_count 4",
+    "INFO: adverse_flip_count 0",
+    "INFO: neutral_count 8",
+    "INFO: adverse_auc_delta 0.0",
+    "INFO: beneficial_auc_delta 0.494239",
+    "INFO: affected_sprint_ids ['v3.100 compression_audit', 'v3.94 entangled_ablation', 'v3.96 entangled_resolution']",
+    "PASS: replay_stability 1.0"
+  ],
+  "recommendation": "DELTA_PURELY_BENEFICIAL",
+  "replay_stability": 1.0
+}
