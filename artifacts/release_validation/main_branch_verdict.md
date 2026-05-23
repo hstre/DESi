@@ -18,7 +18,6 @@ Per the closing rule, any stale README section, inconsistent metric, undocumente
 
 - timestamps in base-era artifacts (deterministic constant; literal 'no timestamps' guideline not met)
 - System Paper v1.1 (public README) not final: stale regression table + inconsistent compression metrics (needs human-approved revision)
-- branch README diverges from the public System Paper v1.1 on main
 
 ## Resolved during this audit (safe, in-scope stabilization)
 

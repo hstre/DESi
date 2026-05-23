@@ -3,11 +3,11 @@
 **Result:** FAIL
 
 - `working_tree_modules_present` = `True`
-- `cli_documented` = `True`
-- `examples_documented` = `True`
+- `cli_documented` = `False`
+- `examples_documented` = `False`
 - `working_tree_stale_minimal_line` = `False`
 - `system_paper_v1_1_not_final` = `True`
-- `branch_main_readme_divergence` = `True`
+- `branch_main_readme_divergence` = `False`
 - `passed` = `False`
 
 ## Findings

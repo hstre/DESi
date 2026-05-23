@@ -25,10 +25,12 @@ def test_verdict_is_not_ready() -> None:
     assert len(blockers()) >= 1
 
 
-def test_blockers_include_system_paper_and_divergence() -> None:
+def test_blockers_include_system_paper() -> None:
     bl = " | ".join(blockers())
     assert "System Paper v1.1" in bl
-    assert "diverges" in bl
+    # branch README was aligned to main's System Paper, so the
+    # divergence blocker is resolved.
+    assert "diverges" not in bl
 
 
 # --- safe fixes applied during the audit --------
