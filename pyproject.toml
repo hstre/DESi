@@ -39,8 +39,12 @@ dependencies = [
 # Live LLM validation uses only stdlib urllib for the OpenRouter call;
 # no extra dependency is required. Optional integrations below.
 neo4j = ["neo4j>=5.0"]
+# The tool-execution sandbox (desi.tools.runners) lazily imports sympy
+# for symbolic math verification; it is optional and never imported at
+# package load time.
+tools = ["sympy>=1.12"]
 test = ["pytest>=8.0"]
-dev = ["pytest>=8.0", "build>=1.0"]
+dev = ["pytest>=8.0", "build>=1.0", "sympy>=1.12"]
 
 [project.urls]
 Homepage = "https://github.com/hstre/DESi"

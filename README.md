@@ -179,8 +179,12 @@ canonical DES sources before DESi is treated as authoritative.
 pytest -q
 ```
 
-Test coverage at this prototype stage is intentionally minimal — see
-`tests/`. Treat all results from this prototype as **EXPLORATORY**.
+The test suite has grown well beyond this early prototype (the
+integration branch carries the full v1–v38 phase suites plus packaging
+tests; see the regression milestones in the system paper and
+`tests/`). Treat single-domain and small-n results as **EXPLORATORY**,
+and see the Synthetic-vs-Real Validation Boundary below for the scope
+of every reported number.
 
 ---
 
