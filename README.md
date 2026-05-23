@@ -181,3 +181,112 @@ pytest -q
 
 Test coverage at this prototype stage is intentionally minimal — see
 `tests/`. Treat all results from this prototype as **EXPLORATORY**.
+
+---
+
+# Installation
+
+DESi is packaged as `desi-governance` (experimental, **v0.1.0a0** —
+deliberately pre-1.0; the system is experimental).
+
+```bash
+# from PyPI (when published)
+pip install desi-governance
+
+# local editable install
+pip install -e .
+```
+
+Requires Python >= 3.11. Core dependencies are minimal (`pydantic`,
+`python-dotenv`, `requests`); `neo4j` and `pytest`/`build` are optional
+extras (`pip install -e ".[test]"`). No heavy agent frameworks.
+
+# Quickstart
+
+```python
+from desi.core import replay_kernel
+from desi.gates import concept_gate
+from desi.reviewer import reviewer_port
+
+# byte-stable replay hash (no PRNG, no timestamps)
+h = replay_kernel.replay_hash({"phase": "demo", "score": 0.9})
+
+# a real per-phase Concept Gate
+gate = concept_gate.phase_gate("external_benchmarks")
+print("gate passes:", concept_gate.passes_all(gate))
+
+# internal documentation overreach audit (NOT self-validation)
+print("doc audit:", reviewer_port.recommendation())
+```
+
+CLI (minimal, real — reports, never mutates):
+
+```bash
+desi replay      # replay-stability + determinism check
+desi audit       # documentation overreach audit
+desi benchmark   # external benchmark verdict summary
+desi review      # role-based skeptical reviewer summary
+```
+
+Runnable minimal examples live in `examples/`.
+
+# Architecture
+
+The recommended public namespace is a **facade** over the in-place
+implementations (modules were *not* relocated, to preserve replay
+stability and avoid import-graph churn):
+
+- `desi.core` — `replay_kernel`, `determinism_scanner`,
+  `governance_core` (the protected core, read-only).
+- `desi.gates` — `concept_gate`: the shared closed six-condition gate
+  structure + a registry of the real per-phase gates.
+- `desi.reviewer` — `reviewer_port`, mapping to
+  `desi.readme_self_review.reviewer_port` and
+  `desi.scientific_reviewers` (nothing faked).
+- `desi.replay` — replay kernel + `DeterministicCache`.
+
+Connectors, adapters, output ports, evolution, and benchmark phases
+remain in their per-phase packages (`desi.external_benchmarks`,
+`desi.output_ports`, `desi.peripheral_mutation`,
+`desi.live_llm_validation`, …) and are imported directly.
+
+# Determinism Constraints
+
+Packaging must never introduce replay instability. The following hold
+and are enforced by `tests/packaging/test_replay_drift.py` and CI:
+
+- Stable JSON: every artifact is
+  `json.dumps(obj, indent=2, sort_keys=True) + "\n"`, hashed with
+  `hashlib.sha256` (`desi.core.replay_kernel.canonical_json`).
+- No PRNG, no timestamps in artifacts, no nondeterministic dependency
+  pins, no hidden state caches.
+- `desi.core.determinism_scanner.high_risk_hit_count() == 0`.
+- Every key verdict artifact rebuilds **byte-identically** after the
+  packaging migration (zero replay drift).
+
+# Synthetic-vs-Real Validation Boundary
+
+Results across phases v1–v37 are derived from **synthetic or locally
+vendored fixtures**. Only phase v38 (live LLM validation) involves
+**real external API calls** (OpenRouter: IBM Granite, DeepSeek V4
+Pro), with real costs; authentication is ENV-based and **no API key is
+stored in the repository**. Live LLM outputs are treated as *observed
+stochastic evidence*, captured/hashed/replayed, then evaluated
+deterministically — never as canonical truth. Reported benchmark
+scores are **not** official leaderboard results.
+
+# Governance Invariants
+
+Never relaxed by packaging or otherwise (see `Appendix B` of the
+system paper and `desi.core.governance_core`):
+
+1. Replay stability (bit-exact reproducible outputs; `hashlib.sha256`).
+2. Closed enumerations / frozen dataclasses.
+3. Read-only, non-authoritative governance core.
+4. Determinism scanner clean (`high_risk_hit_count() == 0`).
+5. Human approval required for all mutations, merges, deployments.
+
+> This packaging change is documentation/distribution only. It does
+> not modify the replay kernel, governance core, Concept Gates,
+> determinism scanner, or artifact format. See `CHANGELOG.md` and
+> `artifacts/packaging/desi_packaging_go_no_go.md`.

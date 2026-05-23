@@ -1,0 +1,13 @@
+# Ship vendored reference datasets, live-LLM capture snapshots, and
+# the reviewed README snapshot - these are read at runtime via
+# __file__-relative paths and are required for replay stability.
+recursive-include src/desi *.json
+recursive-include src/desi *.md
+include README.md
+include LICENSE
+include CHANGELOG.md
+include requirements.txt
+# Do not ship mutable outputs or scratch state.
+prune artifacts
+global-exclude *.pyc
+global-exclude __pycache__

@@ -216,3 +216,9 @@ artifacts/benchmark_api/_full_regression_started.txt
 .env.local
 .env.*
 src/desi/live_llm_validation/**/secret*
+
+# Python packaging build artifacts
+/build/
+/dist/
+*.egg-info/
+src/*.egg-info/

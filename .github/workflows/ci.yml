@@ -1,0 +1,72 @@
+name: CI
+
+# Report-only CI. It NEVER auto-fixes, auto-formats, or commits.
+# It fails or reports; resolution is always human-gated.
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: pytest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install (editable, with test extra)
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[test]"
+      - name: Run test suite
+        run: pytest -q
+
+  determinism:
+    name: determinism + replay-drift
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install (editable)
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+      - name: Determinism scanner must be clean
+        run: |
+          python -c "from desi.core.determinism_scanner import high_risk_hit_count; assert high_risk_hit_count() == 0, high_risk_hit_count(); print('determinism clean')"
+      - name: Replay-drift regression
+        run: pytest -q tests/packaging
+      - name: Artifact stability (no uncommitted drift after rebuild)
+        run: |
+          python -m pytest -q tests/packaging/test_replay_drift.py
+          git diff --exit-code artifacts/ || (echo "ARTIFACT DRIFT DETECTED" && exit 1)
+
+  packaging:
+    name: build + import + cli
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build sdist + wheel
+        run: |
+          python -m pip install --upgrade pip build
+          python -m build
+      - name: Install built wheel into a clean venv
+        run: |
+          python -m venv /tmp/desi_venv
+          /tmp/desi_venv/bin/pip install dist/*.whl
+      - name: Import + CLI smoke (from installed package)
+        run: |
+          /tmp/desi_venv/bin/python -c "from desi.core import replay_kernel; from desi.gates import concept_gate; from desi.reviewer import reviewer_port; print('imports OK')"
+          /tmp/desi_venv/bin/desi replay
