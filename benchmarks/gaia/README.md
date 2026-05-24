@@ -120,40 +120,56 @@ Three scripts form an end-to-end loop:
 - `solve_gaia.py` — loads GAIA, calls the adapter per task, writes the JSONL.
 - `evaluate_validation.py` — scores the JSONL by exact match.
 
-### Environment variables
+### Backends
+
+Three real backends are supported, plus a DESi-only fallback. **Hugging Face
+Inference is the preferred path** — the same `HF_TOKEN` already used to load the
+dataset also drives inference, so no second provider account is needed.
 
 | variable | purpose |
 | --- | --- |
-| `HF_TOKEN` | required — gated GAIA access (loading the dataset) |
-| `OPENROUTER_API_KEY` | enables the `openrouter` backend (the default `auto` choice) |
+| `HF_TOKEN` / `HUGGINGFACE_HUB_TOKEN` | required — gated GAIA access **and** the `hf` backend token |
+| `HF_INFERENCE_MODEL` | model id for the `hf` backend (must be chat-completion / instruct capable, e.g. `Qwen/Qwen2.5-7B-Instruct`) |
+| `OPENROUTER_API_KEY` | enables the `openrouter` backend |
 | `DEEPSEEK_API_KEY` | enables the `deepseek` backend |
-| `OPENROUTER_MODEL` | optional — override the OpenRouter model (default `deepseek/deepseek-v4-pro`, from DESi's model registry) |
+| `OPENROUTER_MODEL` | optional — override the OpenRouter model (default `deepseek/deepseek-v4-pro`) |
 | `DEEPSEEK_MODEL` | optional — override the DeepSeek model (default `deepseek-4-pro`) |
 
-Keys are read **only** from the environment by DESi's own clients; nothing is
-stored in the repo. `run_desi` (the full governance loop) additionally needs the
-`pydantic` dependency (`pip install desi-governance`); without it the adapter
-keeps the lightweight governance/replay/claim signals and sets
+`--backend auto|hf|openrouter|deepseek|none` (default `auto`, which prefers `hf`
+when both `HF_TOKEN` and a model are set, then OpenRouter, then DeepSeek, then
+`none`). `--model <id>` overrides the per-backend model env var.
+
+Tokens/keys are read **only** from the environment by the backend clients;
+nothing is logged or stored in the repo. `run_desi` (the full governance loop)
+additionally needs `pydantic` (`pip install desi-governance`); without it the
+adapter keeps the lightweight governance/replay/claim signals and sets
 `run_desi_integrated: false`.
 
 ### Example calls
 
 ```bash
-export HF_TOKEN=hf_xxx
-# DESi-only fallback (no LLM key needed) — always works:
-python benchmarks/gaia/solve_gaia.py --backend none --limit 3
-# Wiring check without spending tokens (resolves backend, skips the network call):
-python benchmarks/gaia/solve_gaia.py --backend openrouter --dry-run --limit 3
-# Real run (needs the matching key in the environment):
-export OPENROUTER_API_KEY=sk-or-...
-python benchmarks/gaia/solve_gaia.py --backend auto --limit 3
+# Preferred: Hugging Face Inference (model must be chat/instruct capable)
+export HF_TOKEN=...
+export HF_INFERENCE_MODEL=Qwen/Qwen2.5-7B-Instruct
+python benchmarks/gaia/solve_gaia.py --backend hf --limit 3
 python benchmarks/gaia/evaluate_validation.py        # exact-match, overall + per level
+
+# Switch model without env vars:
+python benchmarks/gaia/solve_gaia.py --backend hf --model meta-llama/Llama-3.1-8B-Instruct --limit 3
+
+# Wiring check without spending tokens (resolves backend + model, skips the call):
+python benchmarks/gaia/solve_gaia.py --backend hf --dry-run --limit 3
+
+# DESi-only fallback (no LLM call at all) — always works:
+python benchmarks/gaia/solve_gaia.py --backend none --limit 3
+
+# Other providers (need their key in the environment):
+export OPENROUTER_API_KEY=...   # or DEEPSEEK_API_KEY
+python benchmarks/gaia/solve_gaia.py --backend openrouter --limit 3
 ```
 
-`--backend auto|deepseek|openrouter|none` (default `auto`, which picks
-OpenRouter, then DeepSeek, then `none` based on which key is set). The pipeline
-never aborts: if the adapter module itself cannot be imported, `solve_gaia.py`
-emits `solver: "solve_gaia_local_fallback"`.
+The pipeline never aborts: if the adapter module itself cannot be imported,
+`solve_gaia.py` emits `solver: "solve_gaia_local_fallback"`.
 
 ## Three modes: fallback vs LLM-only vs DESi-governed LLM
 
@@ -173,15 +189,16 @@ and an `audit` struct (`question`, `model_answer`, `backend`, `replay_hash`,
 
 ## What is connected vs. still missing
 
-**Connected now:** OpenRouter/DeepSeek answer generation (env-keyed), DESi
-governance integrity, a per-task replay signature, an answer claim id, and —
-when `pydantic` is installed — the `run_desi` governance loop over a minimal
-task-derived trajectory.
+**Connected now:** HF Inference (preferred), OpenRouter and DeepSeek answer
+generation (env-keyed), DESi governance integrity, a per-task replay signature,
+an answer claim id, and — when `pydantic` is installed — the `run_desi`
+governance loop over a minimal task-derived trajectory. A real `hf` run with
+`Qwen/Qwen2.5-7B-Instruct` produces `solver: desi_governed_llm` lines.
 
 **Still missing for a submittable GAIA run:**
 
-1. **An API key in the environment** — without it the adapter stays in
-   `desi_adapter_fallback` (empty answers). Set `OPENROUTER_API_KEY`.
+1. **A token + model in the environment** — without them the adapter stays in
+   `desi_adapter_fallback` (empty answers). Set `HF_TOKEN` + `HF_INFERENCE_MODEL`.
 2. **Attachments are not yet sent to the model.** Tasks with `file_name` are
    flagged (`attachment_seen`) but the file content is not passed in the prompt,
    so attachment-dependent tasks will be wrong until a reader is added.

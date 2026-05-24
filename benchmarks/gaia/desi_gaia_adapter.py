@@ -40,7 +40,11 @@ _ANSWER_INSTRUCTION = (
     "punctuation. If the answer is a number, output just the number."
 )
 _DEFAULT_OPENROUTER_MODEL = "deepseek/deepseek-v4-pro"
+_DEFAULT_DEEPSEEK_MODEL = "deepseek-4-pro"
 _MAX_ANSWER_TOKENS = 64
+
+# Make sibling modules (hf_inference_backend) importable.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 
 def _ensure_desi_importable() -> None:
@@ -57,18 +61,42 @@ def _ensure_desi_importable() -> None:
 # --------------------------------------------------------------------------- #
 # Backend selection + LLM call
 # --------------------------------------------------------------------------- #
+def _import_hf():
+    import hf_inference_backend as hf
+    return hf
+
+
 def _key_present(backend: str) -> bool:
     env = "OPENROUTER_API_KEY" if backend == "openrouter" else "DEEPSEEK_API_KEY"
     return bool(os.environ.get(env))
 
 
-def resolve_backend(requested: str) -> str:
-    """Map a requested backend to a concrete one. ``auto`` prefers OpenRouter."""
-    if requested == "none":
-        return "none"
-    if requested in ("openrouter", "deepseek"):
+def _hf_available(cli_model: str | None) -> bool:
+    try:
+        return bool(_import_hf().available(cli_model))
+    except Exception:
+        return False
+
+
+def _backend_usable(backend: str, cli_model: str | None) -> bool:
+    if backend == "hf":
+        return _hf_available(cli_model)
+    if backend in ("openrouter", "deepseek"):
+        return _key_present(backend)
+    return False
+
+
+def resolve_backend(requested: str, cli_model: str | None = None) -> str:
+    """Map a requested backend to a concrete one.
+
+    ``auto`` prefers HF Inference (token + model set), then OpenRouter, then
+    DeepSeek, then ``none``.
+    """
+    if requested in ("none", "hf", "openrouter", "deepseek"):
         return requested
     # auto
+    if _hf_available(cli_model):
+        return "hf"
     if _key_present("openrouter"):
         return "openrouter"
     if _key_present("deepseek"):
@@ -76,15 +104,38 @@ def resolve_backend(requested: str) -> str:
     return "none"
 
 
-def _call_openrouter(question: str) -> str:
-    from desi.live_llm_validation.openrouter_client import chat_completion
-    model = os.environ.get("OPENROUTER_MODEL")
-    if not model:
+def resolve_model(backend: str, cli_model: str | None) -> str | None:
+    """Resolve the model id used for a concrete backend (None for ``none``)."""
+    if backend == "hf":
+        try:
+            return _import_hf().resolve_model(cli_model)
+        except Exception:
+            return cli_model
+    if backend == "openrouter":
+        if cli_model:
+            return cli_model
+        model = os.environ.get("OPENROUTER_MODEL")
+        if model:
+            return model
         try:
             from desi.live_llm_validation.model_registry import model_for_role
-            model = model_for_role("deepseek_semantic")
+            return model_for_role("deepseek_semantic")
         except Exception:
-            model = _DEFAULT_OPENROUTER_MODEL
+            return _DEFAULT_OPENROUTER_MODEL
+    if backend == "deepseek":
+        return cli_model or os.environ.get("DEEPSEEK_MODEL") or _DEFAULT_DEEPSEEK_MODEL
+    return None
+
+
+def _call_hf(question: str, model: str) -> str:
+    return _import_hf().chat_answer(
+        question, model=model, instruction=_ANSWER_INSTRUCTION,
+        max_tokens=_MAX_ANSWER_TOKENS, temperature=0.0,
+    )
+
+
+def _call_openrouter(question: str, model: str) -> str:
+    from desi.live_llm_validation.openrouter_client import chat_completion
     resp = chat_completion(
         model,
         [
@@ -97,22 +148,23 @@ def _call_openrouter(question: str) -> str:
     return resp["choices"][0]["message"]["content"].strip()
 
 
-def _call_deepseek(question: str) -> str:
+def _call_deepseek(question: str, model: str) -> str:
     from desi.spl_adapter.deepseek_client import DeepSeekClient
-    model = os.environ.get("DEEPSEEK_MODEL")
     client = DeepSeekClient(model_id=model) if model else DeepSeekClient()
     raw = client.complete(f"{_ANSWER_INSTRUCTION}\n\nQuestion: {question}").raw_text
     data = json.loads(raw)
     return data["choices"][0]["message"]["content"].strip()
 
 
-def _llm_answer(backend: str, question: str) -> tuple[str, str | None]:
-    """Return (answer, error). Only called when a usable key is present."""
+def _llm_answer(backend: str, question: str, model: str) -> tuple[str, str | None]:
+    """Return (answer, error). Only called when the backend is usable."""
     try:
+        if backend == "hf":
+            return _call_hf(question, model), None
         if backend == "openrouter":
-            return _call_openrouter(question), None
+            return _call_openrouter(question, model), None
         if backend == "deepseek":
-            return _call_deepseek(question), None
+            return _call_deepseek(question, model), None
         return "", f"unknown backend {backend!r}"
     except Exception as exc:  # network / parse / backend errors -> clean fallback
         return "", f"{backend} call failed: {exc!r}"
@@ -214,30 +266,34 @@ def _desi_signals(task_id: str, question: str, model_answer: str,
 # Public entry point
 # --------------------------------------------------------------------------- #
 def solve_gaia_task(task: dict, *, backend: str = "auto",
-                    dry_run: bool = False) -> dict:
+                    dry_run: bool = False, model: str | None = None) -> dict:
     """Solve one GAIA task. Always returns a well-formed dict; never raises."""
     task_id = str(task.get("task_id", ""))
     question = str(task.get("Question", ""))
     attachment_seen = bool((task.get("file_name") or "").strip())
 
-    resolved = resolve_backend(backend)
+    resolved = resolve_backend(backend, model)
+    model_id = resolve_model(resolved, model)
     model_answer = ""
     llm_error: str | None = None
 
     if resolved == "none":
         llm_error = (
-            "no answer-generation backend: set OPENROUTER_API_KEY or "
-            "DEEPSEEK_API_KEY (or pass --backend), so no model_answer was produced"
+            "no answer-generation backend: set HF_TOKEN+HF_INFERENCE_MODEL, "
+            "OPENROUTER_API_KEY, or DEEPSEEK_API_KEY (or pass --backend/--model), "
+            "so no model_answer was produced"
         )
     elif dry_run:
         llm_error = (
             f"dry-run: {resolved} LLM call skipped "
-            f"(key_present={_key_present(resolved)})"
+            f"(usable={_backend_usable(resolved, model)}, model={model_id!r})"
         )
-    elif not _key_present(resolved):
-        llm_error = f"{resolved} selected but its API key env var is not set"
+    elif not _backend_usable(resolved, model):
+        llm_error = (
+            f"{resolved} selected but not usable (missing API key/token or model)"
+        )
     else:
-        model_answer, llm_error = _llm_answer(resolved, question)
+        model_answer, llm_error = _llm_answer(resolved, question, model_id)
 
     sig = _desi_signals(task_id, question, model_answer, resolved, llm_error)
 
@@ -264,6 +320,7 @@ def solve_gaia_task(task: dict, *, backend: str = "auto",
     desi_metadata = {
         "solver": solver,
         "backend": resolved,
+        "model": model_id,
         "dry_run": dry_run,
         "desi_version_or_commit": sig["version"],
         "governance_enabled": sig["governance_enabled"],
