@@ -112,13 +112,17 @@ for `2023_all` / `validation`; for the hidden leaderboard score, run over the
 
 ## Evaluation pipeline
 
-Three scripts form an end-to-end loop:
+Four scripts form an end-to-end loop:
 
-- `desi_gaia_adapter.py` — `solve_gaia_task(task, backend=..., dry_run=...)`
-  optionally calls a real LLM backend for the answer and always attaches the
-  real DESi governance/replay/claim signals.
+- `desi_gaia_adapter.py` — `solve_gaia_task(task, backend=..., model=...,
+  prompt_mode=..., skip_attachments=..., dry_run=...)` optionally calls a real
+  LLM backend for the answer and always attaches the real DESi
+  governance/replay/claim signals.
 - `solve_gaia.py` — loads GAIA, calls the adapter per task, writes the JSONL.
 - `evaluate_validation.py` — scores the JSONL by exact match.
+- `report_validation.py` — summarises a run: attachment split, overall and
+  text-only accuracy, per-level accuracy, and the number of UNKNOWN/empty
+  answers.
 
 ### Backends
 
@@ -186,6 +190,41 @@ Every line also carries `backend`, `dry_run`, `desi_version_or_commit`,
 `run_desi_integrated`, `attachment_seen`, `replay_signature`, `answer_claim_id`,
 and an `audit` struct (`question`, `model_answer`, `backend`, `replay_hash`,
 `answer_claim_id`, `error`).
+
+## Attachments and text-only evaluation
+
+Many GAIA tasks ship an attachment (a spreadsheet, PDF, image, or audio file
+named in `file_name`). The adapter flags these with
+`desi_metadata.requires_attachment: true`, but **it does not yet read the file
+content into the prompt**. Answering such a task from the question text alone
+would be a blind guess, which inflates the error in an uninterpretable way and —
+worse for DESi — looks like a confident hallucination.
+
+Two mechanisms keep the evaluation honest:
+
+- **`--prompt-mode strict` (default).** The model is told to return only the
+  final answer and, crucially, to emit `UNKNOWN` rather than guess when the
+  evidence is missing. `report_validation.py` counts these separately so you can
+  see refusals instead of mistaking them for wrong answers. Use
+  `--prompt-mode minimal` for the older bare-answer behaviour.
+- **`--skip-attachments`.** Tasks with an attachment are not sent to the model
+  at all; their `model_answer` is left empty and `attachment_status` is
+  `skipped`. This lets you measure honest **text-only** accuracy first.
+
+```bash
+export HF_TOKEN=...
+export HF_INFERENCE_MODEL=<a chat/instruct model>
+# Text-only run, attachment tasks skipped, then a per-split report:
+python benchmarks/gaia/solve_gaia.py --backend hf --limit 10 --skip-attachments
+python benchmarks/gaia/report_validation.py
+```
+
+This is deliberately more honest than blind guessing: a wrong-but-confident
+answer to an attachment task is indistinguishable from a hallucination, whereas
+an empty/`UNKNOWN` answer is an explicit "not attempted / not sure". DESi's whole
+purpose is to make epistemic state visible, so the pipeline should not
+manufacture answers it has no basis for. The real fix is a file reader (see
+below); skipping is the honest interim.
 
 ## What is connected vs. still missing
 

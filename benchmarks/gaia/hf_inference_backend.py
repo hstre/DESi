@@ -17,6 +17,29 @@ _MODEL_ENV = "HF_INFERENCE_MODEL"
 _DEFAULT_TIMEOUT = 60.0
 _DEFAULT_MAX_TOKENS = 64
 
+# GAIA is exact-match scored and wants the bare final answer. The strict prompt
+# additionally tells the model not to invent verifiable facts and to emit
+# UNKNOWN rather than guess when the evidence is missing.
+MINIMAL_INSTRUCTION = (
+    "Reply with ONLY the final answer: no explanation, no preamble, no trailing "
+    "punctuation. If the answer is a number, output just the number."
+)
+STRICT_INSTRUCTION = (
+    "Solve the task carefully and reason about it internally, but do not show "
+    "your work. Use only the information given in the question and any attached "
+    "file content provided in the context. "
+    "Return ONLY the final answer — no explanation, no prose, no labels, and no "
+    "units unless the question explicitly asks for them. "
+    "Do not guess or invent verifiable facts: if the required evidence is "
+    "missing or you are not confident, answer exactly UNKNOWN."
+)
+UNKNOWN_ANSWER = "UNKNOWN"
+
+
+def instruction_for(mode: str) -> str:
+    """Return the system instruction for a prompt mode (``minimal``|``strict``)."""
+    return STRICT_INSTRUCTION if mode == "strict" else MINIMAL_INSTRUCTION
+
 
 def token() -> str | None:
     """Return the HF token from the environment, or None. Never logged."""
@@ -80,7 +103,11 @@ def chat_answer(
     return (content or "").strip()
 
 
-__all__ = ["available", "chat_answer", "resolve_model", "token", "token_present"]
+__all__ = [
+    "MINIMAL_INSTRUCTION", "STRICT_INSTRUCTION", "UNKNOWN_ANSWER",
+    "available", "chat_answer", "instruction_for", "resolve_model",
+    "token", "token_present",
+]
 
 
 if __name__ == "__main__":
@@ -94,8 +121,7 @@ if __name__ == "__main__":
         q = sys.argv[1] if len(sys.argv) > 1 else "What is 2+2?"
         try:
             print("answer:", chat_answer(
-                q, model=model_id,
-                instruction="Answer with ONLY the final answer, no explanation.",
+                q, model=model_id, instruction=instruction_for("strict"),
             ))
         except Exception as exc:
             print("error:", repr(exc))

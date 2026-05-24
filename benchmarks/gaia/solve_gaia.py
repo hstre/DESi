@@ -51,13 +51,16 @@ def _local_fallback(error: str) -> dict:
     }
 
 
-def run_solver(task: dict, backend: str, dry_run: bool,
-               model: str | None) -> dict:
+def run_solver(task: dict, backend: str, dry_run: bool, model: str | None,
+               prompt_mode: str, skip_attachments: bool) -> dict:
     """Solve one task via the adapter, degrading to a local fallback on failure."""
     if solve_gaia_task is None:
         return _local_fallback(f"adapter import failed: {_ADAPTER_IMPORT_ERROR}")
     try:
-        return solve_gaia_task(task, backend=backend, dry_run=dry_run, model=model)
+        return solve_gaia_task(
+            task, backend=backend, dry_run=dry_run, model=model,
+            prompt_mode=prompt_mode, skip_attachments=skip_attachments,
+        )
     except Exception as exc:  # adapter must not abort the run
         return _local_fallback(f"adapter raised: {exc!r}")
 
@@ -81,6 +84,15 @@ def parse_args() -> argparse.Namespace:
                         help="Model id for the chosen backend (e.g. an HF "
                              "Inference model). Overrides HF_INFERENCE_MODEL / "
                              "OPENROUTER_MODEL / DEEPSEEK_MODEL.")
+    parser.add_argument("--prompt-mode", default="strict",
+                        choices=("strict", "minimal"),
+                        help="strict (default): solve carefully, answer only, "
+                             "emit UNKNOWN rather than guess; minimal: just the "
+                             "bare final answer.")
+    parser.add_argument("--skip-attachments", action="store_true",
+                        help="Do not call the model on tasks that have an "
+                             "attachment; leave their answer empty (honest, "
+                             "since there is no file reader yet).")
     parser.add_argument("--dry-run", action="store_true",
                         help="Resolve the backend and run DESi wiring but skip "
                              "the actual LLM network call.")
@@ -136,7 +148,8 @@ def main() -> int:
                 print(f"  warn: attachment download failed for "
                       f"{row.get('task_id')}: {exc}", file=sys.stderr)
 
-        result = run_solver(dict(row), args.backend, args.dry_run, args.model)
+        result = run_solver(dict(row), args.backend, args.dry_run, args.model,
+                            args.prompt_mode, args.skip_attachments)
 
         # Run-context metadata, then merge the adapter's solver-specific fields
         # (solver, desi_version_or_commit, governance/replay/claim flags,

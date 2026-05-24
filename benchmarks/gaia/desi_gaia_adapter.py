@@ -33,15 +33,22 @@ import os
 import sys
 from pathlib import Path
 
-# Instruct the model to emit only the bare final answer (GAIA is exact-match).
-_ANSWER_INSTRUCTION = (
-    "You are solving a question with a single, unambiguous answer. Reply with "
-    "ONLY the final answer: no explanation, no preamble, no trailing "
-    "punctuation. If the answer is a number, output just the number."
-)
 _DEFAULT_OPENROUTER_MODEL = "deepseek/deepseek-v4-pro"
 _DEFAULT_DEEPSEEK_MODEL = "deepseek-4-pro"
 _MAX_ANSWER_TOKENS = 64
+
+
+def _instruction(prompt_mode: str) -> str:
+    """Resolve the system instruction for a prompt mode (shared by all backends)."""
+    try:
+        return _import_hf().instruction_for(prompt_mode)
+    except Exception:
+        if prompt_mode == "strict":
+            return (
+                "Solve carefully. Return ONLY the final answer, no prose. If the "
+                "evidence is missing or you are unsure, answer exactly UNKNOWN."
+            )
+        return "Reply with ONLY the final answer: no explanation."
 
 # Make sibling modules (hf_inference_backend) importable.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -127,19 +134,19 @@ def resolve_model(backend: str, cli_model: str | None) -> str | None:
     return None
 
 
-def _call_hf(question: str, model: str) -> str:
+def _call_hf(question: str, model: str, instruction: str) -> str:
     return _import_hf().chat_answer(
-        question, model=model, instruction=_ANSWER_INSTRUCTION,
+        question, model=model, instruction=instruction,
         max_tokens=_MAX_ANSWER_TOKENS, temperature=0.0,
     )
 
 
-def _call_openrouter(question: str, model: str) -> str:
+def _call_openrouter(question: str, model: str, instruction: str) -> str:
     from desi.live_llm_validation.openrouter_client import chat_completion
     resp = chat_completion(
         model,
         [
-            {"role": "system", "content": _ANSWER_INSTRUCTION},
+            {"role": "system", "content": instruction},
             {"role": "user", "content": question},
         ],
         max_tokens=_MAX_ANSWER_TOKENS,
@@ -148,23 +155,24 @@ def _call_openrouter(question: str, model: str) -> str:
     return resp["choices"][0]["message"]["content"].strip()
 
 
-def _call_deepseek(question: str, model: str) -> str:
+def _call_deepseek(question: str, model: str, instruction: str) -> str:
     from desi.spl_adapter.deepseek_client import DeepSeekClient
     client = DeepSeekClient(model_id=model) if model else DeepSeekClient()
-    raw = client.complete(f"{_ANSWER_INSTRUCTION}\n\nQuestion: {question}").raw_text
+    raw = client.complete(f"{instruction}\n\nQuestion: {question}").raw_text
     data = json.loads(raw)
     return data["choices"][0]["message"]["content"].strip()
 
 
-def _llm_answer(backend: str, question: str, model: str) -> tuple[str, str | None]:
+def _llm_answer(backend: str, question: str, model: str,
+                instruction: str) -> tuple[str, str | None]:
     """Return (answer, error). Only called when the backend is usable."""
     try:
         if backend == "hf":
-            return _call_hf(question, model), None
+            return _call_hf(question, model, instruction), None
         if backend == "openrouter":
-            return _call_openrouter(question, model), None
+            return _call_openrouter(question, model, instruction), None
         if backend == "deepseek":
-            return _call_deepseek(question, model), None
+            return _call_deepseek(question, model, instruction), None
         return "", f"unknown backend {backend!r}"
     except Exception as exc:  # network / parse / backend errors -> clean fallback
         return "", f"{backend} call failed: {exc!r}"
@@ -266,18 +274,27 @@ def _desi_signals(task_id: str, question: str, model_answer: str,
 # Public entry point
 # --------------------------------------------------------------------------- #
 def solve_gaia_task(task: dict, *, backend: str = "auto",
-                    dry_run: bool = False, model: str | None = None) -> dict:
+                    dry_run: bool = False, model: str | None = None,
+                    prompt_mode: str = "strict",
+                    skip_attachments: bool = False) -> dict:
     """Solve one GAIA task. Always returns a well-formed dict; never raises."""
     task_id = str(task.get("task_id", ""))
     question = str(task.get("Question", ""))
-    attachment_seen = bool((task.get("file_name") or "").strip())
+    requires_attachment = bool((task.get("file_name") or "").strip())
 
     resolved = resolve_backend(backend, model)
     model_id = resolve_model(resolved, model)
     model_answer = ""
     llm_error: str | None = None
+    # "none" | "skipped" | "not_provided_to_model"
+    attachment_status = "none"
 
-    if resolved == "none":
+    if requires_attachment and skip_attachments:
+        # Do not call the model on attachment-dependent tasks: there is no file
+        # reader yet, so a real answer would be a blind guess. Leave it empty.
+        attachment_status = "skipped"
+        llm_error = "skipped: task requires an attachment (--skip-attachments)"
+    elif resolved == "none":
         llm_error = (
             "no answer-generation backend: set HF_TOKEN+HF_INFERENCE_MODEL, "
             "OPENROUTER_API_KEY, or DEEPSEEK_API_KEY (or pass --backend/--model), "
@@ -293,7 +310,13 @@ def solve_gaia_task(task: dict, *, backend: str = "auto",
             f"{resolved} selected but not usable (missing API key/token or model)"
         )
     else:
-        model_answer, llm_error = _llm_answer(resolved, question, model_id)
+        if requires_attachment:
+            # The attachment's content is not passed to the model; the strict
+            # prompt asks it to answer UNKNOWN rather than hallucinate.
+            attachment_status = "not_provided_to_model"
+        model_answer, llm_error = _llm_answer(
+            resolved, question, model_id, _instruction(prompt_mode)
+        )
 
     sig = _desi_signals(task_id, question, model_answer, resolved, llm_error)
 
@@ -321,6 +344,7 @@ def solve_gaia_task(task: dict, *, backend: str = "auto",
         "solver": solver,
         "backend": resolved,
         "model": model_id,
+        "prompt_mode": prompt_mode,
         "dry_run": dry_run,
         "desi_version_or_commit": sig["version"],
         "governance_enabled": sig["governance_enabled"],
@@ -328,7 +352,9 @@ def solve_gaia_task(task: dict, *, backend: str = "auto",
         "claim_tracking_enabled": sig["claim_tracking_enabled"],
         "run_desi_integrated": sig["run_desi_integrated"],
         "run_desi_metrics": sig["run_desi_metrics"],
-        "attachment_seen": attachment_seen,
+        "requires_attachment": requires_attachment,
+        "attachment_seen": requires_attachment,
+        "attachment_status": attachment_status,
         "replay_signature": sig["audit"]["replay_hash"],
         "answer_claim_id": sig["audit"]["answer_claim_id"],
         "audit": sig["audit"],
