@@ -114,66 +114,80 @@ for `2023_all` / `validation`; for the hidden leaderboard score, run over the
 
 Three scripts form an end-to-end loop:
 
-- `desi_gaia_adapter.py` — `solve_gaia_task(task)` connects to the **real** DESi
-  runtime and returns `{model_answer, reasoning_trace, desi_metadata}`.
-- `solve_gaia.py` — loads GAIA, calls the adapter per task, writes the
-  submission JSONL.
+- `desi_gaia_adapter.py` — `solve_gaia_task(task, backend=..., dry_run=...)`
+  optionally calls a real LLM backend for the answer and always attaches the
+  real DESi governance/replay/claim signals.
+- `solve_gaia.py` — loads GAIA, calls the adapter per task, writes the JSONL.
 - `evaluate_validation.py` — scores the JSONL by exact match.
 
-Run it (default `2023_all` / `validation`, 5 tasks):
+### Environment variables
+
+| variable | purpose |
+| --- | --- |
+| `HF_TOKEN` | required — gated GAIA access (loading the dataset) |
+| `OPENROUTER_API_KEY` | enables the `openrouter` backend (the default `auto` choice) |
+| `DEEPSEEK_API_KEY` | enables the `deepseek` backend |
+| `OPENROUTER_MODEL` | optional — override the OpenRouter model (default `deepseek/deepseek-v4-pro`, from DESi's model registry) |
+| `DEEPSEEK_MODEL` | optional — override the DeepSeek model (default `deepseek-4-pro`) |
+
+Keys are read **only** from the environment by DESi's own clients; nothing is
+stored in the repo. `run_desi` (the full governance loop) additionally needs the
+`pydantic` dependency (`pip install desi-governance`); without it the adapter
+keeps the lightweight governance/replay/claim signals and sets
+`run_desi_integrated: false`.
+
+### Example calls
 
 ```bash
 export HF_TOKEN=hf_xxx
-python benchmarks/gaia/solve_gaia.py                 # writes outputs/submission.validation.sample.jsonl
-python benchmarks/gaia/solve_gaia.py --limit 3 --download-attachments
+# DESi-only fallback (no LLM key needed) — always works:
+python benchmarks/gaia/solve_gaia.py --backend none --limit 3
+# Wiring check without spending tokens (resolves backend, skips the network call):
+python benchmarks/gaia/solve_gaia.py --backend openrouter --dry-run --limit 3
+# Real run (needs the matching key in the environment):
+export OPENROUTER_API_KEY=sk-or-...
+python benchmarks/gaia/solve_gaia.py --backend auto --limit 3
 python benchmarks/gaia/evaluate_validation.py        # exact-match, overall + per level
 ```
 
-`solve_gaia.py` always degrades gracefully: if the adapter module cannot be
-imported it uses a local fallback (`solver: "solve_gaia_local_fallback"`); the
-adapter itself returns `solver: "desi_adapter_fallback"` when DESi cannot
-produce an answer. Each submission line looks like:
+`--backend auto|deepseek|openrouter|none` (default `auto`, which picks
+OpenRouter, then DeepSeek, then `none` based on which key is set). The pipeline
+never aborts: if the adapter module itself cannot be imported, `solve_gaia.py`
+emits `solver: "solve_gaia_local_fallback"`.
 
-```jsonl
-{"task_id": "...", "model_answer": "...", "reasoning_trace": "...", "desi_metadata": {"config": "2023_all", "split": "validation", "level": "2", "has_attachment": false, "file_name": "", "timestamp_utc": "...", "solver": "desi_adapter_fallback", "desi_version_or_commit": "0.1.0", "governance_enabled": true, "replay_enabled": true, "claim_tracking_enabled": true, "attachment_seen": false, "replay_signature": "<sha256>", "error": "no answer-generation backend configured: ..."}}
-```
+## Three modes: fallback vs LLM-only vs DESi-governed LLM
 
-## Stub vs DESi adapter
+`desi_metadata.solver` records which mode produced the line:
 
-| | old stub (`solve_task`) | DESi adapter (`solve_gaia_task`) |
-| --- | --- | --- |
-| DESi import | none | real `desi` (repo `src/` auto-added to path) |
-| Governance | none | `desi.core.governance_core.governance_intact()` |
-| Replay | none | real `desi.core.replay_kernel.replay_hash` signature per task |
-| Claims | none | `desi.self_audit.claim.make_claim_id` |
-| `model_answer` | `""` (placeholder) | `""` (no answer backend yet — see below) |
-| `desi_metadata.solver` | `"stub"` | `"desi_adapter_fallback"` |
+| `solver` | when | `model_answer` | DESi signals |
+| --- | --- | --- | --- |
+| `desi_adapter_fallback` | no usable key, `--backend none`, `--dry-run`, or an LLM error | `""` (never fabricated) | governance / replay / claim attached |
+| `llm_only` | LLM answered, but `run_desi` not installed (`pydantic` missing) | LLM output | governance_intact + replay_hash + answer claim id |
+| `desi_governed_llm` | LLM answered **and** `run_desi` ran over the task trajectory | LLM output | all of the above **plus** `run_desi_metrics` |
 
-The adapter is a **real connection** to DESi's governance core, replay kernel,
-and claim tracking (all pure-stdlib — no network, no API keys). It does **not**
-fabricate answers, so exact-match accuracy is still 0% until a real solver is
-wired.
+Every line also carries `backend`, `dry_run`, `desi_version_or_commit`,
+`governance_enabled`, `replay_enabled`, `claim_tracking_enabled`,
+`run_desi_integrated`, `attachment_seen`, `replay_signature`, `answer_claim_id`,
+and an `audit` struct (`question`, `model_answer`, `backend`, `replay_hash`,
+`answer_claim_id`, `error`).
 
 ## What is connected vs. still missing
 
-**Connected now** (verified at runtime, no secrets): DESi version, governance
-integrity check, a deterministic replay signature per task, and claim-id
-construction. These populate the `*_enabled` flags and `replay_signature`.
+**Connected now:** OpenRouter/DeepSeek answer generation (env-keyed), DESi
+governance integrity, a per-task replay signature, an answer claim id, and —
+when `pydantic` is installed — the `run_desi` governance loop over a minimal
+task-derived trajectory.
 
-**Still missing — the next technical blocker:** DESi is a governance/audit layer
-that classifies and audits LLM *reasoning trajectories*; it does not itself
-generate answers. To produce a real `model_answer` we need an LLM
-answer-generation step whose trajectory DESi then governs. Concretely:
+**Still missing for a submittable GAIA run:**
 
-1. Wire an LLM backend the repo already ships
-   (`desi.spl_adapter.deepseek_client.DeepSeekClient` → `DEEPSEEK_API_KEY`, or
-   `desi.live_llm_validation.openrouter_client.chat_completion` →
-   `OPENROUTER_API_KEY`) to answer `task["Question"]` (+ attachments).
-2. Build a `desi.models.Trajectory` from that reasoning and run the full
-   governance loop `desi.runner.run_desi` (needs the `pydantic` dependency,
-   installed via `pip install desi-governance`).
-3. Put the resulting governance verdict (hallucination visibility, replay hash)
-   into `desi_metadata` next to the produced `model_answer`.
-
-Until step 1 is done, the adapter stays in `desi_adapter_fallback` mode by
-design.
+1. **An API key in the environment** — without it the adapter stays in
+   `desi_adapter_fallback` (empty answers). Set `OPENROUTER_API_KEY`.
+2. **Attachments are not yet sent to the model.** Tasks with `file_name` are
+   flagged (`attachment_seen`) but the file content is not passed in the prompt,
+   so attachment-dependent tasks will be wrong until a reader is added.
+3. **The trajectory is a single synthetic step.** `run_desi` runs, but a
+   faithful multi-step reasoning trajectory (operators, EN events, claims) would
+   make the governance verdict meaningful rather than structural.
+4. **Run the full split and submit.** Drop `--limit`, run over `2023_all` /
+   `validation` for the public score (and `test` for the leaderboard), then
+   upload the JSONL to the GAIA leaderboard Space.

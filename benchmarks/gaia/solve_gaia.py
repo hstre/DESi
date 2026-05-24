@@ -51,12 +51,12 @@ def _local_fallback(error: str) -> dict:
     }
 
 
-def run_solver(task: dict) -> dict:
+def run_solver(task: dict, backend: str, dry_run: bool) -> dict:
     """Solve one task via the adapter, degrading to a local fallback on failure."""
     if solve_gaia_task is None:
         return _local_fallback(f"adapter import failed: {_ADAPTER_IMPORT_ERROR}")
     try:
-        return solve_gaia_task(task)
+        return solve_gaia_task(task, backend=backend, dry_run=dry_run)
     except Exception as exc:  # adapter must not abort the run
         return _local_fallback(f"adapter raised: {exc!r}")
 
@@ -71,6 +71,13 @@ def parse_args() -> argparse.Namespace:
                         help="Split to solve (default: validation).")
     parser.add_argument("--limit", type=int, default=5,
                         help="Number of tasks to solve (default: 5).")
+    parser.add_argument("--backend", default="auto",
+                        choices=("auto", "deepseek", "openrouter", "none"),
+                        help="LLM backend (default: auto; 'none' forces the "
+                             "DESi-only fallback).")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Resolve the backend and run DESi wiring but skip "
+                             "the actual LLM network call.")
     parser.add_argument("--download-attachments", action="store_true",
                         help="Cache each task's attachment locally before solving.")
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT,
@@ -123,7 +130,7 @@ def main() -> int:
                 print(f"  warn: attachment download failed for "
                       f"{row.get('task_id')}: {exc}", file=sys.stderr)
 
-        result = run_solver(dict(row))
+        result = run_solver(dict(row), args.backend, args.dry_run)
 
         # Run-context metadata, then merge the adapter's solver-specific fields
         # (solver, desi_version_or_commit, governance/replay/claim flags,

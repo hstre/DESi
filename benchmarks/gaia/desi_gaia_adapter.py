@@ -1,28 +1,46 @@
 #!/usr/bin/env python3
-"""Adapter between GAIA tasks and the real DESi runtime.
+"""Adapter between GAIA tasks and the real DESi runtime + a real LLM backend.
 
-`solve_gaia_task(task)` connects to the genuine DESi governance core, replay
-kernel, and claim-tracking machinery (all pure-stdlib, no network, no API keys)
-and reports their live status per task.
+``solve_gaia_task(task, *, backend="auto", dry_run=False)`` does two things:
 
-It does **not** yet produce a real answer. DESi is a governance / audit layer
-over LLM inference — it classifies and audits reasoning trajectories, it does
-not itself generate answers — and no LLM answer-generation backend is wired or
-keyed here. So this returns a clearly marked ``desi_adapter_fallback`` result
-with an empty ``model_answer`` (no fabricated answer) and a precise explanation
-in ``reasoning_trace``. The function never raises; callers can rely on it
-returning a well-formed dict so the pipeline cannot abort.
+1. Optionally calls a **real** LLM to produce a concise final answer, using a
+   backend that already ships in this repo:
+     * ``openrouter`` — ``desi.live_llm_validation.openrouter_client`` (pure
+       stdlib, OPENROUTER_API_KEY). This is the simplest path and the default
+       for ``auto``: no extra dependency, standard response dict, and a model
+       registry for a principled default model.
+     * ``deepseek``   — ``desi.spl_adapter.deepseek_client.DeepSeekClient``
+       (DEEPSEEK_API_KEY; requires the ``pydantic`` dependency to import).
+2. Always attaches the genuine DESi governance signals — governance-core
+   integrity, a per-task replay-hash, and a claim id for the answer — and, when
+   the full runtime is installed (``pydantic``), runs the ``run_desi``
+   governance loop over a minimal task-derived trajectory.
 
-No tokens, keys, or secrets are read into the output. Backend detection only
-checks for the *presence* of an env var, never its value.
+Behaviour:
+  * No usable API key (or ``backend=none``)  -> ``solver=desi_adapter_fallback``
+    with an empty ``model_answer`` (never fabricated).
+  * LLM answered, ``run_desi`` not available  -> ``solver=llm_only``.
+  * LLM answered and ``run_desi`` ran          -> ``solver=desi_governed_llm``.
+
+Secrets: API keys are read **only** from the environment by the underlying
+clients. This module only checks for key *presence* and never reads, logs, or
+returns a key value. The function never raises; the pipeline cannot abort.
 """
 from __future__ import annotations
 
+import json
 import os
 import sys
 from pathlib import Path
 
-FALLBACK_SOLVER = "desi_adapter_fallback"
+# Instruct the model to emit only the bare final answer (GAIA is exact-match).
+_ANSWER_INSTRUCTION = (
+    "You are solving a question with a single, unambiguous answer. Reply with "
+    "ONLY the final answer: no explanation, no preamble, no trailing "
+    "punctuation. If the answer is a number, output just the number."
+)
+_DEFAULT_OPENROUTER_MODEL = "deepseek/deepseek-v4-pro"
+_MAX_ANSWER_TOKENS = 64
 
 
 def _ensure_desi_importable() -> None:
@@ -36,122 +54,241 @@ def _ensure_desi_importable() -> None:
             sys.path.insert(0, str(src))
 
 
-def _answer_backend() -> str | None:
-    """Return the name of an available LLM backend, or None.
+# --------------------------------------------------------------------------- #
+# Backend selection + LLM call
+# --------------------------------------------------------------------------- #
+def _key_present(backend: str) -> bool:
+    env = "OPENROUTER_API_KEY" if backend == "openrouter" else "DEEPSEEK_API_KEY"
+    return bool(os.environ.get(env))
 
-    Only checks for the presence of an API key env var; never reads its value.
-    """
-    if os.environ.get("DEEPSEEK_API_KEY"):
-        return "deepseek"
-    if os.environ.get("OPENROUTER_API_KEY"):
+
+def resolve_backend(requested: str) -> str:
+    """Map a requested backend to a concrete one. ``auto`` prefers OpenRouter."""
+    if requested == "none":
+        return "none"
+    if requested in ("openrouter", "deepseek"):
+        return requested
+    # auto
+    if _key_present("openrouter"):
         return "openrouter"
-    return None
+    if _key_present("deepseek"):
+        return "deepseek"
+    return "none"
 
 
-def _connect_desi(task_id: str, question: str) -> dict:
-    """Probe the real DESi runtime. Each capability is checked independently."""
-    status = {
+def _call_openrouter(question: str) -> str:
+    from desi.live_llm_validation.openrouter_client import chat_completion
+    model = os.environ.get("OPENROUTER_MODEL")
+    if not model:
+        try:
+            from desi.live_llm_validation.model_registry import model_for_role
+            model = model_for_role("deepseek_semantic")
+        except Exception:
+            model = _DEFAULT_OPENROUTER_MODEL
+    resp = chat_completion(
+        model,
+        [
+            {"role": "system", "content": _ANSWER_INSTRUCTION},
+            {"role": "user", "content": question},
+        ],
+        max_tokens=_MAX_ANSWER_TOKENS,
+        temperature=0.0,
+    )
+    return resp["choices"][0]["message"]["content"].strip()
+
+
+def _call_deepseek(question: str) -> str:
+    from desi.spl_adapter.deepseek_client import DeepSeekClient
+    model = os.environ.get("DEEPSEEK_MODEL")
+    client = DeepSeekClient(model_id=model) if model else DeepSeekClient()
+    raw = client.complete(f"{_ANSWER_INSTRUCTION}\n\nQuestion: {question}").raw_text
+    data = json.loads(raw)
+    return data["choices"][0]["message"]["content"].strip()
+
+
+def _llm_answer(backend: str, question: str) -> tuple[str, str | None]:
+    """Return (answer, error). Only called when a usable key is present."""
+    try:
+        if backend == "openrouter":
+            return _call_openrouter(question), None
+        if backend == "deepseek":
+            return _call_deepseek(question), None
+        return "", f"unknown backend {backend!r}"
+    except Exception as exc:  # network / parse / backend errors -> clean fallback
+        return "", f"{backend} call failed: {exc!r}"
+
+
+# --------------------------------------------------------------------------- #
+# DESi governance / replay / claim signals (+ optional run_desi loop)
+# --------------------------------------------------------------------------- #
+def _desi_signals(task_id: str, question: str, model_answer: str,
+                  backend: str, llm_error: str | None) -> dict:
+    sig = {
         "version": "unknown",
         "governance_enabled": False,
         "replay_enabled": False,
         "claim_tracking_enabled": False,
-        "replay_signature": None,
+        "run_desi_integrated": False,
+        "run_desi_metrics": None,
+        "audit": {
+            "question": question,
+            "model_answer": model_answer,
+            "backend": backend,
+            "replay_hash": None,
+            "answer_claim_id": None,
+            "error": llm_error,
+        },
         "errors": [],
     }
 
     _ensure_desi_importable()
-
     try:
         import desi
-        status["version"] = getattr(desi, "__version__", "unknown")
+        sig["version"] = getattr(desi, "__version__", "unknown")
     except Exception as exc:
-        status["errors"].append(f"desi import failed: {exc!r}")
-        return status
+        sig["errors"].append(f"desi import failed: {exc!r}")
+        return sig
 
-    # Replay kernel (pure stdlib): a real, deterministic signature of the task.
+    # Replay kernel (pure stdlib): deterministic signature of the audit struct.
     try:
         from desi.core.replay_kernel import replay_hash
-        status["replay_signature"] = replay_hash(
-            {"task_id": task_id, "question": question}
-        )
-        status["replay_enabled"] = True
+        sig["audit"]["replay_hash"] = replay_hash({
+            "task_id": task_id, "question": question,
+            "model_answer": model_answer, "backend": backend,
+            "error": llm_error,
+        })
+        sig["replay_enabled"] = True
     except Exception as exc:
-        status["errors"].append(f"replay kernel: {exc!r}")
+        sig["errors"].append(f"replay kernel: {exc!r}")
 
-    # Governance core integrity invariant (pure stdlib).
+    # Governance core integrity (pure stdlib).
     try:
         from desi.core.governance_core import governance_intact
-        status["governance_enabled"] = bool(governance_intact())
+        sig["governance_enabled"] = bool(governance_intact())
     except Exception as exc:
-        status["errors"].append(f"governance core: {exc!r}")
+        sig["errors"].append(f"governance core: {exc!r}")
 
-    # Claim tracking (pure stdlib): construct a canonical claim id for the task.
+    # Claim id of the answer (pure stdlib).
     try:
         from desi.self_audit.claim import ClaimKind, make_claim_id
-        make_claim_id(f"gaia/{task_id}", 0, ClaimKind.HASH, "task_id", str(task_id))
-        status["claim_tracking_enabled"] = True
+        sig["audit"]["answer_claim_id"] = make_claim_id(
+            f"gaia/{task_id}", 0, ClaimKind.HASH, "model_answer", model_answer
+        )
+        sig["claim_tracking_enabled"] = True
     except Exception as exc:
-        status["errors"].append(f"claim tracking: {exc!r}")
+        sig["errors"].append(f"claim tracking: {exc!r}")
 
-    return status
+    # Full governance loop (needs pydantic-backed models): optional.
+    try:
+        from desi.models import Trajectory, TrajectoryStep
+        from desi.runner import run_desi
+        traj = Trajectory(
+            trajectory_id=f"gaia/{task_id}",
+            steps=[TrajectoryStep(
+                loop_index=0, operator="T3",
+                novel_claims=1 if model_answer else 0,
+                dup_rate=0.0, question=question,
+            )],
+            en_events=[],
+        )
+        metrics = run_desi(traj)
+        terminal = getattr(getattr(metrics, "failure", None), "terminal", None)
+        sig["run_desi_metrics"] = {
+            "n_steps": getattr(metrics, "n_steps", None),
+            "n_en_events": getattr(metrics, "n_en_events", None),
+            "terminal_failure_mode": str(terminal) if terminal else None,
+        }
+        sig["run_desi_integrated"] = True
+    except ModuleNotFoundError as exc:
+        sig["errors"].append(
+            f"run_desi unavailable ({exc.name} missing); install with "
+            "`pip install desi-governance` for the full governance loop"
+        )
+    except Exception as exc:
+        sig["errors"].append(f"run_desi failed: {exc!r}")
+
+    return sig
 
 
-def solve_gaia_task(task: dict) -> dict:
-    """Run a GAIA task through the DESi adapter.
-
-    Returns ``{"model_answer", "reasoning_trace", "desi_metadata"}``. Always
-    returns a well-formed dict; never raises.
-    """
+# --------------------------------------------------------------------------- #
+# Public entry point
+# --------------------------------------------------------------------------- #
+def solve_gaia_task(task: dict, *, backend: str = "auto",
+                    dry_run: bool = False) -> dict:
+    """Solve one GAIA task. Always returns a well-formed dict; never raises."""
     task_id = str(task.get("task_id", ""))
     question = str(task.get("Question", ""))
     attachment_seen = bool((task.get("file_name") or "").strip())
 
-    status = _connect_desi(task_id, question)
-    backend = _answer_backend()
+    resolved = resolve_backend(backend)
+    model_answer = ""
+    llm_error: str | None = None
 
-    errors = list(status["errors"])
-    if backend is None:
-        errors.append(
-            "no answer-generation backend configured: DESi governs reasoning "
-            "trajectories but does not generate answers, and neither "
-            "DEEPSEEK_API_KEY nor OPENROUTER_API_KEY is set, so no model_answer "
-            "could be produced"
+    if resolved == "none":
+        llm_error = (
+            "no answer-generation backend: set OPENROUTER_API_KEY or "
+            "DEEPSEEK_API_KEY (or pass --backend), so no model_answer was produced"
         )
+    elif dry_run:
+        llm_error = (
+            f"dry-run: {resolved} LLM call skipped "
+            f"(key_present={_key_present(resolved)})"
+        )
+    elif not _key_present(resolved):
+        llm_error = f"{resolved} selected but its API key env var is not set"
+    else:
+        model_answer, llm_error = _llm_answer(resolved, question)
+
+    sig = _desi_signals(task_id, question, model_answer, resolved, llm_error)
+
+    if model_answer:
+        solver = "desi_governed_llm" if sig["run_desi_integrated"] else "llm_only"
+    else:
+        solver = "desi_adapter_fallback"
+
+    errors = list(sig["errors"])
+    if llm_error:
+        errors.append(llm_error)
 
     reasoning_trace = (
-        f"{FALLBACK_SOLVER}: connected to real DESi v{status['version']} "
-        f"(governance_intact={status['governance_enabled']}, "
-        f"replay_enabled={status['replay_enabled']}, "
-        f"claim_tracking={status['claim_tracking_enabled']}, "
-        f"replay_signature={status['replay_signature']}). "
-        "DESi audits/classifies LLM reasoning trajectories; it does not itself "
-        "generate answers, and no LLM answer-generation backend is wired/keyed. "
-        "No answer was produced — this validates the DESi<->GAIA wiring, not "
-        "task solving."
+        f"{solver}: backend={resolved}, dry_run={dry_run}; DESi v{sig['version']} "
+        f"(governance_intact={sig['governance_enabled']}, "
+        f"replay={sig['replay_enabled']}, claim_tracking={sig['claim_tracking_enabled']}, "
+        f"run_desi_integrated={sig['run_desi_integrated']}, "
+        f"replay_hash={sig['audit']['replay_hash']}). "
+        + ("Answer produced by the LLM backend and governed by DESi signals."
+           if model_answer else
+           "No answer produced (see error); DESi wiring still validated.")
     )
 
     desi_metadata = {
-        "solver": FALLBACK_SOLVER,
-        "desi_version_or_commit": status["version"],
-        "governance_enabled": status["governance_enabled"],
-        "replay_enabled": status["replay_enabled"],
-        "claim_tracking_enabled": status["claim_tracking_enabled"],
+        "solver": solver,
+        "backend": resolved,
+        "dry_run": dry_run,
+        "desi_version_or_commit": sig["version"],
+        "governance_enabled": sig["governance_enabled"],
+        "replay_enabled": sig["replay_enabled"],
+        "claim_tracking_enabled": sig["claim_tracking_enabled"],
+        "run_desi_integrated": sig["run_desi_integrated"],
+        "run_desi_metrics": sig["run_desi_metrics"],
         "attachment_seen": attachment_seen,
-        "replay_signature": status["replay_signature"],
+        "replay_signature": sig["audit"]["replay_hash"],
+        "answer_claim_id": sig["audit"]["answer_claim_id"],
+        "audit": sig["audit"],
     }
     if errors:
         desi_metadata["error"] = "; ".join(errors)
 
     return {
-        "model_answer": "",
+        "model_answer": model_answer,
         "reasoning_trace": reasoning_trace,
         "desi_metadata": desi_metadata,
     }
 
 
 if __name__ == "__main__":
-    import json
     demo = solve_gaia_task(
-        {"task_id": "demo-0001", "Question": "What is 2+2?", "file_name": ""}
+        {"task_id": "demo-0001", "Question": "What is 2+2?", "file_name": ""},
+        backend="auto",
     )
     print(json.dumps(demo, indent=2, ensure_ascii=False))
