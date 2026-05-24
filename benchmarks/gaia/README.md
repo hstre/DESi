@@ -110,43 +110,70 @@ Produce one line per task in the split. For the public score, generate answers
 for `2023_all` / `validation`; for the hidden leaderboard score, run over the
 `test` split and submit on the leaderboard Space.
 
-## Stub evaluation pipeline
+## Evaluation pipeline
 
-`solve_gaia.py` and `evaluate_validation.py` form a minimal end-to-end loop.
-**The solver is a stub** — `solve_task()` returns an empty answer. It only
-validates the pipeline (load → solve → serialize → evaluate) and is **not** a
-real DESi solver yet, so expect 0% accuracy.
+Three scripts form an end-to-end loop:
 
-Generate a sample submission (default `2023_all` / `validation`, 5 tasks):
+- `desi_gaia_adapter.py` — `solve_gaia_task(task)` connects to the **real** DESi
+  runtime and returns `{model_answer, reasoning_trace, desi_metadata}`.
+- `solve_gaia.py` — loads GAIA, calls the adapter per task, writes the
+  submission JSONL.
+- `evaluate_validation.py` — scores the JSONL by exact match.
+
+Run it (default `2023_all` / `validation`, 5 tasks):
 
 ```bash
 export HF_TOKEN=hf_xxx
-python benchmarks/gaia/solve_gaia.py
-python benchmarks/gaia/solve_gaia.py --limit 20 --download-attachments
+python benchmarks/gaia/solve_gaia.py                 # writes outputs/submission.validation.sample.jsonl
+python benchmarks/gaia/solve_gaia.py --limit 3 --download-attachments
+python benchmarks/gaia/evaluate_validation.py        # exact-match, overall + per level
 ```
 
-This writes `outputs/submission.validation.sample.jsonl`, one line per task:
+`solve_gaia.py` always degrades gracefully: if the adapter module cannot be
+imported it uses a local fallback (`solver: "solve_gaia_local_fallback"`); the
+adapter itself returns `solver: "desi_adapter_fallback"` when DESi cannot
+produce an answer. Each submission line looks like:
 
 ```jsonl
-{"task_id": "...", "model_answer": "...", "reasoning_trace": "...", "desi_metadata": {"solver": "stub", "config": "2023_all", "split": "validation", "level": "2", "has_attachment": false, "file_name": "", "timestamp_utc": "..."}}
+{"task_id": "...", "model_answer": "...", "reasoning_trace": "...", "desi_metadata": {"config": "2023_all", "split": "validation", "level": "2", "has_attachment": false, "file_name": "", "timestamp_utc": "...", "solver": "desi_adapter_fallback", "desi_version_or_commit": "0.1.0", "governance_enabled": true, "replay_enabled": true, "claim_tracking_enabled": true, "attachment_seen": false, "replay_signature": "<sha256>", "error": "no answer-generation backend configured: ..."}}
 ```
 
-Then score it against the validation `Final answer`s (simple, case- and
-whitespace-insensitive exact match — **not** the official GAIA scorer):
+## Stub vs DESi adapter
 
-```bash
-python benchmarks/gaia/evaluate_validation.py
-python benchmarks/gaia/evaluate_validation.py --submission benchmarks/gaia/outputs/submission.validation.sample.jsonl
-```
+| | old stub (`solve_task`) | DESi adapter (`solve_gaia_task`) |
+| --- | --- | --- |
+| DESi import | none | real `desi` (repo `src/` auto-added to path) |
+| Governance | none | `desi.core.governance_core.governance_intact()` |
+| Replay | none | real `desi.core.replay_kernel.replay_hash` signature per task |
+| Claims | none | `desi.self_audit.claim.make_claim_id` |
+| `model_answer` | `""` (placeholder) | `""` (no answer backend yet — see below) |
+| `desi_metadata.solver` | `"stub"` | `"desi_adapter_fallback"` |
 
-It prints overall and per-level exact-match accuracy.
+The adapter is a **real connection** to DESi's governance core, replay kernel,
+and claim tracking (all pure-stdlib — no network, no API keys). It does **not**
+fabricate answers, so exact-match accuracy is still 0% until a real solver is
+wired.
 
-## Next step: replace the stub with a real DESi solver
+## What is connected vs. still missing
 
-Swap the body of `solve_task()` in `solve_gaia.py` for a DESi-governed solver
-that routes `task["Question"]` (plus any attachment at `task["file_path"]`)
-through DESi and returns the produced `model_answer` and `reasoning_trace`.
-Keep the DESi audit trail in `desi_metadata` (e.g. hallucination flags, replay
-signature) so accuracy can be reported per level next to DESi's governance
-metrics. Then run over the full `validation` split (drop `--limit`) and, for the
-hidden leaderboard score, over the `test` split.
+**Connected now** (verified at runtime, no secrets): DESi version, governance
+integrity check, a deterministic replay signature per task, and claim-id
+construction. These populate the `*_enabled` flags and `replay_signature`.
+
+**Still missing — the next technical blocker:** DESi is a governance/audit layer
+that classifies and audits LLM *reasoning trajectories*; it does not itself
+generate answers. To produce a real `model_answer` we need an LLM
+answer-generation step whose trajectory DESi then governs. Concretely:
+
+1. Wire an LLM backend the repo already ships
+   (`desi.spl_adapter.deepseek_client.DeepSeekClient` → `DEEPSEEK_API_KEY`, or
+   `desi.live_llm_validation.openrouter_client.chat_completion` →
+   `OPENROUTER_API_KEY`) to answer `task["Question"]` (+ attachments).
+2. Build a `desi.models.Trajectory` from that reasoning and run the full
+   governance loop `desi.runner.run_desi` (needs the `pydantic` dependency,
+   installed via `pip install desi-governance`).
+3. Put the resulting governance verdict (hallucination visibility, replay hash)
+   into `desi_metadata` next to the produced `model_answer`.
+
+Until step 1 is done, the adapter stays in `desi_adapter_fallback` mode by
+design.

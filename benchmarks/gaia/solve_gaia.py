@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""Run a (stub) DESi solver over GAIA and write a submission JSONL.
+"""Run the DESi solver over GAIA and write a submission JSONL.
 
-Loads the gated ``gaia-benchmark/GAIA`` dataset, runs ``solve_task`` on each
-task, and writes one submission line per task. The Hugging Face token is read
-**only** from the ``HF_TOKEN`` / ``HUGGINGFACE_HUB_TOKEN`` environment variable;
-no credential is stored in this file or the repository.
+Loads the gated ``gaia-benchmark/GAIA`` dataset, solves each task via
+``desi_gaia_adapter.solve_gaia_task`` (which connects to the real DESi runtime),
+and writes one submission line per task. The Hugging Face token is read **only**
+from the ``HF_TOKEN`` / ``HUGGINGFACE_HUB_TOKEN`` environment variable; no
+credential is stored in this file or the repository.
 
-IMPORTANT: ``solve_task`` is currently a STUB. It does not solve GAIA tasks; it
-exists to validate the end-to-end pipeline (load -> solve -> serialize ->
-evaluate). Replace it with a real DESi-governed solver later.
+If the adapter cannot be imported, a local fallback keeps the pipeline running.
+The adapter itself reports a ``desi_adapter_fallback`` result when the real DESi
+runtime cannot produce an answer (see desi_gaia_adapter.py).
 
 Examples:
     export HF_TOKEN=hf_...
@@ -26,34 +27,43 @@ from pathlib import Path
 
 DATASET_ID = "gaia-benchmark/GAIA"
 CONFIGS = ("2023_all", "2023_level1", "2023_level2", "2023_level3")
-SOLVER_NAME = "stub"
 DEFAULT_OUTPUT = (
     Path(__file__).resolve().parent / "outputs" / "submission.validation.sample.jsonl"
 )
 
+# Import the DESi adapter (sibling module). If it cannot be imported, fall back
+# locally so the pipeline never aborts.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+try:
+    from desi_gaia_adapter import solve_gaia_task
+    _ADAPTER_IMPORT_ERROR: str | None = None
+except Exception as exc:  # adapter module itself failed to import
+    solve_gaia_task = None  # type: ignore[assignment]
+    _ADAPTER_IMPORT_ERROR = repr(exc)
 
-# --------------------------------------------------------------------------- #
-# STUB SOLVER -- replace with a real DESi-governed solver.
-#
-# This does NOT attempt to answer the task. A real implementation would route
-# task["Question"] (plus any attachment referenced by task["file_path"]) through
-# a DESi-governed solver and return the produced answer together with its
-# reasoning / tool-use trace.
-# --------------------------------------------------------------------------- #
-def solve_task(task: dict) -> dict:
-    """Return a placeholder answer and a trace marking this as a stub."""
+
+def _local_fallback(error: str) -> dict:
+    """Last-resort result used only when the adapter cannot be imported/run."""
     return {
         "model_answer": "",
-        "reasoning_trace": (
-            "STUB solver: no reasoning performed. Pipeline validation only — "
-            "replace solve_task() with a real DESi-governed solver."
-        ),
+        "reasoning_trace": f"solve_gaia_local_fallback: {error}",
+        "desi_metadata": {"solver": "solve_gaia_local_fallback", "error": error},
     }
+
+
+def run_solver(task: dict) -> dict:
+    """Solve one task via the adapter, degrading to a local fallback on failure."""
+    if solve_gaia_task is None:
+        return _local_fallback(f"adapter import failed: {_ADAPTER_IMPORT_ERROR}")
+    try:
+        return solve_gaia_task(task)
+    except Exception as exc:  # adapter must not abort the run
+        return _local_fallback(f"adapter raised: {exc!r}")
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Run the (stub) DESi solver over GAIA and write a submission JSONL."
+        description="Run the DESi solver over GAIA and write a submission JSONL."
     )
     parser.add_argument("--config", default="2023_all", choices=CONFIGS,
                         help="Dataset config (default: 2023_all).")
@@ -113,27 +123,34 @@ def main() -> int:
                 print(f"  warn: attachment download failed for "
                       f"{row.get('task_id')}: {exc}", file=sys.stderr)
 
-        result = solve_task(dict(row))
+        result = run_solver(dict(row))
+
+        # Run-context metadata, then merge the adapter's solver-specific fields
+        # (solver, desi_version_or_commit, governance/replay/claim flags,
+        # attachment_seen, error) on top.
+        desi_metadata = {
+            "config": args.config,
+            "split": args.split,
+            "level": row.get("Level", ""),
+            "has_attachment": bool(file_name),
+            "file_name": file_name,
+            "timestamp_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
+        }
+        desi_metadata.update(result.get("desi_metadata", {}))
+
         record = {
             "task_id": row.get("task_id", ""),
             "model_answer": result.get("model_answer", ""),
             "reasoning_trace": result.get("reasoning_trace", ""),
-            "desi_metadata": {
-                "solver": SOLVER_NAME,
-                "config": args.config,
-                "split": args.split,
-                "level": row.get("Level", ""),
-                "has_attachment": bool(file_name),
-                "file_name": file_name,
-                "timestamp_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
-            },
+            "desi_metadata": desi_metadata,
         }
         records.append(json.dumps(record, ensure_ascii=False))
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text("\n".join(records) + "\n", encoding="utf-8")
 
-    print(f"Solver: {SOLVER_NAME} (STUB) | {DATASET_ID} [{args.config}/{args.split}]")
+    solver_used = json.loads(records[0])["desi_metadata"].get("solver") if records else "n/a"
+    print(f"Solver: {solver_used} | {DATASET_ID} [{args.config}/{args.split}]")
     print(f"Wrote {len(records)} submission line(s) to {args.output}")
     return 0
 
