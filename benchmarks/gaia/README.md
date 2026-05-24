@@ -124,24 +124,44 @@ Four scripts form an end-to-end loop:
   text-only accuracy, per-level accuracy, and the number of UNKNOWN/empty
   answers.
 
+### Model strategy
+
+DESi is the **governance / conductor layer**, not the base model. For
+DESi-GAIA the intended base models are:
+
+- **IBM Granite** (via Hugging Face Inference) — the open, reproducible
+  **baseline**. Set `HF_INFERENCE_MODEL` to a Granite instruct model, e.g.
+  `ibm-granite/granite-3.3-8b-instruct`.
+- **DeepSeek V4** (via OpenRouter) — the strong **reasoning solver**, model id
+  `deepseek/deepseek-v4-pro`.
+
+`Qwen/Qwen2.5-7B-Instruct` and `meta-llama/Llama-3.1-8B-Instruct` were only
+**technical smoke tests** to prove the wiring; they are not the DESi-GAIA
+strategy. There is **no hard-coded default model** — `auto` never silently
+picks one. Granite availability via HF Inference depends on the providers
+enabled for your token; if a specific Granite id is "not supported by any
+provider", pick another current Granite instruct id (see
+`RECOMMENDED_HF_MODELS` in `hf_inference_backend.py`).
+
 ### Backends
 
 Three real backends are supported, plus a DESi-only fallback. **Hugging Face
-Inference is the preferred path** — the same `HF_TOKEN` already used to load the
-dataset also drives inference, so no second provider account is needed.
+Inference (Granite) is the preferred path** — the same `HF_TOKEN` already used to
+load the dataset also drives inference, so no second provider account is needed.
 
 | variable | purpose |
 | --- | --- |
 | `HF_TOKEN` / `HUGGINGFACE_HUB_TOKEN` | required — gated GAIA access **and** the `hf` backend token |
-| `HF_INFERENCE_MODEL` | model id for the `hf` backend (must be chat-completion / instruct capable, e.g. `Qwen/Qwen2.5-7B-Instruct`) |
-| `OPENROUTER_API_KEY` | enables the `openrouter` backend |
-| `DEEPSEEK_API_KEY` | enables the `deepseek` backend |
+| `HF_INFERENCE_MODEL` | model id for the `hf` backend, must be chat/instruct capable (recommended: `ibm-granite/granite-3.3-8b-instruct`) |
+| `OPENROUTER_API_KEY` | enables the `openrouter` backend (DeepSeek V4) |
+| `DEEPSEEK_API_KEY` | enables the native `deepseek` backend |
 | `OPENROUTER_MODEL` | optional — override the OpenRouter model (default `deepseek/deepseek-v4-pro`) |
-| `DEEPSEEK_MODEL` | optional — override the DeepSeek model (default `deepseek-4-pro`) |
+| `DEEPSEEK_MODEL` | optional — override the native DeepSeek model (default `deepseek-4-pro`) |
 
-`--backend auto|hf|openrouter|deepseek|none` (default `auto`, which prefers `hf`
-when both `HF_TOKEN` and a model are set, then OpenRouter, then DeepSeek, then
-`none`). `--model <id>` overrides the per-backend model env var.
+`--backend auto|hf|openrouter|deepseek|none` (default `auto`). The `auto` order
+is: **Granite over HF** when `HF_TOKEN` + `HF_INFERENCE_MODEL` are set, then
+**DeepSeek V4** over OpenRouter/DeepSeek when an API key is set, then `none`.
+`--model <id>` overrides the per-backend model.
 
 Tokens/keys are read **only** from the environment by the backend clients;
 nothing is logged or stored in the repo. `run_desi` (the full governance loop)
@@ -152,25 +172,26 @@ adapter keeps the lightweight governance/replay/claim signals and sets
 ### Example calls
 
 ```bash
-# Preferred: Hugging Face Inference (model must be chat/instruct capable)
+# Preferred baseline: IBM Granite over Hugging Face Inference
 export HF_TOKEN=...
-export HF_INFERENCE_MODEL=Qwen/Qwen2.5-7B-Instruct
+export HF_INFERENCE_MODEL=ibm-granite/granite-3.3-8b-instruct
 python benchmarks/gaia/solve_gaia.py --backend hf --limit 3
 python benchmarks/gaia/evaluate_validation.py        # exact-match, overall + per level
 
-# Switch model without env vars:
-python benchmarks/gaia/solve_gaia.py --backend hf --model meta-llama/Llama-3.1-8B-Instruct --limit 3
+# Strong reasoning solver: DeepSeek V4 over OpenRouter
+export OPENROUTER_API_KEY=...
+python benchmarks/gaia/solve_gaia.py --backend openrouter --model deepseek/deepseek-v4-pro --limit 3
 
 # Wiring check without spending tokens (resolves backend + model, skips the call):
 python benchmarks/gaia/solve_gaia.py --backend hf --dry-run --limit 3
 
 # DESi-only fallback (no LLM call at all) — always works:
 python benchmarks/gaia/solve_gaia.py --backend none --limit 3
-
-# Other providers (need their key in the environment):
-export OPENROUTER_API_KEY=...   # or DEEPSEEK_API_KEY
-python benchmarks/gaia/solve_gaia.py --backend openrouter --limit 3
 ```
+
+If a Granite id returns "not supported by any provider", switch to another
+current Granite instruct id (e.g. `ibm-granite/granite-3.3-2b-instruct`) or
+enable a provider that serves it; the pipeline never hard-codes a model.
 
 The pipeline never aborts: if the adapter module itself cannot be imported,
 `solve_gaia.py` emits `solver: "solve_gaia_local_fallback"`.
@@ -231,8 +252,10 @@ below); skipping is the honest interim.
 **Connected now:** HF Inference (preferred), OpenRouter and DeepSeek answer
 generation (env-keyed), DESi governance integrity, a per-task replay signature,
 an answer claim id, and — when `pydantic` is installed — the `run_desi`
-governance loop over a minimal task-derived trajectory. A real `hf` run with
-`Qwen/Qwen2.5-7B-Instruct` produces `solver: desi_governed_llm` lines.
+governance loop over a minimal task-derived trajectory. A real `hf` run
+produces `solver: desi_governed_llm` lines (wiring proven with a smoke-test
+model; the committed sample uses a generic instruct model, not the
+Granite/DeepSeek V4 strategy).
 
 **Still missing for a submittable GAIA run:**
 

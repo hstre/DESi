@@ -35,6 +35,16 @@ STRICT_INSTRUCTION = (
 )
 UNKNOWN_ANSWER = "UNKNOWN"
 
+# Recommended models for DESi-GAIA. Granite is the open, reproducible baseline.
+# These are examples only — there is NO hard default model; HF_INFERENCE_MODEL
+# (or --model) must be set. Availability via HF Inference depends on the
+# providers enabled for your token, so the exact id may need adjusting.
+RECOMMENDED_HF_MODELS = (
+    "ibm-granite/granite-3.3-8b-instruct",
+    "ibm-granite/granite-3.3-2b-instruct",
+    "ibm-granite/granite-3.2-8b-instruct",
+)
+
 
 def instruction_for(mode: str) -> str:
     """Return the system instruction for a prompt mode (``minimal``|``strict``)."""
@@ -85,7 +95,10 @@ def chat_answer(
             "no HF token: set HF_TOKEN or HUGGINGFACE_HUB_TOKEN"
         )
     if not model:
-        raise RuntimeError(f"no model: set {_MODEL_ENV} or pass --model")
+        raise RuntimeError(
+            f"no model: set {_MODEL_ENV} or pass --model "
+            f"(recommended: {RECOMMENDED_HF_MODELS[0]})"
+        )
 
     from huggingface_hub import InferenceClient
 
@@ -104,9 +117,9 @@ def chat_answer(
 
 
 __all__ = [
-    "MINIMAL_INSTRUCTION", "STRICT_INSTRUCTION", "UNKNOWN_ANSWER",
-    "available", "chat_answer", "instruction_for", "resolve_model",
-    "token", "token_present",
+    "MINIMAL_INSTRUCTION", "RECOMMENDED_HF_MODELS", "STRICT_INSTRUCTION",
+    "UNKNOWN_ANSWER", "available", "chat_answer", "instruction_for",
+    "resolve_model", "token", "token_present",
 ]
 
 
