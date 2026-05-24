@@ -110,11 +110,43 @@ Produce one line per task in the split. For the public score, generate answers
 for `2023_all` / `validation`; for the hidden leaderboard score, run over the
 `test` split and submit on the leaderboard Space.
 
-## Next step toward DESi evaluation
+## Stub evaluation pipeline
 
-This script only loads and previews. The next milestone is a thin
-`solve_gaia.py` that, for each task, routes the `Question` (+ attachments)
-through a DESi-governed solver and writes a `submission.jsonl` in the format
-above — capturing the DESi audit trail (hallucination flags, replay signature)
-alongside each `model_answer` so accuracy can be reported per level next to
-DESi's governance metrics.
+`solve_gaia.py` and `evaluate_validation.py` form a minimal end-to-end loop.
+**The solver is a stub** — `solve_task()` returns an empty answer. It only
+validates the pipeline (load → solve → serialize → evaluate) and is **not** a
+real DESi solver yet, so expect 0% accuracy.
+
+Generate a sample submission (default `2023_all` / `validation`, 5 tasks):
+
+```bash
+export HF_TOKEN=hf_xxx
+python benchmarks/gaia/solve_gaia.py
+python benchmarks/gaia/solve_gaia.py --limit 20 --download-attachments
+```
+
+This writes `outputs/submission.validation.sample.jsonl`, one line per task:
+
+```jsonl
+{"task_id": "...", "model_answer": "...", "reasoning_trace": "...", "desi_metadata": {"solver": "stub", "config": "2023_all", "split": "validation", "level": "2", "has_attachment": false, "file_name": "", "timestamp_utc": "..."}}
+```
+
+Then score it against the validation `Final answer`s (simple, case- and
+whitespace-insensitive exact match — **not** the official GAIA scorer):
+
+```bash
+python benchmarks/gaia/evaluate_validation.py
+python benchmarks/gaia/evaluate_validation.py --submission benchmarks/gaia/outputs/submission.validation.sample.jsonl
+```
+
+It prints overall and per-level exact-match accuracy.
+
+## Next step: replace the stub with a real DESi solver
+
+Swap the body of `solve_task()` in `solve_gaia.py` for a DESi-governed solver
+that routes `task["Question"]` (plus any attachment at `task["file_path"]`)
+through DESi and returns the produced `model_answer` and `reasoning_trace`.
+Keep the DESi audit trail in `desi_metadata` (e.g. hallucination flags, replay
+signature) so accuracy can be reported per level next to DESi's governance
+metrics. Then run over the full `validation` split (drop `--limit`) and, for the
+hidden leaderboard score, over the `test` split.
