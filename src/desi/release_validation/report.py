@@ -41,9 +41,11 @@ def phase1_clean_room() -> dict:
     return {
         "facade_imports_ok": facades_ok,
         "cli_subcommands": cli,
-        "cli_complete": set(cli) == {
+        # the four core subcommands must be present (the CLI may add
+        # more, e.g. config/doctor for the dummy-install path).
+        "cli_complete": {
             "replay", "audit", "benchmark", "review",
-        },
+        }.issubset(set(cli)),
         # verified live in a fresh --system-site venv (no PYTHONPATH,
         # no editable reuse): pip install -e . + all four subcommands
         # + the three required facade imports all succeeded.
