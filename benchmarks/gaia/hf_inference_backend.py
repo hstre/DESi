@@ -74,7 +74,20 @@ def available(cli_model: str | None = None) -> bool:
     return token_present() and bool(resolve_model(cli_model))
 
 
-def chat_answer(
+def _usage_dict(usage: object) -> dict | None:
+    if usage is None:
+        return None
+    out = {}
+    for k in ("prompt_tokens", "completion_tokens", "total_tokens"):
+        v = getattr(usage, k, None)
+        if v is None and isinstance(usage, dict):
+            v = usage.get(k)
+        if v is not None:
+            out[k] = v
+    return out or None
+
+
+def chat_answer_with_meta(
     question: str,
     *,
     model: str,
@@ -82,18 +95,16 @@ def chat_answer(
     max_tokens: int = _DEFAULT_MAX_TOKENS,
     temperature: float = 0.0,
     timeout: float = _DEFAULT_TIMEOUT,
-) -> str:
-    """Return a concise final answer from HF Inference.
+) -> tuple[str, dict]:
+    """Return (answer, meta) from HF Inference.
 
-    Raises ``RuntimeError`` (or the underlying client error) on failure; callers
-    are expected to catch and turn it into a clean fallback. The token is read
-    from the environment and never exposed.
+    meta has provider_returned_model, finish_reason and usage. Raises on failure
+    (callers turn it into a clean fallback). The token is read from the
+    environment and never exposed.
     """
     tok = token()
     if not tok:
-        raise RuntimeError(
-            "no HF token: set HF_TOKEN or HUGGINGFACE_HUB_TOKEN"
-        )
+        raise RuntimeError("no HF token: set HF_TOKEN or HUGGINGFACE_HUB_TOKEN")
     if not model:
         raise RuntimeError(
             f"no model: set {_MODEL_ENV} or pass --model "
@@ -112,14 +123,25 @@ def chat_answer(
         max_tokens=max_tokens,
         temperature=temperature,
     )
-    content = completion.choices[0].message.content
-    return (content or "").strip()
+    choice = completion.choices[0]
+    answer = (choice.message.content or "").strip()
+    meta = {
+        "provider_returned_model": getattr(completion, "model", None),
+        "finish_reason": getattr(choice, "finish_reason", None),
+        "usage": _usage_dict(getattr(completion, "usage", None)),
+    }
+    return answer, meta
+
+
+def chat_answer(question: str, **kwargs) -> str:
+    """Return only the concise final answer (see chat_answer_with_meta)."""
+    return chat_answer_with_meta(question, **kwargs)[0]
 
 
 __all__ = [
     "MINIMAL_INSTRUCTION", "RECOMMENDED_HF_MODELS", "STRICT_INSTRUCTION",
-    "UNKNOWN_ANSWER", "available", "chat_answer", "instruction_for",
-    "resolve_model", "token", "token_present",
+    "UNKNOWN_ANSWER", "available", "chat_answer", "chat_answer_with_meta",
+    "instruction_for", "resolve_model", "token", "token_present",
 ]
 
 

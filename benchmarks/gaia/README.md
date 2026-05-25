@@ -185,6 +185,26 @@ is: **Granite over HF** when `HF_TOKEN` + `HF_INFERENCE_MODEL` are set, then
 **DeepSeek V4** over OpenRouter/DeepSeek when an API key is set, then `none`.
 `--model <id>` overrides the per-backend model.
 
+### Model resolution & provenance
+
+`--model` always wins: it is sent to the provider as-is and is **not**
+overridden by `OPENROUTER_MODEL`, the model registry, or any default. Every line
+records the full trace so you can see exactly what ran:
+
+- `requested_model` — the raw `--model` (or `None` if resolved from env/default)
+- `resolved_model` — what is actually sent to the provider
+- `provider_returned_model` — what the provider reports back (often a dated id)
+- `provider` — the upstream provider OpenRouter routed to
+- `finish_reason` and `usage` (`prompt_tokens`, `completion_tokens`,
+  `total_tokens`, plus `reasoning_tokens` when the model reports it)
+
+OpenRouter resolves the `deepseek/deepseek-v4-pro` alias to the dated
+`deepseek/deepseek-v4-pro-20260423` (the **same** model) and may route it to
+different upstream providers (e.g. Parasail, Together) across calls — it does
+**not** silently substitute a smaller model. A `finish_reason: length` with an
+empty answer means the reasoning trace hit the token cap (raise
+`GAIA_MAX_ANSWER_TOKENS`).
+
 Tokens/keys are read **only** from the environment by the backend clients;
 nothing is logged or stored in the repo. `run_desi` (the full governance loop)
 additionally needs `pydantic` (`pip install desi-governance`); without it the

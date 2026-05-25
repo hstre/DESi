@@ -137,14 +137,29 @@ def resolve_model(backend: str, cli_model: str | None) -> str | None:
     return None
 
 
-def _call_hf(question: str, model: str, instruction: str) -> str:
-    return _import_hf().chat_answer(
+def _slim_usage(usage: dict | None) -> dict | None:
+    """Keep only the token fields we report; include a reasoning-token hint."""
+    if not usage:
+        return None
+    details = usage.get("completion_tokens_details") or {}
+    out = {
+        "prompt_tokens": usage.get("prompt_tokens"),
+        "completion_tokens": usage.get("completion_tokens"),
+        "total_tokens": usage.get("total_tokens"),
+    }
+    if details.get("reasoning_tokens") is not None:
+        out["reasoning_tokens"] = details.get("reasoning_tokens")
+    return out
+
+
+def _call_hf(question: str, model: str, instruction: str) -> tuple[str, dict]:
+    return _import_hf().chat_answer_with_meta(
         question, model=model, instruction=instruction,
         max_tokens=_MAX_ANSWER_TOKENS, temperature=0.0,
     )
 
 
-def _call_openrouter(question: str, model: str, instruction: str) -> str:
+def _call_openrouter(question: str, model: str, instruction: str) -> tuple[str, dict]:
     from desi.live_llm_validation.openrouter_client import chat_completion
     resp = chat_completion(
         model,
@@ -155,30 +170,47 @@ def _call_openrouter(question: str, model: str, instruction: str) -> str:
         max_tokens=_MAX_ANSWER_TOKENS,
         temperature=0.0,
     )
-    return (resp["choices"][0]["message"].get("content") or "").strip()
+    choice = resp["choices"][0]
+    answer = (choice["message"].get("content") or "").strip()
+    meta = {
+        "provider_returned_model": resp.get("model"),
+        "provider": resp.get("provider"),
+        "finish_reason": choice.get("finish_reason"),
+        "usage": _slim_usage(resp.get("usage")),
+    }
+    return answer, meta
 
 
-def _call_deepseek(question: str, model: str, instruction: str) -> str:
+def _call_deepseek(question: str, model: str, instruction: str) -> tuple[str, dict]:
     from desi.spl_adapter.deepseek_client import DeepSeekClient
     client = DeepSeekClient(model_id=model) if model else DeepSeekClient()
     raw = client.complete(f"{instruction}\n\nQuestion: {question}").raw_text
     data = json.loads(raw)
-    return (data["choices"][0]["message"].get("content") or "").strip()
+    choice = data["choices"][0]
+    answer = (choice["message"].get("content") or "").strip()
+    meta = {
+        "provider_returned_model": data.get("model"),
+        "finish_reason": choice.get("finish_reason"),
+        "usage": _slim_usage(data.get("usage")),
+    }
+    return answer, meta
 
 
 def _llm_answer(backend: str, question: str, model: str,
-                instruction: str) -> tuple[str, str | None]:
-    """Return (answer, error). Only called when the backend is usable."""
+                instruction: str) -> tuple[str, str | None, dict]:
+    """Return (answer, error, call_meta). Only called when backend is usable."""
     try:
         if backend == "hf":
-            return _call_hf(question, model, instruction), None
-        if backend == "openrouter":
-            return _call_openrouter(question, model, instruction), None
-        if backend == "deepseek":
-            return _call_deepseek(question, model, instruction), None
-        return "", f"unknown backend {backend!r}"
+            answer, meta = _call_hf(question, model, instruction)
+        elif backend == "openrouter":
+            answer, meta = _call_openrouter(question, model, instruction)
+        elif backend == "deepseek":
+            answer, meta = _call_deepseek(question, model, instruction)
+        else:
+            return "", f"unknown backend {backend!r}", {}
+        return answer, None, meta
     except Exception as exc:  # network / parse / backend errors -> clean fallback
-        return "", f"{backend} call failed: {exc!r}"
+        return "", f"{backend} call failed: {exc!r}", {}
 
 
 # --------------------------------------------------------------------------- #
@@ -293,6 +325,7 @@ def solve_gaia_task(task: dict, *, backend: str = "auto",
     model_id = resolve_model(resolved, model)
     model_answer = ""
     llm_error: str | None = None
+    call_meta: dict = {}
     # "none" | "skipped" | "not_provided_to_model"
     attachment_status = "none"
 
@@ -321,7 +354,7 @@ def solve_gaia_task(task: dict, *, backend: str = "auto",
             # The attachment's content is not passed to the model; the strict
             # prompt asks it to answer UNKNOWN rather than hallucinate.
             attachment_status = "not_provided_to_model"
-        model_answer, llm_error = _llm_answer(
+        model_answer, llm_error, call_meta = _llm_answer(
             resolved, question, model_id, _instruction(prompt_mode)
         )
 
@@ -350,7 +383,17 @@ def solve_gaia_task(task: dict, *, backend: str = "auto",
     desi_metadata = {
         "solver": solver,
         "backend": resolved,
+        # Model resolution trace: what was asked for, what we sent, what the
+        # provider actually served. requested_model is the raw --model (may be
+        # None); resolved_model is what is sent; provider_returned_model is what
+        # OpenRouter/HF reports back (e.g. a dated/version-pinned id).
+        "requested_model": model,
+        "resolved_model": model_id,
         "model": model_id,
+        "provider_returned_model": call_meta.get("provider_returned_model"),
+        "provider": call_meta.get("provider"),
+        "finish_reason": call_meta.get("finish_reason"),
+        "usage": call_meta.get("usage"),
         "prompt_mode": prompt_mode,
         "dry_run": dry_run,
         "desi_version_or_commit": sig["version"],
