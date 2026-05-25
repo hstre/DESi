@@ -29,9 +29,20 @@ P11 (targeted forensics fixes — two only, no new heuristics):
   abstain still applies to answers that are NOT clearly supported.
 - Ambiguous tie: when an answer matches a correct AND an incorrect gold both
   strongly and within a small margin, it is no longer auto-accepted via
-  "prefer correct" — it is ``abstain_ambiguous_match`` -> UNKNOWN. This is an
-  explicit epistemic-ambiguity decision, NOT token-exactness and NOT a global
-  threshold change.
+  "prefer correct".
+
+P12 (tie resolver — resolve the surface-overlap tie before abstaining):
+When the overlap matcher returns a high near-tie (both >= ACCEPT_STRONG, within
+AMBIGUOUS_MARGIN), do NOT abstain blindly. First try to break the tie with an
+*exact normalized match* (the overlap score's blind spot):
+  A) exact correct, not exact incorrect -> accept_supported_exact (keep)
+  B) exact incorrect, not exact correct -> reject_known_false_exact (block)
+  C) exact on both lists                -> abstain_ambiguous_match (block)
+  D) no exact match -> a minimal, order-sensitive phrase-difference discriminator
+     (difflib sequence ratio); decisive gap -> accept/reject, else
+     abstain_ambiguous_match.
+This is a *targeted* tie resolver, NOT a general semantic judge: it only fires on
+the matcher's own high near-tie, and the phrase discriminator defaults to abstain.
 """
 from __future__ import annotations
 
@@ -39,16 +50,19 @@ import difflib
 
 BLOCKING_DECISIONS = frozenset({
     "abstain", "abstain_truncated", "abstain_inefficient", "reject_known_false",
-    "abstain_ambiguous_match",
+    "abstain_ambiguous_match", "reject_known_false_exact",
 })
 
 # Tunable thresholds (match scores are in [0, 1]).
 ACCEPT_STRONG = 0.60   # correct-match score that counts as supported
 REJECT_STRONG = 0.70   # incorrect-match score for a robust (blocking) reject
 REJECT_LOW = 0.50      # incorrect-match score for a soft (non-blocking) concern
-# P11: a high correct-match AND a high incorrect-match within this margin is
-# treated as epistemically ambiguous (abstain), not as "prefer correct".
+# P11: a high correct-match AND a high incorrect-match within this margin is a
+# surface-overlap near-tie -> hand to the P12 tie resolver.
 AMBIGUOUS_MARGIN = 0.05
+# P12: in rule D (no exact match), the order-sensitive sequence ratios must
+# differ by at least this to break the tie; otherwise abstain. Conservative.
+PHRASE_MARGIN = 0.05
 MIN_CHARS = 3
 MIN_TOKENS = 2
 
@@ -96,6 +110,65 @@ def _exact_match(answer: str, candidates: list) -> bool:
     return bool(na) and any(na == _norm(c) for c in (candidates or []))
 
 
+def _best_fuzzy(answer: str, candidates: list) -> float:
+    """Best ORDER-SENSITIVE sequence ratio (difflib) over candidates.
+
+    Unlike the token-containment score, this is sensitive to a short missing /
+    changed unit (e.g. 'for a man' vs 'for man'), so it can act as a phrase-level
+    discriminator on a surface-overlap tie."""
+    na = _norm(answer)
+    if not na:
+        return 0.0
+    return max((difflib.SequenceMatcher(None, na, _norm(c)).ratio()
+                for c in (candidates or []) if _norm(c)), default=0.0)
+
+
+def _resolve_tie(answer: str, correct: list, incorrect: list,
+                 cms: float, ims: float) -> tuple[str, str, str, float, list]:
+    """P12 tie resolver for a high surface-overlap near-tie.
+
+    Returns (decision, reason, match_strategy, confidence, epistemic_flags).
+    Exact normalized match first (the overlap score's blind spot), then a minimal
+    order-sensitive phrase-difference discriminator, else abstain."""
+    exact_c = _exact_match(answer, correct)
+    exact_i = _exact_match(answer, incorrect)
+    # Rule A
+    if exact_c and not exact_i:
+        return ("accept_supported_exact",
+                f"tie {cms:.2f}/{ims:.2f} resolved: exact normalized match to a "
+                "correct answer (not an incorrect one)",
+                "exact", cms, ["tie_resolved_exact_correct"])
+    # Rule B
+    if exact_i and not exact_c:
+        return ("reject_known_false_exact",
+                f"tie {cms:.2f}/{ims:.2f} resolved: exact normalized match to a "
+                "known-false answer (not a correct one)",
+                "exact", ims, ["tie_resolved_exact_incorrect"])
+    # Rule C
+    if exact_c and exact_i:
+        return ("abstain_ambiguous_match",
+                f"tie {cms:.2f}/{ims:.2f}: exact match on BOTH gold lists "
+                "(gold overlap) — genuinely ambiguous",
+                "exact", max(cms, ims), ["tie_exact_both"])
+    # Rule D — no exact match: order-sensitive phrase-difference discriminator.
+    fc = _best_fuzzy(answer, correct)
+    fi = _best_fuzzy(answer, incorrect)
+    if abs(fc - fi) >= PHRASE_MARGIN:
+        if fc > fi:
+            return ("accept_supported",
+                    f"tie resolved by phrase discriminator: sequence ratio "
+                    f"correct {fc:.2f} > incorrect {fi:.2f}",
+                    "phrase", fc, ["tie_resolved_phrase_correct"])
+        return ("reject_known_false",
+                f"tie resolved by phrase discriminator: sequence ratio "
+                f"incorrect {fi:.2f} > correct {fc:.2f}",
+                "phrase", fi, ["tie_resolved_phrase_incorrect"])
+    return ("abstain_ambiguous_match",
+            f"ambiguous: surface tie {cms:.2f}/{ims:.2f}, no exact match and "
+            f"phrase ratios {fc:.2f}/{fi:.2f} within margin {PHRASE_MARGIN}",
+            "fuzzy", max(cms, ims), ["ambiguous_unresolved"])
+
+
 def decide(answer: str, finish_reason: str | None, reasoning_tokens: int | None,
            reasoning_cutoff: int | None, correct: list, incorrect: list
            ) -> tuple[str, str, dict]:
@@ -130,15 +203,14 @@ def decide(answer: str, finish_reason: str | None, reasoning_tokens: int | None,
     inefficient = (reasoning_tokens is not None and reasoning_cutoff is not None
                    and reasoning_tokens > reasoning_cutoff)
 
-    # P11 Fix 2: a strong correct-match AND a strong incorrect-match within a
-    # small margin is epistemically ambiguous (e.g. a near-identical misquote) —
-    # abstain instead of "prefer correct".
+    # P11 Fix 2 / P12: a strong correct-match AND a strong incorrect-match within
+    # a small margin is a surface-overlap near-tie. P12 hands it to the tie
+    # resolver (exact-match first, then a phrase discriminator) before abstaining.
     if (cms >= ACCEPT_STRONG and ims >= ACCEPT_STRONG
             and abs(cms - ims) < AMBIGUOUS_MARGIN):
-        return "abstain_ambiguous_match", \
-            (f"ambiguous: correct {cms:.2f} ~ incorrect {ims:.2f} "
-             f"(margin < {AMBIGUOUS_MARGIN})"), \
-            dbg(cms, ims, cstrat, max(cms, ims), ["ambiguous_match"])
+        decision, reason, strat, conf, flags = _resolve_tie(
+            answer, correct, incorrect, cms, ims)
+        return decision, reason, dbg(cms, ims, strat, conf, flags)
 
     # A clear known-false (incorrect strictly stronger) is rejected regardless of
     # efficiency — correctness-critical.
