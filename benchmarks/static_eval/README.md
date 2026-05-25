@@ -238,3 +238,35 @@ adds TruthfulQA raw→final scores, claim/relation distributions, and P3 extract
 stats. Same honest caveats: Granite preferred-but-unavailable (DeepSeek fallback),
 InMemoryStore + exported JSONL (not persistent Neo4j), limit 50 not full
 TruthfulQA.
+
+### P4 (prototype): cross-claim contradiction = claim archive → epistemic state
+
+`cross_claim_contradictions.py` + `claim_conflict_demo.py` add the first step
+where DESi **checks claims against each other** instead of only storing them.
+For same-subject atomic claims it flags negation (`is`/`is not`, `can`/`cannot`),
+antonym (alive/dead, possible/impossible, …), and numeric single-value conflicts
+as **contradictions**, and "same subject+predicate, different object" as a
+weaker **potential** conflict. Conflicting claims raise a per-claim
+`epistemic_risk_score` (and lower the `confidence_band`) — a **mark, never an
+overwrite** of the stored state. A `REJECTED` claim contradicting a `CONFIRMED`
+one is a strong signal.
+
+```bash
+python benchmarks/static_eval/cross_claim_contradictions.py   # crafted-pair check
+python benchmarks/static_eval/claim_conflict_demo.py          # real graph + report
+```
+
+**Why this is the transition from "claim archive" to a real epistemic state:**
+once claims carry relations *to each other* (not just to a gold answer), the
+store stops being a list of answers and becomes a structure with internal
+consistency/conflict — the thing a governance layer can actually reason over
+(which claim to revise, where confidence should drop, what to flag for review).
+
+**Limits (no overclaims):** heuristic, **same-subject only**, no truth solver,
+no logical completeness, no ontology, surface-string subject matching (so
+`Lincoln` vs `Abraham Lincoln` is missed) and no coreference/contractions. On the
+real 50-question set the reliable rules find ~0 contradictions (independent
+questions rarely share a subject); the `different-object` rule over-fires on
+*complementary* claims, so it is only ever `potential` (represented as a
+low-weight `CONTRADICTS` edge since the closed enum has no
+`POTENTIALLY_CONTRADICTS`). See `outputs/claim_conflict_report.md`.
