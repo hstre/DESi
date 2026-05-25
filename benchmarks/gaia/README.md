@@ -112,7 +112,7 @@ for `2023_all` / `validation`; for the hidden leaderboard score, run over the
 
 ## Evaluation pipeline
 
-Four scripts form an end-to-end loop:
+Five scripts form an end-to-end loop:
 
 - `desi_gaia_adapter.py` — `solve_gaia_task(task, backend=..., model=...,
   prompt_mode=..., skip_attachments=..., dry_run=...)` optionally calls a real
@@ -123,6 +123,28 @@ Four scripts form an end-to-end loop:
 - `report_validation.py` — summarises a run: attachment split, overall and
   text-only accuracy, per-level accuracy, and the number of UNKNOWN/empty
   answers.
+- `analyze_errors.py` — per-task error analysis: classifies each task
+  (correct / attachment_skipped / backend_error / reasoning_truncated /
+  needs_web_search_or_tools / empty_or_unknown / wrong_answer /
+  unknown_failure) and writes a Markdown report.
+
+### Error analysis before scaling up
+
+Run a small batch, then analyse *why* tasks failed before spending money on a
+larger run:
+
+```bash
+python benchmarks/gaia/analyze_errors.py \
+  --submission benchmarks/gaia/outputs/submission.validation.deepseek-v4.textonly.limit10.jsonl
+# writes outputs/error_report.<run>.md
+```
+
+This step matters because GAIA failures have very different fixes: a
+`reasoning_truncated` task just needs a bigger token budget, a
+`needs_web_search_or_tools` task needs an actual tool/search loop (not a bigger
+model), and `attachment_skipped` needs a file reader. Scaling to the full split
+before knowing the failure mix would burn tokens without telling you what to
+build next.
 
 ### Model strategy
 
