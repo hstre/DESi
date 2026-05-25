@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Run the conflict detector against the targeted benchmark, comparing P5
-(no predicate typing) vs P6 (predicate typing + temporal + unit normalisation)
-on the identical dataset. Heuristic benchmark only — no ontology, no world model.
-No network, no secrets.
+"""Run the conflict detector against the targeted benchmark, comparing P6
+(predicate typing, string-exact subjects) vs P7 (+ entity normalisation + light
+coreference) on the identical dataset. Heuristic benchmark only — no ontology,
+no world model, no real NER. No network, no secrets.
 """
 from __future__ import annotations
 
@@ -22,30 +22,39 @@ from desi.memory.store import InMemoryStore              # noqa: E402
 from conflict_benchmark_dataset import groups            # noqa: E402
 from cross_claim_contradictions import (conflict_between,  # noqa: E402
                                         governance_signals)
+from entity_normalization import is_pronoun, resolve_pronoun  # noqa: E402
+
+_ALIAS_CATS = {"alias", "name_form", "abbreviation", "pronoun"}
 
 
-def run(predicate_types: bool = True) -> tuple[list[dict], InMemoryStore, dict]:
-    gs = groups()
+def run(predicate_types: bool = True, entity_norm: bool = True
+        ) -> tuple[list[dict], InMemoryStore, dict]:
     store = InMemoryStore()
     rec = MemoryRecorder(store)
     rec.start_run(model="conflict_benchmark",
-                  label="p6" if predicate_types else "p5",
-                  config={"predicate_types": predicate_types})
+                  label=("p7" if entity_norm else "p6"),
+                  config={"predicate_types": predicate_types, "entity_norm": entity_norm})
     claims_by_id, recorded, conflicts, results = {}, {}, [], []
 
     def _state(s):
         return ClaimState(s) if s in {x.value for x in ClaimState} else ClaimState.PROPOSED
 
-    for g in gs:
+    for g in groups():
         a = {**g["a"], "_id": g["id"] + "_a"}
         b = {**g["b"], "_id": g["id"] + "_b"}
+        # light coreference (P7 only): resolve a pronoun to the local antecedent
+        if entity_norm:
+            if is_pronoun(a["subject"]) and not is_pronoun(b["subject"]):
+                a = {**a, "subject": resolve_pronoun(a["subject"], b["subject"])}
+            elif is_pronoun(b["subject"]) and not is_pronoun(a["subject"]):
+                b = {**b, "subject": resolve_pronoun(b["subject"], a["subject"])}
         claims_by_id[a["_id"]], claims_by_id[b["_id"]] = a, b
         for c in (a, b):
             recorded[c["_id"]] = rec.record_claim(
                 content=f"{c['subject']} | {c['predicate']} | {c['object']}",
                 method=f"benchmark_{g['category']}", state=_state(c.get("state", "proposed")),
                 confidence=0.7, operator_path=(g["id"],))
-        cf = conflict_between(a, b, predicate_types=predicate_types)
+        cf = conflict_between(a, b, predicate_types=predicate_types, entity_norm=entity_norm)
         detected = cf.level if cf else "compatible"
         if cf:
             conflicts.append(cf)
@@ -55,12 +64,13 @@ def run(predicate_types: bool = True) -> tuple[list[dict], InMemoryStore, dict]:
         results.append({"id": g["id"], "category": g["category"], "expected": g["expected"],
                         "detected": detected, "correct": detected == g["expected"],
                         "rule": cf.rule if cf else "-",
+                        "subject_match": cf.subject_match if cf else "-",
                         "reason": cf.reason if cf else "no conflict"})
     rec.end_run()
     return results, store, governance_signals(claims_by_id, conflicts)
 
 
-def _prf(results: list[dict], cls: str) -> tuple[int, int, int, float, float]:
+def _prf(results, cls):
     tp = sum(1 for r in results if r["expected"] == cls and r["detected"] == cls)
     fp = sum(1 for r in results if r["detected"] == cls and r["expected"] != cls)
     fn = sum(1 for r in results if r["expected"] == cls and r["detected"] != cls)
@@ -69,93 +79,95 @@ def _prf(results: list[dict], cls: str) -> tuple[int, int, int, float, float]:
 
 def _metrics(results):
     n = len(results)
-    exact = sum(1 for r in results if r["correct"])
-    c = _prf(results, "contradiction")
-    p = _prf(results, "potential")
-    mv = [r for r in results if r["category"] == "multi_valued"]
-    mv_fp = sum(1 for r in mv if r["detected"] != "compatible")
-    tmp = [r for r in results if r["category"] == "temporal"]
-    tmp_ok = sum(1 for r in tmp if r["correct"])
-    return {"n": n, "exact": exact, "c": c, "p": p, "mv_fp": (mv_fp, len(mv)),
-            "tmp": (tmp_ok, len(tmp))}
+    ac = [r for r in results if r["category"] in _ALIAS_CATS]
+    ac_ok = sum(1 for r in ac if r["correct"])
+    return {"n": n, "exact": sum(1 for r in results if r["correct"]),
+            "c": _prf(results, "contradiction"), "p": _prf(results, "potential"),
+            "alias_coref": (ac_ok, len(ac))}
 
 
-def write_compare_report(p5, p6, p6_store, p6_gov, path: Path) -> None:
-    m5, m6 = _metrics(p5), _metrics(p6)
+def write_compare_report(p6, p7, p7_store, p7_gov, path: Path) -> None:
+    m6, m7 = _metrics(p6), _metrics(p7)
 
-    def row(name, f5, f6):
-        return f"| {name} | {f5} | {f6} |"
+    def r(name, x, y):
+        return f"| {name} | {x} | {y} |"
 
-    md = ["# Conflict benchmark: P5 (no predicate typing) vs P6 (predicate typing)\n",
-          f"- pairs: **{m6['n']}**\n",
-          "| metric | P5 | P6 |", "| --- | --- | --- |",
-          row("exact-match", f"{m5['exact']}/{m5['n']}", f"{m6['exact']}/{m6['n']}"),
-          row("contradiction precision", f"{m5['c'][3]:.2f}", f"{m6['c'][3]:.2f}"),
-          row("contradiction recall", f"{m5['c'][4]:.2f}", f"{m6['c'][4]:.2f}"),
-          row("potential precision", f"{m5['p'][3]:.2f}", f"{m6['p'][3]:.2f}"),
-          row("potential recall", f"{m5['p'][4]:.2f}", f"{m6['p'][4]:.2f}"),
-          row("multi-valued FP rate", f"{m5['mv_fp'][0]}/{m5['mv_fp'][1]}",
-              f"{m6['mv_fp'][0]}/{m6['mv_fp'][1]}"),
-          row("temporal correct", f"{m5['tmp'][0]}/{m5['tmp'][1]}",
-              f"{m6['tmp'][0]}/{m6['tmp'][1]}"),
+    md = ["# Conflict benchmark: P6 (string-exact) vs P7 (entity normalisation)\n",
+          f"- pairs: **{m7['n']}**\n",
+          "| metric | P6 | P7 |", "| --- | --- | --- |",
+          r("exact-match", f"{m6['exact']}/{m6['n']}", f"{m7['exact']}/{m7['n']}"),
+          r("contradiction precision", f"{m6['c'][3]:.2f}", f"{m7['c'][3]:.2f}"),
+          r("contradiction recall", f"{m6['c'][4]:.2f}", f"{m7['c'][4]:.2f}"),
+          r("potential precision", f"{m6['p'][3]:.2f}", f"{m7['p'][3]:.2f}"),
+          r("alias/coref recall", f"{m6['alias_coref'][0]}/{m6['alias_coref'][1]}",
+            f"{m7['alias_coref'][0]}/{m7['alias_coref'][1]}"),
           ""]
 
-    md.append("## P6 per category (expected → detected)\n")
+    md.append("## P7 per category (expected → detected)\n")
     md.append("| category | n | exact | detected breakdown |")
     md.append("| --- | --- | --- | --- |")
     by_cat = defaultdict(list)
-    for r in p6:
-        by_cat[r["category"]].append(r)
-    for cat in ("negation", "numeric", "temporal", "attribute",
-                "multi_valued", "paraphrase", "uncertain"):
-        rs = by_cat.get(cat, [])
-        if rs:
-            ex = sum(1 for r in rs if r["correct"])
-            md.append(f"| {cat} | {len(rs)} | {ex}/{len(rs)} | "
-                      f"`{dict(Counter(r['detected'] for r in rs))}` |")
+    for x in p7:
+        by_cat[x["category"]].append(x)
+    for cat in sorted(by_cat):
+        rs = by_cat[cat]
+        ex = sum(1 for x in rs if x["correct"])
+        md.append(f"| {cat} | {len(rs)} | {ex}/{len(rs)} | "
+                  f"`{dict(Counter(x['detected'] for x in rs))}` |")
     md.append("")
 
-    md.append("## What P6 fixed\n")
-    fixed = [(r5, r6) for r5, r6 in zip(p5, p6) if r5["detected"] != r6["detected"]]
-    for r5, r6 in fixed[:10]:
-        md.append(f"- `{r6['id']}` [{r6['category']}] {r5['detected']} → **{r6['detected']}** "
-                  f"(now {'correct' if r6['correct'] else 'still off'}; rule {r6['rule']})")
+    md.append("## What P7 newly detects (via entity normalisation)\n")
+    for x6, x7 in zip(p6, p7):
+        if x6["detected"] != x7["detected"]:
+            md.append(f"- `{x7['id']}` [{x7['category']}] {x6['detected']} → "
+                      f"**{x7['detected']}** via subject_match=`{x7['subject_match']}` "
+                      f"({'correct' if x7['correct'] else 'now off'})")
     md.append("")
-    md.append("## Remaining mismatches in P6\n")
-    for r in [r for r in p6 if not r["correct"]][:8]:
-        md.append(f"- `{r['id']}` [{r['category']}] expected **{r['expected']}**, "
-                  f"got **{r['detected']}** ({r['rule']})")
+    md.append("## False-positive risks of aggressive merging\n")
+    for x in p7:
+        if x["category"] in ("homonym_fp", "merge_fp"):
+            ok = "OK (stayed compatible)" if x["detected"] == "compatible" else \
+                 f"FALSE MERGE → {x['detected']}"
+            md.append(f"- `{x['id']}` [{x['category']}] {ok} (subject_match={x['subject_match']})")
     md.append("")
-    rej = [cid for cid, g in p6_gov.items() if "rejected_vs_confirmed" in g.get("flags", [])]
+    md.append("## Remaining mismatches in P7\n")
+    for x in [x for x in p7 if not x["correct"]][:8]:
+        md.append(f"- `{x['id']}` [{x['category']}] expected **{x['expected']}**, "
+                  f"got **{x['detected']}** ({x['rule']}, match={x['subject_match']})")
+    md.append("")
+    emu = sum(1 for g in p7_gov.values()
+              if any(f.startswith("entity_merge_uncertainty") for f in g.get("flags", [])))
     md.append("## Governance (mark only)\n")
-    md.append(f"- claims with conflict-derived risk: **{len(p6_gov)}**")
-    md.append(f"- REJECTED-vs-CONFIRMED flagged: **{len(rej)} claims**\n")
+    md.append(f"- claims with conflict-derived risk: **{len(p7_gov)}**")
+    md.append(f"- claims flagged `entity_merge_uncertainty` (conflict relies on a "
+              f"non-exact subject merge): **{emu}**\n")
     md.append("## Honesty / limits\n")
-    md.append("Predicate typing is keyword-based (no ontology). Multi-valued is "
-              "inferred from predicate keywords (`has`, `contains`, `described as`, "
-              "…); a contradiction on a multi-valued predicate would be missed. "
-              "Temporal handles before/after with a shared reference only. Unit "
-              "normalisation covers a few cases (celsius, percent). Still heuristic, "
-              "same-subject only, no world model; labels are a human reading.")
+    md.append("Entity normalisation is heuristic: lowercase/articles, a tiny "
+              "abbreviation table (USA/UK/UAE/NYC…), a cautious surname alias "
+              "(blocked for place/org words like 'City'), light singularisation, "
+              "and unit normalisation. Coreference is just a local last-subject "
+              "fallback for he/she/it/they — **no** real NER, **no** ontology, "
+              "**no** global coreference. Homonyms (Paris/France vs Paris/Texas) "
+              "are an inherent danger of symbolic equality, not solved here; "
+              "non-exact merges are flagged `entity_merge_uncertainty`, never "
+              "silently trusted.")
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(md) + "\n", encoding="utf-8")
 
 
 def main() -> int:
-    p = argparse.ArgumentParser(description="P5-vs-P6 conflict benchmark.")
+    p = argparse.ArgumentParser(description="P6-vs-P7 conflict benchmark.")
     p.add_argument("--report", type=Path, default=Path(__file__).resolve().parent
-                   / "outputs" / "conflict_benchmark_p6_report.md")
+                   / "outputs" / "conflict_benchmark_p7_report.md")
     args = p.parse_args()
-    p5, _, _ = run(predicate_types=False)
-    p6, p6_store, p6_gov = run(predicate_types=True)
-    write_compare_report(p5, p6, p6_store, p6_gov, args.report)
-    m5, m6 = _metrics(p5), _metrics(p6)
-    print(f"P5 exact {m5['exact']}/{m5['n']} mv_fp {m5['mv_fp'][0]}/{m5['mv_fp'][1]} "
-          f"temporal {m5['tmp'][0]}/{m5['tmp'][1]} | "
-          f"P6 exact {m6['exact']}/{m6['n']} mv_fp {m6['mv_fp'][0]}/{m6['mv_fp'][1]} "
-          f"temporal {m6['tmp'][0]}/{m6['tmp'][1]}; "
-          f"contradiction P/R P5={m5['c'][3]:.2f}/{m5['c'][4]:.2f} "
-          f"P6={m6['c'][3]:.2f}/{m6['c'][4]:.2f}. Report -> {args.report}")
+    p6, _, _ = run(predicate_types=True, entity_norm=False)
+    p7, p7_store, p7_gov = run(predicate_types=True, entity_norm=True)
+    write_compare_report(p6, p7, p7_store, p7_gov, args.report)
+    m6, m7 = _metrics(p6), _metrics(p7)
+    print(f"P6 exact {m6['exact']}/{m6['n']} alias/coref {m6['alias_coref'][0]}/{m6['alias_coref'][1]} "
+          f"c-recall {m6['c'][4]:.2f} | P7 exact {m7['exact']}/{m7['n']} "
+          f"alias/coref {m7['alias_coref'][0]}/{m7['alias_coref'][1]} "
+          f"c-prec {m7['c'][3]:.2f} c-recall {m7['c'][4]:.2f}. Report -> {args.report}")
     return 0
 
 

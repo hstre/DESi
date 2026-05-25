@@ -108,6 +108,33 @@ GROUPS = [
        ("the cause", "was", "mechanical failure")),
     _g("unc_06", "uncertain", "potential", ("the film", "was released in", "the summer"),
        ("the film", "was released in", "the winter")),
+
+    # --- P7: alias / abbreviation / pronoun / name-form -> contradiction
+    #         (these need entity normalisation; P6 string-exact misses them) ---
+    _g("alias_01", "alias", "contradiction", ("Lincoln", "is", "the 16th president"),
+       ("Abraham Lincoln", "is not", "the 16th president"), sa="rejected", sb="confirmed"),
+    _g("alias_02", "alias", "contradiction", ("Lincoln", "birth year", "1809"),
+       ("Abraham Lincoln", "birth year", "1810")),
+    _g("name_01", "name_form", "contradiction", ("Einstein", "is", "a physicist"),
+       ("Albert Einstein", "is not", "a physicist")),
+    _g("abbr_01", "abbreviation", "contradiction", ("the USA", "is", "a monarchy"),
+       ("the United States", "is not", "a monarchy")),
+    _g("abbr_02", "abbreviation", "contradiction", ("the UK", "has", "4 countries"),
+       ("the United Kingdom", "has", "5 countries")),
+    _g("pron_01", "pronoun", "contradiction", ("the patient", "is", "alive"),
+       ("it", "is", "dead"), sa="confirmed", sb="rejected"),
+    _g("pron_02", "pronoun", "contradiction", ("the author", "is", "alive"),
+       ("he", "is", "dead")),
+
+    # --- P7: units (compatible after normalisation) ---
+    _g("unit_01", "units_norm", "compatible", ("water", "boils at", "100 degrees celsius"),
+       ("water", "boils at", "100 c")),
+
+    # --- P7: false-positive RISKS of aggressive merging (should stay compatible) ---
+    _g("homo_01", "homonym_fp", "compatible", ("Paris", "is in", "France"),
+       ("Paris", "is in", "Texas")),   # different cities, same name (homonym)
+    _g("merge_01", "merge_fp", "compatible", ("Kansas City", "is in", "Missouri"),
+       ("New York City", "is in", "New York")),  # must NOT merge on "City"
 ]
 
 

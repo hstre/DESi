@@ -325,3 +325,34 @@ multi-valued FP **6/6 → 1/6**, temporal **2/4 → 4/4**, contradiction recall
 precision **stays 1.00** (no new false contradictions). Still heuristic: predicate
 typing is keyword-based, no ontology; a contradiction stated on a multi-valued
 predicate would be missed.
+
+### P7: entity normalisation — symbolic vs. semantic equality
+
+P6 still compared subjects as **strings**, so it missed conflicts where the same
+entity is named differently: `Lincoln` vs `Abraham Lincoln`, `USA` vs
+`United States`, `NYC` vs `New York City`, or a pronoun (`it`/`he`) standing in
+for a subject. `entity_normalization.py` adds heuristic resolution — lowercase /
+article removal, a small abbreviation table, a cautious surname alias (blocked
+for place/org words like *City*), light singularisation, unit normalisation — and
+a local last-subject pronoun fallback. `entities_match` reports **how** it
+matched (`exact` / `normalized` / `alias`) so non-exact merges can be flagged.
+
+```bash
+python benchmarks/static_eval/entity_normalization.py        # alias/abbrev checks
+python benchmarks/static_eval/conflict_benchmark_runner.py   # P6 vs P7 + report
+```
+
+**Symbolic vs. semantic equality.** P6 used *symbolic* equality (identical
+strings). P7 approximates *semantic* equality (same real-world entity), which is
+what a contradiction actually needs. **But aggressive merging is dangerous:**
+homonyms (`Paris`/France vs `Paris`/Texas) are *symbolically* equal yet
+*semantically* different — merging them invents a conflict. P7 therefore (a)
+blocks unsafe surname aliasing (`Kansas City` ≠ `New York City`), and (b) flags
+every non-exact merge as `entity_merge_uncertainty` in governance — it never
+silently trusts a merge.
+
+P6 → P7 (`outputs/conflict_benchmark_p7_report.md`, 46 pairs): **alias/coref
+recall 0/7 → 7/7**, contradiction recall **0.73 → 1.00**, contradiction precision
+**stays 1.00**, and the merge false-positive test stays compatible (no new FP;
+the Paris homonym is an inherent limit of symbolic equality, surfaced not solved).
+Heuristic only: no real NER, no ontology, no global coreference.

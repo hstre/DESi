@@ -19,6 +19,11 @@ tag — the core enum is left unchanged.
 from __future__ import annotations
 
 import re
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # for entity_normalization
+from entity_normalization import entities_match  # noqa: E402
 from dataclasses import dataclass
 
 _NEG_TOKENS = {"not", "never", "no", "cannot"}
@@ -51,6 +56,7 @@ class Conflict:
     label: str    # "CONTRADICTS" | "POTENTIALLY_CONTRADICTS"
     reason: str
     rule: str
+    subject_match: str = "exact"   # how the subjects matched: exact|normalized|alias
 
 
 def _norm(s: object) -> str:
@@ -145,11 +151,23 @@ def temporal_inverse(p1: str, o1: str, p2: str, o2: str) -> bool:
     return (len(r1 & r2) / max(1, len(r1 | r2))) >= 0.3
 
 
-def conflict_between(c1: dict, c2: dict, *, predicate_types: bool = True) -> Conflict | None:
-    s1, s2 = _norm(c1.get("subject", "")), _norm(c2.get("subject", ""))
-    if not s1 or s1 != s2:
-        return None  # conservative: only compare same-subject claims
+def conflict_between(c1: dict, c2: dict, *, predicate_types: bool = True,
+                     entity_norm: bool = True) -> Conflict | None:
+    raw1, raw2 = str(c1.get("subject", "")), str(c2.get("subject", ""))
+    if entity_norm:
+        matched, sm = entities_match(raw1, raw2)
+        if not matched:
+            return None
+    else:
+        s1, s2 = _norm(raw1), _norm(raw2)
+        if not s1 or s1 != s2:
+            return None
+        sm = "exact"
     a, b = c1.get("_id", ""), c2.get("_id", "")
+
+    def mk(level, label, reason, rule):
+        return Conflict(a, b, level, label, reason, rule, subject_match=sm)
+
     p1b, neg1 = _neg(c1.get("predicate", ""))
     p2b, neg2 = _neg(c2.get("predicate", ""))
     if predicate_types:
@@ -161,56 +179,58 @@ def conflict_between(c1: dict, c2: dict, *, predicate_types: bool = True) -> Con
     # 1. negation on the same base predicate
     if same_pred and neg1 != neg2:
         if o1 == o2 or _overlap(o1, o2) >= 0.5 or (not o1 and not o2):
-            return Conflict(a, b, "contradiction", "CONTRADICTS",
-                            f"negation: {c1.get('predicate')!r} vs "
-                            f"{c2.get('predicate')!r} (same subject/object)", "negation")
-        return Conflict(a, b, "potential", "POTENTIALLY_CONTRADICTS",
-                        "negation on same predicate, different objects", "negation")
+            return mk("contradiction", "CONTRADICTS",
+                      f"negation: {c1.get('predicate')!r} vs "
+                      f"{c2.get('predicate')!r} (same subject/object)", "negation")
+        return mk("potential", "POTENTIALLY_CONTRADICTS",
+                  "negation on same predicate, different objects", "negation")
 
     # 2. temporal order inversion (P6): X before <ref> vs X after <ref>
     if predicate_types and temporal_inverse(p1b, o1, p2b, o2):
-        return Conflict(a, b, "contradiction", "CONTRADICTS",
-                        "temporal order inversion (before vs after, same reference)",
-                        "temporal_order")
+        return mk("contradiction", "CONTRADICTS",
+                  "temporal order inversion (before vs after, same reference)",
+                  "temporal_order")
 
     if same_pred and neg1 == neg2:
         # 3. antonym objects (boolean attribute)
         hit = _antonym_hit(o1, o2)
         if hit:
-            return Conflict(a, b, "contradiction", "CONTRADICTS",
-                            f"antonym objects: {hit[0]}/{hit[1]}", "antonym")
+            return mk("contradiction", "CONTRADICTS",
+                      f"antonym objects: {hit[0]}/{hit[1]}", "antonym")
         # 4. numeric single-value mismatch
         if _single_number(o1) and _single_number(o2) and _single_number(o1) != _single_number(o2):
-            return Conflict(a, b, "contradiction", "CONTRADICTS",
-                            f"numeric mismatch: {_single_number(o1)} vs {_single_number(o2)}",
-                            "numeric")
+            return mk("contradiction", "CONTRADICTS",
+                      f"numeric mismatch: {_single_number(o1)} vs {_single_number(o2)}",
+                      "numeric")
         # 5. strongly different objects
         if o1 and o2 and o1 != o2 and _overlap(o1, o2) < 0.3:
             if predicate_types:
                 kind = predicate_kind(p1b, o1, o2)
                 if kind == "multi_valued":
                     return None  # different objects are complementary, not a conflict
-                return Conflict(a, b, "potential", "POTENTIALLY_CONTRADICTS",
-                                f"different objects on {kind} predicate", f"diff_object/{kind}")
-            return Conflict(a, b, "potential", "POTENTIALLY_CONTRADICTS",
-                            "same subject+predicate, different objects", "diff_object")
+                return mk("potential", "POTENTIALLY_CONTRADICTS",
+                          f"different objects on {kind} predicate", f"diff_object/{kind}")
+            return mk("potential", "POTENTIALLY_CONTRADICTS",
+                      "same subject+predicate, different objects", "diff_object")
 
     # 6. antonym across predicate/object (same subject) -> potential
     hit = _antonym_hit(f"{o1} {p1b}", f"{o2} {p2b}")
     if hit:
-        return Conflict(a, b, "potential", "POTENTIALLY_CONTRADICTS",
-                        f"antonym across pred/object: {hit[0]}/{hit[1]}", "antonym_loose")
+        return mk("potential", "POTENTIALLY_CONTRADICTS",
+                  f"antonym across pred/object: {hit[0]}/{hit[1]}", "antonym_loose")
     return None
 
 
-def detect_conflicts(claims: list[dict], *, predicate_types: bool = True) -> list[Conflict]:
+def detect_conflicts(claims: list[dict], *, predicate_types: bool = True,
+                     entity_norm: bool = True) -> list[Conflict]:
     """claims: dicts with subject/predicate/object (+ optional _id). O(n^2)."""
     for i, c in enumerate(claims):
         c.setdefault("_id", str(i))
     out = []
     for i in range(len(claims)):
         for j in range(i + 1, len(claims)):
-            cf = conflict_between(claims[i], claims[j], predicate_types=predicate_types)
+            cf = conflict_between(claims[i], claims[j], predicate_types=predicate_types,
+                                  entity_norm=entity_norm)
             if cf:
                 out.append(cf)
     return out
@@ -238,6 +258,11 @@ def governance_signals(claims_by_id: dict, conflicts: list[Conflict]) -> dict:
             for cid in (cf.a, cf.b):
                 risk[cid] = min(1.0, risk.get(cid, 0.0) + 0.3)
                 flags.setdefault(cid, []).append("rejected_vs_confirmed")
+        # the conflict only exists because two *different* raw subjects were
+        # merged by normalisation/alias — flag the uncertainty (don't suppress).
+        if cf.subject_match in ("normalized", "alias"):
+            for cid in (cf.a, cf.b):
+                flags.setdefault(cid, []).append(f"entity_merge_uncertainty:{cf.subject_match}")
 
     out = {}
     for cid in set(list(risk) + list(nconf)):
