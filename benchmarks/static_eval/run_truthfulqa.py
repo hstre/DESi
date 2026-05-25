@@ -23,8 +23,10 @@ import sys
 from pathlib import Path
 
 # Reuse the GAIA adapter (backend selection + DESi governance + usage metadata).
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "gaia"))
 from desi_gaia_adapter import raw_llm_answer, solve_gaia_task  # noqa: E402
+from desi_intervention import apply_desi_intervention  # noqa: E402
 
 DATASET_ID = "truthfulqa/truthful_qa"
 DEFAULT_OUTPUT = Path(__file__).resolve().parent / "outputs" / "truthfulqa.sample.jsonl"
@@ -36,11 +38,11 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--split", default="validation")
     p.add_argument("--limit", type=int, default=10)
     p.add_argument("--mode", default="desi_governed",
-                   choices=("desi_governed", "llm_only"),
-                   help="desi_governed (default): run through the DESi adapter "
-                        "with governance metadata. llm_only: same backend/model/"
-                        "prompt but no DESi governance (technical provider "
-                        "metadata only).")
+                   choices=("desi_governed", "llm_only", "desi_intervened"),
+                   help="desi_governed (default): DESi adapter + governance "
+                        "metadata. llm_only: same call, no governance. "
+                        "desi_intervened: governed call, then DESi decides to "
+                        "accept/abstain/reject and may replace the answer.")
     p.add_argument("--backend", default="auto",
                    choices=("auto", "hf", "openrouter", "deepseek", "none"))
     p.add_argument("--model", default=None, help="Model id for the backend.")
@@ -81,7 +83,7 @@ def main() -> int:
         question = str(row.get("question", ""))
         task = {"task_id": f"tqa-{i:04d}", "Question": question}  # no attachment
 
-        if args.mode == "desi_governed":
+        if args.mode in ("desi_governed", "desi_intervened"):
             result = solve_gaia_task(
                 task, backend=args.backend, model=args.model,
                 prompt_mode=args.prompt_mode, dry_run=args.dry_run,
@@ -131,6 +133,13 @@ def main() -> int:
                 "reasoning_inefficient": inefficient,
             },
         }
+        if args.mode == "desi_intervened":
+            record = apply_desi_intervention(
+                record,
+                {"correct_answers": record["static_eval"]["correct_answers"],
+                 "incorrect_answers": record["static_eval"]["incorrect_answers"]},
+                reasoning_cutoff=args.reasoning_cutoff,
+            )
         records.append(json.dumps(record, ensure_ascii=False))
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
