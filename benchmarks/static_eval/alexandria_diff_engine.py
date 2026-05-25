@@ -29,6 +29,15 @@ _QUANTIFIERS = {"all", "every", "each", "none", "no", "some", "most", "many",
                 "few", "any", "always", "never"}
 _TEMPORAL_WORDS = {"always", "never", "now", "today", "currently", "historically",
                    "ago", "since", "until", "before", "after"}
+_CAUSAL_MARKERS = ("because", "causes", "cause", "caused", "due to", "leads to",
+                   "results in", "result in", "so that", "therefore")
+
+
+def _is_causal(c: dict) -> bool:
+    if c.get("claim_type") == "causal":
+        return True
+    text = f"{c.get('predicate','')} {c.get('object','')}".lower()
+    return any(m in text for m in _CAUSAL_MARKERS)
 
 
 def _dice(a: set, b: set) -> float:
@@ -101,6 +110,10 @@ def _pair_diffs(a: dict, b: dict) -> list[DiffItem]:
     if _object_granularity_differs(a, b):
         out.append(DiffItem(DiffType.GRANULARITY_MISMATCH, "alpha", "beta", a, b,
                             "aligned claims differ in object granularity"))
+    if _is_causal(a) != _is_causal(b):
+        out.append(DiffItem(DiffType.CAUSALITY_MISMATCH, "alpha", "beta", a, b,
+                            f"causal structure differs (alpha causal={_is_causal(a)}, "
+                            f"beta causal={_is_causal(b)})"))
     return out
 
 
