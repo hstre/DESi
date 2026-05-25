@@ -285,6 +285,10 @@ def solve_gaia_task(task: dict, *, backend: str = "auto",
     question = str(task.get("Question", ""))
     requires_attachment = bool((task.get("file_name") or "").strip())
 
+    # OpenRouter/DeepSeek clients live in the `desi` package, so the repo's src/
+    # must be importable before the LLM call (not only later in _desi_signals).
+    _ensure_desi_importable()
+
     resolved = resolve_backend(backend, model)
     model_id = resolve_model(resolved, model)
     model_answer = ""
