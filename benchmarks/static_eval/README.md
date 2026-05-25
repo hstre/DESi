@@ -270,3 +270,28 @@ questions rarely share a subject); the `different-object` rule over-fires on
 *complementary* claims, so it is only ever `potential` (represented as a
 low-weight `CONTRADICTS` edge since the closed enum has no
 `POTENTIALLY_CONTRADICTS`). See `outputs/claim_conflict_report.md`.
+
+### P5: targeted conflict benchmark (vs. random TruthfulQA conflicts)
+
+TruthfulQA-50 has almost no same-subject conflicts (independent questions), so it
+could not actually exercise the conflict engine. `conflict_benchmark_dataset.py`
++ `conflict_benchmark_runner.py` provide ~36 **hand-labelled same-subject claim
+pairs** across negation / numeric / temporal / attribute / multi-valued /
+paraphrase / uncertain, each tagged `contradiction` / `potential` / `compatible`.
+
+```bash
+python benchmarks/static_eval/conflict_benchmark_runner.py   # metrics + report
+```
+
+Why same-subject pairs are needed: a contradiction only exists *between claims
+about the same thing*. Random benchmark answers about different questions can
+never produce one, so a real conflict engine must be measured on a targeted set.
+
+Measured (`outputs/conflict_benchmark_report.md`): **contradiction precision
+1.00, recall 0.89**; negation/numeric/attribute categories 5/5; the `potential`
+class has precision ~0.36 because the **multi-valued FP rate is 6/6** (the
+detector cannot distinguish a compatible trait-list from a real conflict — both
+are same subject+predicate, different object); temporal `before/after` is a recall
+gap (not an antonym pair). 8 REJECTED-vs-CONFIRMED claims correctly flagged for
+governance. This is the first **measurable** epistemic-conflict benchmark for
+DESi — still heuristic, no ontology/world model.
