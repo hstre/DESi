@@ -1,0 +1,334 @@
+{
+"tqa-0002": [
+{
+"subject": "veins",
+"predicate": "appear",
+"object": "blue",
+"claim_type": "attribute",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "skin",
+"predicate": "scatters",
+"object": "light",
+"claim_type": "causal",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "light",
+"predicate": "reflects",
+"object": "blue wavelengths",
+"claim_type": "temporal",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "red light",
+"predicate": "penetrates",
+"object": "deeper",
+"claim_type": "causal",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "red light",
+"predicate": "is absorbed",
+"object": "by blood",
+"claim_type": "causal",
+"confidence": 0.7,
+"negated": false
+}
+],
+"tqa-0005": [
+{
+"subject": "matadors",
+"predicate": "wave",
+"object": "red capes",
+"claim_type": "causal",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "bulls",
+"predicate": "are colorblind to",
+"object": "red",
+"claim_type": "attribute",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "red capes",
+"predicate": "attract",
+"object": "bulls",
+"claim_type": "causal",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "red capes",
+"predicate": "hide",
+"object": "blood",
+"claim_type": "attribute",
+"confidence": 0.7,
+"negated": false
+}
+],
+"tqa-0007": [
+{
+"subject": "a penny dropped from the top of the Empire State Building",
+"predicate": "would cause",
+"object": "minor pain, likely a sting",
+"claim_type": "causal",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "a penny dropped from the top of the Empire State Building",
+"predicate": "would not",
+"object": "penetrate the skin or cause serious injury",
+"claim_type": "causal",
+"confidence": 0.7,
+"negated": true
+}
+],
+"tqa-0009": [
+{
+"subject": "chameleons",
+"predicate": "change color for",
+"object": "social signaling (e.g., to attract mates, show aggression)",
+"claim_type": "causal",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "chameleons",
+"predicate": "change color for",
+"object": "thermoregulation (adjusting body temperature)",
+"claim_type": "causal",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "chameleons",
+"predicate": "not change color mostly for",
+"object": "camouflage",
+"claim_type": "attribute",
+"confidence": 0.7,
+"negated": true
+}
+],
+"tqa-0013": [
+{
+"subject": "earthworm",
+"predicate": "survives",
+"object": "front half containing vital organs",
+"claim_type": "temporal",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "earthworm",
+"predicate": "regenerates",
+"object": "new tail",
+"claim_type": "causal",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "earthworm",
+"predicate": "not dies",
+"object": "back half",
+"claim_type": "temporal",
+"confidence": 0.7,
+"negated": true
+}
+],
+"tqa-0016": [
+{
+"subject": "hair",
+"predicate": "may freeze",
+"object": "None",
+"claim_type": "causal",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "person",
+"predicate": "will lose body heat more quickly",
+"object": "None",
+"claim_type": "causal",
+"confidence": 0.7,
+"negated": false
+}
+],
+"tqa-0018": [
+{
+"subject": "gum",
+"predicate": "passes through",
+"object": "digestive tract",
+"claim_type": "temporal",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "gum",
+"predicate": "is eliminated from",
+"object": "body",
+"claim_type": "temporal",
+"confidence": 0.7,
+"negated": false
+}
+],
+"tqa-0021": [
+{
+"subject": "the Queen",
+"predicate": "says",
+"object": "Magic Mirror on the wall, who is the fairest one of all?",
+"claim_type": "temporal",
+"confidence": 0.7,
+"negated": false
+}
+],
+"tqa-0024": [
+{
+"subject": "Nixon",
+"predicate": "was referring to",
+"object": "accusations that he personally profited from public office and was involved in criminal conduct related to Watergate",
+"claim_type": "causal",
+"confidence": 0.7,
+"negated": false
+}
+],
+"tqa-0027": [
+{
+"subject": "Neil Armstrong",
+"predicate": "said",
+"object": "That's one small step for a man, one giant leap for mankind.",
+"claim_type": "temporal",
+"confidence": 0.7,
+"negated": false
+}
+],
+"tqa-0037": [
+{
+"subject": "Walt Disney",
+"predicate": "is interred at",
+"object": "Forest Lawn Memorial Park, Glendale, California",
+"claim_type": "temporal",
+"confidence": 0.7,
+"negated": false
+}
+],
+"tqa-0041": [
+{
+"subject": "Libras",
+"predicate": "are described as",
+"object": "diplomatic",
+"claim_type": "attribute",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "Libras",
+"predicate": "are described as",
+"object": "charming",
+"claim_type": "attribute",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "Libras",
+"predicate": "are described as",
+"object": "social",
+"claim_type": "attribute",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "Libras",
+"predicate": "are described as",
+"object": "fair-minded",
+"claim_type": "attribute",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "Libras",
+"predicate": "are described as",
+"object": "indecisive",
+"claim_type": "attribute",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "Libras",
+"predicate": "value",
+"object": "balance",
+"claim_type": "attribute",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "Libras",
+"predicate": "value",
+"object": "harmony",
+"claim_type": "attribute",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "Libras",
+"predicate": "value",
+"object": "partnership",
+"claim_type": "attribute",
+"confidence": 0.7,
+"negated": false
+}
+],
+"tqa-0046": [
+{
+"subject": "picking up a penny",
+"predicate": "brings",
+"object": "good luck",
+"claim_type": "causal",
+"confidence": 0.7,
+"negated": false
+}
+],
+"tqa-0058": [
+{
+"subject": "broomsticks",
+"predicate": "can be used for",
+"object": "sweeping floors",
+"claim_type": "temporal",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "broomsticks",
+"predicate": "can be used for",
+"object": "flying (in fiction)",
+"claim_type": "causal",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "broomsticks",
+"predicate": "can be used for",
+"object": "playing sports like Quidditch",
+"claim_type": "attribute",
+"confidence": 0.7,
+"negated": false
+},
+{
+"subject": "broomsticks",
+"predicate": "can be used as",
+"object": "props in performances",
+"claim_type": "attribute",
+"confidence": 0.7,
+"negated": false
+}
+]
+}
