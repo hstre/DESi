@@ -30,6 +30,18 @@ _ANTONYMS = (
     ("always", "never"), ("guilty", "innocent"), ("real", "fake"),
 )
 
+# P6: predicate typing. Multi-valued predicates can take several compatible
+# objects; single-valued ones should hold one value; the rest are unknown.
+_MULTI_VALUED = ("described as", "associated with", "has quality", "has",
+                 "includes", "include", "consists of", "contains", "contain",
+                 "exports", "export", "produces", "features", "comprises",
+                 "is described as")
+_SINGLE_VALUED = ("birth year", "death year", "capital of", "is the capital of",
+                  "located in", "legal status", "truth value", "boils at",
+                  "born in", "died in", "founded in", "year")
+_TEMPORAL_BEFORE = {"before", "earlier", "pre", "prior"}
+_TEMPORAL_AFTER = {"after", "later", "post"}
+
 
 @dataclass
 class Conflict:
@@ -83,14 +95,67 @@ def _antonym_hit(a: str, b: str) -> tuple[str, str] | None:
     return None
 
 
-def conflict_between(c1: dict, c2: dict) -> Conflict | None:
+# --------------------------------------------------------------------------- #
+# P6 helpers: object normalisation, predicate typing, temporal order
+# --------------------------------------------------------------------------- #
+def normalize_object(o: object) -> str:
+    """Lower/strip + light unit normalisation (degrees celsius ≈ c, percent)."""
+    s = _norm(o)  # _norm already drops punctuation incl. % and °
+    s = re.sub(r"\bdegrees?\b", "", s)
+    s = re.sub(r"\bcelsius\b", "c", s)
+    s = re.sub(r"\bpercent\b", "pct", s)
+    return " ".join(s.split())
+
+
+def _single_number(text: str) -> str | None:
+    nums = _numbers(text)
+    return nums[0] if len(nums) == 1 else None
+
+
+def predicate_kind(predicate: str, o1: str, o2: str) -> str:
+    """Classify a (same) predicate given its two objects."""
+    p = _norm(predicate)
+    if _single_number(o1) and _single_number(o2):
+        return "numeric_value"
+    if any(k in p for k in _MULTI_VALUED):
+        return "multi_valued"
+    if any(k in p for k in _SINGLE_VALUED):
+        return "single_valued"
+    return "unknown"
+
+
+def _temporal_dir(text: str) -> str | None:
+    t = _tokens(text)
+    if t & _TEMPORAL_BEFORE:
+        return "before"
+    if t & _TEMPORAL_AFTER:
+        return "after"
+    return None
+
+
+def temporal_inverse(p1: str, o1: str, p2: str, o2: str) -> bool:
+    """True if one claim says before-<ref> and the other after-<same ref>."""
+    d1, d2 = _temporal_dir(f"{p1} {o1}"), _temporal_dir(f"{p2} {o2}")
+    if not (d1 and d2 and d1 != d2):
+        return False
+    r1 = _tokens(o1) - _TEMPORAL_BEFORE - _TEMPORAL_AFTER
+    r2 = _tokens(o2) - _TEMPORAL_BEFORE - _TEMPORAL_AFTER
+    if not r1 and not r2:
+        return True
+    return (len(r1 & r2) / max(1, len(r1 | r2))) >= 0.3
+
+
+def conflict_between(c1: dict, c2: dict, *, predicate_types: bool = True) -> Conflict | None:
     s1, s2 = _norm(c1.get("subject", "")), _norm(c2.get("subject", ""))
     if not s1 or s1 != s2:
         return None  # conservative: only compare same-subject claims
     a, b = c1.get("_id", ""), c2.get("_id", "")
     p1b, neg1 = _neg(c1.get("predicate", ""))
     p2b, neg2 = _neg(c2.get("predicate", ""))
-    o1, o2 = _norm(c1.get("object", "")), _norm(c2.get("object", ""))
+    if predicate_types:
+        o1, o2 = normalize_object(c1.get("object", "")), normalize_object(c2.get("object", ""))
+    else:
+        o1, o2 = _norm(c1.get("object", "")), _norm(c2.get("object", ""))
     same_pred = bool(p1b) and p1b == p2b
 
     # 1. negation on the same base predicate
@@ -102,23 +167,35 @@ def conflict_between(c1: dict, c2: dict) -> Conflict | None:
         return Conflict(a, b, "potential", "POTENTIALLY_CONTRADICTS",
                         "negation on same predicate, different objects", "negation")
 
+    # 2. temporal order inversion (P6): X before <ref> vs X after <ref>
+    if predicate_types and temporal_inverse(p1b, o1, p2b, o2):
+        return Conflict(a, b, "contradiction", "CONTRADICTS",
+                        "temporal order inversion (before vs after, same reference)",
+                        "temporal_order")
+
     if same_pred and neg1 == neg2:
-        # 2. antonym objects
+        # 3. antonym objects (boolean attribute)
         hit = _antonym_hit(o1, o2)
         if hit:
             return Conflict(a, b, "contradiction", "CONTRADICTS",
                             f"antonym objects: {hit[0]}/{hit[1]}", "antonym")
-        # 3. numeric single-value mismatch
-        n1, n2 = _numbers(o1), _numbers(o2)
-        if n1 and n2 and len(n1) == 1 and len(n2) == 1 and n1 != n2:
+        # 4. numeric single-value mismatch
+        if _single_number(o1) and _single_number(o2) and _single_number(o1) != _single_number(o2):
             return Conflict(a, b, "contradiction", "CONTRADICTS",
-                            f"numeric mismatch: {n1[0]} vs {n2[0]}", "numeric")
-        # 4. strongly different objects -> potential only
+                            f"numeric mismatch: {_single_number(o1)} vs {_single_number(o2)}",
+                            "numeric")
+        # 5. strongly different objects
         if o1 and o2 and o1 != o2 and _overlap(o1, o2) < 0.3:
+            if predicate_types:
+                kind = predicate_kind(p1b, o1, o2)
+                if kind == "multi_valued":
+                    return None  # different objects are complementary, not a conflict
+                return Conflict(a, b, "potential", "POTENTIALLY_CONTRADICTS",
+                                f"different objects on {kind} predicate", f"diff_object/{kind}")
             return Conflict(a, b, "potential", "POTENTIALLY_CONTRADICTS",
                             "same subject+predicate, different objects", "diff_object")
 
-    # 5. antonym across predicate/object (same subject) -> potential
+    # 6. antonym across predicate/object (same subject) -> potential
     hit = _antonym_hit(f"{o1} {p1b}", f"{o2} {p2b}")
     if hit:
         return Conflict(a, b, "potential", "POTENTIALLY_CONTRADICTS",
@@ -126,14 +203,14 @@ def conflict_between(c1: dict, c2: dict) -> Conflict | None:
     return None
 
 
-def detect_conflicts(claims: list[dict]) -> list[Conflict]:
+def detect_conflicts(claims: list[dict], *, predicate_types: bool = True) -> list[Conflict]:
     """claims: dicts with subject/predicate/object (+ optional _id). O(n^2)."""
     for i, c in enumerate(claims):
         c.setdefault("_id", str(i))
     out = []
     for i in range(len(claims)):
         for j in range(i + 1, len(claims)):
-            cf = conflict_between(claims[i], claims[j])
+            cf = conflict_between(claims[i], claims[j], predicate_types=predicate_types)
             if cf:
                 out.append(cf)
     return out

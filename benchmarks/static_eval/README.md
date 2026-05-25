@@ -295,3 +295,33 @@ are same subject+predicate, different object); temporal `before/after` is a reca
 gap (not an antonym pair). 8 REJECTED-vs-CONFIRMED claims correctly flagged for
 governance. This is the first **measurable** epistemic-conflict benchmark for
 DESi — still heuristic, no ontology/world model.
+
+### P6: predicate typing — *different object alone is not a contradiction*
+
+P5's biggest flaw: it treated **any** "same subject + predicate, different
+object" pair as a `potential` conflict, so multi-valued attributes (a Libra is
+"diplomatic" **and** "charming"; a recipe contains "salt" **and** "pepper") were
+all false positives. P6 (`cross_claim_contradictions.py`, `predicate_types=True`)
+adds keyword-based predicate typing:
+
+- **multi_valued** (`has`, `contains`, `includes`, `described as`,
+  `associated with`, `exports`, …): different objects are **complementary →
+  compatible**, not a conflict.
+- **single_valued / numeric** (`birth year`, `capital of`, `boils at`, counts):
+  different objects → `contradiction`/`potential`.
+- **temporal_order**: `before`/`after` (and earlier/later) with the same
+  reference → `contradiction` (fixes the before/after recall gap).
+- light **unit normalisation** (`100 degrees celsius` ≈ `100 c`, `percent`).
+
+Why this matters: a contradiction requires the predicate to be **single-valued**
+("X's capital is Y") — two different values then can't both hold. For a
+multi-valued predicate ("X contains Y"), two different objects usually *coexist*.
+Without predicate types, "different object" conflates these and floods the graph
+with false conflicts.
+
+P5 → P6 (`outputs/conflict_benchmark_p6_report.md`): exact-match **25→33/36**,
+multi-valued FP **6/6 → 1/6**, temporal **2/4 → 4/4**, contradiction recall
+**0.89 → 1.00**, potential precision **0.36 → 0.80** — and contradiction
+precision **stays 1.00** (no new false contradictions). Still heuristic: predicate
+typing is keyword-based, no ontology; a contradiction stated on a multi-valued
+predicate would be missed.
