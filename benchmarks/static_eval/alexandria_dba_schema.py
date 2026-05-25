@@ -49,6 +49,17 @@ class AlignmentType(str, Enum):
     STRUCTURALLY_DIVERGENT = "structurally_divergent"  # little/no shared region
 
 
+class MeaningAlignment(str, Enum):
+    """P18 meaning-space alignment classes (embedding-based). NOT truth labels —
+    they describe the semantic-region relationship between two reconstructions."""
+    RECONSTRUCTION_ISOMORPH = "reconstruction_isomorph"      # same region, bijective
+    COARSE_GRAIN_EQUIVALENT = "coarse_grain_equivalent"      # same region, one side coarser
+    DECOMPOSITION_VARIANT = "decomposition_variant"          # same region, different split
+    SEMANTIC_REGION_MATCH = "semantic_region_match"          # substantial region overlap
+    SEMANTIC_NEIGHBOR = "semantic_neighbor"                  # only some neighbouring claims
+    UNRESOLVED_SEMANTIC_DIVERGENCE = "unresolved_semantic_divergence"  # different region
+
+
 class AdjudicationOutcome(str, Enum):
     """How a deviation is characterised — explicitly NOT a winner/vote.
 
@@ -158,6 +169,7 @@ def json_schema() -> dict[str, Any]:
     return {
         "DiffType": [t.value for t in DiffType],
         "AlignmentType": [t.value for t in AlignmentType],
+        "MeaningAlignment": [t.value for t in MeaningAlignment],
         "AdjudicationOutcome": [o.value for o in AdjudicationOutcome],
         "BuilderOutput": {"builder_id": "str", "model": "str", "source_ref": "str",
                           "raw_text": "str", "claims": "list[dict]",
@@ -180,7 +192,7 @@ def json_schema() -> dict[str, Any]:
 
 __all__ = ["AdjudicationDecision", "AdjudicationOutcome", "AlignmentType",
            "BuilderGraph", "BuilderOutput", "DiffItem", "DiffReport", "DiffType",
-           "json_schema"]
+           "MeaningAlignment", "json_schema"]
 
 
 if __name__ == "__main__":

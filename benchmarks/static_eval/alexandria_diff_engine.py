@@ -164,4 +164,19 @@ def diff_graphs(alpha: list[dict], beta: list[dict], *, source_ref: str = "",
     return DiffReport(source_ref=source_ref, builder_a="alpha", builder_b="beta", diffs=diffs)
 
 
-__all__ = ["diff_graphs"]
+def region_aware_outcome(base_outcome: str, region_similarity: float | None,
+                         n_alpha: int, n_beta: int, *, region_high: float = 0.55) -> str:
+    """P18 rule: a branch_required driven by missing/extra claims over the SAME
+    semantic region (high region_similarity) is re-characterised as a
+    reconstruction (not a real branch). Pure function — the embedding-based
+    region_similarity is supplied by the meaning-space layer; this engine stays
+    embedding-free. Never asserts truth, never overrides a genuine divergence
+    (low region_similarity keeps branch_required)."""
+    if base_outcome != "branch_required" or region_similarity is None:
+        return base_outcome
+    if region_similarity >= region_high:
+        return "reconstruction_isomorph" if n_alpha == n_beta else "coarse_grain_equivalent"
+    return "branch_required"
+
+
+__all__ = ["diff_graphs", "region_aware_outcome"]
