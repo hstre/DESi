@@ -23,14 +23,14 @@ from conflict_benchmark_dataset import groups            # noqa: E402
 from cross_claim_contradictions import (conflict_between,  # noqa: E402
                                         governance_signals)
 from entity_normalization import is_pronoun, resolve_pronoun  # noqa: E402
-from spl_projection_adapter import project_atomic_claim_to_candidate  # noqa: E402
+from desi.spl_core import project_atomic_claim  # noqa: E402
 
 _ALIAS_CATS = {"alias", "name_form", "abbreviation", "pronoun"}
 
 # SPL "state" mode: map a claim's epistemic state to an extractor confidence,
-# which the SPL adapter turns into projection entropy. A rejected claim has low
-# standing -> low confidence -> high entropy -> the gate blocks it. This is an
-# adapter policy choice (documented), NOT original SPL behaviour.
+# which SPL-core turns into projection entropy. A rejected claim has low standing
+# -> low confidence -> high entropy -> the gate blocks it. This is an adapter
+# policy choice (documented), NOT original SPL behaviour.
 _STATE_CONFIDENCE = {"confirmed": 0.92, "proposed": 0.70, "rejected": 0.40}
 
 
@@ -40,22 +40,12 @@ def _confidence_for(claim: dict, spl_mode: str | None) -> float:
     return 0.70  # matches the recorder's uniform confidence
 
 
-def _cand_to_claim(proj: dict, original: dict) -> dict:
-    """A comparable claim dict built from the *validated SPL candidate*, not the
-    raw triple. Surface strings are unchanged by projection; the point is that
-    only gateway-valid candidates reach the conflict engine."""
-    cand = proj["claim_candidate"]
-    return {"_id": original["_id"], "subject": cand["subject"],
-            "predicate": cand["relation"], "object": cand["object"],
-            "state": original.get("state")}
-
-
 def run(predicate_types: bool = True, entity_norm: bool = True,
         spl_mode: str | None = None
         ) -> tuple[list[dict], InMemoryStore, dict]:
     """spl_mode: None = compare raw triples (P6/P7). "uniform"/"state" = route
-    every claim through the vendored SPL gate first and compare only the
-    gateway-valid ClaimCandidates (uniform 0.7 confidence, or state-derived)."""
+    every claim through the canonical SPL-core gate first and compare only the
+    admissible CanonicalClaimCandidates (uniform 0.7 confidence, or state-derived)."""
     store = InMemoryStore()
     rec = MemoryRecorder(store)
     label = ("spl_" + spl_mode) if spl_mode else ("p7" if entity_norm else "p6")
@@ -85,20 +75,22 @@ def run(predicate_types: bool = True, entity_norm: bool = True,
 
         spl_fields: dict = {}
         if spl_mode:
-            pa = project_atomic_claim_to_candidate({**a, "confidence": _confidence_for(a, spl_mode)})
-            pb = project_atomic_claim_to_candidate({**b, "confidence": _confidence_for(b, spl_mode)})
-            ca = _cand_to_claim(pa, a) if pa["gateway_valid"] else None
-            cb = _cand_to_claim(pb, b) if pb["gateway_valid"] else None
+            # Canonical SPL-core: each claim becomes a CanonicalClaimCandidate;
+            # the conflict engine only ever sees *admissible* candidates.
+            ka, _ = project_atomic_claim({**a, "confidence": _confidence_for(a, spl_mode)})
+            kb, _ = project_atomic_claim({**b, "confidence": _confidence_for(b, spl_mode)})
+            ca = ka.as_conflict_claim(_id=a["_id"], state=a.get("state")) if ka.admissible else None
+            cb = kb.as_conflict_claim(_id=b["_id"], state=b.get("state")) if kb.admissible else None
             suppressed = ca is None or cb is None
             cf = (None if suppressed
                   else conflict_between(ca, cb, predicate_types=predicate_types,
                                         entity_norm=entity_norm))
             spl_fields = {
-                "gateway_valid_a": pa["gateway_valid"], "gateway_valid_b": pb["gateway_valid"],
-                "entropy_a": round(pa["projection_entropy"], 4),
-                "entropy_b": round(pb["projection_entropy"], 4),
-                "rule_a": pa["emission_rule"], "rule_b": pb["emission_rule"],
-                "status_a": pa["emission_status"], "status_b": pb["emission_status"],
+                "gateway_valid_a": ka.admissible, "gateway_valid_b": kb.admissible,
+                "entropy_a": round(ka.projection_entropy or 0.0, 4),
+                "entropy_b": round(kb.projection_entropy or 0.0, 4),
+                "rule_a": ka.emission_rule, "rule_b": kb.emission_rule,
+                "status_a": ka.emission_rule, "status_b": kb.emission_rule,
                 "projection_suppressed": suppressed}
         else:
             cf = conflict_between(a, b, predicate_types=predicate_types, entity_norm=entity_norm)

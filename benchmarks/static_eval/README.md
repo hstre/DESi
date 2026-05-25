@@ -51,10 +51,15 @@ run LLM inference. This suite adds the actual governed inference + scoring.)
 - `entity_normalization.py` — symbolic vs. semantic subject equality (P7).
 - `conflict_benchmark_dataset.py` / `conflict_benchmark_runner.py` — 46 labelled
   conflict pairs + the P6/P7 (and `--use-spl-projection`) runner.
-- `spl_projection_adapter.py` — **DESi-side glue** onto the vendored Alexandria
-  SPL: `project_atomic_claim_to_candidate(claim) -> dict` (P8). Not original SPL.
+- `spl_projection_adapter.py` — **DESi-side glue** onto SPL-core:
+  `project_atomic_claim_to_candidate(claim) -> dict` (P8; P9: now delegates to
+  `desi.spl_core`). Not original SPL.
+- `spl_core_benchmark.py` — P9 consolidation benchmark: canonical-core-vs-vendored
+  drift check + conflict metrics + `desi.spl_adapter`→canonical smoke.
 - `vendor/alexandria_spl/` — **unmodified** Alexandria SPL (`spl.py`,
   `spl_gateway.py`, MIT; see `VENDOR.md`), vendored for offline reproducibility.
+  (The canonical layer is `src/desi/spl_core/`; this vendored copy is the
+  reference oracle the P9 benchmark validates against.)
 
 ## Running TruthfulQA
 
@@ -410,3 +415,43 @@ synthesised from extractor confidence (no NLP backend), so `h_norm` is a
 confidence-shaped quantity, not a measured semantic entropy. Full inventory and
 the unify-the-two-in-repo-SPLs recommendation: `artifacts/architecture/
 spl_reintegration_analysis.md`. Not a truth solver, not NER, not an ontology.
+
+### P9: SPL consolidation — one canonical projection layer
+
+P8 left **three** parallel "SPL" layers with incompatible candidate shapes and
+two different uncertainty models: the vendored Alexandria SPL (triple + Shannon
+`h_norm` + E0–E4), `desi.spl_adapter` (a `content` string + boolean `ambiguous`
++ confidence floor, **no triple, no entropy**), and the P8 benchmark adapter.
+P9 introduces **`src/desi/spl_core/`** as the single canonical layer:
+
+- `entropy.py` — one entropy model (`normalized_shannon_entropy`, `P_r` synthesis, Θ).
+- `gateway.py` — one gateway. It still supports the two *real* uncertainty models
+  (`admit_projection` = Alexandria E0–E3; `admit_flag` = the `desi.spl_adapter`
+  ambiguous/floor rule) rather than faking a conversion between them.
+- `candidate.py` — one `CanonicalClaimCandidate` + adapters
+  `from_alexandria_candidate` / `from_desi_spl_candidate`.
+- `projection.py` — `project_atomic_claim` (atomic claim → canonical candidate).
+
+The benchmark P8 adapter and the conflict runner's SPL mode now **delegate to
+`spl_core`** (no duplicate entropy/gateway logic), and the conflict engine
+consumes **only** canonical candidates. Distinguish the three projection notions:
+**symbolic normalisation** (string equality, P6/P7) vs **semantic projection**
+(admissibility/entropy, SPL-core) vs **epistemic projection** (claim state/risk
+in the graph, `desi.memory`). SPL-core is the correct seam **between claim
+extraction and the claim graph**: it decides *what may become a claim*, not
+*which claims conflict* or *what is true*.
+
+```bash
+python benchmarks/static_eval/spl_core_benchmark.py     # drift check + metrics
+```
+
+**Honest result** (`outputs/spl_core_benchmark.md`): **0 / 197** compatibility
+drift — the canonical core reproduces the vendored Alexandria gateway bit-for-bit
+— and conflict metrics are **unchanged** vs P7/P8. So P9 is an **architectural**
+win (one entropy model, one gateway, one candidate, a `src`-owned home, and a
+drift test that fails loudly if anyone forks it again), not a benchmark win. One
+honest seam remains: two admissibility modes coexist because the flag model has
+no distribution to compute entropy from; unifying them needs a real `P_r` (an NLP
+backend) and is deferred, not faked. Full inventory: `artifacts/architecture/
+spl_consolidation_analysis.md`. SPL = projection/admissibility, not conflict
+engine, not truth solver, not NER/ontology.
