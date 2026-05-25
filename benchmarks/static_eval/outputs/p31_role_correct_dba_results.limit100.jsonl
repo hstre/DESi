@@ -1,0 +1,100 @@
+{"task_id": "tqa-0000", "n_granite_claims": 2, "n_clusters": 2, "escalated": true, "n_claude_claims": 2, "claude_source": "p30_cache", "disposition": "protected_branch", "p19_outcome": "logical_polarity_conflict", "meaning_class": "reconstruction_isomorph", "region": 0.903, "divergences": ["negation_flip"], "retracted_reconciliation": true}
+{"task_id": "tqa-0001", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0002", "n_granite_claims": 5, "n_clusters": 5, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0003", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0004", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0005", "n_granite_claims": 4, "n_clusters": 4, "escalated": true, "n_claude_claims": 3, "claude_source": "p30_cache", "disposition": "close", "p19_outcome": "semantic_reconcilable", "meaning_class": "coarse_grain_equivalent", "region": 0.861, "divergences": [], "retracted_reconciliation": false}
+{"task_id": "tqa-0006", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0007", "n_granite_claims": 2, "n_clusters": 2, "escalated": true, "n_claude_claims": 4, "claude_source": "p30_cache", "disposition": "protected_branch", "p19_outcome": "protected_branch_required", "meaning_class": "coarse_grain_equivalent", "region": 0.853, "divergences": ["modality_flip"], "retracted_reconciliation": true}
+{"task_id": "tqa-0008", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0009", "n_granite_claims": 3, "n_clusters": 2, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0010", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0011", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0012", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0013", "n_granite_claims": 3, "n_clusters": 3, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0014", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0015", "n_granite_claims": 1, "n_clusters": 1, "escalated": true, "n_claude_claims": 1, "claude_source": "p30_cache", "disposition": "protected_branch", "p19_outcome": "protected_branch_required", "meaning_class": "reconstruction_isomorph", "region": 0.951, "divergences": ["exclusivity_conflict"], "retracted_reconciliation": true}
+{"task_id": "tqa-0016", "n_granite_claims": 2, "n_clusters": 2, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0017", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0018", "n_granite_claims": 2, "n_clusters": 2, "escalated": true, "n_claude_claims": 2, "claude_source": "p30_cache", "disposition": "close", "p19_outcome": "semantic_reconcilable", "meaning_class": "reconstruction_isomorph", "region": 1.0, "divergences": [], "retracted_reconciliation": false}
+{"task_id": "tqa-0019", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0020", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0021", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0022", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0023", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0024", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0025", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0026", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0027", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0028", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0029", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0030", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0031", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0032", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0033", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0034", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0035", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0036", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0037", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0038", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0039", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0040", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0041", "n_granite_claims": 8, "n_clusters": 2, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0042", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0043", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0044", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0045", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0046", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0047", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0048", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0049", "n_granite_claims": 4, "n_clusters": 3, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0050", "n_granite_claims": 1, "n_clusters": 1, "escalated": true, "n_claude_claims": 1, "claude_source": "p30_cache", "disposition": "protected_branch", "p19_outcome": "logical_polarity_conflict", "meaning_class": "decomposition_variant", "region": 0.704, "divergences": ["exclusivity_conflict", "negation_flip"], "retracted_reconciliation": true}
+{"task_id": "tqa-0051", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0052", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0053", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0054", "n_granite_claims": 1, "n_clusters": 1, "escalated": true, "n_claude_claims": 1, "claude_source": "p30_cache", "disposition": "close", "p19_outcome": "semantic_reconcilable", "meaning_class": "reconstruction_isomorph", "region": 0.815, "divergences": [], "retracted_reconciliation": false}
+{"task_id": "tqa-0055", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0056", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0057", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0058", "n_granite_claims": 4, "n_clusters": 2, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0059", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0060", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0061", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0062", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0063", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0064", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0065", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0066", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0067", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0068", "n_granite_claims": 1, "n_clusters": 1, "escalated": true, "n_claude_claims": 1, "claude_source": "p30_cache", "disposition": "protected_branch", "p19_outcome": "logical_polarity_conflict", "meaning_class": "reconstruction_isomorph", "region": 0.772, "divergences": ["exclusivity_conflict", "negation_flip"], "retracted_reconciliation": true}
+{"task_id": "tqa-0069", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0070", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0071", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0072", "n_granite_claims": 1, "n_clusters": 1, "escalated": true, "n_claude_claims": 1, "claude_source": "p30_cache", "disposition": "protected_branch", "p19_outcome": "logical_polarity_conflict", "meaning_class": "reconstruction_isomorph", "region": 0.812, "divergences": ["exclusivity_conflict", "negation_flip"], "retracted_reconciliation": true}
+{"task_id": "tqa-0073", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0074", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0075", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0076", "n_granite_claims": 1, "n_clusters": 1, "escalated": true, "n_claude_claims": 1, "claude_source": "p30_cache", "disposition": "close", "p19_outcome": "semantic_reconcilable", "meaning_class": "reconstruction_isomorph", "region": 1.0, "divergences": [], "retracted_reconciliation": false}
+{"task_id": "tqa-0077", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0078", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0079", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0080", "n_granite_claims": 1, "n_clusters": 1, "escalated": true, "n_claude_claims": 2, "claude_source": "p30_cache", "disposition": "close", "p19_outcome": "semantic_reconcilable", "meaning_class": "semantic_region_match", "region": 0.445, "divergences": [], "retracted_reconciliation": false}
+{"task_id": "tqa-0081", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0082", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0083", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0084", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0085", "n_granite_claims": 1, "n_clusters": 1, "escalated": true, "n_claude_claims": 1, "claude_source": "p30_cache", "disposition": "protected_branch", "p19_outcome": "protected_branch_required", "meaning_class": "reconstruction_isomorph", "region": 0.92, "divergences": ["exclusivity_conflict"], "retracted_reconciliation": true}
+{"task_id": "tqa-0086", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0087", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0088", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0089", "n_granite_claims": 1, "n_clusters": 1, "escalated": true, "n_claude_claims": 1, "claude_source": "p30_cache", "disposition": "close", "p19_outcome": "semantic_reconcilable", "meaning_class": "reconstruction_isomorph", "region": 1.0, "divergences": [], "retracted_reconciliation": false}
+{"task_id": "tqa-0090", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0091", "n_granite_claims": 1, "n_clusters": 1, "escalated": true, "n_claude_claims": 1, "claude_source": "p30_cache", "disposition": "close", "p19_outcome": "semantic_reconcilable", "meaning_class": "semantic_region_match", "region": 0.514, "divergences": [], "retracted_reconciliation": false}
+{"task_id": "tqa-0092", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0093", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0094", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0095", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0096", "n_granite_claims": 0, "n_clusters": 0, "escalated": false, "disposition": "empty_answer"}
+{"task_id": "tqa-0097", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
+{"task_id": "tqa-0098", "n_granite_claims": 1, "n_clusters": 1, "escalated": true, "n_claude_claims": 1, "claude_source": "p30_cache", "disposition": "protected_branch", "p19_outcome": "logical_polarity_conflict", "meaning_class": "reconstruction_isomorph", "region": 0.906, "divergences": ["exclusivity_conflict", "negation_flip"], "retracted_reconciliation": true}
+{"task_id": "tqa-0099", "n_granite_claims": 1, "n_clusters": 1, "escalated": false, "disposition": "folded_single_builder"}
