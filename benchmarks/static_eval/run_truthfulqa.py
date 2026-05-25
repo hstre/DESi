@@ -51,6 +51,9 @@ def parse_args() -> argparse.Namespace:
                    help="Flag answers as inefficient when reasoning_tokens exceed "
                         "this (or finish_reason==length). Default 1500.")
     p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--record-claims", action="store_true",
+                   help="Also record each answer as a real DESi memory Claim "
+                        "(InMemoryStore) and write a claim-memory export + report.")
     p.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     return p.parse_args()
 
@@ -72,7 +75,7 @@ def main() -> int:
         return 1
 
     count = min(args.limit, len(ds))
-    records: list[str] = []
+    record_dicts: list[dict] = []
 
     _PROVIDER_KEYS = ("backend", "requested_model", "resolved_model",
                       "provider_returned_model", "provider", "finish_reason",
@@ -140,12 +143,36 @@ def main() -> int:
                  "incorrect_answers": record["static_eval"]["incorrect_answers"]},
                 reasoning_cutoff=args.reasoning_cutoff,
             )
-        records.append(json.dumps(record, ensure_ascii=False))
+        record_dicts.append(record)
+
+    if args.record_claims:
+        from claim_memory_adapter import build_from_records, write_report
+        model_id = next((r.get("desi_metadata", {}) or {}).get("model")
+                        for r in record_dicts) if record_dicts else args.model
+        store, exports = build_from_records(
+            record_dicts, model=model_id or args.model,
+            config={"benchmark": "truthfulqa", "limit": count, "mode": args.mode})
+        by_task = {e["task_id"]: e for e in exports}
+        for rec in record_dicts:  # annotate the main records with claim info
+            e = by_task.get(rec["task_id"])
+            if e:
+                meta = rec.setdefault("desi_metadata", {}) or {}
+                meta["claim_id"] = e["claim_id"]
+                meta["claim_state"] = e["claim_state"]
+                meta["claim_relations"] = e["relations"]
+                rec["desi_metadata"] = meta
+        cm_out = args.output.with_suffix(".claim_memory.jsonl")
+        cm_out.write_text("\n".join(json.dumps(e, ensure_ascii=False) for e in exports) + "\n",
+                          encoding="utf-8")
+        write_report(store, exports, args.output.with_suffix(".claim_memory_report.md"))
+        print(f"Recorded {len(exports)} claims -> {cm_out}")
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text("\n".join(records) + "\n", encoding="utf-8")
+    args.output.write_text(
+        "\n".join(json.dumps(r, ensure_ascii=False) for r in record_dicts) + "\n",
+        encoding="utf-8")
     print(f"Mode: {args.mode} | {DATASET_ID} [{args.config}/{args.split}]")
-    print(f"Wrote {len(records)} record(s) to {args.output}")
+    print(f"Wrote {len(record_dicts)} record(s) to {args.output}")
     return 0
 
 

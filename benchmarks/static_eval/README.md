@@ -81,3 +81,40 @@ overlap heuristics against the dataset's own answer lists:
 `finish_reason == "length"` (truncated) or `reasoning_tokens > N`. On TruthfulQA
 reasoning is short (a few hundred tokens), so — unlike GAIA — answers are not
 truncated, which makes these clean signals to score DESi on.
+
+## Claim memory (P0): answer filter vs. real DESi claims
+
+`claim_memory_adapter.py` is the first reintegration step (P0 from
+`artifacts/architecture/desi_reintegration_plan.md`): it records each benchmark
+answer as a **real `desi.memory.Claim`** through the existing `MemoryRecorder` /
+`InMemoryStore`, mapping the intervention decision to a `ClaimState` and adding a
+`SUPPORTS`/`CONTRADICTS` relation to the task's gold-truth claim.
+
+**Answer filter vs. claim memory — the difference:**
+
+| | answer filter (`desi_intervention`) | claim memory (`claim_memory_adapter`) |
+| --- | --- | --- |
+| output | a possibly-rewritten answer (`UNKNOWN` if blocked) | a typed `Claim` with provenance + lifecycle state |
+| state | a one-off `intervention_decision` string | a `ClaimState` (`CONFIRMED`/`PROPOSED`/`REJECTED`) in a store |
+| structure | none | claim nodes + `SUPPORTS`/`CONTRADICTS` edges to gold |
+| persistence | per-run JSONL | `InMemoryStore` (graph-ready), exported to JSONL |
+
+Run it on an existing run (no new API cost):
+
+```bash
+python benchmarks/static_eval/claim_memory_adapter.py \
+  --input benchmarks/static_eval/outputs/truthfulqa.deepseek-v4.desi_intervened.refined.limit50.jsonl \
+  --output benchmarks/static_eval/outputs/truthfulqa_claim_memory.limit50.jsonl \
+  --report benchmarks/static_eval/outputs/truthfulqa_claim_memory_report.md
+# or inline during a fresh run:
+python benchmarks/static_eval/run_truthfulqa.py --mode desi_intervened ... --record-claims
+```
+
+**Why this is the first step back to the DESi core:** earlier the benchmark used
+DESi only as a metadata stamp and the intervention only *filtered answers*. P0
+turns each answer into a **governed claim with a lifecycle state and relations**,
+recorded through the prototype's own claim/memory machinery — moving from "DESi
+edited this answer" to "DESi recorded a claim, its state, and how it relates to
+the known truth." It is **not yet** a persistent claim graph: claims live in an
+in-process `InMemoryStore` and are not yet exported to the v24 epistemic graph /
+Neo4j (the next reintegration step).
