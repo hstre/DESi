@@ -24,7 +24,7 @@ from pathlib import Path
 
 # Reuse the GAIA adapter (backend selection + DESi governance + usage metadata).
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "gaia"))
-from desi_gaia_adapter import solve_gaia_task  # noqa: E402
+from desi_gaia_adapter import raw_llm_answer, solve_gaia_task  # noqa: E402
 
 DATASET_ID = "truthfulqa/truthful_qa"
 DEFAULT_OUTPUT = Path(__file__).resolve().parent / "outputs" / "truthfulqa.sample.jsonl"
@@ -35,6 +35,12 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--config", default="generation")
     p.add_argument("--split", default="validation")
     p.add_argument("--limit", type=int, default=10)
+    p.add_argument("--mode", default="desi_governed",
+                   choices=("desi_governed", "llm_only"),
+                   help="desi_governed (default): run through the DESi adapter "
+                        "with governance metadata. llm_only: same backend/model/"
+                        "prompt but no DESi governance (technical provider "
+                        "metadata only).")
     p.add_argument("--backend", default="auto",
                    choices=("auto", "hf", "openrouter", "deepseek", "none"))
     p.add_argument("--model", default=None, help="Model id for the backend.")
@@ -66,31 +72,51 @@ def main() -> int:
     count = min(args.limit, len(ds))
     records: list[str] = []
 
+    _PROVIDER_KEYS = ("backend", "requested_model", "resolved_model",
+                      "provider_returned_model", "provider", "finish_reason",
+                      "usage")
+
     for i in range(count):
         row = ds[i]
         question = str(row.get("question", ""))
         task = {"task_id": f"tqa-{i:04d}", "Question": question}  # no attachment
 
-        result = solve_gaia_task(
-            task, backend=args.backend, model=args.model,
-            prompt_mode=args.prompt_mode, dry_run=args.dry_run,
-        )
-        answer = result.get("model_answer", "")
-        meta = result.get("desi_metadata", {})
-        usage = meta.get("usage") or {}
+        if args.mode == "desi_governed":
+            result = solve_gaia_task(
+                task, backend=args.backend, model=args.model,
+                prompt_mode=args.prompt_mode, dry_run=args.dry_run,
+            )
+            answer = result.get("model_answer", "")
+            meta = result.get("desi_metadata", {})
+            reasoning_trace = result.get("reasoning_trace", "")
+            provider_meta = {k: meta.get(k) for k in _PROVIDER_KEYS}
+            desi_metadata = meta
+        else:  # llm_only — same path, no DESi governance
+            result = raw_llm_answer(
+                task, backend=args.backend, model=args.model,
+                prompt_mode=args.prompt_mode, dry_run=args.dry_run,
+            )
+            answer = result.get("model_answer", "")
+            reasoning_trace = ""
+            provider_meta = result.get("provider_meta", {})
+            desi_metadata = None
+
+        usage = provider_meta.get("usage") or {}
         reasoning_tokens = usage.get("reasoning_tokens")
-        finish_reason = meta.get("finish_reason")
+        finish_reason = provider_meta.get("finish_reason")
         inefficient = bool(
             finish_reason == "length"
             or (reasoning_tokens is not None and reasoning_tokens > args.reasoning_cutoff)
         )
 
-        records.append(json.dumps({
+        record = {
             "task_id": task["task_id"],
             "question": question,
+            "mode": args.mode,
             "model_answer": answer,
-            "reasoning_trace": result.get("reasoning_trace", ""),
-            "desi_metadata": meta,
+            "reasoning_trace": reasoning_trace,
+            "provider_meta": provider_meta,
+            "desi_metadata": desi_metadata,
             "static_eval": {
                 "benchmark": "truthfulqa",
                 "category": row.get("category"),
@@ -104,12 +130,12 @@ def main() -> int:
                 "reasoning_cutoff": args.reasoning_cutoff,
                 "reasoning_inefficient": inefficient,
             },
-        }, ensure_ascii=False))
+        }
+        records.append(json.dumps(record, ensure_ascii=False))
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text("\n".join(records) + "\n", encoding="utf-8")
-    solver = json.loads(records[0])["desi_metadata"].get("solver") if records else "n/a"
-    print(f"Solver: {solver} | {DATASET_ID} [{args.config}/{args.split}]")
+    print(f"Mode: {args.mode} | {DATASET_ID} [{args.config}/{args.split}]")
     print(f"Wrote {len(records)} record(s) to {args.output}")
     return 0
 

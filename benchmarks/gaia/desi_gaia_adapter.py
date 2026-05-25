@@ -213,6 +213,44 @@ def _llm_answer(backend: str, question: str, model: str,
         return "", f"{backend} call failed: {exc!r}", {}
 
 
+def raw_llm_answer(task: dict, *, backend: str = "auto", model: str | None = None,
+                   prompt_mode: str = "strict", dry_run: bool = False) -> dict:
+    """LLM-only baseline: same backend/model/prompt path, **no** DESi governance.
+
+    Returns ``{model_answer, error, provider_meta}``. ``provider_meta`` carries
+    only the technical provider fields (backend, requested/resolved/
+    provider_returned model, provider, finish_reason, usage) — no governance,
+    replay, or claim signals. Never raises.
+    """
+    _ensure_desi_importable()  # the OpenRouter/DeepSeek clients live in `desi`
+    question = str(task.get("Question", ""))
+    resolved = resolve_backend(backend, model)
+    model_id = resolve_model(resolved, model)
+    answer, error, call_meta = "", None, {}
+
+    if resolved == "none":
+        error = "no answer-generation backend (set a key or --backend/--model)"
+    elif dry_run:
+        error = f"dry-run: {resolved} LLM call skipped"
+    elif not _backend_usable(resolved, model):
+        error = f"{resolved} selected but not usable (missing API key/token or model)"
+    else:
+        answer, error, call_meta = _llm_answer(
+            resolved, question, model_id, _instruction(prompt_mode)
+        )
+
+    provider_meta = {
+        "backend": resolved,
+        "requested_model": model,
+        "resolved_model": model_id,
+        "provider_returned_model": call_meta.get("provider_returned_model"),
+        "provider": call_meta.get("provider"),
+        "finish_reason": call_meta.get("finish_reason"),
+        "usage": call_meta.get("usage"),
+    }
+    return {"model_answer": answer, "error": error, "provider_meta": provider_meta}
+
+
 # --------------------------------------------------------------------------- #
 # DESi governance / replay / claim signals (+ optional run_desi loop)
 # --------------------------------------------------------------------------- #
