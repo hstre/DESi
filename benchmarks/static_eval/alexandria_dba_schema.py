@@ -24,6 +24,7 @@ from typing import Any, Optional
 class DiffType(str, Enum):
     """Typed deviation between two independent reconstructions of the same unit."""
     MISSING_CLAIM = "missing_claim"
+    EXTRA_CLAIM = "extra_claim"
     GRANULARITY_MISMATCH = "granularity_mismatch"
     MODALITY_MISMATCH = "modality_mismatch"
     QUANTIFIER_MISMATCH = "quantifier_mismatch"
