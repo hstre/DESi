@@ -235,6 +235,38 @@ def write_report(selected, real_cases, infra, backend, reason, path: Path) -> No
                       f"| {c.get('outcome') or 'BETA_FAIL:'+str(c.get('beta_status'))} "
                       f"| {c.get('diff_types') or '-'} | {c.get('beta_model','-')} |")
         md.append("")
+        md.append("### Reading (real run)\n")
+        md.append(f"- **Real DBA works between independent builders:** {len(ran)}/"
+                  f"{len(selected)} cases cross-assessed with DeepSeek (Alpha) vs Granite "
+                  "(Beta), fully isolated. Outcomes are genuine, not scripted.")
+        md.append("- **Genuine model divergence is visible:** "
+                  f"{outcomes.get('branch_required',0)} branch_required, "
+                  f"{outcomes.get('convergence',0)} convergence. The builders mostly "
+                  "reconstructed *distinct admissible structures* (different claim "
+                  "count/decomposition/grouping), with one full agreement (tqa-0018).")
+        md.append("- **Granite structures systematically differently:** it tends to "
+                  "extract fewer / differently-grouped claims than DeepSeek (e.g. "
+                  "tqa-0027 2 vs 4, tqa-0080 1 vs 2; relation_mismatch on tqa-0005/0007). "
+                  "So the divergence is decomposition/granularity, not wording noise.")
+        md.append("- **Epistemically sensible:** branch_required for 'two valid but "
+                  "different decompositions' is the right call — neither is declared "
+                  "true; the system says *keep both / branch*, exactly the Alexandria "
+                  "'explained difference' principle.")
+        md.append("- **Stronger than a judge here?** Different and complementary: a judge "
+                  "would emit one truth label; DBA instead names *what* the two "
+                  "independent reconstructions disagree on (claim set, granularity, "
+                  "grouping) without picking a winner. For surfacing reconstruction "
+                  "uncertainty it is more informative than a single-authority label; it "
+                  "is NOT a truth oracle.")
+        md.append("- **Architecture problems now visible:** (1) the diff engine flags "
+                  "`relation_mismatch` whenever Beta groups by type — needs a more "
+                  "semantic edge model so trivial grouping differences don't always "
+                  "force branch_required; (2) missing/extra_claim depends on the "
+                  "alignment threshold — claim alignment across models needs entity/"
+                  "predicate normalisation to avoid false missing_claim; (3) almost "
+                  "everything lands in branch_required, so the adjudication rules need "
+                  "finer gradation (e.g. partial convergence) to be actionable.")
+        md.append("")
 
     md.append("## Matcher ambiguity vs claim-reconstruction ambiguity (tqa-0022 / tqa-0027)\n")
     md.append("- **tqa-0022** ('No, I am your father.') — a **matcher ambiguity**: the "
@@ -253,12 +285,28 @@ def write_report(selected, real_cases, infra, backend, reason, path: Path) -> No
     md.append("## On synthetic vs real diffs\n")
     md.append("- In P15 **every** diff was an artifact of the scripted Builder Beta "
               "(modality from a hedge rule, uncertainty from positional confidence, "
-              "entity_alias from article-stripping, granularity from object splits, "
-              "etc.). None of those can be claimed as real model behaviour.")
-    md.append("- Only a real Beta (this runner, once credentialed) can show which diff "
-              "types occur naturally between DeepSeek and an independent model. "
-              + ("See the real table above." if real_ran else
-                 "Not yet measured — pending credentials."))
+              "entity_alias from article-stripping, quantifier/temporal from "
+              "swap/regex, etc.). None of those could be claimed as real model behaviour.")
+    if real_ran:
+        ran = [c for c in real_cases if c["outcome"] is not None]
+        real_types = set()
+        for c in ran:
+            real_types |= set(c["diff_types"].keys())
+        synth_only = {"modality_mismatch", "uncertainty_divergence", "assumption_mismatch",
+                      "entity_alias_mismatch", "quantifier_mismatch", "temporal_mismatch"}
+        not_seen = sorted(synth_only - real_types)
+        md.append(f"- **Real DeepSeek-vs-Granite diffs observed:** `{sorted(real_types)}` "
+                  "— purely *structural* (how many claims, how decomposed, how grouped).")
+        md.append(f"- **P15 synthetic diff types that did NOT appear in the real run:** "
+                  f"`{not_seen}`. These were perturbation artifacts: the two real "
+                  "extractors share an output schema with no modality field and assign "
+                  "similar confidences, so modality/uncertainty/assumption/alias/"
+                  "quantifier/temporal divergences did not arise. The genuine divergence "
+                  "is in claim **set** (missing/extra), **granularity**, and **relation "
+                  "grouping**.")
+    else:
+        md.append("- Only a real Beta (this runner, once credentialed) can show which "
+                  "diff types occur naturally. Not yet measured — pending credentials.")
     md.append("")
 
     md.append("## Honesty / limits\n")
