@@ -171,6 +171,23 @@ def meaning_reoutcome(p16_outcome: str, align_class: str) -> str:
 
 
 # --------------------------------------------------------------------------- #
+_NEGATION = {"not", "no", "never", "cannot", "n't", "without", "neither", "nor", "none"}
+
+
+def _negation_divergence(alpha: list[dict], beta: list[dict]) -> bool:
+    """True if one side carries negation tokens the other lacks — a meaning flip
+    that the static embedding region-similarity is known to miss."""
+    def negs(claims):
+        toks = set()
+        for c in claims:
+            for w in f"{c.get('predicate','')} {c.get('object','')}".lower().replace("'", " ").split():
+                if w in _NEGATION:
+                    toks.add(w)
+        return toks
+    na, nb = negs(alpha), negs(beta)
+    return bool(na ^ nb)
+
+
 def _load_jsonl(p: Path) -> list[dict]:
     return [json.loads(l) for l in p.read_text(encoding="utf-8").splitlines() if l.strip()]
 
@@ -239,15 +256,41 @@ def write_report(real_rows, val_rows, beta_note, real, embed_ok, path: Path) -> 
         md.append("")
         recon = [r["task_id"] for r in real_rows if r["p18_outcome"] in _RECONCILABLE]
         stay = [r["task_id"] for r in real_rows if r["p18_outcome"] == "branch_required"]
-        md.append("## Reading\n")
-        md.append(f"- **branch_required reduced {br0} -> {br1}**; reconcilable as "
-                  f"same-region: {recon or 'none'}.")
-        md.append(f"- **Real remaining divergences (branch_required):** {stay or 'none'} "
-                  "— these reconstruct genuinely different meaning regions.")
-        md.append("- **Did the embedding meaning-space help beyond lexical?** The region "
-                  "similarity is cosine in a trained embedding space, so it can score two "
-                  "differently-worded reconstructions of the same fact as same-region "
-                  "where token overlap would not — see the per-case region sim column.")
+        over = [r for r in real_rows if r["p18_outcome"] in _RECONCILABLE
+                and r["negation_divergence"]]
+        md.append("## OVER-REDUCTION AUDIT (honesty-critical)\n")
+        if over:
+            md.append(f"- **{len(over)} case(s) were reconciled DESPITE a negation "
+                      "divergence the embedding missed** — a likely FALSE reconciliation:")
+            for r in over:
+                md.append(f"  - `{r['task_id']}`: region {r['region_similarity']} -> "
+                          f"`{r['p18_outcome']}`, but one builder carries a negation the "
+                          "other dropped (meaning flip). e.g. tqa-0007: Alpha 'would NOT "
+                          "penetrate the skin' / 'NOT cause serious injury' vs Granite "
+                          "'penetrate skin' / 'cause serious injury'. Static embeddings "
+                          "score these as same-region (high cosine) but they are "
+                          "CONTRADICTORY. This is NOT a safe reconciliation.")
+            md.append("- **Therefore the 4->0 reduction is NOT a clean win.** At least "
+                      f"{len(over)} of the reductions is a false same-region call caused "
+                      "by the embedding's negation-blindness.")
+        else:
+            md.append("- No reconciled case carried a negation divergence in this run.")
+        md.append("")
+        md.append("## Reading (honest)\n")
+        md.append(f"- **branch_required reduced {br0} -> {br1}** on these cases — but see "
+                  "the over-reduction audit: the embedding meaning-space genuinely "
+                  "reconciles granularity/grouping (tqa-0027 coarse_grain, tqa-0005 "
+                  "isomorph) AND over-reconciles a negation flip (tqa-0007). So the raw "
+                  "count overstates the safe reduction.")
+        md.append("- **Did the embedding help beyond lexical?** Yes for granularity: it "
+                  "scores differently-decomposed same-region reconstructions as "
+                  "same-region where token overlap would not (tqa-0027 region 0.79 with "
+                  "2-vs-4 claims). **But it is negation/quantifier-blind**, so it must "
+                  "GATE the typed diff engine, never replace it.")
+        md.append("- **Net:** the meaning-space is a real, useful neighbourhood signal "
+                  "for granularity/decomposition, and a DANGEROUS one for logical flips. "
+                  "Safe use = reconcile only when the typed diff engine shows no "
+                  "negation/quantifier/causality mismatch.")
     else:
         md.append("## Real Gβ unavailable — embedding mechanism validated offline\n")
         md.append("No persisted Gβ and no key, so the real DeepSeek-vs-Granite reduction "
@@ -352,7 +395,8 @@ def main() -> int:
                               "p16_outcome": p16, "alignment": ma["alignment"],
                               "region_similarity": ma["region_similarity"],
                               "p18_outcome": meaning_reoutcome(p16, ma["alignment"]),
-                              "diffs": report.counts_by_type()})
+                              "diffs": report.counts_by_type(),
+                              "negation_divergence": _negation_divergence(alpha, beta)})
         write_report(real_rows, None, note, True, embed_ok, args.report)
         print(f"REAL: branch_required {Counter(r['p16_outcome'] for r in real_rows).get('branch_required',0)}"
               f" -> {Counter(r['p18_outcome'] for r in real_rows).get('branch_required',0)} -> {args.report}")

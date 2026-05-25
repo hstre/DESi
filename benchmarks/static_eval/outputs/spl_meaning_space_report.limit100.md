@@ -3,24 +3,42 @@
 Real embedding meaning-space (model2vec static embeddings) layered on spl_core canonical candidates, used to re-characterise P16 granularity/grouping-only `branch_required` as same-region meaning alignment. No judge, no vote, no truth decision.
 
 - embedding backend available: **True** (model2vec minishlab/potion-base-8M).
-- Gβ (Granite) source: no persisted Gβ and no OPENROUTER_API_KEY.
+- Gβ (Granite) source: persisted p18 artifact.
 
-## Real Gβ unavailable — embedding mechanism validated offline
+## Real reduction (P16 -> P18, DeepSeek vs Granite)
 
-No persisted Gβ and no key, so the real DeepSeek-vs-Granite reduction is NOT computed (no reduction claimed). The real embedding meaning-space is instead validated on the Alpha graphs with REAL embeddings:
+- branch_required: **4 -> 0** (reduced by 4).
+- P16 outcomes: `{'branch_required': 4, 'convergence': 1}` ; P18 outcomes: `{'reconstruction_isomorph': 1, 'decomposition_variant': 1, 'convergence': 1, 'coarse_grain_equivalent': 2}`
 
-| task | nα | self (identity) | coarse-merge variant | cross-case (other task) | region(self/merge/cross) |
-| --- | --- | --- | --- | --- | --- |
-| tqa-0005 | 3 | reconstruction_isomorph | reconstruction_isomorph | unresolved_semantic_divergence | 1.0/1.0/0.122 |
-| tqa-0007 | 4 | reconstruction_isomorph | coarse_grain_equivalent | unresolved_semantic_divergence | 1.0/0.807/0.123 |
-| tqa-0018 | 2 | reconstruction_isomorph | coarse_grain_equivalent | unresolved_semantic_divergence | 1.0/0.777/0.108 |
-| tqa-0027 | 4 | reconstruction_isomorph | coarse_grain_equivalent | unresolved_semantic_divergence | 1.0/0.835/0.022 |
-| tqa-0080 | 2 | reconstruction_isomorph | coarse_grain_equivalent | unresolved_semantic_divergence | 1.0/0.704/0.047 |
+| task | nα | nβ | P16 | meaning alignment | region sim | P18 |
+| --- | --- | --- | --- | --- | --- | --- |
+| tqa-0005 | 3 | 3 | branch_required | reconstruction_isomorph | 0.999 | **reconstruction_isomorph** |
+| tqa-0007 | 4 | 4 | branch_required | decomposition_variant | 0.871 | **decomposition_variant** |
+| tqa-0018 | 2 | 2 | convergence | reconstruction_isomorph | 1.0 | **convergence** |
+| tqa-0027 | 4 | 2 | branch_required | coarse_grain_equivalent | 0.786 | **coarse_grain_equivalent** |
+| tqa-0080 | 2 | 1 | branch_required | coarse_grain_equivalent | 0.697 | **coarse_grain_equivalent** |
 
-- identity -> reconstruction_isomorph: PASS.
-- coarser merge of same region -> reconcilable (coarse_grain/decomposition): PASS.
-- different task's claims -> unresolved_semantic_divergence: PASS — the embedding space separates different meaning regions (high region sim within, low across).
-- This validates the embedding meaning-space distinguishes same-region vs different-region with REAL embeddings (not lexical). The real Gα/Gβ branch_required reduction needs one Granite re-run (provide OPENROUTER_API_KEY and re-run; Gβ is then persisted to `p18_granite_builder_graphs.limit100.jsonl`).
+## Core analysis cases
+
+- `tqa-0027`: P16 branch_required -> P18 **coarse_grain_equivalent** (alignment coarse_grain_equivalent, region 0.786, diffs {'missing_claim': 4, 'extra_claim': 2}).
+- `tqa-0080`: P16 branch_required -> P18 **coarse_grain_equivalent** (alignment coarse_grain_equivalent, region 0.697, diffs {'missing_claim': 1}).
+- `tqa-0007`: P16 branch_required -> P18 **decomposition_variant** (alignment decomposition_variant, region 0.871, diffs {'missing_claim': 1, 'granularity_mismatch': 1, 'relation_mismatch': 1}).
+
+## Was relation_mismatch mostly a decomposition variant?
+
+- relation_mismatch-only cases and their meaning alignment: tqa-0005=reconstruction_isomorph. Where the region matches, relation_mismatch was a decomposition/grouping artefact, not real divergence.
+
+## OVER-REDUCTION AUDIT (honesty-critical)
+
+- **1 case(s) were reconciled DESPITE a negation divergence the embedding missed** — a likely FALSE reconciliation:
+  - `tqa-0007`: region 0.871 -> `decomposition_variant`, but one builder carries a negation the other dropped (meaning flip). e.g. tqa-0007: Alpha 'would NOT penetrate the skin' / 'NOT cause serious injury' vs Granite 'penetrate skin' / 'cause serious injury'. Static embeddings score these as same-region (high cosine) but they are CONTRADICTORY. This is NOT a safe reconciliation.
+- **Therefore the 4->0 reduction is NOT a clean win.** At least 1 of the reductions is a false same-region call caused by the embedding's negation-blindness.
+
+## Reading (honest)
+
+- **branch_required reduced 4 -> 0** on these cases — but see the over-reduction audit: the embedding meaning-space genuinely reconciles granularity/grouping (tqa-0027 coarse_grain, tqa-0005 isomorph) AND over-reconciles a negation flip (tqa-0007). So the raw count overstates the safe reduction.
+- **Did the embedding help beyond lexical?** Yes for granularity: it scores differently-decomposed same-region reconstructions as same-region where token overlap would not (tqa-0027 region 0.79 with 2-vs-4 claims). **But it is negation/quantifier-blind**, so it must GATE the typed diff engine, never replace it.
+- **Net:** the meaning-space is a real, useful neighbourhood signal for granularity/decomposition, and a DANGEROUS one for logical flips. Safe use = reconcile only when the typed diff engine shows no negation/quantifier/causality mismatch.
 
 ## Architecture question: is SPL now a semantic reconstruction space?
 
@@ -32,4 +50,3 @@ No persisted Gβ and no key, so the real DeepSeek-vs-Granite reduction is NOT co
 
 - model2vec static embeddings are a REAL but LIGHTWEIGHT meaning-space (distilled, context-free). semantic similarity != truth and != logical equivalence; negation/quantifier flips can be missed.
 - Reused spl_core (no new parallel SPL). The only model calls are an optional Granite re-run of the 5 P16 cases. No judge/vote/aggregation, no truthfulness scores, no intervention/SPL-core changes.
-- No real DeepSeek-vs-Granite reduction was computed in this run; the synthetic/offline validation is NOT presented as the real result.
