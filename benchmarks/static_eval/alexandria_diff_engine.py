@@ -164,6 +164,72 @@ def diff_graphs(alpha: list[dict], beta: list[dict], *, source_ref: str = "",
     return DiffReport(source_ref=source_ref, builder_a="alpha", builder_b="beta", diffs=diffs)
 
 
+_NEGATION = {"not", "no", "never", "cannot", "n't", "without", "neither", "nor", "none"}
+_HEDGE = {"may", "might", "could", "possibly", "likely", "perhaps", "probably", "maybe", "seems"}
+_Q_UNIVERSAL = {"all", "every", "each", "always", "everyone", "everything", "any"}
+_Q_PARTIAL = {"some", "most", "many", "few", "several", "none", "never", "no"}
+_TEMPORAL_OPP = [("before", "after"), ("always", "never"), ("past", "future"),
+                 ("ancient", "modern"), ("now", "then")]
+_POLARITY = {"increase": "decrease", "more": "less", "higher": "lower", "hot": "cold",
+             "fast": "slow", "true": "false", "safe": "dangerous", "harmful": "harmless",
+             "possible": "impossible", "alive": "dead", "rise": "fall", "gain": "lose",
+             "accept": "reject", "cause": "prevent", "open": "closed", "positive": "negative"}
+_CAUSAL = ("cause", "because", "causes", "caused", "due to", "leads to", "results in")
+
+
+def _bag(claims, fields=("predicate", "object")) -> set:
+    toks = set()
+    for c in claims:
+        text = " ".join(str(c.get(f, "")) for f in fields).lower().replace("'", " ")
+        toks |= set(text.split())
+    return toks
+
+
+def typed_logical_divergences(alpha: list[dict], beta: list[dict]) -> list[str]:
+    """Lexical (embedding-free) detection of LOGICAL divergences that semantic
+    similarity must not reconcile. NOT truth labels — epistemic conflict types.
+    Heuristic / lexicon-based; the reliable one is negation_flip."""
+    out = []
+    a, b = _bag(alpha), _bag(beta)
+    a_so, b_so = _bag(alpha, ("subject", "predicate", "object")), _bag(beta, ("subject", "predicate", "object"))
+
+    if (a & _NEGATION) ^ (b & _NEGATION):
+        out.append("negation_flip")
+    if (a & _HEDGE) ^ (b & _HEDGE):
+        out.append("modality_flip")
+    # quantifier_flip: opposing quantifier classes across the two sides
+    if ((a_so & _Q_UNIVERSAL) and (b_so & _Q_PARTIAL)) or \
+       ((b_so & _Q_UNIVERSAL) and (a_so & _Q_PARTIAL)):
+        out.append("quantifier_flip")
+    # temporal_flip: an opposing temporal pair split across sides
+    for w1, w2 in _TEMPORAL_OPP:
+        if (w1 in a_so and w2 in b_so) or (w2 in a_so and w1 in b_so):
+            out.append("temporal_flip")
+            break
+    # polarity_flip: an antonym pair split across sides
+    pol = {**_POLARITY, **{v: k for k, v in _POLARITY.items()}}
+    if any(w in b_so for t in (a_so & set(pol)) for w in [pol[t]]):
+        out.append("polarity_flip")
+    # causal_direction_flip: both causal, with subject/object roles swapped
+    def causal_pairs(claims):
+        ps = []
+        for c in claims:
+            txt = f"{c.get('predicate','')} {c.get('object','')}".lower()
+            if c.get("claim_type") == "causal" or any(m in txt for m in _CAUSAL):
+                ps.append((_content_tokens(c.get("subject", "")), _content_tokens(c.get("object", ""))))
+        return ps
+    pa, pb = causal_pairs(alpha), causal_pairs(beta)
+    for sa, oa in pa:
+        for sb, ob in pb:
+            if sa and ob and oa and sb and _dice(sa, ob) >= 0.5 and _dice(oa, sb) >= 0.5:
+                out.append("causal_direction_flip")
+                break
+        else:
+            continue
+        break
+    return sorted(set(out))
+
+
 def region_aware_outcome(base_outcome: str, region_similarity: float | None,
                          n_alpha: int, n_beta: int, *, region_high: float = 0.55) -> str:
     """P18 rule: a branch_required driven by missing/extra claims over the SAME
@@ -179,4 +245,4 @@ def region_aware_outcome(base_outcome: str, region_similarity: float | None,
     return "branch_required"
 
 
-__all__ = ["diff_graphs", "region_aware_outcome"]
+__all__ = ["diff_graphs", "region_aware_outcome", "typed_logical_divergences"]

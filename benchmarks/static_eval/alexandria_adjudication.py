@@ -88,4 +88,34 @@ def adjudicate(report: DiffReport) -> AdjudicationDecision:
         undecidable_reason="unmapped diff combination", diff_report_ref=ref)
 
 
-__all__ = ["adjudicate"]
+_RECONCILABLE_MEANING = {"reconstruction_isomorph", "coarse_grain_equivalent",
+                         "decomposition_variant", "semantic_region_match"}
+_HARD_VETO = {"negation_flip", "polarity_flip"}
+_SOFT_VETO = {"quantifier_flip", "causal_direction_flip", "temporal_flip",
+              "modality_flip", "exclusivity_conflict"}
+
+
+def govern_outcome(meaning_class: str, typed_divergences: list[str]) -> str:
+    """P19 governance: semantics may reconcile, LOGIC may veto.
+
+    Combine the P18 meaning-space alignment with typed logical-divergence checks.
+    A same-region (reconcilable) meaning class is only allowed to reconcile when
+    NO typed logical divergence is present; a negation/polarity flip is the
+    hardest veto. Returns a GovernanceOutcome value (string). Never asserts truth.
+    """
+    d = set(typed_divergences or [])
+    if meaning_class == "convergence":
+        return "convergence"
+    if meaning_class in _RECONCILABLE_MEANING:
+        if d & _HARD_VETO:
+            return "logical_polarity_conflict"
+        if d & _SOFT_VETO:
+            return "protected_branch_required"
+        return "semantic_reconcilable"
+    # not a same-region meaning class
+    if d:
+        return "guarded_divergence"
+    return "branch_required"
+
+
+__all__ = ["adjudicate", "govern_outcome"]

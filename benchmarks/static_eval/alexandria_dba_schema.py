@@ -60,6 +60,15 @@ class MeaningAlignment(str, Enum):
     UNRESOLVED_SEMANTIC_DIVERGENCE = "unresolved_semantic_divergence"  # different region
 
 
+class GovernanceOutcome(str, Enum):
+    """P19 typed-semantic-governance outcomes. NOT truth labels. Principle:
+    semantics may reconcile, logic may veto."""
+    SEMANTIC_RECONCILABLE = "semantic_reconcilable"          # same region, no logical conflict
+    GUARDED_DIVERGENCE = "guarded_divergence"                # divergent + a logical conflict, keep separate/flag
+    PROTECTED_BRANCH_REQUIRED = "protected_branch_required"  # same region BUT logical conflict -> must branch
+    LOGICAL_POLARITY_CONFLICT = "logical_polarity_conflict"  # negation/polarity flip -> hardest veto
+
+
 class AdjudicationOutcome(str, Enum):
     """How a deviation is characterised — explicitly NOT a winner/vote.
 
@@ -171,6 +180,7 @@ def json_schema() -> dict[str, Any]:
         "AlignmentType": [t.value for t in AlignmentType],
         "MeaningAlignment": [t.value for t in MeaningAlignment],
         "AdjudicationOutcome": [o.value for o in AdjudicationOutcome],
+        "GovernanceOutcome": [o.value for o in GovernanceOutcome],
         "BuilderOutput": {"builder_id": "str", "model": "str", "source_ref": "str",
                           "raw_text": "str", "claims": "list[dict]",
                           "created_at": "str", "notes": "str"},
@@ -192,7 +202,7 @@ def json_schema() -> dict[str, Any]:
 
 __all__ = ["AdjudicationDecision", "AdjudicationOutcome", "AlignmentType",
            "BuilderGraph", "BuilderOutput", "DiffItem", "DiffReport", "DiffType",
-           "MeaningAlignment", "json_schema"]
+           "GovernanceOutcome", "MeaningAlignment", "json_schema"]
 
 
 if __name__ == "__main__":
