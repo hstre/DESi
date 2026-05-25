@@ -46,6 +46,15 @@ run LLM inference. This suite adds the actual governed inference + scoring.)
   `../gaia/desi_gaia_adapter.py`: backend selection, governance, replay/claim,
   model-resolution + usage metadata) and writes a JSONL.
 - `report_truthfulqa.py` — heuristic scoring + summary.
+- `cross_claim_contradictions.py` — heuristic same-subject conflict detector
+  (P4–P7: negation/antonym/numeric/temporal + predicate typing + entity norm).
+- `entity_normalization.py` — symbolic vs. semantic subject equality (P7).
+- `conflict_benchmark_dataset.py` / `conflict_benchmark_runner.py` — 46 labelled
+  conflict pairs + the P6/P7 (and `--use-spl-projection`) runner.
+- `spl_projection_adapter.py` — **DESi-side glue** onto the vendored Alexandria
+  SPL: `project_atomic_claim_to_candidate(claim) -> dict` (P8). Not original SPL.
+- `vendor/alexandria_spl/` — **unmodified** Alexandria SPL (`spl.py`,
+  `spl_gateway.py`, MIT; see `VENDOR.md`), vendored for offline reproducibility.
 
 ## Running TruthfulQA
 
@@ -356,3 +365,48 @@ recall 0/7 → 7/7**, contradiction recall **0.73 → 1.00**, contradiction prec
 **stays 1.00**, and the merge false-positive test stays compatible (no new FP;
 the Paris homonym is an inherent limit of symbolic equality, surfaced not solved).
 Heuristic only: no real NER, no ontology, no global coreference.
+
+### P8: SPL projection — three kinds of "equality", and the right layer
+
+P6/P7 are about **comparison** (symbolic vs. semantic equality). P8 adds a layer
+*before* comparison: **semantic projection**. The vendored, unmodified Alexandria
+**Semantic Projection Layer** (`vendor/alexandria_spl/`, MIT) enforces the
+invariant that a raw triple may **not** become a claim directly — it must first
+become a `SemanticUnit`, be projected to a `SemanticProjection` (a relational
+distribution `P_r` with normalised entropy `h_norm`), and survive the gateway's
+emission rules **E0–E3** before any `ClaimCandidate` exists.
+`spl_projection_adapter.py` is the DESi-side glue (clearly *not* original SPL);
+`conflict_benchmark_runner.py --use-spl-projection` runs the comparison.
+
+Three layers, three jobs — don't confuse them:
+
+- **Symbolic normalisation** (P6/P7): are two *strings* the same entity? → cheap
+  string/alias heuristics, runs *inside* the conflict engine.
+- **Semantic projection** (P8 / SPL): is this fragment a *well-formed, confident
+  enough* relational assertion to even become a comparable claim? → `P_r`/`h_norm`
+  + emission gate, runs *before* the conflict engine. This is the correct layer
+  between extraction (P3) and the conflict engine (P6/P7): admissibility, not
+  detection.
+- **Epistemic projection** (the DESi protocol / `desi.memory`): given admitted
+  claims, what is their state, risk, and relation in the graph? → downstream of
+  both, unchanged.
+
+```bash
+python benchmarks/static_eval/spl_projection_adapter.py                 # adapter smoke
+python benchmarks/static_eval/conflict_benchmark_runner.py --use-spl-projection
+```
+
+**Honest result** (`outputs/spl_vs_symbolic_benchmark.md`): at the benchmark's
+uniform 0.70 confidence, SPL projection reproduces P7 **exactly** (42/46, recall
+1.00, alias/coref 7/7, same FP) — every claim emits as E2 and passes. SPL is a
+**projection/validation layer, not a contradiction detector**: it doesn't rewrite
+subjects/objects, so it can't catch aliases by itself. Its contribution is
+**architectural** — the enforced "no raw → claim" invariant and an auditable
+per-candidate `h_norm` + emission rule. The gate *is* real, though: in
+state-derived-confidence mode, rejected claims (conf 0.40) are E3-blocked, which
+suppresses 6 pairs and *lowers* recall to 0.77 — an honest negative result
+showing the gate filters *admissibility*, not *conflict*. The `P_r` is
+synthesised from extractor confidence (no NLP backend), so `h_norm` is a
+confidence-shaped quantity, not a measured semantic entropy. Full inventory and
+the unify-the-two-in-repo-SPLs recommendation: `artifacts/architecture/
+spl_reintegration_analysis.md`. Not a truth solver, not NER, not an ontology.
