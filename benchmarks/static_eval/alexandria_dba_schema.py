@@ -38,6 +38,17 @@ class DiffType(str, Enum):
     ENTITY_ALIAS_MISMATCH = "entity_alias_mismatch"
 
 
+class AlignmentType(str, Enum):
+    """Cross-builder semantic alignment relations (P17). NOT truth labels —
+    they describe how two independent reconstructions relate in meaning-space."""
+    SEMANTIC_ISOMORPH = "semantic_isomorph"            # same claims, bijective high overlap
+    GRANULARITY_OVERLAP = "granularity_overlap"        # same region, split/merge granularity
+    SEMANTIC_OVERLAP = "semantic_overlap"              # substantial shared region
+    PARTIAL_OVERLAP = "partial_overlap"                # some shared, some not
+    PROJECTION_NEIGHBOR = "projection_neighbor"        # close in spl_core projection/entropy space
+    STRUCTURALLY_DIVERGENT = "structurally_divergent"  # little/no shared region
+
+
 class AdjudicationOutcome(str, Enum):
     """How a deviation is characterised — explicitly NOT a winner/vote.
 
@@ -146,6 +157,7 @@ def json_schema() -> dict[str, Any]:
     """Lightweight, dependency-free schema description (field -> type) for docs."""
     return {
         "DiffType": [t.value for t in DiffType],
+        "AlignmentType": [t.value for t in AlignmentType],
         "AdjudicationOutcome": [o.value for o in AdjudicationOutcome],
         "BuilderOutput": {"builder_id": "str", "model": "str", "source_ref": "str",
                           "raw_text": "str", "claims": "list[dict]",
@@ -166,8 +178,9 @@ def json_schema() -> dict[str, Any]:
     }
 
 
-__all__ = ["AdjudicationDecision", "AdjudicationOutcome", "BuilderGraph",
-           "BuilderOutput", "DiffItem", "DiffReport", "DiffType", "json_schema"]
+__all__ = ["AdjudicationDecision", "AdjudicationOutcome", "AlignmentType",
+           "BuilderGraph", "BuilderOutput", "DiffItem", "DiffReport", "DiffType",
+           "json_schema"]
 
 
 if __name__ == "__main__":
