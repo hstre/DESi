@@ -35,7 +35,10 @@ from pathlib import Path
 
 _DEFAULT_OPENROUTER_MODEL = "deepseek/deepseek-v4-pro"
 _DEFAULT_DEEPSEEK_MODEL = "deepseek-4-pro"
-_MAX_ANSWER_TOKENS = 64
+# Reasoning models (e.g. deepseek-v4-pro) spend completion tokens on an internal
+# reasoning trace before emitting the answer, so the budget must cover both or
+# `content` comes back empty/truncated. Override via GAIA_MAX_ANSWER_TOKENS.
+_MAX_ANSWER_TOKENS = int(os.environ.get("GAIA_MAX_ANSWER_TOKENS", "2048"))
 
 
 def _instruction(prompt_mode: str) -> str:
@@ -152,7 +155,7 @@ def _call_openrouter(question: str, model: str, instruction: str) -> str:
         max_tokens=_MAX_ANSWER_TOKENS,
         temperature=0.0,
     )
-    return resp["choices"][0]["message"]["content"].strip()
+    return (resp["choices"][0]["message"].get("content") or "").strip()
 
 
 def _call_deepseek(question: str, model: str, instruction: str) -> str:
@@ -160,7 +163,7 @@ def _call_deepseek(question: str, model: str, instruction: str) -> str:
     client = DeepSeekClient(model_id=model) if model else DeepSeekClient()
     raw = client.complete(f"{instruction}\n\nQuestion: {question}").raw_text
     data = json.loads(raw)
-    return data["choices"][0]["message"]["content"].strip()
+    return (data["choices"][0]["message"].get("content") or "").strip()
 
 
 def _llm_answer(backend: str, question: str, model: str,
