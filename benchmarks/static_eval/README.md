@@ -144,3 +144,44 @@ report (`*_claim_memory_hook_report.md`) shows both layers explicitly.
 safety, deterministic metrics) rather than a bolt-on recorder call. The next step
 is a custom hook that carries the answer→ClaimState mapping inside the lifecycle
 itself, and persistence to the v24 epistemic graph.
+
+### P2 (prototype): answer-level claims vs. atomic sub-claims
+
+`freetext_claim_extractor.py` + `claim_decomposition_demo.py` are a small,
+**heuristic** prototype that moves from "one answer = one claim" to several
+**atomic sub-claims**:
+
+> "Virginia Woolf was born in London in 1882 and became a famous writer."
+> → `Virginia Woolf was born in London` · `Virginia Woolf birth year = 1882`
+> · `Virginia Woolf became a famous writer`
+
+It uses only sentence splitting, a few connectives (`and`/`because`/`but`/`while`),
+subject propagation, and a year heuristic — **no semantic parser, no LLM**. Run:
+
+```bash
+python benchmarks/static_eval/freetext_claim_extractor.py        # standalone demo
+python benchmarks/static_eval/claim_decomposition_demo.py        # store via the P1 hook path + report
+```
+
+Each sub-claim is its own `Claim` (own id, `ClaimState`, provenance) with a
+`DERIVES_FROM` edge to the parent answer-claim, plus `because`→`SUPPORTS` /
+`but`/`while`→`REFINES` edges. The `self_audit.extractor` is **not** reused: it
+is closed-kind (HASH/NUMERIC/COUNT/PHASE) and markdown-specific; this is the
+free-text counterpart.
+
+**answer-level vs. atomic — and why atomic matters:**
+
+| | answer-level claim (P0/P1) | atomic sub-claims (P2) |
+| --- | --- | --- |
+| granularity | whole answer = 1 claim, 1 state | each proposition = its own claim/state |
+| conflict detection | only answer vs. gold | sub-claim vs. sub-claim, cross-answer |
+| revision | revise the whole answer | revise a single wrong fact, keep the rest |
+| confidence propagation | one number per answer | per-fact confidence that can aggregate |
+| cross-run consistency | hard (answers vary in wording) | match stable atomic facts across runs |
+
+Atomic claims are the precondition for a real **claim graph**: contradictions,
+confidence, and revisions live at the level of individual facts, not whole
+answers. This prototype is heuristic and **mis-splits many real sentences** (see
+`outputs/freetext_claim_decomposition_report.md` for documented failure modes,
+e.g. dates like "August 2, 1776", `because of <noun>` fragments, and unresolved
+pronouns); a robust model-assisted extractor is future work.
