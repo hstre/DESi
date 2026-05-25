@@ -36,14 +36,20 @@ _DEFAULT_DEEPSEEK = "deepseek/deepseek-v4-pro"
 _MAX_TOKENS = 4096
 
 _EXTRACTION_INSTRUCTION = (
-    "You extract atomic factual claims from the user's text. "
+    "You extract atomic factual claims from the ANSWER, using the QUESTION only to "
+    "resolve ellipsis and pronouns (never to add facts the answer does not assert). "
     "Output ONLY a single JSON object, no prose, no markdown, no code fences. "
     'Schema: {"claims":[{"subject":str,"predicate":str,"object":str,'
-    '"confidence":number 0..1,"claim_type":"fact|causal|temporal|attribute"}]}. '
-    "One claim per atomic proposition; split conjunctions and dates into separate "
-    "claims; resolve pronouns to the entity when unambiguous. Do NOT invent facts "
-    "that are not stated or directly implied by the text. If nothing is "
-    'extractable, output {"claims":[]}.'
+    '"confidence":number 0..1,"claim_type":"fact|causal|temporal|attribute",'
+    '"negated":bool}]}. Rules: (1) emit at least one claim for any substantive '
+    "answer, including SHORT factual answers and sentence fragments — ground the "
+    "subject from the QUESTION when the answer is elliptical (Q 'Where is X?' "
+    "A 'Paris' -> subject X, predicate 'is located in', object 'Paris'); (2) a bare "
+    "'No'/'Yes' answer becomes the QUESTION's proposition with negated=true/false; "
+    "(3) split conjunctions, lists and dates into separate claims; (4) represent "
+    "negation, modality and causation explicitly; (5) resolve 'it'/'they' to the "
+    "entity when unambiguous. Do NOT invent facts not stated or directly implied. "
+    'ONLY if the answer is truly empty, UNKNOWN, or a pure refusal, output {"claims":[]}.'
 )
 
 
@@ -127,7 +133,19 @@ def _call_deepseek(text: str, model: str) -> tuple[str, dict]:
     return content, meta
 
 
-def _p2_fallback(text: str) -> list[dict]:
+def _p2_fallback(text: str, question: str = "") -> list[dict]:
+    # P24: with a question, use the question-grounded rule extractor so short /
+    # elliptical / yes-no answers still yield atomic claims (visibility, not truth).
+    if question:
+        try:
+            from p24_extractor_recall import rule_extract
+            grounded = rule_extract(question, text)
+            if grounded:
+                for c in grounded:
+                    c.setdefault("confidence", 0.5)
+                return grounded
+        except Exception:
+            pass
     claims = []
     for sc in extract_subclaims(text):
         ctype = "temporal" if sc.kind == "year" else "fact"
@@ -146,9 +164,14 @@ def _openrouter_key() -> bool:
 
 def extract_claims_model(text: str, *, backend: str = "auto",
                          granite_model: str | None = None,
-                         deepseek_model: str = _DEFAULT_DEEPSEEK) -> dict:
-    """Extract claims via the model path (prefer Granite, then DeepSeek, then P2)."""
+                         deepseek_model: str = _DEFAULT_DEEPSEEK,
+                         question: str = "") -> dict:
+    """Extract claims via the model path (prefer Granite, then DeepSeek, then P2).
+
+    P24: ``question`` is passed to the model so elliptical / short / yes-no answers
+    can be grounded (and to the rule-based fallback)."""
     granite_model = granite_model or os.environ.get("HF_INFERENCE_MODEL") or _DEFAULT_GRANITE
+    model_input = f"QUESTION: {question}\nANSWER: {text}" if question else text
     attempts: list[dict] = []
 
     def _result(claims, method, model, parse_how, meta=None):
@@ -177,14 +200,14 @@ def extract_claims_model(text: str, *, backend: str = "auto",
                     attempts.append({"stage": "granite", "model": granite_model,
                                      "result": "no HF token"})
                     continue
-                content, meta = _call_granite(text, granite_model)
+                content, meta = _call_granite(model_input, granite_model)
                 model_id = granite_model
             else:
                 if not _openrouter_key():
                     attempts.append({"stage": "deepseek", "model": deepseek_model,
                                      "result": "no OPENROUTER_API_KEY"})
                     continue
-                content, meta = _call_deepseek(text, deepseek_model)
+                content, meta = _call_deepseek(model_input, deepseek_model)
                 model_id = deepseek_model
         except Exception as exc:
             attempts.append({"stage": stage, "model": granite_model if stage == "granite"
@@ -198,7 +221,7 @@ def extract_claims_model(text: str, *, backend: str = "auto",
         attempts.append({"stage": stage, "model": model_id, "result": "json_parse_failed"})
 
     # Final fallback: rule-based P2.
-    return _result(_p2_fallback(text), "rule_based_p2", None, "failed")
+    return _result(_p2_fallback(text, question), "rule_based_p2", None, "failed")
 
 
 __all__ = ["extract_claims_model", "parse_claims_json"]

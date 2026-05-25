@@ -41,6 +41,7 @@ from trajectory_builder import build_trajectory          # noqa: E402
 from model_claim_extractor import extract_claims_model   # noqa: E402
 from desi_intervention import ACCEPT_STRONG, REJECT_STRONG, best_score  # noqa: E402
 from report_truthfulqa import _is_eu, _label             # noqa: E402
+from p24_extractor_recall import coverage_status as _coverage_status  # noqa: E402
 
 DEFAULT_INPUT = (Path(__file__).resolve().parent / "outputs"
                  / "truthfulqa.deepseek-v4.desi_intervened.refined.limit50.jsonl")
@@ -108,7 +109,8 @@ def process_record(record: dict, store: InMemoryStore, *, extract_backend: str =
     #    flags are stored, and only admissible candidates get SUPPORTS/CONTRADICTS
     #    edges (the comparable, conflict-eligible relations). use_spl=False is the
     #    legacy raw bypass (debug only).
-    p3 = extract_claims_model(answer_text, backend=extract_backend)
+    p3 = extract_claims_model(answer_text, backend=extract_backend,
+                              question=str(record.get("question", "")))
     atomic = []
     n_admissible = n_blocked = 0
     for c in p3["claims"]:
@@ -165,7 +167,8 @@ def process_record(record: dict, store: InMemoryStore, *, extract_backend: str =
         "atomic_claims": atomic,
         "n_atomic": len(atomic),
         "projection_summary": {"spl": use_spl, "n_admissible": n_admissible,
-                               "n_blocked": n_blocked},
+                               "n_blocked": n_blocked,
+                               "coverage_status": _coverage_status(answer_text, atomic)},
         "p3": {"method": p3["extraction_method"], "model": p3["extraction_model"],
                "fallback_used": p3["fallback_used"], "raw_json_ok": p3["raw_json_ok"],
                "json_recovery_used": p3["json_recovery_used"],
