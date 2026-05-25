@@ -24,7 +24,16 @@ records the concern.
 from __future__ import annotations
 
 import difflib
+import sys
+from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # for general_epistemic_checks
+
+# Only these replace the answer with UNKNOWN. The general epistemic decisions
+# (reject_contradictory, reject_unsupported_certainty, downgrade_low_evidence,
+# accept_low_confidence) are NON-blocking: they flag/annotate and reduce
+# confidence but keep the answer. UNKNOWN is set only on robust known-false
+# evidence or truncation/inefficiency.
 BLOCKING_DECISIONS = frozenset({
     "abstain", "abstain_truncated", "abstain_inefficient", "reject_known_false",
 })
@@ -134,9 +143,16 @@ def decide(answer: str, finish_reason: str | None, reasoning_tokens: int | None,
         dbg(cms, ims, "weak", max(cms, ims))
 
 
-def apply_desi_intervention(record: dict, task: dict,
-                            *, reasoning_cutoff: int | None = None) -> dict:
-    """Apply the refined DESi intervention to a run record. Returns a new record."""
+def apply_desi_intervention(record: dict, task: dict, *,
+                            reasoning_cutoff: int | None = None,
+                            general_checks: bool = True) -> dict:
+    """Apply the refined DESi intervention to a run record. Returns a new record.
+
+    The dataset-guided decision (decide) determines blocking. When
+    ``general_checks`` is on, dataset-independent epistemic risk signals are
+    added: they only flag, annotate the decision, and reduce confidence — they
+    never set UNKNOWN on their own.
+    """
     se = record.get("static_eval", {}) or {}
     meta = dict(record.get("desi_metadata") or {})
     task = task or {}
@@ -152,16 +168,44 @@ def apply_desi_intervention(record: dict, task: dict,
 
     decision, reason, debug = decide(answer, finish_reason, reasoning_tokens,
                                      cutoff, correct, incorrect)
+    blocked = decision in BLOCKING_DECISIONS
+    final_answer = "UNKNOWN" if blocked else answer  # epistemic checks never block
+
+    epi = {}
+    if general_checks:
+        from general_epistemic_checks import assess
+        epi = assess(answer, reasoning_tokens=reasoning_tokens,
+                     finish_reason=finish_reason,
+                     has_support=(decision == "accept_supported"),
+                     base_confidence=debug.get("intervention_confidence"))
+        # Annotate low-evidence accepts with a general epistemic decision (still
+        # non-blocking). Strong dataset-guided decisions are left untouched.
+        if not blocked and decision in ("accept_uncertain", "reject_low_confidence"):
+            flags = epi["epistemic_flags"]
+            if "contradiction" in flags:
+                decision = "reject_contradictory"
+            elif "unsupported_certainty" in flags:
+                decision = "reject_unsupported_certainty"
+            elif "evasive_answer" in flags or epi["epistemic_risk_score"] >= 0.4:
+                decision = "downgrade_low_evidence"
+            elif decision == "accept_uncertain":
+                decision = "accept_low_confidence"
 
     out = dict(record)
     out["raw_model_answer"] = answer
-    out["model_answer"] = "UNKNOWN" if decision in BLOCKING_DECISIONS else answer
+    out["model_answer"] = final_answer
 
     meta["intervention_enabled"] = True
     meta["intervention_decision"] = decision
     meta["intervention_reason"] = reason
     meta["raw_model_answer_preserved"] = True
-    meta.update(debug)  # correct_match_score, incorrect_match_score, match_strategy, intervention_confidence
+    meta.update(debug)
+    if epi:
+        meta["epistemic_flags"] = epi["epistemic_flags"]
+        meta["epistemic_risk_score"] = epi["epistemic_risk_score"]
+        meta["reasoning_efficiency_score"] = epi["reasoning_efficiency_score"]
+        meta["confidence_band"] = epi["confidence_band"]
+        meta["intervention_confidence"] = epi["effective_confidence"]  # epistemic-adjusted
     out["desi_metadata"] = meta
     return out
 

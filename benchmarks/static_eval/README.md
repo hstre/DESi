@@ -81,3 +81,33 @@ overlap heuristics against the dataset's own answer lists:
 `finish_reason == "length"` (truncated) or `reasoning_tokens > N`. On TruthfulQA
 reasoning is short (a few hundred tokens), so — unlike GAIA — answers are not
 truncated, which makes these clean signals to score DESi on.
+
+## Two layers: dataset-guided intervention vs general epistemic heuristics
+
+DESi's intervention now has two distinct layers, with very different scope:
+
+| | dataset-guided (`reject_known_false`) | general epistemic checks (`general_epistemic_checks.py`) |
+| --- | --- | --- |
+| needs a reference answer set? | **yes** (TruthfulQA correct/incorrect lists) | **no** — looks only at the answer text + call signals |
+| what it catches | answers matching a *known* false answer | surface risk patterns: over-confident phrasing, contradictions, evasions, runaway reasoning |
+| action | **blocks** (replaces with `UNKNOWN`) | **flags / downgrades confidence / annotates** — never blocks on its own |
+| decisions | `reject_known_false`, `abstain*` | `reject_unsupported_certainty`, `reject_contradictory`, `downgrade_low_evidence`, `accept_low_confidence` (all non-blocking) |
+
+The general checks (`--general-checks`, on by default in `desi_intervened`) add
+`epistemic_flags`, `epistemic_risk_score`, `confidence_band`, and
+`reasoning_efficiency_score` to `desi_metadata`. UNKNOWN is still only set on
+robust known-false evidence or truncation/inefficiency.
+
+### Clear limits
+
+- **Not a general truth check.** The general heuristics are surface-level
+  *risk* signals (lexical certainty markers, polarity-pair contradictions,
+  hedge phrases, reasoning/answer ratio). They do **not** verify facts and can
+  miss real errors and fire on harmless phrasing.
+- They are deliberately **non-aggressive**: they reduce confidence and annotate,
+  they do not discard answers. Only the dataset-guided layer (with a reference
+  set) and truncation/inefficiency abstains actually block.
+- On a reasoning model, `reasoning_inefficiency` fires often (the model reasons
+  a lot for short answers); treat it as an efficiency signal, not a hallucination
+  predictor. See `report_epistemic.py` and the generated report for how the
+  flags relate (or fail to relate) to hallucination-suspect labels.

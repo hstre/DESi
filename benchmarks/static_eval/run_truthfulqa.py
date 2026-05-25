@@ -50,6 +50,10 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--reasoning-cutoff", type=int, default=1500,
                    help="Flag answers as inefficient when reasoning_tokens exceed "
                         "this (or finish_reason==length). Default 1500.")
+    p.add_argument("--general-checks", action=argparse.BooleanOptionalAction,
+                   default=True,
+                   help="Enable dataset-independent epistemic risk checks "
+                        "(desi_intervened mode only). Default on.")
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     return p.parse_args()
@@ -139,6 +143,7 @@ def main() -> int:
                 {"correct_answers": record["static_eval"]["correct_answers"],
                  "incorrect_answers": record["static_eval"]["incorrect_answers"]},
                 reasoning_cutoff=args.reasoning_cutoff,
+                general_checks=args.general_checks,
             )
         records.append(json.dumps(record, ensure_ascii=False))
 
