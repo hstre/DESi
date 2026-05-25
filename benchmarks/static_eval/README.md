@@ -185,3 +185,42 @@ answers. This prototype is heuristic and **mis-splits many real sentences** (see
 `outputs/freetext_claim_decomposition_report.md` for documented failure modes,
 e.g. dates like "August 2, 1776", `because of <noun>` fragments, and unresolved
 pronouns); a robust model-assisted extractor is future work.
+
+### P3 (prototype): rule-based decomposition vs. model-assisted extraction
+
+`model_claim_extractor.py` + `model_claim_extraction_demo.py` add a
+**model-assisted** path that emits **strict JSON** triples instead of split
+strings. Backend order: **Granite** (HF, structured extractor) → **DeepSeek V4**
+(OpenRouter, reasoning) → **rule-based P2** fallback. Output schema:
+
+```json
+{"claims":[{"subject":"...","predicate":"...","object":"...",
+            "confidence":0.0,"claim_type":"fact|causal|temporal|attribute"}]}
+```
+
+```bash
+python benchmarks/static_eval/model_claim_extractor.py                # single demo
+python benchmarks/static_eval/model_claim_extraction_demo.py          # P2 vs P3 + report
+```
+
+| | P2 rule-based | P3 model-assisted |
+| --- | --- | --- |
+| output | split answer strings | typed `(subject, predicate, object)` triples + confidence |
+| coreference | none (`it` kept) | resolved ("It" → "an earthworm cut in half") |
+| dates | brittle regex (mis-split) | `temporal` typed; bare date → 0 claims (no fabrication) |
+| causal/structure | flat clauses | `causal` triples, nested clauses handled |
+| robustness | deterministic, offline | model-dependent, **may hallucinate**; JSON parsed with recovery + fallback |
+| provenance | n/a | `extraction_method` / `extraction_model` / `fallback_used` / parse flags |
+
+Measured on the demo (5 answers, `outputs/model_claim_extraction_report.md`):
+DeepSeek produced sensible structured triples with **5/5 clean JSON** (no
+recovery, no fallback) and **0/15 low-overlap** (no hallucination flagged);
+**Granite was preferred but unavailable on the test token's providers**, so every
+call fell back to DeepSeek.
+
+**Honest limits:** P3 is **not** a semantic-graph parser. It is model-dependent,
+the self-reported confidence is uncalibrated, and it can emit triples not in the
+text (the report flags low source-overlap as a *risk* signal). But it is
+structurally much closer to real claim extraction than P2 — the basis for a
+genuine claim graph (typed nodes + relations + confidence) once an extractor is
+trusted and persisted.
