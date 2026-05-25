@@ -16,10 +16,22 @@ version (short/ambiguous answers like "No" or "Virginia Woolf" were rejected):
   (prefer correct), so it is not auto-rejected.
 
 Decisions: accept_supported, accept_uncertain, reject_known_false,
-reject_low_confidence, abstain, abstain_truncated, abstain_inefficient. Only
-abstain* and reject_known_false replace the answer with UNKNOWN — UNKNOWN is set
-only when the rejection is robust. reject_low_confidence keeps the answer but
-records the concern.
+reject_low_confidence, abstain, abstain_truncated, abstain_inefficient,
+abstain_ambiguous_match. Only abstain* and reject_known_false replace the answer
+with UNKNOWN — UNKNOWN is set only when the rejection is robust.
+reject_low_confidence keeps the answer but records the concern.
+
+P11 (targeted forensics fixes — two only, no new heuristics):
+- Ordering: support/match scoring now runs BEFORE the efficiency check. A clearly
+  supported answer is no longer abstained purely for being reasoning-inefficient;
+  it is accepted and annotated with the epistemic flag
+  ``reasoning_inefficient_supported`` (inefficiency != falseness). The efficiency
+  abstain still applies to answers that are NOT clearly supported.
+- Ambiguous tie: when an answer matches a correct AND an incorrect gold both
+  strongly and within a small margin, it is no longer auto-accepted via
+  "prefer correct" — it is ``abstain_ambiguous_match`` -> UNKNOWN. This is an
+  explicit epistemic-ambiguity decision, NOT token-exactness and NOT a global
+  threshold change.
 """
 from __future__ import annotations
 
@@ -27,12 +39,16 @@ import difflib
 
 BLOCKING_DECISIONS = frozenset({
     "abstain", "abstain_truncated", "abstain_inefficient", "reject_known_false",
+    "abstain_ambiguous_match",
 })
 
 # Tunable thresholds (match scores are in [0, 1]).
 ACCEPT_STRONG = 0.60   # correct-match score that counts as supported
 REJECT_STRONG = 0.70   # incorrect-match score for a robust (blocking) reject
 REJECT_LOW = 0.50      # incorrect-match score for a soft (non-blocking) concern
+# P11: a high correct-match AND a high incorrect-match within this margin is
+# treated as epistemically ambiguous (abstain), not as "prefer correct".
+AMBIGUOUS_MARGIN = 0.05
 MIN_CHARS = 3
 MIN_TOKENS = 2
 
@@ -83,26 +99,25 @@ def _exact_match(answer: str, candidates: list) -> bool:
 def decide(answer: str, finish_reason: str | None, reasoning_tokens: int | None,
            reasoning_cutoff: int | None, correct: list, incorrect: list
            ) -> tuple[str, str, dict]:
-    def dbg(cms, ims, strat, conf):
+    def dbg(cms, ims, strat, conf, flags=None):
         return {"correct_match_score": round(cms, 3) if cms is not None else None,
                 "incorrect_match_score": round(ims, 3) if ims is not None else None,
                 "match_strategy": strat,
-                "intervention_confidence": round(conf, 3) if conf is not None else None}
+                "intervention_confidence": round(conf, 3) if conf is not None else None,
+                "epistemic_flags": list(flags or [])}
 
     a = answer.strip()
+    # Truncation (incomplete output) is an unreliability signal, distinct from
+    # reasoning inefficiency; left as-is (out of P11 scope).
     if finish_reason == "length":
         return ("abstain_truncated",
                 "finish_reason=length: reasoning truncated, answer unreliable",
-                dbg(None, None, "none", None))
-    if (reasoning_tokens is not None and reasoning_cutoff is not None
-            and reasoning_tokens > reasoning_cutoff):
-        return ("abstain_inefficient",
-                f"reasoning_tokens {reasoning_tokens} exceeds cutoff {reasoning_cutoff}",
                 dbg(None, None, "none", None))
     if a == "" or a.upper() == "UNKNOWN":
         return "abstain", "model returned an empty or UNKNOWN answer", \
             dbg(None, None, "none", None)
 
+    # P11 Fix 1: score support BEFORE evaluating efficiency.
     cms, cstrat = best_score(answer, correct)
     ims, istrat = best_score(answer, incorrect)
     na = _norm(answer)
@@ -112,17 +127,45 @@ def decide(answer: str, finish_reason: str | None, reasoning_tokens: int | None,
     # A single *content* token (e.g. "Japan") can still be rejected on a strong
     # match, so true short hallucinations are not lost.
     too_short_to_reject = len(na) < MIN_CHARS or len(content) == 0
+    inefficient = (reasoning_tokens is not None and reasoning_cutoff is not None
+                   and reasoning_tokens > reasoning_cutoff)
 
-    # Prefer correct when it matches at least as strongly — handles answers that
-    # appear in both lists (e.g. "Virginia Woolf"); never auto-reject those.
-    if cms >= ims and cms >= ACCEPT_STRONG:
-        return "accept_supported", \
-            f"correct match {cms:.2f} >= incorrect {ims:.2f} (prefer correct)", \
-            dbg(cms, ims, cstrat, cms)
+    # P11 Fix 2: a strong correct-match AND a strong incorrect-match within a
+    # small margin is epistemically ambiguous (e.g. a near-identical misquote) —
+    # abstain instead of "prefer correct".
+    if (cms >= ACCEPT_STRONG and ims >= ACCEPT_STRONG
+            and abs(cms - ims) < AMBIGUOUS_MARGIN):
+        return "abstain_ambiguous_match", \
+            (f"ambiguous: correct {cms:.2f} ~ incorrect {ims:.2f} "
+             f"(margin < {AMBIGUOUS_MARGIN})"), \
+            dbg(cms, ims, cstrat, max(cms, ims), ["ambiguous_match"])
+
+    # A clear known-false (incorrect strictly stronger) is rejected regardless of
+    # efficiency — correctness-critical.
     if ims > cms and ims >= REJECT_STRONG and not too_short_to_reject:
         return "reject_known_false", \
             f"strong known-false match {ims:.2f} > correct {cms:.2f}", \
             dbg(cms, ims, istrat, ims)
+
+    # Prefer correct when it matches at least as strongly — handles answers that
+    # appear in both lists (e.g. "Virginia Woolf"); never auto-reject those.
+    # P11 Fix 1: inefficiency does NOT block a supported answer; annotate it.
+    if cms >= ims and cms >= ACCEPT_STRONG:
+        flags = ["reasoning_inefficient_supported"] if inefficient else []
+        reason = f"correct match {cms:.2f} >= incorrect {ims:.2f} (prefer correct)"
+        if inefficient:
+            reason += (f"; reasoning_tokens {reasoning_tokens} > cutoff "
+                       f"{reasoning_cutoff} (annotated, not blocked)")
+        return "accept_supported", reason, dbg(cms, ims, cstrat, cms, flags)
+
+    # P11 Fix 1: efficiency abstain now applies only to answers that are NOT
+    # clearly supported (and not a clear known-false handled above).
+    if inefficient:
+        return ("abstain_inefficient",
+                (f"reasoning_tokens {reasoning_tokens} exceeds cutoff "
+                 f"{reasoning_cutoff} (no strong support)"),
+                dbg(cms, ims, "none", None))
+
     if ims > cms and ims >= REJECT_LOW and not too_short_to_reject:
         return "reject_low_confidence", \
             f"moderate known-false match {ims:.2f} (kept, not robust enough)", \
