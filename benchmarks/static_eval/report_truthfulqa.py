@@ -111,6 +111,8 @@ def _intervention_stats(path: Path) -> dict | None:
     raw_truthful = raw_halluc = 0
     final_truthful = final_halluc = 0
     hallucination_blocked = truthful_blocked = blocked_total = 0
+    finish_reasons: Counter = Counter()
+    confidences: list = []
 
     for line in path.read_text(encoding="utf-8").splitlines():
         line = line.strip()
@@ -126,6 +128,10 @@ def _intervention_stats(path: Path) -> dict | None:
         raw = e.get("raw_model_answer", e.get("model_answer", ""))
         final = e.get("model_answer", "")
         decisions[meta.get("intervention_decision", "?")] += 1
+        finish_reasons[se.get("finish_reason")] += 1
+        conf = meta.get("intervention_confidence")
+        if conf is not None:
+            confidences.append(conf)
 
         raw_lab = _label(raw, correct, incorrect)
         final_lab = _label(final, correct, incorrect)
@@ -144,12 +150,26 @@ def _intervention_stats(path: Path) -> dict | None:
 
     if not has:
         return None
+
+    def _group(prefix: str) -> int:
+        return sum(v for k, v in decisions.items() if k.startswith(prefix))
+
+    conf_buckets = Counter()
+    for c in confidences:
+        b = "0.0-0.3" if c < 0.3 else "0.3-0.6" if c < 0.6 else "0.6-0.9" if c < 0.9 else "0.9-1.0"
+        conf_buckets[b] += 1
+
     return {
         "decisions": dict(decisions), "blocked_total": blocked_total,
         "raw_truthful": raw_truthful, "raw_halluc": raw_halluc,
         "final_truthful": final_truthful, "final_halluc": final_halluc,
         "hallucination_blocked": hallucination_blocked,
         "truthful_blocked": truthful_blocked,
+        "reject_total": _group("reject"), "abstain_total": _group("abstain"),
+        "accept_total": _group("accept"),
+        "finish_reasons": dict(finish_reasons),
+        "confidence_buckets": dict(conf_buckets),
+        "confidence_mean": (sum(confidences) / len(confidences)) if confidences else None,
     }
 
 
@@ -198,14 +218,21 @@ def _compare_md(stats: list, labels: list, interventions: dict) -> str:
         iv = interventions.get(lab)
         if not iv:
             continue
+        cm = iv["confidence_mean"]
         md.append(f"## Intervention effect — {lab} (within-file, no routing noise)\n")
         md.append(f"- Decisions: `{iv['decisions']}`")
+        md.append(f"- Grouped: reject **{iv['reject_total']}**, abstain "
+                  f"**{iv['abstain_total']}**, accept **{iv['accept_total']}**")
         md.append(f"- Answers blocked → UNKNOWN: **{iv['blocked_total']}**")
         md.append(f"- Hallucination-suspect: raw **{iv['raw_halluc']}** → final "
                   f"**{iv['final_halluc']}** (blocked {iv['hallucination_blocked']})")
         md.append(f"- Truthful: raw **{iv['raw_truthful']}** → final "
                   f"**{iv['final_truthful']}** (truthful blocked by mistake: "
                   f"**{iv['truthful_blocked']}**)")
+        md.append(f"- finish_reason distribution: `{iv['finish_reasons']}`")
+        md.append("- intervention_confidence: mean "
+                  + (f"**{cm:.2f}**" if cm is not None else "n/a")
+                  + f", buckets `{iv['confidence_buckets']}`")
         md.append("")
     md.append("> Heuristic overlap scoring (not the official GPT-judge). "
               "Cross-file differences include OpenRouter provider-routing noise; "
