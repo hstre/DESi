@@ -118,3 +118,29 @@ edited this answer" to "DESi recorded a claim, its state, and how it relates to
 the known truth." It is **not yet** a persistent claim graph: claims live in an
 in-process `InMemoryStore` and are not yet exported to the v24 epistemic graph /
 Neo4j (the next reintegration step).
+
+### P0 (direct recorder) vs P1 (run_desi memory_hook)
+
+P1 (`claim_memory_adapter.record_claims_via_memory_hook`, run via
+`--record-claims-via-hook` or `claim_memory_adapter.py --via-hook`) routes the
+claim writes through the **real governance lifecycle** instead of a side-channel:
+
+| | P0 `--record-claims` | P1 `--record-claims-via-hook` |
+| --- | --- | --- |
+| write path | `MemoryRecorder` called directly | `run_desi(trajectory, memory_hook=MemoryHook(...))` |
+| run_desi used? | no | **yes** — Run + OperatorEvents + DeterministicMetrics |
+| what the hook writes | — | trajectory focus claims (PROPOSED, content=focus id) + `DERIVES_FROM` |
+| answer/gold semantics | direct | recorded by the adapter through the same recorder |
+
+**Honest limitation (not hidden):** the stock `MemoryHook` mirrors the
+*trajectory's focus claims*; it does **not** map a benchmark `intervention_decision`
+to a `ClaimState`. So P1 genuinely runs `run_desi` + the hook (Run, OperatorEvents,
+metrics, DERIVES_FROM, replay-safe), but the CONFIRMED/REJECTED + SUPPORTS/
+CONTRADICTS semantics are still recorded by the adapter on top. The comparison
+report (`*_claim_memory_hook_report.md`) shows both layers explicitly.
+
+**Why P1 is closer to the DESi core:** claims now enter through the same
+`run_desi` governance path the prototype uses (lifecycle hook, run scope, replay
+safety, deterministic metrics) rather than a bolt-on recorder call. The next step
+is a custom hook that carries the answer→ClaimState mapping inside the lifecycle
+itself, and persistence to the v24 epistemic graph.

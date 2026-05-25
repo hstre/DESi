@@ -52,8 +52,11 @@ def parse_args() -> argparse.Namespace:
                         "this (or finish_reason==length). Default 1500.")
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--record-claims", action="store_true",
-                   help="Also record each answer as a real DESi memory Claim "
-                        "(InMemoryStore) and write a claim-memory export + report.")
+                   help="P0: record each answer as a real DESi memory Claim "
+                        "directly via MemoryRecorder; write export + report.")
+    p.add_argument("--record-claims-via-hook", action="store_true",
+                   help="P1: record claims through run_desi(memory_hook=...); "
+                        "write export + a P0-vs-P1 comparison report.")
     p.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     return p.parse_args()
 
@@ -166,6 +169,33 @@ def main() -> int:
                           encoding="utf-8")
         write_report(store, exports, args.output.with_suffix(".claim_memory_report.md"))
         print(f"Recorded {len(exports)} claims -> {cm_out}")
+
+    if args.record_claims_via_hook:
+        from claim_memory_adapter import (build_from_records,
+                                          build_from_records_via_hook,
+                                          write_hook_report)
+        model_id = next(((r.get("desi_metadata", {}) or {}).get("model")
+                         for r in record_dicts), None) or args.model
+        p1_store, p1_exports = build_from_records_via_hook(record_dicts, model=model_id)
+        by_task = {e["task_id"]: e for e in p1_exports}
+        for rec in record_dicts:
+            e = by_task.get(rec["task_id"])
+            if e:
+                meta = rec.setdefault("desi_metadata", {}) or {}
+                meta["claim_id"] = e["claim_id"]
+                meta["claim_state"] = e["claim_state"]
+                meta["claim_relations"] = e["relations"]
+                meta["memory_hook_used"] = e["memory_hook_used"]
+                rec["desi_metadata"] = meta
+        cmh_out = args.output.with_suffix(".claim_memory_hook.jsonl")
+        cmh_out.write_text("\n".join(json.dumps(e, ensure_ascii=False) for e in p1_exports) + "\n",
+                           encoding="utf-8")
+        p0_store, p0_exports = build_from_records(record_dicts, model=model_id)
+        write_hook_report(p0_store, p0_exports, p1_store, p1_exports,
+                          args.output.with_suffix(".claim_memory_hook_report.md"))
+        used = sum(1 for e in p1_exports if e.get("memory_hook_used"))
+        print(f"P1: recorded {len(p1_exports)} claims via hook "
+              f"(used {used}/{len(p1_exports)}) -> {cmh_out}")
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(

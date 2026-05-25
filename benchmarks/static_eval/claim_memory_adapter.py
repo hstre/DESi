@@ -132,6 +132,123 @@ def build_from_records(records: list[dict], *, model: str = "unknown",
     return store, exports
 
 
+def _all_relations(store: InMemoryStore) -> list:
+    """Collect every relation once (by its source claim)."""
+    out = []
+    for c in store.all_claims():
+        out.extend(store.relations_for(c.claim_id, direction="out"))
+    return out
+
+
+# --------------------------------------------------------------------------- #
+# P1: record via the run_desi(..., memory_hook=...) governance path
+# --------------------------------------------------------------------------- #
+def record_claims_via_memory_hook(record: dict, store: InMemoryStore) -> dict:
+    """P1 path: build a Trajectory, run run_desi with a MemoryHook (which writes
+    the trajectory's focus claims), then record the benchmark answer/gold
+    semantics through the same recorder. Returns an export dict with hook info.
+
+    NOTE: run_desi+MemoryHook writes only *trajectory-derived* claims
+    (content = focus_claim_id, state PROPOSED, DERIVES_FROM edges). It does NOT
+    write the answer/gold semantics — those are recorded by the adapter below.
+    This split is reported explicitly; the hook is genuinely used (not faked).
+    """
+    from trajectory_builder import build_trajectory
+    from desi.runner import run_desi
+    from desi.memory.hook import MemoryHook
+
+    traj, tmeta = build_trajectory(record)
+    recorder = MemoryRecorder(store)
+
+    before = {c.claim_id for c in store.all_claims()}
+    hook = MemoryHook(recorder, model=tmeta.get("model", "unknown"),
+                      config={"benchmark": "truthfulqa", "task_id": tmeta["task_id"]})
+    metrics = run_desi(traj, memory_hook=hook)  # hook writes trajectory claims
+    hook_ids = sorted({c.claim_id for c in store.all_claims()} - before)
+    hook_used = len(hook.errors) == 0 and len(hook_ids) > 0
+
+    # Benchmark answer/gold semantics via the SAME recorder, in a fresh run.
+    recorder.start_run(model=tmeta.get("model", "unknown"),
+                       label="truthfulqa_semantic",
+                       config={"benchmark": "truthfulqa", "task_id": tmeta["task_id"]})
+    export = record_claim_for(recorder, record)
+    recorder.end_run()
+
+    export["memory_hook_used"] = hook_used
+    export["hook_errors"] = len(hook.errors)
+    export["hook_claim_ids"] = hook_ids
+    export["run_desi_metrics"] = {
+        "n_steps": getattr(metrics, "n_steps", None),
+        "n_en_events": getattr(metrics, "n_en_events", None),
+    }
+    export["claims_source"] = (
+        f"run_desi+MemoryHook wrote {len(hook_ids)} trajectory claim(s) "
+        "(PROPOSED, content=focus_id, DERIVES_FROM); adapter wrote the semantic "
+        "answer+gold claims (state + SUPPORTS/CONTRADICTS)"
+    )
+    export["trajectory_meta"] = tmeta
+    return export
+
+
+def build_from_records_via_hook(records: list[dict], *, model: str = "unknown"
+                                ) -> tuple[InMemoryStore, list[dict]]:
+    store = InMemoryStore()
+    exports = [record_claims_via_memory_hook(r, store) for r in records]
+    return store, exports
+
+
+def write_hook_report(p0_store: InMemoryStore, p0_exports: list[dict],
+                      p1_store: InMemoryStore, p1_exports: list[dict],
+                      path: Path) -> None:
+    def states(exports):
+        return dict(Counter(e["claim_state"] for e in exports))
+
+    def rels(store):
+        return dict(Counter(r.rel_type.value for r in _all_relations(store)))
+
+    p1_hook_used = sum(1 for e in p1_exports if e.get("memory_hook_used"))
+    p1_hook_claims = sum(len(e.get("hook_claim_ids", [])) for e in p1_exports)
+    p1_steps = sum((e.get("run_desi_metrics") or {}).get("n_steps") or 0 for e in p1_exports)
+
+    md = ["# Claim memory: P0 (direct recorder) vs P1 (run_desi memory_hook)\n",
+          f"- Records: **{len(p0_exports)}** (P0) / **{len(p1_exports)}** (P1)\n",
+          "| metric | P0 direct | P1 via memory_hook |",
+          "| --- | --- | --- |",
+          f"| total claims in store | {len(list(p0_store.all_claims()))} | {len(list(p1_store.all_claims()))} |",
+          f"| answer-claim states | `{states(p0_exports)}` | `{states(p1_exports)}` |",
+          f"| relations in store | `{rels(p0_store)}` | `{rels(p1_store)}` |",
+          f"| MemoryHook used | n/a (direct recorder) | {p1_hook_used}/{len(p1_exports)} tasks |",
+          f"| claims written by run_desi hook | 0 (run_desi not used for claims) | {p1_hook_claims} (trajectory focus claims) |",
+          f"| run_desi steps governed | 0 | {p1_steps} |",
+          ""]
+    md.append("## How claims were written\n")
+    md.append("- **P0:** answer + gold claims written **directly** via "
+              "`MemoryRecorder` in one run; `run_desi` not involved.")
+    md.append("- **P1:** `run_desi(trajectory, memory_hook=MemoryHook(...))` is "
+              "genuinely called per task. The hook writes the **trajectory's "
+              "focus claims** (state PROPOSED, content = focus id) + a "
+              "`DERIVES_FROM` edge, and `run_desi` returns DeterministicMetrics. "
+              "The **answer/gold semantics** (CONFIRMED/REJECTED + "
+              "SUPPORTS/CONTRADICTS) are then recorded by the adapter through the "
+              "same recorder — because the stock MemoryHook does not map a "
+              "benchmark decision to a ClaimState (it only mirrors trajectory "
+              "focus). This is stated explicitly, not hidden.")
+    md.append("")
+    md.append("## Equivalence of the semantic layer\n")
+    same_states = states(p0_exports) == states(p1_exports)
+    md.append(f"- Answer-claim states identical P0 vs P1: **{same_states}** "
+              "(the semantic recording is the same code path; P1 only adds the "
+              "run_desi/hook trajectory layer on top).")
+    md.append("")
+    md.append("> P1 is closer to the DESi core: claims now enter through the "
+              "`run_desi` governance lifecycle (Run + OperatorEvents + replay-safe "
+              "hook), not only a side-channel recorder call. The remaining gap is "
+              "that the hook does not yet carry benchmark answer→ClaimState "
+              "semantics; bridging that inside a custom hook is the next step.")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(md) + "\n", encoding="utf-8")
+
+
 def write_report(store: InMemoryStore, exports: list[dict], path: Path) -> None:
     claims = list(store.all_claims())
     answer_states = Counter(e["claim_state"] for e in exports)
@@ -180,16 +297,35 @@ def main() -> int:
     p.add_argument("--report", type=Path, default=None, help="Markdown report path.")
     p.add_argument("--limit", type=int, default=None)
     p.add_argument("--model", default="deepseek/deepseek-v4-pro")
+    p.add_argument("--via-hook", action="store_true",
+                   help="Use the P1 run_desi(memory_hook=...) path and write a "
+                        "P0-vs-P1 comparison report.")
     args = p.parse_args()
     if not args.input.exists():
         print(f"Input not found: {args.input}", file=sys.stderr)
         return 1
 
     records = _load_records(args.input, args.limit)
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+
+    if args.via_hook:
+        p1_store, p1_exports = build_from_records_via_hook(records, model=args.model)
+        args.output.write_text(
+            "\n".join(json.dumps(e, ensure_ascii=False) for e in p1_exports) + "\n",
+            encoding="utf-8")
+        used = sum(1 for e in p1_exports if e.get("memory_hook_used"))
+        print(f"P1: recorded {len(p1_exports)} answer-claims via run_desi+hook "
+              f"({len(list(p1_store.all_claims()))} total claims; "
+              f"hook used on {used}/{len(p1_exports)}) -> {args.output}")
+        if args.report:
+            p0_store, p0_exports = build_from_records(records, model=args.model)
+            write_hook_report(p0_store, p0_exports, p1_store, p1_exports, args.report)
+            print(f"Wrote P0-vs-P1 report -> {args.report}")
+        return 0
+
     store, exports = build_from_records(records, model=args.model,
                                         config={"input": args.input.name,
                                                 "limit": args.limit or len(records)})
-    args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text("\n".join(json.dumps(e, ensure_ascii=False) for e in exports) + "\n",
                            encoding="utf-8")
     print(f"Recorded {len(exports)} answer-claims "
