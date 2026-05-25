@@ -27,6 +27,12 @@ from .entropy import (
     synthesize_relation_distribution,
 )
 from .gateway import AdmissionDecision, CanonicalGateway
+from .governance import (
+    PROJECTION_HIGH_ENTROPY,
+    PROJECTION_INVALID,
+    PROJECTION_UNCERTAIN,
+    projection_flags,
+)
 from .projection import CanonicalProjection, project_atomic_claim
 
 __all__ = [
@@ -36,9 +42,13 @@ __all__ = [
     "CanonicalProjection",
     "CanonicalThresholds",
     "DEFAULT_RELATION_SPACE_SIZE",
+    "PROJECTION_HIGH_ENTROPY",
+    "PROJECTION_INVALID",
+    "PROJECTION_UNCERTAIN",
     "from_alexandria_candidate",
     "from_desi_spl_candidate",
     "normalized_shannon_entropy",
     "project_atomic_claim",
+    "projection_flags",
     "synthesize_relation_distribution",
 ]

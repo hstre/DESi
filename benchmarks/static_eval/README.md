@@ -56,6 +56,10 @@ run LLM inference. This suite adds the actual governed inference + scoring.)
   `desi.spl_core`). Not original SPL.
 - `spl_core_benchmark.py` — P9 consolidation benchmark: canonical-core-vs-vendored
   drift check + conflict metrics + `desi.spl_adapter`→canonical smoke.
+- `claim_graph_pipeline.py` — TruthfulQA → ClaimGraph build; P10: every P3 claim
+  projected through `spl_core` by default (`--allow-raw-claims` = debug bypass).
+- `p10_operational_spl_benchmark.py` — P9-vs-P10 operational benchmark (bypass
+  count, projection rejection rate, governance flags, truth cross-tab).
 - `vendor/alexandria_spl/` — **unmodified** Alexandria SPL (`spl.py`,
   `spl_gateway.py`, MIT; see `VENDOR.md`), vendored for offline reproducibility.
   (The canonical layer is `src/desi/spl_core/`; this vendored copy is the
@@ -455,3 +459,46 @@ no distribution to compute entropy from; unifying them needs a real `P_r` (an NL
 backend) and is deferred, not faked. Full inventory: `artifacts/architecture/
 spl_consolidation_analysis.md`. SPL = projection/admissibility, not conflict
 engine, not truth solver, not NER/ontology.
+
+### P10: SPL is now the operational standard path
+
+P9 made SPL-core canonical; P10 makes it the **operational default** of the real
+P3 → ClaimGraph → Conflict pipeline. Previously `claim_graph_pipeline.py` wrote
+raw `(subject, predicate, object)` triples straight into memory — the
+`atomic claim → ClaimGraph` shortcut. Now **every P3 claim is projected through
+`spl_core.project_atomic_claim` before it may enter the graph**:
+
+- **ClaimGraph stores projected candidates.** Each atomic claim carries
+  `projection_method`, `projection_entropy`, `emission_rule`, `admissible`,
+  `gateway_state` and `source_projection` (in the exported row **and** in the
+  stored Claim's `provenance.operator_path`).
+- **Governance keys off projection, not raw strings.** New mark-only flags
+  (`src/desi/spl_core/governance.py`): `projection_uncertain` (admitted E2),
+  `projection_invalid` (gate rejected), `projection_high_entropy` (E3 block).
+  Inadmissible claims are recorded but quarantined (no conflict-eligible edges).
+- **Direct raw-claim processing is now debug/legacy only** — `--allow-raw-claims`
+  on `claim_graph_pipeline.py`, and the conflict runner's `spl_mode=None` P6/P7
+  baseline. The standard path no longer bypasses SPL.
+
+Three projection notions, three layers (unchanged framing): **symbolic
+normalisation** (string equality, inside the conflict engine) vs **semantic
+projection** (admissibility/entropy, SPL-core, *before* the conflict engine) vs
+**epistemic projection** (claim state/risk in the graph, downstream).
+
+```bash
+python benchmarks/static_eval/p10_operational_spl_benchmark.py    # P9 vs P10
+python benchmarks/static_eval/claim_graph_pipeline.py --output /tmp/g.jsonl --report /tmp/g.md  # operational
+python benchmarks/static_eval/claim_graph_pipeline.py --output /tmp/g.jsonl --allow-raw-claims   # debug bypass
+```
+
+**Honest result** (`outputs/p10_operational_spl_benchmark.md`, over the real
+DeepSeek limit-50 graph): **bypass count 48 → 0**; projection rejection rate
+**6.2%** (the genuinely low-confidence extractions, flagged); conflict
+precision/recall **unchanged** (1.00/1.00). So P10 is an **architecture +
+governance** win — SPL is now operationally central and governance is based on
+projection, not raw strings — **not** a detection win. The cross-tab confirms SPL
+is truth-agnostic (not a hallucination filter). Offline (no model tokens) P3
+falls back to uniform 0.5 confidence which the calibration blocks wholesale — an
+availability artifact, so the benchmark reads the real-confidence graph and says
+so. Full inventory: `artifacts/architecture/p10_operational_spl_analysis.md`. SPL
+= projection/admissibility, not conflict engine, not truth solver, not NER/ontology.

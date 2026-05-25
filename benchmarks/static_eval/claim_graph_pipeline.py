@@ -35,6 +35,7 @@ from desi.memory.relations import RelationType           # noqa: E402
 from desi.memory.store import InMemoryStore              # noqa: E402
 from desi.runner import run_desi                         # noqa: E402
 from desi.memory.hook import MemoryHook                  # noqa: E402
+from desi.spl_core import project_atomic_claim, projection_flags  # noqa: E402
 from claim_memory_adapter import _all_relations, map_state  # noqa: E402
 from trajectory_builder import build_trajectory          # noqa: E402
 from model_claim_extractor import extract_claims_model   # noqa: E402
@@ -66,7 +67,8 @@ def _gold_relation(text: str, correct: list, incorrect: list):
     return ClaimState.PROPOSED, None, 0.0
 
 
-def process_record(record: dict, store: InMemoryStore, *, extract_backend: str = "auto") -> dict:
+def process_record(record: dict, store: InMemoryStore, *, extract_backend: str = "auto",
+                   use_spl: bool = True) -> dict:
     meta = record.get("desi_metadata") or {}
     se = record.get("static_eval") or {}
     task_id = str(record.get("task_id", ""))
@@ -100,26 +102,57 @@ def process_record(record: dict, store: InMemoryStore, *, extract_backend: str =
         rec.record_relation(source=answer_claim, target=gold_claim, rel_type=arel, weight=aw)
         answer_rels.append(arel.value)
 
-    # 3. P3 atomic claims
+    # 3. P3 atomic claims — OPERATIONAL SPL PATH (P10).
+    #    Standard mode (use_spl=True): every P3 claim is projected through
+    #    spl_core BEFORE it may enter the graph; projection metadata + governance
+    #    flags are stored, and only admissible candidates get SUPPORTS/CONTRADICTS
+    #    edges (the comparable, conflict-eligible relations). use_spl=False is the
+    #    legacy raw bypass (debug only).
     p3 = extract_claims_model(answer_text, backend=extract_backend)
     atomic = []
+    n_admissible = n_blocked = 0
     for c in p3["claims"]:
         ttext = _triple_text(c)
         if len(ttext) < 2:
             continue
         astate, grel, gw = _gold_relation(ttext, correct, incorrect)
+        if use_spl:
+            cand, proj = project_atomic_claim(c)
+            entropy = cand.projection_entropy
+            admissible = cand.admissible
+            flags = projection_flags(cand)
+            gateway_state = (f"admitted_{cand.emission_rule}" if admissible
+                             else f"blocked_{cand.emission_rule or 'flag'}")
+            op = (task_id, "p3", f"spl:{cand.emission_rule or 'flag'}",
+                  f"h={entropy:.3f}" if entropy is not None else "h=na",
+                  "admissible" if admissible else "inadmissible")
+            projection_meta = {
+                "projection_method": "spl_core",
+                "projection_entropy": round(entropy, 4) if entropy is not None else None,
+                "emission_rule": cand.emission_rule, "admissible": admissible,
+                "gateway_state": gateway_state, "source_projection": proj.projection_id,
+                "flags": flags}
+        else:
+            entropy, admissible, flags = None, True, []
+            op = (task_id, "p3")
+            projection_meta = {"projection_method": "raw_legacy", "admissible": True,
+                               "gateway_state": "raw_legacy_bypass", "flags": []}
+        n_admissible += int(admissible)
+        n_blocked += int(not admissible)
         sub = rec.record_claim(content=ttext, method=f"p3_{c['claim_type']}",
                                state=astate, confidence=float(c.get("confidence", 0.5)),
-                               operator_path=(task_id, "p3"))
+                               operator_path=op)
         rec.record_relation(source=sub, target=answer_claim,
                             rel_type=RelationType.DERIVES_FROM)
         rels = ["DERIVES_FROM"]
-        if grel is not None:
+        # gold SUPPORTS/CONTRADICTS only for admissible (comparable) candidates
+        if grel is not None and admissible:
             rec.record_relation(source=sub, target=gold_claim, rel_type=grel, weight=gw)
             rels.append(grel.value)
         atomic.append({"claim_id": sub.claim_id, "content": ttext,
                        "claim_type": c["claim_type"], "confidence": c["confidence"],
-                       "state": astate.value, "relations": rels})
+                       "state": astate.value, "relations": rels,
+                       "projection": projection_meta})
     rec.end_run()
 
     return {
@@ -131,6 +164,8 @@ def process_record(record: dict, store: InMemoryStore, *, extract_backend: str =
         "gold_claim_id": gold_claim.claim_id,
         "atomic_claims": atomic,
         "n_atomic": len(atomic),
+        "projection_summary": {"spl": use_spl, "n_admissible": n_admissible,
+                               "n_blocked": n_blocked},
         "p3": {"method": p3["extraction_method"], "model": p3["extraction_model"],
                "fallback_used": p3["fallback_used"], "raw_json_ok": p3["raw_json_ok"],
                "json_recovery_used": p3["json_recovery_used"],
@@ -141,10 +176,11 @@ def process_record(record: dict, store: InMemoryStore, *, extract_backend: str =
     }
 
 
-def build_claim_graph(records: list[dict], *, extract_backend: str = "auto"
-                      ) -> tuple[list[dict], InMemoryStore]:
+def build_claim_graph(records: list[dict], *, extract_backend: str = "auto",
+                      use_spl: bool = True) -> tuple[list[dict], InMemoryStore]:
     store = InMemoryStore()
-    rows = [process_record(r, store, extract_backend=extract_backend) for r in records]
+    rows = [process_record(r, store, extract_backend=extract_backend, use_spl=use_spl)
+            for r in records]
     return rows, store
 
 
@@ -212,6 +248,25 @@ def write_benchmark_report(records: list[dict], rows: list[dict],
     else:
         md.append("- (none — every answer yielded >=1 atomic claim)")
     md.append("")
+    spl_on = any(r.get("projection_summary", {}).get("spl") for r in rows)
+    n_adm = sum(r.get("projection_summary", {}).get("n_admissible", 0) for r in rows)
+    n_blk = sum(r.get("projection_summary", {}).get("n_blocked", 0) for r in rows)
+    flag_counts = Counter(f for r in rows for a in r["atomic_claims"]
+                          for f in a.get("projection", {}).get("flags", []))
+    rule_counts = Counter(a.get("projection", {}).get("emission_rule")
+                          for r in rows for a in r["atomic_claims"]
+                          if a.get("projection", {}).get("projection_method") == "spl_core")
+    md.append("## SPL projection (operational P10)\n")
+    md.append(f"- operational SPL path: **{'ON (every P3 claim projected)' if spl_on else 'OFF (raw legacy bypass)'}**")
+    if spl_on:
+        tot = n_adm + n_blk
+        md.append(f"- atomic claims projected: **{tot}** | admissible **{n_adm}** | "
+                  f"blocked **{n_blk}** (rejection rate "
+                  f"{pct(n_blk, tot) if tot else 'n/a'})")
+        md.append(f"- emission rules: `{dict(rule_counts)}`")
+        md.append(f"- governance flags: `{dict(flag_counts)}`")
+        md.append("- bypass count (raw claims entering the graph un-projected): **0**")
+    md.append("")
     md.append("## Honesty / limits\n")
     md.append("- **Granite path implemented but unavailable** on the test token's "
               "HF Inference providers; DeepSeek fallback is what actually ran "
@@ -231,6 +286,10 @@ def main() -> int:
     p.add_argument("--report", type=Path, default=None)
     p.add_argument("--limit", type=int, default=None)
     p.add_argument("--extract-backend", default="auto")
+    p.add_argument("--allow-raw-claims", action="store_true",
+                   help="DEBUG/LEGACY: bypass SPL projection and record raw P3 "
+                        "triples directly (the pre-P10 behaviour). Default is the "
+                        "operational SPL path (every P3 claim is projected).")
     args = p.parse_args()
     if not args.input.exists():
         print(f"Input not found: {args.input}", file=sys.stderr)
@@ -239,7 +298,8 @@ def main() -> int:
     if args.limit:
         records = records[:args.limit]
 
-    rows, store = build_claim_graph(records, extract_backend=args.extract_backend)
+    rows, store = build_claim_graph(records, extract_backend=args.extract_backend,
+                                    use_spl=not args.allow_raw_claims)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n",
                            encoding="utf-8")
