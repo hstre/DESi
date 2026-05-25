@@ -57,6 +57,12 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--record-claims-via-hook", action="store_true",
                    help="P1: record claims through run_desi(memory_hook=...); "
                         "write export + a P0-vs-P1 comparison report.")
+    p.add_argument("--extract-claims", default="none", choices=("none", "model"),
+                   help="P3: 'model' enables model-assisted atomic claim extraction "
+                        "(used with --record-claim-graph).")
+    p.add_argument("--record-claim-graph", action="store_true",
+                   help="P3: build the answer + atomic-claim graph via run_desi + "
+                        "model extraction; write graph JSONL + benchmark report.")
     p.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     return p.parse_args()
 
@@ -196,6 +202,18 @@ def main() -> int:
         used = sum(1 for e in p1_exports if e.get("memory_hook_used"))
         print(f"P1: recorded {len(p1_exports)} claims via hook "
               f"(used {used}/{len(p1_exports)}) -> {cmh_out}")
+
+    if args.record_claim_graph:
+        from claim_graph_pipeline import build_claim_graph, write_benchmark_report
+        backend = "auto" if args.extract_claims == "model" else "none"
+        rows, store = build_claim_graph(record_dicts, extract_backend=backend)
+        cg_out = args.output.with_suffix(".claim_graph.jsonl")
+        cg_out.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n",
+                          encoding="utf-8")
+        write_benchmark_report(record_dicts, rows, store,
+                               args.output.with_suffix(".claim_graph_report.md"))
+        n_atomic = sum(r["n_atomic"] for r in rows)
+        print(f"P3: claim graph {len(rows)} answers / {n_atomic} atomic claims -> {cg_out}")
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(

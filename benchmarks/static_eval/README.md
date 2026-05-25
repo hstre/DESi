@@ -224,3 +224,17 @@ text (the report flags low source-overlap as a *risk* signal). But it is
 structurally much closer to real claim extraction than P2 — the basis for a
 genuine claim graph (typed nodes + relations + confidence) once an extractor is
 trusted and persisted.
+
+### Claim-graph benchmark (P0–P3 combined)
+
+`claim_graph_pipeline.py` (and `run_truthfulqa.py --record-claim-graph
+--extract-claims model`) combine the layers per task: `run_desi`+`MemoryHook`
+governance (P1) → answer-level claim with intervention state + gold relation
+(P0) → P3 atomic claims, each `DERIVES_FROM` the answer claim and
+`SUPPORTS`/`CONTRADICTS` the gold when matched. The export
+(`outputs/truthfulqa.deepseek-v4.desi_claim_graph.limit50.jsonl`) is one
+graph row per task; the report (`outputs/truthfulqa_claim_graph_benchmark_report.md`)
+adds TruthfulQA raw→final scores, claim/relation distributions, and P3 extraction
+stats. Same honest caveats: Granite preferred-but-unavailable (DeepSeek fallback),
+InMemoryStore + exported JSONL (not persistent Neo4j), limit 50 not full
+TruthfulQA.
