@@ -1,0 +1,77 @@
+{
+  "dataset": "pietrolesci/nli_fever",
+  "variant": "baseline",
+  "model": "ibm-granite/granite-4.1-8b",
+  "model_key": "granite",
+  "n": 100,
+  "answered": 100,
+  "parse_failures": 0,
+  "errors": 0,
+  "accuracy": 0.57,
+  "confusion": {
+    "SUPPORTS": {
+      "SUPPORTS": 15,
+      "REFUTES": 0,
+      "NOT_ENOUGH_INFO": 14
+    },
+    "REFUTES": {
+      "SUPPORTS": 3,
+      "REFUTES": 32,
+      "NOT_ENOUGH_INFO": 10
+    },
+    "NOT_ENOUGH_INFO": {
+      "SUPPORTS": 5,
+      "REFUTES": 11,
+      "NOT_ENOUGH_INFO": 10
+    }
+  },
+  "gold_distribution": {
+    "SUPPORTS": 29,
+    "REFUTES": 45,
+    "NOT_ENOUGH_INFO": 26
+  },
+  "pred_distribution": {
+    "SUPPORTS": 23,
+    "REFUTES": 43,
+    "NOT_ENOUGH_INFO": 34
+  },
+  "per_class": {
+    "SUPPORTS": {
+      "precision": 0.652,
+      "recall": 0.517,
+      "tp": 15,
+      "fp": 8,
+      "fn": 14
+    },
+    "REFUTES": {
+      "precision": 0.744,
+      "recall": 0.711,
+      "tp": 32,
+      "fp": 11,
+      "fn": 13
+    },
+    "NOT_ENOUGH_INFO": {
+      "precision": 0.294,
+      "recall": 0.385,
+      "tp": 10,
+      "fp": 24,
+      "fn": 16
+    }
+  },
+  "overcommitment_rate": 0.615,
+  "overcommitment_n": "16/26",
+  "overabstention_rate": 0.324,
+  "overabstention_n": "24/74",
+  "elapsed_s": 89.08,
+  "est_cost_usd": 0.001763,
+  "desi_core": {
+    "replay_stable": true,
+    "core_identity_ok": true,
+    "gov_independent": true,
+    "critical_branch_preservation": 1.0,
+    "node_reduction": 0.533333,
+    "hard_pruning": 0,
+    "mutation_attempts": 5,
+    "mutation_rejected": 5
+  }
+}

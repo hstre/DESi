@@ -1,0 +1,77 @@
+{
+  "dataset": "tals/vitaminc",
+  "variant": "evidence_strict",
+  "model": "anthropic/claude-haiku-4.5",
+  "model_key": "claude",
+  "n": 100,
+  "answered": 98,
+  "parse_failures": 2,
+  "errors": 0,
+  "accuracy": 0.765,
+  "confusion": {
+    "SUPPORTS": {
+      "SUPPORTS": 26,
+      "REFUTES": 3,
+      "NOT_ENOUGH_INFO": 2
+    },
+    "REFUTES": {
+      "SUPPORTS": 0,
+      "REFUTES": 24,
+      "NOT_ENOUGH_INFO": 4
+    },
+    "NOT_ENOUGH_INFO": {
+      "SUPPORTS": 4,
+      "REFUTES": 10,
+      "NOT_ENOUGH_INFO": 25
+    }
+  },
+  "gold_distribution": {
+    "SUPPORTS": 31,
+    "REFUTES": 28,
+    "NOT_ENOUGH_INFO": 41
+  },
+  "pred_distribution": {
+    "SUPPORTS": 30,
+    "REFUTES": 37,
+    "NOT_ENOUGH_INFO": 31
+  },
+  "per_class": {
+    "SUPPORTS": {
+      "precision": 0.867,
+      "recall": 0.839,
+      "tp": 26,
+      "fp": 4,
+      "fn": 5
+    },
+    "REFUTES": {
+      "precision": 0.649,
+      "recall": 0.857,
+      "tp": 24,
+      "fp": 13,
+      "fn": 4
+    },
+    "NOT_ENOUGH_INFO": {
+      "precision": 0.806,
+      "recall": 0.641,
+      "tp": 25,
+      "fp": 6,
+      "fn": 14
+    }
+  },
+  "overcommitment_rate": 0.341,
+  "overcommitment_n": "14/41",
+  "overabstention_rate": 0.102,
+  "overabstention_n": "6/59",
+  "elapsed_s": 354.86,
+  "est_cost_usd": 0.153741,
+  "desi_core": {
+    "replay_stable": true,
+    "core_identity_ok": true,
+    "gov_independent": true,
+    "critical_branch_preservation": 1.0,
+    "node_reduction": 0.533333,
+    "hard_pruning": 0,
+    "mutation_attempts": 5,
+    "mutation_rejected": 5
+  }
+}
