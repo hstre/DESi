@@ -1,0 +1,79 @@
+{
+  "benchmark": "vitaminc",
+  "config": "dissent",
+  "task": "verify",
+  "extractor": "ibm-granite/granite-4.1-8b",
+  "challenger": "nvidia/nemotron-3-super-120b-a12b:free",
+  "solver": "deepseek-chat (direct)",
+  "labels": [
+    "SUPPORTS",
+    "REFUTES",
+    "NOT_ENOUGH_INFO"
+  ],
+  "eval": {
+    "n": 10,
+    "answered": 10,
+    "parse_failures": 0,
+    "errors": 0,
+    "accuracy": 0.5,
+    "confusion": {
+      "SUPPORTS": {
+        "SUPPORTS": 0,
+        "REFUTES": 0,
+        "NOT_ENOUGH_INFO": 3
+      },
+      "REFUTES": {
+        "SUPPORTS": 0,
+        "REFUTES": 0,
+        "NOT_ENOUGH_INFO": 2
+      },
+      "NOT_ENOUGH_INFO": {
+        "SUPPORTS": 0,
+        "REFUTES": 0,
+        "NOT_ENOUGH_INFO": 5
+      }
+    },
+    "gold_distribution": {
+      "SUPPORTS": 3,
+      "REFUTES": 2,
+      "NOT_ENOUGH_INFO": 5
+    },
+    "pred_distribution": {
+      "SUPPORTS": 0,
+      "REFUTES": 0,
+      "NOT_ENOUGH_INFO": 10
+    },
+    "est_cost_usd": 0.0028011200000000003
+  },
+  "elapsed_s": 404.32,
+  "desi_core": {
+    "replay_stable": true,
+    "core_identity_ok": true,
+    "gov_independent": true,
+    "critical_branch_preservation": 1.0,
+    "hard_pruning": 0,
+    "mutation_attempts": 5,
+    "mutation_rejected": 5
+  },
+  "dissent": {
+    "challenger": "nvidia/nemotron-3-super-120b-a12b:free",
+    "challenger_nei_flagged": 8,
+    "dissent_preserved": 8,
+    "dissent_pruned": 0,
+    "branch_preservation_rate": 1.0,
+    "abstention_rate": 1.0,
+    "nei_calibration_gap": 5,
+    "gold_nei": 5,
+    "pred_nei": 10,
+    "challenger_tokens": [
+      2866,
+      6269
+    ]
+  },
+  "desi_governance": {
+    "uncertainty_improperly_lost": 0,
+    "challenger_branches_hard_pruned": 0,
+    "decision_structure_replayable": true,
+    "core_invariant": true
+  }
+}
