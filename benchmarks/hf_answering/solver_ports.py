@@ -234,6 +234,74 @@ class DeepSeekDirectSolver:
         return (0.27e-6, 1.10e-6)
 
 
+class OpenRouterDirectSolver:
+    """Direct-verify solver for ANY OpenRouter model (Claude Haiku, GPT-4.1-mini,
+    Granite, ...). Used for the controlled solver-model comparison: it shares the
+    SAME fixed prompt families, the SAME temperature 0, and the SAME one-answer
+    policy (no voting/repair) as the DeepSeek direct solver — only the model id
+    differs. Reads OPENROUTER_API_KEY in-process; raises if absent. A few retries
+    are allowed ONLY for transient network/5xx errors (prompt and answer unchanged)
+    — infrastructure resilience, never answer-level retry."""
+
+    def __init__(self, model_id: str, *, price=None, max_tokens: int = 384) -> None:
+        from desi.live_llm_validation.openrouter_client import api_key_present
+        if not api_key_present():
+            raise RuntimeError("OPENROUTER_API_KEY not set; OpenRouter solver unavailable.")
+        self.model_id = model_id
+        self.name = model_id
+        self.max_tokens = max_tokens
+        self._price = price or (0.0, 0.0)
+
+    def _call(self, prompt: str) -> tuple[str, int, int]:
+        import time as _time
+        from desi.live_llm_validation.openrouter_client import chat_completion
+        last = None
+        for attempt in range(3):  # transient network/5xx only (not answer retry)
+            try:
+                resp = chat_completion(self.model_id, [{"role": "user", "content": prompt}],
+                                       max_tokens=self.max_tokens, temperature=0.0)
+                choices = resp.get("choices") or []
+                if not choices:
+                    raise RuntimeError(f"no choices: {str(resp)[:160]}")
+                text = (choices[0]["message"].get("content") or "").strip()
+                u = resp.get("usage") or {}
+                return text, int(u.get("prompt_tokens") or 0), int(u.get("completion_tokens") or 0)
+            except Exception as exc:
+                last = exc
+                if attempt < 2:
+                    _time.sleep(2 * (attempt + 1))
+        raise RuntimeError(f"openrouter solver call failed ({self.model_id}): {last!r}")
+
+    def solve_direct(self, primary, context, *, task, variant="baseline"):
+        return self._call(build_direct_prompt(primary, context, task=task, variant=variant))
+
+    def solve_projection(self, projection, primary, *, task):
+        return self._call(build_role_prompt(projection, primary, task=task))
+
+    def price(self):
+        return self._price
+
+
+def make_solver(model: str):
+    """Factory for the solver-model comparison. Returns a solver whose
+    `solve_direct(primary, context, *, task, variant)` runs any of the FIXED
+    prompt families. Only the model differs across the comparison; temperature,
+    prompts, evaluator and scoring are held identical by the caller.
+      deepseek -> DeepSeek v4 Pro via the direct api.deepseek.com endpoint
+      claude   -> anthropic/claude-haiku-4.5 via OpenRouter
+      gpt      -> openai/gpt-4.1-mini via OpenRouter
+      granite  -> ibm-granite/granite-4.1-8b via OpenRouter (optional baseline)
+    """
+    m = model.lower()
+    if m == "deepseek":
+        return DeepSeekDirectSolver()
+    from models import CLAUDE_HAIKU, GPT_MINI, GRANITE, _PRICE  # peripheral
+    ids = {"claude": CLAUDE_HAIKU, "gpt": GPT_MINI, "granite": GRANITE}
+    if m not in ids:
+        raise ValueError(f"unknown solver model: {model!r}")
+    return OpenRouterDirectSolver(ids[m], price=_PRICE.get(ids[m]))
+
+
 class Solver:
     """An OpenRouter-backed solver bound to a role/model. Produces a verdict
     either directly from the raw input or from a Granite projection."""
@@ -302,6 +370,6 @@ class ConstantSolver:
 
 __all__ = [
     "BOOL_SYNS", "VERIFY_SYNS", "ConstantSolver", "DeepSeekDirectSolver",
-    "ROLE_DEEPSEEK", "ROLE_GRANITE", "Solver", "build_direct_prompt",
-    "build_role_prompt", "parse_verdict",
+    "OpenRouterDirectSolver", "ROLE_DEEPSEEK", "ROLE_GRANITE", "Solver",
+    "build_direct_prompt", "build_role_prompt", "make_solver", "parse_verdict",
 ]
