@@ -74,6 +74,7 @@ def load_hf_tasks(
     *,
     offline_path: Path | None = None,
     dataset: str | None = None,
+    config: str | None = None,
     split: str = "validation",
     limit: int = 100,
     id_field: str | None = None,
@@ -100,7 +101,8 @@ def load_hf_tasks(
                 "HF hub source requested but the 'datasets' library is not "
                 f"available ({exc!r}); pass --offline-path for an offline run."
             ) from exc
-        ds = load_dataset(dataset, split=split)
+        ds = (load_dataset(dataset, config, split=split) if config
+              else load_dataset(dataset, split=split))
         rows = [dict(ds[i]) for i in range(min(limit, len(ds)))]
     else:
         raise ValueError("provide --offline-path or --hf-dataset")
@@ -295,6 +297,8 @@ def main() -> int:
                     help="HF-format JSONL (default: vendored sample).")
     ap.add_argument("--hf-dataset", default=None,
                     help="HF hub dataset id (requires 'datasets'; optional).")
+    ap.add_argument("--config", default=None,
+                    help="HF dataset config name (e.g. 'generation' for TruthfulQA).")
     ap.add_argument("--split", default="validation")
     ap.add_argument("--limit", type=int, default=100)
     ap.add_argument("--question-field", default="question")
@@ -310,8 +314,9 @@ def main() -> int:
 
     tasks = load_hf_tasks(
         offline_path=None if args.hf_dataset else args.offline_path,
-        dataset=args.hf_dataset, split=args.split, limit=args.limit,
-        question_field=args.question_field, answer_field=args.answer_field,
+        dataset=args.hf_dataset, config=args.config, split=args.split,
+        limit=args.limit, question_field=args.question_field,
+        answer_field=args.answer_field,
     )
     extractor = HFInferenceExtractor(args.hf_model) if args.hf_model else LocalExtractor()
     res = run_hf_benchmark(tasks, benchmark_name=args.benchmark, extractor=extractor)
