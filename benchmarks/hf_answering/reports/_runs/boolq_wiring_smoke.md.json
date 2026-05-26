@@ -1,0 +1,34 @@
+{
+  "dataset": "google/boolq",
+  "split": "validation",
+  "model": "constant_baseline(False)",
+  "backend": "baseline",
+  "prompt": "Answer the question with exactly one word: yes or no.\n\nPassage: {passage}\n\nQuestion: {question}\n\nAnswer:",
+  "examples": 100,
+  "blocked_reason": null,
+  "eval": {
+    "model": "constant_baseline(False)",
+    "n": 100,
+    "answered": 100,
+    "unparsed": 0,
+    "errors": 0,
+    "accuracy": 0.3,
+    "confusion": {
+      "tp": 0,
+      "tn": 30,
+      "fp": 0,
+      "fn": 70
+    },
+    "elapsed_s": 0.0,
+    "est_cost_usd": 0.0
+  },
+  "desi_core": {
+    "replay_stable": true,
+    "core_identity_ok": true,
+    "gov_independent": true,
+    "critical_branch_preservation": 1.0,
+    "node_reduction": 0.533333,
+    "mutation_attempts": 5,
+    "mutation_rejected": 5
+  }
+}

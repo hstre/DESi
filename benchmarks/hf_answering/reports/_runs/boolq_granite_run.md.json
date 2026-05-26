@@ -1,0 +1,19 @@
+{
+  "dataset": "google/boolq",
+  "split": "validation",
+  "model": "granite",
+  "backend": "openrouter",
+  "prompt": "Answer the question with exactly one word: yes or no.\n\nPassage: {passage}\n\nQuestion: {question}\n\nAnswer:",
+  "examples": 100,
+  "blocked_reason": "RuntimeError('OPENROUTER_API_KEY not set; OpenRouter answering unavailable (no answer is ever fabricated).')",
+  "eval": null,
+  "desi_core": {
+    "replay_stable": true,
+    "core_identity_ok": true,
+    "gov_independent": true,
+    "critical_branch_preservation": 1.0,
+    "node_reduction": 0.533333,
+    "mutation_attempts": 5,
+    "mutation_rejected": 5
+  }
+}
