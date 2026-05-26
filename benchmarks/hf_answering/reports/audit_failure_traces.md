@@ -3,7 +3,7 @@
 Concrete decision-chain reconstruction (no aggregates, no guesses). The audit pipeline's FIRST verdict IS the deepseek_only decision (same call), so a failure here is the recheck/dissent losing a correct verdict. Governed pipeline: Granite extract -> DeepSeek first -> Nano audit -> DESi filter -> DeepSeek recheck. Keys in-process; core untouched.
 
 - examples traced: 30
-- deepseek_only (first) correct: 23/30; audit (final) correct: 24/30
+- deepseek_only (first) correct: 22/30; audit (final) correct: 22/30
 - **deepseek-correct & audit-wrong cases: 0**
 - root-cause distribution: `{}`
 
