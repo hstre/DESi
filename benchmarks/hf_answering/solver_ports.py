@@ -56,6 +56,24 @@ _DIRECT_VERIFY_CALIBRATED = (
     "End with a final line exactly: FINAL: SUPPORTS or FINAL: REFUTES or "
     "FINAL: NOT_ENOUGH_INFO.\n\nCLAIM: {primary}\n\nEVIDENCE: {context}\n"
 )
+# Entailment-direct prompt family (for over-abstention datasets, e.g. NLI/FEVER):
+# direct entailment counts as SUPPORTS without demanding exhaustive proof; NEI only
+# when the evidence genuinely does not address the claim; contradiction stays strict.
+_DIRECT_VERIFY_ENTAILMENT = (
+    "Classify the CLAIM using ONLY the EVIDENCE (no outside knowledge).\n"
+    "- SUPPORTS: the evidence entails the claim. DIRECT entailment counts even if "
+    "the evidence is not exhaustive -- if the evidence states or directly implies "
+    "the claim's content, answer SUPPORTS; do not demand a complete or perfect "
+    "proof.\n"
+    "- REFUTES: the evidence genuinely contradicts the claim (strict: a real "
+    "conflict, not a wording mismatch).\n"
+    "- NOT_ENOUGH_INFO: ONLY when the evidence does not address the claim or is "
+    "truly insufficient to judge -- NOT merely because the wording differs or the "
+    "evidence is incomplete. Do NOT abstain when the evidence does entail or "
+    "contradict the claim.\n"
+    "End with a final line exactly: FINAL: SUPPORTS or FINAL: REFUTES or "
+    "FINAL: NOT_ENOUGH_INFO.\n\nCLAIM: {primary}\n\nEVIDENCE: {context}\n"
+)
 _ROLE_BOOL = (
     "A structured extractor produced this projection of a passage/question. Use it "
     "to answer the question. End with a final line exactly: FINAL: YES or FINAL: NO.\n\n"
@@ -126,8 +144,12 @@ def parse_verdict(text: str, syns: dict) -> str | None:
 def build_direct_prompt(primary: str, context: str, *, task: str, variant: str = "baseline") -> str:
     if task == "boolq":
         tmpl = _DIRECT_BOOL
+    elif variant in ("evidence_strict", "calibrated"):
+        tmpl = _DIRECT_VERIFY_CALIBRATED
+    elif variant == "entailment_direct":
+        tmpl = _DIRECT_VERIFY_ENTAILMENT
     else:
-        tmpl = _DIRECT_VERIFY_CALIBRATED if variant == "calibrated" else _DIRECT_VERIFY
+        tmpl = _DIRECT_VERIFY
     return tmpl.format(primary=primary, context=context)
 
 

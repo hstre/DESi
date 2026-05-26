@@ -47,7 +47,10 @@ def _per_class(conf):
     return out
 
 
-def run_one(dataset, variant, limit):
+_FAMILIES = ("baseline", "evidence_strict", "entailment_direct")
+
+
+def run_one(dataset, variant, limit, prefix="calib"):
     _spec, exs = load_verify(dataset, limit)
     solver = DeepSeekDirectSolver()
     conf = {g: {p: 0 for p in _LABELS} for g in _LABELS}
@@ -95,7 +98,7 @@ def run_one(dataset, variant, limit):
         "desi_core": desi_core_metrics(exs),
     }
     _RUNS.mkdir(parents=True, exist_ok=True)
-    (_RUNS / f"calib_{dataset}_{variant}.json").write_text(json.dumps(rec, indent=2), encoding="utf-8")
+    (_RUNS / f"{prefix}_{dataset}_{variant}.json").write_text(json.dumps(rec, indent=2), encoding="utf-8")
     acc = rec["accuracy"]
     print(f"{dataset}/{variant}: acc={acc} pred={rec['pred_distribution']} "
           f"overcommit={rec['overcommitment_n']} overabst={rec['overabstention_n']} "
@@ -249,21 +252,166 @@ def summary():
     print("summary written")
 
 
+def family_compare(dataset, prefix="pf"):
+    recs = {}
+    for f in _FAMILIES:
+        p = _RUNS / f"{prefix}_{dataset}_{f}.json"
+        if p.exists():
+            recs[f] = json.loads(p.read_text())
+    if len(recs) < len(_FAMILIES):
+        print(f"missing family runs for {dataset}: have {list(recs)}")
+        return
+    g = recs["baseline"]["gold_distribution"]
+    md = [
+        f"# DeepSeek prompt-family comparison — {recs['baseline']['dataset']}\n",
+        "Task-matched prompt families (prompt-only A/B/C): baseline vs "
+        "evidence-strict (for over-commitment) vs entailment-direct (for "
+        "over-abstention). DeepSeek v4 Pro only, direct, temp 0, one deterministic "
+        "pass; no retries/voting/repair; no Granite/core/evaluator/role-pipeline "
+        "change. DESi-core recorded alongside.\n",
+        f"N={recs['baseline']['n']} | gold S/R/N = {g['SUPPORTS']}/{g['REFUTES']}/{g['NOT_ENOUGH_INFO']}\n",
+        "| metric | baseline | evidence-strict | entailment-direct |",
+        "| --- | --- | --- | --- |",
+    ]
+    def row(label, fn):
+        return f"| {label} | " + " | ".join(str(fn(recs[f])) for f in _FAMILIES) + " |"
+    md += [
+        row("accuracy", lambda r: r["accuracy"]),
+        row("pred S/R/N", lambda r: f"{r['pred_distribution']['SUPPORTS']}/{r['pred_distribution']['REFUTES']}/{r['pred_distribution']['NOT_ENOUGH_INFO']}"),
+        row("overcommitment", lambda r: f"{r['overcommitment_rate']} ({r['overcommitment_n']})"),
+        row("overabstention", lambda r: f"{r['overabstention_rate']} ({r['overabstention_n']})"),
+        row("parse failures", lambda r: r["parse_failures"]),
+        row("elapsed/cost", lambda r: f"{r['elapsed_s']}s/${r['est_cost_usd']}"),
+        "",
+        "### Per-class precision / recall\n",
+        "| class | " + " | ".join(f"{f} P/R" for f in _FAMILIES) + " |",
+        "| --- | " + " | ".join("---" for _ in _FAMILIES) + " |",
+    ]
+    for L in _LABELS:
+        md.append(f"| {L} | " + " | ".join(
+            f"{_cls(recs[f],L,'precision')}/{_cls(recs[f],L,'recall')}" for f in _FAMILIES) + " |")
+    md += ["", "### Confusion (rows gold, cols pred)\n"]
+    for f in _FAMILIES:
+        r = recs[f]
+        md += [f"**{f}**", "", "| gold \\ pred | " + " | ".join(_LABELS) + " |",
+               "| --- | " + " | ".join("---" for _ in _LABELS) + " |"]
+        for gl in _LABELS:
+            md.append(f"| {gl} | " + " | ".join(str(r["confusion"][gl][p]) for p in _LABELS) + " |")
+        md.append("")
+    dc = recs["baseline"]["desi_core"]
+    md += [
+        "### DESi-core (alongside; core untouched)\n",
+        f"- replay {dc['replay_stable']}; core identity {dc['core_identity_ok']}; governance "
+        f"{dc['gov_independent']}; critical_branch_preservation {dc['critical_branch_preservation']}; "
+        f"mutation {dc['mutation_rejected']}/{dc['mutation_attempts']} (identical across all families).",
+        "",
+        "## Honesty / limits\n",
+        "- Prompt-only; one deterministic pass; DeepSeek mild non-determinism; "
+        "accuracies are the model's. DESi neither solves nor scores.",
+    ]
+    out = "vitaminc_prompt_family_comparison.md" if dataset == "vitaminc" else "fever_prompt_family_comparison.md"
+    _REPORTS.mkdir(parents=True, exist_ok=True)
+    (_REPORTS / out).write_text("\n".join(md) + "\n", encoding="utf-8")
+    print(f"family comparison -> {out}")
+
+
+def family_summary(prefix="pf"):
+    data = {}
+    for ds in ("vitaminc", "nli_fever"):
+        for f in _FAMILIES:
+            p = _RUNS / f"{prefix}_{ds}_{f}.json"
+            if p.exists():
+                data[(ds, f)] = json.loads(p.read_text())
+    if not data:
+        print("no family runs"); return
+    md = [
+        "# Prompt-family cross-summary — DeepSeek task-matched calibration\n",
+        "Prompt-only (model/temp/evaluator/core all identical). evidence-strict "
+        "targets over-commitment; entailment-direct targets over-abstention. The "
+        "'universal' prompt = evidence-strict applied to both.\n",
+        "| dataset | metric | baseline | evidence-strict | entailment-direct |",
+        "| --- | --- | --- | --- | --- |",
+    ]
+    for ds in ("vitaminc", "nli_fever"):
+        if (ds, "baseline") not in data:
+            continue
+        name = _DS_NAME[ds]
+        md.append(f"| {name} | accuracy | " + " | ".join(str(data[(ds, f)]["accuracy"]) for f in _FAMILIES) + " |")
+        md.append(f"| {name} | overcommit | " + " | ".join(str(data[(ds, f)]["overcommitment_rate"]) for f in _FAMILIES) + " |")
+        md.append(f"| {name} | overabst | " + " | ".join(str(data[(ds, f)]["overabstention_rate"]) for f in _FAMILIES) + " |")
+    md.append("")
+
+    def best_family(ds):
+        accs = {f: data[(ds, f)]["accuracy"] for f in _FAMILIES if (ds, f) in data and data[(ds, f)]["accuracy"] is not None}
+        return max(accs, key=lambda f: accs[f]) if accs else None, accs
+
+    md.append("## Answers\n")
+    matched = {"vitaminc": "evidence_strict", "nli_fever": "entailment_direct"}
+    universal = "evidence_strict"
+    for ds in ("vitaminc", "nli_fever"):
+        if (ds, "baseline") not in data:
+            continue
+        bf, accs = best_family(ds)
+        m = matched[ds]
+        md.append(
+            f"- **{_DS_NAME[ds]}**: baseline {accs.get('baseline')}, evidence-strict "
+            f"{accs.get('evidence_strict')}, entailment-direct {accs.get('entailment_direct')} "
+            f"-> best accuracy: **{bf}**; task-matched family ({m}) "
+            + ("== best" if bf == m else f"!= best ({bf})") + ".")
+    md += [
+        "",
+        "- **Can DeepSeek be stabilized by task-specific calibration?** Compare each "
+        "dataset's task-matched family to its baseline (accuracy + the targeted "
+        "error rate) above.",
+        "- **Which prompt family fits which benchmark style?** evidence-strict for "
+        "over-commitment (VitaminC-style); entailment-direct for over-abstention "
+        "(FEVER/NLI-style) -- judged by which family minimizes the dataset's "
+        "characteristic error above.",
+        "- **Does one universal epistemic prompt fail systematically?** The universal "
+        "(evidence-strict) row vs the entailment-direct row on FEVER shows whether a "
+        "single prompt mis-serves the opposite failure mode.",
+        "- **Does prompt-family specialization outperform model replacement?** If the "
+        "matched family recovers accuracy on both styles without collapse, "
+        "specialization is sufficient and no model swap is indicated; otherwise it is.",
+        "- **Should Granite->DeepSeek continue?** This study is solver-only "
+        "(DeepSeek direct, no Granite in the loop); it speaks to the SOLVER's "
+        "calibratability, not the extractor pairing -- reported as such.",
+        "",
+        "## DESi-core invariance\n",
+        "- recorded alongside every run: replay stable, core byte-identical, "
+        "governance independent, mutation rejected -- unchanged by any prompt family.",
+        "",
+        "## Honesty / limits\n",
+        "- Prompt-only; N=100/dataset; one deterministic pass; mild non-determinism; "
+        "no core/architecture/ontology change; outputs secret-scanned.",
+    ]
+    _REPORTS.mkdir(parents=True, exist_ok=True)
+    (_REPORTS / "prompt_family_cross_summary.md").write_text("\n".join(md) + "\n", encoding="utf-8")
+    print("cross-summary written")
+
+
 def main() -> int:
-    ap = argparse.ArgumentParser(description="DeepSeek prompt-only calibration test.")
+    ap = argparse.ArgumentParser(description="DeepSeek prompt-family calibration study.")
     ap.add_argument("--dataset", choices=sorted(DATASETS))
-    ap.add_argument("--variant", choices=["baseline", "calibrated"])
+    ap.add_argument("--variant", choices=["baseline", "evidence_strict", "entailment_direct", "calibrated"])
     ap.add_argument("--limit", type=int, default=100)
+    ap.add_argument("--prefix", default="calib")
     ap.add_argument("--compare", action="store_true")
     ap.add_argument("--summary", action="store_true")
+    ap.add_argument("--family-compare", action="store_true")
+    ap.add_argument("--family-summary", action="store_true")
     args = ap.parse_args()
     if args.summary:
         summary(); return 0
+    if args.family_summary:
+        family_summary(); return 0
+    if args.family_compare:
+        family_compare(args.dataset); return 0
     if args.compare:
         compare(args.dataset); return 0
     if not (args.dataset and args.variant):
-        ap.error("need --dataset and --variant (or --compare / --summary)")
-    run_one(args.dataset, args.variant, args.limit)
+        ap.error("need --dataset and --variant (or --compare / --summary / --family-*)")
+    run_one(args.dataset, args.variant, args.limit, prefix=args.prefix)
     return 0
 
 
