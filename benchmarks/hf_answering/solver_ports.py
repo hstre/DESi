@@ -16,6 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
 from desi.live_llm_validation.model_registry import (  # noqa: E402
     ROLE_DEEPSEEK, ROLE_GRANITE, completion_price, model_for_role, prompt_price,
 )
+from dissent_governance import require_governed  # noqa: E402  (DISSENT_IS_NEVER_AUTHORITY)
 
 # label synonym maps (parsing only — not answer repair)
 BOOL_SYNS = {"YES": ("yes", "true", "supported", "correct"),
@@ -175,9 +176,11 @@ class DeepSeekDirectSolver:
         return self._call(build_role_prompt(projection, primary, task=task))
 
     def solve_with_dissent(self, projection, dissent, primary, *, task):
+        dissent = require_governed(dissent)   # DISSENT_IS_NEVER_AUTHORITY
         return self._call(build_dissent_prompt(projection, dissent, primary, task=task))
 
     def solve_recheck(self, primary, context, first, strength, audit, *, task):
+        audit = require_governed(audit)       # DISSENT_IS_NEVER_AUTHORITY
         return self._call(build_recheck_prompt(primary, context, first, strength, audit, task=task))
 
     def price(self):
@@ -215,9 +218,11 @@ class Solver:
         return self._call(tmpl.format(projection=projection, primary=primary))
 
     def solve_with_dissent(self, projection, dissent, primary, *, task):
+        dissent = require_governed(dissent)   # DISSENT_IS_NEVER_AUTHORITY
         return self._call(build_dissent_prompt(projection, dissent, primary, task=task))
 
     def solve_recheck(self, primary, context, first, strength, audit, *, task):
+        audit = require_governed(audit)       # DISSENT_IS_NEVER_AUTHORITY
         return self._call(build_recheck_prompt(primary, context, first, strength, audit, task=task))
 
     def price(self):
@@ -238,9 +243,11 @@ class ConstantSolver:
         return f"FINAL: {self._v}", 0, 0
 
     def solve_with_dissent(self, projection, dissent, primary, *, task):
+        require_governed(dissent)             # DISSENT_IS_NEVER_AUTHORITY
         return f"FINAL: {self._v}", 0, 0
 
     def solve_recheck(self, primary, context, first, strength, audit, *, task):
+        require_governed(audit)               # DISSENT_IS_NEVER_AUTHORITY
         return f"FINAL: {self._v}", 0, 0
 
     def price(self):

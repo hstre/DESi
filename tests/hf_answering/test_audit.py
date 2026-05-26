@@ -45,5 +45,7 @@ def test_recheck_prompt_has_anti_collapse_rule() -> None:
 
 
 def test_constant_solver_recheck() -> None:
+    import dissent_governance as dg
     s = sp.ConstantSolver("REFUTES")
-    assert s.solve_recheck("c", "e", "REFUTES", "STRONG", "x", task="verify")[0] == "FINAL: REFUTES"
+    payload = dg.GOVERNED_SENTINEL + " weight=STRONG; concrete claim-relevant gap"
+    assert s.solve_recheck("c", "e", "REFUTES", "STRONG", payload, task="verify")[0] == "FINAL: REFUTES"

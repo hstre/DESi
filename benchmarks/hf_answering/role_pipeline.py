@@ -40,6 +40,9 @@ from desi.live_llm_validation.model_registry import (  # noqa: E402
 from extractor_ports import GraniteExtractor, NullExtractor  # noqa: E402
 from challenger_ports import NemotronChallenger, NullChallenger  # noqa: E402
 from auditor_ports import NanoAuditor, NullAuditor  # noqa: E402
+from dissent_governance import (  # noqa: E402  DISSENT_IS_NEVER_AUTHORITY
+    filter_dissent, governance_log,
+)
 from solver_ports import (  # noqa: E402
     BOOL_SYNS, VERIFY_SYNS, ConstantSolver, DeepSeekDirectSolver, Solver, parse_verdict,
 )
@@ -188,22 +191,28 @@ def run_config(benchmark, config, limit, *, offline=False, deepseek_backend="dir
                 diss, cpt, cct = challenger.challenge(it["primary"], it["context"], proj.to_compact())
                 ch_pt += cpt; ch_ct += cct
                 nei_flags[it["id"]] = bool(diss.nei_plausible)
-                text, spt, sct = solver.solve_with_dissent(proj.to_compact(), diss.to_compact(), it["primary"], task=task)
+                # DESi gate: wild-brother output is UNTRUSTED -> filter before solver.
+                gov = filter_dissent(diss.raw, claim=it["primary"], evidence=it["context"])
+                text, spt, sct = solver.solve_with_dissent(proj.to_compact(), gov.recheck_payload(), it["primary"], task=task)
             elif config == "audit":
-                # calibrated dissent: extract -> first solve -> audit -> recheck
+                # calibrated, governed pipeline: extract -> FIRST solve -> audit
+                # -> DESi gate (filter) -> recheck with governed signal only.
                 proj, ept, ect = extractor.extract(it["extract_input"])
                 ex_pt += ept; ex_ct += ect
                 t1, s1pt, s1ct = solver.solve_direct(it["primary"], it["context"], task=task)
                 first = parse_verdict(t1, syns)
                 au, apt, act = auditor.audit(it["primary"], it["context"], proj.to_compact())
                 au_pt += apt; au_ct += act
+                gov = filter_dissent(au.raw, claim=it["primary"], evidence=it["context"])  # DESi gate
+                # DESi-assigned weight (gov.weight) -- NOT the auditor's self-claim.
                 t2, s2pt, s2ct = solver.solve_recheck(it["primary"], it["context"], first or "UNSURE",
-                                                      au.strength, au.to_compact(), task=task)
+                                                      gov.weight, gov.recheck_payload(), task=task)
                 spt, sct = s1pt + s2pt, s1ct + s2ct
                 text = t2
                 final = parse_verdict(t2, syns)
-                audit_info[it["id"]] = {"first": first, "strength": au.strength,
-                                        "final": final, "parse_ok": au.parse_ok}
+                audit_info[it["id"]] = {"first": first, "strength": gov.weight,
+                                        "final": final, "parse_ok": au.parse_ok,
+                                        "governed": gov}
             else:
                 text, spt, sct = solver.solve_direct(it["primary"], it["context"], task=task)
             sv_pt += spt; sv_ct += sct
@@ -272,15 +281,13 @@ def run_config(benchmark, config, limit, *, offline=False, deepseek_backend="dir
             "branch_preservation_rate": round(strong_to_nei / n_strong, 3) if n_strong else None,
             "auditor_tokens": [au_pt, au_ct],
         }
-        rec["desi_governance"] = {
-            # uncertainty improperly lost: a strong gap that the recheck dropped AND gold was NEI
-            "uncertainty_improperly_lost": sum(1 for it in items
-                                               if (audit_info.get(it["id"], {}).get("strength") == "STRONG"
-                                                   and it["gold"] == nei and parsed.get(it["id"]) != nei)),
-            "challenger_branches_hard_pruned": rejected,
+        # DESi governance protocol over the GOVERNED audit run (filtered dissent)
+        rec["desi_governance"] = governance_log(items, audit_info, parsed, nei=nei)
+        rec["desi_governance"].update({
             "decision_structure_replayable": dc["replay_stable"],
             "core_invariant": dc["core_identity_ok"],
-        }
+        })
+        rec["audit"]["weight_is_desi_assigned"] = True  # not the auditor's self-claim
     _RUNS.mkdir(parents=True, exist_ok=True)
     (_RUNS / f"role_{benchmark}_{config}{tag}.json").write_text(json.dumps(rec, indent=2), encoding="utf-8")
     acc = f"{ev['accuracy']:.3f}" if ev["accuracy"] is not None else "n/a"
@@ -532,12 +539,20 @@ def audit_compare(benchmark, tag):
                      else "calibrated auditor does not beat DeepSeek-only here") + ".")
     md += [
         "",
-        "## DESi governance (alongside; core untouched)\n",
-        f"- uncertainty improperly lost (STRONG gap, gold NEI, recheck non-NEI): "
-        f"{recs['audit']['desi_governance']['uncertainty_improperly_lost']}",
-        f"- challenger branches hard-pruned (substantive gap rejected): "
-        f"{recs['audit']['desi_governance']['challenger_branches_hard_pruned']}",
-        f"- decision structure replayable: {recs['audit']['desi_governance']['decision_structure_replayable']}",
+        "## DESi governance protocol (DISSENT_IS_NEVER_AUTHORITY)\n",
+        "Wild-brother dissent is an untrusted raw signal; DESi filters it (claim-"
+        "relevance / evidence-basis / concreteness / no generic skepticism / no "
+        "verdict authority) and assigns the weight before any recheck. Log:",
+    ]
+    gv = recs["audit"].get("desi_governance", {})
+    md += [
+        f"- accepted dissent (recheck moved to NEI on a governed gap): {gv.get('accepted_dissent', '-')}",
+        f"- rejected dissent (governed gap, solver kept verdict): {gv.get('rejected_dissent', '-')}",
+        f"- pruned generic/irrelevant dissent: {gv.get('pruned_generic_dissent', '-')}",
+        f"- uncertainty preserved (admitted -> NEI, gold NEI): {gv.get('uncertainty_preserved', '-')}",
+        f"- uncertainty over-amplified (admitted -> NEI, gold not NEI): {gv.get('uncertainty_over_amplified', '-')}",
+        f"- authority-violation attempts (dissent asserted a verdict, stripped): {gv.get('authority_violation_attempts', '-')}",
+        f"- decision structure replayable: {gv.get('decision_structure_replayable', '-')}",
         f"- DESi-core invariant across configs: "
         f"{all(recs[c]['desi_core']['core_identity_ok'] in (True, None) and recs[c]['desi_core']['replay_stable'] for c in recs)}",
         "",

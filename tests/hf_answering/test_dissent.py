@@ -39,5 +39,7 @@ def test_dissent_prompt_includes_dissent_block() -> None:
 
 
 def test_constant_solver_solve_with_dissent() -> None:
+    import dissent_governance as dg
     s = sp.ConstantSolver("NOT_ENOUGH_INFO")
-    assert s.solve_with_dissent("{}", "{}", "c", task="verify")[0] == "FINAL: NOT_ENOUGH_INFO"
+    payload = dg.GOVERNED_SENTINEL + " weight=WEAK; governed dissent"
+    assert s.solve_with_dissent("{}", payload, "c", task="verify")[0] == "FINAL: NOT_ENOUGH_INFO"
