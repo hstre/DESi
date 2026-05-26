@@ -1,0 +1,2236 @@
+{
+  "dataset": "tals/vitaminc",
+  "dataset_key": "vitaminc",
+  "matched_family": "evidence_strict",
+  "n": 100,
+  "errors": 0,
+  "solver": "deepseek-chat (direct)",
+  "wall_elapsed_s": 269.29,
+  "experiments": {
+    "baseline": {
+      "accuracy": 0.71,
+      "answered": 100,
+      "parse_failures": 0,
+      "confusion": {
+        "SUPPORTS": {
+          "SUPPORTS": 28,
+          "REFUTES": 1,
+          "NOT_ENOUGH_INFO": 2
+        },
+        "REFUTES": {
+          "SUPPORTS": 2,
+          "REFUTES": 26,
+          "NOT_ENOUGH_INFO": 0
+        },
+        "NOT_ENOUGH_INFO": {
+          "SUPPORTS": 16,
+          "REFUTES": 8,
+          "NOT_ENOUGH_INFO": 17
+        }
+      },
+      "gold_distribution": {
+        "SUPPORTS": 31,
+        "REFUTES": 28,
+        "NOT_ENOUGH_INFO": 41
+      },
+      "pred_distribution": {
+        "SUPPORTS": 46,
+        "REFUTES": 35,
+        "NOT_ENOUGH_INFO": 19
+      },
+      "per_class": {
+        "SUPPORTS": {
+          "precision": 0.609,
+          "recall": 0.903,
+          "tp": 28,
+          "fp": 18,
+          "fn": 3
+        },
+        "REFUTES": {
+          "precision": 0.743,
+          "recall": 0.929,
+          "tp": 26,
+          "fp": 9,
+          "fn": 2
+        },
+        "NOT_ENOUGH_INFO": {
+          "precision": 0.895,
+          "recall": 0.415,
+          "tp": 17,
+          "fp": 2,
+          "fn": 24
+        }
+      },
+      "overcommitment_rate": 0.585,
+      "overcommitment_n": "24/41",
+      "overabstention_rate": 0.034,
+      "overabstention_n": "2/59",
+      "elapsed_s": 117.32,
+      "est_cost_usd": 0.010843
+    },
+    "matched": {
+      "accuracy": 0.76,
+      "answered": 100,
+      "parse_failures": 0,
+      "confusion": {
+        "SUPPORTS": {
+          "SUPPORTS": 24,
+          "REFUTES": 0,
+          "NOT_ENOUGH_INFO": 7
+        },
+        "REFUTES": {
+          "SUPPORTS": 1,
+          "REFUTES": 22,
+          "NOT_ENOUGH_INFO": 5
+        },
+        "NOT_ENOUGH_INFO": {
+          "SUPPORTS": 5,
+          "REFUTES": 6,
+          "NOT_ENOUGH_INFO": 30
+        }
+      },
+      "gold_distribution": {
+        "SUPPORTS": 31,
+        "REFUTES": 28,
+        "NOT_ENOUGH_INFO": 41
+      },
+      "pred_distribution": {
+        "SUPPORTS": 30,
+        "REFUTES": 28,
+        "NOT_ENOUGH_INFO": 42
+      },
+      "per_class": {
+        "SUPPORTS": {
+          "precision": 0.8,
+          "recall": 0.774,
+          "tp": 24,
+          "fp": 6,
+          "fn": 7
+        },
+        "REFUTES": {
+          "precision": 0.786,
+          "recall": 0.786,
+          "tp": 22,
+          "fp": 6,
+          "fn": 6
+        },
+        "NOT_ENOUGH_INFO": {
+          "precision": 0.714,
+          "recall": 0.732,
+          "tp": 30,
+          "fp": 12,
+          "fn": 11
+        }
+      },
+      "overcommitment_rate": 0.268,
+      "overcommitment_n": "11/41",
+      "overabstention_rate": 0.203,
+      "overabstention_n": "12/59",
+      "elapsed_s": 129.83,
+      "est_cost_usd": 0.014988
+    },
+    "router": {
+      "accuracy": 0.68,
+      "answered": 100,
+      "parse_failures": 0,
+      "confusion": {
+        "SUPPORTS": {
+          "SUPPORTS": 28,
+          "REFUTES": 2,
+          "NOT_ENOUGH_INFO": 1
+        },
+        "REFUTES": {
+          "SUPPORTS": 2,
+          "REFUTES": 25,
+          "NOT_ENOUGH_INFO": 1
+        },
+        "NOT_ENOUGH_INFO": {
+          "SUPPORTS": 17,
+          "REFUTES": 9,
+          "NOT_ENOUGH_INFO": 15
+        }
+      },
+      "gold_distribution": {
+        "SUPPORTS": 31,
+        "REFUTES": 28,
+        "NOT_ENOUGH_INFO": 41
+      },
+      "pred_distribution": {
+        "SUPPORTS": 47,
+        "REFUTES": 36,
+        "NOT_ENOUGH_INFO": 17
+      },
+      "per_class": {
+        "SUPPORTS": {
+          "precision": 0.596,
+          "recall": 0.903,
+          "tp": 28,
+          "fp": 19,
+          "fn": 3
+        },
+        "REFUTES": {
+          "precision": 0.694,
+          "recall": 0.893,
+          "tp": 25,
+          "fp": 11,
+          "fn": 3
+        },
+        "NOT_ENOUGH_INFO": {
+          "precision": 0.882,
+          "recall": 0.366,
+          "tp": 15,
+          "fp": 2,
+          "fn": 26
+        }
+      },
+      "overcommitment_rate": 0.634,
+      "overcommitment_n": "26/41",
+      "overabstention_rate": 0.034,
+      "overabstention_n": "2/59",
+      "elapsed_s": 115.11,
+      "est_cost_usd": 0.011424
+    }
+  },
+  "router": {
+    "route_distribution": {
+      "baseline": 64,
+      "evidence_strict": 12,
+      "entailment_direct": 24
+    },
+    "per_route": {
+      "baseline": {
+        "n": 64,
+        "router_acc": 0.766,
+        "baseline_acc_same_subset": 0.766
+      },
+      "evidence_strict": {
+        "n": 12,
+        "router_acc": 0.5,
+        "baseline_acc_same_subset": 0.667
+      },
+      "entailment_direct": {
+        "n": 24,
+        "router_acc": 0.542,
+        "baseline_acc_same_subset": 0.583
+      }
+    },
+    "helped_vs_baseline": 3,
+    "hurt_vs_baseline": 6,
+    "net_vs_baseline": -3,
+    "helped_vs_matched": 10,
+    "hurt_vs_matched": 18,
+    "net_vs_matched": -8
+  },
+  "rows": [
+    {
+      "id": "vitaminc-0000",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0001",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0002",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "vitaminc-0003",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0004",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "vitaminc-0005",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0006",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "vitaminc-0007",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0008",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "vitaminc-0009",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "REFUTES",
+      "router_pred": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "vitaminc-0010",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0011",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0012",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0013",
+      "gold": "REFUTES",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0014",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "vitaminc-0015",
+      "gold": "SUPPORTS",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0016",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "evidence_strict",
+      "reason": "claim logically rejected (logically_rejected, gap authority_claim: authority not self-supporting) -> evidence-strict",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "logically_rejected",
+        "claim_gap": "authority_claim",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0017",
+      "gold": "REFUTES",
+      "mode": "evidence_strict",
+      "reason": "claim logically rejected (logically_rejected, gap authority_claim: authority not self-supporting) -> evidence-strict",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "logically_rejected",
+        "claim_gap": "authority_claim",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0018",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "evidence_strict",
+      "reason": "claim logically rejected (logically_rejected, gap authority_claim: authority not self-supporting) -> evidence-strict",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "logically_rejected",
+        "claim_gap": "authority_claim",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0019",
+      "gold": "SUPPORTS",
+      "mode": "evidence_strict",
+      "reason": "claim logically rejected (logically_rejected, gap authority_claim: authority not self-supporting) -> evidence-strict",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "logically_rejected",
+        "claim_gap": "authority_claim",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0020",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0021",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0022",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0023",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0024",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0025",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0026",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0027",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0028",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0029",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0030",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "vitaminc-0031",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0032",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "evidence_strict",
+      "reason": "claim logically rejected (logically_rejected, gap authority_claim: authority not self-supporting) -> evidence-strict",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "logically_rejected",
+        "claim_gap": "authority_claim",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0033",
+      "gold": "REFUTES",
+      "mode": "evidence_strict",
+      "reason": "claim logically rejected (logically_rejected, gap authority_claim: authority not self-supporting) -> evidence-strict",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "logically_rejected",
+        "claim_gap": "authority_claim",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "vitaminc-0034",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "evidence_strict",
+      "reason": "claim logically rejected (logically_rejected, gap authority_claim: authority not self-supporting) -> evidence-strict",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "logically_rejected",
+        "claim_gap": "authority_claim",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0035",
+      "gold": "SUPPORTS",
+      "mode": "evidence_strict",
+      "reason": "claim logically rejected (logically_rejected, gap authority_claim: authority not self-supporting) -> evidence-strict",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "logically_rejected",
+        "claim_gap": "authority_claim",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0036",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0037",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0038",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "vitaminc-0039",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0040",
+      "gold": "SUPPORTS",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0041",
+      "gold": "SUPPORTS",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0042",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0043",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0044",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0045",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0046",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "vitaminc-0047",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0048",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0049",
+      "gold": "REFUTES",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0050",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0051",
+      "gold": "SUPPORTS",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0052",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0053",
+      "gold": "REFUTES",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0054",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0055",
+      "gold": "SUPPORTS",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0056",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0057",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0058",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "vitaminc-0059",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0060",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "vitaminc-0061",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0062",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0063",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0064",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "evidence_strict",
+      "reason": "claim logically rejected (logically_rejected, gap authority_claim: authority not self-supporting) -> evidence-strict",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "logically_rejected",
+        "claim_gap": "authority_claim",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "vitaminc-0065",
+      "gold": "REFUTES",
+      "mode": "evidence_strict",
+      "reason": "claim logically rejected (logically_rejected, gap authority_claim: authority not self-supporting) -> evidence-strict",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "logically_rejected",
+        "claim_gap": "authority_claim",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0066",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "evidence_strict",
+      "reason": "claim logically rejected (logically_rejected, gap authority_claim: authority not self-supporting) -> evidence-strict",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "logically_rejected",
+        "claim_gap": "authority_claim",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0067",
+      "gold": "SUPPORTS",
+      "mode": "evidence_strict",
+      "reason": "claim logically rejected (logically_rejected, gap authority_claim: authority not self-supporting) -> evidence-strict",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "logically_rejected",
+        "claim_gap": "authority_claim",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0068",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0069",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0070",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0071",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0072",
+      "gold": "SUPPORTS",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0073",
+      "gold": "REFUTES",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0074",
+      "gold": "REFUTES",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0075",
+      "gold": "SUPPORTS",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0076",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "vitaminc-0077",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0078",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0079",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0080",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0081",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0082",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0083",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0084",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0085",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0086",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0087",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0088",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0089",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0090",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0091",
+      "gold": "SUPPORTS",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0092",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0093",
+      "gold": "REFUTES",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0094",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "vitaminc-0095",
+      "gold": "SUPPORTS",
+      "mode": "entailment_direct",
+      "reason": "claim & evidence frames CONFIRMED coherent (authority_speech/authority_speech) -> entailment-direct",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "confirmed",
+        "routed_pipeline": "consilium",
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0096",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
+    },
+    {
+      "id": "vitaminc-0097",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "vitaminc-0098",
+      "gold": "REFUTES",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
+    },
+    {
+      "id": "vitaminc-0099",
+      "gold": "NOT_ENOUGH_INFO",
+      "mode": "baseline",
+      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "features": {
+        "claim_frame": "frame_undeclared",
+        "evidence_frame": "authority_speech",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "gap_detected",
+        "claim_gap": "no_explicit_chain",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
+    }
+  ],
+  "desi_core": {
+    "replay_stable": true,
+    "core_identity_ok": true,
+    "gov_independent": true,
+    "critical_branch_preservation": 1.0,
+    "node_reduction": 0.533333,
+    "hard_pruning": 0,
+    "mutation_attempts": 5,
+    "mutation_rejected": 5
+  }
+}
