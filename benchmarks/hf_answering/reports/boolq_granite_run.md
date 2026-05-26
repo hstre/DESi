@@ -1,4 +1,4 @@
-# BoolQ answering — granite (real QA benchmark on the periphery)
+# BoolQ answering — ibm-granite/granite-4.1-8b (real QA benchmark on the periphery)
 
 The semantic-flow constitution is immutable. Benchmark layers are peripheral. Benchmarks run on DESi. Benchmarks do not redefine DESi. DESi is NOT the answer generator — the model port is.
 
@@ -6,12 +6,13 @@ The semantic-flow constitution is immutable. Benchmark layers are peripheral. Be
 | --- | --- |
 | dataset | `google/boolq` |
 | split | `validation` |
-| model | `granite` (backend `openrouter`) |
+| model | `ibm-granite/granite-4.1-8b` (backend `openrouter`) |
 | examples | 100 |
-| status | **BLOCKED — no real answers produced** |
-| reason | RuntimeError('OPENROUTER_API_KEY not set; OpenRouter answering unavailable (no answer is ever fabricated).') |
-
-No answers were fabricated. Provide an inference token in-process (`OPENROUTER_API_KEY` for `--backend openrouter`, or `HF_TOKEN` for `--backend hf`) and re-run; the pipeline below is ready.
+| answered / unparsed / errors | 100 / 0 / 0 |
+| **exact bool accuracy** | **0.890** (of answered) |
+| confusion (pos=True) | TP=60 TN=29 FP=1 FN=10 |
+| elapsed | 18.49s |
+| est. cost | $0.000848 |
 
 ## Prompt (fixed, no tuning)
 
