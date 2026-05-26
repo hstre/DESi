@@ -68,13 +68,17 @@ _DISSENT_BOOL = (
 # flagged gaps. The solver MAY reject the dissent -- NEI is NOT automatic.
 _RECHECK_VERIFY = (
     "You first concluded FIRST_VERDICT = {first} for the CLAIM. A dissent auditor "
-    "flagged evidence gaps (strength {strength}): {audit}\n\nReconsider ONLY whether "
-    "NOT_ENOUGH_INFO is now warranted. RULE: change to NOT_ENOUGH_INFO ONLY IF the "
-    "auditor names a CONCRETE, claim-relevant evidence gap that you CANNOT refute "
-    "from the EVIDENCE. If the gap is vague, irrelevant, or you can refute it from "
-    "the evidence, KEEP your first verdict. Do not abstain merely because a gap was "
-    "raised.\n\nCLAIM: {primary}\n\nEVIDENCE: {context}\n\nEnd with a final line "
-    "exactly: FINAL: SUPPORTS or FINAL: REFUTES or FINAL: NOT_ENOUGH_INFO.\n"
+    "(strength {strength}) noted, ADVISORY and NOT authoritative: {audit}\n\nRules:\n"
+    "1. The dissent is advisory, not authoritative.\n"
+    "2. A WEAK dissent CANNOT override a first verdict that is directly supported "
+    "or refuted by the evidence.\n"
+    "3. Switch to NOT_ENOUGH_INFO ONLY IF the dissent identifies a CONCRETE, "
+    "claim-relevant MISSING-evidence gap that DEFEATS the first verdict -- not mere "
+    "imprecision/approximation, and NOT when the evidence already contradicts the "
+    "claim (contradictory evidence keeps REFUTES; only genuinely missing evidence "
+    "warrants NOT_ENOUGH_INFO).\n4. Otherwise KEEP your first verdict.\n\n"
+    "CLAIM: {primary}\n\nEVIDENCE: {context}\n\nEnd with a final line exactly: "
+    "FINAL: SUPPORTS or FINAL: REFUTES or FINAL: NOT_ENOUGH_INFO.\n"
 )
 
 

@@ -41,7 +41,7 @@ from extractor_ports import GraniteExtractor, NullExtractor  # noqa: E402
 from challenger_ports import NemotronChallenger, NullChallenger  # noqa: E402
 from auditor_ports import NanoAuditor, NullAuditor  # noqa: E402
 from dissent_governance import (  # noqa: E402  DISSENT_IS_NEVER_AUTHORITY
-    filter_dissent, governance_log,
+    filter_dissent, governance_log, resolve_final,
 )
 from solver_ports import (  # noqa: E402
     BOOL_SYNS, VERIFY_SYNS, ConstantSolver, DeepSeekDirectSolver, Solver, parse_verdict,
@@ -203,20 +203,24 @@ def run_config(benchmark, config, limit, *, offline=False, deepseek_backend="dir
                 first = parse_verdict(t1, syns)
                 au, apt, act = auditor.audit(it["primary"], it["context"], proj.to_compact())
                 au_pt += apt; au_ct += act
-                gov = filter_dissent(au.raw, claim=it["primary"], evidence=it["context"])  # DESi gate
-                # DESi-assigned weight (gov.weight) -- NOT the auditor's self-claim.
+                # DESi gate: weight capped at the auditor self-claim (no escalation).
+                gov = filter_dissent(au.raw, claim=it["primary"], evidence=it["context"],
+                                     auditor_strength=au.strength)
                 t2, s2pt, s2ct = solver.solve_recheck(it["primary"], it["context"], first or "UNSURE",
                                                       gov.weight, gov.recheck_payload(), task=task)
                 spt, sct = s1pt + s2pt, s1ct + s2ct
+                # DESi governance: a non-defeating dissent cannot overturn the first.
+                recheck_verdict = parse_verdict(t2, syns)
+                final, reverted = resolve_final(first, recheck_verdict, gov)
                 text = t2
-                final = parse_verdict(t2, syns)
+                parsed[it["id"]] = final   # DESi-resolved verdict (post-revert)
                 audit_info[it["id"]] = {"first": first, "strength": gov.weight,
                                         "final": final, "parse_ok": au.parse_ok,
-                                        "governed": gov}
+                                        "reverted_overweight": reverted, "governed": gov}
             else:
                 text, spt, sct = solver.solve_direct(it["primary"], it["context"], task=task)
             sv_pt += spt; sv_ct += sct
-            parsed[it["id"]] = parse_verdict(text, syns)
+            parsed.setdefault(it["id"], parse_verdict(text, syns))
         except Exception:
             parsed[it["id"]] = "__error__"
     elapsed = time.time() - t0

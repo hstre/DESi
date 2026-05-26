@@ -86,3 +86,45 @@ def test_require_governed_guard() -> None:
     assert dg.require_governed(dg.GOVERNED_SENTINEL + " weight=WEAK; gap").startswith("weight=WEAK")
     with pytest.raises(dg.DissentAuthorityViolation):
         dg.require_governed("ungoverned raw text")
+
+
+# --- dissent-overweighting fix (vitaminc-0026 regression) ----------------------
+_C26 = "As of March 16, 2020, there are more than 79,500 COVID-19 recoveries globally."
+_E26 = ("As of 16 March, more than 185,000 cases have been reported in over 160 "
+        "countries, resulting in more than 7,300 deaths and around 79,000 recoveries.")
+_D26 = ("The evidence only gives an approximate recovery count of around 79,000 and "
+        "does not specify the exact figure. The claim-evidence gap is minor.")
+
+
+def test_numeric_contradiction_detects_bound_vs_evidence() -> None:
+    assert dg.numeric_contradiction(_C26, _E26) is True  # >79,500 vs ~79,000
+    assert dg.numeric_contradiction("more than 79,500 recoveries",
+                                    "around 120,000 recoveries") is False  # evidence supports
+
+
+def test_weak_dissent_stays_weak_not_escalated() -> None:
+    # auditor self-claimed WEAK -> DESi must NOT escalate to MEDIUM (Rule 1)
+    gov = dg.filter_dissent(_D26, claim=_C26, evidence=_E26, auditor_strength="WEAK")
+    assert gov.weight == "WEAK"
+    assert gov.contradiction_present is True
+    assert gov.can_defeat_first is False   # weak + contradiction -> cannot defeat
+
+
+def test_recheck_flip_on_weak_dissent_is_reverted() -> None:
+    # vitaminc-0026: first REFUTES (correct), recheck tries NEI -> DESi reverts
+    gov = dg.filter_dissent(_D26, claim=_C26, evidence=_E26, auditor_strength="WEAK")
+    final, reverted = dg.resolve_final("REFUTES", "NOT_ENOUGH_INFO", gov)
+    assert final == "REFUTES" and reverted is True
+
+
+def test_legitimate_missing_evidence_dissent_can_defeat() -> None:
+    # a genuine missing-evidence gap (no contradiction, MEDIUM+) MAY defeat
+    claim = "The treaty was signed by all twelve member states."
+    evidence = "The treaty was signed in Rome; the signatory list is not provided."
+    dissent = ("The evidence does not state which member states signed and does not "
+               "mention the number twelve, so the count of signatories is missing.")
+    gov = dg.filter_dissent(dissent, claim=claim, evidence=evidence, auditor_strength="STRONG")
+    assert gov.names_missing_evidence is True and gov.contradiction_present is False
+    if gov.can_defeat_first:  # admitted as a real missing-evidence gap
+        final, reverted = dg.resolve_final("SUPPORTS", "NOT_ENOUGH_INFO", gov)
+        assert final == "NOT_ENOUGH_INFO" and reverted is False

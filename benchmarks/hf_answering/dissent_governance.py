@@ -49,6 +49,63 @@ _VERDICT_LABELS = ("supports", "refutes", "not_enough_info", "not enough info")
 _STOP = {"the", "a", "an", "of", "to", "in", "on", "is", "are", "and", "or", "that",
          "this", "it", "for", "with", "as", "be", "not", "no", "does", "do", "than",
          "which", "but", "by", "from", "we", "you", "they", "there"}
+# genuine missing-evidence markers (admissible NEI gap)
+_MISSING = ("does not state", "does not say", "no evidence that", "not mentioned",
+            "not specified", "no information about", "not given", "missing",
+            "absent", "does not mention", "not provided", "no data on",
+            "says nothing about", "does not establish")
+# precision/approximation quibbles -- NOT a missing-evidence gap on their own
+_PRECISION = ("approximate", "around", "about ", "roughly", "exact figure",
+              "exact number", "not exact", "estimate", "rough", "precise",
+              "specific number", "exact count", "approximatel")
+# claim comparison cues -> numeric direction
+_COMP = {"more than": "gt", "greater than": "gt", "over ": "gt", "exceeds": "gt",
+         "at least": "gt", "fewer than": "lt", "less than": "lt", "under ": "lt",
+         "at most": "lt", "below ": "lt", "no more than": "lt"}
+
+
+def _ord(w) -> int:
+    w = (w or "NONE").upper()
+    return WEIGHTS.index(w) if w in WEIGHTS else 0
+
+
+def _cap(desi: str, auditor: str) -> str:
+    """DESi may DOWNGRADE but never ESCALATE above the auditor's self-claim."""
+    return WEIGHTS[min(_ord(desi), _ord(auditor))]
+
+
+def _numbers(text: str) -> list[int]:
+    out = []
+    for m in re.findall(r"\d[\d,]*", text or ""):
+        try:
+            out.append(int(m.replace(",", "")))
+        except ValueError:
+            pass
+    return out
+
+
+def numeric_contradiction(claim: str, evidence: str) -> bool:
+    """True iff the claim asserts a numeric bound that an evidence number of the
+    SAME magnitude contradicts (e.g. claim 'more than 79,500' vs evidence 'around
+    79,000'). Magnitude-bounded so unrelated numbers (deaths, cases) don't fire."""
+    cl = (claim or "").lower()
+    ev_nums = _numbers(evidence)
+    if not ev_nums:
+        return False
+    for phrase, op in _COMP.items():
+        i = cl.find(phrase)
+        if i == -1:
+            continue
+        m = re.search(r"\d[\d,]*", cl[i + len(phrase):])
+        if not m:
+            continue
+        n = int(m.group(0).replace(",", ""))
+        for e in ev_nums:
+            if op == "gt" and 0.5 * n <= e < n:      # claim '>n', same-magnitude e below n
+                return True
+            if op == "lt" and n < e <= 2.0 * n:      # claim '<n', same-magnitude e above n
+                return True
+    return False
 
 
 @dataclass(frozen=True)
@@ -62,6 +119,9 @@ class GovernedDissent:
     pruned_reason: str | None = None
     authority_violation: bool = False
     audit_signal: str = ""      # verdict-free dissent text (empty if not admitted)
+    can_defeat_first: bool = False   # may this dissent legitimately overturn the first verdict?
+    contradiction_present: bool = False  # evidence already contradicts the claim
+    names_missing_evidence: bool = False
     governed: bool = True
 
     def recheck_payload(self) -> str:
@@ -90,10 +150,14 @@ def _strip_verdict(text: str) -> str:
     return out.strip()
 
 
-def filter_dissent(raw_text: str, *, claim: str, evidence: str) -> GovernedDissent:
-    """The DESi governance gate. Takes the wild brother's UNTRUSTED raw dissent
-    text (its self-claimed strength/flag is deliberately ignored) and returns a
-    GovernedDissent. Never forces NEI; never propagates a verdict."""
+def filter_dissent(raw_text: str, *, claim: str, evidence: str,
+                   auditor_strength: str = "STRONG") -> GovernedDissent:
+    """The DESi governance gate. The wild brother's dissent text is UNTRUSTED.
+    DESi assigns the weight from the filtered signal but NEVER escalates above the
+    auditor's own self-claim (``auditor_strength`` is an upper cap: WEAK stays
+    WEAK). A dissent may only DEFEAT the first verdict when it is a concrete,
+    claim-relevant, MISSING-evidence gap of weight >= MEDIUM AND the evidence does
+    not already contradict the claim. Never forces NEI; never propagates a verdict."""
     raw = raw_text or ""
     low = raw.lower()
     authority = any(m in low for m in _VERDICT) or any(l in low for l in _VERDICT_LABELS)
@@ -107,40 +171,62 @@ def filter_dissent(raw_text: str, *, claim: str, evidence: str) -> GovernedDisse
     concrete = any(m in low_clean for m in _CONCRETE) or bool(re.search(r"\d", clean))
     generic_only = (any(g in low_clean for g in _GENERIC) and not concrete) or (overlap < 2 and not concrete)
 
+    # missing-evidence vs precision-quibble vs already-contradictory (Rules 2 & 3)
+    names_missing = any(m in low_clean for m in _MISSING)
+    precision_only = any(p in low_clean for p in _PRECISION) and not names_missing
+    contradiction_present = numeric_contradiction(claim, evidence)
+
     admitted = claim_relevant and concrete and not generic_only and len(clean.split()) >= 4
     reasons: list[str] = []
     pruned = None
     if not admitted:
-        if not claim_relevant:
-            pruned = "not claim-relevant"
-        elif not concrete:
-            pruned = "not concrete / generic skepticism"
-        elif generic_only:
-            pruned = "generic skepticism only"
-        else:
-            pruned = "insufficient dissent content"
+        pruned = ("not claim-relevant" if not claim_relevant else
+                  "generic skepticism only" if generic_only else
+                  "not concrete" if not concrete else "insufficient dissent content")
     else:
-        if concrete:
-            reasons.append("names a concrete evidence gap")
-        if claim_relevant:
-            reasons.append(f"claim-relevant (overlap={overlap})")
+        if names_missing:
+            reasons.append("names a concrete missing-evidence gap")
+        if precision_only:
+            reasons.append("precision/approximation quibble (not a missing-evidence gap)")
+        reasons.append(f"claim-relevant (overlap={overlap})")
 
-    # DESi-assigned weight from the FILTERED signal (NOT the wild brother's claim)
-    weight = "NONE"
+    # DESi-assessed weight from the signal, then CAPPED at the auditor self-claim
+    # (Rule 1: never auto-escalate WEAK -> MEDIUM).
+    desi = "NONE"
     if admitted:
-        names_missing = any(m in low_clean for m in _CONCRETE)
         if names_missing and overlap >= 4:
-            weight = "STRONG"
+            desi = "STRONG"
         elif names_missing or overlap >= 3:
-            weight = "MEDIUM"
+            desi = "MEDIUM"
         else:
-            weight = "WEAK"
+            desi = "WEAK"
+    weight = _cap(desi, auditor_strength) if admitted else "NONE"
+
+    # A dissent may DEFEAT the first verdict only as a real missing-evidence gap,
+    # weight >= MEDIUM, and NOT when the evidence already contradicts the claim
+    # (missing evidence -> NEI possible; contradictory evidence -> REFUTES stands).
+    can_defeat = (admitted and _ord(weight) >= _ord("MEDIUM")
+                  and names_missing and not precision_only
+                  and not contradiction_present)
 
     return GovernedDissent(
         admitted=admitted, weight=weight, reasons=tuple(reasons),
         pruned_reason=pruned, authority_violation=authority,
-        audit_signal=(clean[:600] if admitted else ""), governed=True,
+        audit_signal=(clean[:600] if admitted else ""),
+        can_defeat_first=can_defeat, contradiction_present=contradiction_present,
+        names_missing_evidence=names_missing, governed=True,
     )
+
+
+def resolve_final(first, recheck_verdict, governed: GovernedDissent):
+    """DESi governance over the recheck output: a dissent that may NOT defeat the
+    first verdict cannot overturn it. If the recheck flipped a first verdict that
+    the (non-defeating) dissent had no authority to defeat, REVERT to the first
+    verdict. Wild brother may disturb, not rule. Returns (final, reverted)."""
+    if (first is not None and recheck_verdict != first
+            and not governed.can_defeat_first):
+        return first, True
+    return recheck_verdict, False
 
 
 class DissentAuthorityViolation(RuntimeError):
@@ -164,13 +250,15 @@ def governance_log(items, audit_info, parsed, *, nei="NOT_ENOUGH_INFO"):
     """DESi protocol over a governed audit run. items carry {id, gold};
     audit_info[id] carries {first, final, governed: GovernedDissent}."""
     accepted = rejected = pruned_generic = authority_attempts = 0
-    uncertainty_preserved = uncertainty_over_amplified = 0
+    uncertainty_preserved = uncertainty_over_amplified = overweight_prevented = 0
     for it in items:
         info = audit_info.get(it["id"])
         if not info:
             continue
         gd = info.get("governed")
         first, final = info.get("first"), info.get("final")
+        if info.get("reverted_overweight"):
+            overweight_prevented += 1   # DESi reverted a non-defeating dissent flip
         if gd is not None:
             if gd.authority_violation:
                 authority_attempts += 1
@@ -192,6 +280,7 @@ def governance_log(items, audit_info, parsed, *, nei="NOT_ENOUGH_INFO"):
         "pruned_generic_dissent": pruned_generic,
         "uncertainty_preserved": uncertainty_preserved,
         "uncertainty_over_amplified": uncertainty_over_amplified,
+        "dissent_overweight_prevented": overweight_prevented,
         "authority_violation_attempts": authority_attempts,
         "DISSENT_IS_NEVER_AUTHORITY": DISSENT_IS_NEVER_AUTHORITY,
     }
@@ -200,5 +289,5 @@ def governance_log(items, audit_info, parsed, *, nei="NOT_ENOUGH_INFO"):
 __all__ = [
     "DISSENT_IS_NEVER_AUTHORITY", "DissentAuthorityViolation", "GOVERNED_SENTINEL",
     "GovernedDissent", "WEIGHTS", "filter_dissent", "governance_log",
-    "require_governed",
+    "numeric_contradiction", "require_governed", "resolve_final",
 ]

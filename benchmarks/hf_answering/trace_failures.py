@@ -27,7 +27,7 @@ sys.path.insert(0, str(_HERE))
 from extractor_ports import GraniteExtractor  # noqa: E402
 from auditor_ports import NanoAuditor  # noqa: E402
 from solver_ports import DeepSeekDirectSolver, VERIFY_SYNS, build_recheck_prompt, parse_verdict  # noqa: E402
-from dissent_governance import filter_dissent, require_governed  # noqa: E402
+from dissent_governance import filter_dissent, require_governed, resolve_final  # noqa: E402
 from scifact_runner import load_verify  # noqa: E402
 
 _REPORTS = _HERE / "reports"
@@ -71,22 +71,27 @@ def run(limit: int, offset: int):
         t1, _a, _b = solver.solve_direct(ex.claim, ex.evidence, task="verify")
         first = parse_verdict(t1, VERIFY_SYNS)
         au, _c, _d = auditor.audit(ex.claim, ex.evidence, proj.to_compact())
-        gov = filter_dissent(au.raw, claim=ex.claim, evidence=ex.evidence)
+        gov = filter_dissent(au.raw, claim=ex.claim, evidence=ex.evidence,
+                             auditor_strength=au.strength)   # cap at self-claim
         payload = gov.recheck_payload()
         recheck_prompt = build_recheck_prompt(ex.claim, ex.evidence, first or "UNSURE",
                                               gov.weight, require_governed(payload), task="verify")
         t2, _e, _f = solver.solve_recheck(ex.claim, ex.evidence, first or "UNSURE",
                                           gov.weight, payload, task="verify")
-        final = parse_verdict(t2, VERIFY_SYNS)
+        recheck_verdict = parse_verdict(t2, VERIFY_SYNS)
+        final, reverted = resolve_final(first, recheck_verdict, gov)  # DESi non-override
         traces.append({
             "id": ex.id, "claim": ex.claim, "evidence": ex.evidence, "gold": ex.gold,
             "granite_extraction": proj.to_compact(), "granite_parse_ok": proj.parse_ok,
             "deepseek_first_text": t1, "first": first,
             "nano_dissent_raw": au.raw, "nano_strength": au.strength, "nano_parse_ok": au.parse_ok,
             "gov_admitted": gov.admitted, "gov_weight": gov.weight,
+            "gov_can_defeat_first": gov.can_defeat_first,
+            "gov_contradiction_present": gov.contradiction_present,
             "gov_pruned_reason": gov.pruned_reason, "gov_authority_violation": gov.authority_violation,
             "gov_audit_signal": gov.audit_signal,
-            "recheck_prompt": recheck_prompt, "recheck_text": t2, "final": final,
+            "recheck_prompt": recheck_prompt, "recheck_verdict": recheck_verdict,
+            "reverted_overweight": reverted, "recheck_text": t2, "final": final,
         })
     return traces
 
