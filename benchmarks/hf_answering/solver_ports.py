@@ -63,6 +63,18 @@ _DISSENT_BOOL = (
     "dissent, then answer the question. End with a final line exactly: FINAL: YES "
     "or FINAL: NO.\n\nSTRUCTURE: {projection}\n\nDISSENT: {dissent}\n\nQUESTION: {primary}\n"
 )
+# Recheck (calibrated dissent): the solver already gave FIRST_VERDICT; an auditor
+# flagged gaps. The solver MAY reject the dissent -- NEI is NOT automatic.
+_RECHECK_VERIFY = (
+    "You first concluded FIRST_VERDICT = {first} for the CLAIM. A dissent auditor "
+    "flagged evidence gaps (strength {strength}): {audit}\n\nReconsider ONLY whether "
+    "NOT_ENOUGH_INFO is now warranted. RULE: change to NOT_ENOUGH_INFO ONLY IF the "
+    "auditor names a CONCRETE, claim-relevant evidence gap that you CANNOT refute "
+    "from the EVIDENCE. If the gap is vague, irrelevant, or you can refute it from "
+    "the evidence, KEEP your first verdict. Do not abstain merely because a gap was "
+    "raised.\n\nCLAIM: {primary}\n\nEVIDENCE: {context}\n\nEnd with a final line "
+    "exactly: FINAL: SUPPORTS or FINAL: REFUTES or FINAL: NOT_ENOUGH_INFO.\n"
+)
 
 
 def parse_verdict(text: str, syns: dict) -> str | None:
@@ -102,6 +114,12 @@ def build_role_prompt(projection: str, primary: str, *, task: str) -> str:
 def build_dissent_prompt(projection: str, dissent: str, primary: str, *, task: str) -> str:
     tmpl = _DISSENT_BOOL if task == "boolq" else _DISSENT_VERIFY
     return tmpl.format(projection=projection, dissent=dissent, primary=primary)
+
+
+def build_recheck_prompt(primary: str, context: str, first: str, strength: str, audit: str, *, task: str) -> str:
+    # verify-task only (the calibrated-dissent experiment targets 3-class NEI)
+    return _RECHECK_VERIFY.format(first=first, strength=strength, audit=audit,
+                                  primary=primary, context=context)
 
 
 class DeepSeekDirectSolver:
@@ -159,6 +177,9 @@ class DeepSeekDirectSolver:
     def solve_with_dissent(self, projection, dissent, primary, *, task):
         return self._call(build_dissent_prompt(projection, dissent, primary, task=task))
 
+    def solve_recheck(self, primary, context, first, strength, audit, *, task):
+        return self._call(build_recheck_prompt(primary, context, first, strength, audit, task=task))
+
     def price(self):
         # deepseek-chat list pricing estimate ($/token): cache-miss in, out
         return (0.27e-6, 1.10e-6)
@@ -196,6 +217,9 @@ class Solver:
     def solve_with_dissent(self, projection, dissent, primary, *, task):
         return self._call(build_dissent_prompt(projection, dissent, primary, task=task))
 
+    def solve_recheck(self, primary, context, first, strength, audit, *, task):
+        return self._call(build_recheck_prompt(primary, context, first, strength, audit, task=task))
+
     def price(self):
         return (prompt_price(self.model_id), completion_price(self.model_id))
 
@@ -214,6 +238,9 @@ class ConstantSolver:
         return f"FINAL: {self._v}", 0, 0
 
     def solve_with_dissent(self, projection, dissent, primary, *, task):
+        return f"FINAL: {self._v}", 0, 0
+
+    def solve_recheck(self, primary, context, first, strength, audit, *, task):
         return f"FINAL: {self._v}", 0, 0
 
     def price(self):

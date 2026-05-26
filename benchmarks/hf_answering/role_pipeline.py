@@ -39,6 +39,7 @@ from desi.live_llm_validation.model_registry import (  # noqa: E402
 )
 from extractor_ports import GraniteExtractor, NullExtractor  # noqa: E402
 from challenger_ports import NemotronChallenger, NullChallenger  # noqa: E402
+from auditor_ports import NanoAuditor, NullAuditor  # noqa: E402
 from solver_ports import (  # noqa: E402
     BOOL_SYNS, VERIFY_SYNS, ConstantSolver, DeepSeekDirectSolver, Solver, parse_verdict,
 )
@@ -60,7 +61,7 @@ _BENCH = {  # benchmark -> (task, labels)
     "vitaminc": ("verify", ("SUPPORTS", "REFUTES", "NOT_ENOUGH_INFO")),
     "nli_fever": ("verify", ("SUPPORTS", "REFUTES", "NOT_ENOUGH_INFO")),
 }
-_CONFIGS = ("granite_only", "deepseek_only", "role", "dissent")
+_CONFIGS = ("granite_only", "deepseek_only", "role", "dissent", "audit")
 
 
 def _load(benchmark, limit):
@@ -153,9 +154,11 @@ def run_config(benchmark, config, limit, *, offline=False, deepseek_backend="dir
     dc = desi_core_metrics(items)
 
     challenger = None
+    auditor = None
     if offline:
-        extractor = NullExtractor() if config in ("role", "dissent") else None
+        extractor = NullExtractor() if config in ("role", "dissent", "audit") else None
         challenger = NullChallenger() if config == "dissent" else None
+        auditor = NullAuditor() if config == "audit" else None
         solver = ConstantSolver("NO" if task == "boolq" else "NOT_ENOUGH_INFO")
     elif config == "granite_only":
         solver = Solver(ROLE_GRANITE)   # Granite as solver (OpenRouter)
@@ -164,12 +167,14 @@ def run_config(benchmark, config, limit, *, offline=False, deepseek_backend="dir
         # deepseek as solver: direct api.deepseek.com (fast) or OpenRouter route
         solver = (DeepSeekDirectSolver() if deepseek_backend == "direct"
                   else Solver(ROLE_DEEPSEEK))
-        extractor = GraniteExtractor() if config in ("role", "dissent") else None
+        extractor = GraniteExtractor() if config in ("role", "dissent", "audit") else None
         challenger = NemotronChallenger() if config == "dissent" else None
+        auditor = NanoAuditor() if config == "audit" else None
 
     parsed = {}
     nei_flags = {}            # dissent config: challenger's nei_plausible per example
-    ex_pt = ex_ct = sv_pt = sv_ct = ch_pt = ch_ct = 0
+    audit_info = {}           # audit config: {first, strength, final} per example
+    ex_pt = ex_ct = sv_pt = sv_ct = ch_pt = ch_ct = au_pt = au_ct = 0
     t0 = time.time()
     for it in items:
         try:
@@ -184,6 +189,21 @@ def run_config(benchmark, config, limit, *, offline=False, deepseek_backend="dir
                 ch_pt += cpt; ch_ct += cct
                 nei_flags[it["id"]] = bool(diss.nei_plausible)
                 text, spt, sct = solver.solve_with_dissent(proj.to_compact(), diss.to_compact(), it["primary"], task=task)
+            elif config == "audit":
+                # calibrated dissent: extract -> first solve -> audit -> recheck
+                proj, ept, ect = extractor.extract(it["extract_input"])
+                ex_pt += ept; ex_ct += ect
+                t1, s1pt, s1ct = solver.solve_direct(it["primary"], it["context"], task=task)
+                first = parse_verdict(t1, syns)
+                au, apt, act = auditor.audit(it["primary"], it["context"], proj.to_compact())
+                au_pt += apt; au_ct += act
+                t2, s2pt, s2ct = solver.solve_recheck(it["primary"], it["context"], first or "UNSURE",
+                                                      au.strength, au.to_compact(), task=task)
+                spt, sct = s1pt + s2pt, s1ct + s2ct
+                text = t2
+                final = parse_verdict(t2, syns)
+                audit_info[it["id"]] = {"first": first, "strength": au.strength,
+                                        "final": final, "parse_ok": au.parse_ok}
             else:
                 text, spt, sct = solver.solve_direct(it["primary"], it["context"], task=task)
             sv_pt += spt; sv_ct += sct
@@ -192,7 +212,7 @@ def run_config(benchmark, config, limit, *, offline=False, deepseek_backend="dir
             parsed[it["id"]] = "__error__"
     elapsed = time.time() - t0
 
-    ex_price = _granite_price() if config in ("role", "dissent") else (0.0, 0.0)
+    ex_price = _granite_price() if config in ("role", "dissent", "audit") else (0.0, 0.0)
     sv_price = solver.price() if hasattr(solver, "price") else (0.0, 0.0)
     ev = _score(items, parsed, labels, ex_tokens=(ex_pt, ex_ct), ex_price=ex_price,
                 sv_tokens=(sv_pt, sv_ct), sv_price=sv_price)
@@ -223,6 +243,41 @@ def run_config(benchmark, config, limit, *, offline=False, deepseek_backend="dir
         rec["desi_governance"] = {
             "uncertainty_improperly_lost": rec["dissent"]["dissent_pruned"],
             "challenger_branches_hard_pruned": rec["dissent"]["dissent_pruned"],
+            "decision_structure_replayable": dc["replay_stable"],
+            "core_invariant": dc["core_identity_ok"],
+        }
+    if config == "audit":
+        nei = "NOT_ENOUGH_INFO"
+        info = list(audit_info.values())
+        sdist = {s: sum(1 for v in info if v["strength"] == s) for s in ("NONE", "WEAK", "MEDIUM", "STRONG")}
+        substantive = [v for v in info if v["strength"] in ("MEDIUM", "STRONG")]
+        accepted = sum(1 for v in info if v["final"] == nei and v["first"] != nei)   # recheck moved to NEI
+        rejected = sum(1 for v in substantive if v["final"] == v["first"] != nei)    # gap raised, verdict kept
+        changed = sum(1 for v in info if v["first"] != v["final"])
+        gold_nei = ev["gold_distribution"].get(nei, 0)
+        pred_nei = ev["pred_distribution"].get(nei, 0)
+        # over/under-abstention against gold, per example
+        over = sum(1 for it in items if parsed.get(it["id"]) == nei and it["gold"] != nei)
+        under = sum(1 for it in items if it["gold"] == nei and parsed.get(it["id"]) not in (nei, "__error__", None))
+        strong_to_nei = sum(1 for v in info if v["strength"] == "STRONG" and v["final"] == nei)
+        n_strong = sdist["STRONG"] + sdist["MEDIUM"]
+        rec["audit"] = {
+            "auditor": getattr(auditor, "name", None),
+            "strength_distribution": sdist,
+            "audit_parse_ok": sum(1 for v in info if v["parse_ok"]),
+            "dissent_accepted": accepted, "dissent_rejected": rejected,
+            "verdict_changed_by_recheck": changed,
+            "pred_nei": pred_nei, "gold_nei": gold_nei, "nei_gap": pred_nei - gold_nei,
+            "over_abstention": over, "under_abstention": under,
+            "branch_preservation_rate": round(strong_to_nei / n_strong, 3) if n_strong else None,
+            "auditor_tokens": [au_pt, au_ct],
+        }
+        rec["desi_governance"] = {
+            # uncertainty improperly lost: a strong gap that the recheck dropped AND gold was NEI
+            "uncertainty_improperly_lost": sum(1 for it in items
+                                               if (audit_info.get(it["id"], {}).get("strength") == "STRONG"
+                                                   and it["gold"] == nei and parsed.get(it["id"]) != nei)),
+            "challenger_branches_hard_pruned": rejected,
             "decision_structure_replayable": dc["replay_stable"],
             "core_invariant": dc["core_identity_ok"],
         }
@@ -395,6 +450,106 @@ def dissent_compare(benchmark, tag):
     print(f"dissent comparison written -> {benchmark}_dissent_comparison.md")
 
 
+def audit_compare(benchmark, tag):
+    """Compare granite_only / deepseek_only / role / audit (calibrated dissent)
+    on epistemic calibration. Key question: does a controlled dissent-auditor
+    preserve uncertainty WITHOUT collapsing to blanket abstention?"""
+    recs = {}
+    for c in ("granite_only", "deepseek_only", "role", "audit"):
+        p = _RUNS / f"role_{benchmark}_{c}{tag}.json"
+        if p.exists():
+            recs[c] = json.loads(p.read_text())
+    if "audit" not in recs:
+        print(f"no audit run for {benchmark}{tag}")
+        return
+    labels = recs["audit"]["labels"]
+    nei = "NOT_ENOUGH_INFO"
+    g = recs["audit"]["eval"]["gold_distribution"]
+    n = recs["audit"]["eval"]["n"]
+    a = recs["audit"]["audit"]
+    md = [
+        f"# Calibrated dissent-auditor comparison — {benchmark}\n",
+        "Hypothesis: a small, sparse dissent AUDITOR (Nemotron Nano) that only marks "
+        "concrete evidence gaps + a strength (NONE/WEAK/MEDIUM/STRONG) — and does NOT "
+        "decide or force NEI — preserves uncertainty better than the previous "
+        "auto-NEI dissent, without collapsing to blanket abstention. Pipeline: "
+        "Granite extract -> DeepSeek solve -> Nano audit -> DeepSeek recheck (NEI "
+        "only if the gap is concrete, claim-relevant, and unrefutable). DESi = "
+        "governance alongside; DESi is not the solver.\n",
+        f"N={n} per config (same examples). Feasibility note: Nano (free, reasoning) "
+        "is ~3-10s/example and ~2/3 emit a parseable strength line; an unparseable "
+        "audit degrades SAFELY to strength NONE (no dissent), so it cannot cause an "
+        f"all-NEI collapse. audit-parse-ok: {a['audit_parse_ok']}/{n}.\n",
+        f"Gold distribution: " + ", ".join(f"{l}={g[l]}" for l in labels)
+        + f" (NEI base rate {g.get(nei,0)}/{n}).\n",
+        "## Calibration comparison\n",
+        "| config | acc | pred NEI | NEI gap | over-abst | under-abst |",
+        "| --- | --- | --- | --- | --- | --- |",
+    ]
+    for c in ("granite_only", "deepseek_only", "role", "audit"):
+        if c not in recs:
+            continue
+        e = recs[c]["eval"]
+        pnei = e["pred_distribution"].get(nei, 0)
+        gap = pnei - g.get(nei, 0)
+        ov = recs[c].get("audit", {}).get("over_abstention", "-")
+        un = recs[c].get("audit", {}).get("under_abstention", "-")
+        md.append(f"| {c} | {_acc(recs[c])} | {pnei} | {gap:+d} | {ov} | {un} |")
+    md += [
+        "",
+        "## Auditor behavior (audit config)\n",
+        f"- dissent strength distribution: `{a['strength_distribution']}`",
+        f"- audit lines parsed: {a['audit_parse_ok']}/{n}",
+        f"- dissent accepted (recheck moved to NEI): **{a['dissent_accepted']}**",
+        f"- dissent rejected (MEDIUM/STRONG gap raised, verdict kept): **{a['dissent_rejected']}**",
+        f"- verdicts changed by recheck: {a['verdict_changed_by_recheck']}",
+        f"- branch preservation rate (strong gaps -> NEI): {a['branch_preservation_rate']}",
+        f"- NEI: pred {a['pred_nei']} vs gold {a['gold_nei']} (gap {a['nei_gap']:+d})",
+        "",
+        "## Did calibrated dissent help (vs the all-NEI collapse of the previous layer)?\n",
+    ]
+    # compare audit's NEI gap to deepseek_only and to the previous dissent collapse
+    def gap_of(c):
+        if c not in recs:
+            return None
+        e = recs[c]["eval"]
+        return e["pred_distribution"].get(nei, 0) - g.get(nei, 0)
+    accs = {c: recs[c]["eval"]["accuracy"] for c in recs if recs[c]["eval"]["accuracy"] is not None}
+    ag, dg = gap_of("audit"), gap_of("deepseek_only")
+    if ag is not None:
+        md.append(f"- audit NEI gap {ag:+d} vs deepseek_only {dg:+d if dg is not None else 0}: "
+                  + ("audit over-abstains" if ag > 1 else "audit under-abstains" if ag < -1 else "audit roughly calibrated")
+                  + ". (The previous auto-NEI dissent collapsed to all-NEI, gap +5 at N=10.)")
+    if accs:
+        best = max(accs, key=lambda c: accs[c])
+        md.append(f"- accuracy: " + ", ".join(f"{c} {accs[c]:.3f}" for c in accs) + f" -> highest **{best}**.")
+    if "audit" in accs and "deepseek_only" in accs:
+        md.append(f"- **audit vs deepseek_only**: acc {accs['audit']:.3f} vs {accs['deepseek_only']:.3f}; "
+                  f"|NEI gap| {abs(ag)} vs {abs(dg)} -> "
+                  + ("calibrated auditor improves or matches calibration without collapse"
+                     if abs(ag) <= abs(dg) and a['strength_distribution']['NONE'] < n
+                     else "calibrated auditor does not beat DeepSeek-only here") + ".")
+    md += [
+        "",
+        "## DESi governance (alongside; core untouched)\n",
+        f"- uncertainty improperly lost (STRONG gap, gold NEI, recheck non-NEI): "
+        f"{recs['audit']['desi_governance']['uncertainty_improperly_lost']}",
+        f"- challenger branches hard-pruned (substantive gap rejected): "
+        f"{recs['audit']['desi_governance']['challenger_branches_hard_pruned']}",
+        f"- decision structure replayable: {recs['audit']['desi_governance']['decision_structure_replayable']}",
+        f"- DESi-core invariant across configs: "
+        f"{all(recs[c]['desi_core']['core_identity_ok'] in (True, None) and recs[c]['desi_core']['replay_stable'] for c in recs)}",
+        "",
+        "## Honesty / limits\n",
+        "- Feasibility probe at small N (Nano free-tier, ~2/3 parse rate). One "
+        "deterministic pass, no retries/repair/voting. Calibration read as measured. "
+        "Accuracies are the model pipelines'; DESi neither solves nor scores.",
+    ]
+    _REPORTS.mkdir(parents=True, exist_ok=True)
+    (_REPORTS / f"{benchmark}_audit_comparison.md").write_text("\n".join(md) + "\n", encoding="utf-8")
+    print(f"audit comparison written -> {benchmark}_audit_comparison.md")
+
+
 def cross_summary():
     benches = [b for b in _BENCH if (_RUNS / f"role_{b}_role.json").exists()]
     md = [
@@ -477,12 +632,15 @@ def main() -> int:
     ap.add_argument("--offline", action="store_true", help="stub ports (wiring only).")
     ap.add_argument("--compare", action="store_true")
     ap.add_argument("--dissent-compare", action="store_true")
+    ap.add_argument("--audit-compare", action="store_true")
     ap.add_argument("--cross-summary", action="store_true")
     args = ap.parse_args()
     if args.cross_summary:
         cross_summary(); return 0
     if args.dissent_compare:
         dissent_compare(args.benchmark, args.tag); return 0
+    if args.audit_compare:
+        audit_compare(args.benchmark, args.tag); return 0
     if args.compare:
         compare(args.benchmark); return 0
     if not (args.benchmark and args.config):
