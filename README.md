@@ -11,7 +11,7 @@ SSRN Author Page: https://ssrn.com/author=rentschler
 
 ## Abstract
 
-We present DESi (Dynamic Epistemic Sequencer — Diagnostic), a deterministic, replay-governed epistemic governance layer designed to operate above and around large language model (LLM) inference. DESi enforces a strict separation between a protected, immutable governance core and peripheral infrastructure subject to controlled evolution. Across 38 experimental phases covering epistemic failure taxonomy, search space compression, self-improvement governance, external benchmark validation, and live LLM validation with real API calls, DESi maintains replay stability at 1.0 throughout. Key empirical results include: (1) a measured recompute reduction from 36 to 4 operations (88.9%) under a frozen longitudinal benchmark with byte-identical outputs; (2) search space node reduction of 41–60% with critical branch preservation at 1.0, consistent across four independent experimental contexts; (3) hallucination visibility at 1.0 under live OpenRouter API calls to IBM Granite and DeepSeek models (hallucinations are made visible and documented, not eliminated); (4) routing cost reduction of 53.5% per redirected task with quality preservation at 1.0 (7.3% total workload reduction across the full task set). All results are derived from synthetic or locally vendored fixtures unless explicitly noted otherwise. The paper reports negative results alongside positive ones; one component (Neo4j evolution graph) is explicitly identified as overengineered. DESi does not replace LLMs, does not claim general intelligence, and makes no breakthrough assertions.
+We present DESi (Dynamic Epistemic Sequencer — Diagnostic), a deterministic, replay-governed epistemic governance layer designed to operate above and around large language model (LLM) inference. DESi enforces a strict separation between a protected, immutable epistemic core — a fixed 9-dimensional state manifold with a Content/Method (5+4) partition and the T1–T9 transition operators — and peripheral infrastructure subject to controlled evolution. Across 38 experimental phases covering epistemic failure taxonomy, search space compression, self-improvement governance, external benchmark validation, and live LLM validation with real API calls, DESi maintains replay stability at 1.0 throughout. Key empirical results include: (1) a measured recompute reduction from 36 to 4 operations (88.9%) under a frozen longitudinal benchmark with byte-identical outputs; (2) search space node reduction of 41–60% with critical branch preservation at 1.0, consistent across four independent experimental contexts; (3) hallucination visibility at 1.0 under live OpenRouter API calls to IBM Granite and DeepSeek models (hallucinations are made visible and documented, not eliminated); (4) routing cost reduction of 53.5% per redirected task with quality preservation at 1.0 (7.3% total workload reduction across the full task set). All results are derived from synthetic or locally vendored fixtures unless explicitly noted otherwise. The paper reports negative results alongside positive ones; one component (Neo4j evolution graph) is explicitly identified as overengineered. DESi does not replace LLMs, does not claim general intelligence, and makes no breakthrough assertions.
 
 **Keywords:** epistemic governance, LLM systems, replay stability, search space compression, deterministic pipelines, epistemic failure taxonomy, controlled self-improvement
 
@@ -19,7 +19,7 @@ We present DESi (Dynamic Epistemic Sequencer — Diagnostic), a deterministic, r
 
 ## 1. Introduction
 
-DESi is not a stricter agent framework. It behaves more like an epistemic operating layer than a conventional agent framework — a deterministic governance infrastructure with its own ontology. Readers familiar with LangGraph, AutoGen, or CrewAI should note that DESi does not compete with these frameworks on their own terms. It operates on a different axis: not what agents do, but whether what they produce is epistemically sound. Flexibility, in conventional agent frameworks, is a virtue. In DESi’s architecture, unconstrained flexibility is a failure mode.
+DESi is not a stricter agent framework. It is a deterministic governance infrastructure built around a fixed epistemic ontology — concretely, the immutable 9-dimensional state manifold defined in §2.1, with its Content/Method partition and its T1–T9 transition operators. That ontology, not the surrounding infrastructure, is the core; everything else is periphery that projects onto it. Readers familiar with LangGraph, AutoGen, or CrewAI should note that DESi does not compete with these frameworks on their own terms. It operates on a different axis: not what agents do, but whether what they produce is epistemically sound. Flexibility, in conventional agent frameworks, is a virtue. In DESi’s architecture, unconstrained flexibility is a failure mode.
 
 Large language models exhibit well-documented failure modes: hallucination, authority drift, premature closure, context-inherited misclassification, and unverifiable self-modification. These failures share a structural property: they are difficult to detect, measure, and contain within the inference loop itself.
 
@@ -68,17 +68,52 @@ External Input (claims, trajectories, benchmark tasks, LLM outputs)
                              replay cache, evolution memory
 ```
 
-The protected core consists of seven components that were never modified across any experimental phase: Replay Kernel, Determinism Scanner, Concept Gates (6-condition multi-gate), Governance Core, Authority Filters, Regression Integrity, and Human Approval Enforcement.
+These seven infrastructure components were never modified across any experimental phase: Replay Kernel, Determinism Scanner, Concept Gates (6-condition multi-gate), Governance Core, Authority Filters, Regression Integrity, and Human Approval Enforcement. They are the *protection layer*. What they protect is the epistemic core ontology defined next (§2.1): the infrastructure invariants exist so that the epistemic manifold can stay invariant.
 
-### 2.1 Concept Gate Structure
+### 2.1 The Immutable Epistemic Core: the 9-Dimensional State Manifold
+
+The DESi core is not the connectors, the diff engines, or the benchmarks. It is a closed, fixed-length **epistemic state manifold** defined in code (`src/desi/epistemic_trajectory/state.py`). A claim's passage through DESi is a *trajectory* — a sequence of states on this manifold — so trajectory geometry is well-defined. The nine dimensions are fixed and named verbatim; no axis may be added, removed, or redefined:
+
+```
+frame_id, contradiction_load, anchor_density, source_quality, novelty,
+confidence, branch_cost, support_state, routing_state
+```
+
+> **Core invariant.** DESi may evolve only at the epistemic *periphery*. The epistemic *core space* itself is invariant.
+> **Peripheral evolution is permitted. Core epistemic-ontology evolution is forbidden.**
+
+**Content vs Method (5 + 4).** The manifold is partitioned exhaustively and disjointly (`src/desi/content_method/features.py`; the partition is asserted in code to cover all nine dimensions and to be disjoint) into *what* is asserted and *how* the audit moved:
+
+- **CONTENT (5):** `frame_id`, `novelty`, `anchor_density`, `contradiction_load`, `source_quality`.
+- **METHOD (4):** `support_state`, `routing_state`, `branch_cost`, `confidence`.
+
+Content and Method must never be mixed: this separation is what lets DESi tell *a different claim* apart from *a different way of reaching the same claim*.
+
+**T1–T9 are structured epistemic transition operators**, not optional heuristics (`src/desi/models.py`, `Operator`). They are the canonical operators by which a claim moves between states; their composition *is* a trajectory: T1 resolve_conflict, T2 make_conflict_explicit, T3 request_evidence, T4 decompose_claim, T5 generate_counter_hypothesis, T6 explore_evidence_path, T7 refine_qualifier, T8 seal_claim, T9 trigger_reframing. The paper-8 method operators are *added* alongside T1–T9 and do not replace them; no further base operators may be invented.
+
+**Trajectory geometry is the dynamics** (`src/desi/epistemic_trajectory/metrics.py`): `smoothness`, `curvature`, `jerk`, `direction_reversal_rate`, `frame_flip_rate`, `support_state_instability`, and `manifold_departure_score` (L2 distance of the final state from the valid-manifold centroid). Recoverability/blindness is a property of this geometry — `manifold_departure_score` measures how far a trajectory has left the valid manifold, and `DEAD_BRANCH` (and State-Vector Blindness, Failure Mode 11) mark structurally unrecoverable regions.
+
+On this manifold, **DESi MAY** project claims onto the state space, measure trajectory geometry and manifold departure, audit/mark/surface blindness, experiment branch-isolated, compress, route, and trigger escalation. **DESi MAY NOT** evolve the core ontology, redefine the 9-D structure, introduce new epistemic axes, mix Content and Method, dynamically re-calibrate the core dimensions' weights, or substitute claim heuristics for the state space itself. The canonical statement of this invariant, with the code references, is `artifacts/architecture/desi_core_ontology_invariant.md`.
+
+### 2.2 Peripheral Projection Layer (and the P31–P33 warning)
+
+Everything outside the manifold of §2.1 is **periphery**: it *projects onto* the core space and may evolve under the periphery rule, but it does not define the core. This explicitly includes the claim **extractor**, **folding/canonicalization**, **Dual-Builder Adjudication (DBA)**, **meaning-space alignment**, **typed governance**, **region alignment**, and the **epistemic flow layer**. Each is a lens or a measurement onto the manifold (e.g. the extractor populates content dimensions; typed governance projects onto `contradiction_load`/`branch_cost`; the flow layer measures direction and curvature in the Method sub-space) — none is the manifold.
+
+The phases P31–P33 are retained as an explicit cautionary record:
+
+> **Claim-centric governance without a stable epistemic ontology drifts toward semantic arbitrariness.**
+
+P31–P33 showed empirically that when adjudication is driven by claim-object matching, diffing, embeddings, and symbolic vetoes *in isolation from the core*, the binding conflicts stop sitting in the claim object and start sitting in the **epistemic transformation / flow direction** — precisely the curvature, direction-reversal, support-state-instability, and manifold-departure quantities the core manifold already models. The correct response is not "add more lenses" but "bind the lenses back to the invariant manifold." A peripheral governance stack grown without that binding accumulates lens-specific lexicons and thresholds whose only ground truth is one another — i.e. semantic arbitrariness.
+
+### 2.3 Concept Gate Structure
 
 Every experimental phase concludes with a six-condition Concept Gate. All six conditions must pass for a phase to land in Class A. The gate structure prevents partial verdicts: a phase either passes all six or is classified accordingly (Class B through E). The priority ordering — replay collapse > governance failure > architecture instability > drift — was fixed at system inception and not adjusted to fit results.
 
-### 2.2 Forbidden Term Governance
+### 2.4 Forbidden Term Governance
 
-A set of terms is permanently forbidden from all rendered outputs: AGI, Superintelligence, Consciousness, Civilization layer, Kant, Popper, Truth engine, World model, Revolutionary, Breakthrough, Human-level. The Determinism Scanner enforces this at build time. The scanner also flags `hash(` as a high-risk pattern in prose text — a false positive discovered and fixed in v24 (see Section 4.2).
+A set of terms is permanently forbidden from all **rendered outputs**: AGI, Superintelligence, Consciousness, Civilization layer, Kant, Popper, Truth engine, World model, Revolutionary, Breakthrough, Human-level. The Determinism Scanner enforces this at build time. The scanner also flags `hash(` as a high-risk pattern in prose text — a false positive discovered and fixed in v24 (see Section 4.2). This README is *documentation*, not a rendered output, so it is exempt from the rendered-output scanner; the list above is the governed-term definition, and DESi prose elsewhere must not use these terms as live phrasing (the description in §9.5 was corrected for this reason).
 
-### 2.3 Pipeline Mechanics: From LLM Output to Concept Gate
+### 2.5 Pipeline Mechanics: From LLM Output to Concept Gate
 
 To make the architecture concrete, this section traces two real examples through the DESi pipeline from raw input to Concept Gate decision.
 
@@ -456,7 +491,7 @@ The Reviewer Port (Section 11.3) serves as the projection lens for this cartogra
 
 The implication is nontrivial: a system that rigidly enforces epistemic discipline can, without contradiction, also expand the frontier of explorable knowledge. The very constraints that prevent overreach — determinism, closed enumerations, read-only governance — create the stability required to mark unknown unknowns without immediately rushing to fill them with synthetic certainty.
 
-We do not claim that DESi discovers new knowledge autonomously. It does not. What it provides is a structured, replay-verifiable map of where the process of discovery may have been interrupted, compressed, or blinded. In scientific terms, this makes DESi not a truth engine but a hypothesis discovery aid — one whose outputs can be audited, reproduced, and challenged on the same terms as the primary results it governs.
+We do not claim that DESi discovers new knowledge autonomously. It does not. What it provides is a structured, replay-verifiable map of where the process of discovery may have been interrupted, compressed, or blinded. In scientific terms, this positions DESi as a hypothesis discovery aid rather than an arbiter of correctness — one whose outputs can be audited, reproduced, and challenged on the same terms as the primary results it governs. (The system does not adjudicate truth; per the governed-term policy of §2.4, the README avoids the corresponding forbidden phrasing.)
 
 To our knowledge, no existing LLM governance system combines determinism, non-authoritativeness, and persistent epistemic memory in this configuration, though we note that this claim is difficult to verify systematically given the pace of development in this field. The closest analogues — research claim harvesters, literature-based discovery systems, and argumentation miners — operate on closed world models of what is known. DESi operates on the topology of how knowledge was sought, and it is in the gaps of that topology that unknown unknowns become visible.
 
