@@ -49,6 +49,20 @@ _ROLE_VERIFY = (
     "or FINAL: REFUTES or FINAL: NOT_ENOUGH_INFO.\n\nEXTRACTION: {projection}\n\n"
     "CLAIM: {primary}\n"
 )
+_DISSENT_VERIFY = (
+    "An extractor produced a STRUCTURE and an epistemic CHALLENGER produced DISSENT "
+    "(counter-hypotheses, missing evidence, alternative readings, and whether "
+    "NOT_ENOUGH_INFO is plausible). Weigh the dissent honestly: if the challenger "
+    "shows the evidence is insufficient or genuinely ambiguous, prefer "
+    "NOT_ENOUGH_INFO; do not discard a well-founded challenge. End with a final "
+    "line exactly: FINAL: SUPPORTS or FINAL: REFUTES or FINAL: NOT_ENOUGH_INFO.\n\n"
+    "STRUCTURE: {projection}\n\nDISSENT: {dissent}\n\nCLAIM: {primary}\n"
+)
+_DISSENT_BOOL = (
+    "An extractor produced a STRUCTURE and a CHALLENGER produced DISSENT. Weigh the "
+    "dissent, then answer the question. End with a final line exactly: FINAL: YES "
+    "or FINAL: NO.\n\nSTRUCTURE: {projection}\n\nDISSENT: {dissent}\n\nQUESTION: {primary}\n"
+)
 
 
 def parse_verdict(text: str, syns: dict) -> str | None:
@@ -83,6 +97,11 @@ def build_direct_prompt(primary: str, context: str, *, task: str) -> str:
 def build_role_prompt(projection: str, primary: str, *, task: str) -> str:
     tmpl = _ROLE_BOOL if task == "boolq" else _ROLE_VERIFY
     return tmpl.format(projection=projection, primary=primary)
+
+
+def build_dissent_prompt(projection: str, dissent: str, primary: str, *, task: str) -> str:
+    tmpl = _DISSENT_BOOL if task == "boolq" else _DISSENT_VERIFY
+    return tmpl.format(projection=projection, dissent=dissent, primary=primary)
 
 
 class DeepSeekDirectSolver:
@@ -137,6 +156,9 @@ class DeepSeekDirectSolver:
     def solve_projection(self, projection, primary, *, task):
         return self._call(build_role_prompt(projection, primary, task=task))
 
+    def solve_with_dissent(self, projection, dissent, primary, *, task):
+        return self._call(build_dissent_prompt(projection, dissent, primary, task=task))
+
     def price(self):
         # deepseek-chat list pricing estimate ($/token): cache-miss in, out
         return (0.27e-6, 1.10e-6)
@@ -171,6 +193,9 @@ class Solver:
         tmpl = _ROLE_BOOL if task == "boolq" else _ROLE_VERIFY
         return self._call(tmpl.format(projection=projection, primary=primary))
 
+    def solve_with_dissent(self, projection, dissent, primary, *, task):
+        return self._call(build_dissent_prompt(projection, dissent, primary, task=task))
+
     def price(self):
         return (prompt_price(self.model_id), completion_price(self.model_id))
 
@@ -186,6 +211,9 @@ class ConstantSolver:
         return f"FINAL: {self._v}", 0, 0
 
     def solve_projection(self, projection, primary, *, task):
+        return f"FINAL: {self._v}", 0, 0
+
+    def solve_with_dissent(self, projection, dissent, primary, *, task):
         return f"FINAL: {self._v}", 0, 0
 
     def price(self):

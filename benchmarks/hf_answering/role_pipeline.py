@@ -38,6 +38,7 @@ from desi.live_llm_validation.model_registry import (  # noqa: E402
     ROLE_DEEPSEEK, ROLE_GRANITE, completion_price, model_for_role, prompt_price,
 )
 from extractor_ports import GraniteExtractor, NullExtractor  # noqa: E402
+from challenger_ports import NemotronChallenger, NullChallenger  # noqa: E402
 from solver_ports import (  # noqa: E402
     BOOL_SYNS, VERIFY_SYNS, ConstantSolver, DeepSeekDirectSolver, Solver, parse_verdict,
 )
@@ -59,7 +60,7 @@ _BENCH = {  # benchmark -> (task, labels)
     "vitaminc": ("verify", ("SUPPORTS", "REFUTES", "NOT_ENOUGH_INFO")),
     "nli_fever": ("verify", ("SUPPORTS", "REFUTES", "NOT_ENOUGH_INFO")),
 }
-_CONFIGS = ("granite_only", "deepseek_only", "role")
+_CONFIGS = ("granite_only", "deepseek_only", "role", "dissent")
 
 
 def _load(benchmark, limit):
@@ -145,14 +146,16 @@ def _granite_price():
     return (prompt_price(g), completion_price(g))
 
 
-def run_config(benchmark, config, limit, *, offline=False, deepseek_backend="direct"):
+def run_config(benchmark, config, limit, *, offline=False, deepseek_backend="direct", tag=""):
     items, task = _load(benchmark, limit)
     labels = _BENCH[benchmark][1]
     syns = BOOL_SYNS if task == "boolq" else VERIFY_SYNS
     dc = desi_core_metrics(items)
 
+    challenger = None
     if offline:
-        extractor = NullExtractor()
+        extractor = NullExtractor() if config in ("role", "dissent") else None
+        challenger = NullChallenger() if config == "dissent" else None
         solver = ConstantSolver("NO" if task == "boolq" else "NOT_ENOUGH_INFO")
     elif config == "granite_only":
         solver = Solver(ROLE_GRANITE)   # Granite as solver (OpenRouter)
@@ -161,10 +164,12 @@ def run_config(benchmark, config, limit, *, offline=False, deepseek_backend="dir
         # deepseek as solver: direct api.deepseek.com (fast) or OpenRouter route
         solver = (DeepSeekDirectSolver() if deepseek_backend == "direct"
                   else Solver(ROLE_DEEPSEEK))
-        extractor = GraniteExtractor() if config == "role" else None
+        extractor = GraniteExtractor() if config in ("role", "dissent") else None
+        challenger = NemotronChallenger() if config == "dissent" else None
 
     parsed = {}
-    ex_pt = ex_ct = sv_pt = sv_ct = 0
+    nei_flags = {}            # dissent config: challenger's nei_plausible per example
+    ex_pt = ex_ct = sv_pt = sv_ct = ch_pt = ch_ct = 0
     t0 = time.time()
     for it in items:
         try:
@@ -172,6 +177,13 @@ def run_config(benchmark, config, limit, *, offline=False, deepseek_backend="dir
                 proj, ept, ect = extractor.extract(it["extract_input"])
                 ex_pt += ept; ex_ct += ect
                 text, spt, sct = solver.solve_projection(proj.to_compact(), it["primary"], task=task)
+            elif config == "dissent":
+                proj, ept, ect = extractor.extract(it["extract_input"])
+                ex_pt += ept; ex_ct += ect
+                diss, cpt, cct = challenger.challenge(it["primary"], it["context"], proj.to_compact())
+                ch_pt += cpt; ch_ct += cct
+                nei_flags[it["id"]] = bool(diss.nei_plausible)
+                text, spt, sct = solver.solve_with_dissent(proj.to_compact(), diss.to_compact(), it["primary"], task=task)
             else:
                 text, spt, sct = solver.solve_direct(it["primary"], it["context"], task=task)
             sv_pt += spt; sv_ct += sct
@@ -180,16 +192,42 @@ def run_config(benchmark, config, limit, *, offline=False, deepseek_backend="dir
             parsed[it["id"]] = "__error__"
     elapsed = time.time() - t0
 
-    ex_price = _granite_price() if config == "role" else (0.0, 0.0)
+    ex_price = _granite_price() if config in ("role", "dissent") else (0.0, 0.0)
     sv_price = solver.price() if hasattr(solver, "price") else (0.0, 0.0)
     ev = _score(items, parsed, labels, ex_tokens=(ex_pt, ex_ct), ex_price=ex_price,
                 sv_tokens=(sv_pt, sv_ct), sv_price=sv_price)
     rec = {"benchmark": benchmark, "config": config, "task": task,
-           "extractor": getattr(extractor, "name", None), "solver": solver.name,
+           "extractor": getattr(extractor, "name", None),
+           "challenger": getattr(challenger, "name", None), "solver": solver.name,
            "labels": list(labels), "eval": ev, "elapsed_s": round(elapsed, 2),
            "desi_core": dc}
+    if config == "dissent":
+        nei_label = "NOT_ENOUGH_INFO"
+        flagged = [i for i, f in nei_flags.items() if f]
+        preserved = sum(1 for i in flagged if parsed.get(i) == nei_label)
+        gold_nei = ev["gold_distribution"].get(nei_label, 0)
+        pred_nei = ev["pred_distribution"].get(nei_label, 0)
+        ans = ev["answered"] or 1
+        rec["dissent"] = {
+            "challenger": getattr(challenger, "name", None),
+            "challenger_nei_flagged": len(flagged),
+            "dissent_preserved": preserved,              # flagged -> final NEI
+            "dissent_pruned": len(flagged) - preserved,  # flagged but overridden (hard-pruned)
+            "branch_preservation_rate": round(preserved / len(flagged), 3) if flagged else None,
+            "abstention_rate": round(pred_nei / ans, 3),
+            "nei_calibration_gap": pred_nei - gold_nei,  # 0 = perfectly calibrated count
+            "gold_nei": gold_nei, "pred_nei": pred_nei,
+            "challenger_tokens": [ch_pt, ch_ct],
+        }
+        # DESi-governance (peripheral, alongside): uncertainty-loss / branch-pruning
+        rec["desi_governance"] = {
+            "uncertainty_improperly_lost": rec["dissent"]["dissent_pruned"],
+            "challenger_branches_hard_pruned": rec["dissent"]["dissent_pruned"],
+            "decision_structure_replayable": dc["replay_stable"],
+            "core_invariant": dc["core_identity_ok"],
+        }
     _RUNS.mkdir(parents=True, exist_ok=True)
-    (_RUNS / f"role_{benchmark}_{config}.json").write_text(json.dumps(rec, indent=2), encoding="utf-8")
+    (_RUNS / f"role_{benchmark}_{config}{tag}.json").write_text(json.dumps(rec, indent=2), encoding="utf-8")
     acc = f"{ev['accuracy']:.3f}" if ev["accuracy"] is not None else "n/a"
     print(f"{benchmark}/{config}: solver={solver.name} acc={acc} answered={ev['answered']} "
           f"parsefail={ev['parse_failures']} pred={ev['pred_distribution']} "
@@ -261,6 +299,100 @@ def compare(benchmark):
     _REPORTS.mkdir(parents=True, exist_ok=True)
     (_REPORTS / f"{benchmark}_role_comparison.md").write_text("\n".join(md) + "\n", encoding="utf-8")
     print(f"comparison written -> {benchmark}_role_comparison.md")
+
+
+def dissent_compare(benchmark, tag):
+    """Compare granite_only / deepseek_only / role / dissent on epistemic
+    calibration (the dissent / 'wild brother' question)."""
+    recs = {}
+    for c in _CONFIGS:
+        p = _RUNS / f"role_{benchmark}_{c}{tag}.json"
+        if p.exists():
+            recs[c] = json.loads(p.read_text())
+    if "dissent" not in recs:
+        print(f"no dissent run for {benchmark}{tag}")
+        return
+    labels = recs["dissent"]["labels"]
+    nei = "NOT_ENOUGH_INFO"
+    g = recs["dissent"]["eval"]["gold_distribution"]
+    md = [
+        f"# Dissent ('wild brother') comparison — {benchmark}\n",
+        "Hypothesis: Granite compresses uncertainty too early; an adversarial / "
+        "dissent-oriented parallel path (Nemotron-3-Super as epistemic challenger) "
+        "should better preserve NOT_ENOUGH_INFO. Pipeline: Granite extract -> "
+        "Nemotron dissent -> DeepSeek solve. DESi = governance alongside (uncertainty "
+        "loss / branch pruning / replayability); DESi is not the solver. Benchmarks "
+        "run on DESi; they do not redefine DESi.\n",
+        f"N={recs['dissent']['eval']['n']} per config (same examples). Reduced N "
+        "because Nemotron-3-Super (free, reasoning) runs ~23s/example.\n",
+        f"Gold distribution: " + ", ".join(f"{l}={g[l]}" for l in labels)
+        + f" (NEI base rate {g.get(nei,0)}/{recs['dissent']['eval']['n']}).\n",
+        "## Calibration comparison\n",
+        "| config | acc | pred NEI | abstention rate | NEI gap (pred-gold) | branch preservation |",
+        "| --- | --- | --- | --- | --- | --- |",
+    ]
+    for c in _CONFIGS:
+        if c not in recs:
+            continue
+        e = recs[c]["eval"]
+        ans = e["answered"] or 1
+        pnei = e["pred_distribution"].get(nei, 0)
+        gap = pnei - g.get(nei, 0)
+        bp = recs[c].get("dissent", {}).get("branch_preservation_rate", "-")
+        md.append(f"| {c} | {_acc(recs[c])} | {pnei} | {round(pnei/ans,3)} | {gap:+d} | {bp} |")
+    d = recs["dissent"]["dissent"]
+    md += [
+        "",
+        "## Dissent / disagreement propagation (dissent config)\n",
+        f"- challenger flagged NOT_ENOUGH_INFO plausible: **{d['challenger_nei_flagged']}** of {recs['dissent']['eval']['n']}",
+        f"- dissent preserved (flagged -> final NEI): **{d['dissent_preserved']}**",
+        f"- dissent hard-pruned (flagged but overridden by solver): **{d['dissent_pruned']}**",
+        f"- branch preservation rate: **{d['branch_preservation_rate']}**",
+        "",
+        "## Does the dissent layer improve epistemic calibration?\n",
+    ]
+    # answer the key question quantitatively
+    def nei_gap(c):
+        if c not in recs:
+            return None
+        e = recs[c]["eval"]
+        return abs(e["pred_distribution"].get(nei, 0) - g.get(nei, 0))
+    gaps = {c: nei_gap(c) for c in _CONFIGS if nei_gap(c) is not None}
+    accs = {c: recs[c]["eval"]["accuracy"] for c in _CONFIGS if c in recs and recs[c]["eval"]["accuracy"] is not None}
+    if gaps:
+        best_cal = min(gaps, key=lambda c: gaps[c])
+        md.append(f"- **NEI calibration** (smaller |pred-gold| is better): "
+                  + ", ".join(f"{c} {gaps[c]}" for c in _CONFIGS if c in gaps)
+                  + f" -> best calibrated: **{best_cal}**.")
+    if accs:
+        best_acc = max(accs, key=lambda c: accs[c])
+        md.append(f"- **Accuracy**: " + ", ".join(f"{c} {accs[c]:.3f}" for c in _CONFIGS if c in accs)
+                  + f" -> highest: **{best_acc}**.")
+    da = accs.get("dissent")
+    if da is not None and "deepseek_only" in accs:
+        md.append(f"- **dissent vs DeepSeek-only**: acc {da:.3f} vs {accs['deepseek_only']:.3f}; "
+                  f"NEI gap {gaps.get('dissent')} vs {gaps.get('deepseek_only')} -> "
+                  + ("dissent improves calibration" if gaps.get('dissent', 9) < gaps.get('deepseek_only', 9)
+                     else "dissent does NOT improve calibration over DeepSeek-only") + ".")
+    md += [
+        "",
+        "## DESi governance (alongside; core untouched)\n",
+        f"- uncertainty improperly lost (challenger NEI overridden): "
+        f"{recs['dissent']['desi_governance']['uncertainty_improperly_lost']}",
+        f"- challenger branches hard-pruned: "
+        f"{recs['dissent']['desi_governance']['challenger_branches_hard_pruned']}",
+        f"- decision structure replayable: {recs['dissent']['desi_governance']['decision_structure_replayable']}",
+        f"- DESi-core invariant across all configs: "
+        f"{all(recs[c]['desi_core']['core_identity_ok'] in (True, None) and recs[c]['desi_core']['replay_stable'] for c in recs)}",
+        "",
+        "## Honesty / limits\n",
+        "- Small N (Nemotron free-tier latency ~23s/example); one deterministic pass, "
+        "no retries/repair/voting. Calibration read as measured, not asserted. "
+        "Accuracies are the model pipelines'; DESi neither solves nor scores.",
+    ]
+    _REPORTS.mkdir(parents=True, exist_ok=True)
+    (_REPORTS / f"{benchmark}_dissent_comparison.md").write_text("\n".join(md) + "\n", encoding="utf-8")
+    print(f"dissent comparison written -> {benchmark}_dissent_comparison.md")
 
 
 def cross_summary():
@@ -341,18 +473,22 @@ def main() -> int:
     ap.add_argument("--config", choices=_CONFIGS)
     ap.add_argument("--limit", type=int, default=100)
     ap.add_argument("--deepseek-backend", default="direct", choices=["direct", "openrouter"])
+    ap.add_argument("--tag", default="", help="suffix for run files (e.g. _d20).")
     ap.add_argument("--offline", action="store_true", help="stub ports (wiring only).")
     ap.add_argument("--compare", action="store_true")
+    ap.add_argument("--dissent-compare", action="store_true")
     ap.add_argument("--cross-summary", action="store_true")
     args = ap.parse_args()
     if args.cross_summary:
         cross_summary(); return 0
+    if args.dissent_compare:
+        dissent_compare(args.benchmark, args.tag); return 0
     if args.compare:
         compare(args.benchmark); return 0
     if not (args.benchmark and args.config):
         ap.error("need --benchmark and --config (or --compare / --cross-summary)")
     run_config(args.benchmark, args.config, args.limit, offline=args.offline,
-               deepseek_backend=args.deepseek_backend)
+               deepseek_backend=args.deepseek_backend, tag=args.tag)
     return 0
 
 
