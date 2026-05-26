@@ -39,6 +39,23 @@ _DIRECT_VERIFY = (
     "FINAL: SUPPORTS  or  FINAL: REFUTES  or  FINAL: NOT_ENOUGH_INFO.\n\n"
     "CLAIM: {primary}\n\nEVIDENCE: {context}\n"
 )
+# Calibrated evidence-style prompt (prompt-only experiment; compact, no CoT,
+# no self-reflection). Defines each label explicitly: explicit entailment ->
+# SUPPORTS, explicit contradiction -> REFUTES, partial/approximate/silent ->
+# NOT_ENOUGH_INFO; absence of contradiction is not support; no outside knowledge.
+_DIRECT_VERIFY_CALIBRATED = (
+    "Classify the CLAIM using ONLY the EVIDENCE (no outside knowledge).\n"
+    "- SUPPORTS: the evidence EXPLICITLY entails the claim (the claim follows "
+    "directly and fully from what the evidence states).\n"
+    "- REFUTES: the evidence EXPLICITLY contradicts the claim.\n"
+    "- NOT_ENOUGH_INFO: the evidence neither explicitly entails nor explicitly "
+    "contradicts the claim -- including when the linkage is partial, when numbers "
+    "or quantities are approximate or do not settle the claim's exact bound, or "
+    "when the evidence is silent on a fact the claim needs. Absence of "
+    "contradiction is NOT support.\n"
+    "End with a final line exactly: FINAL: SUPPORTS or FINAL: REFUTES or "
+    "FINAL: NOT_ENOUGH_INFO.\n\nCLAIM: {primary}\n\nEVIDENCE: {context}\n"
+)
 _ROLE_BOOL = (
     "A structured extractor produced this projection of a passage/question. Use it "
     "to answer the question. End with a final line exactly: FINAL: YES or FINAL: NO.\n\n"
@@ -106,8 +123,11 @@ def parse_verdict(text: str, syns: dict) -> str | None:
     return best_label
 
 
-def build_direct_prompt(primary: str, context: str, *, task: str) -> str:
-    tmpl = _DIRECT_BOOL if task == "boolq" else _DIRECT_VERIFY
+def build_direct_prompt(primary: str, context: str, *, task: str, variant: str = "baseline") -> str:
+    if task == "boolq":
+        tmpl = _DIRECT_BOOL
+    else:
+        tmpl = _DIRECT_VERIFY_CALIBRATED if variant == "calibrated" else _DIRECT_VERIFY
     return tmpl.format(primary=primary, context=context)
 
 
@@ -173,8 +193,8 @@ class DeepSeekDirectSolver:
                     _time.sleep(2)
         raise RuntimeError(f"deepseek direct call failed: {last!r}")
 
-    def solve_direct(self, primary, context, *, task):
-        return self._call(build_direct_prompt(primary, context, task=task))
+    def solve_direct(self, primary, context, *, task, variant="baseline"):
+        return self._call(build_direct_prompt(primary, context, task=task, variant=variant))
 
     def solve_projection(self, projection, primary, *, task):
         return self._call(build_role_prompt(projection, primary, task=task))
