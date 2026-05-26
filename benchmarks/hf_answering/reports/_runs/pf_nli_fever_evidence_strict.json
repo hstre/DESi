@@ -1,0 +1,76 @@
+{
+  "dataset": "pietrolesci/nli_fever",
+  "variant": "evidence_strict",
+  "model": "deepseek-chat (direct)",
+  "n": 100,
+  "answered": 100,
+  "parse_failures": 0,
+  "errors": 0,
+  "accuracy": 0.54,
+  "confusion": {
+    "SUPPORTS": {
+      "SUPPORTS": 3,
+      "REFUTES": 0,
+      "NOT_ENOUGH_INFO": 26
+    },
+    "REFUTES": {
+      "SUPPORTS": 3,
+      "REFUTES": 32,
+      "NOT_ENOUGH_INFO": 10
+    },
+    "NOT_ENOUGH_INFO": {
+      "SUPPORTS": 1,
+      "REFUTES": 6,
+      "NOT_ENOUGH_INFO": 19
+    }
+  },
+  "gold_distribution": {
+    "SUPPORTS": 29,
+    "REFUTES": 45,
+    "NOT_ENOUGH_INFO": 26
+  },
+  "pred_distribution": {
+    "SUPPORTS": 7,
+    "REFUTES": 38,
+    "NOT_ENOUGH_INFO": 55
+  },
+  "per_class": {
+    "SUPPORTS": {
+      "precision": 0.429,
+      "recall": 0.103,
+      "tp": 3,
+      "fp": 4,
+      "fn": 26
+    },
+    "REFUTES": {
+      "precision": 0.842,
+      "recall": 0.711,
+      "tp": 32,
+      "fp": 6,
+      "fn": 13
+    },
+    "NOT_ENOUGH_INFO": {
+      "precision": 0.345,
+      "recall": 0.731,
+      "tp": 19,
+      "fp": 36,
+      "fn": 7
+    }
+  },
+  "overcommitment_rate": 0.269,
+  "overcommitment_n": "7/26",
+  "overabstention_rate": 0.486,
+  "overabstention_n": "36/74",
+  "elapsed_s": 113.55,
+  "est_cost_usd": 0.011728,
+  "desi_core": {
+    "replay_stable": true,
+    "core_identity_ok": true,
+    "gov_independent": true,
+    "critical_branch_preservation": 1.0,
+    "node_reduction": 0.533333,
+    "hard_pruning": 0,
+    "mutation_attempts": 5,
+    "mutation_rejected": 5
+  }
+}
