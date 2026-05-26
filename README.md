@@ -104,6 +104,16 @@ For a DeepSeek semantic task (`task_id: ds_audit_tension`), the raw response con
 
 In both cases, the epistemic structure is extracted not by an LLM but by deterministic closed rules applied to structured input fields. The LLM produces output; the Connector Layer ingests and hashes it; the Adapter Layer applies rule-based classification; the Governance Core verifies invariants; the Concept Gate produces a binary pass/fail per condition. No neural classifier is involved in the governance decision itself. This is the architectural choice that makes replay stability achievable: deterministic rules on structured fields produce bit-identical outputs under identical inputs, by construction.
 
+### 2.4 Constitutional Boundary: Benchmarks Run on DESi
+
+**The semantic-flow constitution is immutable. Benchmark layers are peripheral.**
+
+**Benchmarks run on DESi. Benchmarks do not redefine DESi.**
+
+The tested epistemic constitution — the 9-dimensional state manifold and its Content/Method partition (`src/desi/content_method/`, `src/desi/epistemic_trajectory/`), the semantic-flow modules (`crossed_resonance`, `semantic_phase_transition`, `support_plateau`, `cause_aware_control`, `state_blindness`, `compression_audit`), the T1–T9 transition operators and `models.py`, together with replay/evolution memory, reviewer/external review, self-mutation governance, the human-approval gates, and regression integrity — is the core. The 9 dimensions are only the coordinate space; the constitution is the *tested semantic dynamics over them*. This core is invariant and is not modified by benchmarking.
+
+Benchmarks attach through a strictly peripheral layer. The benchmark compatibility API (`desi.benchmark_api`, §6.1) hands DESi a `BenchmarkTask` and returns a replay-bound `BenchmarkResult`; `make_task` always pins the full protected-core forbidden boundary, and a `BenchmarkAdapter` *refuses* any task that requests a core-mutating or governance-weakening operation. A thin convenience facade (`desi.benchmark_ports`) exposes the standardized ports over this boundary — an input port, an output port, an optional pluggable extractor interface, an optional runner, and an optional read-only comparison layer — and adds no ontology, no governance, and no core logic. In this layer, **claims appear only as projections** onto the manifold (a result's `claim_outputs`), never as the epistemic state space itself; any extractor, folding, or DBA-style utility exists only here, as benchmark periphery, never as the core.
+
 -----
 
 ## 3. Epistemic Failure Taxonomy (v1–v22)
