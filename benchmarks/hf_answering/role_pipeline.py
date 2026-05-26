@@ -517,7 +517,8 @@ def audit_compare(benchmark, tag):
     accs = {c: recs[c]["eval"]["accuracy"] for c in recs if recs[c]["eval"]["accuracy"] is not None}
     ag, dg = gap_of("audit"), gap_of("deepseek_only")
     if ag is not None:
-        md.append(f"- audit NEI gap {ag:+d} vs deepseek_only {dg:+d if dg is not None else 0}: "
+        dg_str = f"{dg:+d}" if dg is not None else "n/a"
+        md.append(f"- audit NEI gap {ag:+d} vs deepseek_only {dg_str}: "
                   + ("audit over-abstains" if ag > 1 else "audit under-abstains" if ag < -1 else "audit roughly calibrated")
                   + ". (The previous auto-NEI dissent collapsed to all-NEI, gap +5 at N=10.)")
     if accs:
