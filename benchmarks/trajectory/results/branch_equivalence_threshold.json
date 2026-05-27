@@ -1,0 +1,9 @@
+{
+  "model": "minishlab/potion-base-8M",
+  "threshold": 0.31,
+  "probe_f1": 0.917,
+  "probe_precision": 1.0,
+  "probe_recall": 0.846,
+  "n_pairs": 29,
+  "selected_on": "held-out manual probe (NOT DriftBench)"
+}
