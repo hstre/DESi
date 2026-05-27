@@ -1,0 +1,77 @@
+{
+  "dataset": "pietrolesci/nli_fever",
+  "variant": "entailment_direct",
+  "model": "anthropic/claude-haiku-4.5",
+  "model_key": "claude",
+  "n": 100,
+  "answered": 97,
+  "parse_failures": 3,
+  "errors": 0,
+  "accuracy": 0.598,
+  "confusion": {
+    "SUPPORTS": {
+      "SUPPORTS": 9,
+      "REFUTES": 1,
+      "NOT_ENOUGH_INFO": 19
+    },
+    "REFUTES": {
+      "SUPPORTS": 1,
+      "REFUTES": 37,
+      "NOT_ENOUGH_INFO": 4
+    },
+    "NOT_ENOUGH_INFO": {
+      "SUPPORTS": 4,
+      "REFUTES": 10,
+      "NOT_ENOUGH_INFO": 12
+    }
+  },
+  "gold_distribution": {
+    "SUPPORTS": 29,
+    "REFUTES": 45,
+    "NOT_ENOUGH_INFO": 26
+  },
+  "pred_distribution": {
+    "SUPPORTS": 14,
+    "REFUTES": 48,
+    "NOT_ENOUGH_INFO": 35
+  },
+  "per_class": {
+    "SUPPORTS": {
+      "precision": 0.643,
+      "recall": 0.31,
+      "tp": 9,
+      "fp": 5,
+      "fn": 20
+    },
+    "REFUTES": {
+      "precision": 0.771,
+      "recall": 0.881,
+      "tp": 37,
+      "fp": 11,
+      "fn": 5
+    },
+    "NOT_ENOUGH_INFO": {
+      "precision": 0.343,
+      "recall": 0.462,
+      "tp": 12,
+      "fp": 23,
+      "fn": 14
+    }
+  },
+  "overcommitment_rate": 0.538,
+  "overcommitment_n": "14/26",
+  "overabstention_rate": 0.311,
+  "overabstention_n": "23/74",
+  "elapsed_s": 291.94,
+  "est_cost_usd": 0.14301,
+  "desi_core": {
+    "replay_stable": true,
+    "core_identity_ok": true,
+    "gov_independent": true,
+    "critical_branch_preservation": 1.0,
+    "node_reduction": 0.533333,
+    "hard_pruning": 0,
+    "mutation_attempts": 5,
+    "mutation_rejected": 5
+  }
+}

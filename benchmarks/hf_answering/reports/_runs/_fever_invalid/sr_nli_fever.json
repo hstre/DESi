@@ -5,27 +5,27 @@
   "n": 100,
   "errors": 0,
   "solver": "deepseek-chat (direct)",
-  "wall_elapsed_s": 249.63,
+  "wall_elapsed_s": 213.91,
   "experiments": {
     "baseline": {
-      "accuracy": 0.81,
+      "accuracy": 0.57,
       "answered": 100,
       "parse_failures": 0,
       "confusion": {
         "SUPPORTS": {
-          "SUPPORTS": 28,
+          "SUPPORTS": 10,
           "REFUTES": 0,
-          "NOT_ENOUGH_INFO": 1
+          "NOT_ENOUGH_INFO": 19
         },
         "REFUTES": {
-          "SUPPORTS": 1,
-          "REFUTES": 36,
-          "NOT_ENOUGH_INFO": 8
+          "SUPPORTS": 2,
+          "REFUTES": 31,
+          "NOT_ENOUGH_INFO": 12
         },
         "NOT_ENOUGH_INFO": {
-          "SUPPORTS": 3,
-          "REFUTES": 6,
-          "NOT_ENOUGH_INFO": 17
+          "SUPPORTS": 1,
+          "REFUTES": 9,
+          "NOT_ENOUGH_INFO": 16
         }
       },
       "gold_distribution": {
@@ -34,120 +34,59 @@
         "NOT_ENOUGH_INFO": 26
       },
       "pred_distribution": {
-        "SUPPORTS": 32,
-        "REFUTES": 42,
-        "NOT_ENOUGH_INFO": 26
+        "SUPPORTS": 13,
+        "REFUTES": 40,
+        "NOT_ENOUGH_INFO": 47
       },
       "per_class": {
         "SUPPORTS": {
-          "precision": 0.875,
-          "recall": 0.966,
-          "tp": 28,
-          "fp": 4,
-          "fn": 1
+          "precision": 0.769,
+          "recall": 0.345,
+          "tp": 10,
+          "fp": 3,
+          "fn": 19
         },
         "REFUTES": {
-          "precision": 0.857,
-          "recall": 0.8,
-          "tp": 36,
-          "fp": 6,
-          "fn": 9
+          "precision": 0.775,
+          "recall": 0.689,
+          "tp": 31,
+          "fp": 9,
+          "fn": 14
         },
         "NOT_ENOUGH_INFO": {
-          "precision": 0.654,
-          "recall": 0.654,
-          "tp": 17,
-          "fp": 9,
-          "fn": 9
+          "precision": 0.34,
+          "recall": 0.615,
+          "tp": 16,
+          "fp": 31,
+          "fn": 10
         }
       },
-      "overcommitment_rate": 0.346,
-      "overcommitment_n": "9/26",
-      "overabstention_rate": 0.122,
-      "overabstention_n": "9/74",
-      "elapsed_s": 133.65,
-      "est_cost_usd": 0.009077
+      "overcommitment_rate": 0.385,
+      "overcommitment_n": "10/26",
+      "overabstention_rate": 0.419,
+      "overabstention_n": "31/74",
+      "elapsed_s": 117.76,
+      "est_cost_usd": 0.010394
     },
     "matched": {
-      "accuracy": 0.8,
+      "accuracy": 0.58,
       "answered": 100,
       "parse_failures": 0,
       "confusion": {
         "SUPPORTS": {
-          "SUPPORTS": 28,
+          "SUPPORTS": 6,
           "REFUTES": 0,
-          "NOT_ENOUGH_INFO": 1
+          "NOT_ENOUGH_INFO": 23
         },
         "REFUTES": {
-          "SUPPORTS": 0,
-          "REFUTES": 34,
-          "NOT_ENOUGH_INFO": 11
-        },
-        "NOT_ENOUGH_INFO": {
           "SUPPORTS": 3,
-          "REFUTES": 5,
-          "NOT_ENOUGH_INFO": 18
-        }
-      },
-      "gold_distribution": {
-        "SUPPORTS": 29,
-        "REFUTES": 45,
-        "NOT_ENOUGH_INFO": 26
-      },
-      "pred_distribution": {
-        "SUPPORTS": 31,
-        "REFUTES": 39,
-        "NOT_ENOUGH_INFO": 30
-      },
-      "per_class": {
-        "SUPPORTS": {
-          "precision": 0.903,
-          "recall": 0.966,
-          "tp": 28,
-          "fp": 3,
-          "fn": 1
-        },
-        "REFUTES": {
-          "precision": 0.872,
-          "recall": 0.756,
-          "tp": 34,
-          "fp": 5,
-          "fn": 11
-        },
-        "NOT_ENOUGH_INFO": {
-          "precision": 0.6,
-          "recall": 0.692,
-          "tp": 18,
-          "fp": 12,
-          "fn": 8
-        }
-      },
-      "overcommitment_rate": 0.308,
-      "overcommitment_n": "8/26",
-      "overabstention_rate": 0.162,
-      "overabstention_n": "12/74",
-      "elapsed_s": 115.92,
-      "est_cost_usd": 0.009702
-    },
-    "router": {
-      "accuracy": 0.81,
-      "answered": 100,
-      "parse_failures": 0,
-      "confusion": {
-        "SUPPORTS": {
-          "SUPPORTS": 28,
-          "REFUTES": 0,
-          "NOT_ENOUGH_INFO": 1
-        },
-        "REFUTES": {
-          "SUPPORTS": 1,
           "REFUTES": 36,
-          "NOT_ENOUGH_INFO": 8
+          "NOT_ENOUGH_INFO": 6
         },
         "NOT_ENOUGH_INFO": {
-          "SUPPORTS": 3,
-          "REFUTES": 6,
-          "NOT_ENOUGH_INFO": 17
+          "SUPPORTS": 2,
+          "REFUTES": 8,
+          "NOT_ENOUGH_INFO": 16
         }
       },
       "gold_distribution": {
@@ -156,70 +95,131 @@
         "NOT_ENOUGH_INFO": 26
       },
       "pred_distribution": {
-        "SUPPORTS": 32,
-        "REFUTES": 42,
-        "NOT_ENOUGH_INFO": 26
+        "SUPPORTS": 11,
+        "REFUTES": 44,
+        "NOT_ENOUGH_INFO": 45
       },
       "per_class": {
         "SUPPORTS": {
-          "precision": 0.875,
-          "recall": 0.966,
-          "tp": 28,
-          "fp": 4,
-          "fn": 1
+          "precision": 0.545,
+          "recall": 0.207,
+          "tp": 6,
+          "fp": 5,
+          "fn": 23
         },
         "REFUTES": {
-          "precision": 0.857,
+          "precision": 0.818,
           "recall": 0.8,
           "tp": 36,
-          "fp": 6,
+          "fp": 8,
           "fn": 9
         },
         "NOT_ENOUGH_INFO": {
-          "precision": 0.654,
-          "recall": 0.654,
-          "tp": 17,
-          "fp": 9,
-          "fn": 9
+          "precision": 0.356,
+          "recall": 0.615,
+          "tp": 16,
+          "fp": 29,
+          "fn": 10
         }
       },
-      "overcommitment_rate": 0.346,
-      "overcommitment_n": "9/26",
-      "overabstention_rate": 0.122,
-      "overabstention_n": "9/74",
-      "elapsed_s": 133.65,
-      "est_cost_usd": 0.009077
+      "overcommitment_rate": 0.385,
+      "overcommitment_n": "10/26",
+      "overabstention_rate": 0.392,
+      "overabstention_n": "29/74",
+      "elapsed_s": 92.93,
+      "est_cost_usd": 0.00949
+    },
+    "router": {
+      "accuracy": 0.55,
+      "answered": 100,
+      "parse_failures": 0,
+      "confusion": {
+        "SUPPORTS": {
+          "SUPPORTS": 8,
+          "REFUTES": 0,
+          "NOT_ENOUGH_INFO": 21
+        },
+        "REFUTES": {
+          "SUPPORTS": 2,
+          "REFUTES": 31,
+          "NOT_ENOUGH_INFO": 12
+        },
+        "NOT_ENOUGH_INFO": {
+          "SUPPORTS": 1,
+          "REFUTES": 9,
+          "NOT_ENOUGH_INFO": 16
+        }
+      },
+      "gold_distribution": {
+        "SUPPORTS": 29,
+        "REFUTES": 45,
+        "NOT_ENOUGH_INFO": 26
+      },
+      "pred_distribution": {
+        "SUPPORTS": 11,
+        "REFUTES": 40,
+        "NOT_ENOUGH_INFO": 49
+      },
+      "per_class": {
+        "SUPPORTS": {
+          "precision": 0.727,
+          "recall": 0.276,
+          "tp": 8,
+          "fp": 3,
+          "fn": 21
+        },
+        "REFUTES": {
+          "precision": 0.775,
+          "recall": 0.689,
+          "tp": 31,
+          "fp": 9,
+          "fn": 14
+        },
+        "NOT_ENOUGH_INFO": {
+          "precision": 0.327,
+          "recall": 0.615,
+          "tp": 16,
+          "fp": 33,
+          "fn": 10
+        }
+      },
+      "overcommitment_rate": 0.385,
+      "overcommitment_n": "10/26",
+      "overabstention_rate": 0.446,
+      "overabstention_n": "33/74",
+      "elapsed_s": 116.91,
+      "est_cost_usd": 0.010384
     }
   },
   "router": {
     "route_distribution": {
-      "baseline": 100,
-      "evidence_strict": 0,
-      "entailment_direct": 0
+      "baseline": 95,
+      "evidence_strict": 3,
+      "entailment_direct": 2
     },
     "per_route": {
       "baseline": {
-        "n": 100,
-        "router_acc": 0.81,
-        "baseline_acc_same_subset": 0.81
+        "n": 95,
+        "router_acc": 0.558,
+        "baseline_acc_same_subset": 0.558
       },
       "evidence_strict": {
-        "n": 0,
-        "router_acc": null,
-        "baseline_acc_same_subset": null
+        "n": 3,
+        "router_acc": 0.333,
+        "baseline_acc_same_subset": 0.667
       },
       "entailment_direct": {
-        "n": 0,
-        "router_acc": null,
-        "baseline_acc_same_subset": null
+        "n": 2,
+        "router_acc": 0.5,
+        "baseline_acc_same_subset": 1.0
       }
     },
     "helped_vs_baseline": 0,
-    "hurt_vs_baseline": 0,
-    "net_vs_baseline": 0,
-    "helped_vs_matched": 5,
-    "hurt_vs_matched": 4,
-    "net_vs_matched": 1
+    "hurt_vs_baseline": 2,
+    "net_vs_baseline": -2,
+    "helped_vs_matched": 7,
+    "hurt_vs_matched": 10,
+    "net_vs_matched": -3
   },
   "rows": [
     {
@@ -278,9 +278,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0003",
@@ -288,8 +288,8 @@
       "mode": "baseline",
       "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
       "features": {
-        "claim_frame": "frame_undeclared",
-        "evidence_frame": "authority_speech",
+        "claim_frame": "authority_speech",
+        "evidence_frame": "frame_undeclared",
         "frame_consistency": "undecidable",
         "routed_pipeline": null,
         "claim_state": "gap_detected",
@@ -358,9 +358,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
+      "baseline_pred": "NOT_ENOUGH_INFO",
       "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0007",
@@ -398,9 +398,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "NOT_ENOUGH_INFO",
-      "matched_pred": "NOT_ENOUGH_INFO",
-      "router_pred": "NOT_ENOUGH_INFO"
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
     },
     {
       "id": "nli_fever-0009",
@@ -438,9 +438,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0011",
@@ -479,7 +479,7 @@
         "chain_rule": null
       },
       "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
       "router_pred": "SUPPORTS"
     },
     {
@@ -498,9 +498,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "NOT_ENOUGH_INFO",
+      "baseline_pred": "REFUTES",
       "matched_pred": "REFUTES",
-      "router_pred": "NOT_ENOUGH_INFO"
+      "router_pred": "REFUTES"
     },
     {
       "id": "nli_fever-0014",
@@ -518,9 +518,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0015",
@@ -585,8 +585,8 @@
     {
       "id": "nli_fever-0018",
       "gold": "NOT_ENOUGH_INFO",
-      "mode": "baseline",
-      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "mode": "entailment_direct",
+      "reason": "evidence->claim resolves via inference rule causal_chain -> entailment-direct",
       "features": {
         "claim_frame": "frame_undeclared",
         "evidence_frame": "frame_undeclared",
@@ -594,9 +594,9 @@
         "routed_pipeline": null,
         "claim_state": "gap_detected",
         "claim_gap": "no_explicit_chain",
-        "chain_state": "logically_rejected",
-        "chain_gap": "unreachable",
-        "chain_rule": null
+        "chain_state": "logically_supported",
+        "chain_gap": null,
+        "chain_rule": "causal_chain"
       },
       "baseline_pred": "NOT_ENOUGH_INFO",
       "matched_pred": "NOT_ENOUGH_INFO",
@@ -625,26 +625,46 @@
     {
       "id": "nli_fever-0020",
       "gold": "SUPPORTS",
+      "mode": "evidence_strict",
+      "reason": "claim logically rejected (logically_rejected, gap authority_claim: authority not self-supporting) -> evidence-strict",
+      "features": {
+        "claim_frame": "authority_speech",
+        "evidence_frame": "frame_undeclared",
+        "frame_consistency": "undecidable",
+        "routed_pipeline": null,
+        "claim_state": "logically_rejected",
+        "claim_gap": "authority_claim",
+        "chain_state": "logically_rejected",
+        "chain_gap": "unreachable",
+        "chain_rule": null
+      },
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
+    },
+    {
+      "id": "nli_fever-0021",
+      "gold": "NOT_ENOUGH_INFO",
       "mode": "baseline",
       "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
       "features": {
         "claim_frame": "frame_undeclared",
-        "evidence_frame": "authority_speech",
+        "evidence_frame": "frame_undeclared",
         "frame_consistency": "undecidable",
         "routed_pipeline": null,
         "claim_state": "gap_detected",
         "claim_gap": "no_explicit_chain",
         "chain_state": "logically_rejected",
-        "chain_gap": "authority_claim",
+        "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
     },
     {
-      "id": "nli_fever-0021",
-      "gold": "NOT_ENOUGH_INFO",
+      "id": "nli_fever-0022",
+      "gold": "SUPPORTS",
       "mode": "baseline",
       "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
       "features": {
@@ -663,26 +683,6 @@
       "router_pred": "NOT_ENOUGH_INFO"
     },
     {
-      "id": "nli_fever-0022",
-      "gold": "SUPPORTS",
-      "mode": "baseline",
-      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
-      "features": {
-        "claim_frame": "frame_undeclared",
-        "evidence_frame": "frame_undeclared",
-        "frame_consistency": "undecidable",
-        "routed_pipeline": null,
-        "claim_state": "gap_detected",
-        "claim_gap": "no_explicit_chain",
-        "chain_state": "logically_rejected",
-        "chain_gap": "unreachable",
-        "chain_rule": null
-      },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
-    },
-    {
       "id": "nli_fever-0023",
       "gold": "SUPPORTS",
       "mode": "baseline",
@@ -698,9 +698,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0024",
@@ -718,9 +718,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0025",
@@ -748,8 +748,8 @@
       "mode": "baseline",
       "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
       "features": {
-        "claim_frame": "frame_undeclared",
-        "evidence_frame": "authority_speech",
+        "claim_frame": "authority_speech",
+        "evidence_frame": "frame_undeclared",
         "frame_consistency": "undecidable",
         "routed_pipeline": null,
         "claim_state": "gap_detected",
@@ -758,9 +758,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "REFUTES",
+      "baseline_pred": "NOT_ENOUGH_INFO",
       "matched_pred": "REFUTES",
-      "router_pred": "REFUTES"
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0027",
@@ -768,8 +768,8 @@
       "mode": "baseline",
       "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
       "features": {
-        "claim_frame": "frame_undeclared",
-        "evidence_frame": "authority_speech",
+        "claim_frame": "authority_speech",
+        "evidence_frame": "frame_undeclared",
         "frame_consistency": "undecidable",
         "routed_pipeline": null,
         "claim_state": "gap_detected",
@@ -858,9 +858,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "NOT_ENOUGH_INFO",
-      "matched_pred": "NOT_ENOUGH_INFO",
-      "router_pred": "NOT_ENOUGH_INFO"
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
     },
     {
       "id": "nli_fever-0032",
@@ -878,9 +878,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0033",
@@ -938,9 +938,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0036",
@@ -1005,17 +1005,17 @@
     {
       "id": "nli_fever-0039",
       "gold": "SUPPORTS",
-      "mode": "baseline",
-      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "mode": "evidence_strict",
+      "reason": "claim logically rejected (logically_rejected, gap authority_claim: authority not self-supporting) -> evidence-strict",
       "features": {
-        "claim_frame": "frame_undeclared",
-        "evidence_frame": "authority_speech",
+        "claim_frame": "authority_speech",
+        "evidence_frame": "frame_undeclared",
         "frame_consistency": "undecidable",
         "routed_pipeline": null,
-        "claim_state": "gap_detected",
-        "claim_gap": "no_explicit_chain",
+        "claim_state": "logically_rejected",
+        "claim_gap": "authority_claim",
         "chain_state": "logically_rejected",
-        "chain_gap": "authority_claim",
+        "chain_gap": "unreachable",
         "chain_rule": null
       },
       "baseline_pred": "SUPPORTS",
@@ -1028,8 +1028,8 @@
       "mode": "baseline",
       "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
       "features": {
-        "claim_frame": "frame_undeclared",
-        "evidence_frame": "empirical_causal",
+        "claim_frame": "empirical_causal",
+        "evidence_frame": "frame_undeclared",
         "frame_consistency": "undecidable",
         "routed_pipeline": null,
         "claim_state": "gap_detected",
@@ -1038,9 +1038,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
+      "baseline_pred": "NOT_ENOUGH_INFO",
       "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0041",
@@ -1048,8 +1048,8 @@
       "mode": "baseline",
       "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
       "features": {
-        "claim_frame": "frame_undeclared",
-        "evidence_frame": "authority_speech",
+        "claim_frame": "authority_speech",
+        "evidence_frame": "frame_undeclared",
         "frame_consistency": "undecidable",
         "routed_pipeline": null,
         "claim_state": "gap_detected",
@@ -1068,8 +1068,8 @@
       "mode": "baseline",
       "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
       "features": {
-        "claim_frame": "frame_undeclared",
-        "evidence_frame": "authority_speech",
+        "claim_frame": "authority_speech",
+        "evidence_frame": "frame_undeclared",
         "frame_consistency": "undecidable",
         "routed_pipeline": null,
         "claim_state": "gap_detected",
@@ -1118,9 +1118,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "REFUTES",
+      "baseline_pred": "NOT_ENOUGH_INFO",
       "matched_pred": "NOT_ENOUGH_INFO",
-      "router_pred": "REFUTES"
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0045",
@@ -1138,9 +1138,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "REFUTES",
-      "matched_pred": "NOT_ENOUGH_INFO",
-      "router_pred": "REFUTES"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "REFUTES",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0046",
@@ -1159,7 +1159,7 @@
         "chain_rule": null
       },
       "baseline_pred": "REFUTES",
-      "matched_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "REFUTES",
       "router_pred": "REFUTES"
     },
     {
@@ -1178,9 +1178,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0048",
@@ -1228,8 +1228,8 @@
       "mode": "baseline",
       "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
       "features": {
-        "claim_frame": "frame_undeclared",
-        "evidence_frame": "empirical_causal",
+        "claim_frame": "empirical_causal",
+        "evidence_frame": "frame_undeclared",
         "frame_consistency": "undecidable",
         "routed_pipeline": null,
         "claim_state": "gap_detected",
@@ -1258,9 +1258,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0052",
@@ -1285,22 +1285,22 @@
     {
       "id": "nli_fever-0053",
       "gold": "NOT_ENOUGH_INFO",
-      "mode": "baseline",
-      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "mode": "evidence_strict",
+      "reason": "claim logically rejected (logically_rejected, gap authority_claim: authority not self-supporting) -> evidence-strict",
       "features": {
-        "claim_frame": "frame_undeclared",
-        "evidence_frame": "authority_speech",
+        "claim_frame": "authority_speech",
+        "evidence_frame": "frame_undeclared",
         "frame_consistency": "undecidable",
         "routed_pipeline": null,
-        "claim_state": "gap_detected",
-        "claim_gap": "no_explicit_chain",
+        "claim_state": "logically_rejected",
+        "claim_gap": "authority_claim",
         "chain_state": "logically_rejected",
-        "chain_gap": "authority_claim",
+        "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "NOT_ENOUGH_INFO",
-      "matched_pred": "NOT_ENOUGH_INFO",
-      "router_pred": "NOT_ENOUGH_INFO"
+      "baseline_pred": "REFUTES",
+      "matched_pred": "REFUTES",
+      "router_pred": "REFUTES"
     },
     {
       "id": "nli_fever-0054",
@@ -1359,7 +1359,7 @@
         "chain_rule": null
       },
       "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
       "router_pred": "SUPPORTS"
     },
     {
@@ -1438,9 +1438,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0061",
@@ -1459,7 +1459,7 @@
         "chain_rule": null
       },
       "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
       "router_pred": "SUPPORTS"
     },
     {
@@ -1498,9 +1498,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0064",
@@ -1519,7 +1519,7 @@
         "chain_rule": null
       },
       "baseline_pred": "NOT_ENOUGH_INFO",
-      "matched_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "SUPPORTS",
       "router_pred": "NOT_ENOUGH_INFO"
     },
     {
@@ -1539,7 +1539,7 @@
         "chain_rule": null
       },
       "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
       "router_pred": "SUPPORTS"
     },
     {
@@ -1568,8 +1568,8 @@
       "mode": "baseline",
       "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
       "features": {
-        "claim_frame": "frame_undeclared",
-        "evidence_frame": "authority_speech",
+        "claim_frame": "authority_speech",
+        "evidence_frame": "frame_undeclared",
         "frame_consistency": "undecidable",
         "routed_pipeline": null,
         "claim_state": "gap_detected",
@@ -1618,9 +1618,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0070",
@@ -1638,9 +1638,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "REFUTES",
-      "matched_pred": "REFUTES",
-      "router_pred": "REFUTES"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0071",
@@ -1648,8 +1648,8 @@
       "mode": "baseline",
       "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
       "features": {
-        "claim_frame": "frame_undeclared",
-        "evidence_frame": "tool_computable",
+        "claim_frame": "tool_computable",
+        "evidence_frame": "frame_undeclared",
         "frame_consistency": "undecidable",
         "routed_pipeline": null,
         "claim_state": "gap_detected",
@@ -1678,15 +1678,15 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0073",
       "gold": "SUPPORTS",
-      "mode": "baseline",
-      "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
+      "mode": "entailment_direct",
+      "reason": "evidence->claim resolves via inference rule causal_chain -> entailment-direct",
       "features": {
         "claim_frame": "frame_undeclared",
         "evidence_frame": "frame_undeclared",
@@ -1694,13 +1694,13 @@
         "routed_pipeline": null,
         "claim_state": "gap_detected",
         "claim_gap": "no_explicit_chain",
-        "chain_state": "logically_rejected",
-        "chain_gap": "unreachable",
-        "chain_rule": null
+        "chain_state": "logically_supported",
+        "chain_gap": null,
+        "chain_rule": "causal_chain"
       },
       "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0074",
@@ -1718,9 +1718,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
+      "baseline_pred": "NOT_ENOUGH_INFO",
       "matched_pred": "REFUTES",
-      "router_pred": "SUPPORTS"
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0075",
@@ -1738,9 +1738,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0076",
@@ -1758,9 +1758,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0077",
@@ -1778,9 +1778,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "NOT_ENOUGH_INFO",
-      "matched_pred": "NOT_ENOUGH_INFO",
-      "router_pred": "NOT_ENOUGH_INFO"
+      "baseline_pred": "SUPPORTS",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "SUPPORTS"
     },
     {
       "id": "nli_fever-0078",
@@ -1838,9 +1838,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "REFUTES",
-      "matched_pred": "REFUTES",
-      "router_pred": "REFUTES"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0081",
@@ -1958,9 +1958,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "REFUTES",
-      "matched_pred": "NOT_ENOUGH_INFO",
-      "router_pred": "REFUTES"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "REFUTES",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0087",
@@ -2038,9 +2038,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "NOT_ENOUGH_INFO",
-      "matched_pred": "REFUTES",
-      "router_pred": "NOT_ENOUGH_INFO"
+      "baseline_pred": "REFUTES",
+      "matched_pred": "SUPPORTS",
+      "router_pred": "REFUTES"
     },
     {
       "id": "nli_fever-0091",
@@ -2048,8 +2048,8 @@
       "mode": "baseline",
       "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
       "features": {
-        "claim_frame": "frame_undeclared",
-        "evidence_frame": "authority_speech",
+        "claim_frame": "authority_speech",
+        "evidence_frame": "frame_undeclared",
         "frame_consistency": "undecidable",
         "routed_pipeline": null,
         "claim_state": "gap_detected",
@@ -2078,9 +2078,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "REFUTES",
-      "matched_pred": "NOT_ENOUGH_INFO",
-      "router_pred": "REFUTES"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "REFUTES",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0093",
@@ -2108,8 +2108,8 @@
       "mode": "baseline",
       "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
       "features": {
-        "claim_frame": "frame_undeclared",
-        "evidence_frame": "authority_speech",
+        "claim_frame": "authority_speech",
+        "evidence_frame": "frame_undeclared",
         "frame_consistency": "undecidable",
         "routed_pipeline": null,
         "claim_state": "gap_detected",
@@ -2128,8 +2128,8 @@
       "mode": "baseline",
       "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
       "features": {
-        "claim_frame": "frame_undeclared",
-        "evidence_frame": "authority_speech",
+        "claim_frame": "authority_speech",
+        "evidence_frame": "frame_undeclared",
         "frame_consistency": "undecidable",
         "routed_pipeline": null,
         "claim_state": "gap_detected",
@@ -2138,9 +2138,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
+      "baseline_pred": "NOT_ENOUGH_INFO",
       "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0096",
@@ -2179,7 +2179,7 @@
         "chain_rule": null
       },
       "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
+      "matched_pred": "NOT_ENOUGH_INFO",
       "router_pred": "SUPPORTS"
     },
     {
@@ -2188,8 +2188,8 @@
       "mode": "baseline",
       "reason": "no decisive structure (consistency undecidable, claim gap_detected) -> baseline",
       "features": {
-        "claim_frame": "frame_undeclared",
-        "evidence_frame": "empirical_causal",
+        "claim_frame": "empirical_causal",
+        "evidence_frame": "frame_undeclared",
         "frame_consistency": "undecidable",
         "routed_pipeline": null,
         "claim_state": "gap_detected",
@@ -2198,9 +2198,9 @@
         "chain_gap": "unreachable",
         "chain_rule": null
       },
-      "baseline_pred": "SUPPORTS",
-      "matched_pred": "SUPPORTS",
-      "router_pred": "SUPPORTS"
+      "baseline_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "NOT_ENOUGH_INFO",
+      "router_pred": "NOT_ENOUGH_INFO"
     },
     {
       "id": "nli_fever-0099",
@@ -2219,7 +2219,7 @@
         "chain_rule": null
       },
       "baseline_pred": "NOT_ENOUGH_INFO",
-      "matched_pred": "NOT_ENOUGH_INFO",
+      "matched_pred": "REFUTES",
       "router_pred": "NOT_ENOUGH_INFO"
     }
   ],

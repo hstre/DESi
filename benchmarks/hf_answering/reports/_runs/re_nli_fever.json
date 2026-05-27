@@ -5,87 +5,26 @@
   "n": 100,
   "errors": 0,
   "solver": "deepseek-chat (direct)",
-  "wall_elapsed_s": 306.34,
+  "wall_elapsed_s": 379.46,
   "experiments": {
     "baseline": {
-      "accuracy": 0.54,
+      "accuracy": 0.8,
       "answered": 100,
       "parse_failures": 0,
       "confusion": {
         "SUPPORTS": {
-          "SUPPORTS": 8,
+          "SUPPORTS": 27,
           "REFUTES": 0,
-          "NOT_ENOUGH_INFO": 21
+          "NOT_ENOUGH_INFO": 2
         },
         "REFUTES": {
-          "SUPPORTS": 2,
-          "REFUTES": 32,
-          "NOT_ENOUGH_INFO": 11
+          "SUPPORTS": 1,
+          "REFUTES": 36,
+          "NOT_ENOUGH_INFO": 8
         },
         "NOT_ENOUGH_INFO": {
           "SUPPORTS": 3,
-          "REFUTES": 9,
-          "NOT_ENOUGH_INFO": 14
-        }
-      },
-      "gold_distribution": {
-        "SUPPORTS": 29,
-        "REFUTES": 45,
-        "NOT_ENOUGH_INFO": 26
-      },
-      "pred_distribution": {
-        "SUPPORTS": 13,
-        "REFUTES": 41,
-        "NOT_ENOUGH_INFO": 46
-      },
-      "per_class": {
-        "SUPPORTS": {
-          "precision": 0.615,
-          "recall": 0.276,
-          "tp": 8,
-          "fp": 5,
-          "fn": 21
-        },
-        "REFUTES": {
-          "precision": 0.78,
-          "recall": 0.711,
-          "tp": 32,
-          "fp": 9,
-          "fn": 13
-        },
-        "NOT_ENOUGH_INFO": {
-          "precision": 0.304,
-          "recall": 0.538,
-          "tp": 14,
-          "fp": 32,
-          "fn": 12
-        }
-      },
-      "overcommitment_rate": 0.462,
-      "overcommitment_n": "12/26",
-      "overabstention_rate": 0.432,
-      "overabstention_n": "32/74",
-      "elapsed_s": 110.63,
-      "est_cost_usd": 0.010465
-    },
-    "matched": {
-      "accuracy": 0.58,
-      "answered": 100,
-      "parse_failures": 0,
-      "confusion": {
-        "SUPPORTS": {
-          "SUPPORTS": 6,
-          "REFUTES": 0,
-          "NOT_ENOUGH_INFO": 23
-        },
-        "REFUTES": {
-          "SUPPORTS": 3,
-          "REFUTES": 35,
-          "NOT_ENOUGH_INFO": 7
-        },
-        "NOT_ENOUGH_INFO": {
-          "SUPPORTS": 2,
-          "REFUTES": 7,
+          "REFUTES": 6,
           "NOT_ENOUGH_INFO": 17
         }
       },
@@ -95,119 +34,58 @@
         "NOT_ENOUGH_INFO": 26
       },
       "pred_distribution": {
-        "SUPPORTS": 11,
+        "SUPPORTS": 31,
         "REFUTES": 42,
-        "NOT_ENOUGH_INFO": 47
+        "NOT_ENOUGH_INFO": 27
       },
       "per_class": {
         "SUPPORTS": {
-          "precision": 0.545,
-          "recall": 0.207,
-          "tp": 6,
-          "fp": 5,
-          "fn": 23
+          "precision": 0.871,
+          "recall": 0.931,
+          "tp": 27,
+          "fp": 4,
+          "fn": 2
         },
         "REFUTES": {
-          "precision": 0.833,
-          "recall": 0.778,
-          "tp": 35,
-          "fp": 7,
-          "fn": 10
+          "precision": 0.857,
+          "recall": 0.8,
+          "tp": 36,
+          "fp": 6,
+          "fn": 9
         },
         "NOT_ENOUGH_INFO": {
-          "precision": 0.362,
+          "precision": 0.63,
           "recall": 0.654,
           "tp": 17,
-          "fp": 30,
+          "fp": 10,
           "fn": 9
         }
       },
       "overcommitment_rate": 0.346,
       "overcommitment_n": "9/26",
-      "overabstention_rate": 0.405,
-      "overabstention_n": "30/74",
-      "elapsed_s": 88.0,
-      "est_cost_usd": 0.009569
+      "overabstention_rate": 0.135,
+      "overabstention_n": "10/74",
+      "elapsed_s": 134.63,
+      "est_cost_usd": 0.009147
     },
-    "old_router": {
-      "accuracy": 0.53,
+    "matched": {
+      "accuracy": 0.8,
       "answered": 100,
       "parse_failures": 0,
       "confusion": {
         "SUPPORTS": {
-          "SUPPORTS": 7,
+          "SUPPORTS": 28,
           "REFUTES": 0,
-          "NOT_ENOUGH_INFO": 22
+          "NOT_ENOUGH_INFO": 1
         },
         "REFUTES": {
-          "SUPPORTS": 2,
-          "REFUTES": 32,
+          "SUPPORTS": 0,
+          "REFUTES": 34,
           "NOT_ENOUGH_INFO": 11
         },
         "NOT_ENOUGH_INFO": {
           "SUPPORTS": 3,
-          "REFUTES": 9,
-          "NOT_ENOUGH_INFO": 14
-        }
-      },
-      "gold_distribution": {
-        "SUPPORTS": 29,
-        "REFUTES": 45,
-        "NOT_ENOUGH_INFO": 26
-      },
-      "pred_distribution": {
-        "SUPPORTS": 12,
-        "REFUTES": 41,
-        "NOT_ENOUGH_INFO": 47
-      },
-      "per_class": {
-        "SUPPORTS": {
-          "precision": 0.583,
-          "recall": 0.241,
-          "tp": 7,
-          "fp": 5,
-          "fn": 22
-        },
-        "REFUTES": {
-          "precision": 0.78,
-          "recall": 0.711,
-          "tp": 32,
-          "fp": 9,
-          "fn": 13
-        },
-        "NOT_ENOUGH_INFO": {
-          "precision": 0.298,
-          "recall": 0.538,
-          "tp": 14,
-          "fp": 33,
-          "fn": 12
-        }
-      },
-      "overcommitment_rate": 0.462,
-      "overcommitment_n": "12/26",
-      "overabstention_rate": 0.446,
-      "overabstention_n": "33/74",
-      "elapsed_s": 109.45,
-      "est_cost_usd": 0.010475
-    },
-    "micro_router": {
-      "accuracy": 0.53,
-      "answered": 100,
-      "parse_failures": 0,
-      "confusion": {
-        "SUPPORTS": {
-          "SUPPORTS": 3,
-          "REFUTES": 0,
-          "NOT_ENOUGH_INFO": 26
-        },
-        "REFUTES": {
-          "SUPPORTS": 3,
-          "REFUTES": 32,
-          "NOT_ENOUGH_INFO": 10
-        },
-        "NOT_ENOUGH_INFO": {
-          "SUPPORTS": 1,
-          "REFUTES": 7,
+          "REFUTES": 5,
           "NOT_ENOUGH_INFO": 18
         }
       },
@@ -217,58 +95,180 @@
         "NOT_ENOUGH_INFO": 26
       },
       "pred_distribution": {
-        "SUPPORTS": 7,
+        "SUPPORTS": 31,
         "REFUTES": 39,
-        "NOT_ENOUGH_INFO": 54
+        "NOT_ENOUGH_INFO": 30
       },
       "per_class": {
         "SUPPORTS": {
-          "precision": 0.429,
-          "recall": 0.103,
-          "tp": 3,
-          "fp": 4,
-          "fn": 26
+          "precision": 0.903,
+          "recall": 0.966,
+          "tp": 28,
+          "fp": 3,
+          "fn": 1
         },
         "REFUTES": {
-          "precision": 0.821,
-          "recall": 0.711,
-          "tp": 32,
-          "fp": 7,
-          "fn": 13
+          "precision": 0.872,
+          "recall": 0.756,
+          "tp": 34,
+          "fp": 5,
+          "fn": 11
         },
         "NOT_ENOUGH_INFO": {
-          "precision": 0.333,
+          "precision": 0.6,
           "recall": 0.692,
           "tp": 18,
-          "fp": 36,
+          "fp": 12,
           "fn": 8
         }
       },
       "overcommitment_rate": 0.308,
       "overcommitment_n": "8/26",
-      "overabstention_rate": 0.486,
-      "overabstention_n": "36/74",
-      "elapsed_s": 108.46,
-      "est_cost_usd": 0.011875
+      "overabstention_rate": 0.162,
+      "overabstention_n": "12/74",
+      "elapsed_s": 118.21,
+      "est_cost_usd": 0.009755
+    },
+    "old_router": {
+      "accuracy": 0.8,
+      "answered": 100,
+      "parse_failures": 0,
+      "confusion": {
+        "SUPPORTS": {
+          "SUPPORTS": 27,
+          "REFUTES": 0,
+          "NOT_ENOUGH_INFO": 2
+        },
+        "REFUTES": {
+          "SUPPORTS": 1,
+          "REFUTES": 36,
+          "NOT_ENOUGH_INFO": 8
+        },
+        "NOT_ENOUGH_INFO": {
+          "SUPPORTS": 3,
+          "REFUTES": 6,
+          "NOT_ENOUGH_INFO": 17
+        }
+      },
+      "gold_distribution": {
+        "SUPPORTS": 29,
+        "REFUTES": 45,
+        "NOT_ENOUGH_INFO": 26
+      },
+      "pred_distribution": {
+        "SUPPORTS": 31,
+        "REFUTES": 42,
+        "NOT_ENOUGH_INFO": 27
+      },
+      "per_class": {
+        "SUPPORTS": {
+          "precision": 0.871,
+          "recall": 0.931,
+          "tp": 27,
+          "fp": 4,
+          "fn": 2
+        },
+        "REFUTES": {
+          "precision": 0.857,
+          "recall": 0.8,
+          "tp": 36,
+          "fp": 6,
+          "fn": 9
+        },
+        "NOT_ENOUGH_INFO": {
+          "precision": 0.63,
+          "recall": 0.654,
+          "tp": 17,
+          "fp": 10,
+          "fn": 9
+        }
+      },
+      "overcommitment_rate": 0.346,
+      "overcommitment_n": "9/26",
+      "overabstention_rate": 0.135,
+      "overabstention_n": "10/74",
+      "elapsed_s": 134.63,
+      "est_cost_usd": 0.009147
+    },
+    "micro_router": {
+      "accuracy": 0.82,
+      "answered": 100,
+      "parse_failures": 0,
+      "confusion": {
+        "SUPPORTS": {
+          "SUPPORTS": 28,
+          "REFUTES": 0,
+          "NOT_ENOUGH_INFO": 1
+        },
+        "REFUTES": {
+          "SUPPORTS": 0,
+          "REFUTES": 35,
+          "NOT_ENOUGH_INFO": 10
+        },
+        "NOT_ENOUGH_INFO": {
+          "SUPPORTS": 3,
+          "REFUTES": 4,
+          "NOT_ENOUGH_INFO": 19
+        }
+      },
+      "gold_distribution": {
+        "SUPPORTS": 29,
+        "REFUTES": 45,
+        "NOT_ENOUGH_INFO": 26
+      },
+      "pred_distribution": {
+        "SUPPORTS": 31,
+        "REFUTES": 39,
+        "NOT_ENOUGH_INFO": 30
+      },
+      "per_class": {
+        "SUPPORTS": {
+          "precision": 0.903,
+          "recall": 0.966,
+          "tp": 28,
+          "fp": 3,
+          "fn": 1
+        },
+        "REFUTES": {
+          "precision": 0.897,
+          "recall": 0.778,
+          "tp": 35,
+          "fp": 4,
+          "fn": 10
+        },
+        "NOT_ENOUGH_INFO": {
+          "precision": 0.633,
+          "recall": 0.731,
+          "tp": 19,
+          "fp": 11,
+          "fn": 7
+        }
+      },
+      "overcommitment_rate": 0.269,
+      "overcommitment_n": "7/26",
+      "overabstention_rate": 0.149,
+      "overabstention_n": "11/74",
+      "elapsed_s": 122.48,
+      "est_cost_usd": 0.009924
     },
     "unfolding": {
-      "accuracy": 0.54,
+      "accuracy": 0.81,
       "answered": 100,
       "parse_failures": 0,
       "confusion": {
         "SUPPORTS": {
-          "SUPPORTS": 3,
+          "SUPPORTS": 27,
           "REFUTES": 0,
-          "NOT_ENOUGH_INFO": 26
+          "NOT_ENOUGH_INFO": 2
         },
         "REFUTES": {
-          "SUPPORTS": 3,
-          "REFUTES": 32,
+          "SUPPORTS": 0,
+          "REFUTES": 35,
           "NOT_ENOUGH_INFO": 10
         },
         "NOT_ENOUGH_INFO": {
-          "SUPPORTS": 1,
-          "REFUTES": 6,
+          "SUPPORTS": 3,
+          "REFUTES": 4,
           "NOT_ENOUGH_INFO": 19
         }
       },
@@ -278,58 +278,58 @@
         "NOT_ENOUGH_INFO": 26
       },
       "pred_distribution": {
-        "SUPPORTS": 7,
-        "REFUTES": 38,
-        "NOT_ENOUGH_INFO": 55
+        "SUPPORTS": 30,
+        "REFUTES": 39,
+        "NOT_ENOUGH_INFO": 31
       },
       "per_class": {
         "SUPPORTS": {
-          "precision": 0.429,
-          "recall": 0.103,
-          "tp": 3,
-          "fp": 4,
-          "fn": 26
+          "precision": 0.9,
+          "recall": 0.931,
+          "tp": 27,
+          "fp": 3,
+          "fn": 2
         },
         "REFUTES": {
-          "precision": 0.842,
-          "recall": 0.711,
-          "tp": 32,
-          "fp": 6,
-          "fn": 13
+          "precision": 0.897,
+          "recall": 0.778,
+          "tp": 35,
+          "fp": 4,
+          "fn": 10
         },
         "NOT_ENOUGH_INFO": {
-          "precision": 0.345,
+          "precision": 0.613,
           "recall": 0.731,
           "tp": 19,
-          "fp": 36,
+          "fp": 12,
           "fn": 7
         }
       },
       "overcommitment_rate": 0.269,
       "overcommitment_n": "7/26",
-      "overabstention_rate": 0.486,
-      "overabstention_n": "36/74",
-      "elapsed_s": 107.52,
-      "est_cost_usd": 0.011782
+      "overabstention_rate": 0.162,
+      "overabstention_n": "12/74",
+      "elapsed_s": 125.03,
+      "est_cost_usd": 0.010124
     },
     "residual": {
-      "accuracy": 0.54,
+      "accuracy": 0.82,
       "answered": 100,
       "parse_failures": 0,
       "confusion": {
         "SUPPORTS": {
-          "SUPPORTS": 3,
+          "SUPPORTS": 28,
           "REFUTES": 0,
-          "NOT_ENOUGH_INFO": 26
+          "NOT_ENOUGH_INFO": 1
         },
         "REFUTES": {
-          "SUPPORTS": 3,
-          "REFUTES": 32,
+          "SUPPORTS": 0,
+          "REFUTES": 35,
           "NOT_ENOUGH_INFO": 10
         },
         "NOT_ENOUGH_INFO": {
-          "SUPPORTS": 1,
-          "REFUTES": 6,
+          "SUPPORTS": 3,
+          "REFUTES": 4,
           "NOT_ENOUGH_INFO": 19
         }
       },
@@ -339,54 +339,54 @@
         "NOT_ENOUGH_INFO": 26
       },
       "pred_distribution": {
-        "SUPPORTS": 7,
-        "REFUTES": 38,
-        "NOT_ENOUGH_INFO": 55
+        "SUPPORTS": 31,
+        "REFUTES": 39,
+        "NOT_ENOUGH_INFO": 30
       },
       "per_class": {
         "SUPPORTS": {
-          "precision": 0.429,
-          "recall": 0.103,
-          "tp": 3,
-          "fp": 4,
-          "fn": 26
+          "precision": 0.903,
+          "recall": 0.966,
+          "tp": 28,
+          "fp": 3,
+          "fn": 1
         },
         "REFUTES": {
-          "precision": 0.842,
-          "recall": 0.711,
-          "tp": 32,
-          "fp": 6,
-          "fn": 13
+          "precision": 0.897,
+          "recall": 0.778,
+          "tp": 35,
+          "fp": 4,
+          "fn": 10
         },
         "NOT_ENOUGH_INFO": {
-          "precision": 0.345,
+          "precision": 0.633,
           "recall": 0.731,
           "tp": 19,
-          "fp": 36,
+          "fp": 11,
           "fn": 7
         }
       },
       "overcommitment_rate": 0.269,
       "overcommitment_n": "7/26",
-      "overabstention_rate": 0.486,
-      "overabstention_n": "36/74",
-      "elapsed_s": 107.52,
-      "est_cost_usd": 0.011782
+      "overabstention_rate": 0.149,
+      "overabstention_n": "11/74",
+      "elapsed_s": 123.84,
+      "est_cost_usd": 0.010001
     }
   },
   "residual": {
-    "escalation_count": 10,
-    "escalation_precision": 0.5,
+    "escalation_count": 65,
+    "escalation_precision": 0.815,
     "escalation_vs_unfolding": {
-      "helped": 0,
+      "helped": 1,
       "hurt": 0,
-      "net": 0
+      "net": 1
     },
     "outcome_distribution": {
       "fold_safe_confirmed": 0,
-      "directional_entailment_confirmed": 0,
-      "semantic_divergence_confirmed": 9,
-      "partial_support_confirmed": 1,
+      "directional_entailment_confirmed": 14,
+      "semantic_divergence_confirmed": 2,
+      "partial_support_confirmed": 49,
       "unresolved_high_risk": 0
     },
     "per_outcome_accuracy": {
@@ -395,16 +395,16 @@
         "accuracy": null
       },
       "directional_entailment_confirmed": {
-        "n": 0,
-        "accuracy": null
+        "n": 14,
+        "accuracy": 0.857
       },
       "semantic_divergence_confirmed": {
-        "n": 9,
-        "accuracy": 0.444
+        "n": 2,
+        "accuracy": 1.0
       },
       "partial_support_confirmed": {
-        "n": 1,
-        "accuracy": 1.0
+        "n": 49,
+        "accuracy": 0.796
       },
       "unresolved_high_risk": {
         "n": 0,
@@ -412,35 +412,36 @@
       }
     },
     "f_route_distribution": {
-      "evidence_strict": 99,
-      "baseline": 1
+      "evidence_strict": 62,
+      "entailment_direct": 28,
+      "baseline": 10
     },
-    "false_folds_prevented": 4,
-    "cases_overprotected": 8,
+    "false_folds_prevented": 3,
+    "cases_overprotected": 1,
     "vs_baseline": {
-      "helped": 8,
-      "hurt": 8,
-      "net": 0
+      "helped": 6,
+      "hurt": 4,
+      "net": 2
     },
     "vs_matched": {
-      "helped": 4,
-      "hurt": 8,
-      "net": -4
+      "helped": 3,
+      "hurt": 1,
+      "net": 2
     },
     "vs_old_router": {
-      "helped": 8,
-      "hurt": 7,
-      "net": 1
+      "helped": 6,
+      "hurt": 4,
+      "net": 2
     },
     "vs_micro_router": {
-      "helped": 1,
-      "hurt": 0,
-      "net": 1
-    },
-    "vs_unfolding": {
       "helped": 0,
       "hurt": 0,
       "net": 0
+    },
+    "vs_unfolding": {
+      "helped": 1,
+      "hurt": 0,
+      "net": 1
     }
   },
   "rows": [
@@ -452,13 +453,22 @@
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.568,
+        "group_cosine": 0.463,
+        "dir_fwd": 0.647,
+        "dir_bwd": 0.2,
+        "asym": 0.447,
+        "entity_overlap": 0.4,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.647, asym=0.447, char_cos=0.568] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0001",
@@ -468,29 +478,38 @@
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.332,
+        "group_cosine": 0.258,
+        "dir_fwd": 0.708,
+        "dir_bwd": 0.103,
+        "asym": 0.605,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.708, asym=0.605, char_cos=0.332] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0002",
       "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
+      "micro_policy": "entailment_direct",
       "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "e_policy": "entailment_direct",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "entailment_direct",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [fold_safe] -> deterministic -> entailment_direct"
     },
     {
       "id": "nli_fever-0003",
@@ -499,14 +518,14 @@
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
+      "micro_policy": "entailment_direct",
       "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "e_policy": "entailment_direct",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "entailment_direct",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [fold_safe] -> deterministic -> entailment_direct"
     },
     {
       "id": "nli_fever-0004",
@@ -516,13 +535,22 @@
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
-      "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "escalated": true,
+      "outcome": "directional_entailment_confirmed",
+      "f_policy": "entailment_direct",
+      "scores": {
+        "char_cosine": 0.629,
+        "group_cosine": 0.447,
+        "dir_fwd": 0.815,
+        "dir_bwd": 0.224,
+        "asym": 0.591,
+        "entity_overlap": 0.5,
+        "shared_entities": 1,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.815, asym=0.591, char_cos=0.629] -> directional_entailment_confirmed -> entailment_direct"
     },
     {
       "id": "nli_fever-0005",
@@ -531,30 +559,39 @@
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "micro_policy": "baseline",
+      "unfold_category": "contradiction_masking",
+      "e_policy": "baseline",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "baseline",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [contradiction_masking] -> deterministic -> baseline"
     },
     {
       "id": "nli_fever-0006",
       "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.464,
+        "group_cosine": 0.422,
+        "dir_fwd": 0.733,
+        "dir_bwd": 0.11,
+        "asym": 0.623,
+        "entity_overlap": 1.0,
+        "shared_entities": 1,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.733, asym=0.623, char_cos=0.464] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0007",
@@ -564,38 +601,47 @@
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
-      "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
-    },
-    {
-      "id": "nli_fever-0008",
-      "gold": "NOT_ENOUGH_INFO",
-      "pred_baseline": "REFUTES",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "REFUTES",
-      "old_mode": "baseline",
-      "micro_policy": "baseline",
-      "unfold_category": "semantic_near_epistemic_far",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
       "escalated": true,
       "outcome": "semantic_divergence_confirmed",
       "f_policy": "evidence_strict",
       "scores": {
+        "char_cosine": 0.374,
+        "group_cosine": 0.471,
+        "dir_fwd": 0.439,
+        "dir_bwd": 0.162,
+        "asym": 0.277,
+        "entity_overlap": 0.5,
+        "shared_entities": 1,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.439, asym=0.277, char_cos=0.374] -> semantic_divergence_confirmed -> evidence_strict"
+    },
+    {
+      "id": "nli_fever-0008",
+      "gold": "NOT_ENOUGH_INFO",
+      "pred_baseline": "NOT_ENOUGH_INFO",
+      "pred_evidence_strict": "NOT_ENOUGH_INFO",
+      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "old_mode": "baseline",
+      "micro_policy": "entailment_direct",
+      "unfold_category": "fold_safe",
+      "e_policy": "entailment_direct",
+      "escalated": true,
+      "outcome": "directional_entailment_confirmed",
+      "f_policy": "entailment_direct",
+      "scores": {
         "char_cosine": 0.593,
         "group_cosine": 0.567,
-        "dir_fwd": 0.376,
-        "dir_bwd": 0.848,
-        "asym": -0.472,
-        "entity_overlap": 0.625,
+        "dir_fwd": 0.848,
+        "dir_bwd": 0.376,
+        "asym": 0.472,
+        "entity_overlap": 1.0,
         "shared_entities": 5,
         "contradiction": false
       },
-      "reason": "escalated [semantic_near_epistemic_far, dir_fwd=0.376, asym=-0.472, char_cos=0.593] -> semantic_divergence_confirmed -> evidence_strict"
+      "reason": "escalated [fold_safe, dir_fwd=0.848, asym=0.472, char_cos=0.593] -> directional_entailment_confirmed -> entailment_direct"
     },
     {
       "id": "nli_fever-0009",
@@ -604,39 +650,48 @@
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
-      "micro_policy": "baseline",
-      "unfold_category": "semantic_near_epistemic_far",
+      "micro_policy": "evidence_strict",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
       "escalated": true,
-      "outcome": "semantic_divergence_confirmed",
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
       "scores": {
         "char_cosine": 0.408,
         "group_cosine": 0.424,
-        "dir_fwd": 0.277,
-        "dir_bwd": 0.6,
-        "asym": -0.323,
-        "entity_overlap": 0.5,
+        "dir_fwd": 0.6,
+        "dir_bwd": 0.277,
+        "asym": 0.323,
+        "entity_overlap": 0.75,
         "shared_entities": 3,
         "contradiction": false
       },
-      "reason": "escalated [semantic_near_epistemic_far, dir_fwd=0.277, asym=-0.323, char_cos=0.408] -> semantic_divergence_confirmed -> evidence_strict"
+      "reason": "escalated [partial_support_masking, dir_fwd=0.6, asym=0.323, char_cos=0.408] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0010",
       "gold": "NOT_ENOUGH_INFO",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.465,
+        "group_cosine": 0.255,
+        "dir_fwd": 0.615,
+        "dir_bwd": 0.126,
+        "asym": 0.489,
+        "entity_overlap": 1.0,
+        "shared_entities": 1,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.615, asym=0.489, char_cos=0.465] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0011",
@@ -646,35 +701,44 @@
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.244,
+        "group_cosine": 0.302,
+        "dir_fwd": 0.515,
+        "dir_bwd": 0.053,
+        "asym": 0.462,
+        "entity_overlap": 1.0,
+        "shared_entities": 1,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.515, asym=0.462, char_cos=0.244] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0012",
       "gold": "SUPPORTS",
       "pred_baseline": "SUPPORTS",
       "pred_evidence_strict": "SUPPORTS",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
+      "micro_policy": "entailment_direct",
       "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "e_policy": "entailment_direct",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "entailment_direct",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [fold_safe] -> deterministic -> entailment_direct"
     },
     {
       "id": "nli_fever-0013",
       "gold": "REFUTES",
-      "pred_baseline": "REFUTES",
-      "pred_evidence_strict": "SUPPORTS",
+      "pred_baseline": "NOT_ENOUGH_INFO",
+      "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
@@ -689,18 +753,18 @@
     {
       "id": "nli_fever-0014",
       "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
+      "micro_policy": "entailment_direct",
       "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "e_policy": "entailment_direct",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "entailment_direct",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [fold_safe] -> deterministic -> entailment_direct"
     },
     {
       "id": "nli_fever-0015",
@@ -710,13 +774,22 @@
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "operator_divergence",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.298,
+        "group_cosine": 0.269,
+        "dir_fwd": 0.654,
+        "dir_bwd": 0.059,
+        "asym": 0.595,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [operator_divergence, dir_fwd=0.654, asym=0.595, char_cos=0.298] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0016",
@@ -726,13 +799,22 @@
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.284,
+        "group_cosine": 0.291,
+        "dir_fwd": 0.597,
+        "dir_bwd": 0.026,
+        "asym": 0.571,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.597, asym=0.571, char_cos=0.284] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0017",
@@ -742,13 +824,22 @@
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.361,
+        "group_cosine": 0.316,
+        "dir_fwd": 0.573,
+        "dir_bwd": 0.059,
+        "asym": 0.514,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.573, asym=0.514, char_cos=0.361] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0018",
@@ -756,15 +847,24 @@
       "pred_baseline": "NOT_ENOUGH_INFO",
       "pred_evidence_strict": "NOT_ENOUGH_INFO",
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
-      "old_mode": "entailment_direct",
+      "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.511,
+        "group_cosine": 0.546,
+        "dir_fwd": 0.756,
+        "dir_bwd": 0.256,
+        "asym": 0.5,
+        "entity_overlap": 1.0,
+        "shared_entities": 5,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.756, asym=0.5, char_cos=0.511] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0019",
@@ -773,35 +873,44 @@
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "micro_policy": "baseline",
+      "unfold_category": "contradiction_masking",
+      "e_policy": "baseline",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "baseline",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [contradiction_masking] -> deterministic -> baseline"
     },
     {
       "id": "nli_fever-0020",
       "gold": "SUPPORTS",
       "pred_baseline": "SUPPORTS",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
-      "old_mode": "evidence_strict",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
+      "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.467,
+        "group_cosine": 0.417,
+        "dir_fwd": 0.704,
+        "dir_bwd": 0.112,
+        "asym": 0.592,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.704, asym=0.592, char_cos=0.467] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0021",
       "gold": "NOT_ENOUGH_INFO",
-      "pred_baseline": "REFUTES",
+      "pred_baseline": "NOT_ENOUGH_INFO",
       "pred_evidence_strict": "NOT_ENOUGH_INFO",
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
@@ -817,59 +926,77 @@
     {
       "id": "nli_fever-0022",
       "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.131,
+        "group_cosine": 0.128,
+        "dir_fwd": 0.688,
+        "dir_bwd": 0.029,
+        "asym": 0.659,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.688, asym=0.659, char_cos=0.131] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0023",
       "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "semantic_near_epistemic_far",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.315,
+        "group_cosine": 0.245,
+        "dir_fwd": 0.527,
+        "dir_bwd": 0.04,
+        "asym": 0.487,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [semantic_near_epistemic_far, dir_fwd=0.527, asym=0.487, char_cos=0.315] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0024",
       "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
-      "micro_policy": "baseline",
-      "unfold_category": "semantic_near_epistemic_far",
+      "micro_policy": "evidence_strict",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
       "escalated": true,
-      "outcome": "semantic_divergence_confirmed",
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
       "scores": {
         "char_cosine": 0.384,
         "group_cosine": 0.603,
-        "dir_fwd": 0.274,
-        "dir_bwd": 0.688,
-        "asym": -0.414,
-        "entity_overlap": 0.75,
+        "dir_fwd": 0.688,
+        "dir_bwd": 0.274,
+        "asym": 0.414,
+        "entity_overlap": 1.0,
         "shared_entities": 3,
         "contradiction": false
       },
-      "reason": "escalated [semantic_near_epistemic_far, dir_fwd=0.274, asym=-0.414, char_cos=0.384] -> semantic_divergence_confirmed -> evidence_strict"
+      "reason": "escalated [partial_support_masking, dir_fwd=0.688, asym=0.414, char_cos=0.384] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0025",
@@ -879,18 +1006,27 @@
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.237,
+        "group_cosine": 0.221,
+        "dir_fwd": 0.542,
+        "dir_bwd": 0.062,
+        "asym": 0.48,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.542, asym=0.48, char_cos=0.237] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0026",
       "gold": "REFUTES",
-      "pred_baseline": "NOT_ENOUGH_INFO",
+      "pred_baseline": "REFUTES",
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
@@ -910,14 +1046,23 @@
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "micro_policy": "entailment_direct",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
-      "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "escalated": true,
+      "outcome": "directional_entailment_confirmed",
+      "f_policy": "entailment_direct",
+      "scores": {
+        "char_cosine": 0.554,
+        "group_cosine": 0.488,
+        "dir_fwd": 0.811,
+        "dir_bwd": 0.206,
+        "asym": 0.605,
+        "entity_overlap": 0.667,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.811, asym=0.605, char_cos=0.554] -> directional_entailment_confirmed -> entailment_direct"
     },
     {
       "id": "nli_fever-0028",
@@ -927,13 +1072,22 @@
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.616,
+        "group_cosine": 0.509,
+        "dir_fwd": 0.722,
+        "dir_bwd": 0.13,
+        "asym": 0.592,
+        "entity_overlap": 0.5,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.722, asym=0.592, char_cos=0.616] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0029",
@@ -958,21 +1112,21 @@
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "micro_policy": "baseline",
+      "unfold_category": "contradiction_masking",
+      "e_policy": "baseline",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "baseline",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [contradiction_masking] -> deterministic -> baseline"
     },
     {
       "id": "nli_fever-0031",
       "gold": "REFUTES",
-      "pred_baseline": "SUPPORTS",
+      "pred_baseline": "NOT_ENOUGH_INFO",
       "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "SUPPORTS",
+      "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
       "unfold_category": "fold_safe",
@@ -986,18 +1140,27 @@
     {
       "id": "nli_fever-0032",
       "gold": "NOT_ENOUGH_INFO",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "micro_policy": "entailment_direct",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.552,
+        "group_cosine": 0.572,
+        "dir_fwd": 0.789,
+        "dir_bwd": 0.236,
+        "asym": 0.553,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.789, asym=0.553, char_cos=0.552] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0033",
@@ -1020,32 +1183,50 @@
       "gold": "REFUTES",
       "pred_baseline": "REFUTES",
       "pred_evidence_strict": "REFUTES",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.347,
+        "group_cosine": 0.303,
+        "dir_fwd": 0.7,
+        "dir_bwd": 0.147,
+        "asym": 0.553,
+        "entity_overlap": 1.0,
+        "shared_entities": 3,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.7, asym=0.553, char_cos=0.347] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0035",
       "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
       "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.381,
+        "group_cosine": 0.244,
+        "dir_fwd": 0.617,
+        "dir_bwd": 0.043,
+        "asym": 0.574,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.617, asym=0.574, char_cos=0.381] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0036",
@@ -1054,14 +1235,14 @@
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "micro_policy": "baseline",
+      "unfold_category": "contradiction_masking",
+      "e_policy": "baseline",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "baseline",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [contradiction_masking] -> deterministic -> baseline"
     },
     {
       "id": "nli_fever-0037",
@@ -1070,14 +1251,14 @@
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "micro_policy": "baseline",
+      "unfold_category": "contradiction_masking",
+      "e_policy": "baseline",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "baseline",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [contradiction_masking] -> deterministic -> baseline"
     },
     {
       "id": "nli_fever-0038",
@@ -1086,14 +1267,14 @@
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
+      "micro_policy": "entailment_direct",
       "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "e_policy": "entailment_direct",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "entailment_direct",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [fold_safe] -> deterministic -> entailment_direct"
     },
     {
       "id": "nli_fever-0039",
@@ -1101,31 +1282,31 @@
       "pred_baseline": "SUPPORTS",
       "pred_evidence_strict": "SUPPORTS",
       "pred_entailment_direct": "SUPPORTS",
-      "old_mode": "evidence_strict",
-      "micro_policy": "evidence_strict",
+      "old_mode": "baseline",
+      "micro_policy": "entailment_direct",
       "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "e_policy": "entailment_direct",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "entailment_direct",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [fold_safe] -> deterministic -> entailment_direct"
     },
     {
       "id": "nli_fever-0040",
       "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
+      "micro_policy": "entailment_direct",
       "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "e_policy": "entailment_direct",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "entailment_direct",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [fold_safe] -> deterministic -> entailment_direct"
     },
     {
       "id": "nli_fever-0041",
@@ -1135,13 +1316,22 @@
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.33,
+        "group_cosine": 0.312,
+        "dir_fwd": 0.65,
+        "dir_bwd": 0.014,
+        "asym": 0.636,
+        "entity_overlap": 0.5,
+        "shared_entities": 1,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.65, asym=0.636, char_cos=0.33] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0042",
@@ -1151,13 +1341,22 @@
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.47,
+        "group_cosine": 0.385,
+        "dir_fwd": 0.678,
+        "dir_bwd": 0.101,
+        "asym": 0.577,
+        "entity_overlap": 1.0,
+        "shared_entities": 1,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.678, asym=0.577, char_cos=0.47] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0043",
@@ -1167,77 +1366,113 @@
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.458,
+        "group_cosine": 0.471,
+        "dir_fwd": 0.663,
+        "dir_bwd": 0.316,
+        "asym": 0.347,
+        "entity_overlap": 1.0,
+        "shared_entities": 4,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.663, asym=0.347, char_cos=0.458] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0044",
       "gold": "REFUTES",
-      "pred_baseline": "NOT_ENOUGH_INFO",
+      "pred_baseline": "REFUTES",
       "pred_evidence_strict": "NOT_ENOUGH_INFO",
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.637,
+        "group_cosine": 0.572,
+        "dir_fwd": 0.705,
+        "dir_bwd": 0.302,
+        "asym": 0.403,
+        "entity_overlap": 0.5,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.705, asym=0.403, char_cos=0.637] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0045",
       "gold": "REFUTES",
-      "pred_baseline": "NOT_ENOUGH_INFO",
+      "pred_baseline": "REFUTES",
       "pred_evidence_strict": "REFUTES",
-      "pred_entailment_direct": "REFUTES",
+      "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.086,
+        "group_cosine": 0.065,
+        "dir_fwd": 0.562,
+        "dir_bwd": 0.014,
+        "asym": 0.548,
+        "entity_overlap": 1.0,
+        "shared_entities": 1,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.562, asym=0.548, char_cos=0.086] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0046",
       "gold": "REFUTES",
       "pred_baseline": "REFUTES",
-      "pred_evidence_strict": "REFUTES",
-      "pred_entailment_direct": "REFUTES",
-      "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
-      "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
-    },
-    {
-      "id": "nli_fever-0047",
-      "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
       "pred_evidence_strict": "NOT_ENOUGH_INFO",
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
+      "f_policy": "evidence_strict",
+      "scores": {
+        "char_cosine": 0.544,
+        "group_cosine": 0.387,
+        "dir_fwd": 0.552,
+        "dir_bwd": 0.204,
+        "asym": 0.348,
+        "entity_overlap": 0.5,
+        "shared_entities": 1,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.552, asym=0.348, char_cos=0.544] -> partial_support_confirmed -> evidence_strict"
+    },
+    {
+      "id": "nli_fever-0047",
+      "gold": "SUPPORTS",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
+      "old_mode": "baseline",
+      "micro_policy": "entailment_direct",
+      "unfold_category": "fold_safe",
+      "e_policy": "entailment_direct",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "entailment_direct",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [fold_safe] -> deterministic -> entailment_direct"
     },
     {
       "id": "nli_fever-0048",
@@ -1247,13 +1482,22 @@
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.301,
+        "group_cosine": 0.209,
+        "dir_fwd": 0.593,
+        "dir_bwd": 0.13,
+        "asym": 0.463,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.593, asym=0.463, char_cos=0.301] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0049",
@@ -1262,14 +1506,23 @@
       "pred_evidence_strict": "NOT_ENOUGH_INFO",
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "micro_policy": "entailment_direct",
+      "unfold_category": "operator_divergence",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
-      "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "escalated": true,
+      "outcome": "directional_entailment_confirmed",
+      "f_policy": "entailment_direct",
+      "scores": {
+        "char_cosine": 0.486,
+        "group_cosine": 0.417,
+        "dir_fwd": 1.0,
+        "dir_bwd": 0.159,
+        "asym": 0.841,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [operator_divergence, dir_fwd=1.0, asym=0.841, char_cos=0.486] -> directional_entailment_confirmed -> entailment_direct"
     },
     {
       "id": "nli_fever-0050",
@@ -1278,71 +1531,71 @@
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "semantic_near_epistemic_far",
-      "e_policy": "evidence_strict",
-      "escalated": true,
-      "outcome": "semantic_divergence_confirmed",
-      "f_policy": "evidence_strict",
-      "scores": {
-        "char_cosine": 0.632,
-        "group_cosine": 0.57,
-        "dir_fwd": 0.437,
-        "dir_bwd": 0.78,
-        "asym": -0.343,
-        "entity_overlap": 0.5,
-        "shared_entities": 1,
-        "contradiction": false
-      },
-      "reason": "escalated [semantic_near_epistemic_far, dir_fwd=0.437, asym=-0.343, char_cos=0.632] -> semantic_divergence_confirmed -> evidence_strict"
-    },
-    {
-      "id": "nli_fever-0051",
-      "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
-      "old_mode": "baseline",
       "micro_policy": "baseline",
-      "unfold_category": "fold_safe",
+      "unfold_category": "contradiction_masking",
       "e_policy": "baseline",
       "escalated": false,
       "outcome": null,
       "f_policy": "baseline",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> baseline"
+      "reason": "not escalated [contradiction_masking] -> deterministic -> baseline"
+    },
+    {
+      "id": "nli_fever-0051",
+      "gold": "SUPPORTS",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
+      "old_mode": "baseline",
+      "micro_policy": "baseline",
+      "unfold_category": "contradiction_masking",
+      "e_policy": "baseline",
+      "escalated": false,
+      "outcome": null,
+      "f_policy": "baseline",
+      "scores": null,
+      "reason": "not escalated [contradiction_masking] -> deterministic -> baseline"
     },
     {
       "id": "nli_fever-0052",
       "gold": "NOT_ENOUGH_INFO",
-      "pred_baseline": "SUPPORTS",
+      "pred_baseline": "NOT_ENOUGH_INFO",
       "pred_evidence_strict": "NOT_ENOUGH_INFO",
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "micro_policy": "baseline",
+      "unfold_category": "contradiction_masking",
+      "e_policy": "baseline",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "baseline",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [contradiction_masking] -> deterministic -> baseline"
     },
     {
       "id": "nli_fever-0053",
       "gold": "NOT_ENOUGH_INFO",
-      "pred_baseline": "REFUTES",
-      "pred_evidence_strict": "REFUTES",
-      "pred_entailment_direct": "REFUTES",
-      "old_mode": "evidence_strict",
+      "pred_baseline": "NOT_ENOUGH_INFO",
+      "pred_evidence_strict": "NOT_ENOUGH_INFO",
+      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
-      "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "escalated": true,
+      "outcome": "directional_entailment_confirmed",
+      "f_policy": "entailment_direct",
+      "scores": {
+        "char_cosine": 0.379,
+        "group_cosine": 0.342,
+        "dir_fwd": 0.814,
+        "dir_bwd": 0.066,
+        "asym": 0.748,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.814, asym=0.748, char_cos=0.379] -> directional_entailment_confirmed -> entailment_direct"
     },
     {
       "id": "nli_fever-0054",
@@ -1352,60 +1605,69 @@
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.347,
+        "group_cosine": 0.237,
+        "dir_fwd": 0.643,
+        "dir_bwd": 0.123,
+        "asym": 0.52,
+        "entity_overlap": 0.333,
+        "shared_entities": 1,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.643, asym=0.52, char_cos=0.347] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0055",
       "gold": "NOT_ENOUGH_INFO",
       "pred_baseline": "REFUTES",
-      "pred_evidence_strict": "REFUTES",
+      "pred_evidence_strict": "NOT_ENOUGH_INFO",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.234,
+        "group_cosine": 0.227,
+        "dir_fwd": 0.514,
+        "dir_bwd": 0.1,
+        "asym": 0.414,
+        "entity_overlap": 1.0,
+        "shared_entities": 3,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.514, asym=0.414, char_cos=0.234] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0056",
       "gold": "SUPPORTS",
       "pred_baseline": "SUPPORTS",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "semantic_near_epistemic_far",
-      "e_policy": "evidence_strict",
-      "escalated": true,
-      "outcome": "semantic_divergence_confirmed",
-      "f_policy": "evidence_strict",
-      "scores": {
-        "char_cosine": 0.537,
-        "group_cosine": 0.564,
-        "dir_fwd": 0.131,
-        "dir_bwd": 0.988,
-        "asym": -0.857,
-        "entity_overlap": 0.5,
-        "shared_entities": 4,
-        "contradiction": false
-      },
-      "reason": "escalated [semantic_near_epistemic_far, dir_fwd=0.131, asym=-0.857, char_cos=0.537] -> semantic_divergence_confirmed -> evidence_strict"
+      "micro_policy": "entailment_direct",
+      "unfold_category": "fold_safe",
+      "e_policy": "entailment_direct",
+      "escalated": false,
+      "outcome": null,
+      "f_policy": "entailment_direct",
+      "scores": null,
+      "reason": "not escalated [fold_safe] -> deterministic -> entailment_direct"
     },
     {
       "id": "nli_fever-0057",
       "gold": "REFUTES",
       "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "SUPPORTS",
+      "pred_evidence_strict": "NOT_ENOUGH_INFO",
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
@@ -1424,23 +1686,23 @@
       "pred_evidence_strict": "NOT_ENOUGH_INFO",
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
-      "micro_policy": "baseline",
-      "unfold_category": "semantic_near_epistemic_far",
+      "micro_policy": "entailment_direct",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
       "escalated": true,
-      "outcome": "semantic_divergence_confirmed",
-      "f_policy": "evidence_strict",
+      "outcome": "directional_entailment_confirmed",
+      "f_policy": "entailment_direct",
       "scores": {
         "char_cosine": 0.479,
         "group_cosine": 0.481,
-        "dir_fwd": 0.283,
-        "dir_bwd": 0.813,
-        "asym": -0.53,
-        "entity_overlap": 0.625,
+        "dir_fwd": 0.813,
+        "dir_bwd": 0.283,
+        "asym": 0.53,
+        "entity_overlap": 1.0,
         "shared_entities": 5,
         "contradiction": false
       },
-      "reason": "escalated [semantic_near_epistemic_far, dir_fwd=0.283, asym=-0.53, char_cos=0.479] -> semantic_divergence_confirmed -> evidence_strict"
+      "reason": "escalated [partial_support_masking, dir_fwd=0.813, asym=0.53, char_cos=0.479] -> directional_entailment_confirmed -> entailment_direct"
     },
     {
       "id": "nli_fever-0059",
@@ -1450,45 +1712,63 @@
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.524,
+        "group_cosine": 0.588,
+        "dir_fwd": 0.701,
+        "dir_bwd": 0.408,
+        "asym": 0.293,
+        "entity_overlap": 0.25,
+        "shared_entities": 1,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.701, asym=0.293, char_cos=0.524] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0060",
       "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
+      "micro_policy": "entailment_direct",
       "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "e_policy": "entailment_direct",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "entailment_direct",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [fold_safe] -> deterministic -> entailment_direct"
     },
     {
       "id": "nli_fever-0061",
       "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
-      "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "escalated": true,
+      "outcome": "directional_entailment_confirmed",
+      "f_policy": "entailment_direct",
+      "scores": {
+        "char_cosine": 0.634,
+        "group_cosine": 0.474,
+        "dir_fwd": 0.821,
+        "dir_bwd": 0.334,
+        "asym": 0.487,
+        "entity_overlap": 0.667,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.821, asym=0.487, char_cos=0.634] -> directional_entailment_confirmed -> entailment_direct"
     },
     {
       "id": "nli_fever-0062",
@@ -1497,62 +1777,89 @@
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "micro_policy": "baseline",
+      "unfold_category": "semantic_near_epistemic_far",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.42,
+        "group_cosine": 0.186,
+        "dir_fwd": 0.557,
+        "dir_bwd": 0.071,
+        "asym": 0.486,
+        "entity_overlap": 0.5,
+        "shared_entities": 1,
+        "contradiction": false
+      },
+      "reason": "escalated [semantic_near_epistemic_far, dir_fwd=0.557, asym=0.486, char_cos=0.42] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0063",
       "gold": "SUPPORTS",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
+      "old_mode": "baseline",
+      "micro_policy": "entailment_direct",
+      "unfold_category": "partial_support_masking",
+      "e_policy": "evidence_strict",
+      "escalated": true,
+      "outcome": "directional_entailment_confirmed",
+      "f_policy": "entailment_direct",
+      "scores": {
+        "char_cosine": 0.525,
+        "group_cosine": 0.537,
+        "dir_fwd": 0.825,
+        "dir_bwd": 0.152,
+        "asym": 0.673,
+        "entity_overlap": 1.0,
+        "shared_entities": 5,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.825, asym=0.673, char_cos=0.525] -> directional_entailment_confirmed -> entailment_direct"
+    },
+    {
+      "id": "nli_fever-0064",
+      "gold": "NOT_ENOUGH_INFO",
       "pred_baseline": "NOT_ENOUGH_INFO",
       "pred_evidence_strict": "NOT_ENOUGH_INFO",
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
-    },
-    {
-      "id": "nli_fever-0064",
-      "gold": "NOT_ENOUGH_INFO",
-      "pred_baseline": "SUPPORTS",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "SUPPORTS",
-      "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
-      "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.258,
+        "group_cosine": 0.256,
+        "dir_fwd": 0.566,
+        "dir_bwd": 0.127,
+        "asym": 0.439,
+        "entity_overlap": 0.667,
+        "shared_entities": 4,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.566, asym=0.439, char_cos=0.258] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0065",
       "gold": "SUPPORTS",
       "pred_baseline": "SUPPORTS",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
+      "micro_policy": "entailment_direct",
       "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "e_policy": "entailment_direct",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "entailment_direct",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [fold_safe] -> deterministic -> entailment_direct"
     },
     {
       "id": "nli_fever-0066",
@@ -1561,14 +1868,23 @@
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
+      "micro_policy": "entailment_direct",
       "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
-      "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "e_policy": "entailment_direct",
+      "escalated": true,
+      "outcome": "directional_entailment_confirmed",
+      "f_policy": "entailment_direct",
+      "scores": {
+        "char_cosine": 0.77,
+        "group_cosine": 0.726,
+        "dir_fwd": 0.89,
+        "dir_bwd": 0.255,
+        "asym": 0.635,
+        "entity_overlap": 0.833,
+        "shared_entities": 5,
+        "contradiction": false
+      },
+      "reason": "escalated [fold_safe, dir_fwd=0.89, asym=0.635, char_cos=0.77] -> directional_entailment_confirmed -> entailment_direct"
     },
     {
       "id": "nli_fever-0067",
@@ -1578,13 +1894,22 @@
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.272,
+        "group_cosine": 0.272,
+        "dir_fwd": 0.65,
+        "dir_bwd": 0.115,
+        "asym": 0.535,
+        "entity_overlap": 0.667,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.65, asym=0.535, char_cos=0.272] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0068",
@@ -1593,158 +1918,203 @@
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "micro_policy": "baseline",
+      "unfold_category": "contradiction_masking",
+      "e_policy": "baseline",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "baseline",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [contradiction_masking] -> deterministic -> baseline"
     },
     {
       "id": "nli_fever-0069",
       "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.216,
+        "group_cosine": 0.18,
+        "dir_fwd": 0.523,
+        "dir_bwd": 0.072,
+        "asym": 0.451,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.523, asym=0.451, char_cos=0.216] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0070",
       "gold": "REFUTES",
-      "pred_baseline": "NOT_ENOUGH_INFO",
+      "pred_baseline": "REFUTES",
       "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
-      "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
-      "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
-    },
-    {
-      "id": "nli_fever-0071",
-      "gold": "REFUTES",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.207,
+        "group_cosine": 0.107,
+        "dir_fwd": 0.656,
+        "dir_bwd": 0.014,
+        "asym": 0.642,
+        "entity_overlap": 1.0,
+        "shared_entities": 1,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.656, asym=0.642, char_cos=0.207] -> partial_support_confirmed -> evidence_strict"
     },
     {
-      "id": "nli_fever-0072",
-      "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
-      "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
-      "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
-    },
-    {
-      "id": "nli_fever-0073",
-      "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
-      "old_mode": "entailment_direct",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
-      "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
-    },
-    {
-      "id": "nli_fever-0074",
+      "id": "nli_fever-0071",
       "gold": "REFUTES",
       "pred_baseline": "REFUTES",
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
+      "f_policy": "evidence_strict",
+      "scores": {
+        "char_cosine": 0.461,
+        "group_cosine": 0.482,
+        "dir_fwd": 0.682,
+        "dir_bwd": 0.05,
+        "asym": 0.632,
+        "entity_overlap": 1.0,
+        "shared_entities": 4,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.682, asym=0.632, char_cos=0.461] -> partial_support_confirmed -> evidence_strict"
+    },
+    {
+      "id": "nli_fever-0072",
+      "gold": "SUPPORTS",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
+      "old_mode": "baseline",
+      "micro_policy": "entailment_direct",
+      "unfold_category": "fold_safe",
+      "e_policy": "entailment_direct",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "entailment_direct",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [fold_safe] -> deterministic -> entailment_direct"
+    },
+    {
+      "id": "nli_fever-0073",
+      "gold": "SUPPORTS",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
+      "old_mode": "baseline",
+      "micro_policy": "entailment_direct",
+      "unfold_category": "partial_support_masking",
+      "e_policy": "evidence_strict",
+      "escalated": true,
+      "outcome": "directional_entailment_confirmed",
+      "f_policy": "entailment_direct",
+      "scores": {
+        "char_cosine": 0.463,
+        "group_cosine": 0.425,
+        "dir_fwd": 0.852,
+        "dir_bwd": 0.16,
+        "asym": 0.692,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.852, asym=0.692, char_cos=0.463] -> directional_entailment_confirmed -> entailment_direct"
+    },
+    {
+      "id": "nli_fever-0074",
+      "gold": "REFUTES",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "REFUTES",
+      "pred_entailment_direct": "REFUTES",
+      "old_mode": "baseline",
+      "micro_policy": "evidence_strict",
+      "unfold_category": "partial_support_masking",
+      "e_policy": "evidence_strict",
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
+      "f_policy": "evidence_strict",
+      "scores": {
+        "char_cosine": 0.37,
+        "group_cosine": 0.497,
+        "dir_fwd": 0.598,
+        "dir_bwd": 0.158,
+        "asym": 0.44,
+        "entity_overlap": 1.0,
+        "shared_entities": 3,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.598, asym=0.44, char_cos=0.37] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0075",
       "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
+      "pred_baseline": "SUPPORTS",
       "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "micro_policy": "entailment_direct",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
-      "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "escalated": true,
+      "outcome": "directional_entailment_confirmed",
+      "f_policy": "entailment_direct",
+      "scores": {
+        "char_cosine": 0.459,
+        "group_cosine": 0.314,
+        "dir_fwd": 0.826,
+        "dir_bwd": 0.075,
+        "asym": 0.751,
+        "entity_overlap": 1.0,
+        "shared_entities": 3,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.826, asym=0.751, char_cos=0.459] -> directional_entailment_confirmed -> entailment_direct"
     },
     {
       "id": "nli_fever-0076",
       "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
       "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
-      "micro_policy": "baseline",
-      "unfold_category": "semantic_near_epistemic_far",
-      "e_policy": "evidence_strict",
-      "escalated": true,
-      "outcome": "semantic_divergence_confirmed",
-      "f_policy": "evidence_strict",
-      "scores": {
-        "char_cosine": 0.682,
-        "group_cosine": 0.603,
-        "dir_fwd": 0.381,
-        "dir_bwd": 0.956,
-        "asym": -0.575,
-        "entity_overlap": 0.6,
-        "shared_entities": 3,
-        "contradiction": false
-      },
-      "reason": "escalated [semantic_near_epistemic_far, dir_fwd=0.381, asym=-0.575, char_cos=0.682] -> semantic_divergence_confirmed -> evidence_strict"
+      "micro_policy": "entailment_direct",
+      "unfold_category": "fold_safe",
+      "e_policy": "entailment_direct",
+      "escalated": false,
+      "outcome": null,
+      "f_policy": "entailment_direct",
+      "scores": null,
+      "reason": "not escalated [fold_safe] -> deterministic -> entailment_direct"
     },
     {
       "id": "nli_fever-0077",
       "gold": "REFUTES",
-      "pred_baseline": "SUPPORTS",
+      "pred_baseline": "NOT_ENOUGH_INFO",
       "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "SUPPORTS",
+      "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
       "unfold_category": "fold_safe",
@@ -1762,23 +2132,23 @@
       "pred_evidence_strict": "SUPPORTS",
       "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
+      "micro_policy": "entailment_direct",
       "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
       "escalated": true,
-      "outcome": "semantic_divergence_confirmed",
-      "f_policy": "evidence_strict",
+      "outcome": "directional_entailment_confirmed",
+      "f_policy": "entailment_direct",
       "scores": {
         "char_cosine": 0.707,
         "group_cosine": 0.721,
-        "dir_fwd": 0.329,
-        "dir_bwd": 0.833,
-        "asym": -0.504,
-        "entity_overlap": 0.5,
+        "dir_fwd": 0.833,
+        "dir_bwd": 0.329,
+        "asym": 0.504,
+        "entity_overlap": 0.667,
         "shared_entities": 2,
         "contradiction": false
       },
-      "reason": "escalated [partial_support_masking, dir_fwd=0.329, asym=-0.504, char_cos=0.707] -> semantic_divergence_confirmed -> evidence_strict"
+      "reason": "escalated [partial_support_masking, dir_fwd=0.833, asym=0.504, char_cos=0.707] -> directional_entailment_confirmed -> entailment_direct"
     },
     {
       "id": "nli_fever-0079",
@@ -1787,30 +2157,48 @@
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "micro_policy": "entailment_direct",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.455,
+        "group_cosine": 0.589,
+        "dir_fwd": 0.759,
+        "dir_bwd": 0.327,
+        "asym": 0.432,
+        "entity_overlap": 1.0,
+        "shared_entities": 3,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.759, asym=0.432, char_cos=0.455] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0080",
       "gold": "REFUTES",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_baseline": "REFUTES",
+      "pred_evidence_strict": "REFUTES",
+      "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "micro_policy": "entailment_direct",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.348,
+        "group_cosine": 0.358,
+        "dir_fwd": 0.755,
+        "dir_bwd": 0.151,
+        "asym": 0.604,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.755, asym=0.604, char_cos=0.348] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0081",
@@ -1820,6 +2208,31 @@
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
+      "unfold_category": "partial_support_masking",
+      "e_policy": "evidence_strict",
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
+      "f_policy": "evidence_strict",
+      "scores": {
+        "char_cosine": 0.519,
+        "group_cosine": 0.555,
+        "dir_fwd": 0.75,
+        "dir_bwd": 0.25,
+        "asym": 0.5,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.75, asym=0.5, char_cos=0.519] -> partial_support_confirmed -> evidence_strict"
+    },
+    {
+      "id": "nli_fever-0082",
+      "gold": "NOT_ENOUGH_INFO",
+      "pred_baseline": "NOT_ENOUGH_INFO",
+      "pred_evidence_strict": "NOT_ENOUGH_INFO",
+      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "old_mode": "baseline",
+      "micro_policy": "evidence_strict",
       "unfold_category": "fold_safe",
       "e_policy": "evidence_strict",
       "escalated": false,
@@ -1829,54 +2242,29 @@
       "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
     },
     {
-      "id": "nli_fever-0082",
-      "gold": "NOT_ENOUGH_INFO",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
-      "old_mode": "baseline",
-      "micro_policy": "baseline",
-      "unfold_category": "semantic_near_epistemic_far",
-      "e_policy": "evidence_strict",
-      "escalated": true,
-      "outcome": "semantic_divergence_confirmed",
-      "f_policy": "evidence_strict",
-      "scores": {
-        "char_cosine": 0.354,
-        "group_cosine": 0.25,
-        "dir_fwd": 0.277,
-        "dir_bwd": 0.331,
-        "asym": -0.054,
-        "entity_overlap": 0.5,
-        "shared_entities": 1,
-        "contradiction": false
-      },
-      "reason": "escalated [semantic_near_epistemic_far, dir_fwd=0.277, asym=-0.054, char_cos=0.354] -> semantic_divergence_confirmed -> evidence_strict"
-    },
-    {
       "id": "nli_fever-0083",
       "gold": "SUPPORTS",
       "pred_baseline": "SUPPORTS",
       "pred_evidence_strict": "SUPPORTS",
       "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "partial_support_masking",
-      "e_policy": "evidence_strict",
+      "micro_policy": "entailment_direct",
+      "unfold_category": "fold_safe",
+      "e_policy": "entailment_direct",
       "escalated": true,
-      "outcome": "partial_support_confirmed",
-      "f_policy": "evidence_strict",
+      "outcome": "directional_entailment_confirmed",
+      "f_policy": "entailment_direct",
       "scores": {
         "char_cosine": 0.599,
         "group_cosine": 0.661,
-        "dir_fwd": 0.475,
-        "dir_bwd": 0.881,
-        "asym": -0.406,
-        "entity_overlap": 0.714,
+        "dir_fwd": 0.881,
+        "dir_bwd": 0.475,
+        "asym": 0.406,
+        "entity_overlap": 1.0,
         "shared_entities": 5,
         "contradiction": false
       },
-      "reason": "escalated [partial_support_masking, dir_fwd=0.475, asym=-0.406, char_cos=0.599] -> partial_support_confirmed -> evidence_strict"
+      "reason": "escalated [fold_safe, dir_fwd=0.881, asym=0.406, char_cos=0.599] -> directional_entailment_confirmed -> entailment_direct"
     },
     {
       "id": "nli_fever-0084",
@@ -1886,13 +2274,22 @@
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.364,
+        "group_cosine": 0.365,
+        "dir_fwd": 0.641,
+        "dir_bwd": 0.192,
+        "asym": 0.449,
+        "entity_overlap": 0.667,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.641, asym=0.449, char_cos=0.364] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0085",
@@ -1901,30 +2298,39 @@
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "micro_policy": "baseline",
+      "unfold_category": "contradiction_masking",
+      "e_policy": "baseline",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "baseline",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [contradiction_masking] -> deterministic -> baseline"
     },
     {
       "id": "nli_fever-0086",
       "gold": "REFUTES",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "REFUTES",
+      "pred_baseline": "REFUTES",
+      "pred_evidence_strict": "REFUTES",
+      "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.355,
+        "group_cosine": 0.267,
+        "dir_fwd": 0.544,
+        "dir_bwd": 0.157,
+        "asym": 0.387,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.544, asym=0.387, char_cos=0.355] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0087",
@@ -1934,13 +2340,22 @@
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.408,
+        "group_cosine": 0.513,
+        "dir_fwd": 0.568,
+        "dir_bwd": 0.133,
+        "asym": 0.435,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.568, asym=0.435, char_cos=0.408] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0088",
@@ -1950,13 +2365,22 @@
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.297,
+        "group_cosine": 0.265,
+        "dir_fwd": 0.674,
+        "dir_bwd": 0.101,
+        "asym": 0.573,
+        "entity_overlap": 0.667,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.674, asym=0.573, char_cos=0.297] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0089",
@@ -1966,20 +2390,29 @@
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.434,
+        "group_cosine": 0.365,
+        "dir_fwd": 0.712,
+        "dir_bwd": 0.201,
+        "asym": 0.511,
+        "entity_overlap": 0.6,
+        "shared_entities": 3,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.712, asym=0.511, char_cos=0.434] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0090",
       "gold": "REFUTES",
-      "pred_baseline": "REFUTES",
-      "pred_evidence_strict": "SUPPORTS",
-      "pred_entailment_direct": "SUPPORTS",
+      "pred_baseline": "NOT_ENOUGH_INFO",
+      "pred_evidence_strict": "REFUTES",
+      "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
       "unfold_category": "fold_safe",
@@ -1997,21 +2430,30 @@
       "pred_evidence_strict": "REFUTES",
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "micro_policy": "entailment_direct",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.417,
+        "group_cosine": 0.523,
+        "dir_fwd": 0.792,
+        "dir_bwd": 0.11,
+        "asym": 0.682,
+        "entity_overlap": 1.0,
+        "shared_entities": 5,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.792, asym=0.682, char_cos=0.417] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0092",
       "gold": "REFUTES",
       "pred_baseline": "REFUTES",
       "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "REFUTES",
+      "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
       "unfold_category": "fold_safe",
@@ -2030,45 +2472,63 @@
       "pred_entailment_direct": "REFUTES",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.436,
+        "group_cosine": 0.408,
+        "dir_fwd": 0.583,
+        "dir_bwd": 0.321,
+        "asym": 0.262,
+        "entity_overlap": 0.4,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.583, asym=0.262, char_cos=0.436] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0094",
-      "gold": "SUPPORTS",
-      "pred_baseline": "SUPPORTS",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "SUPPORTS",
-      "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
-      "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
-    },
-    {
-      "id": "nli_fever-0095",
       "gold": "SUPPORTS",
       "pred_baseline": "NOT_ENOUGH_INFO",
       "pred_evidence_strict": "NOT_ENOUGH_INFO",
       "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
+      "micro_policy": "entailment_direct",
       "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
+      "e_policy": "entailment_direct",
       "escalated": false,
       "outcome": null,
-      "f_policy": "evidence_strict",
+      "f_policy": "entailment_direct",
       "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "reason": "not escalated [fold_safe] -> deterministic -> entailment_direct"
+    },
+    {
+      "id": "nli_fever-0095",
+      "gold": "SUPPORTS",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
+      "old_mode": "baseline",
+      "micro_policy": "evidence_strict",
+      "unfold_category": "partial_support_masking",
+      "e_policy": "evidence_strict",
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
+      "f_policy": "evidence_strict",
+      "scores": {
+        "char_cosine": 0.401,
+        "group_cosine": 0.39,
+        "dir_fwd": 0.67,
+        "dir_bwd": 0.154,
+        "asym": 0.516,
+        "entity_overlap": 1.0,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.67, asym=0.516, char_cos=0.401] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0096",
@@ -2078,61 +2538,97 @@
       "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "semantic_near_epistemic_far",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "semantic_divergence_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.244,
+        "group_cosine": 0.263,
+        "dir_fwd": 0.378,
+        "dir_bwd": 0.092,
+        "asym": 0.286,
+        "entity_overlap": 0.5,
+        "shared_entities": 2,
+        "contradiction": false
+      },
+      "reason": "escalated [semantic_near_epistemic_far, dir_fwd=0.378, asym=0.286, char_cos=0.244] -> semantic_divergence_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0097",
       "gold": "SUPPORTS",
       "pred_baseline": "SUPPORTS",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
-      "micro_policy": "evidence_strict",
+      "micro_policy": "entailment_direct",
       "unfold_category": "fold_safe",
-      "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
-      "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "e_policy": "entailment_direct",
+      "escalated": true,
+      "outcome": "directional_entailment_confirmed",
+      "f_policy": "entailment_direct",
+      "scores": {
+        "char_cosine": 0.519,
+        "group_cosine": 0.424,
+        "dir_fwd": 0.867,
+        "dir_bwd": 0.166,
+        "asym": 0.701,
+        "entity_overlap": 0.5,
+        "shared_entities": 1,
+        "contradiction": false
+      },
+      "reason": "escalated [fold_safe, dir_fwd=0.867, asym=0.701, char_cos=0.519] -> directional_entailment_confirmed -> entailment_direct"
     },
     {
       "id": "nli_fever-0098",
       "gold": "SUPPORTS",
-      "pred_baseline": "NOT_ENOUGH_INFO",
-      "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "NOT_ENOUGH_INFO",
+      "pred_baseline": "SUPPORTS",
+      "pred_evidence_strict": "SUPPORTS",
+      "pred_entailment_direct": "SUPPORTS",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.385,
+        "group_cosine": 0.415,
+        "dir_fwd": 0.708,
+        "dir_bwd": 0.077,
+        "asym": 0.631,
+        "entity_overlap": 0.0,
+        "shared_entities": 0,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.708, asym=0.631, char_cos=0.385] -> partial_support_confirmed -> evidence_strict"
     },
     {
       "id": "nli_fever-0099",
       "gold": "REFUTES",
       "pred_baseline": "NOT_ENOUGH_INFO",
       "pred_evidence_strict": "NOT_ENOUGH_INFO",
-      "pred_entailment_direct": "REFUTES",
+      "pred_entailment_direct": "NOT_ENOUGH_INFO",
       "old_mode": "baseline",
       "micro_policy": "evidence_strict",
-      "unfold_category": "fold_safe",
+      "unfold_category": "partial_support_masking",
       "e_policy": "evidence_strict",
-      "escalated": false,
-      "outcome": null,
+      "escalated": true,
+      "outcome": "partial_support_confirmed",
       "f_policy": "evidence_strict",
-      "scores": null,
-      "reason": "not escalated [fold_safe] -> deterministic -> evidence_strict"
+      "scores": {
+        "char_cosine": 0.432,
+        "group_cosine": 0.559,
+        "dir_fwd": 0.755,
+        "dir_bwd": 0.168,
+        "asym": 0.587,
+        "entity_overlap": 0.5,
+        "shared_entities": 1,
+        "contradiction": false
+      },
+      "reason": "escalated [partial_support_masking, dir_fwd=0.755, asym=0.587, char_cos=0.432] -> partial_support_confirmed -> evidence_strict"
     }
   ],
   "desi_core": {
