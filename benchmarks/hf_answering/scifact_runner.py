@@ -60,9 +60,20 @@ _MODEL_IDS = {"granite": GRANITE, "claude": "anthropic/claude-haiku-4.5",
 DATASETS = {
     "vitaminc": {"id": "tals/vitaminc", "config": None, "split": "validation",
                  "claim": "claim", "evidence": "evidence", "label": "label"},
+    # NOTE: pietrolesci/nli_fever has NON-STANDARD columns -- its `premise` field
+    # holds the short FEVER CLAIM and its `hypothesis` field holds the long
+    # Wikipedia EVIDENCE (the opposite of standard NLI naming). Verified against
+    # the fever_gold_label semantics (see fever_mapping_audit). The verify task is
+    # "does EVIDENCE support CLAIM", so claim<-premise, evidence<-hypothesis.
     "nli_fever": {"id": "pietrolesci/nli_fever", "config": None, "split": "dev",
-                  "claim": "hypothesis", "evidence": "premise", "label": "fever_gold_label"},
+                  "claim": "premise", "evidence": "hypothesis", "label": "fever_gold_label"},
 }
+
+
+def map_claim_evidence(spec: dict, record: dict) -> tuple[str, str]:
+    """Pure: extract (claim, evidence) text from a raw record per the dataset spec.
+    Empty only if the underlying raw field is empty/absent."""
+    return str(record.get(spec["claim"], "")), str(record.get(spec["evidence"], ""))
 
 
 def load_verify(dataset_key: str, limit: int) -> tuple[dict, list[VerifyExample]]:
@@ -80,10 +91,11 @@ def load_verify(dataset_key: str, limit: int) -> tuple[dict, list[VerifyExample]
         if gold is None:  # unmapped label -> skip, never invent
             skipped += 1
             continue
+        claim, evidence = map_claim_evidence(spec, r)
         out.append(VerifyExample(
             id=f"{dataset_key}-{i:04d}",
-            claim=str(r.get(spec["claim"], "")),
-            evidence=str(r.get(spec["evidence"], "")),
+            claim=claim,
+            evidence=evidence,
             gold=gold,
         ))
     spec = {**spec, "skipped_unmapped": skipped}
