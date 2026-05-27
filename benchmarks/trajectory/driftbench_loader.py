@@ -74,8 +74,7 @@ def load_sample(limit: int = 15, condition: str | None = None) -> list:
     that have a matching auditor score, attach the brief, and return items."""
     sibs = _siblings()
     tfiles = sorted(f for f in sibs if f.startswith("transcripts/") and f.endswith(".jsonl"))
-    items, needed_briefs = [], set()
-    staged = []
+    staged, needed = [], set()
     for tf in tfiles:
         if len(staged) >= limit:
             break
@@ -86,19 +85,57 @@ def load_sample(limit: int = 15, condition: str | None = None) -> list:
         aud = _auditor_for(run_id)
         if aud is None:
             continue
-        needed_briefs.add(meta.get("brief_id"))
+        needed.add(meta.get("brief_id"))
         staged.append((meta, msgs, aud))
-    briefs = load_briefs(needed_briefs)
+    briefs = load_briefs(needed)
+    out = []
     for meta, msgs, aud in staged:
+        if meta.get("brief_id") in briefs:
+            out.append({"run_id": meta.get("run_id"), "brief_id": meta.get("brief_id"),
+                        "model_id": meta.get("model_id"), "condition": meta.get("condition"),
+                        "brief": briefs[meta["brief_id"]], "messages": msgs, "auditor": aud})
+    return out
+
+
+def _snapshot_main() -> str:
+    """Download the MAIN labelled set (briefs + transcripts + auditor scores) in one
+    batched snapshot. Returns the local cache dir."""
+    from huggingface_hub import snapshot_download
+    return snapshot_download(
+        REPO, repo_type="dataset",
+        allow_patterns=["briefs/*.yaml", "transcripts/*.jsonl", "scores/auditor_*.jsonl"],
+        max_workers=8,
+    )
+
+
+def iter_all():
+    """Yield every MAIN-set item that has both a transcript and an auditor score.
+    Streams (does not keep all messages in memory at once)."""
+    import glob
+    import yaml
+    root = _snapshot_main()
+    briefs = {os.path.splitext(os.path.basename(f))[0]: yaml.safe_load(open(f, encoding="utf-8"))
+              for f in glob.glob(os.path.join(root, "briefs", "*.yaml"))}
+    by_run = {}
+    for tf in glob.glob(os.path.join(root, "transcripts", "*.jsonl")):
+        by_run[os.path.basename(tf).split("_")[0]] = tf
+    for af in sorted(glob.glob(os.path.join(root, "scores", "auditor_*.jsonl"))):
+        run_id = os.path.basename(af)[len("auditor_"):-len(".jsonl")]
+        tf = by_run.get(run_id)
+        if tf is None:
+            continue
+        with open(af, encoding="utf-8") as fh:
+            line = next((l for l in fh if l.strip()), None)
+        if line is None:
+            continue
+        aud = json.loads(line)
+        meta, msgs = parse_transcript(open(tf, encoding="utf-8").readline())
         bid = meta.get("brief_id")
         if bid not in briefs:
             continue
-        items.append({
-            "run_id": meta.get("run_id"), "brief_id": bid, "model_id": meta.get("model_id"),
-            "condition": meta.get("condition"), "brief": briefs[bid],
-            "messages": msgs, "auditor": aud,
-        })
-    return items
+        yield {"run_id": meta.get("run_id"), "brief_id": bid, "model_id": meta.get("model_id"),
+               "condition": meta.get("condition"), "brief": briefs[bid],
+               "messages": msgs, "auditor": aud}
 
 
 if __name__ == "__main__":

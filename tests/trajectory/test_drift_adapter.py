@@ -12,7 +12,7 @@ sys.path.insert(0, str(_REPO / "benchmarks" / "trajectory"))
 
 from driftbench_loader import AUDITOR_DIMS, auditor_severity, parse_transcript  # noqa: E402
 from trajectory_adapter import coverage, to_trajectory  # noqa: E402
-from drift_metrics import trajectory_metrics  # noqa: E402
+from drift_metrics import _monotone, _spearman, trajectory_metrics  # noqa: E402
 
 _BRIEF = {
     "objective": "Assess whether community solar enrollment reduces electricity cost burden disparity.",
@@ -84,6 +84,16 @@ def test_trajectory_metrics_ranges_and_keys():
 
 def test_empty_trajectory_safe():
     assert trajectory_metrics({"brief": _BRIEF, "messages": [{"role": "system", "content": "s"}]}) == {}
+
+
+def test_spearman_and_monotone():
+    assert _spearman([1, 2, 3, 4], [1, 2, 3, 4]) == 1.0
+    assert _spearman([1, 2, 3, 4], [4, 3, 2, 1]) == -1.0
+    assert _spearman([1, 1, 1], [1, 2, 3]) is None      # constant column
+    assert _spearman([1, 2], [1, 2]) is None            # too few
+    assert _monotone([0.1, 0.2, 0.3, 0.4]) is True
+    assert _monotone([0.1, 0.3, 0.2]) is False
+    assert _monotone([0.5]) is True
 
 
 def test_auditor_dims_constant():
