@@ -1,0 +1,662 @@
+{
+  "title": "Henry I of England",
+  "pageid": 14179,
+  "n_sections": 24,
+  "claims": [
+    {
+      "i": 1,
+      "anchors": [
+        "1",
+        "1068",
+        "1100",
+        "1135",
+        "beauclerc",
+        "december"
+      ],
+      "n_anchors": 9
+    },
+    {
+      "i": 3,
+      "anchors": [
+        "1087",
+        "curthose",
+        "england",
+        "henry",
+        "henrys",
+        "normandy"
+      ],
+      "n_anchors": 10
+    },
+    {
+      "i": 10,
+      "anchors": [
+        "1105",
+        "1106",
+        "battle",
+        "duchy",
+        "henry",
+        "normandy"
+      ],
+      "n_anchors": 8
+    },
+    {
+      "i": 12,
+      "anchors": [
+        "1116",
+        "1119",
+        "anjou",
+        "baldwin",
+        "clito",
+        "duchy"
+      ],
+      "n_anchors": 13
+    },
+    {
+      "i": 34,
+      "anchors": [
+        "duchy",
+        "england",
+        "green",
+        "hollister",
+        "judith",
+        "kathleen"
+      ],
+      "n_anchors": 8
+    },
+    {
+      "i": 55,
+      "anchors": [
+        "duchy",
+        "henry",
+        "hugh",
+        "mont",
+        "norman",
+        "redvers"
+      ],
+      "n_anchors": 8
+    },
+    {
+      "i": 105,
+      "anchors": [
+        "1100",
+        "2",
+        "august",
+        "forest",
+        "henry",
+        "king"
+      ],
+      "n_anchors": 9
+    },
+    {
+      "i": 114,
+      "anchors": [
+        "5",
+        "abbey",
+        "anselm",
+        "august",
+        "canterbury",
+        "england"
+      ],
+      "n_anchors": 14
+    },
+    {
+      "i": 119,
+      "anchors": [
+        "dapifer",
+        "fitzhamon",
+        "giffard",
+        "haimo",
+        "robert",
+        "urse"
+      ],
+      "n_anchors": 8
+    },
+    {
+      "i": 123,
+      "anchors": [
+        "11",
+        "1100",
+        "abbey",
+        "henry",
+        "malcolm",
+        "matilda"
+      ],
+      "n_anchors": 9
+    },
+    {
+      "i": 127,
+      "anchors": [
+        "alfred",
+        "anglosaxon",
+        "edgar",
+        "edith",
+        "edmund",
+        "great"
+      ],
+      "n_anchors": 9
+    },
+    {
+      "i": 151,
+      "anchors": [
+        "2,000",
+        "alton",
+        "domfront",
+        "duke",
+        "flambard",
+        "henry"
+      ],
+      "n_anchors": 10
+    },
+    {
+      "i": 160,
+      "anchors": [
+        "breteuil",
+        "count",
+        "eustace",
+        "juliane",
+        "matilda",
+        "norman"
+      ],
+      "n_anchors": 8
+    },
+    {
+      "i": 233,
+      "anchors": [
+        "1119",
+        "canterbury",
+        "council",
+        "france",
+        "louis",
+        "papacy"
+      ],
+      "n_anchors": 9
+    },
+    {
+      "i": 267,
+      "anchors": [
+        "1111",
+        "1113",
+        "anjou",
+        "blois",
+        "count",
+        "france"
+      ],
+      "n_anchors": 10
+    },
+    {
+      "i": 268,
+      "anchors": [
+        "adelin",
+        "anjou",
+        "anjous",
+        "brittany",
+        "conan",
+        "duke"
+      ],
+      "n_anchors": 11
+    },
+    {
+      "i": 269,
+      "anchors": [
+        "1113",
+        "bellme",
+        "brittany",
+        "gisors",
+        "henry",
+        "henrys"
+      ],
+      "n_anchors": 8
+    },
+    {
+      "i": 272,
+      "anchors": [
+        "1114",
+        "cadwgan",
+        "chester",
+        "cynan",
+        "earl",
+        "gruffudd"
+      ],
+      "n_anchors": 11
+    },
+    {
+      "i": 273,
+      "anchors": [
+        "alexander",
+        "fitz",
+        "gilbert",
+        "henry",
+        "midwales",
+        "richard"
+      ],
+      "n_anchors": 8
+    },
+    {
+      "i": 304,
+      "anchors": [
+        "1120",
+        "adelin",
+        "duchy",
+        "english",
+        "henry",
+        "june"
+      ],
+      "n_anchors": 9
+    },
+    {
+      "i": 326,
+      "anchors": [
+        "battle",
+        "beaumontleroger",
+        "bernay",
+        "borleng",
+        "bourgthroulde",
+        "brotonne"
+      ],
+      "n_anchors": 9
+    },
+    {
+      "i": 367,
+      "anchors": [
+        "1",
+        "1135",
+        "abbey",
+        "december",
+        "england",
+        "king"
+      ],
+      "n_anchors": 9
+    },
+    {
+      "i": 395,
+      "anchors": [
+        "1093",
+        "ansfride",
+        "bishop",
+        "bloet",
+        "corbet",
+        "cornwall"
+      ],
+      "n_anchors": 31
+    },
+    {
+      "i": 396,
+      "anchors": [
+        "1100",
+        "abbess",
+        "adeliza",
+        "aline",
+        "ansfrida",
+        "beaumont"
+      ],
+      "n_anchors": 44
+    },
+    {
+      "i": 397,
+      "anchors": [
+        "british",
+        "england",
+        "gallery",
+        "henry",
+        "history",
+        "house"
+      ],
+      "n_anchors": 12
+    }
+  ],
+  "branches": [
+    {
+      "i": 12,
+      "anchors": [
+        "1116",
+        "1119",
+        "anjou",
+        "baldwin",
+        "clito",
+        "duchy"
+      ]
+    },
+    {
+      "i": 25,
+      "anchors": [
+        "1068",
+        "england",
+        "selby",
+        "yorkshire"
+      ]
+    },
+    {
+      "i": 50,
+      "anchors": [
+        "henrys",
+        "normandy",
+        "robert",
+        "roberts",
+        "rufus",
+        "william"
+      ]
+    },
+    {
+      "i": 53,
+      "anchors": [
+        "3,000",
+        "henry",
+        "normandy",
+        "robert"
+      ]
+    },
+    {
+      "i": 61,
+      "anchors": [
+        "duke",
+        "henry",
+        "king",
+        "robert",
+        "william"
+      ]
+    },
+    {
+      "i": 83,
+      "anchors": [
+        "england",
+        "henry",
+        "normandy"
+      ]
+    },
+    {
+      "i": 108,
+      "anchors": [
+        "france",
+        "kings",
+        "tirel"
+      ]
+    },
+    {
+      "i": 120,
+      "anchors": [
+        "durham",
+        "flambard",
+        "london",
+        "ranulf",
+        "tower"
+      ]
+    },
+    {
+      "i": 134,
+      "anchors": [
+        "england",
+        "king",
+        "normandy",
+        "queen",
+        "westminster"
+      ]
+    },
+    {
+      "i": 150,
+      "anchors": [
+        "alton",
+        "flambard",
+        "hampshire",
+        "henry",
+        "robert"
+      ]
+    },
+    {
+      "i": 151,
+      "anchors": [
+        "2,000",
+        "alton",
+        "domfront",
+        "duke",
+        "flambard",
+        "henry"
+      ]
+    },
+    {
+      "i": 223,
+      "anchors": [
+        "anselms",
+        "robert"
+      ]
+    },
+    {
+      "i": 343,
+      "anchors": [
+        "flanders",
+        "flemish",
+        "henry",
+        "normandy",
+        "williams"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "i": 8
+    },
+    {
+      "i": 10
+    },
+    {
+      "i": 12
+    },
+    {
+      "i": 17
+    },
+    {
+      "i": 47
+    },
+    {
+      "i": 64
+    },
+    {
+      "i": 143
+    },
+    {
+      "i": 219
+    },
+    {
+      "i": 229
+    },
+    {
+      "i": 233
+    },
+    {
+      "i": 235
+    },
+    {
+      "i": 252
+    },
+    {
+      "i": 269
+    },
+    {
+      "i": 280
+    },
+    {
+      "i": 289
+    },
+    {
+      "i": 300
+    },
+    {
+      "i": 315
+    },
+    {
+      "i": 321
+    },
+    {
+      "i": 341
+    },
+    {
+      "i": 353
+    },
+    {
+      "i": 368
+    },
+    {
+      "i": 387
+    },
+    {
+      "i": 388
+    }
+  ],
+  "uncertainty": {
+    "count": 54,
+    "sentences": [
+      25,
+      29,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      40,
+      42,
+      47,
+      50,
+      61,
+      79,
+      86,
+      88,
+      89,
+      91,
+      99,
+      100,
+      106,
+      107,
+      125,
+      129,
+      135,
+      139,
+      140,
+      150,
+      177,
+      188,
+      236,
+      242,
+      245,
+      265,
+      280,
+      292,
+      295,
+      313,
+      314,
+      331,
+      332,
+      333,
+      334,
+      336,
+      339,
+      350,
+      354,
+      359,
+      364,
+      387,
+      390,
+      392,
+      395,
+      396
+    ]
+  },
+  "citations": 894,
+  "frames": [
+    {
+      "section": "Lead",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Childhood and appearance, 1068–1086",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Inheritance, 1087–1088",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Count of the Cotentin, 1088–90",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Fall and rise, 1091–1099",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Taking the throne, 1100",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Marriage to Matilda, 1100",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Treaty of Alton, 1101–1102",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Conquest of Normandy, 1103–1106",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Government, law and court",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Church and the King",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Personal beliefs and piety",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Continental and Welsh politics, 1108–1114",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Rebellion, 1115–1120",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Succession crisis, 1120–1124",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Planning the succession, 1125–1134",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Death",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Historiography",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Legitimate",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Illegitimate",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Sons",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Daughters",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "See also",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "External links",
+      "frame": "frame_undeclared"
+    }
+  ]
+}

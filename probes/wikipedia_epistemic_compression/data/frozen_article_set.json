@@ -1,0 +1,71 @@
+{
+  "seed": 20260528,
+  "selection_rule": "random.Random(SEED).sample(sorted(pool), N)",
+  "pool_source": "Category:Featured articles (namespace 0)",
+  "pool_size": 6929,
+  "pool_sha256": "940d52ea5e814978f3be2031e4b94bde2c87b4cbb001722b50153226e33a61de",
+  "n": 10,
+  "frozen_at": "2026-05-28T19:17:02Z",
+  "selected": [
+    {
+      "requested_title": "Actions along the Matanikau",
+      "title": "Actions along the Matanikau",
+      "pageid": 8626854,
+      "fetched_at": "2026-05-28T19:16:56Z"
+    },
+    {
+      "requested_title": "Canada",
+      "title": "Canada",
+      "pageid": 5042916,
+      "fetched_at": "2026-05-28T19:16:57Z"
+    },
+    {
+      "requested_title": "Curlew sandpiper",
+      "title": "Curlew sandpiper",
+      "pageid": 352084,
+      "fetched_at": "2026-05-28T19:16:57Z"
+    },
+    {
+      "requested_title": "Grey Cup",
+      "title": "Grey Cup",
+      "pageid": 230107,
+      "fetched_at": "2026-05-28T19:16:58Z"
+    },
+    {
+      "requested_title": "Hellraiser: Judgment",
+      "title": "Hellraiser: Judgment",
+      "pageid": 51542381,
+      "fetched_at": "2026-05-28T19:16:58Z"
+    },
+    {
+      "requested_title": "Henry I of England",
+      "title": "Henry I of England",
+      "pageid": 14179,
+      "fetched_at": "2026-05-28T19:16:59Z"
+    },
+    {
+      "requested_title": "Hughie Ferguson",
+      "title": "Hughie Ferguson",
+      "pageid": 6396868,
+      "fetched_at": "2026-05-28T19:17:00Z"
+    },
+    {
+      "requested_title": "Islands: Non-Places",
+      "title": "Islands: Non-Places",
+      "pageid": 64269620,
+      "fetched_at": "2026-05-28T19:17:00Z"
+    },
+    {
+      "requested_title": "Kids See Ghosts (album)",
+      "title": "Kids See Ghosts (album)",
+      "pageid": 57174969,
+      "fetched_at": "2026-05-28T19:17:01Z"
+    },
+    {
+      "requested_title": "North Ronaldsay sheep",
+      "title": "North Ronaldsay sheep",
+      "pageid": 630637,
+      "fetched_at": "2026-05-28T19:17:02Z"
+    }
+  ]
+}

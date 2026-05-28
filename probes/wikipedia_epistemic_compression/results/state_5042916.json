@@ -1,0 +1,584 @@
+{
+  "title": "Canada",
+  "pageid": 5042916,
+  "n_sections": 34,
+  "claims": [
+    {
+      "i": 54,
+      "anchors": [
+        "10",
+        "1534",
+        "24",
+        "33",
+        "cartier",
+        "france"
+      ],
+      "n_anchors": 15
+    },
+    {
+      "i": 60,
+      "anchors": [
+        "acadians",
+        "bay",
+        "canadiens",
+        "catholic",
+        "france",
+        "great"
+      ],
+      "n_anchors": 15
+    },
+    {
+      "i": 64,
+      "anchors": [
+        "1713",
+        "1763",
+        "british",
+        "canada",
+        "france",
+        "new"
+      ],
+      "n_anchors": 13
+    },
+    {
+      "i": 65,
+      "anchors": [
+        "1763",
+        "breton",
+        "cape",
+        "first",
+        "france",
+        "island"
+      ],
+      "n_anchors": 14
+    },
+    {
+      "i": 71,
+      "anchors": [
+        "1783",
+        "american",
+        "british",
+        "great",
+        "independence",
+        "lakes"
+      ],
+      "n_anchors": 14
+    },
+    {
+      "i": 75,
+      "anchors": [
+        "1791",
+        "act",
+        "canada",
+        "central",
+        "constitutional",
+        "englishspeaking"
+      ],
+      "n_anchors": 12
+    },
+    {
+      "i": 83,
+      "anchors": [
+        "1840",
+        "1855",
+        "act",
+        "america",
+        "british",
+        "canada"
+      ],
+      "n_anchors": 12
+    },
+    {
+      "i": 86,
+      "anchors": [
+        "1825",
+        "1867",
+        "alaska",
+        "alaskabritish",
+        "alaskayukon",
+        "anglorussian"
+      ],
+      "n_anchors": 12
+    },
+    {
+      "i": 87,
+      "anchors": [
+        "1",
+        "1867",
+        "act",
+        "america",
+        "british",
+        "brunswick"
+      ],
+      "n_anchors": 15
+    },
+    {
+      "i": 88,
+      "anchors": [
+        "1870",
+        "july",
+        "land",
+        "manitoba",
+        "mtis",
+        "northwest"
+      ],
+      "n_anchors": 13
+    },
+    {
+      "i": 99,
+      "anchors": [
+        "1867",
+        "1914",
+        "act",
+        "america",
+        "britain",
+        "british"
+      ],
+      "n_anchors": 12
+    },
+    {
+      "i": 106,
+      "anchors": [
+        "10",
+        "1939",
+        "george",
+        "germany",
+        "king",
+        "kingdom"
+      ],
+      "n_anchors": 13
+    },
+    {
+      "i": 127,
+      "anchors": [
+        "182",
+        "1985",
+        "1989",
+        "1990",
+        "air",
+        "canadian"
+      ],
+      "n_anchors": 12
+    },
+    {
+      "i": 137,
+      "anchors": [
+        "1,280",
+        "151,019",
+        "243,042",
+        "4,200",
+        "5,525",
+        "8,891"
+      ],
+      "n_anchors": 17
+    },
+    {
+      "i": 139,
+      "anchors": [
+        "40",
+        "41",
+        "53",
+        "6",
+        "83",
+        "canadas"
+      ],
+      "n_anchors": 13
+    },
+    {
+      "i": 179,
+      "anchors": [
+        "2025",
+        "2026",
+        "april",
+        "bloc",
+        "conservatives",
+        "democratic"
+      ],
+      "n_anchors": 14
+    },
+    {
+      "i": 262,
+      "anchors": [
+        "1988",
+        "1994",
+        "agreement",
+        "american",
+        "canada",
+        "canadaunited"
+      ],
+      "n_anchors": 13
+    },
+    {
+      "i": 298,
+      "anchors": [
+        "0.3",
+        "19.3",
+        "2.1",
+        "2.5",
+        "22.9",
+        "3.8"
+      ],
+      "n_anchors": 20
+    },
+    {
+      "i": 300,
+      "anchors": [
+        "11.0",
+        "12.1",
+        "14.7",
+        "15.6",
+        "2021",
+        "3.5"
+      ],
+      "n_anchors": 20
+    },
+    {
+      "i": 303,
+      "anchors": [
+        "0.3",
+        "0.6",
+        "1.0",
+        "1.1",
+        "1.5",
+        "1.6"
+      ],
+      "n_anchors": 35
+    },
+    {
+      "i": 321,
+      "anchors": [
+        "237,890",
+        "272,865",
+        "319,505",
+        "461,150",
+        "508,410",
+        "538,870"
+      ],
+      "n_anchors": 18
+    },
+    {
+      "i": 395,
+      "anchors": [
+        "award",
+        "awards",
+        "burt",
+        "first",
+        "generals",
+        "giller"
+      ],
+      "n_anchors": 18
+    },
+    {
+      "i": 411,
+      "anchors": [
+        "1812",
+        "1866",
+        "1880",
+        "1980",
+        "200",
+        "bold"
+      ],
+      "n_anchors": 15
+    },
+    {
+      "i": 433,
+      "anchors": [
+        "1976",
+        "1988",
+        "2010",
+        "2015",
+        "american",
+        "cup"
+      ],
+      "n_anchors": 15
+    },
+    {
+      "i": 436,
+      "anchors": [
+        "affairs",
+        "atlas",
+        "canada",
+        "canadas",
+        "chief",
+        "foreign"
+      ],
+      "n_anchors": 23
+    }
+  ],
+  "branches": [
+    {
+      "i": 56,
+      "anchors": [
+        "age",
+        "discovery",
+        "scandinavia"
+      ]
+    },
+    {
+      "i": 73,
+      "anchors": [
+        "atlantic",
+        "canada"
+      ]
+    },
+    {
+      "i": 78,
+      "anchors": [
+        "1815",
+        "1850",
+        "960,000",
+        "britain"
+      ]
+    },
+    {
+      "i": 79,
+      "anchors": [
+        "clearances",
+        "famine",
+        "gaelicspeaking",
+        "great",
+        "highland",
+        "irish"
+      ]
+    },
+    {
+      "i": 179,
+      "anchors": [
+        "2025",
+        "2026",
+        "april",
+        "bloc",
+        "conservatives",
+        "democratic"
+      ]
+    },
+    {
+      "i": 193,
+      "anchors": [
+        "1982",
+        "act",
+        "canada",
+        "constitution",
+        "elections",
+        "house"
+      ]
+    },
+    {
+      "i": 218,
+      "anchors": [
+        "1867",
+        "act",
+        "canada",
+        "canadian",
+        "constitution",
+        "council"
+      ]
+    },
+    {
+      "i": 309,
+      "anchors": [
+        "english",
+        "french"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "i": 8
+    },
+    {
+      "i": 43
+    },
+    {
+      "i": 44
+    },
+    {
+      "i": 67
+    },
+    {
+      "i": 84
+    },
+    {
+      "i": 86
+    },
+    {
+      "i": 124
+    },
+    {
+      "i": 185
+    },
+    {
+      "i": 326
+    }
+  ],
+  "uncertainty": {
+    "count": 27,
+    "sentences": [
+      41,
+      51,
+      52,
+      133,
+      156,
+      166,
+      168,
+      169,
+      185,
+      213,
+      215,
+      219,
+      225,
+      233,
+      242,
+      245,
+      271,
+      274,
+      283,
+      289,
+      301,
+      308,
+      341,
+      347,
+      349,
+      350,
+      431
+    ]
+  },
+  "citations": 1013,
+  "frames": [
+    {
+      "section": "Lead",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Etymology",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Indigenous peoples",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "European colonization",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "British North America",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Confederation and expansion",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Early 20th century",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Contemporary era",
+      "frame": "empirical_causal"
+    },
+    {
+      "section": "Geography",
+      "frame": "empirical_causal"
+    },
+    {
+      "section": "Climate",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Biodiversity",
+      "frame": "empirical_causal"
+    },
+    {
+      "section": "Government and politics",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Law",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Provinces and territories",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Foreign relations",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Military",
+      "frame": "empirical_causal"
+    },
+    {
+      "section": "Economy",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Science and technology",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Demographics",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Ethnicity",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Languages",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Religion",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Health",
+      "frame": "empirical_causal"
+    },
+    {
+      "section": "Education",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Culture",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Symbols",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Literature",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Visual arts",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Music",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Media",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Sports",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "See also",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "References",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "External links",
+      "frame": "frame_undeclared"
+    }
+  ]
+}

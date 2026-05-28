@@ -1,0 +1,393 @@
+{
+  "title": "Curlew sandpiper",
+  "pageid": 352084,
+  "n_sections": 14,
+  "claims": [
+    {
+      "i": 1,
+      "anchors": [
+        "arctic",
+        "august",
+        "june",
+        "september",
+        "siberian"
+      ],
+      "n_anchors": 5
+    },
+    {
+      "i": 21,
+      "anchors": [
+        "1763",
+        "1764",
+        "brnnich",
+        "danish",
+        "erik",
+        "morten"
+      ],
+      "n_anchors": 9
+    },
+    {
+      "i": 22,
+      "anchors": [
+        "1816",
+        "louis",
+        "pierre",
+        "tringa",
+        "vieillot"
+      ],
+      "n_anchors": 5
+    },
+    {
+      "i": 30,
+      "anchors": [
+        "117",
+        "18",
+        "23",
+        "44"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 31,
+      "anchors": [
+        "26",
+        "32",
+        "34",
+        "38",
+        "44",
+        "46"
+      ],
+      "n_anchors": 6
+    },
+    {
+      "i": 69,
+      "anchors": [
+        "asia",
+        "range",
+        "siberia",
+        "verkhoyansk"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 70,
+      "anchors": [
+        "arctic",
+        "bay",
+        "kolyuchin",
+        "peninsula",
+        "siberian",
+        "yamal"
+      ],
+      "n_anchors": 6
+    },
+    {
+      "i": 73,
+      "anchors": [
+        "africa",
+        "cape",
+        "gabon",
+        "kenya",
+        "mauritania",
+        "mozambique"
+      ],
+      "n_anchors": 10
+    },
+    {
+      "i": 74,
+      "anchors": [
+        "angola",
+        "chad",
+        "congo",
+        "egypt",
+        "niger",
+        "nile"
+      ],
+      "n_anchors": 9
+    },
+    {
+      "i": 75,
+      "anchors": [
+        "australasia",
+        "new",
+        "south",
+        "victoria",
+        "wales"
+      ],
+      "n_anchors": 5
+    },
+    {
+      "i": 76,
+      "anchors": [
+        "island",
+        "new",
+        "north",
+        "south",
+        "zealand"
+      ],
+      "n_anchors": 5
+    },
+    {
+      "i": 79,
+      "anchors": [
+        "america",
+        "atlantic",
+        "north",
+        "seaboard"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 88,
+      "anchors": [
+        "august",
+        "europe",
+        "july",
+        "september",
+        "western"
+      ],
+      "n_anchors": 5
+    },
+    {
+      "i": 124,
+      "anchors": [
+        "5",
+        "6",
+        "july",
+        "june"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 129,
+      "anchors": [
+        "10.8",
+        "17",
+        "23.2",
+        "8.2"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 132,
+      "anchors": [
+        "27.8",
+        "30.8",
+        "49.6",
+        "94.5"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 143,
+      "anchors": [
+        "25",
+        "africa",
+        "lagoon",
+        "langebaan",
+        "south"
+      ],
+      "n_anchors": 5
+    },
+    {
+      "i": 147,
+      "anchors": [
+        "calimere",
+        "china",
+        "east",
+        "india",
+        "point",
+        "yellow"
+      ],
+      "n_anchors": 6
+    },
+    {
+      "i": 151,
+      "anchors": [
+        "arctic",
+        "east",
+        "siberian",
+        "west"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 159,
+      "anchors": [
+        "15",
+        "3",
+        "30",
+        "49",
+        "international"
+      ],
+      "n_anchors": 5
+    },
+    {
+      "i": 160,
+      "anchors": [
+        "africaneurasian",
+        "agreement",
+        "conservation",
+        "migratory",
+        "waterbirds"
+      ],
+      "n_anchors": 5
+    },
+    {
+      "i": 161,
+      "anchors": [
+        "0.7",
+        "1.2",
+        "420,000",
+        "960,000"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 162,
+      "anchors": [
+        "300,000",
+        "400,000",
+        "africa",
+        "asia",
+        "east",
+        "south"
+      ],
+      "n_anchors": 7
+    },
+    {
+      "i": 164,
+      "anchors": [
+        "120,000",
+        "asianaustralasian",
+        "east",
+        "flyway"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 166,
+      "anchors": [
+        "50",
+        "65",
+        "sea",
+        "yellow"
+      ],
+      "n_anchors": 4
+    }
+  ],
+  "branches": [
+    {
+      "i": 8,
+      "anchors": []
+    },
+    {
+      "i": 86,
+      "anchors": []
+    }
+  ],
+  "conflicts": [
+    {
+      "i": 35
+    },
+    {
+      "i": 87
+    },
+    {
+      "i": 89
+    },
+    {
+      "i": 100
+    },
+    {
+      "i": 149
+    },
+    {
+      "i": 163
+    }
+  ],
+  "uncertainty": {
+    "count": 20,
+    "sentences": [
+      7,
+      10,
+      20,
+      67,
+      89,
+      91,
+      103,
+      125,
+      136,
+      143,
+      144,
+      145,
+      150,
+      159,
+      161,
+      162,
+      163,
+      164,
+      166,
+      169
+    ]
+  },
+  "citations": 151,
+  "frames": [
+    {
+      "section": "Lead",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Taxonomy and etymology",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Description",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Similar species",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Vocalisations",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Distribution and habitat",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Migration",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Behaviour",
+      "frame": "information_theoretic"
+    },
+    {
+      "section": "Breeding",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Territorial behaviour",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Feeding and diet",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Survival",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Conservation",
+      "frame": "empirical_causal"
+    },
+    {
+      "section": "External links",
+      "frame": "frame_undeclared"
+    }
+  ]
+}

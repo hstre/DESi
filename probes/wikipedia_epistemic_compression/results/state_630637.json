@@ -1,0 +1,354 @@
+{
+  "title": "North Ronaldsay sheep",
+  "pageid": 630637,
+  "n_sections": 12,
+  "claims": [
+    {
+      "i": 0,
+      "anchors": [
+        "north",
+        "orkney",
+        "ronaldsay",
+        "scotland"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 1,
+      "anchors": [
+        "european",
+        "northern"
+      ],
+      "n_anchors": 2
+    },
+    {
+      "i": 3,
+      "anchors": [
+        "auskerry",
+        "north",
+        "orkney",
+        "ronaldsay"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 4,
+      "anchors": [
+        "2021",
+        "2022",
+        "600",
+        "breeds",
+        "kingdom",
+        "rare"
+      ],
+      "n_anchors": 9
+    },
+    {
+      "i": 5,
+      "anchors": [
+        "north",
+        "ronaldsay"
+      ],
+      "n_anchors": 2
+    },
+    {
+      "i": 17,
+      "anchors": [
+        "age",
+        "britain",
+        "iron",
+        "north",
+        "ronaldsay"
+      ],
+      "n_anchors": 5
+    },
+    {
+      "i": 25,
+      "anchors": [
+        "1.8",
+        "12",
+        "19",
+        "6"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 26,
+      "anchors": [
+        "1999",
+        "alist",
+        "historic",
+        "scotland"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 28,
+      "anchors": [
+        "50",
+        "500",
+        "north",
+        "ronaldsay"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 32,
+      "anchors": [
+        "2015",
+        "3",
+        "4.7",
+        "council",
+        "islands",
+        "orkney"
+      ],
+      "n_anchors": 6
+    },
+    {
+      "i": 40,
+      "anchors": [
+        "1839",
+        "court",
+        "north",
+        "ronaldsay",
+        "sheep"
+      ],
+      "n_anchors": 5
+    },
+    {
+      "i": 43,
+      "anchors": [
+        "fellowship",
+        "north",
+        "ronaldsay",
+        "sheep"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 46,
+      "anchors": [
+        "breeds",
+        "north",
+        "rare",
+        "ronaldsay",
+        "survival",
+        "trust"
+      ],
+      "n_anchors": 6
+    },
+    {
+      "i": 47,
+      "anchors": [
+        "festival",
+        "foundation",
+        "north",
+        "orkney",
+        "ronaldsay",
+        "sheep"
+      ],
+      "n_anchors": 9
+    },
+    {
+      "i": 49,
+      "anchors": [
+        "1983",
+        "auskerry",
+        "brogan",
+        "north",
+        "probert",
+        "ronaldsay"
+      ],
+      "n_anchors": 8
+    },
+    {
+      "i": 51,
+      "anchors": [
+        "1.3",
+        "national",
+        "north",
+        "plan",
+        "ronaldsay",
+        "scrapie"
+      ],
+      "n_anchors": 6
+    },
+    {
+      "i": 52,
+      "anchors": [
+        "3000",
+        "brae",
+        "european",
+        "north",
+        "ronaldsay",
+        "skara"
+      ],
+      "n_anchors": 6
+    },
+    {
+      "i": 54,
+      "anchors": [
+        "16",
+        "25",
+        "30",
+        "41",
+        "55",
+        "65"
+      ],
+      "n_anchors": 6
+    },
+    {
+      "i": 56,
+      "anchors": [
+        "european",
+        "north",
+        "ronaldsay"
+      ],
+      "n_anchors": 3
+    },
+    {
+      "i": 66,
+      "anchors": [
+        "24",
+        "north",
+        "ronaldsays"
+      ],
+      "n_anchors": 3
+    },
+    {
+      "i": 78,
+      "anchors": [
+        "2005",
+        "cambridge",
+        "liverpool",
+        "university"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 81,
+      "anchors": [
+        "liverpool",
+        "minnesota",
+        "universities"
+      ],
+      "n_anchors": 3
+    },
+    {
+      "i": 82,
+      "anchors": [
+        "cvegetation",
+        "north",
+        "ronaldsay"
+      ],
+      "n_anchors": 3
+    },
+    {
+      "i": 83,
+      "anchors": [
+        "5000",
+        "north",
+        "orkney",
+        "ronaldsay"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 84,
+      "anchors": [
+        "designation",
+        "european",
+        "kingdom",
+        "lamb",
+        "origin",
+        "orkney"
+      ],
+      "n_anchors": 9
+    }
+  ],
+  "branches": [
+    {
+      "i": 17,
+      "anchors": [
+        "age",
+        "britain",
+        "iron",
+        "north",
+        "ronaldsay"
+      ]
+    },
+    {
+      "i": 65,
+      "anchors": []
+    },
+    {
+      "i": 91,
+      "anchors": []
+    }
+  ],
+  "conflicts": [],
+  "uncertainty": {
+    "count": 8,
+    "sentences": [
+      15,
+      17,
+      30,
+      52,
+      55,
+      57,
+      65,
+      81
+    ]
+  },
+  "citations": 126,
+  "frames": [
+    {
+      "section": "Lead",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Origin",
+      "frame": "empirical_causal"
+    },
+    {
+      "section": "Enclosure",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Punds",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Sheep court",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Conservation",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Physical",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Diet",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Scientific analysis",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Meat",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Wool",
+      "frame": "empirical_causal"
+    },
+    {
+      "section": "See also",
+      "frame": "frame_undeclared"
+    }
+  ]
+}

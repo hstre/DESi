@@ -1,0 +1,311 @@
+{
+  "title": "Islands: Non-Places",
+  "pageid": 64269620,
+  "n_sections": 7,
+  "claims": [
+    {
+      "i": 0,
+      "anchors": [
+        "2016",
+        "burton",
+        "carl",
+        "nonplaces",
+        "serial"
+      ],
+      "n_anchors": 5
+    },
+    {
+      "i": 1,
+      "anchors": [
+        "17",
+        "2016",
+        "linux",
+        "mac",
+        "november",
+        "windows"
+      ],
+      "n_anchors": 6
+    },
+    {
+      "i": 3,
+      "anchors": [
+        "burtons"
+      ],
+      "n_anchors": 1
+    },
+    {
+      "i": 4,
+      "anchors": [
+        "burton"
+      ],
+      "n_anchors": 1
+    },
+    {
+      "i": 5,
+      "anchors": [
+        "aug",
+        "burton",
+        "chris",
+        "islands",
+        "james",
+        "marc"
+      ],
+      "n_anchors": 8
+    },
+    {
+      "i": 6,
+      "anchors": [
+        "2016",
+        "award",
+        "festival",
+        "games",
+        "independent",
+        "nuovo"
+      ],
+      "n_anchors": 6
+    },
+    {
+      "i": 8,
+      "anchors": [
+        "islands"
+      ],
+      "n_anchors": 1
+    },
+    {
+      "i": 20,
+      "anchors": [
+        "burton",
+        "carl",
+        "serial"
+      ],
+      "n_anchors": 3
+    },
+    {
+      "i": 21,
+      "anchors": [
+        "17",
+        "2016",
+        "linux",
+        "november",
+        "windows"
+      ],
+      "n_anchors": 5
+    },
+    {
+      "i": 22,
+      "anchors": [
+        "cinema",
+        "playmaker",
+        "unity"
+      ],
+      "n_anchors": 3
+    },
+    {
+      "i": 25,
+      "anchors": [
+        "1995",
+        "aug",
+        "burton",
+        "french",
+        "introduction",
+        "marc"
+      ],
+      "n_anchors": 8
+    },
+    {
+      "i": 26,
+      "anchors": [
+        "burton",
+        "islands"
+      ],
+      "n_anchors": 2
+    },
+    {
+      "i": 28,
+      "anchors": [
+        "islands",
+        "james",
+        "the",
+        "turrell"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 30,
+      "anchors": [
+        "chris",
+        "watson"
+      ],
+      "n_anchors": 2
+    },
+    {
+      "i": 32,
+      "anchors": [
+        "2016",
+        "award",
+        "festival",
+        "games",
+        "independent",
+        "islands"
+      ],
+      "n_anchors": 7
+    },
+    {
+      "i": 34,
+      "anchors": [
+        "burtons",
+        "funnell",
+        "rob",
+        "toucharcade"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 36,
+      "anchors": [
+        "american",
+        "david",
+        "gamer",
+        "islands",
+        "japanese",
+        "kelly"
+      ],
+      "n_anchors": 15
+    },
+    {
+      "i": 39,
+      "anchors": [
+        "eurogamer",
+        "parkin",
+        "simon"
+      ],
+      "n_anchors": 3
+    },
+    {
+      "i": 40,
+      "anchors": [
+        "2009",
+        "2014",
+        "david",
+        "flower",
+        "islands",
+        "monument"
+      ],
+      "n_anchors": 11
+    },
+    {
+      "i": 41,
+      "anchors": [
+        "1993",
+        "boston",
+        "globe",
+        "myst",
+        "singal",
+        "the"
+      ],
+      "n_anchors": 6
+    },
+    {
+      "i": 44,
+      "anchors": [
+        "apps",
+        "bird",
+        "bond",
+        "campbell",
+        "james",
+        "kill"
+      ],
+      "n_anchors": 8
+    },
+    {
+      "i": 45,
+      "anchors": [
+        "hyperallergic",
+        "meier"
+      ],
+      "n_anchors": 2
+    },
+    {
+      "i": 46,
+      "anchors": [
+        "gamezebo",
+        "joshua",
+        "rich",
+        "rob",
+        "twinfinite",
+        "wise"
+      ],
+      "n_anchors": 6
+    },
+    {
+      "i": 49,
+      "anchors": [
+        "2025",
+        "day",
+        "devs",
+        "mirria"
+      ],
+      "n_anchors": 4
+    },
+    {
+      "i": 51,
+      "anchors": [
+        "official",
+        "video"
+      ],
+      "n_anchors": 2
+    }
+  ],
+  "branches": [
+    {
+      "i": 7,
+      "anchors": []
+    }
+  ],
+  "conflicts": [
+    {
+      "i": 48
+    }
+  ],
+  "uncertainty": {
+    "count": 5,
+    "sentences": [
+      22,
+      24,
+      29,
+      42,
+      43
+    ]
+  },
+  "citations": 98,
+  "frames": [
+    {
+      "section": "Lead",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Gameplay",
+      "frame": "empirical_causal"
+    },
+    {
+      "section": "Development",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Reception",
+      "frame": "metaphorical"
+    },
+    {
+      "section": "Legacy",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "See also",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "External links",
+      "frame": "frame_undeclared"
+    }
+  ]
+}

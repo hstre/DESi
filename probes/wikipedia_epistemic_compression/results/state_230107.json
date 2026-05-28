@@ -1,0 +1,488 @@
+{
+  "title": "Grey Cup",
+  "pageid": 230107,
+  "n_sections": 19,
+  "claims": [
+    {
+      "i": 4,
+      "anchors": [
+        "16",
+        "17",
+        "2025",
+        "25",
+        "alouettes",
+        "cup"
+      ],
+      "n_anchors": 13
+    },
+    {
+      "i": 7,
+      "anchors": [
+        "2019",
+        "andrew",
+        "blue",
+        "bombers",
+        "canadian",
+        "cups"
+      ],
+      "n_anchors": 12
+    },
+    {
+      "i": 17,
+      "anchors": [
+        "1950",
+        "1962",
+        "1977",
+        "2021",
+        "bowl",
+        "cup"
+      ],
+      "n_anchors": 15
+    },
+    {
+      "i": 27,
+      "anchors": [
+        "1909",
+        "26",
+        "3,800",
+        "4",
+        "6",
+        "blues"
+      ],
+      "n_anchors": 15
+    },
+    {
+      "i": 35,
+      "anchors": [
+        "1919",
+        "canada",
+        "canadian",
+        "cup",
+        "football",
+        "grey"
+      ],
+      "n_anchors": 12
+    },
+    {
+      "i": 39,
+      "anchors": [
+        "1911",
+        "1921",
+        "1949",
+        "2020",
+        "canada",
+        "edmonton"
+      ],
+      "n_anchors": 11
+    },
+    {
+      "i": 50,
+      "anchors": [
+        "12",
+        "18",
+        "1935",
+        "blue",
+        "bombers",
+        "cup"
+      ],
+      "n_anchors": 11
+    },
+    {
+      "i": 99,
+      "anchors": [
+        "14",
+        "1966",
+        "29",
+        "36,553",
+        "cup",
+        "empire"
+      ],
+      "n_anchors": 14
+    },
+    {
+      "i": 114,
+      "anchors": [
+        "1",
+        "11",
+        "14",
+        "1981",
+        "5",
+        "cup"
+      ],
+      "n_anchors": 12
+    },
+    {
+      "i": 126,
+      "anchors": [
+        "1989",
+        "40",
+        "43",
+        "canadian",
+        "cup",
+        "grey"
+      ],
+      "n_anchors": 11
+    },
+    {
+      "i": 129,
+      "anchors": [
+        "1991",
+        "26.2",
+        "american",
+        "argonauts",
+        "bruce",
+        "canada"
+      ],
+      "n_anchors": 14
+    },
+    {
+      "i": 154,
+      "anchors": [
+        "10",
+        "19",
+        "27",
+        "65,255",
+        "8",
+        "blue"
+      ],
+      "n_anchors": 13
+    },
+    {
+      "i": 161,
+      "anchors": [
+        "2012",
+        "25",
+        "argonauts",
+        "calgary",
+        "centre",
+        "cup"
+      ],
+      "n_anchors": 11
+    },
+    {
+      "i": 165,
+      "anchors": [
+        "33",
+        "39",
+        "burris",
+        "calgary",
+        "cup",
+        "ernest"
+      ],
+      "n_anchors": 12
+    },
+    {
+      "i": 176,
+      "anchors": [
+        "1978",
+        "1987",
+        "1993",
+        "2006",
+        "2012",
+        "2014"
+      ],
+      "n_anchors": 16
+    },
+    {
+      "i": 178,
+      "anchors": [
+        "1967",
+        "1969",
+        "cup",
+        "december",
+        "grey",
+        "hamilton"
+      ],
+      "n_anchors": 12
+    },
+    {
+      "i": 189,
+      "anchors": [
+        "bowl",
+        "conn",
+        "cup",
+        "dick",
+        "finals",
+        "grey"
+      ],
+      "n_anchors": 19
+    },
+    {
+      "i": 200,
+      "anchors": [
+        "2023",
+        "2025",
+        "50",
+        "coupe",
+        "cup",
+        "dequoy"
+      ],
+      "n_anchors": 12
+    },
+    {
+      "i": 209,
+      "anchors": [
+        "calgary",
+        "cup",
+        "dempsey",
+        "grey",
+        "hill",
+        "hugh"
+      ],
+      "n_anchors": 11
+    },
+    {
+      "i": 218,
+      "anchors": [
+        "12",
+        "14",
+        "19",
+        "argonauts",
+        "blue",
+        "bombers"
+      ],
+      "n_anchors": 12
+    },
+    {
+      "i": 221,
+      "anchors": [
+        "11",
+        "19",
+        "1958",
+        "canadian",
+        "championships",
+        "cup"
+      ],
+      "n_anchors": 11
+    },
+    {
+      "i": 224,
+      "anchors": [
+        "1972",
+        "1977",
+        "1994",
+        "2011",
+        "2012",
+        "2013"
+      ],
+      "n_anchors": 17
+    },
+    {
+      "i": 225,
+      "anchors": [
+        "bill",
+        "cups",
+        "edmonton",
+        "grey",
+        "hank",
+        "ilesic"
+      ],
+      "n_anchors": 12
+    },
+    {
+      "i": 228,
+      "anchors": [
+        "buono",
+        "campbell",
+        "cfls",
+        "clair",
+        "cup",
+        "don"
+      ],
+      "n_anchors": 13
+    },
+    {
+      "i": 268,
+      "anchors": [
+        "0",
+        "04",
+        "1",
+        "1997",
+        "1999",
+        "2003"
+      ],
+      "n_anchors": 62
+    }
+  ],
+  "branches": [
+    {
+      "i": 23,
+      "anchors": [
+        "1893",
+        "1907",
+        "canadian",
+        "cup",
+        "stanley"
+      ]
+    },
+    {
+      "i": 69,
+      "anchors": [
+        "1954",
+        "cup",
+        "grey"
+      ]
+    },
+    {
+      "i": 97,
+      "anchors": [
+        "15,000",
+        "32,655",
+        "cup",
+        "grey",
+        "winnipeg"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "i": 1
+    },
+    {
+      "i": 14
+    },
+    {
+      "i": 15
+    },
+    {
+      "i": 17
+    },
+    {
+      "i": 24
+    },
+    {
+      "i": 35
+    },
+    {
+      "i": 44
+    },
+    {
+      "i": 49
+    },
+    {
+      "i": 51
+    },
+    {
+      "i": 58
+    },
+    {
+      "i": 70
+    },
+    {
+      "i": 98
+    },
+    {
+      "i": 101
+    },
+    {
+      "i": 107
+    },
+    {
+      "i": 159
+    },
+    {
+      "i": 169
+    },
+    {
+      "i": 196
+    },
+    {
+      "i": 235
+    },
+    {
+      "i": 259
+    },
+    {
+      "i": 263
+    }
+  ],
+  "uncertainty": {
+    "count": 5,
+    "sentences": [
+      17,
+      163,
+      168,
+      217,
+      254
+    ]
+  },
+  "citations": 240,
+  "frames": [
+    {
+      "section": "Lead",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "National championships before 1909",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Creation and early years (1909–1921)",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Western participation (1922–1932)",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Progress towards professionalism (1933–1956)",
+      "frame": "empirical_causal"
+    },
+    {
+      "section": "Canadian Football League kicks off (1957–1969)",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Eskimos' dynasty (1970–1988)",
+      "frame": "thermodynamic"
+    },
+    {
+      "section": "CFL USA (1989–1995)",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Renaissance (1996–present)",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Trophy",
+      "frame": "empirical_causal"
+    },
+    {
+      "section": "Languages",
+      "frame": "authority_speech"
+    },
+    {
+      "section": "Grey Cup festival",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Champions",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Host cities",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Stadiums",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "Broadcasting",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "See also",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "General and cited references",
+      "frame": "frame_undeclared"
+    },
+    {
+      "section": "External links",
+      "frame": "frame_undeclared"
+    }
+  ]
+}
