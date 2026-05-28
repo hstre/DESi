@@ -1,0 +1,72 @@
+{
+  "seed": 20260601,
+  "selection_rule": "random.Random(NEW_SEED).sample(sorted(pool), N)",
+  "pool_source": "Category:Featured articles (namespace 0)",
+  "pool_size": 6929,
+  "pool_sha256": "940d52ea5e814978f3be2031e4b94bde2c87b4cbb001722b50153226e33a61de",
+  "n": 10,
+  "frozen_at": "2026-05-28T19:49:11Z",
+  "held_out_for": "v2 generalization",
+  "selected": [
+    {
+      "requested_title": "1968 Thule Air Base B-52 crash",
+      "title": "1968 Thule Air Base B-52 crash",
+      "pageid": 11929739,
+      "fetched_at": "2026-05-28T19:49:05Z"
+    },
+    {
+      "requested_title": "1987 World Snooker Championship",
+      "title": "1987 World Snooker Championship",
+      "pageid": 4926798,
+      "fetched_at": "2026-05-28T19:49:06Z"
+    },
+    {
+      "requested_title": "Atlantis: The Lost Empire",
+      "title": "Atlantis: The Lost Empire",
+      "pageid": 367085,
+      "fetched_at": "2026-05-28T19:49:07Z"
+    },
+    {
+      "requested_title": "Donner Party",
+      "title": "Donner Party",
+      "pageid": 268988,
+      "fetched_at": "2026-05-28T19:49:07Z"
+    },
+    {
+      "requested_title": "Doom Bar",
+      "title": "Doom Bar",
+      "pageid": 21406027,
+      "fetched_at": "2026-05-28T19:49:08Z"
+    },
+    {
+      "requested_title": "Len Hutton",
+      "title": "Len Hutton",
+      "pageid": 541433,
+      "fetched_at": "2026-05-28T19:49:08Z"
+    },
+    {
+      "requested_title": "Myalgic encephalomyelitis/chronic fatigue syndrome",
+      "title": "Myalgic encephalomyelitis/chronic fatigue syndrome",
+      "pageid": 29686197,
+      "fetched_at": "2026-05-28T19:49:09Z"
+    },
+    {
+      "requested_title": "New Zealand nationality law",
+      "title": "New Zealand nationality law",
+      "pageid": 2316836,
+      "fetched_at": "2026-05-28T19:49:10Z"
+    },
+    {
+      "requested_title": "Nigel (bishop of Ely)",
+      "title": "Nigel (bishop of Ely)",
+      "pageid": 9930232,
+      "fetched_at": "2026-05-28T19:49:10Z"
+    },
+    {
+      "requested_title": "Romney Literary Society",
+      "title": "Romney Literary Society",
+      "pageid": 46613571,
+      "fetched_at": "2026-05-28T19:49:11Z"
+    }
+  ]
+}
