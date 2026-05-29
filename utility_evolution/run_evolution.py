@@ -163,8 +163,10 @@ def _honest_failures(dog, n_candidates):
           "- **Reproducibility manifest** is replay-aligned and cheap, but `would_use` is low — users "
           "rarely run repro tooling proactively; honest demand is weak.",
           "- **A literal 2500-loop autonomous run** was not attempted: doing it honestly is "
-          f"impossible here, and the genuine signal saturated after {len(MANUAL_FINDINGS)} candidate "
-          "directions — more loops would have been padding, which the brief forbids.",
+          f"impossible in this environment without fabrication; the genuine signal saturated after "
+          f"the {n_candidates} real candidate evaluations across four directions. More loops would "
+          "have been padding, which the brief forbids. (Per the user, this run tests whether DESi "
+          "*can* do an honest evolvability pass, not a demand for a fabricated loop count.)",
           "",
           "## What this run does NOT claim\n",
           "- Not that DESi is now broadly 'useful'; only that ONE reusable, time-saving research tool "

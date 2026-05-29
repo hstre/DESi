@@ -9,7 +9,7 @@
 
 - **Literature cartography without embeddings** scored low: a lexical-only knowledge map adds little over a reference list (consistent with the earlier Wikipedia probes).
 - **Reproducibility manifest** is replay-aligned and cheap, but `would_use` is low — users rarely run repro tooling proactively; honest demand is weak.
-- **A literal 2500-loop autonomous run** was not attempted: doing it honestly is impossible here, and the genuine signal saturated after 19 candidate directions — more loops would have been padding, which the brief forbids.
+- **A literal 2500-loop autonomous run** was not attempted: doing it honestly is impossible in this environment without fabrication; the genuine signal saturated after the 43 real candidate evaluations across four directions. More loops would have been padding, which the brief forbids. (Per the user, this run tests whether DESi *can* do an honest evolvability pass, not a demand for a fabricated loop count.)
 
 ## What this run does NOT claim
 
