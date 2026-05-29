@@ -1,0 +1,110 @@
+[
+  {
+    "severity": "high",
+    "check": "numeric_consistency",
+    "line": 14,
+    "quote": "'compression' ranges: L14:41\u201360%, L406:42\u201350%, L423:42\u201360%, L434:41\u201360%"
+  },
+  {
+    "severity": "high",
+    "check": "traceability",
+    "line": 704,
+    "quote": "blanket traceability claim (L704) vs non-traceability admission (L111)"
+  },
+  {
+    "severity": "medium",
+    "check": "duplicate_paragraphs",
+    "line": 578,
+    "quote": "L572 \u2248 L578 (Jaccard 0.81): \"Rentschler, H.-S. (2026). *DESi 2: The Dynamic Epistemic Sequencer: A \""
+  },
+  {
+    "severity": "medium",
+    "check": "overclaim_terms",
+    "line": 148,
+    "quote": "universal claim \u2014 \"DESi was applied to 17 distinct domains across phases v6\u2013v22, including social r\""
+  },
+  {
+    "severity": "medium",
+    "check": "structure_tables",
+    "line": 111,
+    "quote": "Table first-appearance order is [2, 1]"
+  },
+  {
+    "severity": "low",
+    "check": "overclaim_terms",
+    "line": 14,
+    "quote": "'breakthrough' \u2014 \"We present DESi (Dynamic Epistemic Sequencer \u2014 Diagnostic), a determin\""
+  },
+  {
+    "severity": "low",
+    "check": "overclaim_terms",
+    "line": 79,
+    "quote": "'breakthrough' \u2014 \"A set of terms is permanently forbidden from all rendered outputs: AGI\""
+  },
+  {
+    "severity": "low",
+    "check": "overclaim_terms",
+    "line": 79,
+    "quote": "'revolutionary' \u2014 \"A set of terms is permanently forbidden from all rendered outputs: AGI\""
+  },
+  {
+    "severity": "low",
+    "check": "overclaim_terms",
+    "line": 79,
+    "quote": "'world model' \u2014 \"A set of terms is permanently forbidden from all rendered outputs: AGI\""
+  },
+  {
+    "severity": "low",
+    "check": "overclaim_terms",
+    "line": 79,
+    "quote": "'truth engine' \u2014 \"A set of terms is permanently forbidden from all rendered outputs: AGI\""
+  },
+  {
+    "severity": "low",
+    "check": "overclaim_terms",
+    "line": 79,
+    "quote": "'human-level' \u2014 \"A set of terms is permanently forbidden from all rendered outputs: AGI\""
+  },
+  {
+    "severity": "low",
+    "check": "overclaim_terms",
+    "line": 105,
+    "quote": "'by construction' \u2014 \"In both cases, the epistemic structure is extracted not by an LLM but \""
+  },
+  {
+    "severity": "low",
+    "check": "overclaim_terms",
+    "line": 183,
+    "quote": "'breakthrough' \u2014 \"Phase v12 (Open Mathematics) addresses the complementary question of c\""
+  },
+  {
+    "severity": "low",
+    "check": "overclaim_terms",
+    "line": 457,
+    "quote": "'unknown unknowns' \u2014 \"The implication is nontrivial: a system that rigidly enforces epistemi\""
+  },
+  {
+    "severity": "low",
+    "check": "overclaim_terms",
+    "line": 459,
+    "quote": "'truth engine' \u2014 \"We do not claim that DESi discovers new knowledge autonomously. It doe\""
+  },
+  {
+    "severity": "low",
+    "check": "overclaim_terms",
+    "line": 461,
+    "quote": "'unknown unknowns' \u2014 \"To our knowledge, no existing LLM governance system combines determini\""
+  },
+  {
+    "severity": "low",
+    "check": "overclaim_terms",
+    "line": 461,
+    "quote": "'world model' \u2014 \"To our knowledge, no existing LLM governance system combines determini\""
+  },
+  {
+    "severity": "low",
+    "check": "overclaim_terms",
+    "line": 512,
+    "quote": "'unknown unknowns' \u2014 \"**Concrete demonstration.** DESi was applied to audit a draft of this \""
+  }
+]

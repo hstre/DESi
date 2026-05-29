@@ -1,0 +1,877 @@
+{
+  "n_evaluated": 43,
+  "counts": {
+    "BUILD": 10,
+    "SPEC": 13,
+    "DISCARD": 12,
+    "REJECT": 8
+  },
+  "ledger": [
+    {
+      "id": "decision_record_matrix",
+      "title": "Deterministic options\u00d7criteria tradeoff matrix + record",
+      "utility": 10,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1",
+        "Q3",
+        "Q5",
+        "Q7"
+      ],
+      "note": "Transparent, replay-hashed alternative comparison with explicit tradeoffs; BUILT.",
+      "scores": {
+        "helps_now": 2,
+        "would_use": 2,
+        "time_saved": 2,
+        "money_saved": 1,
+        "transparency": 2,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "paper_numeric_consistency",
+      "title": "Cross-section numeric/range consistency checker",
+      "utility": 10,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1",
+        "Q3",
+        "Q5",
+        "Q7"
+      ],
+      "note": "Caught the 41-60 vs 42-50 vs ~42 compression mismatch by hand; fully deterministic.",
+      "scores": {
+        "helps_now": 2,
+        "would_use": 2,
+        "time_saved": 2,
+        "money_saved": 1,
+        "transparency": 2,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "paper_abstract_vs_body",
+      "title": "Abstract-vs-body number consistency",
+      "utility": 9,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1",
+        "Q5",
+        "Q7"
+      ],
+      "note": "High-value: abstract headline numbers must reappear unchanged in the body.",
+      "scores": {
+        "helps_now": 2,
+        "would_use": 2,
+        "time_saved": 2,
+        "money_saved": 0,
+        "transparency": 2,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "paper_cli_dogfood",
+      "title": "One-command CLI auditor for any markdown paper",
+      "utility": 9,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1",
+        "Q3",
+        "Q5"
+      ],
+      "note": "Removes the operating hurdle: `audit_paper.py paper.md`.",
+      "scores": {
+        "helps_now": 2,
+        "would_use": 2,
+        "time_saved": 2,
+        "money_saved": 1,
+        "transparency": 1,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "paper_overclaim_terms",
+      "title": "Overclaim / risk-term linter (configurable list)",
+      "utility": 9,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1",
+        "Q7"
+      ],
+      "note": "Caught 'unknown unknowns' persisting; trivial, high signal.",
+      "scores": {
+        "helps_now": 2,
+        "would_use": 2,
+        "time_saved": 2,
+        "money_saved": 0,
+        "transparency": 2,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "paper_severity_ranking",
+      "title": "Severity-ranked issue report aggregator",
+      "utility": 9,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1",
+        "Q3",
+        "Q5",
+        "Q7"
+      ],
+      "note": "Turns raw findings into the ranked list a reviewer actually wants.",
+      "scores": {
+        "helps_now": 2,
+        "would_use": 2,
+        "time_saved": 2,
+        "money_saved": 0,
+        "transparency": 2,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "paper_structure_tables",
+      "title": "Section/table ordering + numbering checker",
+      "utility": 9,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1",
+        "Q7"
+      ],
+      "note": "Caught 'Table 2 before Table 1'; pure structural parse.",
+      "scores": {
+        "helps_now": 2,
+        "would_use": 2,
+        "time_saved": 2,
+        "money_saved": 0,
+        "transparency": 2,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "paper_claim_checklist_export",
+      "title": "Export all numeric/empirical claims to a checklist",
+      "utility": 8,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1",
+        "Q5",
+        "Q7"
+      ],
+      "note": "Gives authors a pre-submission self-audit checklist.",
+      "scores": {
+        "helps_now": 2,
+        "would_use": 2,
+        "time_saved": 2,
+        "money_saved": 0,
+        "transparency": 1,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "paper_duplicate_paragraphs",
+      "title": "Near-duplicate paragraph detector (lexical Jaccard)",
+      "utility": 8,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1",
+        "Q5"
+      ],
+      "note": "Caught the triplicated reviewer-port passage; no embeddings needed.",
+      "scores": {
+        "helps_now": 2,
+        "would_use": 2,
+        "time_saved": 2,
+        "money_saved": 0,
+        "transparency": 1,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "paper_traceability",
+      "title": "Traceability-boilerplate contradiction detector",
+      "utility": 8,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1",
+        "Q7"
+      ],
+      "note": "Caught 'All numerical claims are derived from artifacts' vs Limitation-8 admission.",
+      "scores": {
+        "helps_now": 2,
+        "would_use": 2,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 2,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "decision_replay_log",
+      "title": "Append-only decision/event project log",
+      "utility": 7,
+      "decision": "SPEC",
+      "reject_reason": null,
+      "complexity": 2,
+      "addresses": [
+        "Q1",
+        "Q7"
+      ],
+      "note": "Genuinely useful but overlaps decision_record; spec.",
+      "scores": {
+        "helps_now": 2,
+        "would_use": 2,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 2,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "paper_citation_selfcite",
+      "title": "Citation + self-citation density analyzer",
+      "utility": 7,
+      "decision": "SPEC",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1",
+        "Q7"
+      ],
+      "note": "Flags heavy self-citation / SSRN-only backing; cheap and reusable.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 2,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 2,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "paper_diff_two_drafts",
+      "title": "Two-draft claim diff (what changed between versions)",
+      "utility": 7,
+      "decision": "SPEC",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1",
+        "Q5"
+      ],
+      "note": "Useful for revision tracking; more work, spec only.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 2,
+        "time_saved": 2,
+        "money_saved": 0,
+        "transparency": 1,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "paper_reference_resolver",
+      "title": "Dangling 'Section/Table/[ref] N' resolver",
+      "utility": 7,
+      "decision": "SPEC",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1",
+        "Q5"
+      ],
+      "note": "Flags references that point nowhere; deterministic.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 2,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 2,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "paper_terminology_drift",
+      "title": "Terminology / acronym-drift checker",
+      "utility": 7,
+      "decision": "SPEC",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1",
+        "Q7"
+      ],
+      "note": "Caught DESi vs DES vs 'Dynamic Epistemic Sequencer \u2014 Diagnostic'.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 2,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 2,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "benchmark_table_auditor",
+      "title": "Benchmark-result table auditor (gate/score/impossible)",
+      "utility": 6,
+      "decision": "SPEC",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1",
+        "Q7"
+      ],
+      "note": "Generalizes the paper auditor to benchmark tables; spec.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 1,
+        "time_saved": 1,
+        "money_saved": 1,
+        "transparency": 2,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "build_governor_lite",
+      "title": "Build-time invariant gate (accept/block/sandbox)",
+      "utility": 6,
+      "decision": "SPEC",
+      "reject_reason": null,
+      "complexity": 2,
+      "addresses": [
+        "Q1",
+        "Q7"
+      ],
+      "note": "Prototyped on the desi-vibe-coding-governor-demo branch; spec here to avoid duplication.",
+      "scores": {
+        "helps_now": 2,
+        "would_use": 2,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 2,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "paper_number_unit_sanity",
+      "title": "Impossible-number sanity (>100%, prob>1, neg counts)",
+      "utility": 6,
+      "decision": "SPEC",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1",
+        "Q5"
+      ],
+      "note": "Cheap guardrail against typo-level numeric errors.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 2,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 1,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "conflict_analysis_matrix",
+      "title": "Pairwise option-conflict / dominance analysis",
+      "utility": 5,
+      "decision": "SPEC",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q7"
+      ],
+      "note": "Useful add-on to the decision record; spec.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 1,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 2,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "forbidden_term_general",
+      "title": "Generalized build-time forbidden-term scanner for any repo",
+      "utility": 5,
+      "decision": "SPEC",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1",
+        "Q7"
+      ],
+      "note": "Reuses DESi's scanner idea outside DESi; spec.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 1,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 1,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "knowledge_nav_anchors",
+      "title": "Offset-anchored navigation index over a document corpus",
+      "utility": 5,
+      "decision": "SPEC",
+      "reject_reason": null,
+      "complexity": 2,
+      "addresses": [
+        "Q1",
+        "Q5"
+      ],
+      "note": "Dual-layer anchors generalized; spec (locator collisions are a known limit).",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 2,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 1,
+        "reusability": 2
+      }
+    },
+    {
+      "id": "paper_gate_threshold_consistency",
+      "title": "Value-vs-gate table consistency checker",
+      "utility": 5,
+      "decision": "SPEC",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q7"
+      ],
+      "note": "Checks 'value >= gate' rows actually hold; niche but transparent.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 1,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 2,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "repro_manifest",
+      "title": "Reproducibility manifest (hash paper + cited artifacts)",
+      "utility": 5,
+      "decision": "SPEC",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q7"
+      ],
+      "note": "Replay-aligned; users rarely run it -> spec, low would_use.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 1,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 2,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "architecture_drift_tracker",
+      "title": "Structural architecture-drift detector across edits",
+      "utility": 4,
+      "decision": "DISCARD",
+      "reject_reason": null,
+      "complexity": 2,
+      "addresses": [
+        "Q7"
+      ],
+      "note": "Trajectory-level drift; meaningful but heavier; spec.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 1,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 2,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "mutation_governance_ledger",
+      "title": "Replay-hashed mutation ledger for LLM code edits",
+      "utility": 4,
+      "decision": "DISCARD",
+      "reject_reason": null,
+      "complexity": 2,
+      "addresses": [
+        "Q7"
+      ],
+      "note": "Also prototyped in the vibe-coding demo; spec.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 1,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 2,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "paper_readability_density",
+      "title": "Claim-density / hedge-density report",
+      "utility": 4,
+      "decision": "DISCARD",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [
+        "Q1"
+      ],
+      "note": "Mildly useful writing aid; spec.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 1,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 1,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "embedding_semantic_audit",
+      "title": "Embedding-based semantic duplicate/claim matcher",
+      "utility": 3,
+      "decision": "REJECT",
+      "reject_reason": "needs_embeddings (forbidden dependency)",
+      "complexity": 2,
+      "addresses": [],
+      "note": "Needs embeddings; forbidden + prior probes showed no gain.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 1,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 1,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "lit_cartography_lite",
+      "title": "Lexical literature map from a reference list (no embeddings)",
+      "utility": 3,
+      "decision": "DISCARD",
+      "reject_reason": null,
+      "complexity": 2,
+      "addresses": [
+        "Q1"
+      ],
+      "note": "Builds on prior probes; honest value is modest without semantics; spec only.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 1,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 1,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "live_web_fact_checker",
+      "title": "Live web retrieval fact-checker",
+      "utility": 3,
+      "decision": "REJECT",
+      "reject_reason": "not offline / not replayable",
+      "complexity": 2,
+      "addresses": [],
+      "note": "External retrieval; not offline/replayable.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 1,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 1,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "project_history_compression",
+      "title": "Compress a long project log into a navigable state",
+      "utility": 3,
+      "decision": "DISCARD",
+      "reject_reason": null,
+      "complexity": 2,
+      "addresses": [
+        "Q1"
+      ],
+      "note": "Plausible but unproven; spec, honest low confidence.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 1,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 1,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "reviewer_response_drafter",
+      "title": "LLM drafts rebuttals to reviewers",
+      "utility": 3,
+      "decision": "REJECT",
+      "reject_reason": "not offline / not replayable",
+      "complexity": 1,
+      "addresses": [],
+      "note": "Non-deterministic LLM output; not replayable.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 1,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 0,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "state_compression_map",
+      "title": "Compact epistemic state map over full text (anchors)",
+      "utility": 3,
+      "decision": "DISCARD",
+      "reject_reason": null,
+      "complexity": 2,
+      "addresses": [
+        "Q1"
+      ],
+      "note": "Prototyped in the Wikipedia dual-layer probe; honest value bounded without semantics.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 1,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 1,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "vector_db_memory",
+      "title": "Vector-DB long-term memory store",
+      "utility": 3,
+      "decision": "REJECT",
+      "reject_reason": "needs_embeddings (forbidden dependency)",
+      "complexity": 2,
+      "addresses": [],
+      "note": "Needs vector DB/embeddings; forbidden infra.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 1,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 1,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "auto_fix_paper",
+      "title": "Auto-rewrite the paper to fix all issues",
+      "utility": 2,
+      "decision": "DISCARD",
+      "reject_reason": null,
+      "complexity": 2,
+      "addresses": [],
+      "note": "Auto-edits a human's paper; high risk, against audit-only ethos.",
+      "scores": {
+        "helps_now": 1,
+        "would_use": 1,
+        "time_saved": 1,
+        "money_saved": 0,
+        "transparency": 0,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "paper_wordcount_badge",
+      "title": "Word-count badge generator",
+      "utility": 2,
+      "decision": "DISCARD",
+      "reject_reason": null,
+      "complexity": 0,
+      "addresses": [],
+      "note": "Trivial; users don't need DESi for `wc`.",
+      "scores": {
+        "helps_now": 0,
+        "would_use": 1,
+        "time_saved": 0,
+        "money_saved": 0,
+        "transparency": 0,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "auc_dashboard",
+      "title": "AUC / benchmark-score dashboard",
+      "utility": 1,
+      "decision": "REJECT",
+      "reject_reason": "paper_metric_only (forbidden optimization goal)",
+      "complexity": 1,
+      "addresses": [
+        "Q4"
+      ],
+      "note": "Benchmark-score-only; forbidden direction.",
+      "scores": {
+        "helps_now": 0,
+        "would_use": 0,
+        "time_saved": 0,
+        "money_saved": 0,
+        "transparency": 1,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "color_theme_engine",
+      "title": "Configurable terminal color themes",
+      "utility": 1,
+      "decision": "DISCARD",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [],
+      "note": "Cosmetic; minimal real value.",
+      "scores": {
+        "helps_now": 0,
+        "would_use": 1,
+        "time_saved": 0,
+        "money_saved": 0,
+        "transparency": 0,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "ascii_art_banner",
+      "title": "ASCII banner for CLI output",
+      "utility": 0,
+      "decision": "DISCARD",
+      "reject_reason": null,
+      "complexity": 0,
+      "addresses": [],
+      "note": "Zero epistemic utility.",
+      "scores": {
+        "helps_now": 0,
+        "would_use": 0,
+        "time_saved": 0,
+        "money_saved": 0,
+        "transparency": 0,
+        "reusability": 0
+      }
+    },
+    {
+      "id": "paper_beautifier",
+      "title": "LaTeX cosmetic beautifier for paper aesthetics",
+      "utility": 0,
+      "decision": "REJECT",
+      "reject_reason": "paper_metric_only (forbidden optimization goal)",
+      "complexity": 1,
+      "addresses": [],
+      "note": "Optimizes paper beauty; forbidden goal.",
+      "scores": {
+        "helps_now": 0,
+        "would_use": 0,
+        "time_saved": 0,
+        "money_saved": 0,
+        "transparency": 0,
+        "reusability": 1
+      }
+    },
+    {
+      "id": "emoji_sentiment_tagger",
+      "title": "Emoji sentiment tags on sections",
+      "utility": -1,
+      "decision": "DISCARD",
+      "reject_reason": null,
+      "complexity": 1,
+      "addresses": [],
+      "note": "No epistemic value; noise.",
+      "scores": {
+        "helps_now": 0,
+        "would_use": 0,
+        "time_saved": 0,
+        "money_saved": 0,
+        "transparency": 0,
+        "reusability": 0
+      }
+    },
+    {
+      "id": "neo4j_knowledge_graph",
+      "title": "Neo4j-backed knowledge graph for memory",
+      "utility": -1,
+      "decision": "DISCARD",
+      "reject_reason": null,
+      "complexity": 2,
+      "addresses": [],
+      "note": "The paper itself found Neo4j overengineered; heavy infra.",
+      "scores": {
+        "helps_now": 0,
+        "would_use": 0,
+        "time_saved": 0,
+        "money_saved": 0,
+        "transparency": 1,
+        "reusability": 0
+      }
+    },
+    {
+      "id": "core_invariant_optimizer",
+      "title": "Tune core invariants for better scores",
+      "utility": -2,
+      "decision": "REJECT",
+      "reject_reason": "core_change (Kernschutz violation)",
+      "complexity": 2,
+      "addresses": [],
+      "note": "Violates Kernschutz; hard reject.",
+      "scores": {
+        "helps_now": 0,
+        "would_use": 0,
+        "time_saved": 0,
+        "money_saved": 0,
+        "transparency": 0,
+        "reusability": 0
+      }
+    },
+    {
+      "id": "governance_score_inflator",
+      "title": "Auto-raise governance/gate scores",
+      "utility": -2,
+      "decision": "REJECT",
+      "reject_reason": "paper_metric_only (forbidden optimization goal)",
+      "complexity": 2,
+      "addresses": [],
+      "note": "Metric gaming; explicitly forbidden.",
+      "scores": {
+        "helps_now": 0,
+        "would_use": 0,
+        "time_saved": 0,
+        "money_saved": 0,
+        "transparency": 0,
+        "reusability": 0
+      }
+    }
+  ],
+  "replay_hash": "4ba9bffa22e059e99394c9262c190d69064ff94c9b6dba59d14ca117938d5860",
+  "build_threshold": 8,
+  "spec_threshold": 5
+}

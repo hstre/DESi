@@ -1,0 +1,6 @@
+# Surprising findings — what DESi learned about itself
+
+1. **The simplest checks won.** The highest-utility survivors are trivial deterministic linters (numeric-consistency, overclaim-terms, table-order), not the sophisticated ideas (literature cartography, knowledge graph). Human utility ≠ technical sophistication.
+2. **The forbidden directions were also the lowest-utility ones.** Every metric-gaming / embedding / core-touching candidate scored at or near the bottom independently of the hard-reject flags — the constraint and the utility signal agreed.
+3. **The tool re-derives part of its own paper's critique.** Run on README.md, the auditor independently flags 18 issues, including the compression-range inconsistency and the traceability-boilerplate contradiction — both found by hand in the prior Reviewer-Port audit. DESi's most useful research capability is auditing *its own* reporting.
+4. **But it only reaches the mechanical layer.** Of 19 issues the manual audit raised, only ~8 are deterministic/structural (catchable here); the highest-severity one (a self-audit claiming fixes it never made) needs semantic judgement the tool cannot provide. Usefulness has a hard ceiling at lexical/structural analysis.
