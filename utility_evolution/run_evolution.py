@@ -56,7 +56,7 @@ def run() -> dict:
     _discarded(discards)
     _surprises(h, dog)
     _utility_ranking(h)
-    _honest_failures(dog)
+    _honest_failures(dog, h["n_evaluated"])
     _summary(h, dog, builds, specs, discards)
     return {"n": h["n_evaluated"], "counts": h["counts"], "dogfood_issues": len(dog),
             "replay_hash": h["replay_hash"]}
@@ -143,7 +143,7 @@ def _utility_ranking(h):
     (_REPORTS / "utility_ranking.md").write_text("\n".join(md) + "\n", encoding="utf-8")
 
 
-def _honest_failures(dog):
+def _honest_failures(dog, n_candidates):
     det = [k for k, v in MANUAL_FINDINGS.items() if v == "deterministic"]
     sem = [k for k, v in MANUAL_FINDINGS.items() if v == "semantic"]
     md = ["# Honest failure report — hopes that did not hold\n",
