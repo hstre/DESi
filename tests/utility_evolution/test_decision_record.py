@@ -45,4 +45,4 @@ def test_tradeoffs_list_where_runnerup_beats_winner():
 def test_format_record_renders():
     rec = D.decide(_OPTIONS, _CRITERIA, _SCORES)
     out = D.format_record(rec)
-    assert "Recommended: A" in out and "replay_hash" in out
+    assert "**Recommended:** A" in out and "replay_hash" in out
