@@ -1,0 +1,228 @@
+{
+  "n": 17,
+  "counts": {
+    "BUILD": 12,
+    "SPEC": 1,
+    "REJECT": 4
+  },
+  "ledger": [
+    {
+      "idea_id": "home_landing",
+      "role": "confused",
+      "kind": "home",
+      "fitness": 12,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "pitch": "Put a ONE-SCREEN 'DESi Home' at the top: what it does, what I can do, where to start.",
+      "addresses": [
+        "entry_point",
+        "purpose",
+        "first_action"
+      ]
+    },
+    {
+      "idea_id": "one_click_workflows",
+      "role": "lazy",
+      "kind": "workflow",
+      "fitness": 12,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "pitch": "Five one-command tasks: check a paper, log a decision, etc. One line each.",
+      "addresses": [
+        "setup",
+        "commands",
+        "config"
+      ]
+    },
+    {
+      "idea_id": "plain_cli",
+      "role": "lazy",
+      "kind": "workflow",
+      "fitness": 11,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "pitch": "A single entry script `desi` with subcommands \u2014 no module paths, no sys.path.",
+      "addresses": [
+        "commands",
+        "setup"
+      ]
+    },
+    {
+      "idea_id": "run_on_my_file",
+      "role": "heretical",
+      "kind": "workflow",
+      "fitness": 11,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "pitch": "Make the FIRST visible thing 'run DESi on YOUR file', not a probe.",
+      "addresses": [
+        "real_use",
+        "demos"
+      ]
+    },
+    {
+      "idea_id": "what_can_you_do",
+      "role": "confused",
+      "kind": "home",
+      "fitness": 10,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "pitch": "A plain 'What can DESi do for me?' list in human words, no v-numbers.",
+      "addresses": [
+        "purpose",
+        "payoff"
+      ]
+    },
+    {
+      "idea_id": "glossary_translation",
+      "role": "lazy",
+      "kind": "naming",
+      "fitness": 9,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "pitch": "Translate every internal term to plain language at the surface.",
+      "addresses": [
+        "jargon"
+      ]
+    },
+    {
+      "idea_id": "payoff_preview",
+      "role": "heretical",
+      "kind": "home",
+      "fitness": 9,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "pitch": "Show the concrete output (ranked issues) before asking for any setup.",
+      "addresses": [
+        "value",
+        "real_use"
+      ]
+    },
+    {
+      "idea_id": "wizard_no_jargon",
+      "role": "lazy",
+      "kind": "wizard",
+      "fitness": 9,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "pitch": "A guided wizard that asks plain questions; user never sees 'branch/drift/state'.",
+      "addresses": [
+        "jargon",
+        "setup",
+        "config"
+      ]
+    },
+    {
+      "idea_id": "desi_as_decision_buddy",
+      "role": "visionary",
+      "kind": "vision",
+      "fitness": 8,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "pitch": "Frame the decision recorder as a 'Decision Buddy'.",
+      "addresses": [
+        "scope"
+      ]
+    },
+    {
+      "idea_id": "desi_as_paper_coach",
+      "role": "visionary",
+      "kind": "vision",
+      "fitness": 8,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "pitch": "Frame the paper auditor as a 'Paper Coach' that reviews your draft.",
+      "addresses": [
+        "scope"
+      ]
+    },
+    {
+      "idea_id": "hide_governance_jargon",
+      "role": "heretical",
+      "kind": "naming",
+      "fitness": 8,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "pitch": "Hide Class-A/verdict/gate language from the user surface entirely.",
+      "addresses": [
+        "governance_features"
+      ]
+    },
+    {
+      "idea_id": "memory_explorer",
+      "role": "heretical",
+      "kind": "explorer",
+      "fitness": 7,
+      "decision": "BUILD",
+      "reject_reason": null,
+      "pitch": "A simple view of 'open questions / conflicts / recent changes' from real state.",
+      "addresses": [
+        "real_use",
+        "value"
+      ]
+    },
+    {
+      "idea_id": "desi_as_knowledge_nav",
+      "role": "visionary",
+      "kind": "vision",
+      "fitness": 6,
+      "decision": "SPEC",
+      "reject_reason": null,
+      "pitch": "Frame the memory explorer as a 'Knowledge Navigator'.",
+      "addresses": [
+        "scope"
+      ]
+    },
+    {
+      "idea_id": "desi_personal_memory",
+      "role": "visionary",
+      "kind": "absurd",
+      "fitness": 2,
+      "decision": "REJECT",
+      "reject_reason": "not user-visible (backend-only forbidden)",
+      "pitch": "DESi as a personal long-term memory for everything you read.",
+      "addresses": [
+        "scope"
+      ]
+    },
+    {
+      "idea_id": "desi_llm_memory",
+      "role": "visionary",
+      "kind": "absurd",
+      "fitness": 0,
+      "decision": "REJECT",
+      "reject_reason": "not user-visible (backend-only forbidden)",
+      "pitch": "DESi as long-term memory FOR an LLM.",
+      "addresses": [
+        "scope"
+      ]
+    },
+    {
+      "idea_id": "desi_voice_assistant",
+      "role": "visionary",
+      "kind": "absurd",
+      "fitness": -2,
+      "decision": "REJECT",
+      "reject_reason": "not user-visible (backend-only forbidden)",
+      "pitch": "A talking DESi voice assistant.",
+      "addresses": [
+        "scope"
+      ]
+    },
+    {
+      "idea_id": "desi_mobile_app",
+      "role": "visionary",
+      "kind": "absurd",
+      "fitness": -3,
+      "decision": "REJECT",
+      "reject_reason": "not user-visible (backend-only forbidden)",
+      "pitch": "A native mobile app for DESi.",
+      "addresses": [
+        "scope"
+      ]
+    }
+  ],
+  "build_t": 7,
+  "spec_t": 3,
+  "replay_hash": "2408ef3db32940dab9ff137cead61caf2b4441208ba2c3e3ab3a8a9d1d33e82d"
+}

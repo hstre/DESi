@@ -1,0 +1,13 @@
+{
+  "options": ["Ship it now", "Polish one more week", "Cut the risky feature"],
+  "criteria": [
+    {"name": "user_value", "weight": 2.0, "higher_is_better": true},
+    {"name": "risk", "weight": 1.5, "higher_is_better": false},
+    {"name": "time_cost", "weight": 1.0, "higher_is_better": false}
+  ],
+  "scores": {
+    "Ship it now":          {"user_value": 0.8, "risk": 0.6, "time_cost": 0.1},
+    "Polish one more week": {"user_value": 0.9, "risk": 0.3, "time_cost": 0.7},
+    "Cut the risky feature":{"user_value": 0.6, "risk": 0.1, "time_cost": 0.2}
+  }
+}
