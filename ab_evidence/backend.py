@@ -17,7 +17,7 @@ import urllib.request
 
 DEFAULT_MODEL_ANTHROPIC = "claude-opus-4-7"
 DEFAULT_MODEL_OPENROUTER = "anthropic/claude-sonnet-4.5"
-DEFAULT_MAX_TOKENS = 1024
+DEFAULT_MAX_TOKENS = 2048
 
 
 def is_available() -> bool:

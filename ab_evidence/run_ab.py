@@ -25,7 +25,7 @@ from state import token_count  # noqa: E402
 _RES = _HERE / "results"
 _REP = _HERE / "reports"
 
-CASES = ("case1_architecture", "case2_research", "case3_debugging")
+CASES = ("case1_architecture", "case2_research", "case3_debugging", "case4_long_research")
 
 
 def _state_growth_table(case_id: str) -> dict:

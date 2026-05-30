@@ -4,3 +4,5 @@ fa7e8a14a71d92e2  ab_evidence/fixtures/case2_research_chat.json
 6e4e95d34badee32  ab_evidence/fixtures/case2_research_groundtruth.json
 9661c615b092536e  ab_evidence/fixtures/case3_debugging_chat.json
 02369e8078dacb65  ab_evidence/fixtures/case3_debugging_groundtruth.json
+9cba4c8b0e19acd7  ab_evidence/fixtures/case4_long_research_chat.json
+2e2b84fd00e72204  ab_evidence/fixtures/case4_long_research_groundtruth.json
