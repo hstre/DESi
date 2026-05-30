@@ -76,3 +76,15 @@ The pressure-zone hypothesis is FALSIFIED if any of these hold:
 - N=1 case6 plus 3 pressure points × 2 models is small.
 - Padding distribution (kinds and proportions of noise types) is the author's best guess at
   realistic; a different mix could change results.
+
+## Amendment — pool size reality check (committed before run)
+
+Pool size measurement: 65 fragments, ~4614 tokens.
+- 30k chat: 4.5x pool cycles (acceptable repetition)
+- 60k chat: 11.0x cycles (high but tolerable, flagged in report)
+- 100k chat: 19.6x cycles (TOO REPETITIVE — would be a fake test)
+
+**Revised plan: only run 30k and 60k.** The 100k cell is dropped because the
+padding would be unrealistically repetitive at that scale, which would
+become a property of the test rather than a property of long real dialogs.
+This is reported honestly rather than running a synthetic test.
