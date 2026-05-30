@@ -1,0 +1,372 @@
+[
+  {
+    "fixture_id": "research_architecture",
+    "variant_A": {
+      "variant": "A_full_context",
+      "system": "You continue research work. The full chat is included below.",
+      "messages": [
+        {
+          "role": "user",
+          "content": "I've been thinking about how to structure the retrieval layer. The obvious move is to use sentence embeddings to match queries to passages."
+        },
+        {
+          "role": "assistant",
+          "content": "Do we have evidence embeddings actually help on our corpora? Last time we compared sentence-transformer cosine vs. lexical BM25 the lexical baseline won by a small margin on the technical-document set."
+        },
+        {
+          "role": "user",
+          "content": "Right. I think we can rule out embeddings as the default. Let's keep them as an optional layer for a later experiment, but the core path should stay lexical."
+        },
+        {
+          "role": "assistant",
+          "content": "Agreed. And we'd need to be careful: any embedding-using component must stay peripheral. We agreed before that the core deterministic path cannot depend on a vector store, otherwise we lose bit-exact replay."
+        },
+        {
+          "role": "user",
+          "content": "Yes — and that's a hard rule. Every stage in the deterministic path must be reproducible given identical input. That constraint isn't up for negotiation."
+        },
+        {
+          "role": "assistant",
+          "content": "Okay. Then about ingestion: I think we should batch documents, say 256 per batch, and process them in batched streaming. That gives us back-pressure and bounded memory."
+        },
+        {
+          "role": "user",
+          "content": "How do we keep that deterministic? Batch order matters for the hash chain, doesn't it?"
+        },
+        {
+          "role": "assistant",
+          "content": "It does. We need a stable batch order — I'd sort by document hash before batching. Same input, same batches, every time."
+        },
+        {
+          "role": "user",
+          "content": "Fine, let's go with that. Batched streaming, batch size 256, sorted by document hash."
+        },
+        {
+          "role": "assistant",
+          "content": "One thing to think through: how does batched streaming behave under hot-reload of the corpus? If documents are added mid-run, we might re-sort and break ordering. I don't have an answer for that yet."
+        },
+        {
+          "role": "user",
+          "content": "Good question. Let's note it as an open issue. Don't fix it now."
+        },
+        {
+          "role": "assistant",
+          "content": "Also a worry: if batches don't align with document boundaries we might split a paper across two batches. Should we forbid splits?"
+        },
+        {
+          "role": "user",
+          "content": "Hmm. Forbidding splits would force batches of variable size and could waste capacity. Let's not restrict that, but I want a regression test that the result is identical whether splits happen or not."
+        },
+        {
+          "role": "assistant",
+          "content": "Makes sense. Add the regression test, don't restrict batches to whole documents."
+        },
+        {
+          "role": "user",
+          "content": "Coming back to embeddings — you said earlier we'd keep them as a flagged optional layer. Who's responsible for monitoring that probe? Nobody owns it right now."
+        },
+        {
+          "role": "assistant",
+          "content": "That's true, ownership is missing. Another thing to flag."
+        },
+        {
+          "role": "user",
+          "content": "And there's still the tension between deterministic replay and the low-latency requirement. We haven't really resolved it. Replay says we need stable ordering and hashed snapshots; latency says we want streaming with pipelining. The two pull in different directions."
+        },
+        {
+          "role": "assistant",
+          "content": "Yeah. I think this is a real tension we should record. Not resolved. We just have to live with the trade-off for now."
+        },
+        {
+          "role": "user",
+          "content": "On anchors — we said earlier that anchor spans must be contiguous in the source. But I'm not sure we ever verified that property end-to-end. I suspect it holds but I haven't tested it."
+        },
+        {
+          "role": "assistant",
+          "content": "Same here. I'd treat it as unverified. Worth a regression test, separately."
+        },
+        {
+          "role": "user",
+          "content": "Okay, action items: ingestion as we decided, the split test, the anchor-contiguity test, and the ownership question for the probe."
+        }
+      ],
+      "token_size": 711
+    },
+    "variant_B": {
+      "variant": "B_desi_state",
+      "system": "You continue research work. The original chat is NOT included. Below is the active DESi state (no prose). If a needed piece is missing, ask. If you need a specific source span, request it by anchor_id.",
+      "state_block": "{\"claims\":[],\"conflicts\":[],\"constraints\":[],\"decisions\":[],\"open_questions\":[]}",
+      "token_size": 90
+    },
+    "token_size_A": 711,
+    "token_size_B": 90,
+    "savings_tokens": 621,
+    "compression_ratio_B_vs_A": 0.8734,
+    "replay_verified": true,
+    "metrics_to_compare": [
+      "decision_preservation",
+      "constraint_preservation",
+      "conflict_visibility",
+      "open_claims_preserved",
+      "false_new_claims",
+      "tokens_used",
+      "workable_in_next_step"
+    ],
+    "ground_truth_keys": [
+      "claims",
+      "constraints",
+      "decisions",
+      "conflicts",
+      "open_questions"
+    ],
+    "workability_status": "UNTESTED_in_this_env (requires a second Claude session this environment cannot run)"
+  },
+  {
+    "fixture_id": "technical_debugging",
+    "variant_A": {
+      "variant": "A_full_context",
+      "system": "You continue research work. The full chat is included below.",
+      "messages": [
+        {
+          "role": "user",
+          "content": "The reproducibility test is failing intermittently on CI but always passes locally. Same commit, same seed."
+        },
+        {
+          "role": "assistant",
+          "content": "Same Python version on both? Different floating-point rounding can shift one bit."
+        },
+        {
+          "role": "user",
+          "content": "Yes, 3.11 in both places. Locked."
+        },
+        {
+          "role": "assistant",
+          "content": "Then the problem is probably non-determinism somewhere. dict iteration order? It shouldn't matter in 3.7+ but if you build a dict from a set anywhere…"
+        },
+        {
+          "role": "user",
+          "content": "Let me check. I grep for set( in the hashing path. Yeah, there's one — `set(brief['hard_constraints'])` then we hash the result. That's it. Sets have insertion-order-independent iteration but list(set(...)) varies across runs because of PYTHONHASHSEED."
+        },
+        {
+          "role": "assistant",
+          "content": "That's the bug. CI doesn't fix PYTHONHASHSEED; you do locally."
+        },
+        {
+          "role": "user",
+          "content": "Confirmed — local exports PYTHONHASHSEED=0 in zshrc, CI doesn't. Fix is to either pin PYTHONHASHSEED in CI or sort the list before hashing."
+        },
+        {
+          "role": "assistant",
+          "content": "Sort it. Pinning hashseed leaks the workaround into every test."
+        },
+        {
+          "role": "user",
+          "content": "Agreed, we'll sort. Let's not pin PYTHONHASHSEED globally — too easy to mask other latent non-determinism."
+        },
+        {
+          "role": "assistant",
+          "content": "Want to add a regression check that no list-from-set passes through the hashing path again?"
+        },
+        {
+          "role": "user",
+          "content": "Yes, a grep-style test that fails if anyone reintroduces it. Add it to the determinism scanner."
+        },
+        {
+          "role": "user",
+          "content": "Wait — before we ship the sort fix, do all callers actually expect a sorted list? If someone downstream depends on original order, sorting silently breaks them."
+        },
+        {
+          "role": "assistant",
+          "content": "Hmm. I don't think anyone does, but I haven't actually checked. Let's flag that as a thing to verify, not block the fix."
+        },
+        {
+          "role": "user",
+          "content": "Open question then: are there any downstream callers depending on original list order from that hashing function? Treat as unverified until we check."
+        },
+        {
+          "role": "user",
+          "content": "While we're here — the auditor benchmark is slow on CI, about 12 minutes. Local it runs in 3. We never profiled it. Worth doing?"
+        },
+        {
+          "role": "assistant",
+          "content": "I suspect it's IO on CI rather than CPU but I don't have evidence."
+        },
+        {
+          "role": "user",
+          "content": "Don't fix that now. Just note that the 12-vs-3-minute discrepancy is unexplained — we don't know why CI is slower."
+        },
+        {
+          "role": "assistant",
+          "content": "Recorded. Anything else?"
+        },
+        {
+          "role": "user",
+          "content": "One more thing — we have an unresolved tension. CI wants fully deterministic, side-effect-free tests. Some integration tests intentionally hit the local filesystem cache. Right now we mark those flaky-tolerant. That's a smell."
+        },
+        {
+          "role": "assistant",
+          "content": "Agreed it's a smell. We don't have a real answer yet."
+        }
+      ],
+      "token_size": 584
+    },
+    "variant_B": {
+      "variant": "B_desi_state",
+      "system": "You continue research work. The original chat is NOT included. Below is the active DESi state (no prose). If a needed piece is missing, ask. If you need a specific source span, request it by anchor_id.",
+      "state_block": "{\"claims\":[],\"conflicts\":[],\"constraints\":[],\"decisions\":[],\"open_questions\":[]}",
+      "token_size": 90
+    },
+    "token_size_A": 584,
+    "token_size_B": 90,
+    "savings_tokens": 494,
+    "compression_ratio_B_vs_A": 0.8459,
+    "replay_verified": true,
+    "metrics_to_compare": [
+      "decision_preservation",
+      "constraint_preservation",
+      "conflict_visibility",
+      "open_claims_preserved",
+      "false_new_claims",
+      "tokens_used",
+      "workable_in_next_step"
+    ],
+    "ground_truth_keys": [
+      "claims",
+      "constraints",
+      "decisions",
+      "conflicts",
+      "open_questions"
+    ],
+    "workability_status": "UNTESTED_in_this_env (requires a second Claude session this environment cannot run)"
+  },
+  {
+    "fixture_id": "open_brainstorm",
+    "variant_A": {
+      "variant": "A_full_context",
+      "system": "You continue research work. The full chat is included below.",
+      "messages": [
+        {
+          "role": "user",
+          "content": "I keep losing context across long projects. A week off and I have no idea where I left things. What if there were a tool that remembered the *epistemic* state of my work? Not the chat — the structure."
+        },
+        {
+          "role": "assistant",
+          "content": "Like what — a list of open questions and decisions? Or something more?"
+        },
+        {
+          "role": "user",
+          "content": "Both, maybe? Open questions, things I decided and don't want to revisit, things I tried and ruled out. Not a chat log — a state."
+        },
+        {
+          "role": "assistant",
+          "content": "There's a real risk it becomes a glorified note-taking app. People already have Notion, Obsidian, journals. The novelty has to be something they don't already do."
+        },
+        {
+          "role": "user",
+          "content": "Hmm, fair. I don't have a clean answer for why it isn't just structured notes. Let me sit with that."
+        },
+        {
+          "role": "assistant",
+          "content": "What if it focused on *forgetting* — automatically pruning what no longer matters, surfacing what's about to be forgotten? That's something humans actively don't do."
+        },
+        {
+          "role": "user",
+          "content": "Interesting framing. I'm not sold it's the killer angle but it's worth keeping on the list. Don't commit to it."
+        },
+        {
+          "role": "assistant",
+          "content": "Who would actually use this? Researchers? PhD students? Product managers? Open-source maintainers?"
+        },
+        {
+          "role": "user",
+          "content": "Honestly I don't know yet. Probably 'people running long-horizon projects with significant context-switching cost', but that's still vague."
+        },
+        {
+          "role": "assistant",
+          "content": "Do we need to lock down the audience before we prototype?"
+        },
+        {
+          "role": "user",
+          "content": "I don't think so. I think we prototype against ourselves first. If it works for us it might work for others. Audience can come later."
+        },
+        {
+          "role": "assistant",
+          "content": "Some hard rule we should set early — let's not require a server. If this works only with a backend it's dead on arrival for solo researchers."
+        },
+        {
+          "role": "user",
+          "content": "Yes — local-only, offline-capable, no required server. That's a constraint, not a preference."
+        },
+        {
+          "role": "assistant",
+          "content": "And nothing that requires an LLM at query time. People hit rate limits and lose access to their own memory."
+        },
+        {
+          "role": "user",
+          "content": "Agreed. No required online LLM call to retrieve state."
+        },
+        {
+          "role": "user",
+          "content": "What about a cloud LLM call to *build* the state, just not to *use* it? Different question."
+        },
+        {
+          "role": "assistant",
+          "content": "Hmm. Build-time vs query-time. I'm torn — build-time LLM gives much richer extraction, but locks people into vendors. We don't have to decide yet."
+        },
+        {
+          "role": "user",
+          "content": "Right. Leave that one open."
+        },
+        {
+          "role": "user",
+          "content": "Wild idea — what if the state itself were a graph and you could literally walk it? Like, see your past reasoning as a structure you can navigate."
+        },
+        {
+          "role": "assistant",
+          "content": "I'd want to be careful. We saw earlier this year that a knowledge-graph backend was overengineered for our needs. I don't want to revisit that without a hard reason."
+        },
+        {
+          "role": "user",
+          "content": "Fair. Let's keep it flat for now. Graph idea is on the discard pile."
+        },
+        {
+          "role": "assistant",
+          "content": "Should it talk to your calendar, your inbox, your code?"
+        },
+        {
+          "role": "user",
+          "content": "Way too much surface. Out of scope for v0."
+        }
+      ],
+      "token_size": 617
+    },
+    "variant_B": {
+      "variant": "B_desi_state",
+      "system": "You continue research work. The original chat is NOT included. Below is the active DESi state (no prose). If a needed piece is missing, ask. If you need a specific source span, request it by anchor_id.",
+      "state_block": "{\"claims\":[],\"conflicts\":[],\"constraints\":[],\"decisions\":[],\"open_questions\":[]}",
+      "token_size": 90
+    },
+    "token_size_A": 617,
+    "token_size_B": 90,
+    "savings_tokens": 527,
+    "compression_ratio_B_vs_A": 0.8541,
+    "replay_verified": true,
+    "metrics_to_compare": [
+      "decision_preservation",
+      "constraint_preservation",
+      "conflict_visibility",
+      "open_claims_preserved",
+      "false_new_claims",
+      "tokens_used",
+      "workable_in_next_step"
+    ],
+    "ground_truth_keys": [
+      "claims",
+      "constraints",
+      "decisions",
+      "conflicts",
+      "open_questions"
+    ],
+    "workability_status": "UNTESTED_in_this_env (requires a second Claude session this environment cannot run)"
+  }
+]

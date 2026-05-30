@@ -1,0 +1,307 @@
+{
+  "overall": {
+    "label": "ALL (mixed state_types; see honest caveat)",
+    "n": 1555,
+    "raw_mean": 9818,
+    "raw_median": 8810,
+    "raw_min": 1032,
+    "raw_max": 31848,
+    "state_mean": 282,
+    "state_median": 321,
+    "savings_mean": 9536,
+    "savings_median": 8485,
+    "savings_min": 945,
+    "savings_max": 31518,
+    "corr_raw_vs_savings": 0.9997,
+    "corr_raw_vs_state": 0.3808
+  },
+  "per_state_type": {
+    "wiki_compact_state_v1": {
+      "label": "wiki_compact_state_v1",
+      "n": 10,
+      "raw_mean": 5472,
+      "raw_median": 4930,
+      "raw_min": 1449,
+      "raw_max": 10662,
+      "state_mean": 464,
+      "state_median": 423,
+      "savings_mean": 5008,
+      "savings_median": 4508,
+      "savings_min": 1132,
+      "savings_max": 10022,
+      "corr_raw_vs_savings": 0.9999,
+      "corr_raw_vs_state": 0.9602
+    },
+    "wiki_dual_layer_anchors": {
+      "label": "wiki_dual_layer_anchors",
+      "n": 10,
+      "raw_mean": 5472,
+      "raw_median": 4930,
+      "raw_min": 1449,
+      "raw_max": 10662,
+      "state_mean": 523,
+      "state_median": 426,
+      "savings_mean": 4950,
+      "savings_median": 4594,
+      "savings_min": 1123,
+      "savings_max": 9937,
+      "corr_raw_vs_savings": 0.9978,
+      "corr_raw_vs_state": 0.7713
+    },
+    "wiki_dual_layer_v2": {
+      "label": "wiki_dual_layer_v2",
+      "n": 10,
+      "raw_mean": 6092,
+      "raw_median": 4670,
+      "raw_min": 3064,
+      "raw_max": 11322,
+      "state_mean": 1841,
+      "state_median": 1392,
+      "savings_mean": 4251,
+      "savings_median": 3379,
+      "savings_min": 2263,
+      "savings_max": 8221,
+      "corr_raw_vs_savings": 0.9874,
+      "corr_raw_vs_state": 0.93
+    },
+    "driftbench_state_summary": {
+      "label": "driftbench_state_summary",
+      "n": 1525,
+      "raw_mean": 9900,
+      "raw_median": 8856,
+      "raw_min": 1032,
+      "raw_max": 31848,
+      "state_mean": 269,
+      "state_median": 320,
+      "savings_mean": 9631,
+      "savings_median": 8536,
+      "savings_min": 945,
+      "savings_max": 31518,
+      "corr_raw_vs_savings": 0.9999,
+      "corr_raw_vs_state": 0.6862
+    }
+  },
+  "per_state_type_bins": {
+    "wiki_compact_state_v1": [
+      {
+        "bin": "<1k",
+        "n": 0,
+        "note": "no samples in this bin"
+      },
+      {
+        "bin": "1k-5k",
+        "n": 5,
+        "mean_raw": 3355,
+        "mean_state": 381,
+        "mean_savings": 2974,
+        "median_savings": 3512,
+        "mean_compression_ratio": 0.8643
+      },
+      {
+        "bin": "5k-10k",
+        "n": 4,
+        "mean_raw": 6822,
+        "mean_state": 524,
+        "mean_savings": 6297,
+        "median_savings": 5696,
+        "mean_compression_ratio": 0.9216
+      },
+      {
+        "bin": "10k-50k",
+        "n": 1,
+        "mean_raw": 10662,
+        "mean_state": 640,
+        "mean_savings": 10022,
+        "median_savings": 10022,
+        "mean_compression_ratio": 0.94
+      },
+      {
+        "bin": ">=50k",
+        "n": 0,
+        "note": "no samples in this bin"
+      }
+    ],
+    "wiki_dual_layer_anchors": [
+      {
+        "bin": "<1k",
+        "n": 0,
+        "note": "no samples in this bin"
+      },
+      {
+        "bin": "1k-5k",
+        "n": 5,
+        "mean_raw": 3355,
+        "mean_state": 370,
+        "mean_savings": 2985,
+        "median_savings": 3399,
+        "mean_compression_ratio": 0.8657
+      },
+      {
+        "bin": "5k-10k",
+        "n": 4,
+        "mean_raw": 6822,
+        "mean_state": 662,
+        "mean_savings": 6159,
+        "median_savings": 5654,
+        "mean_compression_ratio": 0.9079
+      },
+      {
+        "bin": "10k-50k",
+        "n": 1,
+        "mean_raw": 10662,
+        "mean_state": 725,
+        "mean_savings": 9937,
+        "median_savings": 9937,
+        "mean_compression_ratio": 0.932
+      },
+      {
+        "bin": ">=50k",
+        "n": 0,
+        "note": "no samples in this bin"
+      }
+    ],
+    "wiki_dual_layer_v2": [
+      {
+        "bin": "<1k",
+        "n": 0,
+        "note": "no samples in this bin"
+      },
+      {
+        "bin": "1k-5k",
+        "n": 6,
+        "mean_raw": 4017,
+        "mean_state": 1188,
+        "mean_savings": 2828,
+        "median_savings": 2721,
+        "mean_compression_ratio": 0.7038
+      },
+      {
+        "bin": "5k-10k",
+        "n": 2,
+        "mean_raw": 7268,
+        "mean_state": 2462,
+        "mean_savings": 4806,
+        "median_savings": 4806,
+        "mean_compression_ratio": 0.6613
+      },
+      {
+        "bin": "10k-50k",
+        "n": 2,
+        "mean_raw": 11142,
+        "mean_state": 3178,
+        "mean_savings": 7964,
+        "median_savings": 7964,
+        "mean_compression_ratio": 0.7146
+      },
+      {
+        "bin": ">=50k",
+        "n": 0,
+        "note": "no samples in this bin"
+      }
+    ],
+    "driftbench_state_summary": [
+      {
+        "bin": "<1k",
+        "n": 0,
+        "note": "no samples in this bin"
+      },
+      {
+        "bin": "1k-5k",
+        "n": 382,
+        "mean_raw": 1944,
+        "mean_state": 84,
+        "mean_savings": 1860,
+        "median_savings": 1614,
+        "mean_compression_ratio": 0.952
+      },
+      {
+        "bin": "5k-10k",
+        "n": 559,
+        "mean_raw": 8203,
+        "mean_state": 322,
+        "mean_savings": 7881,
+        "median_savings": 8006,
+        "mean_compression_ratio": 0.9601
+      },
+      {
+        "bin": "10k-50k",
+        "n": 584,
+        "mean_raw": 16727,
+        "mean_state": 339,
+        "mean_savings": 16388,
+        "median_savings": 13382,
+        "mean_compression_ratio": 0.9771
+      },
+      {
+        "bin": ">=50k",
+        "n": 0,
+        "note": "no samples in this bin"
+      }
+    ]
+  },
+  "overall_bins": [
+    {
+      "bin": "<1k",
+      "n": 0,
+      "note": "no samples in this bin"
+    },
+    {
+      "bin": "1k-5k",
+      "n": 398,
+      "mean_raw": 2011,
+      "mean_state": 108,
+      "mean_savings": 1902,
+      "median_savings": 1626,
+      "mean_compression_ratio": 0.9461
+    },
+    {
+      "bin": "5k-10k",
+      "n": 569,
+      "mean_raw": 8181,
+      "mean_state": 334,
+      "mean_savings": 7847,
+      "median_savings": 8001,
+      "mean_compression_ratio": 0.9584
+    },
+    {
+      "bin": "10k-50k",
+      "n": 588,
+      "mean_raw": 16687,
+      "mean_state": 349,
+      "mean_savings": 16338,
+      "median_savings": 13309,
+      "mean_compression_ratio": 0.9761
+    },
+    {
+      "bin": ">=50k",
+      "n": 0,
+      "note": "no samples in this bin"
+    }
+  ],
+  "sources": [
+    {
+      "path": "claude_layer_probe/data_inventory/wikipedia_v1.jsonl",
+      "branch": "desi-wikipedia-epistemic-compression-probe",
+      "sha16": "18228e3b7b4a0a52",
+      "state_type": "wiki_compact_state_v1"
+    },
+    {
+      "path": "claude_layer_probe/data_inventory/wikipedia_dual.jsonl",
+      "branch": "desi-wikipedia-dual-layer-probe",
+      "sha16": "86cbe317fb407021",
+      "state_type": "wiki_dual_layer_anchors"
+    },
+    {
+      "path": "claude_layer_probe/data_inventory/wikipedia_dual_v2.jsonl",
+      "branch": "desi-wikipedia-dual-layer-v2",
+      "sha16": "2afddc719c57ca05",
+      "state_type": "wiki_dual_layer_v2"
+    },
+    {
+      "path": "claude_layer_probe/data_inventory/driftbench_compression.jsonl",
+      "branch": "desi-context-compression-demo",
+      "sha16": "c2be7e1860f0676b",
+      "state_type": "driftbench_state_summary"
+    }
+  ]
+}
