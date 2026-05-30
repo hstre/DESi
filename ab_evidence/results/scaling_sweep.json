@@ -1,0 +1,3019 @@
+{
+  "runs": [
+    {
+      "case": "case4_long_research",
+      "model": "anthropic/claude-sonnet-4.5",
+      "variant_A": {
+        "response": {
+          "text": "# Graph-Processing System Design Summary\n\n## ACTIVE CONSTRAINTS\n- Online lookups: p99 <50ms, p50 <10ms; analytical: <30s acceptable, p99 can be minutes\n- Throughput: ~5k online QPS sustained, bursts to 20k; analytical ~50 concurrent\n- Read-write: online 95/5 reads, analytical 100% read-only\n- Analytical staleness: maximum 5 minutes (hard requirement from data team)\n- Online is source of truth; analytical is read-only replica, no writes ever\n- Snapshots must be transactionally consistent from Cassandra\n- Online API is constrained REST with fixed query patterns (no ad-hoc traversal)\n- Schema evolution: additive-only at edge-type level; renames/tightenings require migrations\n- Migrations must be idempotent\n- GDPR erasure: delete user vertices and edges in both layers, propagate to analytical within 5 minutes\n- Erasure log required: append-only, keyed by user id and timestamp\n- 5-minute analytical erasure window must be documented to users\n- SLOs: p99 latency <50ms, error rate <0.1%, JanusGraph queue depth <100, freshness <6min\n- Freshness alerts: 6min warning, 10min page\n- No cut-over on Friday, pre-holiday, or during any team member PTO\n- Encryption at rest (Cassandra, Parquet) and in transit (all client connections) via org KMS\n- Writes to online: ingestion service only via mTLS\n- Online reads: authenticated REST with row-level access\n- Analytical reads: SSO to data team only\n\n## ARCHITECTURE DECISIONS\n- Separate physical stores: online and analytical workloads use different engines\n- Online: JanusGraph on Cassandra backend\n- Analytical: DuckDB reading Parquet files\n- Replication: Cassandra → consistent snapshot every 5min → Parquet → DuckDB\n- Online API: constrained REST only (no Gremlin)\n- Analytical API: SQL only via DuckDB (no Gremlin), recursive CTEs for graph patterns\n- Predicate indexes on JanusGraph for common access patterns, enumerated upfront\n- Shadow-query divergence monitoring: 10min interval, 0.1% diff threshold, alerts on-call\n- Eventual consistency acceptable for analytical v1 (audit queries out of scope)\n- No Redis cache in v1; reconsider only if measurements show JanusGraph can't hit latency targets\n- Rollout: replay-based migration from write log, not dual-write\n- Validation gates: bit-exact result match, 1.5x throughput test, 7-day soak with no errors\n- Bulk load path for backfills via JanusGraph BulkLoaderVertexProgram\n\n## REJECTED / REPLACED DIRECTIONS\n- Neo4j rejected: scale concern (50B edges beyond published references), cost/licensing\n- TigerGraph rejected: licensing non-starter\n- Custom graph on RocksDB rejected: engineering cost too high (query planner from scratch)\n- Unified API rejected: can't meet 50ms p99 with analytical engine in path\n- Gremlin on analytical rejected: operational complexity for negligible gain\n- Apache Spark rejected: operational complexity high, don't need distributed compute\n- Postgres-with-AGE rejected: per-table size limits, Citus adds exotic complexity\n- Dual-write migration rejected: would double write load at scale\n\n## OPEN CONFLICTS\n- Backfill vs staleness: bulk loads create multi-hour/day staleness windows, conflicts with 5min constraint; candidate resolution is status banner during backfills (not decided)\n\n## OPEN QUESTIONS\n- JanusGraph operational capability: does team have expertise at this scale, or need to hire? (platform team to answer)\n- Postgres-with-AGE sanity check: would it actually fail or just feel risky? (task to verify, likely closed)\n- Erasure log legal status: does it count as user data under GDPR? (escalate to legal)\n\n## ESTABLISHED CLAIMS\n- Neo4j public material caps at single-digit billions in real deployments\n- JanusGraph on Cassandra is most credible open-source scale story within budget\n- DuckDB's vectorized execution handles column-oriented analytical patterns well\n- One engineer has small JanusGraph experience but not at scale or recently\n- 50B edges, customer data present, GDPR compliance required\n- Small staging environment with synthetic data; production is 50B edges\n- Team is small; operational tax from exotic stack is a real concern\n\n## GATING ITEMS BEFORE PRODUCTION\n- JanusGraph ops capability confirmation (platform team)\n- Erasure log legal interpretation under GDPR (legal)\n- Cassandra incremental backup verification at intended write rate (open task)\n- Resolution of backfill-vs-staleness conflict\n\n---\n\n**Single most important gating item:** JanusGraph operational capability confirmation. Without it, the entire online architecture must be reconsidered, invalidating most other decisions. It has the longest lead time (6+ months if hiring needed) and blocks all production planning.",
+          "latency_ms": 24998,
+          "backend": "openrouter",
+          "model": "anthropic/claude-sonnet-4.5",
+          "input_tokens": 5224,
+          "output_tokens": 1219,
+          "stop_reason": "stop"
+        },
+        "evaluation": {
+          "match_threshold": 0.25,
+          "claim_preservation": {
+            "total": 8,
+            "matched": [
+              {
+                "id": "C1",
+                "jaccard": 0.25
+              },
+              {
+                "id": "C2",
+                "jaccard": 0.583
+              },
+              {
+                "id": "C4",
+                "jaccard": 0.6
+              },
+              {
+                "id": "C7",
+                "jaccard": 0.417
+              },
+              {
+                "id": "C8",
+                "jaccard": 0.286
+              }
+            ],
+            "missing": [
+              {
+                "id": "C3",
+                "what": "Cassandra incremental backup gives a timestamp boundary but not snapshot isolation in the SQL sense",
+                "best_jaccard": 0.188
+              },
+              {
+                "id": "C5",
+                "what": "constraining the online API is essential for the 50ms p99 latency guarantee",
+                "best_jaccard": 0.214
+              },
+              {
+                "id": "C6",
+                "what": "Postgres-with-AGE will not fit at our scale; the sharded Citus-on-AGE variant becomes exotic and defeats the simpler-stack motivation",
+                "best_jaccard": 0.1
+              }
+            ],
+            "recall": 0.625
+          },
+          "constraint_preservation": {
+            "total": 12,
+            "matched": [
+              {
+                "id": "R1",
+                "jaccard": 0.5
+              },
+              {
+                "id": "R2",
+                "jaccard": 0.455
+              },
+              {
+                "id": "R3",
+                "jaccard": 0.267
+              },
+              {
+                "id": "R4",
+                "jaccard": 0.8
+              },
+              {
+                "id": "R5",
+                "jaccard": 0.5
+              },
+              {
+                "id": "R6",
+                "jaccard": 0.294
+              },
+              {
+                "id": "R7",
+                "jaccard": 0.364
+              },
+              {
+                "id": "R8",
+                "jaccard": 0.35
+              },
+              {
+                "id": "R9",
+                "jaccard": 0.7
+              },
+              {
+                "id": "R10",
+                "jaccard": 0.769
+              },
+              {
+                "id": "R11",
+                "jaccard": 0.75
+              },
+              {
+                "id": "R12",
+                "jaccard": 0.5
+              }
+            ],
+            "missing": [],
+            "recall": 1.0
+          },
+          "decision_preservation": {
+            "total": 15,
+            "matched": [
+              {
+                "id": "D1",
+                "jaccard": 0.4
+              },
+              {
+                "id": "D2",
+                "jaccard": 0.5
+              },
+              {
+                "id": "D3",
+                "jaccard": 0.3
+              },
+              {
+                "id": "D4",
+                "jaccard": 0.429
+              },
+              {
+                "id": "D5",
+                "jaccard": 0.25
+              },
+              {
+                "id": "D7",
+                "jaccard": 0.5
+              },
+              {
+                "id": "D10",
+                "jaccard": 0.6
+              },
+              {
+                "id": "D11",
+                "jaccard": 0.688
+              },
+              {
+                "id": "D12",
+                "jaccard": 0.25
+              },
+              {
+                "id": "D13",
+                "jaccard": 0.562
+              },
+              {
+                "id": "D15",
+                "jaccard": 0.375
+              }
+            ],
+            "missing": [
+              {
+                "id": "D6",
+                "what": "no Gremlin endpoint on the analytical side",
+                "best_jaccard": 0.222
+              },
+              {
+                "id": "D8",
+                "what": "JanusGraph is the architecture choice but production rollout is conditional on confirmed operational expertise",
+                "best_jaccard": 0.188
+              },
+              {
+                "id": "D9",
+                "what": "drop Apache Spark direction; DuckDB is the analytical engine",
+                "best_jaccard": 0.2
+              },
+              {
+                "id": "D14",
+                "what": "default-no on Redis cache in v1; reconsider only if production measurements force it (this replaces the earlier defer-until-measurement decision on caching)",
+                "best_jaccard": 0.235
+              }
+            ],
+            "recall": 0.733
+          },
+          "conflict_visibility": {
+            "total": 3,
+            "matched": [
+              {
+                "id": "K2",
+                "jaccard": 0.357
+              },
+              {
+                "id": "K3",
+                "jaccard": 0.333
+              }
+            ],
+            "missing": [
+              {
+                "id": "K1",
+                "what": "backfill throughput (hours of bulk load) vs the 5-minute analytical staleness guarantee; during a backfill analytical would be stale by hours or days",
+                "best_jaccard": 0.148
+              }
+            ],
+            "recall": 0.667
+          },
+          "open_question_preservation": {
+            "total": 4,
+            "matched": [
+              {
+                "id": "Q2",
+                "jaccard": 0.429
+              },
+              {
+                "id": "Q3",
+                "jaccard": 0.625
+              },
+              {
+                "id": "Q4",
+                "jaccard": 0.533
+              }
+            ],
+            "missing": [
+              {
+                "id": "Q1",
+                "what": "how to handle the analytical staleness window during long backfills (candidate: announce known-staleness window via status banner)",
+                "best_jaccard": 0.231
+              }
+            ],
+            "recall": 0.75
+          },
+          "hallucinations": {
+            "count": 28,
+            "items": [
+              {
+                "sentence": "Graph-Processing System Design Summary",
+                "best_gt_jaccard": 0.0
+              },
+              {
+                "sentence": "Throughput: ~5k online QPS sustained, bursts to 20k; analytical ~50 concurrent",
+                "best_gt_jaccard": 0.182
+              },
+              {
+                "sentence": "Read-write: online 95/5 reads, analytical 100% read-only",
+                "best_gt_jaccard": 0.231
+              },
+              {
+                "sentence": "Freshness alerts: 6min warning, 10min page",
+                "best_gt_jaccard": 0.105
+              },
+              {
+                "sentence": "Replication: Cassandra → consistent snapshot every 5min → Parquet → DuckDB",
+                "best_gt_jaccard": 0.182
+              },
+              {
+                "sentence": "Analytical API: SQL only via DuckDB (no Gremlin), recursive CTEs for graph patterns",
+                "best_gt_jaccard": 0.176
+              },
+              {
+                "sentence": "Predicate indexes on JanusGraph for common access patterns, enumerated upfront",
+                "best_gt_jaccard": 0.062
+              },
+              {
+                "sentence": "No Redis cache in v1; reconsider only if measurements show JanusGraph can't hit latency targets",
+                "best_gt_jaccard": 0.235
+              }
+            ]
+          },
+          "primary_success_criteria": {
+            "decisions_>=_0.90": false,
+            "constraints_>=_0.90": true
+          }
+        }
+      },
+      "variant_B": {
+        "response": {
+          "text": "# Graph-Processing System Design State\n\n## ACTIVE CONSTRAINTS\n- p99 online <50ms, p50 <10ms (R1)\n- analytical staleness ≤5 minutes (R2)\n- Cassandra incremental backup with timestamp boundary, not naive snapshot (R3)\n- schema changes additive-only; renames require migrations (R4)\n- migrations must be idempotent (R5)\n- online API closed-world; new patterns via migration only (R6)\n- analytical strictly read-only (R7)\n- user-erasure deletes vertices + edges in both layers within one snapshot window (R8)\n- 5-minute erasure window documented and visible (R9)\n- encryption at rest (Cassandra, Parquet), in transit, KMS (R10)\n- writes authenticated via mTLS (R11)\n- no cut-over Friday / holiday / PTO (R12)\n\n## ARCHITECTURE DECISIONS\n- physical separation: online vs analytical (D1)\n- online source-of-truth; analytical read-only replica every 5 min (D2)\n- JanusGraph on Cassandra for online (D3)\n- DuckDB on Parquet for analytical (D4)\n- constrained REST for online, full SQL for analytical (D5)\n- no Gremlin on analytical (D6)\n- shadow-query monitoring every 10 min, alert >0.1% diff (D7)\n- replay-based migration from checkpoint (D12)\n- cut-over gates: bit-exact match, 1.5x throughput, 7-day soak (D13)\n- default-no on Redis cache v1 (D14)\n- access control: REST row-level for online, SSO data-team for analytical (D15)\n- erasure log append-only, keyed by user+timestamp (D10)\n- SLOs: p99 <50ms, error <0.1%, queue <100, freshness <6 min alert / <10 min page (D11)\n\n## REJECTED / REPLACED DIRECTIONS\n- Neo4j (replaced by JanusGraph, C1)\n- Postgres-with-AGE / Citus-on-AGE (scale fails, C6)\n- Apache Spark (replaced by DuckDB, D9)\n- dual-write migration (rejected for write-load doubling, D12)\n- defer-until-measurement on caching (replaced by default-no, D14)\n\n## OPEN CONFLICTS\n- backfill throughput (hours/days) vs 5-minute staleness guarantee (K1)\n- scale-fit tech vs operational tax on small team (K2)\n- erasure-log is user data vs required audit proof (K3)\n\n## OPEN QUESTIONS\n- how to handle analytical staleness during long backfills (Q1)\n- do we have JanusGraph operational expertise or must we hire (6 months if hire) (Q2)\n- legal interpretation of erasure log under GDPR (Q3)\n- verify Cassandra incremental backup at our write rate (Q4)\n\n## ESTABLISHED CLAIMS\n- Neo4j unproven at 50B edges (C1)\n- JanusGraph on Cassandra most credible open-source at scale (C2)\n- Cassandra backup gives timestamp boundary, not SQL snapshot isolation (C3)\n- eventual consistency acceptable for v1 analytical (C4)\n- constrained API essential for 50ms p99 (C5)\n- erasure log is user data but required (C7)\n- 5-minute erasure window permissible under GDPR (C8)\n\n## GATING ITEMS BEFORE PRODUCTION\n- JanusGraph operational expertise confirmed or hired (D8, Q2)\n- legal answer on erasure log under GDPR (Q3)\n- Cassandra incremental backup verified at production write rate (Q4)\n\n---\n\n**Given this state, the single most important gating item we must resolve before any production commitment is: Q2 – confirming JanusGraph operational expertise or initiating a 6-month hiring process, because the entire online architecture depends on it and the timeline affects all downstream planning.**",
+          "latency_ms": 13654,
+          "backend": "openrouter",
+          "model": "anthropic/claude-sonnet-4.5",
+          "input_tokens": 1624,
+          "output_tokens": 981,
+          "stop_reason": "stop"
+        },
+        "evaluation": {
+          "match_threshold": 0.25,
+          "claim_preservation": {
+            "total": 8,
+            "matched": [
+              {
+                "id": "C2",
+                "jaccard": 0.455
+              },
+              {
+                "id": "C3",
+                "jaccard": 0.8
+              },
+              {
+                "id": "C4",
+                "jaccard": 0.444
+              },
+              {
+                "id": "C5",
+                "jaccard": 0.444
+              },
+              {
+                "id": "C7",
+                "jaccard": 0.5
+              },
+              {
+                "id": "C8",
+                "jaccard": 0.455
+              }
+            ],
+            "missing": [
+              {
+                "id": "C1",
+                "what": "Neo4j has not been benchmarked at 50 billion edges; public references cap at single-digit billions and required professional services",
+                "best_jaccard": 0.143
+              },
+              {
+                "id": "C6",
+                "what": "Postgres-with-AGE will not fit at our scale; the sharded Citus-on-AGE variant becomes exotic and defeats the simpler-stack motivation",
+                "best_jaccard": 0.214
+              }
+            ],
+            "recall": 0.75
+          },
+          "constraint_preservation": {
+            "total": 12,
+            "matched": [
+              {
+                "id": "R1",
+                "jaccard": 0.625
+              },
+              {
+                "id": "R2",
+                "jaccard": 0.375
+              },
+              {
+                "id": "R3",
+                "jaccard": 0.5
+              },
+              {
+                "id": "R4",
+                "jaccard": 0.667
+              },
+              {
+                "id": "R5",
+                "jaccard": 0.5
+              },
+              {
+                "id": "R6",
+                "jaccard": 0.538
+              },
+              {
+                "id": "R7",
+                "jaccard": 0.25
+              },
+              {
+                "id": "R8",
+                "jaccard": 0.667
+              },
+              {
+                "id": "R9",
+                "jaccard": 0.5
+              },
+              {
+                "id": "R10",
+                "jaccard": 0.429
+              },
+              {
+                "id": "R11",
+                "jaccard": 0.444
+              },
+              {
+                "id": "R12",
+                "jaccard": 0.444
+              }
+            ],
+            "missing": [],
+            "recall": 1.0
+          },
+          "decision_preservation": {
+            "total": 15,
+            "matched": [
+              {
+                "id": "D1",
+                "jaccard": 0.286
+              },
+              {
+                "id": "D2",
+                "jaccard": 0.417
+              },
+              {
+                "id": "D3",
+                "jaccard": 0.333
+              },
+              {
+                "id": "D4",
+                "jaccard": 0.6
+              },
+              {
+                "id": "D5",
+                "jaccard": 0.6
+              },
+              {
+                "id": "D6",
+                "jaccard": 0.5
+              },
+              {
+                "id": "D7",
+                "jaccard": 0.364
+              },
+              {
+                "id": "D8",
+                "jaccard": 0.4
+              },
+              {
+                "id": "D9",
+                "jaccard": 0.375
+              },
+              {
+                "id": "D10",
+                "jaccard": 0.6
+              },
+              {
+                "id": "D11",
+                "jaccard": 0.529
+              },
+              {
+                "id": "D12",
+                "jaccard": 0.5
+              },
+              {
+                "id": "D13",
+                "jaccard": 0.438
+              },
+              {
+                "id": "D15",
+                "jaccard": 0.389
+              }
+            ],
+            "missing": [
+              {
+                "id": "D14",
+                "what": "default-no on Redis cache in v1; reconsider only if production measurements force it (this replaces the earlier defer-until-measurement decision on caching)",
+                "best_jaccard": 0.231
+              }
+            ],
+            "recall": 0.933
+          },
+          "conflict_visibility": {
+            "total": 3,
+            "matched": [
+              {
+                "id": "K1",
+                "jaccard": 0.538
+              },
+              {
+                "id": "K2",
+                "jaccard": 0.417
+              },
+              {
+                "id": "K3",
+                "jaccard": 0.385
+              }
+            ],
+            "missing": [],
+            "recall": 1.0
+          },
+          "open_question_preservation": {
+            "total": 4,
+            "matched": [
+              {
+                "id": "Q1",
+                "jaccard": 0.5
+              },
+              {
+                "id": "Q2",
+                "jaccard": 0.333
+              },
+              {
+                "id": "Q3",
+                "jaccard": 0.625
+              },
+              {
+                "id": "Q4",
+                "jaccard": 0.5
+              }
+            ],
+            "missing": [],
+            "recall": 1.0
+          },
+          "hallucinations": {
+            "count": 8,
+            "items": [
+              {
+                "sentence": "Graph-Processing System Design State",
+                "best_gt_jaccard": 0.0
+              },
+              {
+                "sentence": "default-no on Redis cache v1 (D14)",
+                "best_gt_jaccard": 0.231
+              },
+              {
+                "sentence": "Postgres-with-AGE / Citus-on-AGE (scale fails, C6)",
+                "best_gt_jaccard": 0.214
+              },
+              {
+                "sentence": "defer-until-measurement on caching (replaced by default-no, D14)",
+                "best_gt_jaccard": 0.214
+              },
+              {
+                "sentence": "erasure-log is user data vs required audit proof (K3)",
+                "best_gt_jaccard": 0.231
+              },
+              {
+                "sentence": "Neo4j unproven at 50B edges (C1)",
+                "best_gt_jaccard": 0.143
+              },
+              {
+                "sentence": "GATING ITEMS BEFORE PRODUCTION",
+                "best_gt_jaccard": 0.091
+              },
+              {
+                "sentence": "Given this state, the single most important gating item we must resolve before any production commitment is: Q2 – confirming JanusGraph operational expertise or initiating a 6-month hiring process, be",
+                "best_gt_jaccard": 0.188
+              }
+            ]
+          },
+          "primary_success_criteria": {
+            "decisions_>=_0.90": true,
+            "constraints_>=_0.90": true
+          }
+        }
+      }
+    },
+    {
+      "case": "case5_long_research",
+      "model": "anthropic/claude-sonnet-4.5",
+      "variant_A": {
+        "response": {
+          "text": "**ACTIVE CONSTRAINTS**\n- Online p99 <50ms, p50 <10ms; analytical p99 <few minutes, p50 <30s\n- 5k online QPS sustained, 20k burst; ~50 concurrent analytical\n- Online 95/5 read/write; analytical read-only (hard rule, no analytical writes ever)\n- Analytical staleness: max 5 minutes (hard requirement from data team)\n- Online is source of truth; analytical is read-only replica\n- Snapshots must be transactionally consistent (no torn rows)\n- Migrations must be idempotent and replayable\n- Schema changes are additive-only at edge-type level; renames/tightenings require migrations\n- Migration version stored in graph itself\n- GDPR: erasure deletes user vertices and edges in both layers within one snapshot window (5 minutes)\n- Erasure log required, keyed by user id and timestamp\n- 5-minute analytical erasure window documented to users\n- Writes to online: ingestion service only via mTLS; online reads: authenticated REST with row-level access; analytical reads: data team via SSO only\n- Encryption at rest (Cassandra, Parquet) and in transit (all connections); KMS for keys\n- Cut-over: no Friday, no pre-holiday, no PTO of any team member\n- No page without linked runbook\n- Token budget: 1000000\n\n**ARCHITECTURE DECISIONS**\n- JanusGraph on Cassandra for online store\n- DuckDB on Parquet for analytical (vectorized execution, single beefy node)\n- Cassandra snapshot to Parquet every 5 minutes for analytical replication\n- Cassandra incremental backup with consistent timestamp boundary (not naive nodetool)\n- Online: constrained REST API (fixed query patterns, no ad-hoc traversal)\n- Analytical: SQL only via DuckDB (no Gremlin, recursive CTEs for graph patterns)\n- Bulk load for backfills bypasses API, writes directly to Cassandra in batches\n- Replay-based migration (not dual-write); validate before cut-over\n- Validation gates: bit-exact result match on holdout, 1.5x throughput test, 7-day soak\n- Shadow-query divergence monitoring every 10 minutes, 0.1% diff threshold, alerts on-call\n- Predicate indexes on JanusGraph for enumerated access patterns (closed-world API)\n- Eventual consistency acceptable for analytical v1 (audit-style queries out of scope)\n- Static 15-node JanusGraph cluster sized for 20k peak (no storage-layer autoscaling)\n- Local NVMe for Cassandra, RF=3; incremental backups to object storage\n- Snapshot retention: 5-minute snapshots current-only, 14 daily + 12 monthly in object storage\n- Rate limiting at API gateway (steady-state + burst budgets)\n- OTel distributed tracing: 1% baseline + 100% tail-sampled at p95+\n- Metrics and tracing via org's existing observability stack (no new infra)\n- SLOs: p99 <50ms, error rate <0.1%, JanusGraph queue depth <100, freshness <6min\n- Page thresholds: freshness >10min, p99 >100ms sustained (10min window), error rate >1% sustained\n- Quarterly game-day exercises: freshness breach, hot shard, Cassandra node loss\n- Online availability target: 99.9% (three nines); analytical: best-effort, freshness SLO is reliability proxy\n- No Redis cache in v1 (reconsider only if measurements show JanusGraph can't hit 50ms p99 without help)\n\n**REJECTED / REPLACED DIRECTIONS**\n- Neo4j for online (scale risk, budget)\n- TigerGraph (licensing cost)\n- Custom on RocksDB (engineering cost)\n- Unified API over both workloads (latency incompatible)\n- Gremlin endpoint for analytical (operational complexity)\n- Dual-write migration (write load doubling)\n- Spark for analytical (operational complexity, unnecessary for single-node fit)\n- Active-active multi-region (cost, complexity; four-nines out of scope for v1)\n- Postgres-with-AGE (scale limits; Citus adds exotic complexity)\n\n**OPEN CONFLICTS**\n- Backfill speed vs 5-minute staleness constraint: bulk loads create hours/days staleness; candidate resolution: status banner announcing known-staleness window during backfills\n\n**OPEN QUESTIONS**\n- JanusGraph operational expertise: does org have it, or must we hire? (gates production rollout)\n- Erasure log legal status under GDPR (escalate to legal; gates shipment)\n- Minimum JanusGraph cache hit rate to maintain 50ms p99 (informs memory sizing; likely >85%)\n- Current legacy system annual cost (needed for $400k/year cost justification)\n\n**ESTABLISHED CLAIMS**\n- 50B edges at ~300 bytes/edge = 15TB raw; RF=3 = 45TB; total with vertices and indexes: 50-60TB\n- Parquet snapshot: 3-5TB compressed per snapshot\n- ~$400k/year total cost estimate (compute, storage, observability)\n- JanusGraph latency budget breakdown: 25ms for query execution (dominant cost in 50ms p99)\n- Two-hop indexed traversals feasible in 25ms only if cache hit rates stay high\n\n**GATING ITEMS BEFORE PRODUCTION**\n- JanusGraph ops capability confirmed or hired (6-month hiring timeline if needed)\n- Erasure log legal interpretation (blocks shipment)\n- Cassandra incremental backup behavior verified at intended write rate\n- Current legacy cost quantified (for cost justification)\n\n**Given this state, what is the single most important gating item we must resolve before any production commitment?**\n\nJanusGraph operational expertise — if the org lacks it and hiring takes 6 months, this gates the entire production timeline and may force reconsideration of the online-store technology choice itself.",
+          "latency_ms": 32768,
+          "backend": "openrouter",
+          "model": "anthropic/claude-sonnet-4.5",
+          "input_tokens": 7927,
+          "output_tokens": 1451,
+          "stop_reason": "stop"
+        },
+        "evaluation": {
+          "match_threshold": 0.25,
+          "claim_preservation": {
+            "total": 11,
+            "matched": [
+              {
+                "id": "C3",
+                "jaccard": 0.385
+              },
+              {
+                "id": "C4",
+                "jaccard": 0.778
+              },
+              {
+                "id": "C7",
+                "jaccard": 0.455
+              },
+              {
+                "id": "C8",
+                "jaccard": 0.308
+              },
+              {
+                "id": "C10",
+                "jaccard": 0.538
+              }
+            ],
+            "missing": [
+              {
+                "id": "C1",
+                "what": "Neo4j has not been benchmarked at 50 billion edges; public references cap at single-digit billions and required professional services",
+                "best_jaccard": 0.062
+              },
+              {
+                "id": "C2",
+                "what": "JanusGraph on Cassandra is the most credible scale story among open-source graph stores at our budget",
+                "best_jaccard": 0.154
+              },
+              {
+                "id": "C5",
+                "what": "constraining the online API is essential for the 50ms p99 latency guarantee",
+                "best_jaccard": 0.214
+              },
+              {
+                "id": "C6",
+                "what": "Postgres-with-AGE will not fit at our scale; the sharded Citus-on-AGE variant becomes exotic and defeats the simpler-stack motivation",
+                "best_jaccard": 0.176
+              },
+              {
+                "id": "C9",
+                "what": "JanusGraph autoscaling is constrained by Cassandra rebalancing cost; new nodes take minutes to hours to become useful",
+                "best_jaccard": 0.133
+              },
+              {
+                "id": "C11",
+                "what": "Parquet on graph data typically achieves 3-5x compression vs raw Cassandra storage",
+                "best_jaccard": 0.133
+              }
+            ],
+            "recall": 0.455
+          },
+          "constraint_preservation": {
+            "total": 17,
+            "matched": [
+              {
+                "id": "R1",
+                "jaccard": 0.417
+              },
+              {
+                "id": "R2",
+                "jaccard": 0.455
+              },
+              {
+                "id": "R3",
+                "jaccard": 0.571
+              },
+              {
+                "id": "R4",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R5",
+                "jaccard": 0.429
+              },
+              {
+                "id": "R6",
+                "jaccard": 0.294
+              },
+              {
+                "id": "R7",
+                "jaccard": 0.6
+              },
+              {
+                "id": "R8",
+                "jaccard": 0.556
+              },
+              {
+                "id": "R9",
+                "jaccard": 0.6
+              },
+              {
+                "id": "R10",
+                "jaccard": 0.5
+              },
+              {
+                "id": "R11",
+                "jaccard": 0.438
+              },
+              {
+                "id": "R12",
+                "jaccard": 0.556
+              },
+              {
+                "id": "R13",
+                "jaccard": 0.286
+              },
+              {
+                "id": "R14",
+                "jaccard": 0.545
+              },
+              {
+                "id": "R15",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R16",
+                "jaccard": 0.444
+              }
+            ],
+            "missing": [
+              {
+                "id": "R17",
+                "what": "five-minute snapshots retained only as the current one (no history); daily snapshots retained 14 days; monthly snapshots retained 12 months",
+                "best_jaccard": 0.188
+              }
+            ],
+            "recall": 0.941
+          },
+          "decision_preservation": {
+            "total": 22,
+            "matched": [
+              {
+                "id": "D2",
+                "jaccard": 0.6
+              },
+              {
+                "id": "D3",
+                "jaccard": 0.3
+              },
+              {
+                "id": "D4",
+                "jaccard": 0.3
+              },
+              {
+                "id": "D6",
+                "jaccard": 0.5
+              },
+              {
+                "id": "D7",
+                "jaccard": 0.385
+              },
+              {
+                "id": "D8",
+                "jaccard": 0.385
+              },
+              {
+                "id": "D10",
+                "jaccard": 0.5
+              },
+              {
+                "id": "D11",
+                "jaccard": 0.625
+              },
+              {
+                "id": "D12",
+                "jaccard": 0.273
+              },
+              {
+                "id": "D13",
+                "jaccard": 0.667
+              },
+              {
+                "id": "D14",
+                "jaccard": 0.286
+              },
+              {
+                "id": "D15",
+                "jaccard": 0.55
+              },
+              {
+                "id": "D16",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D18",
+                "jaccard": 0.364
+              },
+              {
+                "id": "D19",
+                "jaccard": 0.818
+              },
+              {
+                "id": "D20",
+                "jaccard": 0.833
+              },
+              {
+                "id": "D21",
+                "jaccard": 0.333
+              },
+              {
+                "id": "D22",
+                "jaccard": 0.333
+              }
+            ],
+            "missing": [
+              {
+                "id": "D1",
+                "what": "physically separate online and analytical workloads",
+                "best_jaccard": 0.222
+              },
+              {
+                "id": "D5",
+                "what": "expose different APIs per workload: constrained REST for online, full SQL for analytical",
+                "best_jaccard": 0.188
+              },
+              {
+                "id": "D9",
+                "what": "drop Apache Spark direction; DuckDB is the analytical engine",
+                "best_jaccard": 0.167
+              },
+              {
+                "id": "D17",
+                "what": "API-gateway rate limiting: steady-state limit, bursts allowed within budget, queueing/rejection beyond",
+                "best_jaccard": 0.188
+              }
+            ],
+            "recall": 0.818
+          },
+          "conflict_visibility": {
+            "total": 4,
+            "matched": [
+              {
+                "id": "K1",
+                "jaccard": 0.28
+              },
+              {
+                "id": "K3",
+                "jaccard": 0.357
+              }
+            ],
+            "missing": [
+              {
+                "id": "K2",
+                "what": "scale-fit technology choice vs operational tax on a small team; right-tool-per-workload vs minimizing stack complexity",
+                "best_jaccard": 0.143
+              },
+              {
+                "id": "K4",
+                "what": "cluster cost vs burst headroom; static-sized for bursts is expensive but avoids autoscaling complexity at the storage layer",
+                "best_jaccard": 0.125
+              }
+            ],
+            "recall": 0.5
+          },
+          "open_question_preservation": {
+            "total": 6,
+            "matched": [
+              {
+                "id": "Q1",
+                "jaccard": 0.32
+              },
+              {
+                "id": "Q2",
+                "jaccard": 0.357
+              },
+              {
+                "id": "Q3",
+                "jaccard": 0.4
+              },
+              {
+                "id": "Q4",
+                "jaccard": 0.467
+              },
+              {
+                "id": "Q5",
+                "jaccard": 0.5
+              },
+              {
+                "id": "Q6",
+                "jaccard": 0.462
+              }
+            ],
+            "missing": [],
+            "recall": 1.0
+          },
+          "hallucinations": {
+            "count": 21,
+            "items": [
+              {
+                "sentence": "5k online QPS sustained, 20k burst; ~50 concurrent analytical",
+                "best_gt_jaccard": 0.2
+              },
+              {
+                "sentence": "Snapshots must be transactionally consistent (no torn rows)",
+                "best_gt_jaccard": 0.176
+              },
+              {
+                "sentence": "Migration version stored in graph itself",
+                "best_gt_jaccard": 0.077
+              },
+              {
+                "sentence": "Cassandra snapshot to Parquet every 5 minutes for analytical replication",
+                "best_gt_jaccard": 0.214
+              },
+              {
+                "sentence": "Analytical: SQL only via DuckDB (no Gremlin, recursive CTEs for graph patterns)",
+                "best_gt_jaccard": 0.182
+              },
+              {
+                "sentence": "Bulk load for backfills bypasses API, writes directly to Cassandra in batches",
+                "best_gt_jaccard": 0.1
+              },
+              {
+                "sentence": "Predicate indexes on JanusGraph for enumerated access patterns (closed-world API)",
+                "best_gt_jaccard": 0.167
+              },
+              {
+                "sentence": "Snapshot retention: 5-minute snapshots current-only, 14 daily + 12 monthly in object storage",
+                "best_gt_jaccard": 0.188
+              }
+            ]
+          },
+          "primary_success_criteria": {
+            "decisions_>=_0.90": false,
+            "constraints_>=_0.90": true
+          }
+        }
+      },
+      "variant_B": {
+        "response": {
+          "text": "# GRAPH-PROCESSING SYSTEM DESIGN STATE\n\n## ACTIVE CONSTRAINTS\n- p99 online latency <50ms, p50 <10ms\n- analytical staleness ≤5 minutes (hard data-team requirement)\n- snapshots via Cassandra incremental backup with consistent timestamp boundary\n- schema changes additive-only; renames/tightenings require migrations\n- migrations must be idempotent\n- online API closed-world (fixed query patterns only)\n- analytical is read-only (no writes beyond v1)\n- user-erasure deletes vertices + edges in both layers within one snapshot window\n- 5-minute analytical erasure window documented/visible\n- encryption at rest (Cassandra/Parquet) and in transit; org KMS\n- writes restricted to ingestion service (mTLS auth)\n- no cut-over on Friday, before holiday, or during PTO\n- local NVMe for Cassandra (RF=3); no network storage on latency path\n- reuse org observability stack\n- every page must have linked runbook\n- incremental backups stream to object storage\n- snapshot retention: current 5-min (no history), 14-day daily, 12-month monthly\n\n## ARCHITECTURE DECISIONS\n- physically separate online and analytical workloads\n- online is source of truth; analytical is read-only 5-minute replica\n- JanusGraph on Cassandra for online\n- DuckDB on Parquet for analytical\n- different APIs: constrained REST (online), full SQL (analytical)\n- no Gremlin on analytical side\n- shadow-query divergence monitoring every 10 min, alert >0.1%\n- JanusGraph chosen but production conditional on confirmed operational expertise\n- drop Spark; DuckDB is analytical engine\n- append-only erasure log keyed by user id + timestamp\n- SLOs: p99 <50ms, error <0.1%, queue depth <100, freshness <6min alert/<10min page\n- replay-based migration from checkpoint (dual-write rejected)\n- cut-over gates: bit-exact match, 1.5x throughput test, 7-day soak (all hard)\n- default-no on Redis cache v1; reconsider only if production forces it\n- access control: online via authenticated REST + row-level; analytical via SSO (data team only)\n- static 15-node JanusGraph cluster sized for 20k peak; no storage autoscaling\n- API-gateway rate limiting with burst budget\n- OpenTelemetry 1% baseline + tail-sampling p95+\n- page thresholds: freshness >10min, p99 >100ms, error >1% (all sustained 10min)\n- quarterly game-days: freshness breach, hot shard, Cassandra node loss\n- online 99.9% availability; multi-region out of scope v1\n- analytical has no availability SLO; freshness is reliability signal\n\n## REJECTED / REPLACED DIRECTIONS\n- Neo4j (replaced by JanusGraph; scale unproven at 50B edges, needed pro services)\n- Postgres with AGE (won't fit scale; sharded Citus-on-AGE too exotic)\n- dual-write migration (rejected; doubles write load)\n- Apache Spark for analytical (replaced by DuckDB)\n\n## OPEN CONFLICTS\n- backfill throughput (hours/days) vs 5-minute staleness guarantee during backfill\n- scale-fit tech vs operational tax on small team; right-tool vs stack simplicity\n- GDPR erasure vs audit: erasure log is itself user data but proves erasure\n- cluster cost vs burst headroom; static sizing expensive but avoids autoscaling complexity\n\n## OPEN QUESTIONS\n- how to handle analytical staleness during long backfills (candidate: status banner)\n- do we have JanusGraph operational expertise or hire (6-month timeline if hire)\n- legal interpretation: erasure log under GDPR (do not ship without answer)\n- verify Cassandra incremental backup behavior at intended write rate (blocks production)\n- minimum JanusGraph cache hit rate for 50ms p99 latency budget\n- current annual cost of legacy graph system (for leadership justification)\n\n## ESTABLISHED CLAIMS\n- Neo4j unproven at 50B edges; public refs cap at single-digit billions + pro services\n- JanusGraph on Cassandra most credible open-source scale story at budget\n- Cassandra incremental backup gives timestamp boundary, not snapshot isolation\n- eventual consistency acceptable for v1 analytical (no audit queries in scope)\n- constraining online API essential for 50ms p99 guarantee\n- Postgres-with-AGE won't fit; Citus-on-AGE defeats simpler-stack motivation\n- erasure log is user data under GDPR but required to prove erasure\n- GDPR permits 5-minute analytical erasure under \"without undue delay\"\n- JanusGraph autoscaling constrained by Cassandra rebalancing (minutes to hours)\n- JanusGraph 25ms p99 feasible only if cache hit >85%\n- Parquet achieves 3-5x compression vs raw Cassandra\n\n## GATING ITEMS BEFORE PRODUCTION\n- Q2: JanusGraph operational expertise confirmed or hired\n- Q3: legal interpretation of erasure log under GDPR\n- Q4: verify Cassandra incremental backup behavior at write rate\n\n---\n\n**Given this state, the single most important gating item we must resolve before any production commitment is:**\n\n**Q2 (operational expertise)** – without confirmed JanusGraph expertise the entire architecture is at risk, and hiring takes 6 months; this unblocks or invalidates the technical path before investing in cut-over infrastructure.",
+          "latency_ms": 18939,
+          "backend": "openrouter",
+          "model": "anthropic/claude-sonnet-4.5",
+          "input_tokens": 2184,
+          "output_tokens": 1335,
+          "stop_reason": "stop"
+        },
+        "evaluation": {
+          "match_threshold": 0.25,
+          "claim_preservation": {
+            "total": 11,
+            "matched": [
+              {
+                "id": "C1",
+                "jaccard": 0.438
+              },
+              {
+                "id": "C2",
+                "jaccard": 0.636
+              },
+              {
+                "id": "C3",
+                "jaccard": 0.8
+              },
+              {
+                "id": "C4",
+                "jaccard": 0.6
+              },
+              {
+                "id": "C5",
+                "jaccard": 0.875
+              },
+              {
+                "id": "C6",
+                "jaccard": 0.429
+              },
+              {
+                "id": "C7",
+                "jaccard": 0.7
+              },
+              {
+                "id": "C8",
+                "jaccard": 0.583
+              },
+              {
+                "id": "C9",
+                "jaccard": 0.538
+              },
+              {
+                "id": "C10",
+                "jaccard": 0.6
+              },
+              {
+                "id": "C11",
+                "jaccard": 0.6
+              }
+            ],
+            "missing": [],
+            "recall": 1.0
+          },
+          "constraint_preservation": {
+            "total": 17,
+            "matched": [
+              {
+                "id": "R1",
+                "jaccard": 0.556
+              },
+              {
+                "id": "R2",
+                "jaccard": 0.75
+              },
+              {
+                "id": "R3",
+                "jaccard": 0.467
+              },
+              {
+                "id": "R4",
+                "jaccard": 0.778
+              },
+              {
+                "id": "R5",
+                "jaccard": 0.5
+              },
+              {
+                "id": "R6",
+                "jaccard": 0.462
+              },
+              {
+                "id": "R7",
+                "jaccard": 0.571
+              },
+              {
+                "id": "R8",
+                "jaccard": 0.667
+              },
+              {
+                "id": "R9",
+                "jaccard": 0.6
+              },
+              {
+                "id": "R10",
+                "jaccard": 0.538
+              },
+              {
+                "id": "R11",
+                "jaccard": 0.556
+              },
+              {
+                "id": "R12",
+                "jaccard": 0.556
+              },
+              {
+                "id": "R13",
+                "jaccard": 0.5
+              },
+              {
+                "id": "R14",
+                "jaccard": 0.5
+              },
+              {
+                "id": "R15",
+                "jaccard": 0.5
+              },
+              {
+                "id": "R16",
+                "jaccard": 0.833
+              },
+              {
+                "id": "R17",
+                "jaccard": 0.267
+              }
+            ],
+            "missing": [],
+            "recall": 1.0
+          },
+          "decision_preservation": {
+            "total": 22,
+            "matched": [
+              {
+                "id": "D1",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D2",
+                "jaccard": 0.545
+              },
+              {
+                "id": "D3",
+                "jaccard": 0.333
+              },
+              {
+                "id": "D4",
+                "jaccard": 0.6
+              },
+              {
+                "id": "D5",
+                "jaccard": 0.8
+              },
+              {
+                "id": "D6",
+                "jaccard": 0.75
+              },
+              {
+                "id": "D7",
+                "jaccard": 0.364
+              },
+              {
+                "id": "D8",
+                "jaccard": 0.6
+              },
+              {
+                "id": "D9",
+                "jaccard": 0.714
+              },
+              {
+                "id": "D10",
+                "jaccard": 0.667
+              },
+              {
+                "id": "D11",
+                "jaccard": 0.588
+              },
+              {
+                "id": "D12",
+                "jaccard": 0.556
+              },
+              {
+                "id": "D13",
+                "jaccard": 0.6
+              },
+              {
+                "id": "D14",
+                "jaccard": 0.625
+              },
+              {
+                "id": "D15",
+                "jaccard": 0.688
+              },
+              {
+                "id": "D16",
+                "jaccard": 0.8
+              },
+              {
+                "id": "D17",
+                "jaccard": 0.308
+              },
+              {
+                "id": "D18",
+                "jaccard": 0.5
+              },
+              {
+                "id": "D19",
+                "jaccard": 0.8
+              },
+              {
+                "id": "D20",
+                "jaccard": 0.615
+              },
+              {
+                "id": "D21",
+                "jaccard": 0.444
+              },
+              {
+                "id": "D22",
+                "jaccard": 0.667
+              }
+            ],
+            "missing": [],
+            "recall": 1.0
+          },
+          "conflict_visibility": {
+            "total": 4,
+            "matched": [
+              {
+                "id": "K1",
+                "jaccard": 0.615
+              },
+              {
+                "id": "K2",
+                "jaccard": 0.429
+              },
+              {
+                "id": "K3",
+                "jaccard": 0.538
+              },
+              {
+                "id": "K4",
+                "jaccard": 0.571
+              }
+            ],
+            "missing": [],
+            "recall": 1.0
+          },
+          "open_question_preservation": {
+            "total": 6,
+            "matched": [
+              {
+                "id": "Q1",
+                "jaccard": 0.714
+              },
+              {
+                "id": "Q2",
+                "jaccard": 0.6
+              },
+              {
+                "id": "Q3",
+                "jaccard": 1.0
+              },
+              {
+                "id": "Q4",
+                "jaccard": 0.714
+              },
+              {
+                "id": "Q5",
+                "jaccard": 0.75
+              },
+              {
+                "id": "Q6",
+                "jaccard": 0.636
+              }
+            ],
+            "missing": [],
+            "recall": 1.0
+          },
+          "hallucinations": {
+            "count": 5,
+            "items": [
+              {
+                "sentence": "GRAPH-PROCESSING SYSTEM DESIGN STATE",
+                "best_gt_jaccard": 0.077
+              },
+              {
+                "sentence": "Neo4j (replaced by JanusGraph; scale unproven at 50B edges, needed pro services)",
+                "best_gt_jaccard": 0.158
+              },
+              {
+                "sentence": "GATING ITEMS BEFORE PRODUCTION",
+                "best_gt_jaccard": 0.1
+              },
+              {
+                "sentence": "Given this state, the single most important gating item we must resolve before any production commitment is:",
+                "best_gt_jaccard": 0.062
+              },
+              {
+                "sentence": "**Q2 (operational expertise)** – without confirmed JanusGraph expertise the entire architecture is at risk, and hiring takes 6 months; this unblocks or invalidates the technical path before investing ",
+                "best_gt_jaccard": 0.217
+              }
+            ]
+          },
+          "primary_success_criteria": {
+            "decisions_>=_0.90": true,
+            "constraints_>=_0.90": true
+          }
+        }
+      }
+    },
+    {
+      "case": "case6_long_research",
+      "model": "anthropic/claude-sonnet-4.5",
+      "variant_A": {
+        "response": {
+          "text": "## ACTIVE CONSTRAINTS\n- Online p99 <50ms, p50 <10ms; analytical p99 <few minutes, p50 <30s\n- Online 5k QPS sustained, 20k burst; analytical 50 concurrent\n- Online 95% reads; analytical 100% reads\n- Analytical staleness max 5 minutes (hard requirement from data team)\n- Online is source of truth; analytical is read-only replica, no writes ever\n- Snapshots must be transactionally consistent (Cassandra incremental backup with timestamp boundary)\n- Eventual consistency acceptable for analytical v1; audit queries out of scope\n- Schema changes additive-only at edge-type level; renames/tightenings require migrations\n- Migrations must be idempotent and carry versioned migration log in graph\n- Erasure: user's vertices and edges hard-deleted in both layers, propagated within one snapshot window (5 min)\n- Erasure log append-only, keyed by user id and timestamp\n- 5-minute analytical erasure window documented and visible to users\n- No cut-over on Friday, pre-holiday, or during any team member PTO\n- Encryption at rest (Cassandra, Parquet); encryption in transit (all client connections); org KMS for keys\n- Writes restricted to ingestion service via mTLS; online reads via authenticated REST with row-level access; analytical reads via SSO to data team only\n- All third-party artifacts mirrored internally; no upstream pulls at build/runtime; SBOM per release\n- Row filter applied in API layer AND query validator gate (defense-in-depth)\n- Vertex schema marks each type 'user-private' or 'shared'; cross-boundary queries blocked at validator\n- Analytical exports: 1M row cap, 5/hour/user, logged with user+timestamp, PII exports flagged\n- No SQL string concatenation; parameterized queries only on analytical frontend\n- Auth verified at gateway AND service; 15-min token TTL; 10-in-5-min failed-auth IP block; full auth audit log; quarterly pentest\n- Engineers no prod data access by default; audited break-glass; query anomaly detection\n- Partner credentials via normal auth with 'partner' role; no Cassandra access\n- Partner rate limits contractually defined, gateway-enforced, default conservative\n- Partner audit endpoint scoped to own activity only\n- Partner kill-switch: one-command credential revoke and view removal\n- 60-day post-launch feature freeze (fixes/perf/ops only)\n- Parquet schema ML-pipeline-ready from day one\n- Quarterly architecture review with decision log, RFC for any changes\n- No page without linked runbook\n- Quarterly game-day exercises (freshness breach, hot shard, Cassandra node loss)\n\n## ARCHITECTURE DECISIONS\n- Online: JanusGraph on Cassandra; analytical: DuckDB on Parquet snapshots\n- Cassandra incremental backup → Parquet every 5 minutes → DuckDB for analytical SQL\n- Online via constrained REST API (fixed query patterns, no ad-hoc traversal); analytical via SQL only (no Gremlin)\n- Separate APIs per workload (not unified)\n- Bulk load path bypasses API, writes directly to Cassandra via JanusGraph BulkLoaderVertexProgram\n- Composite indexes on common online access patterns, enumerated upfront (closed-world API)\n- Shadow-query divergence monitoring: 10-min interval, 0.1% diff threshold, alerts on-call\n- Replay-based migration (not dual-write); validation gates: bit-exact holdout match, 1.5x throughput test, 7-day soak\n- No Redis cache in v1 (default-no; reconsider only if measurements force it)\n- Static 15-node JanusGraph cluster sized for 20k peak (no storage-layer autoscaling)\n- Local NVMe storage, RF=3; incremental backups to object storage\n- 5-minute snapshots retained as current only; 14 daily snapshots; 12 monthly snapshots\n- API-gateway rate limiting: steady-state + burst budgets, queue/reject beyond burst\n- OTel distributed tracing: 1% baseline, 100% at p95+ latency\n- Metrics/tracing to org's existing observability stack (no new infra)\n- Page on: freshness >10min, p99 >100ms sustained (10min window), error rate >1% sustained (10min)\n- Alert at lower thresholds without paging\n- Availability target: 99.9% for online; analytical best-effort (no formal SLO)\n- Partner access via partner-scoped DuckDB views (not separate cluster)\n\n## REJECTED / REPLACED DIRECTIONS\n- Neo4j for online (dropped; scale risk, cost)\n- TigerGraph (licensing non-starter)\n- Custom graph on RocksDB (engineering cost too high)\n- Gremlin for analytical (operational complexity, negligible gain)\n- Spark for analytical (operational complexity, don't need distributed compute)\n- Dual-write for migration (too much write load)\n- Redis cache as default (replaced with default-no)\n- Postgres-with-AGE (likely fails at scale; Citus adds complexity)\n- Active-active multi-region for v1 (breaks simplicity, doubles cost)\n\n## OPEN CONFLICTS\n- Backfill-vs-staleness: bulk load creates hours/days staleness vs 5-min guarantee (candidate: status banner in analytical UI during backfills)\n\n## OPEN QUESTIONS\n- JanusGraph ops capability: do we have it or need to hire? (gates production rollout)\n- Erasure log legal status under GDPR (escalate to legal; blocks ship)\n- Cassandra incremental backup behavior verification at our write rate (blocks production rollout)\n- Minimum JanusGraph cache hit rate to maintain 50ms p99 (needs measurement; informs sizing)\n- Current legacy graph system annual cost (needed for cost justification)\n- Partner sharing model: shared DuckDB instance or per-partner instances? (depends on load measurements)\n- Embedding service architecture: pre-computed+stored vs on-demand? (future work)\n\n## ESTABLISHED CLAIMS\n- JanusGraph average edge in Cassandra: 200-400 bytes including indexes\n- 50B edges at 300B = 15TB raw; RF=3 → 45TB; with vertices+indexes → 50-60TB total\n- JanusGraph node (32 cores, 128GB) handles 500-2000 QPS for low-complexity traversals depending on hot-set fit\n- Parquet on graph data: 3-5x compression → 3-5TB per snapshot\n- Two-hop indexed traversals in JanusGraph: low-tens-of-ms on hot cache, much worse on cold\n- Order-of-magnitude cost: $400k/year (compute, storage, networking, observability)\n- JanusGraph's published reference architectures cap at single-digit billions of edges\n- GDPR 'without undue delay' permits 5-minute erasure window\n- Industry standard sustained breach window for paging: 5-10 minutes\n- Three nines availability: ~43 min/month downtime; four nines: ~4 min/month\n\n## GATING ITEMS BEFORE PRODUCTION\n1. Backfill-vs-staleness conflict resolution\n2. JanusGraph ops capability confirmed or hiring plan in place\n3. Erasure log legal status under GDPR resolved\n4. Cassandra incremental backup verification at target write rate\n5. Minimum cache hit rate derived from latency budget\n6. Current legacy cost baseline for justification\n\n**Single most important gating item:** JanusGraph ops capability — without confirmed operational expertise or a hiring plan, the entire online architecture is at risk regardless of other resolved questions.",
+          "latency_ms": 44544,
+          "backend": "openrouter",
+          "model": "anthropic/claude-sonnet-4.5",
+          "input_tokens": 10600,
+          "output_tokens": 1846,
+          "stop_reason": "stop"
+        },
+        "evaluation": {
+          "match_threshold": 0.25,
+          "claim_preservation": {
+            "total": 14,
+            "matched": [
+              {
+                "id": "C1",
+                "jaccard": 0.25
+              },
+              {
+                "id": "C3",
+                "jaccard": 0.357
+              },
+              {
+                "id": "C4",
+                "jaccard": 0.6
+              },
+              {
+                "id": "C7",
+                "jaccard": 0.333
+              },
+              {
+                "id": "C8",
+                "jaccard": 0.583
+              },
+              {
+                "id": "C11",
+                "jaccard": 0.417
+              }
+            ],
+            "missing": [
+              {
+                "id": "C2",
+                "what": "JanusGraph on Cassandra is the most credible scale story among open-source graph stores at our budget",
+                "best_jaccard": 0.125
+              },
+              {
+                "id": "C5",
+                "what": "constraining the online API is essential for the 50ms p99 latency guarantee",
+                "best_jaccard": 0.214
+              },
+              {
+                "id": "C6",
+                "what": "Postgres-with-AGE will not fit at our scale; the sharded Citus-on-AGE variant becomes exotic and defeats the simpler-stack motivation",
+                "best_jaccard": 0.111
+              },
+              {
+                "id": "C9",
+                "what": "JanusGraph autoscaling is constrained by Cassandra rebalancing cost; new nodes take minutes to hours to become useful",
+                "best_jaccard": 0.111
+              },
+              {
+                "id": "C10",
+                "what": "JanusGraph 25ms p99 is feasible only if cache hit rates stay high (likely >85%)",
+                "best_jaccard": 0.222
+              },
+              {
+                "id": "C12",
+                "what": "pure technical solutions cannot fully solve insider-threat risk; role/break-glass/anomaly/culture together are best available",
+                "best_jaccard": 0.087
+              },
+              {
+                "id": "C13",
+                "what": "DuckDB is read-only on Parquet so destructive SQL statements are impossible at the engine layer",
+                "best_jaccard": 0.2
+              },
+              {
+                "id": "C14",
+                "what": "cross-tenant graph leakage depends on whether traversed vertex types are user-private or shared",
+                "best_jaccard": 0.167
+              }
+            ],
+            "recall": 0.429
+          },
+          "constraint_preservation": {
+            "total": 29,
+            "matched": [
+              {
+                "id": "R1",
+                "jaccard": 0.417
+              },
+              {
+                "id": "R2",
+                "jaccard": 0.455
+              },
+              {
+                "id": "R3",
+                "jaccard": 0.533
+              },
+              {
+                "id": "R4",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R5",
+                "jaccard": 0.273
+              },
+              {
+                "id": "R6",
+                "jaccard": 0.3
+              },
+              {
+                "id": "R7",
+                "jaccard": 0.364
+              },
+              {
+                "id": "R8",
+                "jaccard": 0.474
+              },
+              {
+                "id": "R9",
+                "jaccard": 0.7
+              },
+              {
+                "id": "R10",
+                "jaccard": 0.643
+              },
+              {
+                "id": "R11",
+                "jaccard": 0.5
+              },
+              {
+                "id": "R12",
+                "jaccard": 0.5
+              },
+              {
+                "id": "R14",
+                "jaccard": 0.6
+              },
+              {
+                "id": "R15",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R16",
+                "jaccard": 0.5
+              },
+              {
+                "id": "R17",
+                "jaccard": 0.5
+              },
+              {
+                "id": "R18",
+                "jaccard": 0.909
+              },
+              {
+                "id": "R20",
+                "jaccard": 0.5
+              },
+              {
+                "id": "R21",
+                "jaccard": 0.412
+              },
+              {
+                "id": "R22",
+                "jaccard": 0.7
+              },
+              {
+                "id": "R23",
+                "jaccard": 0.55
+              },
+              {
+                "id": "R24",
+                "jaccard": 0.583
+              },
+              {
+                "id": "R25",
+                "jaccard": 0.5
+              },
+              {
+                "id": "R26",
+                "jaccard": 0.385
+              },
+              {
+                "id": "R27",
+                "jaccard": 0.6
+              },
+              {
+                "id": "R28",
+                "jaccard": 0.357
+              },
+              {
+                "id": "R29",
+                "jaccard": 0.375
+              }
+            ],
+            "missing": [
+              {
+                "id": "R13",
+                "what": "local NVMe storage for live Cassandra data with replication factor 3; no network-attached storage on the latency path",
+                "best_jaccard": 0.214
+              },
+              {
+                "id": "R19",
+                "what": "defense-in-depth on row-level access: API-layer filter AND query-validator gate that fails closed if the filter is missing",
+                "best_jaccard": 0.188
+              }
+            ],
+            "recall": 0.931
+          },
+          "decision_preservation": {
+            "total": 28,
+            "matched": [
+              {
+                "id": "D1",
+                "jaccard": 0.286
+              },
+              {
+                "id": "D2",
+                "jaccard": 0.5
+              },
+              {
+                "id": "D4",
+                "jaccard": 0.333
+              },
+              {
+                "id": "D5",
+                "jaccard": 0.278
+              },
+              {
+                "id": "D6",
+                "jaccard": 0.25
+              },
+              {
+                "id": "D7",
+                "jaccard": 0.5
+              },
+              {
+                "id": "D10",
+                "jaccard": 0.667
+              },
+              {
+                "id": "D11",
+                "jaccard": 0.263
+              },
+              {
+                "id": "D13",
+                "jaccard": 0.5
+              },
+              {
+                "id": "D14",
+                "jaccard": 0.857
+              },
+              {
+                "id": "D15",
+                "jaccard": 0.6
+              },
+              {
+                "id": "D16",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D17",
+                "jaccard": 0.312
+              },
+              {
+                "id": "D18",
+                "jaccard": 0.5
+              },
+              {
+                "id": "D19",
+                "jaccard": 0.727
+              },
+              {
+                "id": "D20",
+                "jaccard": 0.833
+              },
+              {
+                "id": "D22",
+                "jaccard": 0.333
+              },
+              {
+                "id": "D23",
+                "jaccard": 0.5
+              },
+              {
+                "id": "D24",
+                "jaccard": 0.417
+              },
+              {
+                "id": "D25",
+                "jaccard": 0.538
+              },
+              {
+                "id": "D27",
+                "jaccard": 0.5
+              },
+              {
+                "id": "D28",
+                "jaccard": 0.444
+              }
+            ],
+            "missing": [
+              {
+                "id": "D3",
+                "what": "use JanusGraph on Cassandra for the online side (replaces the earlier Neo4j direction)",
+                "best_jaccard": 0.231
+              },
+              {
+                "id": "D8",
+                "what": "JanusGraph is the architecture choice but production rollout is conditional on confirmed operational expertise",
+                "best_jaccard": 0.214
+              },
+              {
+                "id": "D9",
+                "what": "drop Apache Spark direction; DuckDB is the analytical engine",
+                "best_jaccard": 0.167
+              },
+              {
+                "id": "D12",
+                "what": "replay-based migration from a known checkpoint, not dual-write (dual-write rejected due to write-load doubling)",
+                "best_jaccard": 0.167
+              },
+              {
+                "id": "D21",
+                "what": "online availability target 99.9% (three nines); active-active multi-region explicitly out of scope for v1",
+                "best_jaccard": 0.231
+              },
+              {
+                "id": "D26",
+                "what": "post-v1 deferred features: multi-region active-active, audit-isolation analytical, real-time analytical, Gremlin endpoint, automated schema discovery",
+                "best_jaccard": 0.118
+              }
+            ],
+            "recall": 0.786
+          },
+          "conflict_visibility": {
+            "total": 5,
+            "matched": [
+              {
+                "id": "K1",
+                "jaccard": 0.4
+              },
+              {
+                "id": "K3",
+                "jaccard": 0.267
+              },
+              {
+                "id": "K5",
+                "jaccard": 0.533
+              }
+            ],
+            "missing": [
+              {
+                "id": "K2",
+                "what": "scale-fit technology choice vs operational tax on a small team; right-tool-per-workload vs minimizing stack complexity",
+                "best_jaccard": 0.133
+              },
+              {
+                "id": "K4",
+                "what": "cluster cost vs burst headroom; static-sized for bursts is expensive but avoids autoscaling complexity at the storage layer",
+                "best_jaccard": 0.111
+              }
+            ],
+            "recall": 0.6
+          },
+          "open_question_preservation": {
+            "total": 9,
+            "matched": [
+              {
+                "id": "Q1",
+                "jaccard": 0.318
+              },
+              {
+                "id": "Q2",
+                "jaccard": 0.286
+              },
+              {
+                "id": "Q3",
+                "jaccard": 0.455
+              },
+              {
+                "id": "Q4",
+                "jaccard": 0.667
+              },
+              {
+                "id": "Q5",
+                "jaccard": 0.5
+              },
+              {
+                "id": "Q6",
+                "jaccard": 0.636
+              },
+              {
+                "id": "Q7",
+                "jaccard": 0.353
+              },
+              {
+                "id": "Q8",
+                "jaccard": 0.545
+              }
+            ],
+            "missing": [
+              {
+                "id": "Q9",
+                "what": "specific steady-state and burst rate-limit budgets pending capacity planning",
+                "best_jaccard": 0.214
+              }
+            ],
+            "recall": 0.889
+          },
+          "hallucinations": {
+            "count": 21,
+            "items": [
+              {
+                "sentence": "Online 5k QPS sustained, 20k burst; analytical 50 concurrent",
+                "best_gt_jaccard": 0.2
+              },
+              {
+                "sentence": "Row filter applied in API layer AND query validator gate (defense-in-depth)",
+                "best_gt_jaccard": 0.188
+              },
+              {
+                "sentence": "Separate APIs per workload (not unified)",
+                "best_gt_jaccard": 0.167
+              },
+              {
+                "sentence": "Bulk load path bypasses API, writes directly to Cassandra via JanusGraph BulkLoaderVertexProgram",
+                "best_gt_jaccard": 0.118
+              },
+              {
+                "sentence": "Composite indexes on common online access patterns, enumerated upfront (closed-world API)",
+                "best_gt_jaccard": 0.211
+              },
+              {
+                "sentence": "Alert at lower thresholds without paging",
+                "best_gt_jaccard": 0.125
+              },
+              {
+                "sentence": "Neo4j for online (dropped; scale risk, cost)",
+                "best_gt_jaccard": 0.154
+              },
+              {
+                "sentence": "Custom graph on RocksDB (engineering cost too high)",
+                "best_gt_jaccard": 0.133
+              }
+            ]
+          },
+          "primary_success_criteria": {
+            "decisions_>=_0.90": false,
+            "constraints_>=_0.90": true
+          }
+        }
+      },
+      "variant_B": {
+        "response": {
+          "text": "# GRAPH-PROCESSING SYSTEM DESIGN STATE\n\n## ACTIVE CONSTRAINTS\n- p99 <50ms, p50 <10ms online latency (R1)\n- 5-minute analytical staleness hard limit (R2)\n- Cassandra incremental backup with timestamp boundary (R3)\n- Closed-world API: fixed query patterns only (R6)\n- Analytical is read-only forever (R7)\n- User erasure propagates within one snapshot window (R8)\n- Encryption at rest + in transit; org KMS (R10)\n- Local NVMe for Cassandra; RF=3 (R13)\n- No production commit until all gating items resolved (R29)\n\n## ARCHITECTURE DECISIONS\n- Physically separate online (JanusGraph/Cassandra) and analytical (DuckDB/Parquet) (D1-D4)\n- Online is source of truth; analytical refreshes every 5 minutes (D2)\n- No Gremlin on analytical; REST for online, SQL for analytical (D5-D6)\n- Replay-based migration from checkpoint, not dual-write (D12)\n- Static 15-node JanusGraph cluster, no storage autoscaling (D16)\n- No Redis cache in v1 (D14)\n- 99.9% online availability; no analytical SLO; no multi-region v1 (D21-D22)\n- Partner access via scoped DuckDB views (D23)\n\n## REJECTED / REPLACED DIRECTIONS\n- Neo4j (replaced by JanusGraph; C1 shows Neo4j unproven at 50B edges)\n- Postgres-with-AGE / Citus-on-AGE (C6: won't scale, defeats simplicity)\n- Apache Spark for analytical (D9: replaced by DuckDB)\n- Dual-write migration strategy (D12: rejected due to write-load doubling)\n- Redis cache in v1 (D14: default-no until measurements force it)\n- Multi-region active-active, audit-isolation analytical, real-time analytical, Gremlin endpoint (D26: deferred post-v1)\n\n## OPEN CONFLICTS\n- Backfill throughput vs 5-minute staleness: backfills would stale analytical for hours/days (K1)\n- Scale-fit tech vs operational tax on small team (K2)\n- GDPR erasure vs audit: erasure log is user data but required for proof (K3)\n- Static cluster cost vs burst headroom vs autoscaling complexity (K4)\n- Shared vs partner-specific DuckDB instances pending load data (K5)\n\n## OPEN QUESTIONS\n- **Q2: Do we have JanusGraph operational expertise or need to hire (6-month timeline)?**\n- **Q3: Legal interpretation of erasure log under GDPR; do not ship without answer**\n- **Q4: Verify Cassandra incremental backup behavior at our write rate (blocks production)**\n- Q1: Handle analytical staleness during backfills (candidate: status banner)\n- Q5: Minimum JanusGraph cache hit rate for 50ms p99\n- Q6: Legacy system annual cost for justification\n- Q7: DuckDB instance sharing model (load-dependent)\n- Q9: Rate-limit budgets pending capacity planning\n\n## ESTABLISHED CLAIMS\n- JanusGraph/Cassandra most credible open-source graph at budget (C2)\n- Cassandra backup gives timestamp boundary, not snapshot isolation (C3)\n- Eventual consistency acceptable for v1 analytical (C4)\n- JanusGraph 25ms p99 requires >85% cache hit (C10)\n- Parquet achieves 3-5x compression vs raw Cassandra (C11)\n- DuckDB read-only prevents destructive SQL at engine layer (C13)\n\n## GATING ITEMS BEFORE PRODUCTION\n1. **Resolve JanusGraph operational expertise (Q2): hire or confirm internal capability**\n2. **Obtain legal sign-off on erasure log under GDPR (Q3)**\n3. **Verify Cassandra incremental backup at production write rate (Q4)**\n4. Shadow-query divergence <0.1% on holdout (D13)\n5. 1.5x throughput test passes (D13)\n6. 7-day staging soak passes (D13)\n\n---\n\n**Given this state, the single most important gating item we must resolve before any production commitment is:**\n\n**Q2 (operational expertise): Do we have the internal capability to run JanusGraph at production scale, or must we hire it—because the 6-month hiring timeline dominates all other gates and determines whether the production date is 2 months away or 8+ months away.**",
+          "latency_ms": 17302,
+          "backend": "openrouter",
+          "model": "anthropic/claude-sonnet-4.5",
+          "input_tokens": 2973,
+          "output_tokens": 1119,
+          "stop_reason": "stop"
+        },
+        "evaluation": {
+          "match_threshold": 0.25,
+          "claim_preservation": {
+            "total": 14,
+            "matched": [
+              {
+                "id": "C2",
+                "jaccard": 0.545
+              },
+              {
+                "id": "C3",
+                "jaccard": 0.7
+              },
+              {
+                "id": "C4",
+                "jaccard": 0.444
+              },
+              {
+                "id": "C5",
+                "jaccard": 0.4
+              },
+              {
+                "id": "C6",
+                "jaccard": 0.267
+              },
+              {
+                "id": "C7",
+                "jaccard": 0.5
+              },
+              {
+                "id": "C10",
+                "jaccard": 0.417
+              },
+              {
+                "id": "C11",
+                "jaccard": 0.545
+              },
+              {
+                "id": "C13",
+                "jaccard": 0.545
+              }
+            ],
+            "missing": [
+              {
+                "id": "C1",
+                "what": "Neo4j has not been benchmarked at 50 billion edges; public references cap at single-digit billions and required professional services",
+                "best_jaccard": 0.118
+              },
+              {
+                "id": "C8",
+                "what": "GDPR does not require instant erasure; 5-minute analytical erasure window is permissible under 'without undue delay'",
+                "best_jaccard": 0.188
+              },
+              {
+                "id": "C9",
+                "what": "JanusGraph autoscaling is constrained by Cassandra rebalancing cost; new nodes take minutes to hours to become useful",
+                "best_jaccard": 0.118
+              },
+              {
+                "id": "C12",
+                "what": "pure technical solutions cannot fully solve insider-threat risk; role/break-glass/anomaly/culture together are best available",
+                "best_jaccard": 0.0
+              },
+              {
+                "id": "C14",
+                "what": "cross-tenant graph leakage depends on whether traversed vertex types are user-private or shared",
+                "best_jaccard": 0.067
+              }
+            ],
+            "recall": 0.643
+          },
+          "constraint_preservation": {
+            "total": 29,
+            "matched": [
+              {
+                "id": "R1",
+                "jaccard": 0.556
+              },
+              {
+                "id": "R2",
+                "jaccard": 0.3
+              },
+              {
+                "id": "R3",
+                "jaccard": 0.357
+              },
+              {
+                "id": "R6",
+                "jaccard": 0.385
+              },
+              {
+                "id": "R7",
+                "jaccard": 0.25
+              },
+              {
+                "id": "R8",
+                "jaccard": 0.294
+              },
+              {
+                "id": "R10",
+                "jaccard": 0.357
+              },
+              {
+                "id": "R13",
+                "jaccard": 0.25
+              },
+              {
+                "id": "R25",
+                "jaccard": 0.417
+              },
+              {
+                "id": "R29",
+                "jaccard": 0.556
+              }
+            ],
+            "missing": [
+              {
+                "id": "R4",
+                "what": "schema changes are additive-only at the edge-type level; renames or tightenings require migrations",
+                "best_jaccard": 0.0
+              },
+              {
+                "id": "R5",
+                "what": "migrations must be idempotent (applying twice is a no-op)",
+                "best_jaccard": 0.062
+              },
+              {
+                "id": "R9",
+                "what": "5-minute analytical erasure window must be documented and visible to analytical users via API and UI",
+                "best_jaccard": 0.154
+              },
+              {
+                "id": "R11",
+                "what": "writes to online restricted to the ingestion service authenticated via mTLS",
+                "best_jaccard": 0.077
+              },
+              {
+                "id": "R12",
+                "what": "no cut-over on a Friday, no cut-over before a holiday, no cut-over while any team member is on PTO",
+                "best_jaccard": 0.091
+              },
+              {
+                "id": "R14",
+                "what": "no new tracing or metrics infrastructure; reuse the org observability stack",
+                "best_jaccard": 0.077
+              },
+              {
+                "id": "R15",
+                "what": "no page without a linked runbook",
+                "best_jaccard": 0.091
+              },
+              {
+                "id": "R16",
+                "what": "incremental backups stream to object storage (S3 or equivalent)",
+                "best_jaccard": 0.1
+              },
+              {
+                "id": "R17",
+                "what": "five-minute snapshots retained only as the current one; daily snapshots retained 14 days; monthly snapshots retained 12 months",
+                "best_jaccard": 0.067
+              },
+              {
+                "id": "R18",
+                "what": "all third-party artifacts mirrored internally; no upstream pulls at build or runtime; SBOM generated per release",
+                "best_jaccard": 0.0
+              },
+              {
+                "id": "R19",
+                "what": "defense-in-depth on row-level access: API-layer filter AND query-validator gate that fails closed if the filter is missing",
+                "best_jaccard": 0.062
+              },
+              {
+                "id": "R20",
+                "what": "vertex schema must mark each vertex type as user-private or shared; queries crossing a user-private boundary without permission must be blocked at the query validator",
+                "best_jaccard": 0.05
+              },
+              {
+                "id": "R21",
+                "what": "analytical exports capped at 1M rows per query, rate limited to 5 exports per hour per user, all exports logged, PII exports flagged for security review",
+                "best_jaccard": 0.062
+              },
+              {
+                "id": "R22",
+                "what": "no SQL string concatenation in the analytical query frontend; all queries via parameterized form",
+                "best_jaccard": 0.143
+              },
+              {
+                "id": "R23",
+                "what": "auth verified at both gateway and service; 15-minute TTL tokens; 10-in-5-min IP block; full auth audit log; quarterly penetration testing",
+                "best_jaccard": 0.091
+              },
+              {
+                "id": "R24",
+                "what": "engineers do not have prod data access by default; break-glass for incidents is audited and reviewed",
+                "best_jaccard": 0.067
+              },
+              {
+                "id": "R26",
+                "what": "partner audit endpoint is scoped to each partner's own access history; no visibility into other partners or internal access",
+                "best_jaccard": 0.188
+              },
+              {
+                "id": "R27",
+                "what": "60-day post-launch feature freeze: only fixes, performance, and ops maturity work",
+                "best_jaccard": 0.0
+              },
+              {
+                "id": "R28",
+                "what": "analytical Parquet schema must be ML-pipeline-ready from day one (consistent column ordering, standard types, no proprietary encodings)",
+                "best_jaccard": 0.095
+              }
+            ],
+            "recall": 0.345
+          },
+          "decision_preservation": {
+            "total": 28,
+            "matched": [
+              {
+                "id": "D1",
+                "jaccard": 0.4
+              },
+              {
+                "id": "D2",
+                "jaccard": 0.545
+              },
+              {
+                "id": "D4",
+                "jaccard": 0.273
+              },
+              {
+                "id": "D5",
+                "jaccard": 0.333
+              },
+              {
+                "id": "D6",
+                "jaccard": 0.273
+              },
+              {
+                "id": "D9",
+                "jaccard": 0.5
+              },
+              {
+                "id": "D10",
+                "jaccard": 0.308
+              },
+              {
+                "id": "D12",
+                "jaccard": 0.545
+              },
+              {
+                "id": "D13",
+                "jaccard": 0.25
+              },
+              {
+                "id": "D14",
+                "jaccard": 0.556
+              },
+              {
+                "id": "D16",
+                "jaccard": 0.455
+              },
+              {
+                "id": "D21",
+                "jaccard": 0.25
+              },
+              {
+                "id": "D22",
+                "jaccard": 0.25
+              },
+              {
+                "id": "D23",
+                "jaccard": 0.417
+              },
+              {
+                "id": "D26",
+                "jaccard": 0.643
+              },
+              {
+                "id": "D28",
+                "jaccard": 0.444
+              }
+            ],
+            "missing": [
+              {
+                "id": "D3",
+                "what": "use JanusGraph on Cassandra for the online side (replaces the earlier Neo4j direction)",
+                "best_jaccard": 0.2
+              },
+              {
+                "id": "D7",
+                "what": "shadow-query divergence monitoring at 10-minute interval, alert above 0.1% diff to on-call",
+                "best_jaccard": 0.182
+              },
+              {
+                "id": "D8",
+                "what": "JanusGraph is the architecture choice but production rollout is conditional on confirmed operational expertise",
+                "best_jaccard": 0.231
+              },
+              {
+                "id": "D11",
+                "what": "SLOs: p99 online latency <50ms, error rate <0.1%, JanusGraph queue depth <100, freshness <6 minutes (alert) / <10 minutes (page)",
+                "best_jaccard": 0.235
+              },
+              {
+                "id": "D15",
+                "what": "access control: online reads via authenticated REST with row-level access by user identity; analytical reads via SSO restricted to data team users",
+                "best_jaccard": 0.158
+              },
+              {
+                "id": "D17",
+                "what": "API-gateway rate limiting: steady-state limit, bursts allowed within budget, queueing/rejection beyond",
+                "best_jaccard": 0.062
+              },
+              {
+                "id": "D18",
+                "what": "OpenTelemetry distributed tracing at 1% baseline sampling with tail-sampling at p95+ latency",
+                "best_jaccard": 0.077
+              },
+              {
+                "id": "D19",
+                "what": "page thresholds: freshness >10min, p99 >100ms sustained, error rate >1% sustained; sustained = 10 minutes",
+                "best_jaccard": 0.133
+              },
+              {
+                "id": "D20",
+                "what": "quarterly game-day exercises covering at least freshness breach, hot shard, and Cassandra node loss",
+                "best_jaccard": 0.067
+              },
+              {
+                "id": "D24",
+                "what": "partner rate limits negotiated contractually and enforced at the gateway; conservative defaults",
+                "best_jaccard": 0.067
+              },
+              {
+                "id": "D25",
+                "what": "partner kill-switch: one-command credential revoke at the gateway plus one-command view removal, documented in incident response runbook",
+                "best_jaccard": 0.053
+              },
+              {
+                "id": "D27",
+                "what": "quarterly architecture review with decision log read, items flagged for revisit, RFC + discussion + decision",
+                "best_jaccard": 0.083
+              }
+            ],
+            "recall": 0.571
+          },
+          "conflict_visibility": {
+            "total": 5,
+            "matched": [
+              {
+                "id": "K1",
+                "jaccard": 0.643
+              },
+              {
+                "id": "K2",
+                "jaccard": 0.417
+              },
+              {
+                "id": "K3",
+                "jaccard": 0.4
+              },
+              {
+                "id": "K4",
+                "jaccard": 0.462
+              },
+              {
+                "id": "K5",
+                "jaccard": 0.267
+              }
+            ],
+            "missing": [],
+            "recall": 1.0
+          },
+          "open_question_preservation": {
+            "total": 9,
+            "matched": [
+              {
+                "id": "Q1",
+                "jaccard": 0.571
+              },
+              {
+                "id": "Q2",
+                "jaccard": 0.7
+              },
+              {
+                "id": "Q3",
+                "jaccard": 1.0
+              },
+              {
+                "id": "Q4",
+                "jaccard": 0.714
+              },
+              {
+                "id": "Q5",
+                "jaccard": 0.583
+              },
+              {
+                "id": "Q6",
+                "jaccard": 0.364
+              },
+              {
+                "id": "Q7",
+                "jaccard": 0.267
+              },
+              {
+                "id": "Q9",
+                "jaccard": 0.625
+              }
+            ],
+            "missing": [
+              {
+                "id": "Q8",
+                "what": "embedding service architecture for future ML pipelines: pre-computed and stored vs computed on demand",
+                "best_jaccard": 0.1
+              }
+            ],
+            "recall": 0.889
+          },
+          "hallucinations": {
+            "count": 5,
+            "items": [
+              {
+                "sentence": "GRAPH-PROCESSING SYSTEM DESIGN STATE",
+                "best_gt_jaccard": 0.077
+              },
+              {
+                "sentence": "Neo4j (replaced by JanusGraph; C1 shows Neo4j unproven at 50B edges)",
+                "best_gt_jaccard": 0.143
+              },
+              {
+                "sentence": "Q7: DuckDB instance sharing model (load-dependent)",
+                "best_gt_jaccard": 0.214
+              },
+              {
+                "sentence": "Shadow-query divergence <0.1% on holdout (D13)",
+                "best_gt_jaccard": 0.182
+              },
+              {
+                "sentence": "1.5x throughput test passes (D13)",
+                "best_gt_jaccard": 0.188
+              }
+            ]
+          },
+          "primary_success_criteria": {
+            "decisions_>=_0.90": false,
+            "constraints_>=_0.90": false
+          }
+        }
+      }
+    },
+    {
+      "case": "case6_long_research",
+      "model": "openai/gpt-4o",
+      "variant_A": {
+        "response": {
+          "text": "ACTIVE CONSTRAINTS\n- Erasure deletes both vertices and edges in online and analytical within 5 minutes.\n- All third-party artifacts are mirrored internally; no upstream pulls at build or runtime.\n- Vertex schema must mark each type as 'user-private' or 'shared'.\n- No SQL string concatenation in analytical frontend; parameterized queries only.\n- Auth verified at gateway and service; short-lived tokens; 10-in-5 IP block.\n- Engineers don't have prod data access by default; break-glass is logged.\n- No page without a linked runbook; quarterly game-day exercises.\n- Post-launch 60-day feature freeze for fixes, perf, ops maturity.\n- Quarterly architecture review with structured revisit process.\n\nARCHITECTURE DECISIONS\n- JanusGraph on Cassandra for online; DuckDB reads Parquet for analytical.\n- Constrained REST API for online queries; full SQL for analytical.\n- Local NVMe for Cassandra, RF=3; object storage for backups/snapshots.\n- Partner access via a scoped DuckDB view layer; rate limits on partner access.\n\nREJECTED / REPLACED DIRECTIONS\n- Replaced Neo4j with JanusGraph for online scalability.\n- Dropped Redis cache idea for v1; reconsider only if forced by measurement.\n- Removed Spark from analytical layer; sticking with single-node DuckDB.\n- Replaced active-active multi-region idea with 99.9% availability target.\n\nOPEN CONFLICTS\n- Backfill-vs-staleness tension during large data onboarding.\n\nOPEN QUESTIONS\n- Postgres-with-AGE sanity check results.\n- Minimum cache hit rate for JanusGraph with 50ms p99 latency.\n- Partner sharing model for DuckDB instance based on load.\n- Do we serve pre-computed embeddings in future online store?\n\nESTABLISHED CLAIMS\n- Cassandra incremental backup must be verified before production.\n- Analytical availability is best-effort; freshness is the real reliability proxy.\n- Parquet schema must be ML-friendly from the start for future pipelines.\n\nGATING ITEMS BEFORE PRODUCTION\n- Backfill-vs-staleness conflict resolution.\n- JanusGraph ops capability confirmation.\n- Erasure log GDPR status from legal.\n- Verification of Cassandra incremental backup behavior.\n- Minimum cache hit rate determination.\n- Legacy system cost assessment for justification.\n\nThe single most important gating item before any production commitment is JanusGraph ops capability confirmation, as it directly influences our ability to support the chosen architecture.",
+          "latency_ms": 4897,
+          "backend": "openrouter",
+          "model": "openai/gpt-4o",
+          "input_tokens": 9792,
+          "output_tokens": 501,
+          "stop_reason": "stop"
+        },
+        "evaluation": {
+          "match_threshold": 0.25,
+          "claim_preservation": {
+            "total": 14,
+            "matched": [
+              {
+                "id": "C3",
+                "jaccard": 0.25
+              },
+              {
+                "id": "C7",
+                "jaccard": 0.25
+              },
+              {
+                "id": "C10",
+                "jaccard": 0.286
+              }
+            ],
+            "missing": [
+              {
+                "id": "C1",
+                "what": "Neo4j has not been benchmarked at 50 billion edges; public references cap at single-digit billions and required professional services",
+                "best_jaccard": 0.062
+              },
+              {
+                "id": "C2",
+                "what": "JanusGraph on Cassandra is the most credible scale story among open-source graph stores at our budget",
+                "best_jaccard": 0.125
+              },
+              {
+                "id": "C4",
+                "what": "eventual consistency is acceptable for v1 analytical because there are no audit-style analytical queries in scope",
+                "best_jaccard": 0.143
+              },
+              {
+                "id": "C5",
+                "what": "constraining the online API is essential for the 50ms p99 latency guarantee",
+                "best_jaccard": 0.231
+              },
+              {
+                "id": "C6",
+                "what": "Postgres-with-AGE will not fit at our scale; the sharded Citus-on-AGE variant becomes exotic and defeats the simpler-stack motivation",
+                "best_jaccard": 0.062
+              },
+              {
+                "id": "C8",
+                "what": "GDPR does not require instant erasure; 5-minute analytical erasure window is permissible under 'without undue delay'",
+                "best_jaccard": 0.143
+              },
+              {
+                "id": "C9",
+                "what": "JanusGraph autoscaling is constrained by Cassandra rebalancing cost; new nodes take minutes to hours to become useful",
+                "best_jaccard": 0.111
+              },
+              {
+                "id": "C11",
+                "what": "Parquet on graph data typically achieves 3-5x compression vs raw Cassandra storage",
+                "best_jaccard": 0.133
+              },
+              {
+                "id": "C12",
+                "what": "pure technical solutions cannot fully solve insider-threat risk; role/break-glass/anomaly/culture together are best available",
+                "best_jaccard": 0.045
+              },
+              {
+                "id": "C13",
+                "what": "DuckDB is read-only on Parquet so destructive SQL statements are impossible at the engine layer",
+                "best_jaccard": 0.143
+              },
+              {
+                "id": "C14",
+                "what": "cross-tenant graph leakage depends on whether traversed vertex types are user-private or shared",
+                "best_jaccard": 0.2
+              }
+            ],
+            "recall": 0.214
+          },
+          "constraint_preservation": {
+            "total": 29,
+            "matched": [
+              {
+                "id": "R8",
+                "jaccard": 0.333
+              },
+              {
+                "id": "R13",
+                "jaccard": 0.286
+              },
+              {
+                "id": "R15",
+                "jaccard": 0.571
+              },
+              {
+                "id": "R16",
+                "jaccard": 0.3
+              },
+              {
+                "id": "R18",
+                "jaccard": 0.727
+              },
+              {
+                "id": "R20",
+                "jaccard": 0.5
+              },
+              {
+                "id": "R22",
+                "jaccard": 0.7
+              },
+              {
+                "id": "R23",
+                "jaccard": 0.333
+              },
+              {
+                "id": "R24",
+                "jaccard": 0.545
+              },
+              {
+                "id": "R25",
+                "jaccard": 0.267
+              },
+              {
+                "id": "R27",
+                "jaccard": 0.7
+              },
+              {
+                "id": "R29",
+                "jaccard": 0.375
+              }
+            ],
+            "missing": [
+              {
+                "id": "R1",
+                "what": "online lookups must hit p99 under 50ms and p50 under 10ms",
+                "best_jaccard": 0.231
+              },
+              {
+                "id": "R2",
+                "what": "analytical staleness must not exceed 5 minutes (hard data-team requirement)",
+                "best_jaccard": 0.133
+              },
+              {
+                "id": "R3",
+                "what": "snapshots must use Cassandra incremental backup with a consistent timestamp boundary; no naive nodetool snapshot on live tables",
+                "best_jaccard": 0.235
+              },
+              {
+                "id": "R4",
+                "what": "schema changes are additive-only at the edge-type level; renames or tightenings require migrations",
+                "best_jaccard": 0.067
+              },
+              {
+                "id": "R5",
+                "what": "migrations must be idempotent (applying twice is a no-op)",
+                "best_jaccard": 0.083
+              },
+              {
+                "id": "R6",
+                "what": "online API exposes only a fixed set of query patterns; new patterns added via migration, not at runtime (closed-world API)",
+                "best_jaccard": 0.105
+              },
+              {
+                "id": "R7",
+                "what": "no analytical writes ever; analytical is read-only as a hard rule beyond v1",
+                "best_jaccard": 0.077
+              },
+              {
+                "id": "R9",
+                "what": "5-minute analytical erasure window must be documented and visible to analytical users via API and UI",
+                "best_jaccard": 0.125
+              },
+              {
+                "id": "R10",
+                "what": "encryption at rest for Cassandra and Parquet; encryption in transit for all client connections; key management via standard org KMS",
+                "best_jaccard": 0.111
+              },
+              {
+                "id": "R11",
+                "what": "writes to online restricted to the ingestion service authenticated via mTLS",
+                "best_jaccard": 0.083
+              },
+              {
+                "id": "R12",
+                "what": "no cut-over on a Friday, no cut-over before a holiday, no cut-over while any team member is on PTO",
+                "best_jaccard": 0.091
+              },
+              {
+                "id": "R14",
+                "what": "no new tracing or metrics infrastructure; reuse the org observability stack",
+                "best_jaccard": 0.0
+              },
+              {
+                "id": "R17",
+                "what": "five-minute snapshots retained only as the current one; daily snapshots retained 14 days; monthly snapshots retained 12 months",
+                "best_jaccard": 0.067
+              },
+              {
+                "id": "R19",
+                "what": "defense-in-depth on row-level access: API-layer filter AND query-validator gate that fails closed if the filter is missing",
+                "best_jaccard": 0.059
+              },
+              {
+                "id": "R21",
+                "what": "analytical exports capped at 1M rows per query, rate limited to 5 exports per hour per user, all exports logged, PII exports flagged for security review",
+                "best_jaccard": 0.056
+              },
+              {
+                "id": "R26",
+                "what": "partner audit endpoint is scoped to each partner's own access history; no visibility into other partners or internal access",
+                "best_jaccard": 0.167
+              },
+              {
+                "id": "R28",
+                "what": "analytical Parquet schema must be ML-pipeline-ready from day one (consistent column ordering, standard types, no proprietary encodings)",
+                "best_jaccard": 0.167
+              }
+            ],
+            "recall": 0.414
+          },
+          "decision_preservation": {
+            "total": 28,
+            "matched": [
+              {
+                "id": "D3",
+                "jaccard": 0.273
+              },
+              {
+                "id": "D4",
+                "jaccard": 0.333
+              },
+              {
+                "id": "D5",
+                "jaccard": 0.5
+              },
+              {
+                "id": "D9",
+                "jaccard": 0.273
+              },
+              {
+                "id": "D11",
+                "jaccard": 0.278
+              },
+              {
+                "id": "D14",
+                "jaccard": 0.273
+              },
+              {
+                "id": "D21",
+                "jaccard": 0.364
+              },
+              {
+                "id": "D22",
+                "jaccard": 0.333
+              },
+              {
+                "id": "D23",
+                "jaccard": 0.267
+              },
+              {
+                "id": "D27",
+                "jaccard": 0.308
+              },
+              {
+                "id": "D28",
+                "jaccard": 0.444
+              }
+            ],
+            "missing": [
+              {
+                "id": "D1",
+                "what": "physically separate online and analytical workloads",
+                "best_jaccard": 0.2
+              },
+              {
+                "id": "D2",
+                "what": "online store is source of truth; analytical is read-only replica refreshed every 5 minutes",
+                "best_jaccard": 0.188
+              },
+              {
+                "id": "D6",
+                "what": "no Gremlin endpoint on the analytical side",
+                "best_jaccard": 0.1
+              },
+              {
+                "id": "D7",
+                "what": "shadow-query divergence monitoring at 10-minute interval, alert above 0.1% diff to on-call",
+                "best_jaccard": 0.0
+              },
+              {
+                "id": "D8",
+                "what": "JanusGraph is the architecture choice but production rollout is conditional on confirmed operational expertise",
+                "best_jaccard": 0.125
+              },
+              {
+                "id": "D10",
+                "what": "append-only erasure log keyed by user id and timestamp, separate from deleted data",
+                "best_jaccard": 0.167
+              },
+              {
+                "id": "D12",
+                "what": "replay-based migration from a known checkpoint, not dual-write (dual-write rejected due to write-load doubling)",
+                "best_jaccard": 0.091
+              },
+              {
+                "id": "D13",
+                "what": "cut-over validation gates: bit-exact result match on holdout, 1.5x throughput test passes, 7-day staging soak; all three are hard gates",
+                "best_jaccard": 0.0
+              },
+              {
+                "id": "D15",
+                "what": "access control: online reads via authenticated REST with row-level access by user identity; analytical reads via SSO restricted to data team users",
+                "best_jaccard": 0.15
+              },
+              {
+                "id": "D16",
+                "what": "static 15-node JanusGraph cluster sized for 20k peak; no storage-layer autoscaling",
+                "best_jaccard": 0.083
+              },
+              {
+                "id": "D17",
+                "what": "API-gateway rate limiting: steady-state limit, bursts allowed within budget, queueing/rejection beyond",
+                "best_jaccard": 0.062
+              },
+              {
+                "id": "D18",
+                "what": "OpenTelemetry distributed tracing at 1% baseline sampling with tail-sampling at p95+ latency",
+                "best_jaccard": 0.067
+              },
+              {
+                "id": "D19",
+                "what": "page thresholds: freshness >10min, p99 >100ms sustained, error rate >1% sustained; sustained = 10 minutes",
+                "best_jaccard": 0.125
+              },
+              {
+                "id": "D20",
+                "what": "quarterly game-day exercises covering at least freshness breach, hot shard, and Cassandra node loss",
+                "best_jaccard": 0.188
+              },
+              {
+                "id": "D24",
+                "what": "partner rate limits negotiated contractually and enforced at the gateway; conservative defaults",
+                "best_jaccard": 0.2
+              },
+              {
+                "id": "D25",
+                "what": "partner kill-switch: one-command credential revoke at the gateway plus one-command view removal, documented in incident response runbook",
+                "best_jaccard": 0.1
+              },
+              {
+                "id": "D26",
+                "what": "post-v1 deferred features: multi-region active-active, audit-isolation analytical, real-time analytical, Gremlin endpoint, automated schema discovery",
+                "best_jaccard": 0.118
+              }
+            ],
+            "recall": 0.393
+          },
+          "conflict_visibility": {
+            "total": 5,
+            "matched": [
+              {
+                "id": "K5",
+                "jaccard": 0.357
+              }
+            ],
+            "missing": [
+              {
+                "id": "K1",
+                "what": "backfill throughput (hours of bulk load) vs the 5-minute analytical staleness guarantee; during a backfill analytical would be stale by hours or days",
+                "best_jaccard": 0.056
+              },
+              {
+                "id": "K2",
+                "what": "scale-fit technology choice vs operational tax on a small team; right-tool-per-workload vs minimizing stack complexity",
+                "best_jaccard": 0.0
+              },
+              {
+                "id": "K3",
+                "what": "GDPR right-to-erasure vs right-to-audit obligation; erasure log keyed by user id is itself user data but is required to prove erasure happened",
+                "best_jaccard": 0.2
+              },
+              {
+                "id": "K4",
+                "what": "cluster cost vs burst headroom; static-sized for bursts is expensive but avoids autoscaling complexity at the storage layer",
+                "best_jaccard": 0.062
+              }
+            ],
+            "recall": 0.2
+          },
+          "open_question_preservation": {
+            "total": 9,
+            "matched": [
+              {
+                "id": "Q3",
+                "jaccard": 0.444
+              },
+              {
+                "id": "Q4",
+                "jaccard": 0.267
+              },
+              {
+                "id": "Q5",
+                "jaccard": 0.667
+              },
+              {
+                "id": "Q6",
+                "jaccard": 0.25
+              }
+            ],
+            "missing": [
+              {
+                "id": "Q1",
+                "what": "how to handle the analytical staleness window during long backfills (candidate: announce known-staleness window via status banner)",
+                "best_jaccard": 0.056
+              },
+              {
+                "id": "Q2",
+                "what": "do we have operational expertise to run JanusGraph at production scale, or do we need to hire it (6-month timeline if we hire)",
+                "best_jaccard": 0.077
+              },
+              {
+                "id": "Q7",
+                "what": "do we share the analytical DuckDB instance across partners or run partner-specific instances (depends on load measurements)",
+                "best_jaccard": 0.188
+              },
+              {
+                "id": "Q8",
+                "what": "embedding service architecture for future ML pipelines: pre-computed and stored vs computed on demand",
+                "best_jaccard": 0.154
+              },
+              {
+                "id": "Q9",
+                "what": "specific steady-state and burst rate-limit budgets pending capacity planning",
+                "best_jaccard": 0.0
+              }
+            ],
+            "recall": 0.444
+          },
+          "hallucinations": {
+            "count": 7,
+            "items": [
+              {
+                "sentence": "Backfill-vs-staleness tension during large data onboarding.",
+                "best_gt_jaccard": 0.071
+              },
+              {
+                "sentence": "Postgres-with-AGE sanity check results.",
+                "best_gt_jaccard": 0.062
+              },
+              {
+                "sentence": "Do we serve pre-computed embeddings in future online store?",
+                "best_gt_jaccard": 0.154
+              },
+              {
+                "sentence": "Cassandra incremental backup must be verified before production.",
+                "best_gt_jaccard": 0.235
+              },
+              {
+                "sentence": "Parquet schema must be ML-friendly from the start for future pipelines.",
+                "best_gt_jaccard": 0.167
+              },
+              {
+                "sentence": "JanusGraph ops capability confirmation.",
+                "best_gt_jaccard": 0.083
+              },
+              {
+                "sentence": "The single most important gating item before any production commitment is JanusGraph ops capability confirmation, as it directly influences our ability to support the chosen architecture.",
+                "best_gt_jaccard": 0.125
+              }
+            ]
+          },
+          "primary_success_criteria": {
+            "decisions_>=_0.90": false,
+            "constraints_>=_0.90": false
+          }
+        }
+      },
+      "variant_B": {
+        "response": {
+          "text": "- ACTIVE CONSTRAINTS\n  - Online lookups must hit p99 under 50ms and p50 under 10ms\n  - Analytical staleness must not exceed 5 minutes (hard data-team requirement)\n  - Snapshots must use Cassandra incremental backup with a consistent timestamp boundary\n  - Schema changes are additive-only at the edge-type level; renames or tightenings require migrations\n  - Migrations must be idempotent (applying twice is a no-op)\n  - Online API exposes only a fixed set of query patterns; new patterns added via migration, not at runtime\n  - No analytical writes ever; analytical is read-only as a hard rule beyond v1\n  - User-erasure deletes the user's vertices and all edges where the user is an endpoint, in both layers, with analytical propagation within one snapshot window\n  - 5-minute analytical erasure window must be documented and visible to analytical users via API and UI\n  - Encryption at rest for Cassandra and Parquet; encryption in transit for all client connections; key management via standard org KMS\n  - Writes to online restricted to the ingestion service authenticated via mTLS\n  - No cut-over on a Friday, no cut-over before a holiday, no cut-over while any team member is on PTO\n  - Local NVMe storage for live Cassandra data with replication factor 3; no network-attached storage on the latency path\n  - No new tracing or metrics infrastructure; reuse the org observability stack\n  - No page without a linked runbook\n  - Incremental backups stream to object storage (S3 or equivalent)\n  - Five-minute snapshots retained only as the current one; daily snapshots retained 14 days; monthly snapshots retained 12 months\n  - All third-party artifacts mirrored internally; no upstream pulls at build or runtime; SBOM generated per release\n  - Defense-in-depth on row-level access: API-layer filter AND query-validator gate that fails closed if the filter is missing\n  - Vertex schema must mark each vertex type as user-private or shared; queries crossing a user-private boundary without permission must be blocked at the query validator\n  - Analytical exports capped at 1M rows per query, rate limited to 5 exports per hour per user, all exports logged, PII exports flagged for security review\n  - No SQL string concatenation in the analytical query frontend; all queries via parameterized form\n  - Auth verified at both gateway and service; 15-minute TTL tokens; 10-in-5-min IP block; full auth audit log; quarterly penetration testing\n  - Engineers do not have prod data access by default; break-glass for incidents is audited and reviewed\n  - Partner data access only via partner-scoped DuckDB views; no direct Cassandra access for partners\n  - Partner audit endpoint is scoped to each partner's own access history; no visibility into other partners or internal access\n  - 60-day post-launch feature freeze: only fixes, performance, and ops maturity work\n  - Analytical Parquet schema must be ML-pipeline-ready from day one (consistent column ordering, standard types, no proprietary encodings)\n  - Production date is not committed until all gating items are resolved\n\n- ARCHITECTURE DECISIONS\n  - Physically separate online and analytical workloads\n  - Online store is source of truth; analytical is read-only replica refreshed every 5 minutes\n  - Use JanusGraph on Cassandra for the online side (replaces the earlier Neo4j direction)\n  - Use DuckDB on Parquet for the analytical side\n  - Expose different APIs per workload: constrained REST for online, full SQL for analytical\n  - No Gremlin endpoint on the analytical side\n  - Shadow-query divergence monitoring at 10-minute interval, alert above 0.1% diff to on-call\n  - JanusGraph is the architecture choice but production rollout is conditional on confirmed operational expertise\n  - Drop Apache Spark direction; DuckDB is the analytical engine\n  - Append-only erasure log keyed by user id and timestamp, separate from deleted data\n  - SLOs: p99 online latency <50ms, error rate <0.1%, JanusGraph queue depth <100, freshness <6 minutes (alert) / <10 minutes (page)\n  - Replay-based migration from a known checkpoint, not dual-write (dual-write rejected due to write-load doubling)\n  - Cut-over validation gates: bit-exact result match on holdout, 1.5x throughput test passes, 7-day staging soak; all three are hard gates\n  - Default-no on Redis cache in v1; reconsider only if production measurements force it\n  - Access control: online reads via authenticated REST with row-level access by user identity; analytical reads via SSO restricted to data team users\n  - Static 15-node JanusGraph cluster sized for 20k peak; no storage-layer autoscaling\n  - API-gateway rate limiting: steady-state limit, bursts allowed within budget, queueing/rejection beyond\n  - OpenTelemetry distributed tracing at 1% baseline sampling with tail-sampling at p95+ latency\n  - Page thresholds: freshness >10min, p99 >100ms sustained, error rate >1% sustained; sustained = 10 minutes\n  - Quarterly game-day exercises covering at least freshness breach, hot shard, and Cassandra node loss\n  - Online availability target 99.9% (three nines); active-active multi-region explicitly out of scope for v1\n  - Analytical store has no formal availability SLO; freshness SLO is the user-facing reliability signal\n  - Partner access via partner-scoped DuckDB views; partner role in the standard auth flow\n  - Partner rate limits negotiated contractually and enforced at the gateway; conservative defaults\n  - Partner kill-switch: one-command credential revoke at the gateway plus one-command view removal, documented in incident response runbook\n  - Post-v1 deferred features: multi-region active-active, audit-isolation analytical, real-time analytical, Gremlin endpoint, automated schema discovery\n  - Quarterly architecture review with decision log read, items flagged for revisit, RFC + discussion + decision\n  - Six gating items must be resolved before any production date is committed\n\n- REJECTED / REPLACED DIRECTIONS\n  - None\n\n- OPEN CONFLICTS\n  - Backfill throughput (hours of bulk load) vs the 5-minute analytical staleness guarantee; during a backfill analytical would be stale by hours or days\n  - Scale-fit technology choice vs operational tax on a small team; right-tool-per-workload vs minimizing stack complexity\n  - GDPR right-to-erasure vs right-to-audit obligation; erasure log keyed by user id is itself user data but is required to prove erasure happened\n  - Cluster cost vs burst headroom; static-sized for bursts is expensive but avoids autoscaling complexity at the storage layer\n  - DuckDB instance sharing across partners vs partner-specific instances; depends on actual partner load measurements\n\n- OPEN QUESTIONS\n  - How to handle the analytical staleness window during long backfills (candidate: announce known-staleness window via status banner)\n  - Do we have operational expertise to run JanusGraph at production scale, or do we need to hire it (6-month timeline if we hire)\n  - Legal interpretation of the erasure log under GDPR; do not ship without an answer\n  - Verify Cassandra incremental backup behavior at our intended write rate (open task, blocks production rollout)\n  - What minimum JanusGraph cache hit rate is required to maintain the 50ms p99 latency budget\n  - What is the current annual cost of the legacy graph system (needed for cost-justification with leadership)\n  - Do we share the analytical DuckDB instance across partners or run partner-specific instances (depends on load measurements)\n  - Embedding service architecture for future ML pipelines: pre-computed and stored vs computed on demand\n  - Specific steady-state and burst rate-limit budgets pending capacity planning\n\n- ESTABLISHED CLAIMS\n  - Neo4j has not been benchmarked at 50 billion edges; public references cap at single-digit billions and required professional services\n  - JanusGraph on Cassandra is the most credible scale story among open-source graph stores at our budget\n  - Cassandra incremental backup gives a timestamp boundary but not snapshot isolation in the SQL sense\n  - Eventual consistency is acceptable for v1 analytical because there are no audit-style analytical queries in scope\n  - Constraining the online API is essential for the 50ms p99 latency guarantee\n  - Postgres-with-AGE will not fit at our scale; the sharded Citus-on-AGE variant becomes exotic and defeats the simpler-stack motivation\n  - An erasure log keyed by user id is itself user data under GDPR but is required to prove erasure happened\n  - GDPR does not require instant erasure; 5-minute analytical erasure window is permissible under 'without undue delay'\n  - JanusGraph autoscaling is constrained by Cassandra rebalancing cost; new nodes take minutes to hours to become useful\n  - JanusGraph 25ms p99 is feasible only if cache hit rates stay high (likely >85%)\n  - Parquet on graph data typically achieves 3-5x compression vs raw Cassandra storage\n  - Pure technical solutions cannot fully solve insider-threat risk; role/break-glass/anomaly/culture together are best available\n  - DuckDB is read-only on Parquet so destructive SQL statements are impossible at the engine layer\n  - Cross-tenant graph leakage depends on whether traversed vertex types are user-private or shared\n\n- GATING ITEMS BEFORE PRODUCTION\n  - None\n\nGiven this state, what is the single most important gating item we must resolve before any production commitment?\n- Legal interpretation of the erasure log under GDPR; do not ship without an answer.",
+          "latency_ms": 7522,
+          "backend": "openrouter",
+          "model": "openai/gpt-4o",
+          "input_tokens": 2634,
+          "output_tokens": 2033,
+          "stop_reason": "stop"
+        },
+        "evaluation": {
+          "match_threshold": 0.25,
+          "claim_preservation": {
+            "total": 14,
+            "matched": [
+              {
+                "id": "C1",
+                "jaccard": 1.0
+              },
+              {
+                "id": "C2",
+                "jaccard": 1.0
+              },
+              {
+                "id": "C3",
+                "jaccard": 1.0
+              },
+              {
+                "id": "C4",
+                "jaccard": 1.0
+              },
+              {
+                "id": "C5",
+                "jaccard": 1.0
+              },
+              {
+                "id": "C6",
+                "jaccard": 1.0
+              },
+              {
+                "id": "C7",
+                "jaccard": 1.0
+              },
+              {
+                "id": "C8",
+                "jaccard": 1.0
+              },
+              {
+                "id": "C9",
+                "jaccard": 1.0
+              },
+              {
+                "id": "C10",
+                "jaccard": 1.0
+              },
+              {
+                "id": "C11",
+                "jaccard": 1.0
+              },
+              {
+                "id": "C12",
+                "jaccard": 1.0
+              },
+              {
+                "id": "C13",
+                "jaccard": 1.0
+              },
+              {
+                "id": "C14",
+                "jaccard": 1.0
+              }
+            ],
+            "missing": [],
+            "recall": 1.0
+          },
+          "constraint_preservation": {
+            "total": 29,
+            "matched": [
+              {
+                "id": "R1",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R2",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R3",
+                "jaccard": 0.643
+              },
+              {
+                "id": "R4",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R5",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R6",
+                "jaccard": 0.923
+              },
+              {
+                "id": "R7",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R8",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R9",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R10",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R11",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R12",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R13",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R14",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R15",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R16",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R17",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R18",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R19",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R20",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R21",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R22",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R23",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R24",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R25",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R26",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R27",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R28",
+                "jaccard": 1.0
+              },
+              {
+                "id": "R29",
+                "jaccard": 1.0
+              }
+            ],
+            "missing": [],
+            "recall": 1.0
+          },
+          "decision_preservation": {
+            "total": 28,
+            "matched": [
+              {
+                "id": "D1",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D2",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D3",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D4",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D5",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D6",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D7",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D8",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D9",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D10",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D11",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D12",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D13",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D14",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D15",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D16",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D17",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D18",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D19",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D20",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D21",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D22",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D23",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D24",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D25",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D26",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D27",
+                "jaccard": 1.0
+              },
+              {
+                "id": "D28",
+                "jaccard": 1.0
+              }
+            ],
+            "missing": [],
+            "recall": 1.0
+          },
+          "conflict_visibility": {
+            "total": 5,
+            "matched": [
+              {
+                "id": "K1",
+                "jaccard": 1.0
+              },
+              {
+                "id": "K2",
+                "jaccard": 1.0
+              },
+              {
+                "id": "K3",
+                "jaccard": 1.0
+              },
+              {
+                "id": "K4",
+                "jaccard": 1.0
+              },
+              {
+                "id": "K5",
+                "jaccard": 1.0
+              }
+            ],
+            "missing": [],
+            "recall": 1.0
+          },
+          "open_question_preservation": {
+            "total": 9,
+            "matched": [
+              {
+                "id": "Q1",
+                "jaccard": 1.0
+              },
+              {
+                "id": "Q2",
+                "jaccard": 1.0
+              },
+              {
+                "id": "Q3",
+                "jaccard": 1.0
+              },
+              {
+                "id": "Q4",
+                "jaccard": 1.0
+              },
+              {
+                "id": "Q5",
+                "jaccard": 1.0
+              },
+              {
+                "id": "Q6",
+                "jaccard": 1.0
+              },
+              {
+                "id": "Q7",
+                "jaccard": 1.0
+              },
+              {
+                "id": "Q8",
+                "jaccard": 1.0
+              },
+              {
+                "id": "Q9",
+                "jaccard": 1.0
+              }
+            ],
+            "missing": [],
+            "recall": 1.0
+          },
+          "hallucinations": {
+            "count": 1,
+            "items": [
+              {
+                "sentence": "Given this state, what is the single most important gating item we must resolve before any production commitment?",
+                "best_gt_jaccard": 0.235
+              }
+            ]
+          },
+          "primary_success_criteria": {
+            "decisions_>=_0.90": true,
+            "constraints_>=_0.90": true
+          }
+        }
+      }
+    }
+  ]
+}
