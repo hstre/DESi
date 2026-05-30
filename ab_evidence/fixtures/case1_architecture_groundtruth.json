@@ -1,0 +1,34 @@
+{
+  "id": "case1_architecture",
+  "frozen": "ground truth annotated manually by the author after reading the chat, BEFORE writing any extractor or running any A/B; never modified afterwards",
+  "expected": {
+    "active_claims": [
+      {"id": "C1", "what": "per-tenant database is operationally too heavy at our scale", "evidence": "established"},
+      {"id": "C2", "what": "row-level security alone is risky for compliance because a misconfigured policy leaks data", "evidence": "likely"},
+      {"id": "C3", "what": "managed at-least-once queue cannot give exactly-once without an idempotency layer", "evidence": "established"}
+    ],
+    "active_constraints": [
+      {"id": "R1", "what": "tenant data must be fully isolated even in shared infrastructure"},
+      {"id": "R2", "what": "no cross-tenant batches at any pipeline stage"},
+      {"id": "R3", "what": "Parquet writer must refuse rows whose tenant_id differs from the active partition"},
+      {"id": "R4", "what": "schema changes go through migrations and must be backward compatible for at least one minor version"},
+      {"id": "R5", "what": "reject malformed events at ingest via JSON Schema validation"}
+    ],
+    "decisions": [
+      {"id": "D1", "what": "use schema-per-tenant in a shared database (not per-tenant DB, not row-level security alone)"},
+      {"id": "D2", "what": "use SQS as a managed queue with per-tenant queues"},
+      {"id": "D3", "what": "store data as Parquet partitioned by tenant_id"},
+      {"id": "D4", "what": "strict schema with migrations and one-minor-version backward compatibility"},
+      {"id": "D5", "what": "validate at ingest with JSON Schema"},
+      {"id": "D6", "what": "start with Snowflake; drop the earlier ClickHouse direction"}
+    ],
+    "open_conflicts": [
+      {"id": "K1", "what": "tenant-deletion: GDPR (hard delete within 30 days) vs operations (prefers soft delete)", "claim_ids": []},
+      {"id": "K2", "what": "consumer parallelism + exactly-once vs SQS at-least-once semantics", "claim_ids": ["C3"]}
+    ],
+    "open_questions": [
+      {"id": "Q1", "what": "tenant-deletion policy (hard or soft) — legal must weigh in"},
+      {"id": "Q2", "what": "whether we accept downstream deduplication as the resolution to the exactly-once / at-least-once tension"}
+    ]
+  }
+}

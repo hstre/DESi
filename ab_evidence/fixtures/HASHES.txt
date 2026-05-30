@@ -1,0 +1,6 @@
+eb169567db7bad58  ab_evidence/fixtures/case1_architecture_chat.json
+70bfe1835739b26d  ab_evidence/fixtures/case1_architecture_groundtruth.json
+fa7e8a14a71d92e2  ab_evidence/fixtures/case2_research_chat.json
+6e4e95d34badee32  ab_evidence/fixtures/case2_research_groundtruth.json
+9661c615b092536e  ab_evidence/fixtures/case3_debugging_chat.json
+02369e8078dacb65  ab_evidence/fixtures/case3_debugging_groundtruth.json

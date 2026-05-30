@@ -1,0 +1,27 @@
+{
+  "id": "case1_architecture",
+  "type": "architecture_project",
+  "description": "Designing a multi-tenant data pipeline. Many decisions, many constraints.",
+  "chat": [
+    {"role": "user", "content": "We need to design the ingestion pipeline for the multi-tenant analytics product. Each tenant has its own data, and we have to keep tenant data fully isolated, even in shared infrastructure."},
+    {"role": "assistant", "content": "Tenant isolation is a hard constraint then. Should we go per-tenant database, schema-per-tenant in a shared DB, or row-level security in a single shared schema?"},
+    {"role": "user", "content": "Per-tenant database is operationally too heavy at our scale. Let's rule it out. Row-level security alone is risky for compliance because a misconfigured policy leaks data. We'll go with schema-per-tenant in a shared database."},
+    {"role": "assistant", "content": "Okay. For the ingestion side, do we accept any cross-tenant batch processing for efficiency?"},
+    {"role": "user", "content": "No. Hard rule: no cross-tenant batches at any stage of the pipeline. Each batch is a single tenant. Latency is a secondary concern; isolation is primary."},
+    {"role": "assistant", "content": "Should we use a managed queue like SQS, or self-host RabbitMQ?"},
+    {"role": "user", "content": "Managed queue. We'll go with SQS. Per-tenant queue, so consumers process tenants in parallel without ever mixing."},
+    {"role": "assistant", "content": "What about the storage format on disk? Parquet partitioned by tenant_id, or per-tenant directories?"},
+    {"role": "user", "content": "Parquet partitioned by tenant_id, with the partition key enforced at write time. The writer must refuse to write rows whose tenant_id differs from the active partition."},
+    {"role": "assistant", "content": "And for schema evolution — strict or permissive?"},
+    {"role": "user", "content": "Strict. Schema changes must go through migrations, and migrations must be backward compatible for at least one minor version."},
+    {"role": "assistant", "content": "Question: how do we handle a tenant who is deleted? Hard delete or soft?"},
+    {"role": "user", "content": "Open question for now. GDPR pushes us toward hard delete within 30 days; ops pushes toward soft. We need legal to weigh in. Don't pick today."},
+    {"role": "assistant", "content": "Another tension: we want consumer parallelism but also exactly-once processing per tenant. SQS gives at-least-once. Are we okay with deduplication downstream?"},
+    {"role": "user", "content": "That's a real unresolved trade-off. We haven't decided. Note it. We can't have exactly-once with a managed at-least-once queue without an idempotency layer."},
+    {"role": "assistant", "content": "On the validation side, do we want JSON Schema validation at ingest or downstream?"},
+    {"role": "user", "content": "At ingest. Reject malformed events at the boundary. We've been bitten before by bad data flowing through."},
+    {"role": "user", "content": "One more: we earlier talked about using ClickHouse for analytics. I think we should drop that direction. Operating ClickHouse is overhead we don't need; we'll start with Snowflake and reconsider only if cost becomes a problem."},
+    {"role": "assistant", "content": "Noted, ClickHouse is off the table for now. Should I write up the decisions?"},
+    {"role": "user", "content": "Yes please. And include the open questions explicitly."}
+  ]
+}

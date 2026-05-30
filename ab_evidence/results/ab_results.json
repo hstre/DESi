@@ -1,0 +1,75 @@
+{
+  "available": false,
+  "match_threshold": 0.25,
+  "cases": [
+    {
+      "case_id": "case1_architecture",
+      "prompts": {
+        "variant_A": {
+          "system_tokens": 39,
+          "input_token_estimate": 759,
+          "n_messages": 21
+        },
+        "variant_B": {
+          "system_tokens": 71,
+          "input_token_estimate": 815,
+          "n_messages": 1
+        }
+      },
+      "state_vs_chat": {
+        "chat_tokens": 626,
+        "state_tokens": 642,
+        "savings": -16,
+        "ratio_state_over_chat": 1.0256,
+        "n_chat_turns": 20
+      },
+      "backend_status": "UNAVAILABLE_in_this_env"
+    },
+    {
+      "case_id": "case2_research",
+      "prompts": {
+        "variant_A": {
+          "system_tokens": 39,
+          "input_token_estimate": 824,
+          "n_messages": 20
+        },
+        "variant_B": {
+          "system_tokens": 71,
+          "input_token_estimate": 705,
+          "n_messages": 1
+        }
+      },
+      "state_vs_chat": {
+        "chat_tokens": 688,
+        "state_tokens": 529,
+        "savings": 159,
+        "ratio_state_over_chat": 0.7689,
+        "n_chat_turns": 19
+      },
+      "backend_status": "UNAVAILABLE_in_this_env"
+    },
+    {
+      "case_id": "case3_debugging",
+      "prompts": {
+        "variant_A": {
+          "system_tokens": 39,
+          "input_token_estimate": 844,
+          "n_messages": 23
+        },
+        "variant_B": {
+          "system_tokens": 71,
+          "input_token_estimate": 689,
+          "n_messages": 1
+        }
+      },
+      "state_vs_chat": {
+        "chat_tokens": 707,
+        "state_tokens": 512,
+        "savings": 195,
+        "ratio_state_over_chat": 0.7242,
+        "n_chat_turns": 22
+      },
+      "backend_status": "UNAVAILABLE_in_this_env"
+    }
+  ]
+}

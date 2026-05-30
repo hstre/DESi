@@ -1,0 +1,28 @@
+{
+  "id": "case3_debugging",
+  "frozen": "ground truth annotated manually by the author after reading the chat, BEFORE writing any extractor or running any A/B; never modified afterwards",
+  "expected": {
+    "active_claims": [
+      {"id": "C1", "what": "the worker memory leak is caused by a module-level unbounded dict cache keyed by config-path-plus-hash", "evidence": "established"},
+      {"id": "C2", "what": "the cache was named per-task but is effectively process-global", "evidence": "established"},
+      {"id": "C3", "what": "httpx clients hold connection pools if not explicitly closed; possible secondary leak source", "evidence": "likely"}
+    ],
+    "active_constraints": [
+      {"id": "R1", "what": "do not ship the cache fix until httpx leak has been verified — the two could mask each other"},
+      {"id": "R2", "what": "do not switch the JSON serializer to orjson now (new C dependency, risk during a leak situation)"}
+    ],
+    "decisions": [
+      {"id": "D1", "what": "fix the cache with functools.lru_cache(maxsize=256) — stdlib, no new dep"},
+      {"id": "D2", "what": "ship the lru_cache hotfix today; do httpx verification, memory regression, broader audit in a follow-up branch"},
+      {"id": "D3", "what": "drop the orjson direction; keep stdlib json"},
+      {"id": "D4", "what": "add memory-budget alerting (RSS > 1GB pages someone) as a follow-up, not blocking on it"}
+    ],
+    "open_conflicts": [
+      {"id": "K1", "what": "ship today (stop OOM bleeding) vs ship right (verify httpx, regression suite, broader audit) — speed vs diligence", "claim_ids": []}
+    ],
+    "open_questions": [
+      {"id": "Q1", "what": "do httpx Client objects in our codebase leak because they are not closed as context managers"},
+      {"id": "Q2", "what": "are there other module-level mutable containers elsewhere that could leak the same way"}
+    ]
+  }
+}
