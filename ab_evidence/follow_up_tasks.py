@@ -53,4 +53,22 @@ FOLLOW_UPS = {
         "given this state, what is the single most important gating item we must resolve before any "
         "production commitment?"
     ),
+    "case7a_padded_30k": (
+        "Summarize the current state of the graph-processing system design in exactly this format, "
+        "using only what we have established. Use short bullet points (max one line each). Do not "
+        "invent anything. If a category has no entries, write 'none'. The categories are: ACTIVE "
+        "CONSTRAINTS, ARCHITECTURE DECISIONS, REJECTED / REPLACED DIRECTIONS, OPEN CONFLICTS, OPEN "
+        "QUESTIONS, ESTABLISHED CLAIMS, GATING ITEMS BEFORE PRODUCTION. Then in a final line answer: "
+        "given this state, what is the single most important gating item we must resolve before any "
+        "production commitment?"
+    ),
+    "case7b_padded_60k": (
+        "Summarize the current state of the graph-processing system design in exactly this format, "
+        "using only what we have established. Use short bullet points (max one line each). Do not "
+        "invent anything. If a category has no entries, write 'none'. The categories are: ACTIVE "
+        "CONSTRAINTS, ARCHITECTURE DECISIONS, REJECTED / REPLACED DIRECTIONS, OPEN CONFLICTS, OPEN "
+        "QUESTIONS, ESTABLISHED CLAIMS, GATING ITEMS BEFORE PRODUCTION. Then in a final line answer: "
+        "given this state, what is the single most important gating item we must resolve before any "
+        "production commitment?"
+    ),
 }

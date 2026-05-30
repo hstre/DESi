@@ -10,3 +10,7 @@ fa7e8a14a71d92e2  ab_evidence/fixtures/case2_research_chat.json
 668a3fd2a128771e  ab_evidence/fixtures/case5_long_research_groundtruth.json
 678a788c5dcddffe  ab_evidence/fixtures/case6_long_research_chat.json
 17e84b6c73c607e8  ab_evidence/fixtures/case6_long_research_groundtruth.json
+62b8d2597edc05cb  ab_evidence/fixtures/case7a_padded_30k_chat.json
+dca0fba0cfd01d54  ab_evidence/fixtures/case7a_padded_30k_groundtruth.json
+c68008dbb0cbb633  ab_evidence/fixtures/case7b_padded_60k_chat.json
+2bb4e0ff09d3dd42  ab_evidence/fixtures/case7b_padded_60k_groundtruth.json
