@@ -59,13 +59,20 @@ def aggregate_jury(reviews):
 
 
 def parse_review(text):
-    """Parse a reviewer response into structured {q1, q2, q3}. Returns dict; unknown values -> None."""
+    """Parse a reviewer response into structured {q1, q2, q3}. Tolerant of three formats:
+    1. 'Q1: <val>\nQ2: <val>\nQ3: <val>' (the requested format)
+    2. '<val>\n<val>\n<val>' (Gemini Flash often drops the Q-prefix)
+    3. Mixed/multiline with vals appearing on their own lines.
+    """
     out = {"q1": None, "q2": None, "q3": None, "raw": text}
     Q1_OK = {"yes", "partial", "no"}
     Q2_OK = {"answer", "refusal", "clarification", "empty"}
     Q3_OK = {"hallucination", "absence", "na"}
-    for line in (text or "").splitlines():
-        line = line.strip()
+
+    lines = [ln.strip() for ln in (text or "").splitlines() if ln.strip()]
+
+    # First pass: explicit Q1:/Q2:/Q3: format
+    for line in lines:
         low = line.lower()
         if low.startswith("q1:"):
             val = low.split(":", 1)[1].strip().split()[0] if ":" in low else ""
@@ -79,4 +86,27 @@ def parse_review(text):
             val = low.split(":", 1)[1].strip().split()[0] if ":" in low else ""
             if val in Q3_OK:
                 out["q3"] = val
+
+    # Second pass: positional (first valid Q1 token, then Q2, then Q3)
+    # Only fills in missing slots from explicit pass.
+    if out["q1"] is None or out["q2"] is None or out["q3"] is None:
+        positional_q1 = positional_q2 = positional_q3 = None
+        for line in lines:
+            low = line.lower().strip().rstrip(",.;:")
+            tokens = low.split()
+            for tok in tokens:
+                tok = tok.strip(",.;:()[]")
+                if positional_q1 is None and tok in Q1_OK:
+                    positional_q1 = tok
+                elif positional_q1 is not None and positional_q2 is None and tok in Q2_OK:
+                    positional_q2 = tok
+                elif positional_q2 is not None and positional_q3 is None and tok in Q3_OK:
+                    positional_q3 = tok
+        if out["q1"] is None and positional_q1:
+            out["q1"] = positional_q1
+        if out["q2"] is None and positional_q2:
+            out["q2"] = positional_q2
+        if out["q3"] is None and positional_q3:
+            out["q3"] = positional_q3
+
     return out
