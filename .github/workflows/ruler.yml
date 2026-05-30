@@ -33,14 +33,17 @@ jobs:
         run: |
           [ -n "$DEEPSEEK_API_KEY" ] && echo "DEEPSEEK_API_KEY: SET (length $(echo -n $DEEPSEEK_API_KEY | wc -c))" || (echo "DEEPSEEK_API_KEY MISSING"; exit 1)
           [ -n "$OPENROUTER_API_KEY" ] && echo "OPENROUTER_API_KEY: SET (length $(echo -n $OPENROUTER_API_KEY | wc -c))" || (echo "OPENROUTER_API_KEY MISSING"; exit 1)
+          [ -n "$HF_TOKEN" ] && echo "HF_TOKEN: SET (length $(echo -n $HF_TOKEN | wc -c))" || echo "HF_TOKEN: not set (downloads will be anonymous, still works for public datasets)"
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
 
       - name: Run RULER A/B
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           python ab_evidence/ruler_run.py
 
