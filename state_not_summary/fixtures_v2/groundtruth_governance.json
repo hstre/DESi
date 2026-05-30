@@ -1,0 +1,37 @@
+{
+  "id": "governance",
+  "frozen": "ground truth set BEFORE running the extractor; never modified after seeing results",
+  "expected": {
+    "active_claims": [
+      {"id": "C1", "status": "active", "evidence": "established"},
+      {"id": "C2", "status": "tentative", "evidence": "unclear"}
+    ],
+    "active_constraints": [
+      {"id": "R1", "scope": "core"},
+      {"id": "R2", "scope": "core"},
+      {"id": "R3", "scope": "process"}
+    ],
+    "open_conflicts": [
+      {"id": "K1", "claim_ids": ["C2"], "status": "open"}
+    ],
+    "decisions": [
+      {"id": "D1", "active_since": "t0", "replaces": ""},
+      {"id": "D2", "active_since": "t2", "replaces": ""}
+    ],
+    "discarded_paths": [
+      {"id": "X1"}
+    ],
+    "open_questions": [
+      {"id": "Q1", "blocking": false},
+      {"id": "Q2", "blocking": true}
+    ],
+    "evidence_status": {
+      "architecture": "likely",
+      "tests": "established"
+    },
+    "must_NOT_appear_in_state": [
+      "Tuesday",
+      "lunch"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "governance",
+  "chat": [
+    {"role": "system", "content": "Design governance for a research pipeline."},
+    {"role": "user", "content": "[CONSTRAINT R1 scope=core] operators must not be modified"},
+    {"role": "user", "content": "[CONSTRAINT R2 scope=core] weights are frozen"},
+    {"role": "user", "content": "[CONSTRAINT R3 scope=process] human approval required for any merge"},
+    {"role": "user", "content": "[CLAIM C1 status=active evidence=established] replay is bit-exact reproducible"},
+    {"role": "user", "content": "[CLAIM C2 status=tentative evidence=unclear] mutation rate can scale safely"},
+    {"role": "user", "content": "[DECISION D1 since=t0] one Concept Gate per phase"},
+    {"role": "user", "content": "[DECISION D2 since=t2 replaces=] forbidden-term scanner runs at build time"},
+    {"role": "user", "content": "[DISCARD X1] silent auto-merge after gate pass | reason: violates human approval"},
+    {"role": "user", "content": "[CONFLICT K1 claims=C2 status=open]"},
+    {"role": "user", "content": "[QUESTION Q1] do we audit forbidden terms in code comments too"},
+    {"role": "user", "content": "[QUESTION Q2 blocking] who signs human-approval gates while offline"},
+    {"role": "user", "content": "[EVIDENCE domain=architecture status=likely]"},
+    {"role": "user", "content": "[EVIDENCE domain=tests status=established]"},
+    {"role": "user", "content": "Let me also mention that on Tuesday we discussed lunch at length; this should NOT be in the state."}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "compression_pipeline",
+  "chat": [
+    {"role": "system", "content": "You help design a compression layer."},
+    {"role": "user", "content": "[DECISION D1 since=t1] use lexical extraction, no embeddings"},
+    {"role": "user", "content": "[CONSTRAINT R1 scope=core] core stays byte-identical"},
+    {"role": "user", "content": "[CONSTRAINT R2 scope=infra] offline only, no LLM calls"},
+    {"role": "user", "content": "[CLAIM C1 status=active evidence=likely] state must fit 500 tokens"},
+    {"role": "user", "content": "[CLAIM C2 status=active evidence=untested] long sessions need bigger budget"},
+    {"role": "user", "content": "[DISCARD X1] embeddings for semantic compression | reason: breaks offline determinism"},
+    {"role": "user", "content": "[DISCARD X2] auto-summarize the chat | reason: violates state-not-summary"},
+    {"role": "user", "content": "[CONFLICT K1 claims=C1,C2 status=open]"},
+    {"role": "user", "content": "[QUESTION Q1 blocking] how to size budget per session length"},
+    {"role": "user", "content": "[DECISION D2 since=t3 replaces=D1] use structural markers, not lexical extraction"},
+    {"role": "user", "content": "[EVIDENCE domain=compression status=likely]"},
+    {"role": "user", "content": "[EVIDENCE domain=tokenization status=established]"},
+    {"role": "user", "content": "And we discussed many other things in the chat too, like the weather and which font we prefer for the report; this should NOT end up in the state."}
+  ]
+}

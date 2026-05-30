@@ -1,0 +1,35 @@
+{
+  "id": "compression_pipeline",
+  "frozen": "ground truth set BEFORE running the extractor; never modified after seeing results",
+  "expected": {
+    "active_claims": [
+      {"id": "C1", "status": "active", "evidence": "likely"},
+      {"id": "C2", "status": "active", "evidence": "untested"}
+    ],
+    "active_constraints": [
+      {"id": "R1", "scope": "core"},
+      {"id": "R2", "scope": "infra"}
+    ],
+    "open_conflicts": [
+      {"id": "K1", "claim_ids": ["C1", "C2"], "status": "open"}
+    ],
+    "decisions": [
+      {"id": "D2", "active_since": "t3", "replaces": "D1"}
+    ],
+    "discarded_paths": [
+      {"id": "X1"},
+      {"id": "X2"}
+    ],
+    "open_questions": [
+      {"id": "Q1", "blocking": true}
+    ],
+    "evidence_status": {
+      "compression": "likely",
+      "tokenization": "established"
+    },
+    "must_NOT_appear_in_state": [
+      "the weather",
+      "which font we prefer"
+    ]
+  }
+}

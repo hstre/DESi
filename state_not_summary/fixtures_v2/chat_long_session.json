@@ -1,0 +1,29 @@
+{
+  "id": "long_session",
+  "chat": [
+    {"role": "system", "content": "Long research session — combined topics."},
+    {"role": "user", "content": "[CLAIM C1 status=active evidence=likely] dual-layer preserves anchors"},
+    {"role": "user", "content": "[CLAIM C2 status=active evidence=untested] composite anchors fix collisions"},
+    {"role": "user", "content": "[CLAIM C3 status=tentative evidence=unclear] short chats compress poorly"},
+    {"role": "user", "content": "[CLAIM C4 status=active evidence=established] replay is bit-exact"},
+    {"role": "user", "content": "[CLAIM C5 status=frozen evidence=established] core is byte-identical"},
+    {"role": "user", "content": "[CONSTRAINT R1 scope=core] no core changes"},
+    {"role": "user", "content": "[CONSTRAINT R2 scope=eval] no metric tuning after seeing results"},
+    {"role": "user", "content": "[CONSTRAINT R3 scope=eval] ground truth is independent"},
+    {"role": "user", "content": "[DECISION D1 since=t1] use Jaccard at 0.6"},
+    {"role": "user", "content": "[DECISION D2 since=t2 replaces=D1] use Jaccard at 0.5 with neighbour-fp"},
+    {"role": "user", "content": "[DECISION D3 since=t4] separate decide() from format_record()"},
+    {"role": "user", "content": "[DECISION D4 since=t5] state must validate no-prose"},
+    {"role": "user", "content": "[DISCARD X1] embedding-based dedup | reason: forbidden offline"},
+    {"role": "user", "content": "[DISCARD X2] LLM-rationalized scoring | reason: non-deterministic"},
+    {"role": "user", "content": "[DISCARD X3] auto-tune thresholds to labels | reason: violates pre-registration"},
+    {"role": "user", "content": "[CONFLICT K1 claims=C2,C3 status=open]"},
+    {"role": "user", "content": "[CONFLICT K2 claims=C1,C4 status=stalled]"},
+    {"role": "user", "content": "[QUESTION Q1 blocking] how to size budget per session"},
+    {"role": "user", "content": "[QUESTION Q2] do we generalize the auditor to multi-file docs"},
+    {"role": "user", "content": "[EVIDENCE domain=compression status=likely]"},
+    {"role": "user", "content": "[EVIDENCE domain=tests status=established]"},
+    {"role": "user", "content": "[EVIDENCE domain=evaluation status=unclear]"},
+    {"role": "user", "content": "Many sentences of off-topic conversation about coffee, fonts, the meeting on Friday, none of which is epistemic state and none of which should appear here."}
+  ]
+}

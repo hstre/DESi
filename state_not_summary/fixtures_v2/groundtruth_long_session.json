@@ -1,0 +1,47 @@
+{
+  "id": "long_session",
+  "frozen": "ground truth set BEFORE running the extractor; never modified after seeing results",
+  "expected": {
+    "active_claims": [
+      {"id": "C1", "status": "active", "evidence": "likely"},
+      {"id": "C2", "status": "active", "evidence": "untested"},
+      {"id": "C3", "status": "tentative", "evidence": "unclear"},
+      {"id": "C4", "status": "active", "evidence": "established"},
+      {"id": "C5", "status": "frozen", "evidence": "established"}
+    ],
+    "active_constraints": [
+      {"id": "R1", "scope": "core"},
+      {"id": "R2", "scope": "eval"},
+      {"id": "R3", "scope": "eval"}
+    ],
+    "open_conflicts": [
+      {"id": "K1", "claim_ids": ["C2", "C3"], "status": "open"},
+      {"id": "K2", "claim_ids": ["C1", "C4"], "status": "stalled"}
+    ],
+    "decisions": [
+      {"id": "D2", "active_since": "t2", "replaces": "D1"},
+      {"id": "D3", "active_since": "t4", "replaces": ""},
+      {"id": "D4", "active_since": "t5", "replaces": ""}
+    ],
+    "discarded_paths": [
+      {"id": "X1"},
+      {"id": "X2"},
+      {"id": "X3"}
+    ],
+    "open_questions": [
+      {"id": "Q1", "blocking": true},
+      {"id": "Q2", "blocking": false}
+    ],
+    "evidence_status": {
+      "compression": "likely",
+      "tests": "established",
+      "evaluation": "unclear"
+    },
+    "must_NOT_appear_in_state": [
+      "coffee",
+      "fonts",
+      "Friday",
+      "meeting"
+    ]
+  }
+}
