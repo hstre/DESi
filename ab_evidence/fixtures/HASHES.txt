@@ -6,3 +6,7 @@ fa7e8a14a71d92e2  ab_evidence/fixtures/case2_research_chat.json
 02369e8078dacb65  ab_evidence/fixtures/case3_debugging_groundtruth.json
 9cba4c8b0e19acd7  ab_evidence/fixtures/case4_long_research_chat.json
 2e2b84fd00e72204  ab_evidence/fixtures/case4_long_research_groundtruth.json
+97ebdff954cc4245  ab_evidence/fixtures/case5_long_research_chat.json
+668a3fd2a128771e  ab_evidence/fixtures/case5_long_research_groundtruth.json
+678a788c5dcddffe  ab_evidence/fixtures/case6_long_research_chat.json
+17e84b6c73c607e8  ab_evidence/fixtures/case6_long_research_groundtruth.json
