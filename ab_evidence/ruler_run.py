@@ -280,7 +280,8 @@ def main():
 
     existing = {p.stem for p in _ITEMS_DIR.glob("*.json")}
     pending = [(k, r) for k, r in todo if k not in existing]
-    print(f"Total: {len(todo)}  Already done: {len(existing) & {k for k,_ in todo}}  "
+    already_done = len(existing & {k for k, _ in todo})
+    print(f"Total: {len(todo)}  Already done: {already_done}  "
           f"Pending: {len(pending)}", flush=True)
 
     done = 0
