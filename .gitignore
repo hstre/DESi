@@ -226,3 +226,5 @@ src/*.egg-info/
 # DESi usability config + secrets (never commit real keys)
 config/desi.local.ini
 secrets/
+ab_evidence/data/longmemeval/
+ab_evidence/data/longmemeval_subset15.json
