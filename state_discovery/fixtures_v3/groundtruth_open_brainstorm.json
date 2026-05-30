@@ -1,0 +1,29 @@
+{
+  "id": "open_brainstorm",
+  "frozen": "ground truth annotated manually by the author after reading the chat, BEFORE writing any extractor; never modified afterwards",
+  "expected": {
+    "claims": [
+      {"id": "C1", "what": "the audience for the tool is currently vague: probably people running long-horizon projects with high context-switching cost", "evidence": "unclear"},
+      {"id": "C2", "what": "a knowledge-graph backend was overengineered for our needs (observed earlier)", "evidence": "likely"}
+    ],
+    "constraints": [
+      {"id": "R1", "what": "no required server; tool must be local-only, offline-capable"},
+      {"id": "R2", "what": "no required online LLM call at query time to retrieve state"}
+    ],
+    "decisions": [
+      {"id": "D1", "what": "prototype against ourselves first; defer audience definition"},
+      {"id": "D2", "what": "do not lock down the audience before prototyping"},
+      {"id": "D3", "what": "keep the state structure flat for now; do not pursue a graph backend"},
+      {"id": "D4", "what": "calendar/inbox/code integrations are out of scope for v0"}
+    ],
+    "conflicts": [
+      {"id": "K1", "what": "build-time LLM extraction (richer, but vendor lock-in) vs. no LLM at all — undecided"}
+    ],
+    "open_questions": [
+      {"id": "Q1", "what": "why is this not just a glorified structured-notes app — what is the genuine novelty"},
+      {"id": "Q2", "what": "is automatic forgetting / surfacing-about-to-be-forgotten the killer angle"},
+      {"id": "Q3", "what": "who actually uses this — concrete audience"},
+      {"id": "Q4", "what": "whether to allow a cloud LLM call at build-time even if not at query-time"}
+    ]
+  }
+}

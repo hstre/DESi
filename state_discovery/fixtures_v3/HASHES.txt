@@ -1,0 +1,6 @@
+de206501e5f1a5ca  state_discovery/fixtures_v3/chat_open_brainstorm.json
+01a730098ee6cf0d  state_discovery/fixtures_v3/chat_research_architecture.json
+f165b6bdbdc69349  state_discovery/fixtures_v3/chat_technical_debugging.json
+5667802f959bce47  state_discovery/fixtures_v3/groundtruth_open_brainstorm.json
+a12bd1d3216d1b8b  state_discovery/fixtures_v3/groundtruth_research_architecture.json
+dbe5f0e13c043dee  state_discovery/fixtures_v3/groundtruth_technical_debugging.json

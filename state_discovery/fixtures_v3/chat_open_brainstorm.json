@@ -1,0 +1,30 @@
+{
+  "id": "open_brainstorm",
+  "type": "open_brainstorm_dialog",
+  "description": "Two people brainstorming what a 'research memory' product could be. Goals deliberately fuzzy. No markers used.",
+  "chat": [
+    {"role": "user", "content": "I keep losing context across long projects. A week off and I have no idea where I left things. What if there were a tool that remembered the *epistemic* state of my work? Not the chat — the structure."},
+    {"role": "assistant", "content": "Like what — a list of open questions and decisions? Or something more?"},
+    {"role": "user", "content": "Both, maybe? Open questions, things I decided and don't want to revisit, things I tried and ruled out. Not a chat log — a state."},
+    {"role": "assistant", "content": "There's a real risk it becomes a glorified note-taking app. People already have Notion, Obsidian, journals. The novelty has to be something they don't already do."},
+    {"role": "user", "content": "Hmm, fair. I don't have a clean answer for why it isn't just structured notes. Let me sit with that."},
+    {"role": "assistant", "content": "What if it focused on *forgetting* — automatically pruning what no longer matters, surfacing what's about to be forgotten? That's something humans actively don't do."},
+    {"role": "user", "content": "Interesting framing. I'm not sold it's the killer angle but it's worth keeping on the list. Don't commit to it."},
+    {"role": "assistant", "content": "Who would actually use this? Researchers? PhD students? Product managers? Open-source maintainers?"},
+    {"role": "user", "content": "Honestly I don't know yet. Probably 'people running long-horizon projects with significant context-switching cost', but that's still vague."},
+    {"role": "assistant", "content": "Do we need to lock down the audience before we prototype?"},
+    {"role": "user", "content": "I don't think so. I think we prototype against ourselves first. If it works for us it might work for others. Audience can come later."},
+    {"role": "assistant", "content": "Some hard rule we should set early — let's not require a server. If this works only with a backend it's dead on arrival for solo researchers."},
+    {"role": "user", "content": "Yes — local-only, offline-capable, no required server. That's a constraint, not a preference."},
+    {"role": "assistant", "content": "And nothing that requires an LLM at query time. People hit rate limits and lose access to their own memory."},
+    {"role": "user", "content": "Agreed. No required online LLM call to retrieve state."},
+    {"role": "user", "content": "What about a cloud LLM call to *build* the state, just not to *use* it? Different question."},
+    {"role": "assistant", "content": "Hmm. Build-time vs query-time. I'm torn — build-time LLM gives much richer extraction, but locks people into vendors. We don't have to decide yet."},
+    {"role": "user", "content": "Right. Leave that one open."},
+    {"role": "user", "content": "Wild idea — what if the state itself were a graph and you could literally walk it? Like, see your past reasoning as a structure you can navigate."},
+    {"role": "assistant", "content": "I'd want to be careful. We saw earlier this year that a knowledge-graph backend was overengineered for our needs. I don't want to revisit that without a hard reason."},
+    {"role": "user", "content": "Fair. Let's keep it flat for now. Graph idea is on the discard pile."},
+    {"role": "assistant", "content": "Should it talk to your calendar, your inbox, your code?"},
+    {"role": "user", "content": "Way too much surface. Out of scope for v0."}
+  ]
+}

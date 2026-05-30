@@ -1,0 +1,28 @@
+{
+  "id": "research_dialog_architecture",
+  "type": "research_dialog",
+  "description": "Two researchers discuss the architecture of a deterministic retrieval pipeline. No markers used.",
+  "chat": [
+    {"role": "user", "content": "I've been thinking about how to structure the retrieval layer. The obvious move is to use sentence embeddings to match queries to passages."},
+    {"role": "assistant", "content": "Do we have evidence embeddings actually help on our corpora? Last time we compared sentence-transformer cosine vs. lexical BM25 the lexical baseline won by a small margin on the technical-document set."},
+    {"role": "user", "content": "Right. I think we can rule out embeddings as the default. Let's keep them as an optional layer for a later experiment, but the core path should stay lexical."},
+    {"role": "assistant", "content": "Agreed. And we'd need to be careful: any embedding-using component must stay peripheral. We agreed before that the core deterministic path cannot depend on a vector store, otherwise we lose bit-exact replay."},
+    {"role": "user", "content": "Yes — and that's a hard rule. Every stage in the deterministic path must be reproducible given identical input. That constraint isn't up for negotiation."},
+    {"role": "assistant", "content": "Okay. Then about ingestion: I think we should batch documents, say 256 per batch, and process them in batched streaming. That gives us back-pressure and bounded memory."},
+    {"role": "user", "content": "How do we keep that deterministic? Batch order matters for the hash chain, doesn't it?"},
+    {"role": "assistant", "content": "It does. We need a stable batch order — I'd sort by document hash before batching. Same input, same batches, every time."},
+    {"role": "user", "content": "Fine, let's go with that. Batched streaming, batch size 256, sorted by document hash."},
+    {"role": "assistant", "content": "One thing to think through: how does batched streaming behave under hot-reload of the corpus? If documents are added mid-run, we might re-sort and break ordering. I don't have an answer for that yet."},
+    {"role": "user", "content": "Good question. Let's note it as an open issue. Don't fix it now."},
+    {"role": "assistant", "content": "Also a worry: if batches don't align with document boundaries we might split a paper across two batches. Should we forbid splits?"},
+    {"role": "user", "content": "Hmm. Forbidding splits would force batches of variable size and could waste capacity. Let's not restrict that, but I want a regression test that the result is identical whether splits happen or not."},
+    {"role": "assistant", "content": "Makes sense. Add the regression test, don't restrict batches to whole documents."},
+    {"role": "user", "content": "Coming back to embeddings — you said earlier we'd keep them as a flagged optional layer. Who's responsible for monitoring that probe? Nobody owns it right now."},
+    {"role": "assistant", "content": "That's true, ownership is missing. Another thing to flag."},
+    {"role": "user", "content": "And there's still the tension between deterministic replay and the low-latency requirement. We haven't really resolved it. Replay says we need stable ordering and hashed snapshots; latency says we want streaming with pipelining. The two pull in different directions."},
+    {"role": "assistant", "content": "Yeah. I think this is a real tension we should record. Not resolved. We just have to live with the trade-off for now."},
+    {"role": "user", "content": "On anchors — we said earlier that anchor spans must be contiguous in the source. But I'm not sure we ever verified that property end-to-end. I suspect it holds but I haven't tested it."},
+    {"role": "assistant", "content": "Same here. I'd treat it as unverified. Worth a regression test, separately."},
+    {"role": "user", "content": "Okay, action items: ingestion as we decided, the split test, the anchor-contiguity test, and the ownership question for the probe."}
+  ]
+}

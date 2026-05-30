@@ -1,0 +1,29 @@
+{
+  "id": "research_dialog_architecture",
+  "frozen": "ground truth annotated manually by the author after reading the chat, BEFORE writing any extractor; never modified afterwards",
+  "expected": {
+    "claims": [
+      {"id": "C1", "what": "lexical BM25 beats sentence-transformer cosine on the technical-document set", "evidence": "established"},
+      {"id": "C2", "what": "anchor spans are contiguous in the source", "evidence": "unclear"},
+      {"id": "C3", "what": "deterministic replay and low-latency pull in different directions", "evidence": "likely"}
+    ],
+    "constraints": [
+      {"id": "R1", "what": "every stage in the deterministic path must be bit-exact reproducible given identical input"},
+      {"id": "R2", "what": "core deterministic path cannot depend on embeddings or a vector store"},
+      {"id": "R3", "what": "embedding-using components must stay peripheral and never feed back into the core"}
+    ],
+    "decisions": [
+      {"id": "D1", "what": "batched-streaming ingestion, batch size 256, sorted by document hash"},
+      {"id": "D2", "what": "add a regression test that result is identical whether or not batches split documents; do not restrict batches to whole documents"},
+      {"id": "D3", "what": "rule out embeddings as the default; keep them only as an optional peripheral layer"}
+    ],
+    "conflicts": [
+      {"id": "K1", "what": "deterministic replay vs low-latency requirement (acknowledged, unresolved)"}
+    ],
+    "open_questions": [
+      {"id": "Q1", "what": "how does batched streaming behave under hot-reload of the corpus, does ordering survive"},
+      {"id": "Q2", "what": "who owns/monitors the optional embedding probe layer"},
+      {"id": "Q3", "what": "regression test for anchor-contiguity is still missing"}
+    ]
+  }
+}

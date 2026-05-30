@@ -1,0 +1,26 @@
+{
+  "id": "technical_debugging",
+  "frozen": "ground truth annotated manually by the author after reading the chat, BEFORE writing any extractor; never modified afterwards",
+  "expected": {
+    "claims": [
+      {"id": "C1", "what": "the reproducibility test failure is caused by list(set(...)) being non-deterministic across runs when PYTHONHASHSEED differs", "evidence": "established"},
+      {"id": "C2", "what": "CI does not fix PYTHONHASHSEED; local environment does", "evidence": "established"},
+      {"id": "C3", "what": "the 12-vs-3-minute CI/local benchmark discrepancy is currently unexplained", "evidence": "unclear"}
+    ],
+    "constraints": [
+      {"id": "R1", "what": "do not pin PYTHONHASHSEED globally as a workaround; that masks other latent non-determinism"}
+    ],
+    "decisions": [
+      {"id": "D1", "what": "fix the determinism bug by sorting the list before hashing instead of pinning PYTHONHASHSEED"},
+      {"id": "D2", "what": "add a regression check (grep-style) to the determinism scanner that no list-from-set passes through the hashing path"},
+      {"id": "D3", "what": "do not profile or fix the slow-CI benchmark issue now, just note the discrepancy"}
+    ],
+    "conflicts": [
+      {"id": "K1", "what": "CI wants fully deterministic side-effect-free tests, but some integration tests intentionally hit the filesystem cache (currently masked as flaky-tolerant)"}
+    ],
+    "open_questions": [
+      {"id": "Q1", "what": "are there downstream callers that depend on the original (unsorted) list order from the hashing function"},
+      {"id": "Q2", "what": "why is the auditor benchmark 12 minutes on CI but 3 minutes locally"}
+    ]
+  }
+}

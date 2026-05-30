@@ -1,0 +1,27 @@
+{
+  "id": "technical_debugging",
+  "type": "technical_problem_dialog",
+  "description": "A pairing session debugging a flaky test in a benchmark runner. No markers used.",
+  "chat": [
+    {"role": "user", "content": "The reproducibility test is failing intermittently on CI but always passes locally. Same commit, same seed."},
+    {"role": "assistant", "content": "Same Python version on both? Different floating-point rounding can shift one bit."},
+    {"role": "user", "content": "Yes, 3.11 in both places. Locked."},
+    {"role": "assistant", "content": "Then the problem is probably non-determinism somewhere. dict iteration order? It shouldn't matter in 3.7+ but if you build a dict from a set anywhere…"},
+    {"role": "user", "content": "Let me check. I grep for set( in the hashing path. Yeah, there's one — `set(brief['hard_constraints'])` then we hash the result. That's it. Sets have insertion-order-independent iteration but list(set(...)) varies across runs because of PYTHONHASHSEED."},
+    {"role": "assistant", "content": "That's the bug. CI doesn't fix PYTHONHASHSEED; you do locally."},
+    {"role": "user", "content": "Confirmed — local exports PYTHONHASHSEED=0 in zshrc, CI doesn't. Fix is to either pin PYTHONHASHSEED in CI or sort the list before hashing."},
+    {"role": "assistant", "content": "Sort it. Pinning hashseed leaks the workaround into every test."},
+    {"role": "user", "content": "Agreed, we'll sort. Let's not pin PYTHONHASHSEED globally — too easy to mask other latent non-determinism."},
+    {"role": "assistant", "content": "Want to add a regression check that no list-from-set passes through the hashing path again?"},
+    {"role": "user", "content": "Yes, a grep-style test that fails if anyone reintroduces it. Add it to the determinism scanner."},
+    {"role": "user", "content": "Wait — before we ship the sort fix, do all callers actually expect a sorted list? If someone downstream depends on original order, sorting silently breaks them."},
+    {"role": "assistant", "content": "Hmm. I don't think anyone does, but I haven't actually checked. Let's flag that as a thing to verify, not block the fix."},
+    {"role": "user", "content": "Open question then: are there any downstream callers depending on original list order from that hashing function? Treat as unverified until we check."},
+    {"role": "user", "content": "While we're here — the auditor benchmark is slow on CI, about 12 minutes. Local it runs in 3. We never profiled it. Worth doing?"},
+    {"role": "assistant", "content": "I suspect it's IO on CI rather than CPU but I don't have evidence."},
+    {"role": "user", "content": "Don't fix that now. Just note that the 12-vs-3-minute discrepancy is unexplained — we don't know why CI is slower."},
+    {"role": "assistant", "content": "Recorded. Anything else?"},
+    {"role": "user", "content": "One more thing — we have an unresolved tension. CI wants fully deterministic, side-effect-free tests. Some integration tests intentionally hit the local filesystem cache. Right now we mark those flaky-tolerant. That's a smell."},
+    {"role": "assistant", "content": "Agreed it's a smell. We don't have a real answer yet."}
+  ]
+}
