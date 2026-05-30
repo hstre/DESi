@@ -1,0 +1,165 @@
+{
+  "N": 500,
+  "models": [
+    "deepseek/deepseek-v4-pro",
+    "ibm-granite/granite-4.1-8b"
+  ],
+  "per_question_type": {
+    "deepseek/deepseek-v4-pro": {
+      "single-session-user": {
+        "n": 70,
+        "A": 0.8071,
+        "B": 0.9071,
+        "delta": 0.1,
+        "a_errors": 0
+      },
+      "multi-session": {
+        "n": 133,
+        "A": 0.4511,
+        "B": 0.5977,
+        "delta": 0.1466,
+        "a_errors": 0
+      },
+      "knowledge-update": {
+        "n": 78,
+        "A": 0.6154,
+        "B": 0.7436,
+        "delta": 0.1282,
+        "a_errors": 0
+      },
+      "single-session-preference": {
+        "n": 30,
+        "A": 0.2667,
+        "B": 0.3667,
+        "delta": 0.1,
+        "a_errors": 0
+      },
+      "temporal-reasoning": {
+        "n": 133,
+        "A": 0.1842,
+        "B": 0.2406,
+        "delta": 0.0564,
+        "a_errors": 0
+      },
+      "single-session-assistant": {
+        "n": 56,
+        "A": 0.8482,
+        "B": 0.9375,
+        "delta": 0.0893,
+        "a_errors": 0
+      }
+    },
+    "ibm-granite/granite-4.1-8b": {
+      "single-session-user": {
+        "n": 70,
+        "A": 0.3714,
+        "B": 0.8143,
+        "delta": 0.4429,
+        "a_errors": 6
+      },
+      "multi-session": {
+        "n": 133,
+        "A": 0.1504,
+        "B": 0.4925,
+        "delta": 0.3421,
+        "a_errors": 16
+      },
+      "knowledge-update": {
+        "n": 78,
+        "A": 0.4487,
+        "B": 0.6474,
+        "delta": 0.1987,
+        "a_errors": 5
+      },
+      "single-session-preference": {
+        "n": 30,
+        "A": 0.3333,
+        "B": 0.5333,
+        "delta": 0.2,
+        "a_errors": 4
+      },
+      "temporal-reasoning": {
+        "n": 133,
+        "A": 0.1617,
+        "B": 0.3195,
+        "delta": 0.1579,
+        "a_errors": 16
+      },
+      "single-session-assistant": {
+        "n": 56,
+        "A": 0.4375,
+        "B": 0.8482,
+        "delta": 0.4107,
+        "a_errors": 5
+      }
+    }
+  },
+  "overall": {
+    "deepseek/deepseek-v4-pro": {
+      "A": 0.489,
+      "B": 0.593,
+      "delta": 0.104,
+      "ci95_low": 0.066,
+      "ci95_high": 0.144,
+      "n_a_errors": 0,
+      "n_b_errors": 1
+    },
+    "ibm-granite/granite-4.1-8b": {
+      "A": 0.274,
+      "B": 0.558,
+      "delta": 0.284,
+      "ci95_low": 0.241,
+      "ci95_high": 0.326,
+      "n_a_errors": 52,
+      "n_b_errors": 0
+    }
+  },
+  "tokens_cost_latency": {
+    "deepseek/deepseek-v4-pro": {
+      "A": {
+        "mean_input_tokens": 104908,
+        "mean_output_tokens": 370,
+        "sum_input_tokens": 52454124,
+        "sum_output_tokens": 185008,
+        "n_successful": 500,
+        "cost_usd": 22.7162,
+        "mean_latency_s": 16.278,
+        "median_latency_s": 16.944
+      },
+      "B": {
+        "mean_input_tokens": 5792,
+        "mean_output_tokens": 304,
+        "sum_input_tokens": 2890313,
+        "sum_output_tokens": 151628,
+        "n_successful": 499,
+        "cost_usd": 1.3748,
+        "mean_latency_s": 6.734,
+        "median_latency_s": 6.088
+      }
+    },
+    "ibm-granite/granite-4.1-8b": {
+      "A": {
+        "mean_input_tokens": 110387,
+        "mean_output_tokens": 134,
+        "sum_input_tokens": 49453174,
+        "sum_output_tokens": 59982,
+        "n_successful": 448,
+        "cost_usd": 2.4787,
+        "mean_latency_s": 14.053,
+        "median_latency_s": 12.628
+      },
+      "B": {
+        "mean_input_tokens": 6125,
+        "mean_output_tokens": 113,
+        "sum_input_tokens": 3062271,
+        "sum_output_tokens": 56639,
+        "n_successful": 500,
+        "cost_usd": 0.1588,
+        "mean_latency_s": 1.921,
+        "median_latency_s": 1.069
+      }
+    }
+  },
+  "judge_cost_est": 1.18,
+  "total_cost_usd": 27.9084
+}
