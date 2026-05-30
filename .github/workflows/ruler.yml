@@ -1,0 +1,68 @@
+name: RULER A/B benchmark
+
+on:
+  workflow_dispatch:
+    inputs:
+      parallelism:
+        description: 'Concurrent API calls'
+        required: false
+        default: '4'
+
+jobs:
+  ruler:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas pyarrow huggingface_hub
+
+      - name: Verify secrets are set (no values leaked)
+        run: |
+          [ -n "$DEEPSEEK_API_KEY" ] && echo "DEEPSEEK_API_KEY: SET (length $(echo -n $DEEPSEEK_API_KEY | wc -c))" || (echo "DEEPSEEK_API_KEY MISSING"; exit 1)
+          [ -n "$OPENROUTER_API_KEY" ] && echo "OPENROUTER_API_KEY: SET (length $(echo -n $OPENROUTER_API_KEY | wc -c))" || (echo "OPENROUTER_API_KEY MISSING"; exit 1)
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+
+      - name: Run RULER A/B
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          python ab_evidence/ruler_run.py
+
+      - name: Analyze results
+        run: |
+          python ab_evidence/ruler_analyze.py
+
+      - name: Show summary
+        run: |
+          echo "=== RULER Summary ==="
+          cat ab_evidence/results/ruler_bench_summary.json
+          echo ""
+          echo "=== RULER Report ==="
+          cat ab_evidence/reports/ruler_bench_report.md
+
+      - name: Upload results artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ruler-results
+          path: |
+            ab_evidence/results/ruler_bench/
+            ab_evidence/results/ruler_bench_summary.json
+            ab_evidence/reports/ruler_bench_report.md
+          retention-days: 30
