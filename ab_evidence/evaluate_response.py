@@ -32,13 +32,39 @@ def _jac(a: set, b: set) -> float:
     return (len(a & b) / len(a | b)) if (a | b) else 0.0
 
 
+def _split_units(text: str) -> list:
+    """Split response into 'units' = bullet lines OR sentences. Real Claude answers use bullets;
+    sentence-splitting alone misses every bullet-style item. We split on newlines first, then
+    on sentence terminators inside each non-bullet line."""
+    if not text:
+        return []
+    units = []
+    for line in text.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        # treat bullets / numbered lines / headers as one unit each
+        if re.match(r"^([\*\-•●]\s+|\d+[.)]\s+|#{1,4}\s+|\*\*[^*]+\*\*\s*$)", line):
+            cleaned = re.sub(r"^([\*\-•●]\s+|\d+[.)]\s+|#{1,4}\s+)", "", line).strip()
+            cleaned = cleaned.strip("*")
+            if cleaned:
+                units.append(cleaned)
+            continue
+        # otherwise split into sentences
+        for s in re.split(r"(?<=[.!?])\s+", line):
+            s = s.strip()
+            if s:
+                units.append(s)
+    return units
+
+
 def _recall_against_response(expected_items: list, response_text: str) -> dict:
-    """A GT item is preserved iff some sentence in the response Jaccard-matches its body."""
-    sentences = re.split(r"(?<=[.!?])\s+", response_text or "")
+    """A GT item is preserved iff some response UNIT (bullet OR sentence) Jaccard-matches its body."""
+    units = _split_units(response_text)
     matched, missing = [], []
     for e in expected_items:
         eb = _toks(e["what"])
-        best = max((_jac(eb, _toks(s)) for s in sentences), default=0.0) if sentences else 0.0
+        best = max((_jac(eb, _toks(u)) for u in units), default=0.0) if units else 0.0
         if best >= MATCH_THRESHOLD:
             matched.append({"id": e["id"], "jaccard": round(best, 3)})
         else:
@@ -49,25 +75,24 @@ def _recall_against_response(expected_items: list, response_text: str) -> dict:
 
 
 def _hallucinations(response_text: str, gt_all_bodies: list) -> dict:
-    """Sentences in the response that look claim-like but match no GT entry."""
+    """Units in the response that look claim-like but match no GT entry."""
     gt_tok_sets = [_toks(b) for b in gt_all_bodies]
-    sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", response_text or "")
-                 if len(s.strip()) > 10]
+    units = [u for u in _split_units(response_text) if len(u) > 10]
     hallucinated = []
-    for s in sentences:
-        st = _toks(s)
-        if len(st) < 4:        # too short to claim anything
+    for u in units:
+        ut = _toks(u)
+        if len(ut) < 4:        # too short to claim anything
             continue
-        # ignore obvious headers / labels
-        if s.lower().startswith(("active constraints", "decisions taken", "open conflicts",
+        # ignore obvious headers / labels (section names the prompt uses)
+        if u.lower().startswith(("active constraints", "decisions taken", "open conflicts",
                                   "open questions", "established claims",
                                   "working hypothesis", "ruled out", "quasi-controls used",
                                   "confirmed root cause", "decided fixes", "not yet verified",
                                   "rejected options", "external-comms guardrails")):
             continue
-        best = max((_jac(st, gtok) for gtok in gt_tok_sets), default=0.0)
+        best = max((_jac(ut, gtok) for gtok in gt_tok_sets), default=0.0)
         if best < MATCH_THRESHOLD:
-            hallucinated.append({"sentence": s[:200], "best_gt_jaccard": round(best, 3)})
+            hallucinated.append({"sentence": u[:200], "best_gt_jaccard": round(best, 3)})
     return {"count": len(hallucinated), "items": hallucinated[:8]}
 
 
