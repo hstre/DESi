@@ -2,36 +2,92 @@
   "N": 180,
   "by_length": {
     "4096": {
-      "niah_multikey_2": {"n": 20, "ds_a": 1.0, "ds_b": 1.0, "gr_a": 1.0, "gr_b": 1.0, "delta_ds": 0.0, "delta_gr": 0.0},
-      "niah_single_1": {"n": 20, "ds_a": 1.0, "ds_b": 1.0, "gr_a": 1.0, "gr_b": 0.95, "delta_ds": 0.0, "delta_gr": -0.05},
-      "niah_single_3": {"n": 20, "ds_a": 1.0, "ds_b": 0.9, "gr_a": 0.75, "gr_b": 0.85, "delta_ds": -0.1, "delta_gr": 0.1}
+      "niah_multikey_2": {
+        "n": 20,
+        "ds_a": 1.0,
+        "ds_b": 1.0,
+        "gr_a": 0.95,
+        "gr_b": 1.0,
+        "delta_ds": 0.0,
+        "delta_gr": 0.05
+      },
+      "niah_single_1": {
+        "n": 20,
+        "ds_a": 1.0,
+        "ds_b": 1.0,
+        "gr_a": 1.0,
+        "gr_b": 1.0,
+        "delta_ds": 0.0,
+        "delta_gr": 0.0
+      },
+      "niah_single_3": {
+        "n": 20,
+        "ds_a": 0.95,
+        "ds_b": 0.9,
+        "gr_a": 0.8,
+        "gr_b": 0.8,
+        "delta_ds": -0.05,
+        "delta_gr": 0.0
+      }
     },
     "8192": {
-      "niah_multikey_2": {"n": 20, "ds_a": 1.0, "ds_b": 1.0, "gr_a": 0.9, "gr_b": 0.9, "delta_ds": 0.0, "delta_gr": 0.0},
-      "niah_single_1": {"n": 20, "ds_a": 1.0, "ds_b": 1.0, "gr_a": 1.0, "gr_b": 1.0, "delta_ds": 0.0, "delta_gr": 0.0},
-      "niah_single_3": {"n": 20, "ds_a": 0.75, "ds_b": 0.7, "gr_a": 0.9, "gr_b": 0.95, "delta_ds": -0.05, "delta_gr": 0.05}
+      "niah_multikey_2": {
+        "n": 20,
+        "ds_a": 1.0,
+        "ds_b": 0.95,
+        "gr_a": 0.9,
+        "gr_b": 0.9,
+        "delta_ds": -0.05,
+        "delta_gr": 0.0
+      },
+      "niah_single_1": {
+        "n": 20,
+        "ds_a": 1.0,
+        "ds_b": 1.0,
+        "gr_a": 1.0,
+        "gr_b": 1.0,
+        "delta_ds": 0.0,
+        "delta_gr": 0.0
+      },
+      "niah_single_3": {
+        "n": 20,
+        "ds_a": 0.75,
+        "ds_b": 0.85,
+        "gr_a": 0.75,
+        "gr_b": 0.95,
+        "delta_ds": 0.1,
+        "delta_gr": 0.2
+      }
     },
     "16384": {
-      "niah_multikey_2": {"n": 20, "ds_a": 0.9, "ds_b": 1.0, "gr_a": 0.8, "gr_b": 0.95, "delta_ds": 0.1, "delta_gr": 0.15},
-      "niah_single_1": {"n": 20, "ds_a": 1.0, "ds_b": 1.0, "gr_a": 0.95, "gr_b": 0.95, "delta_ds": 0.0, "delta_gr": 0.0},
-      "niah_single_3": {"n": 20, "ds_a": 0.75, "ds_b": 0.9, "gr_a": 0.55, "gr_b": 0.8, "delta_ds": 0.15, "delta_gr": 0.25}
+      "niah_multikey_2": {
+        "n": 20,
+        "ds_a": 1.0,
+        "ds_b": 1.0,
+        "gr_a": 0.7,
+        "gr_b": 0.95,
+        "delta_ds": 0.0,
+        "delta_gr": 0.25
+      },
+      "niah_single_1": {
+        "n": 20,
+        "ds_a": 1.0,
+        "ds_b": 1.0,
+        "gr_a": 0.9,
+        "gr_b": 1.0,
+        "delta_ds": 0.0,
+        "delta_gr": 0.1
+      },
+      "niah_single_3": {
+        "n": 20,
+        "ds_a": 0.55,
+        "ds_b": 1.0,
+        "gr_a": 0.45,
+        "gr_b": 0.75,
+        "delta_ds": 0.45,
+        "delta_gr": 0.3
+      }
     }
   },
-  "by_length_aggregate": {
-    "4096": {"n": 60, "ds_a": 1.000, "ds_b": 0.967, "delta_ds": -0.033, "gr_a": 0.917, "gr_b": 0.933, "delta_gr": 0.017},
-    "8192": {"n": 60, "ds_a": 0.917, "ds_b": 0.900, "delta_ds": -0.017, "gr_a": 0.933, "gr_b": 0.950, "delta_gr": 0.017},
-    "16384": {"n": 60, "ds_a": 0.883, "ds_b": 0.967, "delta_ds": 0.083, "gr_a": 0.767, "gr_b": 0.900, "delta_gr": 0.133}
-  },
-  "tokens_and_cost": {
-    "deepseek-v4-pro_A": {"mean_in": 9193, "sum_in": 1654756, "sum_out": 15788, "cost_usd": 0.725},
-    "deepseek-v4-pro_B": {"mean_in": 149, "sum_in": 26796, "sum_out": 14281, "cost_usd": 0.024},
-    "granite-4.1-8b_A": {"mean_in": 9617, "sum_in": 1730990, "sum_out": 2470, "cost_usd": 0.087},
-    "granite-4.1-8b_B": {"mean_in": 164, "sum_in": 29577, "sum_out": 2193, "cost_usd": 0.002}
-  },
-  "total_cost_usd": 0.838,
-  "preregistration": {
-    "all_8_numeric_predictions_passed": true,
-    "monotonic_growth_hypothesis_granite": "CONFIRMED (weak monotonicity)",
-    "falsifiers_triggered": []
-  }
+  "total_cost_usd": 0.8375
 }
