@@ -2,43 +2,135 @@
   "N": 180,
   "by_length": {
     "32768": {
-      "niah_multikey_2": {"n": 20, "ds_a": 0.85, "ds_b": 1.0, "gr_a": 0.35, "gr_b": 0.95, "delta_ds": 0.15, "delta_gr": 0.6},
-      "niah_single_1": {"n": 20, "ds_a": 0.75, "ds_b": 0.95, "gr_a": 0.85, "gr_b": 0.95, "delta_ds": 0.2, "delta_gr": 0.1},
-      "niah_single_3": {"n": 20, "ds_a": 0.1, "ds_b": 0.45, "gr_a": 0.9, "gr_b": 0.95, "delta_ds": 0.35, "delta_gr": 0.05}
+      "niah_multikey_2": {
+        "n": 20,
+        "ds_a": 0.65,
+        "ds_b": 1.0,
+        "gr_a": 0.55,
+        "gr_b": 0.95,
+        "delta_ds": 0.35,
+        "delta_gr": 0.4
+      },
+      "niah_single_1": {
+        "n": 20,
+        "ds_a": 0.75,
+        "ds_b": 0.85,
+        "gr_a": 0.85,
+        "gr_b": 0.95,
+        "delta_ds": 0.1,
+        "delta_gr": 0.1
+      },
+      "niah_single_3": {
+        "n": 20,
+        "ds_a": 0.0,
+        "ds_b": 0.45,
+        "gr_a": 0.7,
+        "gr_b": 1.0,
+        "delta_ds": 0.45,
+        "delta_gr": 0.3
+      }
     },
     "65536": {
-      "niah_multikey_2": {"n": 20, "ds_a": 0.6, "ds_b": 1.0, "gr_a": 0.25, "gr_b": 1.0, "delta_ds": 0.4, "delta_gr": 0.75},
-      "niah_single_1": {"n": 20, "ds_a": 0.6, "ds_b": 0.85, "gr_a": 0.85, "gr_b": 1.0, "delta_ds": 0.25, "delta_gr": 0.15},
-      "niah_single_3": {"n": 20, "ds_a": 0.0, "ds_b": 0.65, "gr_a": 0.25, "gr_b": 1.0, "delta_ds": 0.65, "delta_gr": 0.75}
+      "niah_multikey_2": {
+        "n": 20,
+        "ds_a": 0.85,
+        "ds_b": 1.0,
+        "gr_a": 0.3,
+        "gr_b": 1.0,
+        "delta_ds": 0.15,
+        "delta_gr": 0.7
+      },
+      "niah_single_1": {
+        "n": 20,
+        "ds_a": 0.75,
+        "ds_b": 0.85,
+        "gr_a": 0.85,
+        "gr_b": 1.0,
+        "delta_ds": 0.1,
+        "delta_gr": 0.15
+      },
+      "niah_single_3": {
+        "n": 20,
+        "ds_a": 0.0,
+        "ds_b": 0.45,
+        "gr_a": 0.3,
+        "gr_b": 0.95,
+        "delta_ds": 0.45,
+        "delta_gr": 0.65
+      }
     },
     "131072": {
-      "niah_multikey_2": {"n": 20, "ds_a": 0.65, "ds_b": 1.0, "gr_a": 0.0, "gr_b": 0.9, "delta_ds": 0.35, "delta_gr": 0.9},
-      "niah_single_1": {"n": 20, "ds_a": 0.6, "ds_b": 0.85, "gr_a": 0.0, "gr_b": 0.85, "delta_ds": 0.25, "delta_gr": 0.85},
-      "niah_single_3": {"n": 20, "ds_a": 0.0, "ds_b": 0.35, "gr_a": 0.0, "gr_b": 0.85, "delta_ds": 0.35, "delta_gr": 0.85}
+      "niah_multikey_2": {
+        "n": 20,
+        "ds_a": 0.8,
+        "ds_b": 0.95,
+        "gr_a": 0.0,
+        "gr_b": 0.85,
+        "delta_ds": 0.15,
+        "delta_gr": 0.85
+      },
+      "niah_single_1": {
+        "n": 20,
+        "ds_a": 0.75,
+        "ds_b": 0.9,
+        "gr_a": 0.0,
+        "gr_b": 0.8,
+        "delta_ds": 0.15,
+        "delta_gr": 0.8
+      },
+      "niah_single_3": {
+        "n": 20,
+        "ds_a": 0.0,
+        "ds_b": 0.6,
+        "gr_a": 0.0,
+        "gr_b": 0.85,
+        "delta_ds": 0.6,
+        "delta_gr": 0.85
+      }
     }
   },
   "by_length_aggregate": {
-    "32768": {"n": 60, "ds_a": 0.567, "ds_b": 0.800, "delta_ds": 0.233, "gr_a": 0.700, "gr_b": 0.950, "delta_gr": 0.250},
-    "65536": {"n": 60, "ds_a": 0.400, "ds_b": 0.833, "delta_ds": 0.433, "gr_a": 0.450, "gr_b": 1.000, "delta_gr": 0.550},
-    "131072": {"n": 60, "ds_a": 0.417, "ds_b": 0.733, "delta_ds": 0.317, "gr_a": 0.000, "gr_b": 0.867, "delta_gr": 0.867}
+    "32768": {
+      "n": 60,
+      "ds_a": 0.467,
+      "ds_b": 0.767,
+      "gr_a": 0.7,
+      "gr_b": 0.967,
+      "delta_ds": 0.3,
+      "delta_gr": 0.267
+    },
+    "65536": {
+      "n": 60,
+      "ds_a": 0.533,
+      "ds_b": 0.767,
+      "gr_a": 0.483,
+      "gr_b": 0.983,
+      "delta_ds": 0.233,
+      "delta_gr": 0.5
+    },
+    "131072": {
+      "n": 60,
+      "ds_a": 0.517,
+      "ds_b": 0.817,
+      "gr_a": 0.0,
+      "gr_b": 0.833,
+      "delta_ds": 0.3,
+      "delta_gr": 0.833
+    }
   },
   "errors": {
-    "131072_ibm-granite/granite-4.1-8b_A": {"rate": 1.0, "n_errors": 60, "n_total": 60, "note": "context overflow — input exceeds granite-4.1-8b's 131k window"}
+    "32768_deepseek/deepseek-v4-pro_A": {"rate": 0.0, "n_errors": 0, "n_total": 60},
+    "32768_deepseek/deepseek-v4-pro_B": {"rate": 0.0, "n_errors": 0, "n_total": 60},
+    "32768_ibm-granite/granite-4.1-8b_A": {"rate": 0.0, "n_errors": 0, "n_total": 60},
+    "32768_ibm-granite/granite-4.1-8b_B": {"rate": 0.0, "n_errors": 0, "n_total": 60},
+    "65536_deepseek/deepseek-v4-pro_A": {"rate": 0.0, "n_errors": 0, "n_total": 60},
+    "65536_deepseek/deepseek-v4-pro_B": {"rate": 0.0, "n_errors": 0, "n_total": 60},
+    "65536_ibm-granite/granite-4.1-8b_A": {"rate": 0.0, "n_errors": 0, "n_total": 60},
+    "65536_ibm-granite/granite-4.1-8b_B": {"rate": 0.0, "n_errors": 0, "n_total": 60},
+    "131072_deepseek/deepseek-v4-pro_A": {"rate": 0.0, "n_errors": 0, "n_total": 60},
+    "131072_deepseek/deepseek-v4-pro_B": {"rate": 0.0, "n_errors": 0, "n_total": 60},
+    "131072_ibm-granite/granite-4.1-8b_A": {"rate": 1.0, "n_errors": 60, "n_total": 60},
+    "131072_ibm-granite/granite-4.1-8b_B": {"rate": 0.0, "n_errors": 0, "n_total": 60}
   },
-  "tokens_and_cost": {
-    "deepseek-v4-pro_A": {"mean_in": 76239, "sum_in": 13723100, "sum_out": 20672, "cost_usd": 5.919},
-    "deepseek-v4-pro_B": {"mean_in": 139, "sum_in": 24935, "sum_out": 17588, "cost_usd": 0.026},
-    "granite-4.1-8b_A": {"mean_in": 51138, "sum_in": 6136615, "sum_out": 5001, "cost_usd": 0.307},
-    "granite-4.1-8b_B": {"mean_in": 155, "sum_in": 27843, "sum_out": 1944, "cost_usd": 0.002}
-  },
-  "total_cost_usd": 6.254,
-  "preregistration": {
-    "numeric_predictions_passed": "8 of 12",
-    "numeric_predictions_missed": ["DS A 32k (0.567 < 0.70)", "DS B 32k (0.800 < 0.85)", "DS A 64k (0.400 < 0.55)", "DS B 64k (0.833 < 0.85)", "DS B 131k (0.733 < 0.85)"],
-    "ds_a_misses_strengthen_underlying_claim": "all DS A misses are in the 'DS feels MORE pressure than expected' direction",
-    "h1_granite_monotonic_growth_exceed_0.5_at_131k": "CONFIRMED — 0.250 -> 0.550 -> 0.867",
-    "h2_ds_delta_meaningful_at_131k": "CONFIRMED — DS Δ +0.317 at 131k, +0.433 at 64k",
-    "h3_b_near_constant_within_0.10": "REFUTED on Granite (range 0.133), borderline DS (range 0.100); variation is non-monotonic — direction inconsistent with falsifier's intended mechanism",
-    "falsifiers_triggered": ["B-band on Granite (0.133 > 0.10), but non-monotonic — likely per-item sampling noise"]
-  }
+  "total_cost_usd": 6.2534
 }
