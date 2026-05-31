@@ -1,0 +1,99 @@
+name: Rescue artifact -> branch
+
+# Downloads an artifact from a previous (possibly-failed) workflow run and commits
+# its contents to the current branch. Used when a workflow's auto-commit step
+# failed (e.g. push race) but the artifact was uploaded successfully.
+
+on:
+  workflow_dispatch:
+    inputs:
+      artifact_name:
+        description: 'Artifact name (e.g. ruler-ext-results or ruler-results)'
+        required: true
+        default: 'ruler-ext-results'
+      source_run_id:
+        description: 'Run ID of the workflow that produced the artifact'
+        required: true
+      target_branch:
+        description: 'Branch to commit the recovered files to'
+        required: false
+        default: 'desi-ruler-bench'
+
+jobs:
+  rescue:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+
+    steps:
+      - name: Checkout target branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.target_branch }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download artifact from source run
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.artifact_name }}
+          run-id: ${{ inputs.source_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: _artifact_extract/
+
+      - name: Show what we got
+        run: |
+          echo "Extracted contents:"
+          find _artifact_extract -type f | head -50
+          echo "..."
+          echo "Total files: $(find _artifact_extract -type f | wc -l)"
+
+      - name: Stage artifact contents into the working tree
+        run: |
+          # Move per-item JSONs into their canonical locations
+          # The artifact preserves the original path structure under the upload-artifact's `path:` settings
+          mkdir -p ab_evidence/results ab_evidence/reports
+          # ruler-results layout: ruler_bench/items/*.json + ruler_bench_summary.json + ruler_bench_report.md
+          # ruler-ext-results layout: ruler_ext_bench/items/*.json + ruler_ext_bench_summary.json + ruler_ext_bench_report.md
+          if [ -d _artifact_extract/ruler_bench ]; then
+            cp -r _artifact_extract/ruler_bench ab_evidence/results/
+          fi
+          if [ -d _artifact_extract/ruler_ext_bench ]; then
+            cp -r _artifact_extract/ruler_ext_bench ab_evidence/results/
+          fi
+          if [ -f _artifact_extract/ruler_bench_summary.json ]; then
+            cp _artifact_extract/ruler_bench_summary.json ab_evidence/results/
+          fi
+          if [ -f _artifact_extract/ruler_ext_bench_summary.json ]; then
+            cp _artifact_extract/ruler_ext_bench_summary.json ab_evidence/results/
+          fi
+          if [ -f _artifact_extract/ruler_bench_report.md ]; then
+            cp _artifact_extract/ruler_bench_report.md ab_evidence/reports/
+          fi
+          if [ -f _artifact_extract/ruler_ext_bench_report.md ]; then
+            cp _artifact_extract/ruler_ext_bench_report.md ab_evidence/reports/
+          fi
+          rm -rf _artifact_extract
+
+      - name: Commit and push recovered data
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add ab_evidence/results/ ab_evidence/reports/ 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "Nothing to commit (recovered data already in tree)."
+            exit 0
+          fi
+          git commit -m "Rescue: import ${{ inputs.artifact_name }} from run ${{ inputs.source_run_id }}"
+          for i in 1 2 3 4 5; do
+            if git push origin HEAD:${{ inputs.target_branch }}; then
+              echo "Pushed successfully on attempt $i"
+              exit 0
+            fi
+            echo "Push attempt $i failed, rebasing..."
+            git fetch origin ${{ inputs.target_branch }}
+            git rebase origin/${{ inputs.target_branch }} || { echo "Rebase failed, aborting"; git rebase --abort; exit 1; }
+            sleep $((2 ** i))
+          done
+          echo "Failed to push after 5 attempts"
+          exit 1
