@@ -1,0 +1,71 @@
+name: RULER-Extended A/B benchmark (32k/64k/131k)
+
+on:
+  workflow_dispatch:
+    inputs:
+      parallelism:
+        description: 'Concurrent API calls'
+        required: false
+        default: '4'
+
+jobs:
+  ruler_ext:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas pyarrow huggingface_hub
+
+      - name: Verify secrets are set (no values leaked)
+        run: |
+          [ -n "$DEEPSEEK_API_KEY" ] && echo "DEEPSEEK_API_KEY: SET (length $(echo -n $DEEPSEEK_API_KEY | wc -c))" || (echo "DEEPSEEK_API_KEY MISSING"; exit 1)
+          [ -n "$OPENROUTER_API_KEY" ] && echo "OPENROUTER_API_KEY: SET (length $(echo -n $OPENROUTER_API_KEY | wc -c))" || (echo "OPENROUTER_API_KEY MISSING"; exit 1)
+          [ -n "$HF_TOKEN" ] && echo "HF_TOKEN: SET (length $(echo -n $HF_TOKEN | wc -c))" || (echo "HF_TOKEN MISSING (required — MaxJeblick/Ruler is gated)"; exit 1)
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+
+      - name: Run RULER-Extended A/B
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          python ab_evidence/ruler_ext_run.py
+
+      - name: Analyze results
+        run: |
+          python ab_evidence/ruler_ext_analyze.py
+
+      - name: Show summary
+        run: |
+          echo "=== RULER-Ext Summary ==="
+          cat ab_evidence/results/ruler_ext_bench_summary.json
+          echo ""
+          echo "=== RULER-Ext Report ==="
+          cat ab_evidence/reports/ruler_ext_bench_report.md
+
+      - name: Upload results artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ruler-ext-results
+          path: |
+            ab_evidence/results/ruler_ext_bench/
+            ab_evidence/results/ruler_ext_bench_summary.json
+            ab_evidence/reports/ruler_ext_bench_report.md
+          retention-days: 30
