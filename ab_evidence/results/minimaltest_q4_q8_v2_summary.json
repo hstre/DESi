@@ -1,0 +1,85 @@
+{
+  "N": 30,
+  "N_scorable": 25,
+  "by_state_model": {
+    "Q8 (8B)__raw": 0.28,
+    "Q4 (micro)__raw": 0.16,
+    "Q8 (8B)__oracle": 0.6,
+    "Q4 (micro)__oracle": 0.48,
+    "Q8 (8B)__desi_llm": 0.2,
+    "Q4 (micro)__desi_llm": 0.2,
+    "Q8 (8B)__desi_emb": 0.24,
+    "Q4 (micro)__desi_emb": 0.28
+  },
+  "by_question_type": {
+    "knowledge-update": {
+      "Q8 (8B)__raw": 0.6,
+      "Q8 (8B)__oracle": 0.8,
+      "Q8 (8B)__desi_llm": 0.8,
+      "Q8 (8B)__desi_emb": 0.4,
+      "Q4 (micro)__raw": 0.4,
+      "Q4 (micro)__oracle": 1.0,
+      "Q4 (micro)__desi_llm": 0.8,
+      "Q4 (micro)__desi_emb": 0.4
+    },
+    "multi-session": {
+      "Q8 (8B)__raw": 0.0,
+      "Q8 (8B)__oracle": 0.2,
+      "Q8 (8B)__desi_llm": 0.0,
+      "Q8 (8B)__desi_emb": 0.0,
+      "Q4 (micro)__raw": 0.0,
+      "Q4 (micro)__oracle": 0.0,
+      "Q4 (micro)__desi_llm": 0.0,
+      "Q4 (micro)__desi_emb": 0.0
+    },
+    "single-session-assistant": {
+      "Q8 (8B)__raw": 0.4,
+      "Q8 (8B)__oracle": 0.8,
+      "Q8 (8B)__desi_llm": 0.2,
+      "Q8 (8B)__desi_emb": 0.6,
+      "Q4 (micro)__raw": 0.4,
+      "Q4 (micro)__oracle": 0.8,
+      "Q4 (micro)__desi_llm": 0.2,
+      "Q4 (micro)__desi_emb": 1.0
+    },
+    "single-session-preference": {
+      "Q8 (8B)__raw": 0.0,
+      "Q8 (8B)__oracle": 0.0,
+      "Q8 (8B)__desi_llm": 0.0,
+      "Q8 (8B)__desi_emb": 0.0,
+      "Q4 (micro)__raw": 0.0,
+      "Q4 (micro)__oracle": 0.0,
+      "Q4 (micro)__desi_llm": 0.0,
+      "Q4 (micro)__desi_emb": 0.0
+    },
+    "single-session-user": {
+      "Q8 (8B)__raw": 0.2,
+      "Q8 (8B)__oracle": 0.8,
+      "Q8 (8B)__desi_llm": 0.0,
+      "Q8 (8B)__desi_emb": 0.2,
+      "Q4 (micro)__raw": 0.0,
+      "Q4 (micro)__oracle": 0.4,
+      "Q4 (micro)__desi_llm": 0.0,
+      "Q4 (micro)__desi_emb": 0.0
+    },
+    "temporal-reasoning": {
+      "Q8 (8B)__raw": 0.2,
+      "Q8 (8B)__oracle": 0.4,
+      "Q8 (8B)__desi_llm": 0.0,
+      "Q8 (8B)__desi_emb": 0.0,
+      "Q4 (micro)__raw": 0.0,
+      "Q4 (micro)__oracle": 0.2,
+      "Q4 (micro)__desi_llm": 0.0,
+      "Q4 (micro)__desi_emb": 0.0
+    }
+  },
+  "desi_emb_evidence_recall": {
+    "mean": 0.636,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "llm_retention_pct": -40.0,
+  "emb_retention_pct": 0.0,
+  "total_cost_usd": 0.2762,
+  "extractor_cost_usd": 0.0484
+}
