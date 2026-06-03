@@ -105,21 +105,41 @@ class DESiPipeline:
             result.total_latency_ms += ans.latency_ms
             result.final_answer = ans
 
-            # 5. Escalation gate
+            # 5. Escalation gate — now task-aware (v0.6)
+            #
+            # The decision to escalate is no longer "always on low confidence".
+            # The routing_table.json escalation_rules section encodes per-task
+            # whether escalation has positive expected value. For code_audit
+            # and scientific_claim, the confidence heuristic mis-signals on the
+            # current defaults, and naive escalation makes things worse.
             if ans.error:
                 result.escalation_reason = f"Answerer error: {ans.error}"
                 avoid_models.append(decision.model)
                 continue
-            if ans.confidence in self.escalate_on and attempt_idx < self.max_attempts - 1:
+            esc_rules = self.router.table.get("escalation_rules", {}).get(cls.task_class, {})
+            should_escalate = (
+                ans.confidence in self.escalate_on
+                and attempt_idx < self.max_attempts - 1
+                and esc_rules.get("escalate_on_low_conf", False)
+            )
+            if should_escalate:
                 result.escalated = True
+                tgt = esc_rules.get("escalation_target_model", "(score-led)")
                 result.escalation_reason = (
-                    f"Confidence={ans.confidence} on {decision.model}; escalating."
+                    f"Confidence={ans.confidence} on {decision.model}; "
+                    f"task={cls.task_class} has positive escalation EV "
+                    f"(+{esc_rules.get('expected_gain', '?')}); escalating to {tgt}."
                 )
                 avoid_models.append(decision.model)
-                # Raise accuracy_target slightly so next route prefers stronger model
-                accuracy_target = max(accuracy_target, decision.expected_score + 0.01)
+                # If table specifies an explicit escalation target, prefer it
+                if "escalation_target_model" in esc_rules:
+                    # Push the previous model into avoid so it's not picked again,
+                    # but also bias toward the named target by raising accuracy.
+                    accuracy_target = max(accuracy_target, decision.expected_score + 0.05)
+                else:
+                    accuracy_target = max(accuracy_target, decision.expected_score + 0.01)
                 continue
-            # confidence is acceptable
+            # confidence is acceptable OR escalation has non-positive EV for this task
             break
 
         return result
@@ -128,5 +148,5 @@ class DESiPipeline:
 if __name__ == "__main__":
     # Smoke test: classify only (no haystack-builder available here)
     p = DESiPipeline()
-    print("DESi Pipeline v0.3 (with confidence escalation) loaded.")
+    print("DESi Pipeline v0.6 (task-aware confidence escalation) loaded.")
     print("Use p.run(query, haystack_builder) for end-to-end.")

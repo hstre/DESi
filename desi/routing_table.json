@@ -164,6 +164,25 @@
       "qwen_specialty": {"model": "qwen/qwen-2.5-7b-instruct", "k": 3, "score": 0.900, "reason": "Qwen specializes in scientific text"}
     }
   },
+  "escalation_rules": {
+    "_description": "Per-task escalation policies derived from empirical confidence calibration (ab_evidence/results/confidence_calibration_summary.json, 3295 runs across 57 cells). When the default model returns low-confidence, should we re-route to a stronger model? Answer is task-specific.",
+    "memory_recall": {
+      "escalate_on_low_conf": true,
+      "escalation_target_model": "anthropic/claude-haiku-4.5",
+      "escalation_target_k": 10,
+      "expected_gain": 0.61,
+      "trigger_rate": 0.16,
+      "rationale": "granite-micro at low-conf is correct 0% of the time (n=38); haiku-4.5 overall is 0.61. Massive expected gain on 16% of items. Marginal cost per extra correct answer ~$0.05."
+    },
+    "code_audit": {
+      "escalate_on_low_conf": false,
+      "rationale": "deepseek-chat-v3-0324 at low-conf is correct 100% (small n=1, but heuristic mis-signals on this strong default). Escalation expected gain -0.03. Save the cost."
+    },
+    "scientific_claim": {
+      "escalate_on_low_conf": false,
+      "rationale": "granite-4.1-8b at low-conf is correct 96.2% (n=26). The heuristic mis-reads NEI-verdict phrasing as hedging — but NEI is often the correct answer. Escalation expected gain -0.03. Save the cost."
+    }
+  },
   "epistemic_specialties": {
     "ibm-granite/granite-4.0-h-micro": "Was code audit best-in-class before frontier calibration; remains Pareto-cheapest for memory at score >= 0.5",
     "ibm-granite/granite-4.1-8b": "Max score on scientific_claim (0.967); long-context capable (k=10) on memory",
