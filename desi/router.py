@@ -158,9 +158,26 @@ class EpistemicRouter:
                        "Relax budgets or accuracy_target.",
             )
 
-        # Pareto selection: prefer cheapest among candidates that meet accuracy.
-        # Tie-breaker: higher score.
-        best = min(candidates, key=lambda c: (c["cost_per_item_usd"], -c["score"]))
+        # Selection strategy:
+        # 1. If a hand-curated 'default' rule exists for this task and the requested
+        #    model is among candidates, honor it (table authors knew best).
+        # 2. If cost_budget is tight (caller explicitly limited it), pick Pareto-cheapest.
+        # 3. Otherwise: Score-led Pareto — prefer highest score, break ties by cost.
+        default_rule = rules.get("default", {})
+        default_model = default_rule.get("model")
+        if default_model and any(c["model"] == default_model for c in candidates):
+            # Score-driven path: explicit default beats lone cost optimization.
+            cost_tight = req.cost_budget_usd < float("inf")
+            if not cost_tight:
+                best = next(c for c in candidates if c["model"] == default_model)
+                best["_reason_hint"] = (f"Hand-curated default for {req.task_class}: "
+                                       f"{default_rule.get('reason', '(no reason)')}")
+            else:
+                # Cost is constrained — fall back to Pareto-cheapest.
+                best = min(candidates, key=lambda c: (c["cost_per_item_usd"], -c["score"]))
+        else:
+            # No applicable default — use score-led Pareto (max score, ties by cost).
+            best = min(candidates, key=lambda c: (-c["score"], c["cost_per_item_usd"]))
 
         # Fallbacks = next 2 cheapest above accuracy_target
         sorted_alts = sorted(
@@ -169,6 +186,9 @@ class EpistemicRouter:
         )
         fallback_models = [c["model"] for c in sorted_alts[:2]]
 
+        reason = (best.get("_reason_hint") or best.get("note") or
+                  f"Score-led pick at score >= {req.accuracy_target:.2f} "
+                  f"within cost budget ${req.cost_budget_usd:.5f}")
         return Decision(
             task_class=req.task_class,
             model=best["model"],
@@ -177,9 +197,7 @@ class EpistemicRouter:
             expected_score=best["score"],
             expected_cost_usd=best["cost_per_item_usd"],
             expected_latency_ms=best.get("mean_latency_ms"),
-            reason=best.get("note") or
-                   f"Pareto-cheapest at score >= {req.accuracy_target:.2f} "
-                   f"within cost budget ${req.cost_budget_usd:.5f}",
+            reason=reason,
             fallbacks=fallback_models,
         )
 
