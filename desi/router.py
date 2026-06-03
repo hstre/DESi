@@ -201,6 +201,18 @@ class EpistemicRouter:
             fallbacks=fallback_models,
         )
 
+    def provisional_models(self) -> dict:
+        """Return the provisional_models block from the routing table.
+
+        Provisional models have known pricing and tier but no measured task
+        scores. The router REFUSES to route to them by default — they must be
+        calibrated via the standard k-curve + cross-task sweep first.
+
+        Returns the full block so callers can inspect tiers, pricing, and the
+        calibration plan documented in routing_table.json.
+        """
+        return self.table.get("provisional_models", {})
+
     def pareto_front(self, task_class: str) -> list[Decision]:
         """Return the Pareto front (score, cost) for a task class — useful for
         plotting and debugging."""

@@ -61,6 +61,90 @@
     "creative_synthesis",
     "long_document_summarization"
   ],
+  "provisional_models": {
+    "_description": "Frontier-tier models from major providers (Anthropic, OpenAI, Google). NOT yet empirically measured on DESi's three task classes. The router refuses to dispatch to provisional models by default — they require calibration via the standard k-curve + cross-task sweep before being promoted to tasks.<task>.cells. Pricing is real (from OpenRouter as of June 2026).",
+    "_calibration_cost_estimate_usd": {
+      "minimal_longmemeval_only": 1.0,
+      "standard_three_tasks": 15.0,
+      "full_with_top_tier": 50.0
+    },
+    "models": {
+      "anthropic/claude-haiku-4.5": {
+        "provider": "anthropic", "tier": "cheap",
+        "params": "estimated ~small (Haiku class)",
+        "context_length": 200000, "price_in_per_m": 1.00, "price_out_per_m": 5.00,
+        "expected_role": "low-latency conversational, cost-sensitive routing default"
+      },
+      "anthropic/claude-sonnet-4.6": {
+        "provider": "anthropic", "tier": "mid",
+        "params": "estimated mid (Sonnet class)",
+        "context_length": 1000000, "price_in_per_m": 3.00, "price_out_per_m": 15.00,
+        "expected_role": "strong generalist, long-context capable"
+      },
+      "anthropic/claude-opus-4.8": {
+        "provider": "anthropic", "tier": "top",
+        "params": "estimated large (Opus class)",
+        "context_length": 1000000, "price_in_per_m": 5.00, "price_out_per_m": 25.00,
+        "expected_role": "max-accuracy escalation target for hardest cases"
+      },
+      "openai/gpt-5-nano": {
+        "provider": "openai", "tier": "cheap",
+        "params": "estimated very small",
+        "context_length": 400000, "price_in_per_m": 0.05, "price_out_per_m": 0.40,
+        "expected_role": "cheapest frontier model; possible new default candidate"
+      },
+      "openai/gpt-4o-mini": {
+        "provider": "openai", "tier": "cheap",
+        "params": "estimated small",
+        "context_length": 128000, "price_in_per_m": 0.15, "price_out_per_m": 0.60,
+        "expected_role": "established cheap-tier baseline"
+      },
+      "openai/gpt-5": {
+        "provider": "openai", "tier": "mid",
+        "params": "estimated mid",
+        "context_length": 400000, "price_in_per_m": 1.25, "price_out_per_m": 10.00,
+        "expected_role": "strong reasoning + tool use"
+      },
+      "openai/gpt-5-pro": {
+        "provider": "openai", "tier": "top",
+        "params": "estimated large",
+        "context_length": 400000, "price_in_per_m": 15.00, "price_out_per_m": 120.00,
+        "expected_role": "max-accuracy reasoning, last-resort escalation"
+      },
+      "google/gemini-2.5-flash-lite": {
+        "provider": "google", "tier": "cheap",
+        "params": "estimated small",
+        "context_length": 1048576, "price_in_per_m": 0.10, "price_out_per_m": 0.40,
+        "expected_role": "ultra-cheap with massive context window"
+      },
+      "google/gemini-2.5-flash": {
+        "provider": "google", "tier": "cheap-mid",
+        "params": "estimated small-mid",
+        "context_length": 1048576, "price_in_per_m": 0.30, "price_out_per_m": 2.50,
+        "expected_role": "strong cheap-mid candidate"
+      },
+      "google/gemini-2.5-pro": {
+        "provider": "google", "tier": "mid",
+        "params": "estimated mid",
+        "context_length": 1048576, "price_in_per_m": 1.25, "price_out_per_m": 10.00,
+        "expected_role": "long-context generalist"
+      }
+    },
+    "calibration_plan": {
+      "step_1_pricing": "Already done — exact prices fetched from OpenRouter API.",
+      "step_2_classifier_compatibility": "Verify each model accepts the OpenRouter chat-completion API with the system+user prompt format used by desi/answerer.py. Llama 3B remains the classifier; we are only testing as answerers.",
+      "step_3_k_curve_per_model": "Run minimaltest_model_sweep.py extended with these models on the same 25 scorable LongMemEval-S items at k = {3, 5, 8, 10}. Produces score per (model, k).",
+      "step_4_per_task_scores": "Run code_audit (15 bugs) and paper_audit (30 SciFact claims) with each new model on the winning state from existing measurements.",
+      "step_5_promote_to_cells": "Merge measured scores into tasks.<task>.cells with full (mean_in, mean_latency, cost) tuples. Update router_rules.default if the new measurements change the Pareto-cheapest.",
+      "step_6_mixed_workload_validation": "Re-run minimaltest_mixed_workload.py to confirm the extended routing table still wins vs naive_big (Granite 8B) and the new naive baselines (always-Sonnet, always-Haiku, etc.)."
+    },
+    "hypotheses_to_test": [
+      "Does k* generalize across providers? Haiku 4.5 — k=3 like Granite Micro, or different?",
+      "Do frontier-tier models also have task specialties (like Qwen 7B catastrophic on code)?",
+      "Does cross-provider mix Pareto-dominate single-provider routing?",
+      "Is GPT-5-nano (\\$0.05/M in) the new floor for routing default?"
+    ]
+  },
   "router_rules": {
     "memory_recall": {
       "default": {"model": "ibm-granite/granite-4.0-h-micro", "k": 3, "reason": "Pareto-cheapest at score >= 0.5"},

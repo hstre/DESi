@@ -98,13 +98,26 @@ def _http_post(url, headers, body, timeout=180, retries=2):
 
 
 # Pricing per model — keep in sync with routing_table.json
+# (price_in_per_M_tokens, price_out_per_M_tokens) in USD
 _PRICES = {
+    # Measured (in tasks.<task>.cells)
     "ibm-granite/granite-4.0-h-micro": (0.017, 0.112),
     "ibm-granite/granite-4.1-8b": (0.05, 0.10),
     "meta-llama/llama-3.2-3b-instruct": (0.051, 0.335),
     "meta-llama/llama-3.1-8b-instruct": (0.020, 0.050),
     "qwen/qwen-2.5-7b-instruct": (0.040, 0.100),
     "mistralai/ministral-3b-2512": (0.100, 0.100),
+    # Provisional frontier-tier (pricing real, scores not yet measured)
+    "anthropic/claude-haiku-4.5": (1.00, 5.00),
+    "anthropic/claude-sonnet-4.6": (3.00, 15.00),
+    "anthropic/claude-opus-4.8": (5.00, 25.00),
+    "openai/gpt-5-nano": (0.05, 0.40),
+    "openai/gpt-4o-mini": (0.15, 0.60),
+    "openai/gpt-5": (1.25, 10.00),
+    "openai/gpt-5-pro": (15.00, 120.00),
+    "google/gemini-2.5-flash-lite": (0.10, 0.40),
+    "google/gemini-2.5-flash": (0.30, 2.50),
+    "google/gemini-2.5-pro": (1.25, 10.00),
 }
 
 
