@@ -1,0 +1,61 @@
+{
+  "N": 15,
+  "curve": {
+    "raw": {
+      "Q8 (8B)": {
+        "score": 0.833,
+        "localized": 1.0,
+        "described": 0.667,
+        "tokens_in": 648,
+        "latency_ms": 2102,
+        "cost_per_item": 6e-05
+      },
+      "Q4 (micro)": {
+        "score": 0.867,
+        "localized": 1.0,
+        "described": 0.733,
+        "tokens_in": 558,
+        "latency_ms": 11460,
+        "cost_per_item": 5e-05
+      }
+    },
+    "oracle": {
+      "Q8 (8B)": {
+        "score": 0.967,
+        "localized": 1.0,
+        "described": 0.933,
+        "tokens_in": 167,
+        "latency_ms": 1641,
+        "cost_per_item": 3e-05
+      },
+      "Q4 (micro)": {
+        "score": 0.967,
+        "localized": 1.0,
+        "described": 0.933,
+        "tokens_in": 155,
+        "latency_ms": 10193,
+        "cost_per_item": 4e-05
+      }
+    },
+    "retrieval": {
+      "Q8 (8B)": {
+        "score": 0.367,
+        "localized": 0.4,
+        "described": 0.333,
+        "tokens_in": 281,
+        "latency_ms": 2501,
+        "cost_per_item": 4e-05
+      },
+      "Q4 (micro)": {
+        "score": 0.367,
+        "localized": 0.4,
+        "described": 0.333,
+        "tokens_in": 251,
+        "latency_ms": 11850,
+        "cost_per_item": 5e-05
+      }
+    }
+  },
+  "retrieval_recall": 0.4,
+  "total_cost_usd": 0.004
+}
