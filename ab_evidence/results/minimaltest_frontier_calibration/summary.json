@@ -1,0 +1,242 @@
+{
+  "frontier_models": [
+    "anthropic/claude-haiku-4.5",
+    "openai/gpt-5-nano",
+    "openai/gpt-4o-mini",
+    "google/gemini-2.5-flash-lite",
+    "anthropic/claude-sonnet-4.6",
+    "openai/gpt-5",
+    "google/gemini-2.5-flash",
+    "google/gemini-2.5-pro"
+  ],
+  "longmemeval_kcurve": {
+    "anthropic/claude-haiku-4.5": {
+      "k_scores": {
+        "3": 0.56,
+        "5": 0.6,
+        "8": 0.6,
+        "10": 0.68
+      },
+      "peak_k": 10,
+      "peak_score": 0.68,
+      "tokens_in": 28246,
+      "tokens_out": 119,
+      "latency_ms": 3883,
+      "cost_per_item_usd": 0.02884
+    },
+    "openai/gpt-5-nano": {
+      "k_scores": {
+        "3": 0.12,
+        "5": 0.04,
+        "8": 0.08,
+        "10": 0.08
+      },
+      "peak_k": 3,
+      "peak_score": 0.12,
+      "tokens_in": 7628,
+      "tokens_out": 248,
+      "latency_ms": 5755,
+      "cost_per_item_usd": 0.00048
+    },
+    "openai/gpt-4o-mini": {
+      "k_scores": {
+        "3": 0.48,
+        "5": 0.56,
+        "8": 0.64,
+        "10": 0.64
+      },
+      "peak_k": 8,
+      "peak_score": 0.64,
+      "tokens_in": 20099,
+      "tokens_out": 31,
+      "latency_ms": 3600,
+      "cost_per_item_usd": 0.00303
+    },
+    "google/gemini-2.5-flash-lite": {
+      "k_scores": {
+        "3": 0.52,
+        "5": 0.6,
+        "8": 0.6,
+        "10": 0.6
+      },
+      "peak_k": 5,
+      "peak_score": 0.6,
+      "tokens_in": 13147,
+      "tokens_out": 20,
+      "latency_ms": 1892,
+      "cost_per_item_usd": 0.00132
+    },
+    "anthropic/claude-sonnet-4.6": {
+      "k_scores": {
+        "3": 0.52,
+        "5": 0.52,
+        "8": 0.64,
+        "10": 0.56
+      },
+      "peak_k": 8,
+      "peak_score": 0.64,
+      "tokens_in": 22775,
+      "tokens_out": 75,
+      "latency_ms": 5307,
+      "cost_per_item_usd": 0.06946
+    },
+    "openai/gpt-5": {
+      "k_scores": {
+        "3": 0.24,
+        "5": 0.24,
+        "8": 0.2,
+        "10": 0.24
+      },
+      "peak_k": 3,
+      "peak_score": 0.24,
+      "tokens_in": 7628,
+      "tokens_out": 241,
+      "latency_ms": 8356,
+      "cost_per_item_usd": 0.01194
+    },
+    "google/gemini-2.5-flash": {
+      "k_scores": {
+        "3": 0.44,
+        "5": 0.52,
+        "8": 0.44,
+        "10": 0.52
+      },
+      "peak_k": 5,
+      "peak_score": 0.52,
+      "tokens_in": 13147,
+      "tokens_out": 10,
+      "latency_ms": 3438,
+      "cost_per_item_usd": 0.00397
+    },
+    "google/gemini-2.5-pro": {
+      "k_scores": {
+        "3": 0.2,
+        "5": 0.28,
+        "8": 0.28,
+        "10": 0.24
+      },
+      "peak_k": 5,
+      "peak_score": 0.28,
+      "tokens_in": 13147,
+      "tokens_out": 250,
+      "latency_ms": 5576,
+      "cost_per_item_usd": 0.01893
+    }
+  },
+  "code_audit": {
+    "anthropic/claude-haiku-4.5": {
+      "score": 0.967,
+      "tokens_in": 656,
+      "tokens_out": 170,
+      "latency_ms": 3403,
+      "cost_per_item_usd": 0.00151
+    },
+    "openai/gpt-5-nano": {
+      "score": 0.0,
+      "tokens_in": 557,
+      "tokens_out": 384,
+      "latency_ms": 9654,
+      "cost_per_item_usd": 0.00018
+    },
+    "openai/gpt-4o-mini": {
+      "score": 0.933,
+      "tokens_in": 558,
+      "tokens_out": 315,
+      "latency_ms": 4543,
+      "cost_per_item_usd": 0.00027
+    },
+    "google/gemini-2.5-flash-lite": {
+      "score": 0.967,
+      "tokens_in": 623,
+      "tokens_out": 158,
+      "latency_ms": 2357,
+      "cost_per_item_usd": 0.00013
+    },
+    "anthropic/claude-sonnet-4.6": {
+      "score": 0.967,
+      "tokens_in": 657,
+      "tokens_out": 313,
+      "latency_ms": 6664,
+      "cost_per_item_usd": 0.00666
+    },
+    "openai/gpt-5": {
+      "score": 0.0,
+      "tokens_in": 557,
+      "tokens_out": 384,
+      "latency_ms": 13562,
+      "cost_per_item_usd": 0.00454
+    },
+    "google/gemini-2.5-flash": {
+      "score": 0.933,
+      "tokens_in": 623,
+      "tokens_out": 149,
+      "latency_ms": 1511,
+      "cost_per_item_usd": 0.00056
+    },
+    "google/gemini-2.5-pro": {
+      "score": 0.5,
+      "tokens_in": 623,
+      "tokens_out": 396,
+      "latency_ms": 5072,
+      "cost_per_item_usd": 0.00474
+    }
+  },
+  "paper_audit": {
+    "anthropic/claude-haiku-4.5": {
+      "score": 0.867,
+      "tokens_in": 1422,
+      "tokens_out": 119,
+      "latency_ms": 2636,
+      "cost_per_item_usd": 0.00202
+    },
+    "openai/gpt-5-nano": {
+      "score": 0.0,
+      "tokens_in": 1224,
+      "tokens_out": 192,
+      "latency_ms": 5011,
+      "cost_per_item_usd": 0.00014
+    },
+    "openai/gpt-4o-mini": {
+      "score": 0.933,
+      "tokens_in": 1225,
+      "tokens_out": 51,
+      "latency_ms": 1242,
+      "cost_per_item_usd": 0.00021
+    },
+    "google/gemini-2.5-flash-lite": {
+      "score": 0.9,
+      "tokens_in": 1229,
+      "tokens_out": 53,
+      "latency_ms": 1673,
+      "cost_per_item_usd": 0.00014
+    },
+    "anthropic/claude-sonnet-4.6": {
+      "score": 0.8,
+      "tokens_in": 1423,
+      "tokens_out": 78,
+      "latency_ms": 2926,
+      "cost_per_item_usd": 0.00544
+    },
+    "openai/gpt-5": {
+      "score": 0.2,
+      "tokens_in": 1224,
+      "tokens_out": 193,
+      "latency_ms": 5750,
+      "cost_per_item_usd": 0.00346
+    },
+    "google/gemini-2.5-flash": {
+      "score": 0.833,
+      "tokens_in": 1229,
+      "tokens_out": 54,
+      "latency_ms": 868,
+      "cost_per_item_usd": 0.0005
+    },
+    "google/gemini-2.5-pro": {
+      "score": 0.667,
+      "tokens_in": 1229,
+      "tokens_out": 196,
+      "latency_ms": 3396,
+      "cost_per_item_usd": 0.0035
+    }
+  }
+}
