@@ -16,7 +16,12 @@ Usage:
     ))
     # decision is a Decision with model, k, retrieval_strategy, expected_score, ...
 
-This is a v0.1 router — it picks from the measured Pareto-front. It does NOT yet:
+For AUTONOMOUS routing (router classifies the input itself):
+    router.route_from_query("How long did I wait for my visa?")
+    # -> Decision; classification step adds ~$0.0001 and ~0.7s
+
+This is a v0.2 router — picks from the measured Pareto-front and now includes
+optional task-classification. It does NOT yet:
   - read self-confidence signals (logprobs / verdict uncertainty)
   - escalate dynamically after a low-confidence first answer
   - generalize to unseen task classes
@@ -59,8 +64,55 @@ class Decision:
 
 
 class EpistemicRouter:
-    def __init__(self, table_path: Path = _TABLE_PATH):
+    def __init__(self, table_path: Path = _TABLE_PATH, classifier=None):
         self.table = json.loads(table_path.read_text())
+        self._classifier = classifier  # lazy-init on first route_from_query
+
+    def _get_classifier(self):
+        if self._classifier is None:
+            from desi.classifier import TaskClassifier
+            self._classifier = TaskClassifier()
+        return self._classifier
+
+    def route_from_query(self, query: str, context_hint: str | None = None,
+                         cost_budget_usd: float = float("inf"),
+                         accuracy_target: float = 0.0,
+                         latency_budget_ms: int = 1_000_000,
+                         avoid_models: list[str] | None = None) -> Decision:
+        """Autonomous routing: classifies the query, then dispatches.
+
+        Returns a Decision whose .reason includes the classification
+        confidence and the classifier model used (so callers can audit).
+        """
+        c = self._get_classifier()
+        cls = c.classify(query, context_hint=context_hint)
+        if cls.task_class == "other":
+            return Decision(
+                task_class="other",
+                model="(no route — task class outside empirical table)",
+                k=None,
+                retrieval_strategy="none",
+                expected_score=0.0,
+                expected_cost_usd=cls.cost_usd,
+                expected_latency_ms=cls.latency_ms,
+                reason=f"Task classified as 'other' ({cls.confidence} confidence). "
+                       f"Untested classes: {self.table.get('untested_tasks', [])}. "
+                       f"Recommend manual route or fallback to granite-4.1-8b.",
+            )
+        req = RouteRequest(
+            task_class=cls.task_class,
+            cost_budget_usd=cost_budget_usd,
+            accuracy_target=accuracy_target,
+            latency_budget_ms=latency_budget_ms,
+            avoid_models=avoid_models or [],
+        )
+        d = self.route(req)
+        d.reason = (f"[classified as {cls.task_class}, {cls.confidence} confidence, "
+                    f"+${cls.cost_usd:.6f} +{cls.latency_ms}ms] " + d.reason)
+        d.expected_cost_usd += cls.cost_usd
+        if d.expected_latency_ms is not None:
+            d.expected_latency_ms += cls.latency_ms
+        return d
 
     def _cells(self, task_class: str) -> list[dict]:
         return self.table["tasks"][task_class]["cells"]

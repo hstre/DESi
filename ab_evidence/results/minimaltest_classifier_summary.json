@@ -1,0 +1,471 @@
+{
+  "N": 40,
+  "overall_accuracy": 0.925,
+  "per_class": {
+    "memory_recall": {
+      "n_gold": 10,
+      "n_pred": 11,
+      "n_correct": 10
+    },
+    "code_audit": {
+      "n_gold": 10,
+      "n_pred": 9,
+      "n_correct": 9
+    },
+    "scientific_claim": {
+      "n_gold": 10,
+      "n_pred": 11,
+      "n_correct": 10
+    },
+    "other": {
+      "n_gold": 10,
+      "n_pred": 9,
+      "n_correct": 8
+    }
+  },
+  "mean_latency_ms": 598,
+  "mean_cost_usd": 1.7e-05,
+  "total_cost_usd": 0.0007,
+  "results": [
+    {
+      "idx": 0,
+      "gold": "memory_recall",
+      "query": "How long did I wait for the decision on my asylum application?",
+      "predicted": "memory_recall",
+      "confidence": "high",
+      "latency_ms": 664,
+      "cost_usd": 1.7047e-05,
+      "error": null,
+      "raw": "CLASS: memory_recall\nCONFIDENCE: high"
+    },
+    {
+      "idx": 1,
+      "gold": "memory_recall",
+      "query": "What brand of BBQ sauce did I tell you I was obsessed with last month?",
+      "predicted": "memory_recall",
+      "confidence": "high",
+      "latency_ms": 4527,
+      "cost_usd": 1.7199999999999998e-05,
+      "error": null,
+      "raw": "CLASS: memory_recall\nCONFIDENCE: high"
+    },
+    {
+      "idx": 2,
+      "gold": "memory_recall",
+      "query": "How many new postcards have I added since I started collecting again?",
+      "predicted": "memory_recall",
+      "confidence": "high",
+      "latency_ms": 4463,
+      "cost_usd": 1.7097999999999998e-05,
+      "error": null,
+      "raw": "CLASS: memory_recall\nCONFIDENCE: high"
+    },
+    {
+      "idx": 3,
+      "gold": "memory_recall",
+      "query": "When did I move to my new apartment?",
+      "predicted": "memory_recall",
+      "confidence": "high",
+      "latency_ms": 934,
+      "cost_usd": 1.6842999999999998e-05,
+      "error": null,
+      "raw": "CLASS: memory_recall\nCONFIDENCE: high"
+    },
+    {
+      "idx": 4,
+      "gold": "memory_recall",
+      "query": "What did I say my dad gave me for my birthday?",
+      "predicted": "memory_recall",
+      "confidence": "high",
+      "latency_ms": 407,
+      "cost_usd": 1.6995999999999998e-05,
+      "error": null,
+      "raw": "CLASS: memory_recall\nCONFIDENCE: high"
+    },
+    {
+      "idx": 5,
+      "gold": "memory_recall",
+      "query": "Where does my sister Emily currently live?",
+      "predicted": "memory_recall",
+      "confidence": "high",
+      "latency_ms": 463,
+      "cost_usd": 1.6792e-05,
+      "error": null,
+      "raw": "CLASS: memory_recall\nCONFIDENCE: high"
+    },
+    {
+      "idx": 6,
+      "gold": "memory_recall",
+      "query": "How many properties did I view before making an offer on the townhouse?",
+      "predicted": "memory_recall",
+      "confidence": "high",
+      "latency_ms": 321,
+      "cost_usd": 1.7149e-05,
+      "error": null,
+      "raw": "CLASS: memory_recall\nCONFIDENCE: high"
+    },
+    {
+      "idx": 7,
+      "gold": "memory_recall",
+      "query": "What kind of car did I tell you I wanted to buy?",
+      "predicted": "memory_recall",
+      "confidence": "high",
+      "latency_ms": 384,
+      "cost_usd": 1.7047e-05,
+      "error": null,
+      "raw": "CLASS: memory_recall\nCONFIDENCE: high"
+    },
+    {
+      "idx": 8,
+      "gold": "memory_recall",
+      "query": "How long had I been using the new area rug when I rearranged my living room?",
+      "predicted": "memory_recall",
+      "confidence": "high",
+      "latency_ms": 412,
+      "cost_usd": 1.7301999999999998e-05,
+      "error": null,
+      "raw": "CLASS: memory_recall\nCONFIDENCE: high"
+    },
+    {
+      "idx": 9,
+      "gold": "memory_recall",
+      "query": "Did I mention which doctors I visited last year?",
+      "predicted": "memory_recall",
+      "confidence": "high",
+      "latency_ms": 328,
+      "cost_usd": 1.6894e-05,
+      "error": null,
+      "raw": "CLASS: memory_recall\nCONFIDENCE: high"
+    },
+    {
+      "idx": 10,
+      "gold": "code_audit",
+      "query": "Audit this function for any bugs:\ndef fenced_sum(values):\n    total = 0\n    for i in range(len(values)):\n        total += values[i]\n    return total - values[-1]",
+      "predicted": "code_audit",
+      "confidence": "high",
+      "latency_ms": 468,
+      "cost_usd": 1.8424e-05,
+      "error": null,
+      "raw": "CLASS: code_audit\nCONFIDENCE: high"
+    },
+    {
+      "idx": 11,
+      "gold": "code_audit",
+      "query": "Is there a security issue in this Python code? def load_config(path): f = open(path); return json.load(f)",
+      "predicted": "code_audit",
+      "confidence": "high",
+      "latency_ms": 352,
+      "cost_usd": 1.7658999999999998e-05,
+      "error": null,
+      "raw": "CLASS: code_audit\nCONFIDENCE: high"
+    },
+    {
+      "idx": 12,
+      "gold": "code_audit",
+      "query": "Find any subtle correctness problems in the following Python module.",
+      "predicted": "code_audit",
+      "confidence": "high",
+      "latency_ms": 333,
+      "cost_usd": 1.6944999999999998e-05,
+      "error": null,
+      "raw": "CLASS: code_audit\nCONFIDENCE: high"
+    },
+    {
+      "idx": 13,
+      "gold": "code_audit",
+      "query": "Review this code for off-by-one errors: def drop_extension(filename): return filename[:filename.rfind('.') - 1]",
+      "predicted": "code_audit",
+      "confidence": "high",
+      "latency_ms": 362,
+      "cost_usd": 1.7658999999999998e-05,
+      "error": null,
+      "raw": "CLASS: code_audit\nCONFIDENCE: high"
+    },
+    {
+      "idx": 14,
+      "gold": "code_audit",
+      "query": "Does this function correctly handle the case where the user dict is None?",
+      "predicted": "code_audit",
+      "confidence": "high",
+      "latency_ms": 525,
+      "cost_usd": 1.7097999999999998e-05,
+      "error": null,
+      "raw": "CLASS: code_audit\nCONFIDENCE: high"
+    },
+    {
+      "idx": 15,
+      "gold": "code_audit",
+      "query": "Check for race conditions or TOCTOU bugs in this file handling code.",
+      "predicted": "code_audit",
+      "confidence": "high",
+      "latency_ms": 504,
+      "cost_usd": 1.7149e-05,
+      "error": null,
+      "raw": "CLASS: code_audit\nCONFIDENCE: high"
+    },
+    {
+      "idx": 16,
+      "gold": "code_audit",
+      "query": "Is the operator precedence correct in this expression: len(done) & {k for k in items} ?",
+      "predicted": "other",
+      "confidence": "high",
+      "latency_ms": 232,
+      "cost_usd": 1.712e-05,
+      "error": null,
+      "raw": "CLASS: other\nCONFIDENCE: high"
+    },
+    {
+      "idx": 17,
+      "gold": "code_audit",
+      "query": "Audit this Python codebase. Find any bugs, security issues, or subtle correctness problems.",
+      "predicted": "code_audit",
+      "confidence": "high",
+      "latency_ms": 358,
+      "cost_usd": 1.7301999999999998e-05,
+      "error": null,
+      "raw": "CLASS: code_audit\nCONFIDENCE: high"
+    },
+    {
+      "idx": 18,
+      "gold": "code_audit",
+      "query": "Does the following Python code have any resource leaks or unclosed file handles?",
+      "predicted": "code_audit",
+      "confidence": "high",
+      "latency_ms": 368,
+      "cost_usd": 1.7149e-05,
+      "error": null,
+      "raw": "CLASS: code_audit\nCONFIDENCE: high"
+    },
+    {
+      "idx": 19,
+      "gold": "code_audit",
+      "query": "Look for shallow-copy bugs in this 2D-grid duplication function.",
+      "predicted": "code_audit",
+      "confidence": "high",
+      "latency_ms": 360,
+      "cost_usd": 1.7097999999999998e-05,
+      "error": null,
+      "raw": "CLASS: code_audit\nCONFIDENCE: high"
+    },
+    {
+      "idx": 20,
+      "gold": "scientific_claim",
+      "query": "Does the evidence support the claim that 1 in 5 million people in UK have abnormal PrP positivity?",
+      "predicted": "scientific_claim",
+      "confidence": "high",
+      "latency_ms": 365,
+      "cost_usd": 1.7505999999999998e-05,
+      "error": null,
+      "raw": "CLASS: scientific_claim\nCONFIDENCE: high"
+    },
+    {
+      "idx": 21,
+      "gold": "scientific_claim",
+      "query": "Is this claim supported by published research: aspirin reduces cardiovascular risk in healthy adults?",
+      "predicted": "scientific_claim",
+      "confidence": "high",
+      "latency_ms": 343,
+      "cost_usd": 1.7251e-05,
+      "error": null,
+      "raw": "CLASS: scientific_claim\nCONFIDENCE: high"
+    },
+    {
+      "idx": 22,
+      "gold": "scientific_claim",
+      "query": "Verify the following scientific claim against the provided abstracts: BRCA1 mutations increase breast cancer risk.",
+      "predicted": "scientific_claim",
+      "confidence": "high",
+      "latency_ms": 242,
+      "cost_usd": 1.7403999999999998e-05,
+      "error": null,
+      "raw": "CLASS: scientific_claim\nCONFIDENCE: high"
+    },
+    {
+      "idx": 23,
+      "gold": "scientific_claim",
+      "query": "Do these abstracts support or contradict the statement that vitamin D supplementation reduces fracture risk?",
+      "predicted": "scientific_claim",
+      "confidence": "high",
+      "latency_ms": 386,
+      "cost_usd": 1.7251e-05,
+      "error": null,
+      "raw": "CLASS: scientific_claim\nCONFIDENCE: high"
+    },
+    {
+      "idx": 24,
+      "gold": "scientific_claim",
+      "query": "Classify this medical claim as SUPPORT / CONTRADICT / NEI based on the literature: statins cause memory loss.",
+      "predicted": "scientific_claim",
+      "confidence": "high",
+      "latency_ms": 598,
+      "cost_usd": 1.7658999999999998e-05,
+      "error": null,
+      "raw": "CLASS: scientific_claim\nCONFIDENCE: high"
+    },
+    {
+      "idx": 25,
+      "gold": "scientific_claim",
+      "query": "Does the following biomedical claim hold up against the cited evidence?",
+      "predicted": "scientific_claim",
+      "confidence": "high",
+      "latency_ms": 316,
+      "cost_usd": 1.6995999999999998e-05,
+      "error": null,
+      "raw": "CLASS: scientific_claim\nCONFIDENCE: high"
+    },
+    {
+      "idx": 26,
+      "gold": "scientific_claim",
+      "query": "Is there published evidence for or against this claim about 0-dimensional biomaterials?",
+      "predicted": "scientific_claim",
+      "confidence": "high",
+      "latency_ms": 356,
+      "cost_usd": 1.7251e-05,
+      "error": null,
+      "raw": "CLASS: scientific_claim\nCONFIDENCE: high"
+    },
+    {
+      "idx": 27,
+      "gold": "scientific_claim",
+      "query": "Fact-check this scientific claim using the abstracts: HPV vaccine has been linked to autoimmune disorders.",
+      "predicted": "scientific_claim",
+      "confidence": "high",
+      "latency_ms": 364,
+      "cost_usd": 1.7353e-05,
+      "error": null,
+      "raw": "CLASS: scientific_claim\nCONFIDENCE: high"
+    },
+    {
+      "idx": 28,
+      "gold": "scientific_claim",
+      "query": "Given these papers, evaluate whether the claim 'masking reduces COVID-19 transmission' is supported.",
+      "predicted": "scientific_claim",
+      "confidence": "high",
+      "latency_ms": 342,
+      "cost_usd": 1.7403999999999998e-05,
+      "error": null,
+      "raw": "CLASS: scientific_claim\nCONFIDENCE: high"
+    },
+    {
+      "idx": 29,
+      "gold": "scientific_claim",
+      "query": "Classify the claim 'metformin extends lifespan' against the abstracts: SUPPORT / CONTRADICT / NEI.",
+      "predicted": "scientific_claim",
+      "confidence": "high",
+      "latency_ms": 231,
+      "cost_usd": 1.7658999999999998e-05,
+      "error": null,
+      "raw": "CLASS: scientific_claim\nCONFIDENCE: high"
+    },
+    {
+      "idx": 30,
+      "gold": "other",
+      "query": "Write me a poem about autumn leaves.",
+      "predicted": "other",
+      "confidence": "high",
+      "latency_ms": 420,
+      "cost_usd": 1.6457000000000002e-05,
+      "error": null,
+      "raw": "CLASS: other\nCONFIDENCE: high"
+    },
+    {
+      "idx": 31,
+      "gold": "other",
+      "query": "Plan a 5-day trip to Berlin including hotels, restaurants, and museums.",
+      "predicted": "other",
+      "confidence": "medium",
+      "latency_ms": 395,
+      "cost_usd": 1.6865e-05,
+      "error": null,
+      "raw": "CLASS: other\nCONFIDENCE: medium"
+    },
+    {
+      "idx": 32,
+      "gold": "other",
+      "query": "What is the integral of sin(x) * exp(-x) from 0 to infinity?",
+      "predicted": "scientific_claim",
+      "confidence": "high",
+      "latency_ms": 464,
+      "cost_usd": 1.7353e-05,
+      "error": null,
+      "raw": "CLASS: scientific_claim\nCONFIDENCE: high"
+    },
+    {
+      "idx": 33,
+      "gold": "other",
+      "query": "Translate the following German sentence to English: 'Der schnelle braune Fuchs springt \u00fcber den faulen Hund.'",
+      "predicted": "other",
+      "confidence": "high",
+      "latency_ms": 418,
+      "cost_usd": 1.7273000000000002e-05,
+      "error": null,
+      "raw": "CLASS: other\nCONFIDENCE: high"
+    },
+    {
+      "idx": 34,
+      "gold": "other",
+      "query": "Compose a short story about a robot who learns to love.",
+      "predicted": "other",
+      "confidence": "high",
+      "latency_ms": 296,
+      "cost_usd": 1.6661e-05,
+      "error": null,
+      "raw": "CLASS: other\nCONFIDENCE: high"
+    },
+    {
+      "idx": 35,
+      "gold": "other",
+      "query": "Convert 100 USD to EUR at today's exchange rate.",
+      "predicted": "other",
+      "confidence": "high",
+      "latency_ms": 321,
+      "cost_usd": 1.6661e-05,
+      "error": null,
+      "raw": "CLASS: other\nCONFIDENCE: high"
+    },
+    {
+      "idx": 36,
+      "gold": "other",
+      "query": "Solve this physics problem: a ball is thrown at 30 m/s at 45 degrees. Where does it land?",
+      "predicted": "other",
+      "confidence": "high",
+      "latency_ms": 333,
+      "cost_usd": 1.7324e-05,
+      "error": null,
+      "raw": "CLASS: other\nCONFIDENCE: high"
+    },
+    {
+      "idx": 37,
+      "gold": "other",
+      "query": "Recommend a good book on philosophy of mind.",
+      "predicted": "other",
+      "confidence": "high",
+      "latency_ms": 339,
+      "cost_usd": 1.6508e-05,
+      "error": null,
+      "raw": "CLASS: other\nCONFIDENCE: high"
+    },
+    {
+      "idx": 38,
+      "gold": "other",
+      "query": "How would you implement a hash table from scratch in Rust?",
+      "predicted": "other",
+      "confidence": "high",
+      "latency_ms": 364,
+      "cost_usd": 1.6661e-05,
+      "error": null,
+      "raw": "CLASS: other\nCONFIDENCE: high"
+    },
+    {
+      "idx": 39,
+      "gold": "other",
+      "query": "What is the current weather in Tokyo?",
+      "predicted": "memory_recall",
+      "confidence": "high",
+      "latency_ms": 261,
+      "cost_usd": 1.6792e-05,
+      "error": null,
+      "raw": "CLASS: memory_recall\nCONFIDENCE: high"
+    }
+  ]
+}
