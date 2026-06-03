@@ -1,0 +1,886 @@
+{
+  "N": 15,
+  "by_strategy": {
+    "naive_big": {
+      "memory_recall": 0.2,
+      "code_audit": 0.8,
+      "scientific_claim": 1.0,
+      "overall": 0.667,
+      "total_cost_usd": 0.0289,
+      "mean_latency_ms": 6057
+    },
+    "naive_small_r": {
+      "memory_recall": 0.2,
+      "code_audit": 0.3,
+      "scientific_claim": 0.6,
+      "overall": 0.367,
+      "total_cost_usd": 0.0009,
+      "mean_latency_ms": 2955
+    },
+    "naive_small_x": {
+      "memory_recall": 0.2,
+      "code_audit": 0.0,
+      "scientific_claim": 0.4,
+      "overall": 0.2,
+      "total_cost_usd": 0.0094,
+      "mean_latency_ms": 10293
+    },
+    "desi_v0_3": {
+      "memory_recall": 0.4,
+      "code_audit": 0.0,
+      "scientific_claim": 0.0,
+      "overall": 0.133,
+      "total_cost_usd": 0.0022,
+      "mean_latency_ms": 4300
+    }
+  },
+  "desi_classification_accuracy": 0.667,
+  "desi_escalation_rate": 0.333,
+  "per_item": [
+    {
+      "item_id": "mr_01493427",
+      "task_class": "memory_recall",
+      "question": "How many new postcards have I added to my collection since I started collecting again?",
+      "gold": "25",
+      "naive_big": {
+        "strategy": "naive_big",
+        "score": 0.0,
+        "cost_usd": 0.00553285,
+        "latency_ms": 11291,
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "The context provided states that you have added **17 new postcards** to your collection since you started collecting again.\n[CONFIDENCE: high]"
+      },
+      "naive_small_r": {
+        "strategy": "naive_small_r",
+        "score": 1.0,
+        "cost_usd": 0.00016302500000000002,
+        "latency_ms": 2741,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "You've added 25 new postcards to your collection since you started collecting again. [CONFIDENCE: high]"
+      },
+      "naive_small_x": {
+        "strategy": "naive_small_x",
+        "score": 0.0,
+        "cost_usd": 0.001790575,
+        "latency_ms": 24109,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "unknown",
+        "n_attempts": 1,
+        "answer_text": "Based on the information provided, you mentioned that you started collecting postcards again, but you did not specify how many new postcards you have added to your collection since then. Therefore, I am unable to provide an accurate answer to your qu"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "score": 1.0,
+        "cost_usd": 0.00018027600000000002,
+        "latency_ms": 3157,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "task_class_predicted": "memory_recall",
+        "confidence": "high",
+        "n_attempts": 1,
+        "escalated": false,
+        "answer_text": "You've added 25 new postcards to your collection since you started collecting again. [CONFIDENCE: high]"
+      }
+    },
+    {
+      "item_id": "mr_gpt4_70e84552",
+      "task_class": "memory_recall",
+      "question": "Which task did I complete first, fixing the fence or trimming the goats' hooves?",
+      "gold": "Fixing the fence",
+      "naive_big": {
+        "strategy": "naive_big",
+        "score": 1.0,
+        "cost_usd": 0.00554285,
+        "latency_ms": 10733,
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "You completed trimming the goats' hooves first, followed by fixing the fence. \n\n[CONFIDENCE: high]"
+      },
+      "naive_small_r": {
+        "strategy": "naive_small_r",
+        "score": 0.0,
+        "cost_usd": 0.000135116,
+        "latency_ms": 3771,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "[CONFIDENCE: high] You fixed the fence on the east side of your property three weeks ago, before trimming the goats' hooves two weeks ago."
+      },
+      "naive_small_x": {
+        "strategy": "naive_small_x",
+        "score": 0.0,
+        "cost_usd": 0.0017935810000000003,
+        "latency_ms": 28133,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "[ASSISTANT: I think you first fixed the fence before trimming the goats' hooves. I'm not 100% sure, but I'm fairly confident in that answer. Let me know if you need anything else! [CONFIDENCE: high]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "score": 0.0,
+        "cost_usd": 0.000152418,
+        "latency_ms": 3171,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "task_class_predicted": "memory_recall",
+        "confidence": "high",
+        "n_attempts": 1,
+        "escalated": false,
+        "answer_text": "[CONFIDENCE: high] You fixed the fence on the east side of your property three weeks ago, before trimming the goats' hooves two weeks ago."
+      }
+    },
+    {
+      "item_id": "mr_1cea1afa",
+      "task_class": "memory_recall",
+      "question": "How many Instagram followers do I currently have?",
+      "gold": "600",
+      "naive_big": {
+        "strategy": "naive_big",
+        "score": 0.0,
+        "cost_usd": 0.005597250000000001,
+        "latency_ms": 21092,
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "confidence": "low",
+        "n_attempts": 1,
+        "answer_text": "[CONFIDENCE: low]  \nThe current context provided in the conversation does not contain a statement about your current Instagram follower count. Therefore, I cannot accurately determine the number of followers you have at this moment. If you share the "
+      },
+      "naive_small_r": {
+        "strategy": "naive_small_r",
+        "score": 0.0,
+        "cost_usd": 0.00012720100000000002,
+        "latency_ms": 2544,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "low",
+        "n_attempts": 1,
+        "answer_text": "[CONFIDENCE: low] I do not have access to your Instagram account or any personal data, so I cannot determine the number of your current followers."
+      },
+      "naive_small_x": {
+        "strategy": "naive_small_x",
+        "score": 1.0,
+        "cost_usd": 0.001810413,
+        "latency_ms": 22143,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "unknown",
+        "n_attempts": 1,
+        "answer_text": "You currently have 600 followers on Instagram."
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "score": 1.0,
+        "cost_usd": 0.001197482,
+        "latency_ms": 4190,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro",
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "task_class_predicted": "memory_recall",
+        "confidence": "high",
+        "n_attempts": 2,
+        "escalated": true,
+        "answer_text": "Based on the previous conversation, you currently have 600 Instagram followers. \n\n[CONFIDENCE: high]"
+      }
+    },
+    {
+      "item_id": "mr_gpt4_f2262a51",
+      "task_class": "memory_recall",
+      "question": "How many different doctors did I visit?",
+      "gold": "I visited three different doctors: a primary care physician, an ENT specialist, and a dermatologist.",
+      "naive_big": {
+        "strategy": "naive_big",
+        "score": 0.0,
+        "cost_usd": 0.0054874500000000005,
+        "latency_ms": 20595,
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "confidence": "low",
+        "n_attempts": 1,
+        "answer_text": "I'm sorry, but I don't have access to personal information about your medical visits, including the number of doctors you've seen. Therefore, I cannot provide an answer to your question. [CONFIDENCE: low]"
+      },
+      "naive_small_r": {
+        "strategy": "naive_small_r",
+        "score": 0.0,
+        "cost_usd": 0.000108127,
+        "latency_ms": 3036,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "You visited 3 different doctors (Dr. Patel, Dr. Lee, and an unspecified third doctor for the mole biopsy). [CONFIDENCE: high]"
+      },
+      "naive_small_x": {
+        "strategy": "naive_small_x",
+        "score": 0.0,
+        "cost_usd": 0.001783711,
+        "latency_ms": 24852,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "unknown",
+        "n_attempts": 1,
+        "answer_text": "Based on the information provided, you mentioned visiting a certain number of doctors. However, the exact number was not specified. Therefore, I will answer with:\n\n[ASSISTANT: I do not have enough information to determine the exact number of doctors "
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "score": 0.0,
+        "cost_usd": 0.000124919,
+        "latency_ms": 3421,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "task_class_predicted": "memory_recall",
+        "confidence": "high",
+        "n_attempts": 1,
+        "escalated": false,
+        "answer_text": "You visited 3 different doctors (Dr. Patel, Dr. Lee, and an unspecified third doctor for the mole biopsy). [CONFIDENCE: high]"
+      }
+    },
+    {
+      "item_id": "ca_B02_wrong_operator_ge",
+      "task_class": "code_audit",
+      "question": "Audit the following Python code. Find any bugs, security issues, or subtle correctness problems. Name the function and explain what is wrong.",
+      "gold": "is_adult",
+      "naive_big": {
+        "strategy": "naive_big",
+        "score": 1.0,
+        "cost_usd": 5.86e-05,
+        "latency_ms": 2077,
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "The provided code snippets are relatively simple and well-defined, but I will review each module for potential bugs, security issues, or subtle correctness problems:\n\n1. **`is_ adult.py`**  \n   ```python\n   def is_adult(age: int) -> bool:\n       \"\"\"R"
+      },
+      "naive_small_r": {
+        "strategy": "naive_small_r",
+        "score": 1.0,
+        "cost_usd": 1.505e-05,
+        "latency_ms": 3322,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "medium",
+        "n_attempts": 1,
+        "answer_text": "[CONFIDENCE: medium]\nThe function is_adult(age: int) -> bool has a subtle correctness issue. It returns True if the person is strictly greater than 18, but does not account for the case where age is exactly 18. The function should return True for age"
+      },
+      "naive_small_x": {
+        "strategy": "naive_small_x",
+        "score": 0.0,
+        "cost_usd": 1.5246e-05,
+        "latency_ms": 3816,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "unknown",
+        "n_attempts": 1,
+        "answer_text": "CONFIDENCE: low\n\nThe code appears to be correct and free of bugs, security issues, or subtle correctness problems. The functions implement their intended functionality as described by their docstrings. No issues were found in the provided code snippe"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "score": 0.0,
+        "cost_usd": 6.2431e-05,
+        "latency_ms": 4893,
+        "model_chain": [
+          "meta-llama/llama-3.1-8b-instruct",
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "task_class_predicted": "code_audit",
+        "confidence": "unknown",
+        "n_attempts": 2,
+        "escalated": true,
+        "answer_text": "CONFIDENCE: low\n\nThe provided code appears to be a collection of utility functions without any apparent bugs or security issues. Each function seems to perform its intended purpose correctly based on the provided context. However, without additional "
+      }
+    },
+    {
+      "item_id": "ca_B11_shallow_copy",
+      "task_class": "code_audit",
+      "question": "Audit the following Python code. Find any bugs, security issues, or subtle correctness problems. Name the function and explain what is wrong.",
+      "gold": "duplicate_grid",
+      "naive_big": {
+        "strategy": "naive_big",
+        "score": 1.0,
+        "cost_usd": 5.905e-05,
+        "latency_ms": 1971,
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "confidence": "unknown",
+        "n_attempts": 1,
+        "answer_text": "To conduct an audit of the provided Python code, I will examine each module and function for potential bugs, security issues, or subtle correctness problems.\n\n### `duplicate_grid.py`\n```python\ndef duplicate_grid(grid: list[list[int]]) -> list[list[in"
+      },
+      "naive_small_r": {
+        "strategy": "naive_small_r",
+        "score": 0.0,
+        "cost_usd": 1.3425000000000001e-05,
+        "latency_ms": 2571,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "low",
+        "n_attempts": 1,
+        "answer_text": "CONFIDENCE: low\n\nThe provided code appears to be a collection of utility functions without any apparent bugs, security issues, or subtle correctness problems. The functions are straightforward and seem to perform their intended tasks correctly. Howev"
+      },
+      "naive_small_x": {
+        "strategy": "naive_small_x",
+        "score": 0.0,
+        "cost_usd": 1.7486e-05,
+        "latency_ms": 2813,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "low",
+        "n_attempts": 1,
+        "answer_text": "CONFIDENCE: low\nThe provided code snippets do not contain any obvious bugs, security issues, or subtle correctness problems. Each function appears to be implemented correctly based on its description and signature. However, without more context on ho"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "score": 0.0,
+        "cost_usd": 4.1801e-05,
+        "latency_ms": 10460,
+        "model_chain": [
+          "meta-llama/llama-3.1-8b-instruct"
+        ],
+        "task_class_predicted": "code_audit",
+        "confidence": "high",
+        "n_attempts": 1,
+        "escalated": false,
+        "answer_text": "### audit_result.py ===\n```python\nfrom collections_utils import unique\n\ndef longest_subsequence(list_to_check: list[int]) -> list[int]:\n    # ... rest of the code remains the same ...\n    return unique(value for value in filtered if value not in filt"
+      }
+    },
+    {
+      "item_id": "ca_B01_off_by_one_range",
+      "task_class": "code_audit",
+      "question": "Audit the following Python code. Find any bugs, security issues, or subtle correctness problems. Name the function and explain what is wrong.",
+      "gold": "fenced_sum",
+      "naive_big": {
+        "strategy": "naive_big",
+        "score": 0.5,
+        "cost_usd": 6.0299999999999995e-05,
+        "latency_ms": 3705,
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "confidence": "unknown",
+        "n_attempts": 1,
+        "answer_text": "The provided code consists of several standalone functions implemented in separate modules. After reviewing each function, I found no bugs, security issues, or subtle correctness problems in the given implementations. Each function appears to perform"
+      },
+      "naive_small_r": {
+        "strategy": "naive_small_r",
+        "score": 0.0,
+        "cost_usd": 1.3425000000000001e-05,
+        "latency_ms": 2640,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "low",
+        "n_attempts": 1,
+        "answer_text": "CONFIDENCE: low\n\nThe provided code appears to be a collection of utility functions without any apparent bugs, security issues, or subtle correctness problems. The functions are straightforward and seem to perform their intended tasks correctly. Howev"
+      },
+      "naive_small_x": {
+        "strategy": "naive_small_x",
+        "score": 0.0,
+        "cost_usd": 1.7687000000000002e-05,
+        "latency_ms": 3785,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "low",
+        "n_attempts": 1,
+        "answer_text": "CONFIDENCE: low\nThe provided code snippets do not contain any obvious bugs, security issues, or subtle correctness problems. Each function appears to be implemented correctly based on its description. However, without more context about how these fun"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "score": 0.0,
+        "cost_usd": 5.6034000000000006e-05,
+        "latency_ms": 7501,
+        "model_chain": [
+          "meta-llama/llama-3.1-8b-instruct",
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "task_class_predicted": "code_audit",
+        "confidence": "low",
+        "n_attempts": 2,
+        "escalated": true,
+        "answer_text": "CONFIDENCE: low\nThe provided code snippets do not contain any obvious bugs, security issues, or subtle correctness problems. Each function appears to be implemented correctly based on its description and purpose. However, without more context about h"
+      }
+    },
+    {
+      "item_id": "sc_98",
+      "task_class": "scientific_claim",
+      "question": "Alirocumab treatment reduces apo(a) fractional clearance rate.\n\nRespond with VERDICT: SUPPORT | CONTRADICT | NEI on the first line, then 1-2 sentences.",
+      "gold": "CONTRADICT",
+      "naive_big": {
+        "strategy": "naive_big",
+        "score": 1.0,
+        "cost_usd": 0.00017355000000000002,
+        "latency_ms": 1310,
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "VERDICT: CONTRADICT  \nThe study found that alirocumab tended to increase, not reduce, the fractional clearance rate (FCR) of apo(a) by 24.6% without affecting its production rate.  \n\n[CONFIDENCE: high]"
+      },
+      "naive_small_r": {
+        "strategy": "naive_small_r",
+        "score": 0.0,
+        "cost_usd": 3.3622000000000004e-05,
+        "latency_ms": 2529,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "VERDICT: SUPPORT\nThe study found that alirocumab treatment increased the fractional clearance rate (FCR) of apo(a) without changing its production rate (PR), indicating a reduction in apo(a) clearance. This supports the conclusion that alirocumab tre"
+      },
+      "naive_small_x": {
+        "strategy": "naive_small_x",
+        "score": 0.0,
+        "cost_usd": 6.1736e-05,
+        "latency_ms": 3454,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "VERDICT: SUPPORT\nThe study found that alirocumab treatment reduced the fractional clearance rate (FCR) of apo(a) by 24.6%, indicating that the treatment decreases the clearance of apo(a) from the plasma. [CONFIDENCE: high]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "score": 0.0,
+        "cost_usd": 2.4738e-05,
+        "latency_ms": 306,
+        "model_chain": [
+          "REFUSED"
+        ],
+        "confidence": "n/a",
+        "n_attempts": 0,
+        "task_class_predicted": "other",
+        "escalated": false,
+        "answer_text": "(refused)"
+      }
+    },
+    {
+      "item_id": "ca_B12_variable_shadowing",
+      "task_class": "code_audit",
+      "question": "Audit the following Python code. Find any bugs, security issues, or subtle correctness problems. Name the function and explain what is wrong.",
+      "gold": "process_records",
+      "naive_big": {
+        "strategy": "naive_big",
+        "score": 0.5,
+        "cost_usd": 6.135e-05,
+        "latency_ms": 1954,
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "The provided code snippets appear to be well-structured and free of obvious bugs, security issues, or subtle correctness problems. Each function is clearly defined with appropriate type hints and docstrings, and the logic within each function aligns "
+      },
+      "naive_small_r": {
+        "strategy": "naive_small_r",
+        "score": 0.5,
+        "cost_usd": 3.0364999999999998e-05,
+        "latency_ms": 6901,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "medium",
+        "n_attempts": 1,
+        "answer_text": "CONFIDENCE: medium\n\nThe code appears to be functioning as intended based on the provided context. However, there are a couple of potential issues to consider:\n\n1. In `process_records.py`, the function modifies the input `record` dictionary in-place b"
+      },
+      "naive_small_x": {
+        "strategy": "naive_small_x",
+        "score": 0.0,
+        "cost_usd": 1.9249e-05,
+        "latency_ms": 2647,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "unknown",
+        "n_attempts": 1,
+        "answer_text": "CONFIDENCE: low\n\nThe provided code snippets do not contain any obvious bugs, security issues, or subtle correctness problems. Each function appears to be implemented correctly based on its purpose and input/output specifications. However, without a s"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "score": 0.0,
+        "cost_usd": 4.9544e-05,
+        "latency_ms": 4016,
+        "model_chain": [
+          "meta-llama/llama-3.1-8b-instruct",
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "task_class_predicted": "code_audit",
+        "confidence": "low",
+        "n_attempts": 2,
+        "escalated": true,
+        "answer_text": "CONFIDENCE: low\n\nThe code appears to be a collection of utility functions without any apparent bugs or security issues. Each function seems to perform its intended purpose correctly. However, without more context about how these functions are used to"
+      }
+    },
+    {
+      "item_id": "sc_1288",
+      "task_class": "scientific_claim",
+      "question": "There is a positive correlation between hip fractures and statin use.\n\nRespond with VERDICT: SUPPORT | CONTRADICT | NEI on the first line, then 1-2 sentences.",
+      "gold": "CONTRADICT",
+      "naive_big": {
+        "strategy": "naive_big",
+        "score": 1.0,
+        "cost_usd": 0.0001738,
+        "latency_ms": 883,
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "VERDICT: CONTRADICT\n\nThe abstract of the study (doc_id 471921) found that statin use in the 180 days and 3 years prior to the index date was associated with a significant reduction in the risk of hip fracture, not a positive correlation. This directl"
+      },
+      "naive_small_r": {
+        "strategy": "naive_small_r",
+        "score": 1.0,
+        "cost_usd": 2.9581e-05,
+        "latency_ms": 1849,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "VERDICT: CONTRADICT\nThe study found that statin use was associated with a reduced risk of hip fractures in elderly patients, indicating a negative correlation rather than a positive one. [CONFIDENCE: high]"
+      },
+      "naive_small_x": {
+        "strategy": "naive_small_x",
+        "score": 0.0,
+        "cost_usd": 6.1789e-05,
+        "latency_ms": 2668,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "VERDICT: SUPPORT\nThe study found that statin use in elderly patients was associated with a significant reduction in the risk of hip fracture, even after adjusting for various confounding factors. This suggests a positive correlation between statin us"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "score": 0.0,
+        "cost_usd": 2.4738e-05,
+        "latency_ms": 683,
+        "model_chain": [
+          "REFUSED"
+        ],
+        "confidence": "n/a",
+        "n_attempts": 0,
+        "task_class_predicted": "other",
+        "escalated": false,
+        "answer_text": "(refused)"
+      }
+    },
+    {
+      "item_id": "mr_60bf93ed",
+      "task_class": "memory_recall",
+      "question": "How many days did it take for my laptop backpack to arrive after I bought it?",
+      "gold": "5 days. 6 days (including the last day) is also acceptable.",
+      "naive_big": {
+        "strategy": "naive_big",
+        "score": 0.0,
+        "cost_usd": 0.0055335,
+        "latency_ms": 10598,
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "Your laptop backpack arrived on January 20th, which was 5 days after you purchased it on January 15th.  \n\n[CONFIDENCE: high]"
+      },
+      "naive_small_r": {
+        "strategy": "naive_small_r",
+        "score": 0.0,
+        "cost_usd": 0.00012661900000000002,
+        "latency_ms": 3015,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "Based on the provided context, the laptop backpack arrived on 1/20, and the user mentioned they started using it on the same day. Therefore, it took 0 days for the laptop backpack to arrive after purchase.\n\n[CONFIDENCE: high]"
+      },
+      "naive_small_x": {
+        "strategy": "naive_small_x",
+        "score": 0.0,
+        "cost_usd": 0.0017915980000000001,
+        "latency_ms": 23964,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "It took 3 days for your laptop backpack to arrive after you bought it. [CONFIDENCE: high]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "score": 0.0,
+        "cost_usd": 0.00014387000000000002,
+        "latency_ms": 3408,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "task_class_predicted": "memory_recall",
+        "confidence": "high",
+        "n_attempts": 1,
+        "escalated": false,
+        "answer_text": "Based on the provided context, the laptop backpack arrived on 1/20, and the user mentioned they started using it on the same day. Therefore, it took 0 days for the laptop backpack to arrive after purchase.\n\n[CONFIDENCE: high]"
+      }
+    },
+    {
+      "item_id": "sc_228",
+      "task_class": "scientific_claim",
+      "question": "Cardiac tissue-resident macrophages directly contribute to electrical activity.\n\nRespond with VERDICT: SUPPORT | CONTRADICT | NEI on the first line, then 1-2 sentences.",
+      "gold": "SUPPORT",
+      "naive_big": {
+        "strategy": "naive_big",
+        "score": 1.0,
+        "cost_usd": 0.00017835000000000003,
+        "latency_ms": 652,
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "VERDICT: SUPPORT\nThe study demonstrates that cardiac macrophages, through connexin-43-mediated coupling, affect the resting membrane potential and repolarization of cardiomyocytes, thereby influencing atrioventricular conduction. \n\n[CONFIDENCE: high]"
+      },
+      "naive_small_r": {
+        "strategy": "naive_small_r",
+        "score": 1.0,
+        "cost_usd": 2.4153e-05,
+        "latency_ms": 1960,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "VERDICT: SUPPORT\nThe context clearly indicates that cardiac tissue-resident macrophages facilitate electrical conduction through the atrioventricular node by coupling with cardiomyocytes via gap junctions and modulating resting membrane potentials. ["
+      },
+      "naive_small_x": {
+        "strategy": "naive_small_x",
+        "score": 1.0,
+        "cost_usd": 6.4658e-05,
+        "latency_ms": 3111,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "VERDICT: SUPPORT\nThe abstract of the study on Macrophages Facilitate Electrical Conduction in the Heart clearly demonstrates that cardiac macrophages directly contribute to electrical activity by facilitating conduction through the atrioventricular n"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "score": 0.0,
+        "cost_usd": 2.4788999999999996e-05,
+        "latency_ms": 600,
+        "model_chain": [
+          "REFUSED"
+        ],
+        "confidence": "n/a",
+        "n_attempts": 0,
+        "task_class_predicted": "other",
+        "escalated": false,
+        "answer_text": "(refused)"
+      }
+    },
+    {
+      "item_id": "sc_523",
+      "task_class": "scientific_claim",
+      "question": "Higher plasma levels of I-carnitine, when associated with trimethylamine N-oxide, are negatively correlated with cardiovascular events in humans.\n\nRespond with VERDICT: SUPPORT | CONTRADICT | NEI on t",
+      "gold": "CONTRADICT",
+      "naive_big": {
+        "strategy": "naive_big",
+        "score": 1.0,
+        "cost_usd": 0.00020455,
+        "latency_ms": 1166,
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "VERDICT: CONTRADICT\n\nThe provided abstract describes how intestinal microbiota metabolism of **L\u2011carnitine**, a nutrient abundant in red meat, produces **trimethylamine\u2011N\u2011oxide (TMAO)**, which accelerates atherosclerosis in mice and is associated wit"
+      },
+      "naive_small_r": {
+        "strategy": "naive_small_r",
+        "score": 0.0,
+        "cost_usd": 3.1566e-05,
+        "latency_ms": 2513,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "VERDICT: SUPPORT\nThe context indicates that higher plasma levels of L-carnitine, which is associated with increased TMAO production, are linked to increased risks for cardiovascular disease in humans. This suggests a negative correlation between high"
+      },
+      "naive_small_x": {
+        "strategy": "naive_small_x",
+        "score": 0.0,
+        "cost_usd": 7.2465e-05,
+        "latency_ms": 3852,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "VERDICT: SUPPORT\nThe context indicates that higher plasma levels of L-carnitine, which is metabolized to trimethylamine-N-oxide (TMAO) by intestinal microbiota, are associated with increased risks for cardiovascular disease (CVD) in humans. This sugg"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "score": 0.0,
+        "cost_usd": 2.5554e-05,
+        "latency_ms": 693,
+        "model_chain": [
+          "REFUSED"
+        ],
+        "confidence": "n/a",
+        "n_attempts": 0,
+        "task_class_predicted": "other",
+        "escalated": false,
+        "answer_text": "(refused)"
+      }
+    },
+    {
+      "item_id": "ca_B05_resource_leak",
+      "task_class": "code_audit",
+      "question": "Audit the following Python code. Find any bugs, security issues, or subtle correctness problems. Name the function and explain what is wrong.",
+      "gold": "load_config",
+      "naive_big": {
+        "strategy": "naive_big",
+        "score": 1.0,
+        "cost_usd": 5.94e-05,
+        "latency_ms": 2111,
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "confidence": "unknown",
+        "n_attempts": 1,
+        "answer_text": "The provided Python code snippets appear to be straightforward utility functions without any obvious bugs, security issues, or subtle correctness problems. Each module focuses on a specific task (e.g., loading JSON files, performing arithmetic operat"
+      },
+      "naive_small_r": {
+        "strategy": "naive_small_r",
+        "score": 0.0,
+        "cost_usd": 1.3089e-05,
+        "latency_ms": 2512,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "low",
+        "n_attempts": 1,
+        "answer_text": "CONFIDENCE: low\n\nThe provided code appears to be a collection of utility functions without any apparent bugs or security issues. The functions are straightforward and perform their intended tasks correctly. However, without more context about how the"
+      },
+      "naive_small_x": {
+        "strategy": "naive_small_x",
+        "score": 0.0,
+        "cost_usd": 1.8294e-05,
+        "latency_ms": 2609,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "unknown",
+        "n_attempts": 1,
+        "answer_text": "CONFIDENCE: medium\n\nThe code appears to be correct and free of bugs or security issues. The functions perform their intended operations without any apparent flaws. However, without more context about how these functions are used in a larger program, "
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "score": 0.0,
+        "cost_usd": 5.7286999999999995e-05,
+        "latency_ms": 17508,
+        "model_chain": [
+          "meta-llama/llama-3.1-8b-instruct",
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "task_class_predicted": "code_audit",
+        "confidence": "unknown",
+        "n_attempts": 2,
+        "escalated": true,
+        "answer_text": "CONFIDENCE: medium\n\nThe code appears to be correct and free of bugs, security issues, or subtle correctness problems. All functions seem to be implemented as intended. The functions perform their respective operations without any apparent issues."
+      }
+    },
+    {
+      "item_id": "sc_646",
+      "task_class": "scientific_claim",
+      "question": "Intake of folic acid (FA) and vitamin B6 (VB6) reduces levels of homocysteine.\n\nRespond with VERDICT: SUPPORT | CONTRADICT | NEI on the first line, then 1-2 sentences.",
+      "gold": "SUPPORT",
+      "naive_big": {
+        "strategy": "naive_big",
+        "score": 1.0,
+        "cost_usd": 0.00020875000000000003,
+        "latency_ms": 716,
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "VERDICT: SUPPORT  \nThe abstract indicates that higher intakes of folate and vitamin B6 were associated with reduced risks of coronary heart disease, suggesting that these vitamins lower homocysteine levels, which are linked to cardiovascular risk.\n\n["
+      },
+      "naive_small_r": {
+        "strategy": "naive_small_r",
+        "score": 1.0,
+        "cost_usd": 3.4014e-05,
+        "latency_ms": 2428,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "VERDICT: SUPPORT\nThe study found that higher intakes of folate and vitamin B6 were associated with a reduced risk of coronary heart disease (CHD) in women, suggesting that these nutrients may help lower homocysteine levels, a risk factor for CHD. [CO"
+      },
+      "naive_small_x": {
+        "strategy": "naive_small_x",
+        "score": 1.0,
+        "cost_usd": 7.293000000000001e-05,
+        "latency_ms": 2439,
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "confidence": "high",
+        "n_attempts": 1,
+        "answer_text": "VERDICT: SUPPORT\nMultiple studies have shown that higher intakes of folate (FA) and vitamin B6 (VB6) are associated with lower levels of homocysteine in the blood. [CONFIDENCE: high]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "score": 0.0,
+        "cost_usd": 2.5401e-05,
+        "latency_ms": 494,
+        "model_chain": [
+          "REFUSED"
+        ],
+        "confidence": "n/a",
+        "n_attempts": 0,
+        "task_class_predicted": "other",
+        "escalated": false,
+        "answer_text": "(refused)"
+      }
+    }
+  ]
+}
