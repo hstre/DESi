@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1.0",
+  "description": "Empirisch erhobene Routing-Tabelle für DESi. Jede Zelle ist (task_class, model, k) -> (score, mean_input_tokens, mean_latency_ms, cost_per_item_usd). Quelle: minimaltest-Serie auf LongMemEval-S (25 scorable items), SciFact (30 items), planted-bug code-review (15 items).",
+  "tasks": {
+    "memory_recall": {
+      "description": "LongMemEval-S — multi-session conversation history, factual lookup. Tests retrieval + small-context-window pressure.",
+      "haystack_size_tokens_avg": 100000,
+      "question_specificity": "high",
+      "scoring": "substring_match",
+      "n_test_items": 25,
+      "winning_strategy": "embedding_top_k",
+      "winning_state_note": "k varies per model",
+      "cells": [
+        {"model": "ibm-granite/granite-4.0-h-micro", "params": "~3B", "k": 3, "score": 0.560, "mean_tokens_in": 7740, "mean_latency_ms": 2100, "cost_per_item_usd": 0.00013},
+        {"model": "ibm-granite/granite-4.1-8b",      "params": "8B",  "k": 10, "score": 0.600, "mean_tokens_in": 26599, "mean_latency_ms": 2600, "cost_per_item_usd": 0.00134},
+        {"model": "meta-llama/llama-3.2-3b-instruct", "params": "3B", "k": 3, "score": 0.440, "mean_tokens_in": 7828, "mean_latency_ms": 700, "cost_per_item_usd": 0.00041},
+        {"model": "meta-llama/llama-3.1-8b-instruct", "params": "8B", "k": 5, "score": 0.560, "mean_tokens_in": 12699, "mean_latency_ms": 2200, "cost_per_item_usd": 0.00026},
+        {"model": "qwen/qwen-2.5-7b-instruct",        "params": "7B", "k": 3, "score": 0.560, "mean_tokens_in": 7818, "mean_latency_ms": 1600, "cost_per_item_usd": 0.00032},
+        {"model": "mistralai/ministral-3b-2512",      "params": "3B", "k": 8, "score": 0.520, "mean_tokens_in": 21180, "mean_latency_ms": 2700, "cost_per_item_usd": 0.00212}
+      ]
+    },
+    "code_audit": {
+      "description": "Planted-bug code review — 15 distinct bug types in 9-module mini-codebase. Tests bug localization with scattered evidence.",
+      "haystack_size_tokens_avg": 600,
+      "question_specificity": "low",
+      "scoring": "function_name + bug_marker in response",
+      "n_test_items": 15,
+      "winning_strategy": "raw_full",
+      "winning_state_note": "retrieval HURTS — 40% recall on generic 'find bugs' question",
+      "cells": [
+        {"model": "ibm-granite/granite-4.0-h-micro", "params": "~3B", "k": null, "score": 0.867, "mean_tokens_in": 558, "mean_latency_ms": 11500, "cost_per_item_usd": 0.00005, "note": "best score on this task"},
+        {"model": "ibm-granite/granite-4.1-8b",      "params": "8B",  "k": null, "score": 0.833, "mean_tokens_in": 648, "mean_latency_ms": 2100, "cost_per_item_usd": 0.00006},
+        {"model": "meta-llama/llama-3.2-3b-instruct", "params": "3B", "k": null, "score": 0.567, "mean_tokens_in": null, "mean_latency_ms": null, "cost_per_item_usd": 0.00011},
+        {"model": "meta-llama/llama-3.1-8b-instruct", "params": "8B", "k": null, "score": 0.833, "mean_tokens_in": null, "mean_latency_ms": null, "cost_per_item_usd": 0.00003, "note": "Pareto-cheapest at score >= 0.5"},
+        {"model": "qwen/qwen-2.5-7b-instruct",        "params": "7B", "k": null, "score": 0.367, "mean_tokens_in": null, "mean_latency_ms": null, "cost_per_item_usd": 0.00004, "note": "AVOID — worst score across all models on this task"},
+        {"model": "mistralai/ministral-3b-2512",      "params": "3B", "k": null, "score": 0.767, "mean_tokens_in": null, "mean_latency_ms": null, "cost_per_item_usd": 0.00009}
+      ]
+    },
+    "scientific_claim": {
+      "description": "SciFact 3-way classification: SUPPORT / CONTRADICT / NEI. Tests retrieval + scientific reasoning with high question specificity.",
+      "haystack_size_tokens_avg": 3000,
+      "question_specificity": "very_high",
+      "scoring": "exact_label_match",
+      "n_test_items": 30,
+      "winning_strategy": "embedding_top_k",
+      "winning_state_note": "retrieval recall is 100% on this benchmark, k=3 works well",
+      "cells": [
+        {"model": "ibm-granite/granite-4.0-h-micro", "params": "~3B", "k": 3, "score": 0.867, "mean_tokens_in": 1262, "mean_latency_ms": 4200, "cost_per_item_usd": 0.00004},
+        {"model": "ibm-granite/granite-4.1-8b",      "params": "8B",  "k": 3, "score": 0.967, "mean_tokens_in": 1302, "mean_latency_ms": 1200, "cost_per_item_usd": 0.00008, "note": "best score on this task"},
+        {"model": "meta-llama/llama-3.2-3b-instruct", "params": "3B", "k": 3, "score": 0.633, "mean_tokens_in": null, "mean_latency_ms": null, "cost_per_item_usd": 0.00009},
+        {"model": "meta-llama/llama-3.1-8b-instruct", "params": "8B", "k": 3, "score": 0.767, "mean_tokens_in": null, "mean_latency_ms": null, "cost_per_item_usd": 0.00003, "note": "Pareto-cheapest at score >= 0.5"},
+        {"model": "qwen/qwen-2.5-7b-instruct",        "params": "7B", "k": 3, "score": 0.900, "mean_tokens_in": null, "mean_latency_ms": null, "cost_per_item_usd": 0.00006, "note": "specializes in scientific text — strong here"},
+        {"model": "mistralai/ministral-3b-2512",      "params": "3B", "k": 3, "score": 0.833, "mean_tokens_in": null, "mean_latency_ms": null, "cost_per_item_usd": 0.00013}
+      ]
+    }
+  },
+  "untested_tasks": [
+    "multi_hop_reasoning",
+    "temporal_updates_with_conflict",
+    "tool_use_planning",
+    "creative_synthesis",
+    "long_document_summarization"
+  ],
+  "router_rules": {
+    "memory_recall": {
+      "default": {"model": "ibm-granite/granite-4.0-h-micro", "k": 3, "reason": "Pareto-cheapest at score >= 0.5"},
+      "high_accuracy": {"model": "ibm-granite/granite-4.1-8b", "k": 10, "reason": "Max score 0.60 at 10x cost"},
+      "low_latency": {"model": "meta-llama/llama-3.2-3b-instruct", "k": 3, "reason": "0.7s but score only 0.44"}
+    },
+    "code_audit": {
+      "default": {"model": "ibm-granite/granite-4.0-h-micro", "k": null, "reason": "Best absolute score 0.867 on this task"},
+      "cost_critical": {"model": "meta-llama/llama-3.1-8b-instruct", "k": null, "reason": "Score 0.833 at \\$0.00003 — Pareto-cheapest"},
+      "avoid": ["qwen/qwen-2.5-7b-instruct"]
+    },
+    "scientific_claim": {
+      "default": {"model": "ibm-granite/granite-4.1-8b", "k": 3, "reason": "Best score 0.967 with retrieval"},
+      "cost_critical": {"model": "meta-llama/llama-3.1-8b-instruct", "k": 3, "reason": "Score 0.767 at \\$0.00003"},
+      "qwen_specialty": {"model": "qwen/qwen-2.5-7b-instruct", "k": 3, "score": 0.900, "reason": "Qwen specializes in scientific text"}
+    }
+  },
+  "epistemic_specialties": {
+    "ibm-granite/granite-4.0-h-micro": "Code audit best-in-class; default low-cost router for memory tasks",
+    "ibm-granite/granite-4.1-8b": "Max score on 2 of 3 tasks (memory @k=10, scientific claims); 10x more expensive than micro",
+    "meta-llama/llama-3.1-8b-instruct": "Pareto-cheapest winner on 2 of 3 tasks; under-rated cost-optimal default",
+    "qwen/qwen-2.5-7b-instruct": "Strong on scientific text (0.90), catastrophic on code (0.37) — task-heterogeneity ratio 2.4x",
+    "meta-llama/llama-3.2-3b-instruct": "Fastest latency (0.7s) but weak scores across all tasks",
+    "mistralai/ministral-3b-2512": "Solid all-rounder but Pareto-dominated by Granite Micro and Llama 8B"
+  },
+  "open_questions": [
+    "Does this routing table generalize across more task classes (multi-hop, tool-use, creative)?",
+    "What is the k* for Llama / Qwen / Mistral on Code-Audit and Paper-Audit specifically (we only used the Granite-winning state)?",
+    "Is there a structural signature (model architecture / training mix) that predicts k* and task specialty?",
+    "How does the router behave under task-class uncertainty (when the input doesn't cleanly belong to one bucket)?",
+    "Confidence signals: can we read self-uncertainty from logprobs / verdict-confidence and use that for escalation?"
+  ]
+}
