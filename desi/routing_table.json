@@ -22,7 +22,12 @@
         {"model": "google/gemini-2.5-flash-lite",     "params": "frontier-cheap", "k": 5,  "score": 0.600, "mean_tokens_in": 13147, "mean_latency_ms": 1900, "cost_per_item_usd": 0.00132},
         {"model": "anthropic/claude-sonnet-4.6",      "params": "frontier-mid",   "k": 8,  "score": 0.640, "mean_tokens_in": 22775, "mean_latency_ms": 5300, "cost_per_item_usd": 0.06946},
         {"model": "google/gemini-2.5-flash",          "params": "frontier-cheap-mid", "k": 5, "score": 0.520, "mean_tokens_in": 13147, "mean_latency_ms": 3400, "cost_per_item_usd": 0.00397},
-        {"model": "google/gemini-2.5-pro",            "params": "frontier-mid",   "k": 5,  "score": 0.280, "mean_tokens_in": 13147, "mean_latency_ms": 5600, "cost_per_item_usd": 0.01893, "note": "disappointing — Pareto-dominated"}
+        {"model": "google/gemini-2.5-pro",            "params": "frontier-mid",   "k": 5,  "score": 0.280, "mean_tokens_in": 13147, "mean_latency_ms": 5600, "cost_per_item_usd": 0.01893, "note": "disappointing — Pareto-dominated"},
+        {"model": "deepseek/deepseek-v4-flash",       "params": "frontier-cheap", "k": 8,  "score": 0.560, "mean_tokens_in": 20099, "mean_latency_ms": 10400, "cost_per_item_usd": 0.00203},
+        {"model": "deepseek/deepseek-v4-pro",         "params": "frontier-cheap-mid", "k": 8, "score": 0.560, "mean_tokens_in": 20099, "mean_latency_ms": 13000, "cost_per_item_usd": 0.00903, "note": "weak vs cheaper DS siblings"},
+        {"model": "deepseek/deepseek-v3.2",           "params": "frontier-cheap", "k": 5,  "score": 0.640, "mean_tokens_in": 12699, "mean_latency_ms": 7100, "cost_per_item_usd": 0.00291, "note": "tied for best memory @k=5"},
+        {"model": "deepseek/deepseek-chat-v3.1",      "params": "frontier-cheap", "k": 8,  "score": 0.640, "mean_tokens_in": 20099, "mean_latency_ms": 9100, "cost_per_item_usd": 0.00429},
+        {"model": "deepseek/deepseek-chat-v3-0324",   "params": "frontier-cheap", "k": 5,  "score": 0.600, "mean_tokens_in": 12699, "mean_latency_ms": 7100, "cost_per_item_usd": 0.00257}
       ]
     },
     "code_audit": {
@@ -45,7 +50,12 @@
         {"model": "google/gemini-2.5-flash-lite",     "params": "frontier-cheap", "k": null, "score": 0.967, "mean_tokens_in": 623, "mean_latency_ms": 2400, "cost_per_item_usd": 0.00013, "note": "new Pareto-cost king: 0.967 at granite-micro price"},
         {"model": "anthropic/claude-sonnet-4.6",      "params": "frontier-mid",   "k": null, "score": 0.967, "mean_tokens_in": 657, "mean_latency_ms": 6700, "cost_per_item_usd": 0.00666},
         {"model": "google/gemini-2.5-flash",          "params": "frontier-cheap-mid", "k": null, "score": 0.933, "mean_tokens_in": 623, "mean_latency_ms": 1500, "cost_per_item_usd": 0.00056},
-        {"model": "google/gemini-2.5-pro",            "params": "frontier-mid",   "k": null, "score": 0.500, "mean_tokens_in": 623, "mean_latency_ms": 5100, "cost_per_item_usd": 0.00474, "note": "underperforms"}
+        {"model": "google/gemini-2.5-pro",            "params": "frontier-mid",   "k": null, "score": 0.500, "mean_tokens_in": 623, "mean_latency_ms": 5100, "cost_per_item_usd": 0.00474, "note": "underperforms"},
+        {"model": "deepseek/deepseek-v4-flash",       "params": "frontier-cheap", "k": null, "score": 0.733, "mean_tokens_in": 563, "mean_latency_ms": 10400, "cost_per_item_usd": 0.00014},
+        {"model": "deepseek/deepseek-v4-pro",         "params": "frontier-cheap-mid", "k": null, "score": 0.467, "mean_tokens_in": 568, "mean_latency_ms": 13000, "cost_per_item_usd": 0.00065, "note": "underperforms vs cheaper DS siblings"},
+        {"model": "deepseek/deepseek-v3.2",           "params": "frontier-cheap", "k": null, "score": 0.967, "mean_tokens_in": 563, "mean_latency_ms": 11500, "cost_per_item_usd": 0.00020},
+        {"model": "deepseek/deepseek-chat-v3.1",      "params": "frontier-cheap", "k": null, "score": 0.867, "mean_tokens_in": 564, "mean_latency_ms": 9100, "cost_per_item_usd": 0.00023},
+        {"model": "deepseek/deepseek-chat-v3-0324",   "params": "frontier-cheap", "k": null, "score": 1.000, "mean_tokens_in": 562, "mean_latency_ms": 13400, "cost_per_item_usd": 0.00029, "note": "PERFECT 1.000 — only model to ace code-audit"}
       ]
     },
     "scientific_claim": {
@@ -68,7 +78,12 @@
         {"model": "google/gemini-2.5-flash-lite",     "params": "frontier-cheap", "k": 3, "score": 0.900, "mean_tokens_in": 1229, "mean_latency_ms": 1700, "cost_per_item_usd": 0.00014},
         {"model": "anthropic/claude-sonnet-4.6",      "params": "frontier-mid",   "k": 3, "score": 0.800, "mean_tokens_in": 1423, "mean_latency_ms": 2900, "cost_per_item_usd": 0.00544},
         {"model": "google/gemini-2.5-flash",          "params": "frontier-cheap-mid", "k": 3, "score": 0.833, "mean_tokens_in": 1229, "mean_latency_ms": 900, "cost_per_item_usd": 0.00050},
-        {"model": "google/gemini-2.5-pro",            "params": "frontier-mid",   "k": 3, "score": 0.667, "mean_tokens_in": 1229, "mean_latency_ms": 3400, "cost_per_item_usd": 0.00350}
+        {"model": "google/gemini-2.5-pro",            "params": "frontier-mid",   "k": 3, "score": 0.667, "mean_tokens_in": 1229, "mean_latency_ms": 3400, "cost_per_item_usd": 0.00350},
+        {"model": "deepseek/deepseek-v4-flash",       "params": "frontier-cheap", "k": 3, "score": 0.733, "mean_tokens_in": 1191, "mean_latency_ms": 8600, "cost_per_item_usd": 0.00015},
+        {"model": "deepseek/deepseek-v4-pro",         "params": "frontier-cheap-mid", "k": 3, "score": 0.500, "mean_tokens_in": 1197, "mean_latency_ms": 8100, "cost_per_item_usd": 0.00068, "note": "underperforms"},
+        {"model": "deepseek/deepseek-v3.2",           "params": "frontier-cheap", "k": 3, "score": 0.900, "mean_tokens_in": 1191, "mean_latency_ms": 7100, "cost_per_item_usd": 0.00029},
+        {"model": "deepseek/deepseek-chat-v3.1",      "params": "frontier-cheap", "k": 3, "score": 0.867, "mean_tokens_in": 1192, "mean_latency_ms": 7400, "cost_per_item_usd": 0.00029},
+        {"model": "deepseek/deepseek-chat-v3-0324",   "params": "frontier-cheap", "k": 3, "score": 0.933, "mean_tokens_in": 1190, "mean_latency_ms": 7100, "cost_per_item_usd": 0.00028}
       ]
     }
   },
@@ -137,10 +152,11 @@
       "low_latency": {"model": "meta-llama/llama-3.2-3b-instruct", "k": 3, "reason": "0.7s but score only 0.44"}
     },
     "code_audit": {
-      "default": {"model": "google/gemini-2.5-flash-lite", "k": null, "reason": "Pareto-cost-optimal at score 0.967 (\\$0.00013) — new winner after frontier calibration"},
+      "default": {"model": "deepseek/deepseek-chat-v3-0324", "k": null, "reason": "PERFECT 1.000 score at \\$0.00029 — only model to ace this task"},
       "cost_critical": {"model": "meta-llama/llama-3.1-8b-instruct", "k": null, "reason": "Score 0.833 at \\$0.00003 — absolute cheapest above 0.5"},
-      "high_accuracy_alternative": {"model": "anthropic/claude-haiku-4.5", "k": null, "reason": "Also scores 0.967 with proven long-context capability"},
-      "avoid": ["qwen/qwen-2.5-7b-instruct", "google/gemini-2.5-pro"]
+      "pareto_cost_optimal": {"model": "google/gemini-2.5-flash-lite", "k": null, "reason": "Score 0.967 at \\$0.00013 — Pareto-cost-optimal at this score level"},
+      "deepseek_cheap_alternative": {"model": "deepseek/deepseek-v3.2", "k": null, "reason": "Score 0.967 at \\$0.00020 — strong DS-cheap option"},
+      "avoid": ["qwen/qwen-2.5-7b-instruct", "google/gemini-2.5-pro", "deepseek/deepseek-v4-pro"]
     },
     "scientific_claim": {
       "default": {"model": "ibm-granite/granite-4.1-8b", "k": 3, "reason": "Best score 0.967 with retrieval"},

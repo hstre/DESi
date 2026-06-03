@@ -1,0 +1,110 @@
+{
+  "deepseek_models_tested": [
+    "deepseek/deepseek-v4-flash",
+    "deepseek/deepseek-v4-pro",
+    "deepseek/deepseek-v3.2",
+    "deepseek/deepseek-chat-v3.1",
+    "deepseek/deepseek-chat-v3-0324"
+  ],
+  "lme_kcurve": {
+    "deepseek/deepseek-v4-flash": {
+      "peak_k": 8,
+      "peak_score": 0.56,
+      "tokens_in": 20353,
+      "latency_ms": 8511,
+      "cost_per_item": 0.00203
+    },
+    "deepseek/deepseek-v4-pro": {
+      "peak_k": 8,
+      "peak_score": 0.56,
+      "tokens_in": 20359,
+      "latency_ms": 7562,
+      "cost_per_item": 0.00903
+    },
+    "deepseek/deepseek-v3.2": {
+      "peak_k": 5,
+      "peak_score": 0.64,
+      "tokens_in": 12675,
+      "latency_ms": 9269,
+      "cost_per_item": 0.00291
+    },
+    "deepseek/deepseek-chat-v3.1": {
+      "peak_k": 8,
+      "peak_score": 0.64,
+      "tokens_in": 20353,
+      "latency_ms": 13633,
+      "cost_per_item": 0.00429
+    },
+    "deepseek/deepseek-chat-v3-0324": {
+      "peak_k": 5,
+      "peak_score": 0.6,
+      "tokens_in": 12674,
+      "latency_ms": 10218,
+      "cost_per_item": 0.00257
+    }
+  },
+  "code_audit": {
+    "deepseek/deepseek-v4-flash": {
+      "score": 0.733,
+      "tokens_in": 563,
+      "latency_ms": 10434,
+      "cost_per_item": 0.00014
+    },
+    "deepseek/deepseek-v4-pro": {
+      "score": 0.467,
+      "tokens_in": 568,
+      "latency_ms": 12976,
+      "cost_per_item": 0.00065
+    },
+    "deepseek/deepseek-v3.2": {
+      "score": 0.967,
+      "tokens_in": 563,
+      "latency_ms": 11536,
+      "cost_per_item": 0.0002
+    },
+    "deepseek/deepseek-chat-v3.1": {
+      "score": 0.867,
+      "tokens_in": 564,
+      "latency_ms": 9053,
+      "cost_per_item": 0.00023
+    },
+    "deepseek/deepseek-chat-v3-0324": {
+      "score": 1.0,
+      "tokens_in": 562,
+      "latency_ms": 13411,
+      "cost_per_item": 0.00029
+    }
+  },
+  "paper_audit": {
+    "deepseek/deepseek-v4-flash": {
+      "score": 0.733,
+      "tokens_in": 1191,
+      "latency_ms": 8594,
+      "cost_per_item": 0.00015
+    },
+    "deepseek/deepseek-v4-pro": {
+      "score": 0.5,
+      "tokens_in": 1197,
+      "latency_ms": 8119,
+      "cost_per_item": 0.00068
+    },
+    "deepseek/deepseek-v3.2": {
+      "score": 0.9,
+      "tokens_in": 1191,
+      "latency_ms": 7076,
+      "cost_per_item": 0.00029
+    },
+    "deepseek/deepseek-chat-v3.1": {
+      "score": 0.867,
+      "tokens_in": 1192,
+      "latency_ms": 7405,
+      "cost_per_item": 0.00029
+    },
+    "deepseek/deepseek-chat-v3-0324": {
+      "score": 0.933,
+      "tokens_in": 1190,
+      "latency_ms": 7131,
+      "cost_per_item": 0.00028
+    }
+  }
+}

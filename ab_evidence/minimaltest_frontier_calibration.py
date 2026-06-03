@@ -64,6 +64,12 @@ FRONTIER_MODELS = [
     "openai/gpt-5",
     "google/gemini-2.5-flash",
     "google/gemini-2.5-pro",
+    # DeepSeek family (chat-tuned, non-reasoning — R1 family is incompatible)
+    "deepseek/deepseek-v4-flash",
+    "deepseek/deepseek-v4-pro",
+    "deepseek/deepseek-v3.2",
+    "deepseek/deepseek-chat-v3.1",
+    "deepseek/deepseek-chat-v3-0324",
 ]
 
 K_VALUES = [3, 5, 8, 10]
@@ -79,6 +85,11 @@ PRICES = {
     "google/gemini-2.5-flash-lite": (0.10, 0.40),
     "google/gemini-2.5-flash": (0.30, 2.50),
     "google/gemini-2.5-pro": (1.25, 10.00),
+    "deepseek/deepseek-v4-flash": (0.098, 0.197),
+    "deepseek/deepseek-v4-pro": (0.435, 0.870),
+    "deepseek/deepseek-v3.2": (0.229, 0.343),
+    "deepseek/deepseek-chat-v3.1": (0.210, 0.790),
+    "deepseek/deepseek-chat-v3-0324": (0.200, 0.770),
 }
 
 ANSWER_SYSTEM = (
