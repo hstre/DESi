@@ -1,0 +1,1478 @@
+{
+  "N": 25,
+  "by_strategy": {
+    "naive_big": {
+      "accuracy": 0.24,
+      "mean_cost_usd": 0.005317,
+      "total_cost_usd": 0.1329,
+      "mean_latency_ms": 16245,
+      "total_latency_ms": 406137,
+      "n_escalated": 0,
+      "escalation_rate": 0.0,
+      "cost_per_correct": 0.022155
+    },
+    "naive_small": {
+      "accuracy": 0.52,
+      "mean_cost_usd": 0.000136,
+      "total_cost_usd": 0.0034,
+      "mean_latency_ms": 3262,
+      "total_latency_ms": 81538,
+      "n_escalated": 0,
+      "escalation_rate": 0.0,
+      "cost_per_correct": 0.000261
+    },
+    "desi_v0_2": {
+      "accuracy": 0.44,
+      "mean_cost_usd": 0.000139,
+      "total_cost_usd": 0.0035,
+      "mean_latency_ms": 3428,
+      "total_latency_ms": 85711,
+      "n_escalated": 0,
+      "escalation_rate": 0.0,
+      "cost_per_correct": 0.000316
+    },
+    "desi_v0_3": {
+      "accuracy": 0.48,
+      "mean_cost_usd": 0.000436,
+      "total_cost_usd": 0.0109,
+      "mean_latency_ms": 5233,
+      "total_latency_ms": 130837,
+      "n_escalated": 6,
+      "escalation_rate": 0.24,
+      "cost_per_correct": 0.000909
+    }
+  },
+  "per_item": [
+    {
+      "qid": "18bc8abd",
+      "question_type": "knowledge-update",
+      "question": "What brand of BBQ sauce am I currently obsessed with?",
+      "gold": "Kansas City Masterpiece",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.0054199,
+        "latency_ms": 20426,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "You mentioned that your favorite BBQ sauce is **Kansas City Masterpiece BBQ sauce**. \n\n[CONFIDENCE: high]"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00019038600000000002,
+        "latency_ms": 3159,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "You are currently obsessed with Kansas City Masterpiece BBQ sauce [CONFIDENCE: high]"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "model_chain": [
+          "REFUSED"
+        ],
+        "score": 0.0,
+        "cost_usd": 1.661e-05,
+        "latency_ms": 376,
+        "n_attempts": 0,
+        "confidence": "n/a",
+        "task_class": "other",
+        "answer_text": "(refused)"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "model_chain": [
+          "REFUSED"
+        ],
+        "score": 0.0,
+        "cost_usd": 1.661e-05,
+        "latency_ms": 444,
+        "n_attempts": 0,
+        "confidence": "n/a",
+        "task_class": "other",
+        "answer_text": "(refused)",
+        "escalated": false
+      }
+    },
+    {
+      "qid": "18dcd5a5",
+      "question_type": "single-session-assistant",
+      "question": "I'm going back to our previous chat about the Lost Temple of the Djinn one-shot. Can you remind me how many mummies the party will face in the temple?",
+      "gold": "4",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.0055791,
+        "latency_ms": 20839,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "Based on the previous discussion, the party will face **four mummies** in the Lost Temple of the Djinn one-shot. \n\n[CONFIDENCE: high]"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 5.6625e-05,
+        "latency_ms": 1784,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "The party will face 4 mummies in the Lost Temple of the Djinn one-shot. [CONFIDENCE: high]"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 7.4794e-05,
+        "latency_ms": 1832,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "The party will face 4 mummies in the Lost Temple of the Djinn one-shot. [CONFIDENCE: high]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 7.4794e-05,
+        "latency_ms": 2468,
+        "n_attempts": 1,
+        "confidence": "high",
+        "escalated": false,
+        "answer_text": "The party will face 4 mummies in the Lost Temple of the Djinn one-shot. [CONFIDENCE: high]"
+      }
+    },
+    {
+      "qid": "01493427",
+      "question_type": "knowledge-update",
+      "question": "How many new postcards have I added to my collection since I started collecting again?",
+      "gold": "25",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.005535750000000001,
+        "latency_ms": 20367,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "You mentioned that you added **17 new postcards** to your collection since you started collecting again. \n\n[CONFIDENCE: high]"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00016326300000000003,
+        "latency_ms": 2606,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "You have added 25 new postcards to your collection since you started collecting again. [CONFIDENCE: high]"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00018051400000000003,
+        "latency_ms": 3264,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "You have added 25 new postcards to your collection since you started collecting again. [CONFIDENCE: high]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00018051400000000003,
+        "latency_ms": 5887,
+        "n_attempts": 1,
+        "confidence": "high",
+        "escalated": false,
+        "answer_text": "You have added 25 new postcards to your collection since you started collecting again. [CONFIDENCE: high]"
+      }
+    },
+    {
+      "qid": "1cea1afa",
+      "question_type": "knowledge-update",
+      "question": "How many Instagram followers do I currently have?",
+      "gold": "600",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.005599150000000001,
+        "latency_ms": 21270,
+        "n_attempts": 1,
+        "confidence": "unknown",
+        "answer_text": "I don't have access to your personal social media accounts, so I cannot determine the number of followers you currently have on Instagram. To find out, you can log into your Instagram account and chec"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.000124639,
+        "latency_ms": 1957,
+        "n_attempts": 1,
+        "confidence": "low",
+        "answer_text": "[CONFIDENCE: low]"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.000141482,
+        "latency_ms": 5249,
+        "n_attempts": 1,
+        "confidence": "low",
+        "answer_text": "[CONFIDENCE: low]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro",
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.0011962820000000001,
+        "latency_ms": 7586,
+        "n_attempts": 2,
+        "confidence": "high",
+        "escalated": true,
+        "answer_text": "Based on the conversation, you have reached 600 followers on Instagram. \n\n[CONFIDENCE: high]"
+      }
+    },
+    {
+      "qid": "311778f1",
+      "question_type": "single-session-user",
+      "question": "How many hours did I spend watching documentaries on Netflix last month?",
+      "gold": "10",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.0,
+        "latency_ms": 394,
+        "n_attempts": 1,
+        "confidence": "unknown",
+        "answer_text": ""
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00014369000000000003,
+        "latency_ms": 5768,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "You spent approximately 10 hours watching documentaries on Netflix last month. [CONFIDENCE: high]"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00016073700000000004,
+        "latency_ms": 2795,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "You spent approximately 10 hours watching documentaries on Netflix last month. [CONFIDENCE: high]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00016073700000000004,
+        "latency_ms": 2729,
+        "n_attempts": 1,
+        "confidence": "high",
+        "escalated": false,
+        "answer_text": "You spent approximately 10 hours watching documentaries on Netflix last month. [CONFIDENCE: high]"
+      }
+    },
+    {
+      "qid": "1faac195",
+      "question_type": "single-session-user",
+      "question": "Where does my sister Emily live?",
+      "gold": "Denver",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.0055870500000000005,
+        "latency_ms": 11854,
+        "n_attempts": 1,
+        "confidence": "low",
+        "answer_text": "The context provided does not contain any information about where your sister Emily lives. Therefore, I am unable to determine her residence based on the available information. \n\n[CONFIDENCE: low]"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.000145244,
+        "latency_ms": 3785,
+        "n_attempts": 1,
+        "confidence": "low",
+        "answer_text": "[CONFIDENCE: low] I do not have information on where your sister Emily lives."
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.000161985,
+        "latency_ms": 3307,
+        "n_attempts": 1,
+        "confidence": "low",
+        "answer_text": "[CONFIDENCE: low] I do not have information on where your sister Emily lives."
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro",
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.001645685,
+        "latency_ms": 4671,
+        "n_attempts": 2,
+        "confidence": "high",
+        "escalated": true,
+        "answer_text": "Emily lives with your mom's best friend in San Francisco. [CONFIDENCE: high]"
+      }
+    },
+    {
+      "qid": "4d6b87c8",
+      "question_type": "knowledge-update",
+      "question": "How many titles are currently on my to-watch list?",
+      "gold": "25",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.0054191000000000005,
+        "latency_ms": 10598,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "I have no access to personal information such as your to-watch list. However, based on our previous conversation, you mentioned you have 25 titles on your to-watch list. [CONFIDENCE: high]"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00014895000000000002,
+        "latency_ms": 2385,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "You currently have 25 titles on your to-watch list. [CONFIDENCE: high]"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00016589500000000002,
+        "latency_ms": 2803,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "You currently have 25 titles on your to-watch list. [CONFIDENCE: high]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00016589500000000002,
+        "latency_ms": 3380,
+        "n_attempts": 1,
+        "confidence": "high",
+        "escalated": false,
+        "answer_text": "You currently have 25 titles on your to-watch list. [CONFIDENCE: high]"
+      }
+    },
+    {
+      "qid": "60bf93ed",
+      "question_type": "multi-session",
+      "question": "How many days did it take for my laptop backpack to arrive after I bought it?",
+      "gold": "5 days. 6 days (including the last day) is also acceptable.",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.005547500000000001,
+        "latency_ms": 20195,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "The laptop backpack was purchased on January 20th, and the conversation indicates it arrived later. Based on the provided context, the backpack arrived on February 1st. To calculate the number of days"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00012349700000000003,
+        "latency_ms": 4037,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "It took 10 days for your laptop backpack to arrive after you bought it [CONFIDENCE: high]"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00014074800000000003,
+        "latency_ms": 5354,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "It took 10 days for your laptop backpack to arrive after you bought it [CONFIDENCE: high]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00014074800000000003,
+        "latency_ms": 2231,
+        "n_attempts": 1,
+        "confidence": "high",
+        "escalated": false,
+        "answer_text": "It took 10 days for your laptop backpack to arrive after you bought it [CONFIDENCE: high]"
+      }
+    },
+    {
+      "qid": "51b23612",
+      "question_type": "single-session-assistant",
+      "question": "I was going through our previous conversation about political propaganda and humor, and I was wondering if you could remind me of that Soviet cartoon you mentioned that mocked Western culture?",
+      "gold": "Nu, pogodi!",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.005456300000000001,
+        "latency_ms": 22712,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "The Soviet cartoon you're referring to might be \"Nu, pogodi!\" (literally \"Well, off you go!\"), a popular series of cartoons produced in the Soviet Union from 1969 to 1991. The series centered around a"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00011414300000000001,
+        "latency_ms": 5191,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "The Soviet cartoon you're referring to is called \"Nu, pogodi!\" (Russian for \"Well, then!\"). It was a popular Soviet animated series that aired from 1969 to 1986. The show was known for its satirical h"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00013187400000000003,
+        "latency_ms": 7503,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "The Soviet cartoon you're referring to is called \"Nu, pogodi!\" (Russian for \"Well, then!\"). It was a popular Soviet comedy series that aired from 1965 to 1982. The show often mocked Western culture, p"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00013277000000000002,
+        "latency_ms": 5580,
+        "n_attempts": 1,
+        "confidence": "high",
+        "escalated": false,
+        "answer_text": "The Soviet cartoon you're referring to is called \"Nu, pogodi!\" (Russian for \"Well, then!\"). It was a popular Soviet comedy series that aired from 1965 to 1990. The show often mocked Western culture, p"
+      }
+    },
+    {
+      "qid": "60d45044",
+      "question_type": "single-session-user",
+      "question": "What type of rice is my favorite?",
+      "gold": "Japanese short-grain rice",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.0055851500000000005,
+        "latency_ms": 20951,
+        "n_attempts": 1,
+        "confidence": "low",
+        "answer_text": "I'm unable to determine your favorite type of rice as I don't have access to personal preferences or experiences. However, I can provide information about different types of rice if you'd like! Let me"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00017674900000000003,
+        "latency_ms": 8902,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "Japanese short-grain rice is your favorite. [CONFIDENCE: high]"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "model_chain": [
+          "REFUSED"
+        ],
+        "score": 0.0,
+        "cost_usd": 1.6457000000000002e-05,
+        "latency_ms": 2271,
+        "n_attempts": 0,
+        "confidence": "n/a",
+        "task_class": "other",
+        "answer_text": "(refused)"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "model_chain": [
+          "REFUSED"
+        ],
+        "score": 0.0,
+        "cost_usd": 1.6457000000000002e-05,
+        "latency_ms": 234,
+        "n_attempts": 0,
+        "confidence": "n/a",
+        "task_class": "other",
+        "answer_text": "(refused)",
+        "escalated": false
+      }
+    },
+    {
+      "qid": "6ae235be",
+      "question_type": "single-session-assistant",
+      "question": "I remember you told me about the refining processes at CITGO's three refineries earlier. Can you remind me what kind of processes are used at the Lake Charles Refinery?",
+      "gold": "Atmospheric distillation, fluid catalytic cracking (FCC), alkylation, and hydrotreating.",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00553545,
+        "latency_ms": 20522,
+        "n_attempts": 1,
+        "confidence": "unknown",
+        "answer_text": "At the CITGO Lake Charles Refinery, several key refining processes are employed to transform crude oil into valuable refined products. The primary processes include:\n\n1. **Distillation**: The core of "
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 9.575800000000001e-05,
+        "latency_ms": 3624,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "At the Lake Charles Refinery, the main refining processes include atmospheric distillation, fluid catalytic cracking (FCC), alkylation, and hydrotreating. These processes work together to convert crud"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00011975100000000003,
+        "latency_ms": 4808,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "At the Lake Charles Refinery, the main refining processes include atmospheric distillation, fluid catalytic cracking (FCC), alkylation, and hydrotreating. Atmospheric distillation is the initial step "
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.000120087,
+        "latency_ms": 5515,
+        "n_attempts": 1,
+        "confidence": "high",
+        "escalated": false,
+        "answer_text": "At the Lake Charles Refinery, the main refining processes include atmospheric distillation, fluid catalytic cracking (FCC), alkylation, and hydrotreating. Atmospheric distillation is the initial step "
+      }
+    },
+    {
+      "qid": "852ce960",
+      "question_type": "knowledge-update",
+      "question": "What was the amount I was pre-approved for when I got my mortgage from Wells Fargo?",
+      "gold": "$400,000",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00547915,
+        "latency_ms": 10383,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "You were pre-approved for a mortgage amount of $400,000 from Wells Fargo.\n\n[CONFIDENCE: high]"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00016685999999999998,
+        "latency_ms": 4743,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "You were pre-approved for $400,000 when you got your mortgage from Wells Fargo. [CONFIDENCE: high]"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00018416199999999998,
+        "latency_ms": 3796,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "You were pre-approved for $400,000 when you got your mortgage from Wells Fargo. [CONFIDENCE: high]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00018416199999999998,
+        "latency_ms": 2932,
+        "n_attempts": 1,
+        "confidence": "high",
+        "escalated": false,
+        "answer_text": "You were pre-approved for $400,000 when you got your mortgage from Wells Fargo. [CONFIDENCE: high]"
+      }
+    },
+    {
+      "qid": "993da5e2",
+      "question_type": "temporal-reasoning",
+      "question": "How long had I been using the new area rug when I rearranged my living room furniture?",
+      "gold": "One week. Answers ranging from 7 days to 10 days are also acceptable.",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.0055161,
+        "latency_ms": 20525,
+        "n_attempts": 1,
+        "confidence": "low",
+        "answer_text": "Based on the provided conversation, there is no information about an area rug or a furniture rearrangement. The conversation mainly discusses topics such as fantasy baseball, vegan recipes, SEO advice"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00012604400000000001,
+        "latency_ms": 3452,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "Based on the conversation, you rearranged your living room furniture three weeks ago. You mentioned using the new area rug for a month, which means you had been using the rug for about 4 weeks when yo"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00014339700000000002,
+        "latency_ms": 3668,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "Based on the conversation, you rearranged your living room furniture three weeks ago. You mentioned using the new area rug for a month, which means you had been using the rug for about 4 weeks when yo"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00014339700000000002,
+        "latency_ms": 3346,
+        "n_attempts": 1,
+        "confidence": "high",
+        "escalated": false,
+        "answer_text": "Based on the conversation, you rearranged your living room furniture three weeks ago. You mentioned using the new area rug for a month, which means you had been using the rug for about 4 weeks when yo"
+      }
+    },
+    {
+      "qid": "c4f10528",
+      "question_type": "single-session-assistant",
+      "question": "I'm planning to visit Bandung again and I was wondering if you could remind me of the name of that restaurant in Cihampelas Walk that serves a great Nasi Goreng?",
+      "gold": "Miss Bee Providore",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.0055755,
+        "latency_ms": 11671,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "The restaurant you're likely thinking of is probably **Miss Bee Providore**, which is known for serving a delicious Nasi Goreng among its other Indonesian and Western-inspired dishes. Its location on "
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00013448800000000002,
+        "latency_ms": 1822,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "Miss Bee Providore [CONFIDENCE: high]"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00015281000000000002,
+        "latency_ms": 2387,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "Miss Bee Providore [CONFIDENCE: high]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00015281000000000002,
+        "latency_ms": 2747,
+        "n_attempts": 1,
+        "confidence": "high",
+        "escalated": false,
+        "answer_text": "Miss Bee Providore [CONFIDENCE: high]"
+      }
+    },
+    {
+      "qid": "a06e4cfe",
+      "question_type": "single-session-user",
+      "question": "What is my preferred gin-to-vermouth ratio for a classic gin martini?",
+      "gold": "3:1",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.0055997,
+        "latency_ms": 22893,
+        "n_attempts": 1,
+        "confidence": "medium",
+        "answer_text": "To determine your preferred gin-to-vermouth ratio for a classic gin martini, you would need to have your own personal experience or preference. Since I am an AI language model and do not have personal"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.000157058,
+        "latency_ms": 3412,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "[CONFIDENCE: high] My preferred gin-to-vermouth ratio for a classic gin martini is 3:1. This ratio strikes a perfect balance between the botanical flavors of the gin and the botanical and herbal notes"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00017291400000000003,
+        "latency_ms": 3441,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "[CONFIDENCE: high] My preferred gin-to-vermouth ratio for a classic gin martini is 3:1. This ratio allows the gin's botanical flavors to shine while providing a balanced, dry martini experience."
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.000174258,
+        "latency_ms": 4327,
+        "n_attempts": 1,
+        "confidence": "high",
+        "escalated": false,
+        "answer_text": "[CONFIDENCE: high] My preferred gin-to-vermouth ratio for a classic gin martini is 3:1. This ratio strikes a perfect balance between the botanical flavors of the gin and the botanical and herbal notes"
+      }
+    },
+    {
+      "qid": "dc439ea3",
+      "question_type": "single-session-assistant",
+      "question": "I was looking back at our previous conversation about Native American powwows and I was wondering, which traditional game did you say was often performed by skilled dancers at powwows?",
+      "gold": "Hoop Dance",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.005554000000000001,
+        "latency_ms": 11559,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "In our previous conversation, I mentioned that **grazing** is often performed by skilled dancers at Native American powwows. This traditional game involves dancers moving gracefully and skillfully acr"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 9.459600000000001e-05,
+        "latency_ms": 1526,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "Hoop Dance [CONFIDENCE: high]"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00011281600000000001,
+        "latency_ms": 1794,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "Hoop Dance [CONFIDENCE: high]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00011281600000000001,
+        "latency_ms": 1927,
+        "n_attempts": 1,
+        "confidence": "high",
+        "escalated": false,
+        "answer_text": "Hoop Dance [CONFIDENCE: high]"
+      }
+    },
+    {
+      "qid": "bc149d6b",
+      "question_type": "multi-session",
+      "question": "What is the total weight of the new feed I purchased in the past two months?",
+      "gold": "70 pounds",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.005451200000000001,
+        "latency_ms": 13718,
+        "n_attempts": 1,
+        "confidence": "medium",
+        "answer_text": "To determine the total weight of the new feed you purchased over the past two months, I'll need a bit more information. Specifically, I need to know the quantity and weight of each feed purchase you m"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.000156696,
+        "latency_ms": 3828,
+        "n_attempts": 1,
+        "confidence": "low",
+        "answer_text": "[CONFIDENCE: low] To determine the total weight of the new feed you purchased in the past two months, I would need specific details about the quantities and weights of each purchase. Could you please "
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.000176187,
+        "latency_ms": 4108,
+        "n_attempts": 1,
+        "confidence": "low",
+        "answer_text": "[CONFIDENCE: low] To determine the total weight of the new feed you purchased in the past two months, I would need the specific details of each purchase, including the quantity and weight of each feed"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro",
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.0015678970000000002,
+        "latency_ms": 27242,
+        "n_attempts": 2,
+        "confidence": "medium",
+        "escalated": true,
+        "answer_text": "To calculate the total weight of the new feed you purchased over the past two months, I would need to know the specific dates you made the purchases and the quantities (weight) of each purchase. Could"
+      }
+    },
+    {
+      "qid": "f4f1d8a4_abs",
+      "question_type": "single-session-user",
+      "question": "What did my dad gave me as a birthday gift?",
+      "gold": "You did not mention this information. You mentioned receiving a birthday gift from your sister, but not your dad.",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.0055957,
+        "latency_ms": 22693,
+        "n_attempts": 1,
+        "confidence": "low",
+        "answer_text": "The context provided does not mention what your dad gave you as a birthday gift. Therefore, I cannot determine the answer to your question. \n\n[CONFIDENCE: low]"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00010277700000000001,
+        "latency_ms": 1930,
+        "n_attempts": 1,
+        "confidence": "low",
+        "answer_text": "[CONFIDENCE: low]"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.000119722,
+        "latency_ms": 4297,
+        "n_attempts": 1,
+        "confidence": "low",
+        "answer_text": "[CONFIDENCE: low]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro",
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.001147922,
+        "latency_ms": 4026,
+        "n_attempts": 2,
+        "confidence": "low",
+        "escalated": true,
+        "answer_text": "I'm sorry, but I don't have information about the specific birthday gift your dad gave you. Without additional context or details about your personal experiences, I can't determine the answer to this "
+      }
+    },
+    {
+      "qid": "gpt4_2ba83207",
+      "question_type": "multi-session",
+      "question": "Which grocery store did I spend the most money at in the past month?",
+      "gold": "Thrive Market",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.005620550000000001,
+        "latency_ms": 11266,
+        "n_attempts": 1,
+        "confidence": "unknown",
+        "answer_text": "I don't have access to your personal shopping history to determine which grocery store you spent the most money at in the past month. However, you can check your bank or credit card statements, or use"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.000149098,
+        "latency_ms": 2230,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "Trader Joe's [CONFIDENCE: high]"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00016624699999999998,
+        "latency_ms": 2694,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "Trader Joe's [CONFIDENCE: high]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00016624699999999998,
+        "latency_ms": 5946,
+        "n_attempts": 1,
+        "confidence": "high",
+        "escalated": false,
+        "answer_text": "Trader Joe's [CONFIDENCE: high]"
+      }
+    },
+    {
+      "qid": "gpt4_21adecb5",
+      "question_type": "temporal-reasoning",
+      "question": "How many months passed between the completion of my undergraduate degree and the submission of my master's thesis?",
+      "gold": "6 months",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.0056111,
+        "latency_ms": 19721,
+        "n_attempts": 1,
+        "confidence": "low",
+        "answer_text": "I don't have access to your personal academic timeline, so I cannot determine how many months passed between the completion of your undergraduate degree and the submission of your master's thesis. To "
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.000153403,
+        "latency_ms": 1946,
+        "n_attempts": 1,
+        "confidence": "low",
+        "answer_text": "[CONFIDENCE: low]"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.000170807,
+        "latency_ms": 3465,
+        "n_attempts": 1,
+        "confidence": "low",
+        "answer_text": "[CONFIDENCE: low]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro",
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.0012633070000000002,
+        "latency_ms": 14799,
+        "n_attempts": 2,
+        "confidence": "low",
+        "escalated": true,
+        "answer_text": "To determine how many months passed between the completion of your undergraduate degree and the submission of your master's thesis, we need to know the dates of both events.  \n\nYou mentioned that you "
+      }
+    },
+    {
+      "qid": "gpt4_70e84552",
+      "question_type": "temporal-reasoning",
+      "question": "Which task did I complete first, fixing the fence or trimming the goats' hooves?",
+      "gold": "Fixing the fence",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.0055454,
+        "latency_ms": 10634,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "You completed trimming the goats' hooves first. \n\n[CONFIDENCE: high]"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00013546600000000002,
+        "latency_ms": 2834,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "[CONFIDENCE: high] You fixed the fence on the east side of your property three weeks ago, before trimming the goats' hooves about two weeks ago."
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.000152768,
+        "latency_ms": 3612,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "[CONFIDENCE: high] You fixed the fence on the east side of your property three weeks ago, before trimming the goats' hooves about two weeks ago."
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.000152768,
+        "latency_ms": 3114,
+        "n_attempts": 1,
+        "confidence": "high",
+        "escalated": false,
+        "answer_text": "[CONFIDENCE: high] You fixed the fence on the east side of your property three weeks ago, before trimming the goats' hooves about two weeks ago."
+      }
+    },
+    {
+      "qid": "gpt4_7fce9456",
+      "question_type": "multi-session",
+      "question": "How many properties did I view before making an offer on the townhouse in the Brookside neighborhood?",
+      "gold": "I viewed four properties before making an offer on the townhouse in the Brookside neighborhood. The reasons I didn't make an offer on them were: the kitchen of the bungalow needed serious renovation, the property in Cedar Creek was out of my budget, the noise from the highway was a deal-breaker for the 1-bedroom condo, and my offer on the 2-bedroom condo was rejected due to a higher bid.",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.0055541,
+        "latency_ms": 11304,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "From the conversation, you mentioned that you \"recently saw a beautiful 3-bedroom townhouse in the Brookside neighborhood on February 22nd\" and then put in an offer on February 25th after negotiations"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00017786400000000002,
+        "latency_ms": 3424,
+        "n_attempts": 1,
+        "confidence": "medium",
+        "answer_text": "[CONFIDENCE: medium] Based on the conversation, you mentioned viewing a 3-bedroom townhouse in the Brookside neighborhood on February 25th. However, there is no information provided about the number o"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00019526800000000001,
+        "latency_ms": 4097,
+        "n_attempts": 1,
+        "confidence": "medium",
+        "answer_text": "[CONFIDENCE: medium] Based on the conversation, you mentioned viewing a 3-bedroom townhouse in the Brookside neighborhood on February 25th. However, there is no information provided about the number o"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00019526800000000001,
+        "latency_ms": 3683,
+        "n_attempts": 1,
+        "confidence": "medium",
+        "escalated": false,
+        "answer_text": "[CONFIDENCE: medium] Based on the conversation, you mentioned viewing a 3-bedroom townhouse in the Brookside neighborhood on February 25th. However, there is no information provided about the number o"
+      }
+    },
+    {
+      "qid": "gpt4_b5700ca0",
+      "question_type": "temporal-reasoning",
+      "question": "Where did I attend the religious activity last week?",
+      "gold": "the Episcopal Church",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.005533799999999999,
+        "latency_ms": 21862,
+        "n_attempts": 1,
+        "confidence": "low",
+        "answer_text": "I apologize, but I do not have access to your personal calendar or any information about your activities last week. Therefore, I cannot determine where you attended a religious activity. \n\n[CONFIDENCE"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00012149800000000001,
+        "latency_ms": 2029,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "You attended the Maundy Thursday service at the Episcopal Church last week. [CONFIDENCE: high]"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.000138392,
+        "latency_ms": 2332,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "You attended the Maundy Thursday service at the Episcopal Church last week. [CONFIDENCE: high]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro",
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 1.0,
+        "cost_usd": 0.00151848,
+        "latency_ms": 4215,
+        "n_attempts": 2,
+        "confidence": "high",
+        "escalated": true,
+        "answer_text": "You attended the Maundy Thursday service at the Episcopal Church last week. \n\n[CONFIDENCE: high]"
+      }
+    },
+    {
+      "qid": "gpt4_f2262a51",
+      "question_type": "multi-session",
+      "question": "How many different doctors did I visit?",
+      "gold": "I visited three different doctors: a primary care physician, an ENT specialist, and a dermatologist.",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00548925,
+        "latency_ms": 14058,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "The conversation does not mention any visits to doctors. Therefore, based on the provided context, the number of doctors visited is zero.\n\n[CONFIDENCE: high]"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00010668500000000001,
+        "latency_ms": 1734,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "You visited 3 different doctors in the conversation. [CONFIDENCE: high]"
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.000123477,
+        "latency_ms": 2883,
+        "n_attempts": 1,
+        "confidence": "high",
+        "answer_text": "You visited 3 different doctors in the conversation. [CONFIDENCE: high]"
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.000123477,
+        "latency_ms": 5735,
+        "n_attempts": 1,
+        "confidence": "high",
+        "escalated": false,
+        "answer_text": "You visited 3 different doctors in the conversation. [CONFIDENCE: high]"
+      }
+    },
+    {
+      "qid": "gpt4_f49edff3",
+      "question_type": "temporal-reasoning",
+      "question": "Which three events happened in the order from first to last: the day I helped my friend prepare the nursery, the day I helped my cousin pick out stuff for her baby shower, and the day I ordered a customized phone case for my friend's birthday?",
+      "gold": "First, I helped my friend prepare the nursery, then I helped my cousin pick out stuff for her baby shower, and lastly, I ordered a customized phone case for my friend's birthday.",
+      "naive_big": {
+        "strategy": "naive_big",
+        "model_chain": [
+          "ibm-granite/granite-4.1-8b"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.005539800000000001,
+        "latency_ms": 13722,
+        "n_attempts": 1,
+        "confidence": "medium",
+        "answer_text": "The three events happened in the order **second, third, first**. \n- The day you helped your cousin pick out stuff for her baby shower comes first, according to the excerpt. \n- The day you ordered a cu"
+      },
+      "naive_small": {
+        "strategy": "naive_small",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.000133126,
+        "latency_ms": 3430,
+        "n_attempts": 1,
+        "confidence": "medium",
+        "answer_text": "[CONFIDENCE: medium] The order of events is as follows: first, you helped your friend prepare the nursery; second, you helped your cousin pick out stuff for her baby shower; and lastly, you ordered a "
+      },
+      "desi_v0_2": {
+        "strategy": "desi_v0_2",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00015211100000000002,
+        "latency_ms": 3575,
+        "n_attempts": 1,
+        "confidence": "medium",
+        "answer_text": "[CONFIDENCE: medium] The order of events is as follows: first, you helped your friend prepare the nursery; second, you helped your cousin pick out stuff for her baby shower; and lastly, you ordered a "
+      },
+      "desi_v0_3": {
+        "strategy": "desi_v0_3",
+        "task_class": "memory_recall",
+        "model_chain": [
+          "ibm-granite/granite-4.0-h-micro"
+        ],
+        "score": 0.0,
+        "cost_usd": 0.00015211100000000002,
+        "latency_ms": 6073,
+        "n_attempts": 1,
+        "confidence": "medium",
+        "escalated": false,
+        "answer_text": "[CONFIDENCE: medium] The order of events is as follows: first, you helped your friend prepare the nursery; second, you helped your cousin pick out stuff for her baby shower; and lastly, you ordered a "
+      }
+    }
+  ]
+}
