@@ -157,6 +157,111 @@
     .cols,.inv-grid,.res-grid,.honesty ul{grid-template-columns:1fr}
     header.hero{padding:64px 0 48px}
   }
+
+  /* ===== theme toggle (works in both skins) ===== */
+  .nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+  .theme-toggle{font-family:var(--mono);font-size:12px;letter-spacing:.5px;cursor:pointer;
+    background:var(--panel);color:var(--ink);border:1px solid var(--line);
+    padding:6px 11px;border-radius:8px;transition:.15s;white-space:nowrap}
+  .theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* ============================================================
+     EARLY-2000s RETRO SKIN — looks hand-coded, ~2003 GeoCities
+     ============================================================ */
+  .retro-only{display:none}
+
+  body.theme-retro{
+    background:#008080 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='6' cy='7' r='1.4' fill='white' opacity='0.45'/%3E%3Ccircle cx='22' cy='19' r='1' fill='%23ffff66' opacity='0.55'/%3E%3Ccircle cx='14' cy='27' r='0.8' fill='white' opacity='0.4'/%3E%3C/svg%3E") repeat;
+    color:#000080;font-family:"Times New Roman",Times,Georgia,serif;font-size:16px;line-height:1.5;
+  }
+  body.theme-retro.lang-zh,body.theme-retro.lang-ja{
+    font-family:"SimSun","Songti SC","MS Mincho","Yu Mincho",serif}
+  body.theme-retro::before{display:none}              /* kill modern grid */
+  .theme-retro .retro-only{display:block}
+  .theme-retro a{color:#0000ff;text-decoration:underline}
+  .theme-retro a:visited{color:#800080}
+
+  /* central bevelled "tables" stacked on the teal desktop */
+  .theme-retro .wrap{max-width:800px;background:#ffffe8;border:5px ridge #c0c0c0;
+    padding:16px 22px;margin:14px auto}
+  .theme-retro section{padding:6px 0;border-top:none;background:transparent}
+  .theme-retro .honesty{background:transparent}
+  .theme-retro header.hero{padding:6px 0}
+
+  /* nav becomes a flat Win9x toolbar */
+  .theme-retro nav{position:static;background:#c0c0c0;backdrop-filter:none;border-bottom:2px solid #808080}
+  .theme-retro nav .wrap{background:#c0c0c0;border:none;max-width:none;margin:0;padding:6px 16px}
+  .theme-retro .brand{color:#000080;font-family:"Comic Sans MS","Comic Sans",cursive}
+  .theme-retro .brand .dot{display:none}
+  .theme-retro .brand .v{color:#000080;font-family:"Times New Roman",serif;font-weight:400}
+  .theme-retro .langs button{border:2px outset #c0c0c0;background:#c0c0c0;color:#000;
+    border-radius:0;font-family:"Times New Roman",serif}
+  .theme-retro .langs button.active{background:#000080;color:#fff}
+  .theme-retro .theme-toggle{border:2px outset #c0c0c0;background:#c0c0c0;color:#000080;
+    border-radius:0;font-family:"Comic Sans MS",cursive;font-weight:bold;text-decoration:none}
+  .theme-retro .theme-toggle:active{border-style:inset}
+
+  /* typography */
+  .theme-retro h1{font-family:"Comic Sans MS",cursive;color:#ff0000;font-size:30px;
+    letter-spacing:0;text-align:center;text-shadow:1px 1px #ffcc00;max-width:none}
+  .theme-retro h1 .hl{color:#0000ff}
+  .theme-retro h2{color:#000080;font-size:24px;letter-spacing:0;font-weight:bold;
+    border-bottom:2px solid #000080;max-width:none}
+  .theme-retro h3{color:#800080;font-size:18px}
+  .theme-retro .eyebrow,.theme-retro .kicker{color:#008000;font-family:"Times New Roman",serif;
+    letter-spacing:1px;text-transform:none;font-size:13px}
+  .theme-retro .lead,.theme-retro .sect-sub{color:#000;font-size:16px;max-width:none}
+  .theme-retro .quote{color:#000080;font-family:"Times New Roman",serif;font-weight:bold;
+    text-align:center;max-width:none}
+  .theme-retro .quote .hl{color:#ff0000}
+  .theme-retro .quote + p{color:#000;max-width:none}
+
+  /* buttons + bevelled boxes */
+  .theme-retro .btn{border:2px outset #c0c0c0;background:#c0c0c0;color:#000080;border-radius:0;
+    font-family:"Times New Roman",serif;font-weight:bold;padding:6px 14px;text-decoration:none}
+  .theme-retro .btn:hover{transform:none;box-shadow:none;border-style:outset;color:#0000ff}
+  .theme-retro .btn:active{border-style:inset}
+  .theme-retro .card,.theme-retro .inv,.theme-retro .stat,.theme-retro .honesty li{
+    background:#fff;border:3px outset #c0c0c0;border-radius:0}
+  .theme-retro .stat::after{display:none}
+  .theme-retro .stat .num{color:#ff0000;font-family:"Courier New",monospace}
+  .theme-retro .card h3{color:#000080}
+  .theme-retro .card li,.theme-retro .inv p,.theme-retro .stat .lbl,
+  .theme-retro .honesty li{color:#000}
+  .theme-retro .honesty li b{color:#000080}
+  .theme-retro .is,.theme-retro .inv:hover{transform:none;border-color:#c0c0c0}
+  .theme-retro .is .mk{color:#008000}.theme-retro .isnot .mk{color:#ff0000}
+  .theme-retro .strike{border:2px inset #c0c0c0;background:#fff;color:#808080}
+
+  /* footer + hash line */
+  .theme-retro footer{background:transparent;border-top:none}
+  .theme-retro .who h3{color:#000080;font-family:"Comic Sans MS",cursive}
+  .theme-retro .who p,.theme-retro .legal{color:#000080}
+  .theme-retro .foot-links a{border:2px outset #c0c0c0;background:#c0c0c0;color:#000080;
+    border-radius:0;font-family:"Times New Roman",serif;text-decoration:none}
+  .theme-retro .hashline{color:#008000;border-top:1px solid #000080;font-family:"Courier New",monospace}
+  .theme-retro .hashline .ok{color:#ff0000}
+  .theme-retro hr{border:none;border-top:2px groove #808080;margin:14px 0}
+
+  /* retro decorations */
+  .retro-marquee{overflow:hidden;white-space:nowrap;background:#000080;color:#ffff00;
+    font-family:"Comic Sans MS",cursive;font-weight:bold;padding:7px 0;border-bottom:3px ridge #c0c0c0}
+  .retro-marquee span{display:inline-block;padding-left:100%;animation:marq 20s linear infinite}
+  @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+  .retro-construction{text-align:center;margin:14px auto;max-width:800px;
+    font-family:"Comic Sans MS",cursive;color:#ff0000;font-weight:bold}
+  .retro-bar{height:16px;border:2px solid #808080;margin:6px auto 0;max-width:760px;
+    background:repeating-linear-gradient(45deg,#ffcc00 0 12px,#000 12px 24px);
+    background-size:34px 34px;animation:bar 1s linear infinite}
+  @keyframes bar{from{background-position:0 0}to{background-position:34px 0}}
+  .blink{animation:blink 1s steps(1,start) infinite}
+  @keyframes blink{50%{opacity:0}}
+  .retro-counter{font-family:"Courier New",monospace;color:#000080;text-align:center;margin:10px 0}
+  .counter-digits{background:#000;color:#0f0;border:2px inset #c0c0c0;padding:2px 8px;
+    font-weight:bold;letter-spacing:3px;margin-left:6px}
+  .retro-links{text-align:center;margin:8px 0}
+  .retro-best{text-align:center;color:#ff0000;font-family:"Comic Sans MS",cursive;font-weight:bold}
+  .retro-updated{text-align:center;color:#000080;font-style:italic}
 </style>
 </head>
 <body class="lang-en">
@@ -167,15 +272,25 @@
       <span class="dot"></span><b>DESi</b>
       <span class="v">Dynamic Epistemic Sequencer · Diagnostic</span>
     </div>
-    <div class="langs" id="langs">
-      <button data-lang="en" class="active">EN</button>
-      <button data-lang="de">DE</button>
-      <button data-lang="zh">中文</button>
-      <button data-lang="es">ES</button>
-      <button data-lang="ja">日本語</button>
+    <div class="nav-right">
+      <button id="themeToggle" class="theme-toggle" type="button"></button>
+      <div class="langs" id="langs">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="de">DE</button>
+        <button data-lang="zh">中文</button>
+        <button data-lang="es">ES</button>
+        <button data-lang="ja">日本語</button>
+      </div>
     </div>
   </div>
 </nav>
+
+<!-- retro-only decorations -->
+<div class="retro-marquee retro-only"><span data-i18n="rt_ticker"></span></div>
+<div class="retro-construction retro-only">
+  <span class="blink" data-i18n="rt_construction"></span>
+  <div class="retro-bar"></div>
+</div>
 
 <header class="hero">
   <div class="wrap">
@@ -298,6 +413,20 @@
         <a href="https://github.com/hstre/DESi/blob/main/QUICKSTART.md" data-i18n="foot_quick"></a>
       </div>
     </div>
+    <div class="retro-extras retro-only">
+      <hr />
+      <div class="retro-counter">
+        <span data-i18n="rt_counter"></span>
+        <span class="counter-digits">0&nbsp;0&nbsp;2&nbsp;4&nbsp;6&nbsp;0&nbsp;1</span>
+      </div>
+      <p class="retro-links">
+        <a href="#">📖 <span data-i18n="rt_guestbook"></span></a> ·
+        <a href="https://github.com/hstre/DESi">🏠 HOME</a> ·
+        <a href="https://github.com/hstre">✉ E-MAIL</a>
+      </p>
+      <p class="retro-best blink" data-i18n="rt_best"></p>
+      <p class="retro-updated"><span data-i18n="rt_updated"></span> 06/05/2026</p>
+    </div>
     <div class="legal" data-i18n="foot_legal"></div>
   </div>
 </footer>
@@ -359,7 +488,15 @@ const I18N = {
     foot_by:"By Hanns-Steffen Rentschler · Independent Researcher",
     foot_tag:"Deterministic governance for LLM-based research pipelines.",
     foot_quick:"Quickstart ↗",
-    foot_legal:"MIT License · © 2026 Hanns-Steffen Rentschler · No breakthrough claimed, none implied."
+    foot_legal:"MIT License · © 2026 Hanns-Steffen Rentschler · No breakthrough claimed, none implied.",
+    sw_retro:"🕹 Retro 2003",
+    sw_modern:"✨ Modern view",
+    rt_ticker:"★ Welcome to the official DESi homepage! ★ Best viewed at 800×600 ★ Sign the guestbook before you leave! ★ Thanks for visiting! ★",
+    rt_construction:"⚠ This page is under construction! ⚠",
+    rt_counter:"You are visitor number:",
+    rt_guestbook:"Sign my guestbook!",
+    rt_best:"Best viewed in Netscape Navigator 4.0 & Internet Explorer",
+    rt_updated:"Last updated:"
   },
   de:{
     hero_eyebrow:"Dynamic Epistemic Sequencer — Diagnostic",
@@ -416,7 +553,15 @@ const I18N = {
     foot_by:"Von Hanns-Steffen Rentschler · Unabhängiger Forscher",
     foot_tag:"Deterministische Governance für LLM-basierte Forschungs-Pipelines.",
     foot_quick:"Quickstart ↗",
-    foot_legal:"MIT-Lizenz · © 2026 Hanns-Steffen Rentschler · Kein Durchbruch behauptet, keiner impliziert."
+    foot_legal:"MIT-Lizenz · © 2026 Hanns-Steffen Rentschler · Kein Durchbruch behauptet, keiner impliziert.",
+    sw_retro:"🕹 Retro 2003",
+    sw_modern:"✨ Moderne Ansicht",
+    rt_ticker:"★ Willkommen auf der offiziellen DESi-Homepage! ★ Optimiert für 800×600 ★ Trag dich ins Gästebuch ein! ★ Danke für deinen Besuch! ★",
+    rt_construction:"⚠ Diese Seite ist im Aufbau! ⚠",
+    rt_counter:"Du bist Besucher Nummer:",
+    rt_guestbook:"Trag dich ins Gästebuch ein!",
+    rt_best:"Optimiert für Netscape Navigator 4.0 & Internet Explorer",
+    rt_updated:"Zuletzt aktualisiert:"
   },
   zh:{
     hero_eyebrow:"Dynamic Epistemic Sequencer — Diagnostic（动态认知定序器·诊断）",
@@ -473,7 +618,15 @@ const I18N = {
     foot_by:"作者：Hanns-Steffen Rentschler · 独立研究者",
     foot_tag:"面向基于大模型的研究流水线的确定性治理。",
     foot_quick:"快速上手 ↗",
-    foot_legal:"MIT 许可证 · © 2026 Hanns-Steffen Rentschler · 不主张突破，亦无暗示。"
+    foot_legal:"MIT 许可证 · © 2026 Hanns-Steffen Rentschler · 不主张突破，亦无暗示。",
+    sw_retro:"🕹 复古 2003",
+    sw_modern:"✨ 现代视图",
+    rt_ticker:"★ 欢迎来到 DESi 官方主页！★ 最佳分辨率 800×600 ★ 离开前请在留言簿签名！★ 感谢您的光临！★",
+    rt_construction:"⚠ 本页正在建设中！⚠",
+    rt_counter:"您是第几位访客：",
+    rt_guestbook:"在我的留言簿上签名！",
+    rt_best:"最佳浏览器：Netscape Navigator 4.0 与 Internet Explorer",
+    rt_updated:"最后更新："
   },
   es:{
     hero_eyebrow:"Dynamic Epistemic Sequencer — Diagnostic",
@@ -530,7 +683,15 @@ const I18N = {
     foot_by:"Por Hanns-Steffen Rentschler · Investigador independiente",
     foot_tag:"Gobernanza determinista para pipelines de investigación basados en LLM.",
     foot_quick:"Inicio rápido ↗",
-    foot_legal:"Licencia MIT · © 2026 Hanns-Steffen Rentschler · Ningún avance proclamado, ninguno implícito."
+    foot_legal:"Licencia MIT · © 2026 Hanns-Steffen Rentschler · Ningún avance proclamado, ninguno implícito.",
+    sw_retro:"🕹 Retro 2003",
+    sw_modern:"✨ Vista moderna",
+    rt_ticker:"★ ¡Bienvenido a la página oficial de DESi! ★ Mejor visto en 800×600 ★ ¡Firma el libro de visitas antes de irte! ★ ¡Gracias por tu visita! ★",
+    rt_construction:"⚠ ¡Esta página está en construcción! ⚠",
+    rt_counter:"Eres el visitante número:",
+    rt_guestbook:"¡Firma mi libro de visitas!",
+    rt_best:"Mejor visto en Netscape Navigator 4.0 e Internet Explorer",
+    rt_updated:"Última actualización:"
   },
   ja:{
     hero_eyebrow:"Dynamic Epistemic Sequencer — Diagnostic（動的認識シーケンサ・診断）",
@@ -587,14 +748,24 @@ const I18N = {
     foot_by:"著者：Hanns-Steffen Rentschler · 独立研究者",
     foot_tag:"LLMベースの研究パイプラインのための決定論的ガバナンス。",
     foot_quick:"クイックスタート ↗",
-    foot_legal:"MITライセンス · © 2026 Hanns-Steffen Rentschler · 突破は主張せず、含意もせず。"
+    foot_legal:"MITライセンス · © 2026 Hanns-Steffen Rentschler · 突破は主張せず、含意もせず。",
+    sw_retro:"🕹 レトロ 2003",
+    sw_modern:"✨ モダン表示",
+    rt_ticker:"★ DESi 公式ホームページへようこそ！★ 800×600 で最適表示 ★ 帰る前にゲストブックに記帳してね！★ ご訪問ありがとう！★",
+    rt_construction:"⚠ このページは工事中です！⚠",
+    rt_counter:"あなたは訪問者番号：",
+    rt_guestbook:"ゲストブックに記帳してね！",
+    rt_best:"Netscape Navigator 4.0 と Internet Explorer での閲覧を推奨",
+    rt_updated:"最終更新："
   }
 };
 
 function applyLang(lang){
   const dict = I18N[lang] || I18N.en;
   document.documentElement.lang = lang;
-  document.body.className = "lang-" + lang;
+  // swap only the lang-* class so the theme-retro class is preserved
+  document.body.classList.remove("lang-en","lang-de","lang-zh","lang-es","lang-ja");
+  document.body.classList.add("lang-" + lang);
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     const k = el.getAttribute("data-i18n");
     if(dict[k]!==undefined) el.textContent = dict[k];
@@ -607,11 +778,31 @@ function applyLang(lang){
     b.classList.toggle("active", b.getAttribute("data-lang")===lang);
   });
   try{ localStorage.setItem("desi_lang", lang); }catch(e){}
+  updateToggleLabel();
+}
+
+/* ---- theme (modern <-> early-2000s retro) ---- */
+function currentTheme(){
+  return document.body.classList.contains("theme-retro") ? "retro" : "modern";
+}
+function updateToggleLabel(){
+  const dict = I18N[document.documentElement.lang] || I18N.en;
+  const btn = document.getElementById("themeToggle");
+  // the button advertises the skin it will switch you TO
+  btn.textContent = currentTheme() === "retro" ? dict.sw_modern : dict.sw_retro;
+}
+function applyTheme(theme){
+  document.body.classList.toggle("theme-retro", theme === "retro");
+  try{ localStorage.setItem("desi_theme", theme); }catch(e){}
+  updateToggleLabel();
 }
 
 document.getElementById("langs").addEventListener("click", e=>{
   const b = e.target.closest("button[data-lang]");
   if(b) applyLang(b.getAttribute("data-lang"));
+});
+document.getElementById("themeToggle").addEventListener("click", ()=>{
+  applyTheme(currentTheme() === "retro" ? "modern" : "retro");
 });
 
 (function init(){
@@ -621,7 +812,10 @@ document.getElementById("langs").addEventListener("click", e=>{
     const nav = (navigator.language||"en").slice(0,2).toLowerCase();
     lang = I18N[nav] ? nav : "en";
   }
+  let theme = "modern";
+  try{ theme = localStorage.getItem("desi_theme") || "modern"; }catch(e){}
   applyLang(lang);
+  applyTheme(theme === "retro" ? "retro" : "modern");
 })();
 </script>
 </body>
