@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DESi — Deterministic governance for LLM pipelines</title>
+<meta name="description" content="DESi: a deterministic, replay-governed layer that observes, classifies and audits LLM pipelines from the outside. Verified across 38 experimental phases." />
+<meta property="og:title" content="DESi — Deterministic governance for LLM pipelines" />
+<meta property="og:description" content="Replay-stable. Read-only. Auditable. DESi watches LLM pipelines from the outside — and reports its own failures too." />
+<meta property="og:type" content="website" />
+<style>
+  :root{
+    --bg:#070a10;
+    --bg-2:#0c111b;
+    --panel:#0f1622;
+    --line:#1c2737;
+    --ink:#e8eef7;
+    --muted:#8a99af;
+    --faint:#5c6b82;
+    --accent:#2ce6c4;      /* signal teal — determinism */
+    --accent-2:#5aa8ff;    /* secondary blue */
+    --warn:#ff6b6b;
+    --mono:"SF Mono",ui-monospace,"JetBrains Mono","Cascadia Code",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Noto Sans",sans-serif;
+    --cjk:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Noto Sans CJK JP","Yu Gothic",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:var(--sans);line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  body.lang-zh,body.lang-ja{font-family:var(--cjk)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--mono)}
+
+  /* faint determinism grid backdrop */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background-image:
+      linear-gradient(var(--line) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:48px 48px;opacity:.12;
+    mask-image:radial-gradient(circle at 50% 0%,#000 0%,transparent 70%);
+  }
+
+  /* ---- nav ---- */
+  nav{
+    position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+    background:rgba(7,10,16,.72);border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--accent);
+    box-shadow:0 0 0 4px rgba(44,230,196,.15);animation:pulse 2.6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+  .brand b{color:var(--ink)}
+  .brand .v{color:var(--faint);font-family:var(--mono);font-size:12px;font-weight:500}
+  .langs{display:flex;gap:4px;flex-wrap:wrap}
+  .langs button{
+    font-family:var(--mono);font-size:12px;letter-spacing:.5px;
+    background:transparent;color:var(--muted);border:1px solid transparent;
+    padding:5px 9px;border-radius:7px;cursor:pointer;transition:.15s;
+  }
+  .langs button:hover{color:var(--ink);background:var(--panel)}
+  .langs button.active{color:var(--bg);background:var(--accent);font-weight:700}
+
+  /* ---- hero ---- */
+  header.hero{padding:96px 0 72px;position:relative}
+  .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:3px;
+    color:var(--accent);text-transform:uppercase;margin-bottom:22px}
+  h1{font-size:clamp(34px,6vw,62px);line-height:1.05;letter-spacing:-1.5px;
+    margin:0 0 22px;font-weight:800;max-width:16ch}
+  h1 .hl{color:var(--accent)}
+  .lead{font-size:clamp(17px,2.3vw,21px);color:var(--muted);max-width:60ch;margin:0 0 34px}
+  .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:10px;
+    font-weight:650;font-size:15px;border:1px solid var(--line);transition:.18s;cursor:pointer}
+  .btn.primary{background:var(--accent);color:#04110d;border-color:var(--accent)}
+  .btn.primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px -10px rgba(44,230,196,.5)}
+  .btn.ghost{color:var(--ink);background:var(--panel)}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  .hashline{margin-top:46px;font-family:var(--mono);font-size:12px;color:var(--faint);
+    border-top:1px dashed var(--line);padding-top:16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .hashline .ok{color:var(--accent)}
+
+  /* ---- sections ---- */
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--accent-2);margin-bottom:14px}
+  h2{font-size:clamp(26px,4vw,40px);letter-spacing:-1px;margin:0 0 14px;font-weight:780;max-width:22ch}
+  .sect-sub{color:var(--muted);max-width:62ch;margin:0 0 36px;font-size:16.5px}
+
+  .quote{font-size:clamp(22px,3.4vw,34px);font-weight:700;letter-spacing:-.6px;
+    line-height:1.25;max-width:20ch;color:var(--ink)}
+  .quote .hl{color:var(--accent)}
+  .quote + p{color:var(--muted);max-width:60ch;margin-top:26px;font-size:16.5px}
+
+  /* two-col is / is-not */
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .card{background:linear-gradient(180deg,var(--panel),var(--bg-2));
+    border:1px solid var(--line);border-radius:16px;padding:26px}
+  .card h3{margin:0 0 16px;font-size:18px;letter-spacing:-.3px}
+  .card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px}
+  .card li{display:flex;gap:11px;color:var(--muted);font-size:15.5px;align-items:flex-start}
+  .card li .mk{flex:0 0 auto;margin-top:2px;font-family:var(--mono);font-weight:700}
+  .is .mk{color:var(--accent)}
+  .isnot .mk{color:var(--warn)}
+  .is{border-color:rgba(44,230,196,.25)}
+
+  /* invariants */
+  .inv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .inv{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;
+    transition:.18s}
+  .inv:hover{transform:translateY(-4px);border-color:var(--accent)}
+  .inv .n{font-family:var(--mono);font-size:12px;color:var(--accent);margin-bottom:12px}
+  .inv h3{margin:0 0 8px;font-size:16px}
+  .inv p{margin:0;color:var(--muted);font-size:14px}
+
+  /* results */
+  .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .stat{background:linear-gradient(160deg,var(--bg-2),var(--panel));
+    border:1px solid var(--line);border-radius:16px;padding:26px;position:relative;overflow:hidden}
+  .stat::after{content:"";position:absolute;right:-30px;top:-30px;width:90px;height:90px;
+    background:radial-gradient(circle,rgba(44,230,196,.18),transparent 70%)}
+  .stat .num{font-size:clamp(30px,4.4vw,46px);font-weight:820;letter-spacing:-1.5px;
+    color:var(--accent);font-family:var(--mono);line-height:1}
+  .stat .lbl{margin-top:12px;color:var(--muted);font-size:14.5px}
+
+  /* honesty */
+  .honesty{background:
+    radial-gradient(900px 300px at 80% -10%,rgba(90,168,255,.10),transparent),var(--bg)}
+  .strike-row{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 30px}
+  .strike{font-family:var(--mono);font-size:14px;color:var(--faint);
+    border:1px solid var(--line);border-radius:8px;padding:6px 12px;text-decoration:line-through;
+    text-decoration-color:var(--warn);text-decoration-thickness:2px}
+  .honesty ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .honesty li{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:20px;
+    color:var(--muted);font-size:15px}
+  .honesty li b{color:var(--ink);display:block;margin-bottom:6px;font-size:15.5px}
+
+  /* footer */
+  footer{padding:60px 0 80px;border-top:1px solid var(--line);background:var(--bg-2)}
+  .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-end}
+  .foot-grid .who h3{margin:0 0 6px;font-size:20px}
+  .foot-grid .who p{margin:0;color:var(--muted);font-size:14.5px}
+  .foot-links{display:flex;gap:10px;flex-wrap:wrap}
+  .foot-links a{font-family:var(--mono);font-size:13px;color:var(--muted);
+    border:1px solid var(--line);padding:9px 14px;border-radius:9px;transition:.15s}
+  .foot-links a:hover{color:var(--accent);border-color:var(--accent)}
+  .legal{margin-top:30px;color:var(--faint);font-size:12.5px;font-family:var(--mono)}
+
+  @media(max-width:760px){
+    .cols,.inv-grid,.res-grid,.honesty ul{grid-template-columns:1fr}
+    header.hero{padding:64px 0 48px}
+  }
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <div class="wrap">
+    <div class="brand">
+      <span class="dot"></span><b>DESi</b>
+      <span class="v">Dynamic Epistemic Sequencer · Diagnostic</span>
+    </div>
+    <div class="langs" id="langs">
+      <button data-lang="en" class="active">EN</button>
+      <button data-lang="de">DE</button>
+      <button data-lang="zh">中文</button>
+      <button data-lang="es">ES</button>
+      <button data-lang="ja">日本語</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="hero_eyebrow"></div>
+    <h1 data-i18n-html="hero_title"></h1>
+    <p class="lead" data-i18n="hero_sub"></p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/hstre/DESi" data-i18n="cta_github"></a>
+      <a class="btn ghost" href="https://ssrn.com/author=rentschler" data-i18n="cta_paper"></a>
+    </div>
+    <div class="hashline mono">
+      <span class="ok">●</span>
+      <span data-i18n="hero_hash"></span>
+      <span>sha256:fe1a49c…7b2 · replay_stability=<span class="ok">1.0</span></span>
+    </div>
+  </div>
+</header>
+
+<!-- THE OBSERVER PROBLEM -->
+<section>
+  <div class="wrap">
+    <div class="kicker" data-i18n="prob_kicker"></div>
+    <blockquote class="quote" data-i18n-html="prob_quote"></blockquote>
+    <p data-i18n="prob_body"></p>
+  </div>
+</section>
+
+<!-- IS / IS NOT -->
+<section>
+  <div class="wrap">
+    <div class="kicker" data-i18n="def_kicker"></div>
+    <h2 data-i18n="def_title"></h2>
+    <div class="cols">
+      <div class="card is">
+        <h3 data-i18n="is_h"></h3>
+        <ul>
+          <li><span class="mk">+</span><span data-i18n="is_1"></span></li>
+          <li><span class="mk">+</span><span data-i18n="is_2"></span></li>
+          <li><span class="mk">+</span><span data-i18n="is_3"></span></li>
+        </ul>
+      </div>
+      <div class="card isnot">
+        <h3 data-i18n="isnot_h"></h3>
+        <ul>
+          <li><span class="mk">–</span><span data-i18n="isnot_1"></span></li>
+          <li><span class="mk">–</span><span data-i18n="isnot_2"></span></li>
+          <li><span class="mk">–</span><span data-i18n="isnot_3"></span></li>
+          <li><span class="mk">–</span><span data-i18n="isnot_4"></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUR INVARIANTS -->
+<section>
+  <div class="wrap">
+    <div class="kicker" data-i18n="inv_kicker"></div>
+    <h2 data-i18n="inv_title"></h2>
+    <p class="sect-sub" data-i18n="inv_sub"></p>
+    <div class="inv-grid">
+      <div class="inv"><div class="n mono">01</div><h3 data-i18n="inv1_h"></h3><p data-i18n="inv1_b"></p></div>
+      <div class="inv"><div class="n mono">02</div><h3 data-i18n="inv2_h"></h3><p data-i18n="inv2_b"></p></div>
+      <div class="inv"><div class="n mono">03</div><h3 data-i18n="inv3_h"></h3><p data-i18n="inv3_b"></p></div>
+      <div class="inv"><div class="n mono">04</div><h3 data-i18n="inv4_h"></h3><p data-i18n="inv4_b"></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section>
+  <div class="wrap">
+    <div class="kicker" data-i18n="res_kicker"></div>
+    <h2 data-i18n="res_title"></h2>
+    <p class="sect-sub" data-i18n="res_sub"></p>
+    <div class="res-grid">
+      <div class="stat"><div class="num">1.0</div><div class="lbl" data-i18n="r1"></div></div>
+      <div class="stat"><div class="num">88.9%</div><div class="lbl" data-i18n="r2"></div></div>
+      <div class="stat"><div class="num">96.5%</div><div class="lbl" data-i18n="r3"></div></div>
+      <div class="stat"><div class="num">41–60%</div><div class="lbl" data-i18n="r4"></div></div>
+      <div class="stat"><div class="num">53.5%</div><div class="lbl" data-i18n="r5"></div></div>
+      <div class="stat"><div class="num">1.0</div><div class="lbl" data-i18n="r6"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HONESTY -->
+<section class="honesty">
+  <div class="wrap">
+    <div class="kicker" data-i18n="hon_kicker"></div>
+    <h2 data-i18n="hon_title"></h2>
+    <p class="sect-sub" data-i18n="hon_sub"></p>
+    <div class="strike-row">
+      <span class="strike">Breakthrough</span>
+      <span class="strike">Revolutionary</span>
+      <span class="strike">AGI</span>
+      <span class="strike">Superintelligence</span>
+      <span class="strike">Human-level</span>
+    </div>
+    <ul>
+      <li><b data-i18n="hon1_h"></b><span data-i18n="hon1_b"></span></li>
+      <li><b data-i18n="hon2_h"></b><span data-i18n="hon2_b"></span></li>
+      <li><b data-i18n="hon3_h"></b><span data-i18n="hon3_b"></span></li>
+      <li><b data-i18n="hon4_h"></b><span data-i18n="hon4_b"></span></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="who">
+        <h3>DESi</h3>
+        <p data-i18n="foot_by"></p>
+        <p style="margin-top:6px" data-i18n="foot_tag"></p>
+      </div>
+      <div class="foot-links">
+        <a href="https://github.com/hstre/DESi">GitHub ↗</a>
+        <a href="https://ssrn.com/author=rentschler">SSRN ↗</a>
+        <a href="https://github.com/hstre/DESi/blob/main/QUICKSTART.md" data-i18n="foot_quick"></a>
+      </div>
+    </div>
+    <div class="legal" data-i18n="foot_legal"></div>
+  </div>
+</footer>
+
+<script>
+const I18N = {
+  en:{
+    hero_eyebrow:"Dynamic Epistemic Sequencer — Diagnostic",
+    hero_title:'When your LLM drifts, hallucinates, or closes too early — <span class="hl">DESi sees it.</span>',
+    hero_sub:"A deterministic, replay-governed layer that observes, classifies and audits LLM pipelines from the outside. Bit-exact reproducible. Read-only by design. Verified across 38 experimental phases.",
+    cta_github:"View on GitHub ↗",
+    cta_paper:"Read the paper",
+    hero_hash:"Every output is bit-exact reproducible —",
+    prob_kicker:"The observer problem",
+    prob_quote:'A model asked to grade itself reports confidence — <span class="hl">not error.</span>',
+    prob_body:"Hallucination, authority drift, premature closure: LLMs fail in ways that are hard to detect from inside the system doing the failing. DESi sits outside the inference loop. It doesn't censor what the model says — it audits the topology of the reasoning path that produced it.",
+    def_kicker:"Positioning",
+    def_title:"Know exactly what you are getting.",
+    is_h:"What DESi is",
+    is_1:"An epistemic operating layer above LLM inference — deterministic where the model is stochastic.",
+    is_2:"A read-only governance core: it classifies, audits and flags, but never rewrites your state.",
+    is_3:"Replay-stable infrastructure with closed, frozen taxonomies and human approval gates.",
+    isnot_h:"What DESi is not",
+    isnot_1:"Not a replacement for your LLM.",
+    isnot_2:"Not another agent framework competing with LangGraph, AutoGen or CrewAI.",
+    isnot_3:"Not a claim of general intelligence.",
+    isnot_4:"Not a source of breakthrough assertions — and it never will be.",
+    inv_kicker:"Four invariants",
+    inv_title:"Never relaxed. Across all 38 phases.",
+    inv_sub:"These four properties were fixed at system inception and held byte-for-byte through every experimental phase.",
+    inv1_h:"Replay stability",
+    inv1_b:"All outputs are bit-exact reproducible given identical inputs. No PRNG; every signature via SHA-256.",
+    inv2_h:"Closed enumerations",
+    inv2_b:"Every taxonomy, verdict class and governance decision uses frozen, closed enumerations — no open-world guessing.",
+    inv3_h:"Read-only governance",
+    inv3_b:"The governance core never modifies the epistemic state it observes. It classifies, audits and flags.",
+    inv4_h:"Human approval gates",
+    inv4_b:"No mutation, patch or deployment proceeds without explicit human approval.",
+    res_kicker:"Empirical results",
+    res_title:"Measured. Not promised.",
+    res_sub:"Results derive from synthetic or locally vendored fixtures unless explicitly noted. The informative numbers are the ones below 1.0 — and the failures we publish.",
+    r1:"Replay stability across every one of the 38 experimental phases.",
+    r2:"Recompute reduction (36 → 4 operations) with byte-identical outputs.",
+    r3:"Trajectory-state compression on 1,525 DriftBench trajectories, drift signals preserved.",
+    r4:"Search-space node reduction, with critical branches preserved at 1.0.",
+    r5:"Routing cost reduction per redirected task, quality preserved at 1.0.",
+    r6:"Hallucination visibility under live API calls (IBM Granite, DeepSeek) — made visible, not eliminated.",
+    hon_kicker:"Honest by design",
+    hon_title:"We report the failures too.",
+    hon_sub:"These words are permanently forbidden from every rendered output and blocked at build time by the Determinism Scanner:",
+    hon1_h:"Negative results, published",
+    hon1_b:"The paper reports what did not work alongside what did — sub-ceiling scores and boundary conditions included.",
+    hon2_h:"It flags its own excess",
+    hon2_b:"One component — the Neo4j evolution graph — is explicitly identified as overengineered. By the system itself.",
+    hon3_h:"Honest provenance",
+    hon3_b:"Every result is labelled: synthetic, vendored, or live. No quiet borrowing of real-world authority.",
+    hon4_h:"Hype is a build error",
+    hon4_b:"Forbidden marketing terms are not a style guide — they fail the build. Determinism over decoration.",
+    foot_by:"By Hanns-Steffen Rentschler · Independent Researcher",
+    foot_tag:"Deterministic governance for LLM-based research pipelines.",
+    foot_quick:"Quickstart ↗",
+    foot_legal:"MIT License · © 2026 Hanns-Steffen Rentschler · No breakthrough claimed, none implied."
+  },
+  de:{
+    hero_eyebrow:"Dynamic Epistemic Sequencer — Diagnostic",
+    hero_title:'Wenn dein LLM driftet, halluziniert oder zu früh abschließt — <span class="hl">DESi sieht es.</span>',
+    hero_sub:"Eine deterministische, replay-stabile Schicht, die LLM-Pipelines von außen beobachtet, klassifiziert und auditiert. Bit-genau reproduzierbar. Read-only by Design. Über 38 Experimentphasen verifiziert.",
+    cta_github:"Auf GitHub ansehen ↗",
+    cta_paper:"Paper lesen",
+    hero_hash:"Jede Ausgabe ist bit-genau reproduzierbar —",
+    prob_kicker:"Das Beobachter-Problem",
+    prob_quote:'Ein Modell, das sich selbst benoten soll, meldet Zuversicht — <span class="hl">nicht den Fehler.</span>',
+    prob_body:"Halluzination, Autoritäts-Drift, vorzeitiger Abschluss: LLMs versagen auf eine Weise, die aus dem versagenden System heraus schwer zu erkennen ist. DESi sitzt außerhalb der Inferenz-Schleife. Es zensiert nicht, was das Modell sagt — es auditiert die Topologie des Denkpfads, der es hervorgebracht hat.",
+    def_kicker:"Einordnung",
+    def_title:"Wisse genau, was du bekommst.",
+    is_h:"Was DESi ist",
+    is_1:"Eine epistemische Betriebsschicht über der LLM-Inferenz — deterministisch, wo das Modell stochastisch ist.",
+    is_2:"Ein Read-only-Governance-Kern: klassifiziert, auditiert und markiert — schreibt deinen Zustand aber nie um.",
+    is_3:"Replay-stabile Infrastruktur mit geschlossenen, eingefrorenen Taxonomien und menschlichen Freigabe-Gates.",
+    isnot_h:"Was DESi nicht ist",
+    isnot_1:"Kein Ersatz für dein LLM.",
+    isnot_2:"Kein weiteres Agent-Framework im Wettbewerb mit LangGraph, AutoGen oder CrewAI.",
+    isnot_3:"Keine Behauptung allgemeiner Intelligenz.",
+    isnot_4:"Keine Quelle für Sensationsbehauptungen — und wird es nie sein.",
+    inv_kicker:"Vier Invarianten",
+    inv_title:"Nie aufgeweicht. Über alle 38 Phasen.",
+    inv_sub:"Diese vier Eigenschaften wurden bei Systemstart fixiert und blieben über jede Experimentphase Byte für Byte erhalten.",
+    inv1_h:"Replay-Stabilität",
+    inv1_b:"Alle Ausgaben sind bei identischen Eingaben bit-genau reproduzierbar. Kein PRNG; jede Signatur via SHA-256.",
+    inv2_h:"Geschlossene Enumerationen",
+    inv2_b:"Jede Taxonomie, jede Urteilsklasse, jede Governance-Entscheidung nutzt eingefrorene, geschlossene Enumerationen — kein Raten.",
+    inv3_h:"Read-only-Governance",
+    inv3_b:"Der Governance-Kern verändert den beobachteten epistemischen Zustand nie. Er klassifiziert, auditiert, markiert.",
+    inv4_h:"Menschliche Freigabe-Gates",
+    inv4_b:"Keine Mutation, kein Patch, kein Deployment ohne ausdrückliche menschliche Freigabe.",
+    res_kicker:"Empirische Ergebnisse",
+    res_title:"Gemessen. Nicht versprochen.",
+    res_sub:"Ergebnisse stammen aus synthetischen oder lokal eingebundenen Fixtures, sofern nicht anders vermerkt. Aussagekräftig sind die Werte unter 1.0 — und die Fehler, die wir veröffentlichen.",
+    r1:"Replay-Stabilität in jeder der 38 Experimentphasen.",
+    r2:"Recompute-Reduktion (36 → 4 Operationen) bei byte-identischen Ausgaben.",
+    r3:"Trajektorien-Kompression über 1.525 DriftBench-Trajektorien, Drift-Signale erhalten.",
+    r4:"Reduktion der Suchraum-Knoten, kritische Zweige bei 1.0 erhalten.",
+    r5:"Routing-Kosten-Reduktion pro umgeleiteter Aufgabe, Qualität bei 1.0 erhalten.",
+    r6:"Halluzinations-Sichtbarkeit bei Live-API-Calls (IBM Granite, DeepSeek) — sichtbar gemacht, nicht beseitigt.",
+    hon_kicker:"Ehrlich by Design",
+    hon_title:"Wir berichten auch die Fehler.",
+    hon_sub:"Diese Wörter sind aus jeder gerenderten Ausgabe dauerhaft verboten und werden zur Build-Zeit vom Determinism Scanner blockiert:",
+    hon1_h:"Negative Ergebnisse, veröffentlicht",
+    hon1_b:"Das Paper berichtet, was nicht funktioniert hat, neben dem, was funktioniert hat — inklusive Werten unter dem Maximum und Grenzbedingungen.",
+    hon2_h:"Es markiert den eigenen Exzess",
+    hon2_b:"Eine Komponente — der Neo4j-Evolutionsgraph — wird ausdrücklich als überkonstruiert benannt. Vom System selbst.",
+    hon3_h:"Ehrliche Herkunft",
+    hon3_b:"Jedes Ergebnis ist gekennzeichnet: synthetisch, eingebunden oder live. Kein stilles Leihen realer Autorität.",
+    hon4_h:"Hype ist ein Build-Fehler",
+    hon4_b:"Verbotene Marketing-Begriffe sind kein Stil-Leitfaden — sie lassen den Build scheitern. Determinismus vor Dekoration.",
+    foot_by:"Von Hanns-Steffen Rentschler · Unabhängiger Forscher",
+    foot_tag:"Deterministische Governance für LLM-basierte Forschungs-Pipelines.",
+    foot_quick:"Quickstart ↗",
+    foot_legal:"MIT-Lizenz · © 2026 Hanns-Steffen Rentschler · Kein Durchbruch behauptet, keiner impliziert."
+  },
+  zh:{
+    hero_eyebrow:"Dynamic Epistemic Sequencer — Diagnostic（动态认知定序器·诊断）",
+    hero_title:'当你的大模型漂移、幻觉或过早收敛时——<span class="hl">DESi 看得见。</span>',
+    hero_sub:"一个确定性、可重放治理的层，从外部观察、分类并审计大模型流水线。逐位精确可复现。设计上只读。已在 38 个实验阶段中验证。",
+    cta_github:"在 GitHub 上查看 ↗",
+    cta_paper:"阅读论文",
+    hero_hash:"每一次输出都逐位精确可复现 —",
+    prob_kicker:"观察者难题",
+    prob_quote:'让模型给自己打分，它报告的是自信——<span class="hl">而不是错误。</span>',
+    prob_body:"幻觉、权威漂移、过早收敛：大模型的失败方式，从正在失败的系统内部很难察觉。DESi 处在推理回路之外。它不审查模型说了什么——它审计产生这些输出的推理路径的拓扑结构。",
+    def_kicker:"定位",
+    def_title:"清楚知道你得到的是什么。",
+    is_h:"DESi 是什么",
+    is_1:"位于大模型推理之上的认知运行层——在模型随机之处保持确定。",
+    is_2:"一个只读的治理内核：分类、审计、标记，但绝不改写你的状态。",
+    is_3:"可重放的基础设施，配备封闭、冻结的分类法与人工审批关口。",
+    isnot_h:"DESi 不是什么",
+    isnot_1:"不是你大模型的替代品。",
+    isnot_2:"不是又一个与 LangGraph、AutoGen 或 CrewAI 竞争的智能体框架。",
+    isnot_3:"不主张通用智能。",
+    isnot_4:"不是惊人论断的来源——而且永远不会是。",
+    inv_kicker:"四条不变量",
+    inv_title:"从未放松。贯穿全部 38 个阶段。",
+    inv_sub:"这四项属性在系统创立之初即已固定，并在每一个实验阶段中逐字节保持不变。",
+    inv1_h:"重放稳定性",
+    inv1_b:"在相同输入下，所有输出逐位精确可复现。无伪随机数；每个签名均经 SHA-256。",
+    inv2_h:"封闭枚举",
+    inv2_b:"每一种分类法、判定类别与治理决策都使用冻结的封闭枚举——绝不做开放世界的猜测。",
+    inv3_h:"只读治理",
+    inv3_b:"治理内核绝不修改它所观察的认知状态。它只分类、审计、标记。",
+    inv4_h:"人工审批关口",
+    inv4_b:"没有明确的人工批准，任何变更、补丁或部署都不会推进。",
+    res_kicker:"实证结果",
+    res_title:"实测得出，并非许诺。",
+    res_sub:"除非特别注明，结果均来自合成或本地内置的测试夹具。真正有信息量的，是那些低于 1.0 的数值——以及我们公开的失败。",
+    r1:"在全部 38 个实验阶段中均保持重放稳定性。",
+    r2:"重算次数下降（36 → 4 次操作），输出逐字节一致。",
+    r3:"在 1,525 条 DriftBench 轨迹上的轨迹状态压缩，漂移信号得以保留。",
+    r4:"搜索空间节点削减，关键分支以 1.0 完整保留。",
+    r5:"每个重定向任务的路由成本下降，质量以 1.0 保持。",
+    r6:"真实 API 调用下的幻觉可见性（IBM Granite、DeepSeek）——使其可见，而非消除。",
+    hon_kicker:"以诚实为设计",
+    hon_title:"我们也报告失败。",
+    hon_sub:"以下词语被永久禁止出现在任何渲染输出中，并在构建时由确定性扫描器拦截：",
+    hon1_h:"负面结果，公开发表",
+    hon1_b:"论文在报告有效成果的同时，也报告无效之处——包括未达上限的分数与边界条件。",
+    hon2_h:"它标记自身的过度设计",
+    hon2_b:"有一个组件——Neo4j 演化图——被明确指认为过度工程。由系统本身指出。",
+    hon3_h:"诚实的来源标注",
+    hon3_b:"每个结果都有标注：合成、内置或实时。绝不悄悄借用现实世界的权威。",
+    hon4_h:"炒作即构建错误",
+    hon4_b:"被禁的营销词不是风格指南——它们会让构建失败。确定性高于修饰。",
+    foot_by:"作者：Hanns-Steffen Rentschler · 独立研究者",
+    foot_tag:"面向基于大模型的研究流水线的确定性治理。",
+    foot_quick:"快速上手 ↗",
+    foot_legal:"MIT 许可证 · © 2026 Hanns-Steffen Rentschler · 不主张突破，亦无暗示。"
+  },
+  es:{
+    hero_eyebrow:"Dynamic Epistemic Sequencer — Diagnostic",
+    hero_title:'Cuando tu LLM deriva, alucina o cierra demasiado pronto — <span class="hl">DESi lo ve.</span>',
+    hero_sub:"Una capa determinista y gobernada por repetición que observa, clasifica y audita pipelines de LLM desde fuera. Reproducible bit a bit. Solo lectura por diseño. Verificada en 38 fases experimentales.",
+    cta_github:"Ver en GitHub ↗",
+    cta_paper:"Leer el artículo",
+    hero_hash:"Cada salida es reproducible bit a bit —",
+    prob_kicker:"El problema del observador",
+    prob_quote:'Un modelo al que se le pide calificarse a sí mismo informa confianza — <span class="hl">no el error.</span>',
+    prob_body:"Alucinación, deriva de autoridad, cierre prematuro: los LLM fallan de maneras difíciles de detectar desde dentro del propio sistema que falla. DESi se sitúa fuera del bucle de inferencia. No censura lo que dice el modelo — audita la topología del camino de razonamiento que lo produjo.",
+    def_kicker:"Posicionamiento",
+    def_title:"Sabe exactamente qué obtienes.",
+    is_h:"Qué es DESi",
+    is_1:"Una capa epistémica de operación por encima de la inferencia del LLM — determinista donde el modelo es estocástico.",
+    is_2:"Un núcleo de gobernanza de solo lectura: clasifica, audita y marca, pero nunca reescribe tu estado.",
+    is_3:"Infraestructura estable ante repetición, con taxonomías cerradas y congeladas y puertas de aprobación humana.",
+    isnot_h:"Qué no es DESi",
+    isnot_1:"No es un reemplazo de tu LLM.",
+    isnot_2:"No es otro framework de agentes que compita con LangGraph, AutoGen o CrewAI.",
+    isnot_3:"No es una afirmación de inteligencia general.",
+    isnot_4:"No es una fuente de afirmaciones sensacionalistas — y nunca lo será.",
+    inv_kicker:"Cuatro invariantes",
+    inv_title:"Nunca relajados. En las 38 fases.",
+    inv_sub:"Estas cuatro propiedades se fijaron al inicio del sistema y se mantuvieron byte a byte en cada fase experimental.",
+    inv1_h:"Estabilidad ante repetición",
+    inv1_b:"Todas las salidas son reproducibles bit a bit con entradas idénticas. Sin PRNG; cada firma con SHA-256.",
+    inv2_h:"Enumeraciones cerradas",
+    inv2_b:"Cada taxonomía, clase de veredicto y decisión de gobernanza usa enumeraciones cerradas y congeladas — sin conjeturas de mundo abierto.",
+    inv3_h:"Gobernanza de solo lectura",
+    inv3_b:"El núcleo de gobernanza nunca modifica el estado epistémico que observa. Clasifica, audita y marca.",
+    inv4_h:"Puertas de aprobación humana",
+    inv4_b:"Ninguna mutación, parche o despliegue avanza sin aprobación humana explícita.",
+    res_kicker:"Resultados empíricos",
+    res_title:"Medido. No prometido.",
+    res_sub:"Los resultados provienen de fixtures sintéticos o incorporados localmente, salvo indicación expresa. Los números informativos son los que están por debajo de 1.0 — y los fallos que publicamos.",
+    r1:"Estabilidad ante repetición en cada una de las 38 fases experimentales.",
+    r2:"Reducción de recálculo (36 → 4 operaciones) con salidas byte-idénticas.",
+    r3:"Compresión de estado de trayectoria en 1.525 trayectorias DriftBench, señales de deriva preservadas.",
+    r4:"Reducción de nodos del espacio de búsqueda, con ramas críticas preservadas en 1.0.",
+    r5:"Reducción de coste de enrutado por tarea redirigida, calidad preservada en 1.0.",
+    r6:"Visibilidad de alucinaciones en llamadas API reales (IBM Granite, DeepSeek) — hechas visibles, no eliminadas.",
+    hon_kicker:"Honesto por diseño",
+    hon_title:"También reportamos los fallos.",
+    hon_sub:"Estas palabras están permanentemente prohibidas en toda salida renderizada y bloqueadas en tiempo de compilación por el Determinism Scanner:",
+    hon1_h:"Resultados negativos, publicados",
+    hon1_b:"El artículo informa lo que no funcionó junto a lo que sí — incluyendo puntuaciones por debajo del techo y condiciones límite.",
+    hon2_h:"Señala su propio exceso",
+    hon2_b:"Un componente — el grafo de evolución Neo4j — se identifica explícitamente como sobreingeniería. Por el sistema mismo.",
+    hon3_h:"Procedencia honesta",
+    hon3_b:"Cada resultado está etiquetado: sintético, incorporado o en vivo. Sin tomar prestada en silencio la autoridad del mundo real.",
+    hon4_h:"El bombo es un error de compilación",
+    hon4_b:"Los términos de marketing prohibidos no son una guía de estilo — hacen fallar la compilación. Determinismo antes que decoración.",
+    foot_by:"Por Hanns-Steffen Rentschler · Investigador independiente",
+    foot_tag:"Gobernanza determinista para pipelines de investigación basados en LLM.",
+    foot_quick:"Inicio rápido ↗",
+    foot_legal:"Licencia MIT · © 2026 Hanns-Steffen Rentschler · Ningún avance proclamado, ninguno implícito."
+  },
+  ja:{
+    hero_eyebrow:"Dynamic Epistemic Sequencer — Diagnostic（動的認識シーケンサ・診断）",
+    hero_title:'あなたのLLMがドリフトし、幻覚を起こし、早すぎる結論を出すとき——<span class="hl">DESiはそれを見ています。</span>',
+    hero_sub:"LLMパイプラインを外側から観測・分類・監査する、決定論的でリプレイ統制されたレイヤー。ビット単位で完全再現可能。設計上リードオンリー。38の実験フェーズで検証済み。",
+    cta_github:"GitHubで見る ↗",
+    cta_paper:"論文を読む",
+    hero_hash:"すべての出力はビット単位で完全に再現可能 —",
+    prob_kicker:"観測者問題",
+    prob_quote:'自己採点を求められたモデルが報告するのは自信であって——<span class="hl">誤りではない。</span>',
+    prob_body:"幻覚、権威ドリフト、早すぎる結論——LLMの失敗は、失敗しているシステムの内側からは検出しづらい形で起こります。DESiは推論ループの外側に位置します。モデルが何を言うかを検閲するのではなく、それを生んだ推論経路のトポロジーを監査します。",
+    def_kicker:"位置づけ",
+    def_title:"何が手に入るのかを正確に。",
+    is_h:"DESiであるもの",
+    is_1:"LLM推論の上に立つ認識オペレーティングレイヤー——モデルが確率的な場面で決定論的に。",
+    is_2:"リードオンリーの統制コア：分類・監査・フラグ付けは行うが、あなたの状態を書き換えることは決してない。",
+    is_3:"閉じた凍結分類法と人間承認ゲートを備えた、リプレイ安定なインフラ。",
+    isnot_h:"DESiでないもの",
+    isnot_1:"あなたのLLMの代替ではありません。",
+    isnot_2:"LangGraph、AutoGen、CrewAIと競合する別のエージェントフレームワークではありません。",
+    isnot_3:"汎用知能の主張ではありません。",
+    isnot_4:"誇大な断言の源ではありません——そして決してそうはなりません。",
+    inv_kicker:"4つの不変条件",
+    inv_title:"一度も緩めず。全38フェーズを通じて。",
+    inv_sub:"これら4つの性質はシステム創設時に固定され、すべての実験フェーズでバイト単位で保たれました。",
+    inv1_h:"リプレイ安定性",
+    inv1_b:"同一入力に対し、すべての出力はビット単位で再現可能。擬似乱数なし。署名はすべてSHA-256。",
+    inv2_h:"閉じた列挙",
+    inv2_b:"あらゆる分類法・判定クラス・統制判断は凍結された閉じた列挙を用い、開かれた世界での推測はしません。",
+    inv3_h:"リードオンリー統制",
+    inv3_b:"統制コアは観測対象の認識状態を決して変更しません。分類し、監査し、フラグを立てます。",
+    inv4_h:"人間承認ゲート",
+    inv4_b:"明示的な人間の承認なしに、いかなる変更・パッチ・デプロイも進みません。",
+    res_kicker:"実証結果",
+    res_title:"測定した。約束ではない。",
+    res_sub:"特記なき限り、結果は合成またはローカルに同梱したフィクスチャに基づきます。情報量があるのは1.0を下回る数値——そして私たちが公開する失敗です。",
+    r1:"38の実験フェーズすべてでリプレイ安定性を維持。",
+    r2:"再計算の削減（36 → 4 操作）、出力はバイト単位で同一。",
+    r3:"1,525件のDriftBench軌跡における軌跡状態圧縮、ドリフト信号は保持。",
+    r4:"探索空間ノードの削減、重要分岐は1.0で保持。",
+    r5:"再ルーティング1タスクあたりのルーティングコスト削減、品質は1.0で保持。",
+    r6:"実APIコール下での幻覚可視性（IBM Granite、DeepSeek）——消すのではなく、見えるようにする。",
+    hon_kicker:"設計として誠実",
+    hon_title:"失敗もまた報告します。",
+    hon_sub:"以下の語は、あらゆるレンダリング出力から恒久的に禁止され、ビルド時にDeterminism Scannerが遮断します：",
+    hon1_h:"ネガティブな結果も公開",
+    hon1_b:"論文は、うまくいったことと並べて、うまくいかなかったことも報告します——上限未満のスコアや境界条件を含めて。",
+    hon2_h:"自らの過剰を指摘する",
+    hon2_b:"あるコンポーネント——Neo4j進化グラフ——は過剰設計として明示的に指摘されています。システム自身によって。",
+    hon3_h:"誠実な出所表示",
+    hon3_b:"すべての結果にラベルが付きます：合成、同梱、ライブ。現実世界の権威をひそかに借りることはしません。",
+    hon4_h:"誇大宣伝はビルドエラー",
+    hon4_b:"禁止されたマーケティング用語はスタイル指針ではありません——ビルドを失敗させます。装飾より決定論を。",
+    foot_by:"著者：Hanns-Steffen Rentschler · 独立研究者",
+    foot_tag:"LLMベースの研究パイプラインのための決定論的ガバナンス。",
+    foot_quick:"クイックスタート ↗",
+    foot_legal:"MITライセンス · © 2026 Hanns-Steffen Rentschler · 突破は主張せず、含意もせず。"
+  }
+};
+
+function applyLang(lang){
+  const dict = I18N[lang] || I18N.en;
+  document.documentElement.lang = lang;
+  document.body.className = "lang-" + lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k = el.getAttribute("data-i18n");
+    if(dict[k]!==undefined) el.textContent = dict[k];
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{
+    const k = el.getAttribute("data-i18n-html");
+    if(dict[k]!==undefined) el.innerHTML = dict[k];
+  });
+  document.querySelectorAll(".langs button").forEach(b=>{
+    b.classList.toggle("active", b.getAttribute("data-lang")===lang);
+  });
+  try{ localStorage.setItem("desi_lang", lang); }catch(e){}
+}
+
+document.getElementById("langs").addEventListener("click", e=>{
+  const b = e.target.closest("button[data-lang]");
+  if(b) applyLang(b.getAttribute("data-lang"));
+});
+
+(function init(){
+  let lang = "en";
+  try{ lang = localStorage.getItem("desi_lang") || ""; }catch(e){}
+  if(!I18N[lang]){
+    const nav = (navigator.language||"en").slice(0,2).toLowerCase();
+    lang = I18N[nav] ? nav : "en";
+  }
+  applyLang(lang);
+})();
+</script>
+</body>
+</html>
