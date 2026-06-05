@@ -28,16 +28,21 @@ Or just open `website/index.html` directly in a browser.
 ## Publish via GitHub Pages
 
 A workflow at `.github/workflows/pages.yml` deploys the `website/` folder to
-GitHub Pages on every push that touches it. The `configure-pages` step uses
-`enablement: true`, so Pages is **enabled automatically** on the first run —
-no manual Settings step required.
+GitHub Pages.
 
-Each push to `website/**` re-publishes the site. The live URL is shown in the
-workflow run summary (and under Settings → Pages), typically
-`https://hstre.github.io/DESi/`.
+**One-time setup (done by a repo admin):**
+Settings → Pages → Build and deployment → Source → **GitHub Actions**.
+(The workflow token cannot enable Pages itself — `Resource not accessible by
+integration` — so this toggle must be flipped once by hand.)
 
-> If auto-enablement is ever blocked by org/account policy, enable it manually:
-> Settings → Pages → Build and deployment → Source → **GitHub Actions**.
+**Deploy branch:** the `github-pages` environment only accepts deployments from
+the default branch by default, so the site is published from **`main`**. Each
+push to `main` that touches `website/**` re-publishes the site. To also deploy
+from another branch, add it under Settings → Environments → `github-pages` →
+Deployment branches.
+
+The live URL is shown in the workflow run summary (and under Settings → Pages),
+typically `https://hstre.github.io/DESi/`.
 
 ## Editing copy
 
