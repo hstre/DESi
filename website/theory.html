@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DESi — Foundations: Mathematics &amp; Philosophy</title>
+<meta name="description" content="The hard mathematics behind DESi and its philosophical lineage — Kant, Popper, Heisenberg — from which the Alexandria Protocol is derived." />
+<meta property="og:title" content="DESi — Mathematical &amp; Philosophical Foundations" />
+<meta property="og:description" content="Determinism, an epistemic uncertainty relation, falsifiability and complementarity — the formal structure behind DESi and the Alexandria Protocol." />
+<style>
+  :root{
+    --bg:#070a10;--bg-2:#0c111b;--panel:#0f1622;--line:#1c2737;
+    --ink:#e8eef7;--muted:#8a99af;--faint:#5c6b82;
+    --accent:#2ce6c4;--accent-2:#5aa8ff;--warn:#ff6b6b;
+    --mono:"SF Mono",ui-monospace,"JetBrains Mono","Cascadia Code",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Noto Sans",sans-serif;
+    --cjk:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Noto Sans CJK JP","Yu Gothic",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body.lang-zh,body.lang-ja{font-family:var(--cjk)}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:860px;margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--mono)}
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:48px 48px;opacity:.10;mask-image:radial-gradient(circle at 50% 0%,#000,transparent 70%)}
+
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+    background:rgba(7,10,16,.72);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:14px;max-width:1080px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px;color:var(--ink)}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(44,230,196,.15)}
+  .brand .v{color:var(--faint);font-family:var(--mono);font-size:12px;font-weight:500}
+  .nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+  .back{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line);
+    padding:6px 11px;border-radius:8px}
+  .back:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
+  .langs{display:flex;gap:4px;flex-wrap:wrap}
+  .langs button{font-family:var(--mono);font-size:12px;letter-spacing:.5px;background:transparent;
+    color:var(--muted);border:1px solid transparent;padding:5px 9px;border-radius:7px;cursor:pointer;transition:.15s}
+  .langs button:hover{color:var(--ink);background:var(--panel)}
+  .langs button.active{color:var(--bg);background:var(--accent);font-weight:700}
+
+  header.hero{padding:80px 0 44px}
+  .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:3px;color:var(--accent);
+    text-transform:uppercase;margin-bottom:20px}
+  h1{font-size:clamp(30px,5vw,50px);line-height:1.08;letter-spacing:-1.3px;margin:0 0 20px;font-weight:800;max-width:20ch}
+  h1 .hl{color:var(--accent)}
+  .lead{font-size:clamp(16px,2.2vw,20px);color:var(--muted);max-width:64ch;margin:0}
+
+  .note{border:1px solid rgba(255,107,107,.3);background:rgba(255,107,107,.05);
+    border-radius:14px;padding:20px 22px;margin:30px 0}
+  .note .nk{font-family:var(--mono);font-size:11.5px;letter-spacing:2px;color:var(--warn);text-transform:uppercase;margin-bottom:8px}
+  .note p{margin:0;color:var(--muted);font-size:15px}
+
+  .part{border-top:1px solid var(--line);padding:54px 0 8px;margin-top:24px}
+  .part-k{font-family:var(--mono);font-size:12px;letter-spacing:3px;color:var(--accent-2);text-transform:uppercase}
+  .part-t{font-size:clamp(24px,3.6vw,36px);letter-spacing:-.8px;margin:10px 0 8px;font-weight:780}
+  .part-s{color:var(--muted);max-width:62ch;margin:0 0 8px;font-size:16px}
+
+  section.blk{padding:30px 0;border-top:1px solid rgba(28,39,55,.6)}
+  section.blk:first-of-type{border-top:none}
+  h2{font-size:clamp(19px,2.6vw,24px);letter-spacing:-.4px;margin:0 0 14px;font-weight:700}
+  h2 .nm{color:var(--accent);font-family:var(--mono);font-size:.8em;margin-right:6px}
+  .blk p{color:var(--muted);font-size:16px;margin:0 0 14px;max-width:68ch}
+  .blk p b,.blk p strong{color:var(--ink);font-weight:650}
+  .blk code{font-family:var(--mono);font-size:.88em;background:var(--panel);border:1px solid var(--line);
+    padding:1px 6px;border-radius:5px;color:var(--accent)}
+
+  .math{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);
+    border-left:3px solid var(--accent);border-radius:12px;padding:8px 20px;margin:18px 0;overflow-x:auto}
+  .math .cap{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.5px;margin-top:-2px}
+
+  table.grid{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px}
+  table.grid th,table.grid td{border:1px solid var(--line);padding:9px 12px;text-align:left}
+  table.grid th{background:var(--panel);color:var(--ink);font-family:var(--mono);font-size:12.5px;
+    letter-spacing:.5px;font-weight:600}
+  table.grid td{color:var(--muted)}
+  table.grid td.mono{font-family:var(--mono);color:var(--accent)}
+  table.grid tr:nth-child(even) td{background:rgba(15,22,34,.4)}
+
+  .derive{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0}
+  .derive .d{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:20px}
+  .derive .d h3{margin:0 0 8px;font-size:15.5px}
+  .derive .d.kant h3{color:var(--accent)}
+  .derive .d.pop h3{color:var(--accent-2)}
+  .derive .d.heis h3{color:#c79bff}
+  .derive .d p{margin:0;color:var(--muted);font-size:14px}
+
+  footer{padding:54px 0 80px;border-top:1px solid var(--line);background:var(--bg-2);margin-top:40px}
+  .foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end}
+  .foot-grid .who h3{margin:0 0 6px;font-size:19px;color:var(--ink)}
+  .foot-grid .who p{margin:0;color:var(--muted);font-size:14px}
+  .foot-links{display:flex;gap:10px;flex-wrap:wrap}
+  .foot-links a{font-family:var(--mono);font-size:13px;color:var(--muted);border:1px solid var(--line);
+    padding:9px 14px;border-radius:9px}
+  .foot-links a:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
+  .legal{margin-top:26px;color:var(--faint);font-size:12.5px;font-family:var(--mono);max-width:74ch}
+
+  @media(max-width:760px){.derive{grid-template-columns:1fr}}
+</style>
+<script>
+  window.MathJax = {
+    tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},
+    chtml:{scale:1.0},svg:{fontCache:'global'}
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body class="lang-en">
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>DESi
+      <span class="v">Foundations</span></div>
+    <div class="nav-right">
+      <a class="back" href="index.html" data-i18n="t_back"></a>
+      <div class="langs" id="langs">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="de">DE</button>
+        <button data-lang="zh">中文</button>
+        <button data-lang="es">ES</button>
+        <button data-lang="ja">日本語</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="t_eyebrow"></div>
+    <h1 data-i18n-html="t_title"></h1>
+    <p class="lead" data-i18n="t_sub"></p>
+
+    <div class="note">
+      <div class="nk" data-i18n="t_note_k"></div>
+      <p data-i18n-html="t_note_b"></p>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== PART I — MATHEMATICS ===================== -->
+<div class="part">
+  <div class="wrap">
+    <div class="part-k" data-i18n="t_p1_k"></div>
+    <div class="part-t" data-i18n="t_p1_t"></div>
+    <p class="part-s" data-i18n="t_p1_s"></p>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="blk">
+    <h2><span class="nm">1</span><span data-i18n="t_m1_h"></span></h2>
+    <p data-i18n="t_m1_b"></p>
+    <div class="math">
+      \[ E(x)\equiv_{\text{byte}}E(x),\qquad s(x)=H_{\textsf{SHA-256}}\!\big(\operatorname{canon}(E(x))\big),\qquad \sigma=1. \]
+      <div class="cap" data-i18n="t_m1_cap"></div>
+    </div>
+    <p data-i18n="t_m1_b2"></p>
+  </section>
+
+  <section class="blk">
+    <h2><span class="nm">2</span><span data-i18n="t_m2_h"></span></h2>
+    <p data-i18n="t_m2_b"></p>
+    <div class="math">
+      \[ c:\mathcal{O}\longrightarrow\mathcal{V},\qquad |\mathcal{V}|<\infty,\qquad \mathcal{V}\ \text{frozen at inception}. \]
+    </div>
+  </section>
+
+  <section class="blk">
+    <h2><span class="nm">3</span><span data-i18n="t_m3_h"></span></h2>
+    <p data-i18n="t_m3_b"></p>
+    <div class="math">
+      \[ \Phi:\mathcal{T}\to\mathbb{R}^{9},\qquad C=1-\frac{\dim\Phi(\tau)}{\dim\tau}\approx 0.965,\qquad \rho=\frac{S_{\text{after}}}{S_{\text{before}}}\approx 1.06. \]
+    </div>
+    <p data-i18n="t_m3_b2"></p>
+    <div class="math">
+      \[ \Delta C\cdot\Delta S\ \ge\ \kappa. \]
+      <div class="cap" data-i18n="t_m3_cap"></div>
+    </div>
+    <p data-i18n="t_m3_b3"></p>
+  </section>
+
+  <section class="blk">
+    <h2><span class="nm">4</span><span data-i18n="t_m4_h"></span></h2>
+    <p data-i18n="t_m4_b"></p>
+    <div class="math">
+      \[ G=\bigwedge_{i=1}^{6} g_i,\qquad \text{Class}=A \iff G=\top. \]
+      \[ \text{replay collapse}\ \succ\ \text{governance failure}\ \succ\ \text{architecture instability}\ \succ\ \text{drift}. \]
+    </div>
+    <p data-i18n="t_m4_b2"></p>
+  </section>
+
+  <section class="blk">
+    <h2><span class="nm">5</span><span data-i18n="t_m5_h"></span></h2>
+    <p data-i18n="t_m5_b"></p>
+    <div class="math">
+      \[ \texttt{forced}\Rightarrow\texttt{keep},\quad \texttt{critical}\Rightarrow\texttt{keep},\quad \text{density}<0.35\Rightarrow\texttt{prune?};\qquad \text{preservation}=1.0. \]
+    </div>
+  </section>
+
+  <section class="blk">
+    <h2><span class="nm">6</span><span data-i18n="t_m6_h"></span></h2>
+    <p data-i18n="t_m6_b"></p>
+    <table class="grid">
+      <thead><tr>
+        <th data-i18n="t_tbl_dist"></th><th data-i18n="t_tbl_fam"></th>
+        <th data-i18n="t_tbl_pairs"></th><th data-i18n="t_tbl_res"></th><th data-i18n="t_tbl_rate"></th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="mono">high_d</td><td class="mono">same_fam</td><td>28</td><td>14</td><td>0.500</td></tr>
+        <tr><td class="mono">low_d</td><td class="mono">same_fam</td><td>26</td><td>2</td><td>0.077</td></tr>
+        <tr><td class="mono">high_d</td><td class="mono">diff_fam</td><td>60</td><td>38</td><td>0.633</td></tr>
+        <tr><td class="mono">low_d</td><td class="mono">diff_fam</td><td>76</td><td>10</td><td>0.132</td></tr>
+      </tbody>
+    </table>
+    <p data-i18n="t_m6_b2"></p>
+  </section>
+</div>
+
+<!-- ===================== PART II — PHILOSOPHY ===================== -->
+<div class="part">
+  <div class="wrap">
+    <div class="part-k" data-i18n="t_p2_k"></div>
+    <div class="part-t" data-i18n="t_p2_t"></div>
+    <p class="part-s" data-i18n="t_p2_s"></p>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="blk">
+    <h2 data-i18n="t_ph1_h"></h2>
+    <p data-i18n="t_ph1_b"></p>
+    <p data-i18n="t_ph1_b2"></p>
+  </section>
+  <section class="blk">
+    <h2 data-i18n="t_ph2_h"></h2>
+    <p data-i18n="t_ph2_b"></p>
+    <p data-i18n="t_ph2_b2"></p>
+  </section>
+  <section class="blk">
+    <h2 data-i18n="t_ph3_h"></h2>
+    <p data-i18n="t_ph3_b"></p>
+    <p data-i18n="t_ph3_b2"></p>
+  </section>
+</div>
+
+<!-- ===================== PART III — ALEXANDRIA ===================== -->
+<div class="part">
+  <div class="wrap">
+    <div class="part-k" data-i18n="t_p3_k"></div>
+    <div class="part-t" data-i18n="t_p3_t"></div>
+    <p class="part-s" data-i18n="t_p3_s"></p>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="blk">
+    <p data-i18n="t_a_b"></p>
+    <div class="derive">
+      <div class="d kant"><h3>Kant</h3><p data-i18n="t_a_kant"></p></div>
+      <div class="d pop"><h3>Popper</h3><p data-i18n="t_a_pop"></p></div>
+      <div class="d heis"><h3>Heisenberg</h3><p data-i18n="t_a_heis"></p></div>
+    </div>
+    <p data-i18n="t_a_mivp"></p>
+    <div class="math">
+      \[ \mathrm{CIH}=H_{\textsf{SHA-256}}\!\big(\mathrm{MH}\,\Vert\,\mathrm{PH}\,\Vert\,\mathrm{RH}\,\Vert\,\text{epoch}\big). \]
+    </div>
+    <p data-i18n-html="t_a_sum"></p>
+  </section>
+
+  <section class="blk">
+    <h2 data-i18n="t_close_h"></h2>
+    <p data-i18n="t_close_b"></p>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="who">
+        <h3 data-i18n="t_foot_h"></h3>
+        <p data-i18n="t_foot_by"></p>
+      </div>
+      <div class="foot-links">
+        <a href="index.html" data-i18n="t_back"></a>
+        <a href="https://github.com/hstre/DESi">DESi ↗</a>
+        <a href="https://github.com/hstre/Alexandria-MIVP">Alexandria-MIVP ↗</a>
+        <a href="https://ssrn.com/author=rentschler">SSRN ↗</a>
+      </div>
+    </div>
+    <div class="legal" data-i18n="t_legal"></div>
+  </div>
+</footer>
+
+<script>
+const I18N = {
+  en:{
+    t_back:"← Overview",
+    t_eyebrow:"Mathematical & Philosophical Foundations",
+    t_title:'The hard theory behind DESi — and the lineage of the <span class="hl">Alexandria Protocol.</span>',
+    t_sub:"From determinism and an epistemic uncertainty relation to Kant, Popper and Heisenberg: the formal and philosophical structure from which DESi and the Alexandria Protocol are derived. Nothing here is decorative; every analogy carries a measured signature.",
+    t_note_k:"A note on naming",
+    t_note_b:"DESi's Determinism Scanner permanently <b>forbids the names “Kant” and “Popper”</b> from every rendered system output — a deliberate guard against borrowing unearned authority. This page is meta-commentary, not a system output; here the lineage is named explicitly and held to account.",
+
+    t_p1_k:"Part I",
+    t_p1_t:"The Mathematics",
+    t_p1_s:"Everything below is bit-exact, falsifiable, and derived from constructs that ship in the codebase.",
+    t_m1_h:"Determinism and the replay functor",
+    t_m1_b:"Let an epistemic operation be a map E on a state space 𝒮. DESi requires E to be replay-stable: identical inputs yield byte-identical outputs and signatures. No pseudo-randomness enters the governance core; every signature is the SHA-256 digest of a canonical encoding.",
+    t_m1_cap:"replay stability σ — a design invariant, not a measured average",
+    t_m1_b2:"σ = 1 was held byte-for-byte across all 38 experimental phases. It is the minimum condition that makes the observer problem solvable at all: the auditor must be deterministic where the model is stochastic.",
+    t_m2_h:"Closed enumerations and the verdict algebra",
+    t_m2_b:"All verdicts live in a finite, frozen set 𝒱. Classification is a total function from observations into 𝒱 — no open-world categories are invented at run time. Closing the world the governance layer can speak about is precisely what makes replay decidable.",
+    t_m3_h:"The StateVector and an epistemic uncertainty relation",
+    t_m3_b:"A trajectory τ is compressed by a map Φ into a 9-dimensional StateVector. On 1,525 DriftBench trajectories the compression reaches ≈ 96.5 % while the drift-governance signal is preserved at ratio ρ ≈ 1.06.",
+    t_m3_b2:"Compression C and signal preservation S cannot both be driven to unity. Beyond a Pareto-optimal point every further bit of compression costs measurable signal — a trade-off we write as an uncertainty relation (an analogy to, not an instance of, quantum mechanics):",
+    t_m3_cap:"κ — the Pareto floor; loss below it is attributed explicitly",
+    t_m3_b3:"The reported operating point is the Pareto point, not maximal compression. Two honest failure boundaries remain: topic-shift robustness and semantic over-folding.",
+    t_m4_h:"The Concept Gate",
+    t_m4_b:"A phase reaches Class A only if all six gate conditions hold simultaneously — a Boolean conjunction. Failure is not graded continuously; the priority ordering is lexicographic and was fixed at inception:",
+    t_m4_b2:"The ordering — replay collapse before governance failure before architecture instability before drift — was never adjusted to fit results. A single false condition forecloses Class A.",
+    t_m5_h:"Search-space compression under truth-preservation",
+    t_m5_b:"Branch pruning reduces search-space nodes by 41–60 % while preserving every critical and forced branch at rate 1.0. The pruning rules are closed and total:",
+    t_m6_h:"Complementarity (Paper 11)",
+    t_m6_b:"Field amplification between epistemic anchors is driven by complementarity, not semantic resonance. Geometric distance is necessary but not sufficient; coverage gain is causally necessary. The ablation grid (distance × corpus family):",
+    t_m6_b2:"Two complementary anchors illuminate non-redundant regions of the claim space — the epistemic analogue of complementary observables. distance-only activation = 0.423 < combined 0.633.",
+    t_tbl_dist:"Distance",t_tbl_fam:"Family",t_tbl_pairs:"Pairs",t_tbl_res:"Resonant",t_tbl_rate:"Rate",
+
+    t_p2_k:"Part II",
+    t_p2_t:"The Philosophy",
+    t_p2_s:"Three thinkers, three structural constraints — each mapped to a concrete mechanism, not an ornament.",
+    t_ph1_h:"Kant — the conditions of possibility",
+    t_ph1_b:"DESi never accesses the model's reasoning in itself (the noumenon); it sees only appearances — outputs and trajectories (phenomena). The observer problem is the transcendental statement of this limit: the evaluator and the evaluated cannot be the same system.",
+    t_ph1_b2:"The four epistemic categories — EMPIRICAL, NORMATIVE, MODEL, SPECULATIVE — act as categories of the understanding: a priori forms without which an incoming claim could not be experienced as structured knowledge at all. The closed enumerations are that a priori; the Audit Gate enforces the transcendental conditions of admissibility (schema, category purity, temporal monotonicity). The deterministic invariants are DESi's synthetic a priori — necessary, content-independent, prior to any run.",
+    t_ph2_h:"Popper — falsifiability and critical rationalism",
+    t_ph2_b:"Every Concept Gate is a falsification test: a threshold that can fail and assign Class B–E. The system never verifies truth; it only fails to refute. Hallucinations are made visible — never declared eliminated.",
+    t_ph2_b2:"Conjecture and refutation are structural: dissent creates a BRANCH, never a deletion; negative results are published beside positive ones; the architecture is, in its own words, “tested, falsifiable, bit-reproducible.” The EMPIRICAL category is Popper's demarcation criterion, encoded as a type.",
+    t_ph3_h:"Heisenberg — uncertainty and complementarity",
+    t_ph3_b:"To measure is to disturb. A governance layer that rewrote the state it observes would perturb the very trajectory it audits; therefore governance is strictly read-only — measurement without collapse.",
+    t_ph3_b2:"And some epistemic properties are complementary: compression and signal preservation cannot be jointly maximized (I.3), just as complementary anchors are required to cover the claim space (I.6). This is Bohr's complementarity used as a constraint with a measured signature, not a metaphor for its own sake.",
+
+    t_p3_k:"Part III",
+    t_p3_t:"The Alexandria Protocol, derived",
+    t_p3_s:"The three constraints converge into a single construction.",
+    t_a_b:"Alexandria binds knowledge claims to an append-only, hash-chained lineage with tamper detection. Each thread above contributes one load-bearing property:",
+    t_a_kant:"The four categories and the a-priori Audit Gate — schema, category purity, temporal monotonicity.",
+    t_a_pop:"BRANCH-on-dissent instead of overwrite: refutation is preserved, never erased.",
+    t_a_heis:"Append-only, no-collapse evolution: the past is never mutated, only extended.",
+    t_a_mivp:"MIVP closes the loop by binding every patch to a Composite Instance Hash of the producing system — model, policy and runtime:",
+    t_a_sum:"Knowledge that is <b>structurally sound</b> (Alexandria) and <b>bound to a verifiable identity</b> (MIVP): the protocol is the deterministic intersection of a Kantian architecture, a Popperian method, and a Heisenbergian discipline of observation.",
+    t_close_h:"What this claims — and what it does not",
+    t_close_b:"These are structural analogies with measured signatures, not assertions that DESi “is” quantum mechanics or that the philosophers would endorse it. No general intelligence is claimed; no breakthrough is implied. The mathematics is reproducible; the philosophy is a lineage, named honestly — including the irony that two of these names are banned from the system's own outputs.",
+    t_foot_h:"Foundations",
+    t_foot_by:"DESi · Alexandria Protocol · Hanns-Steffen Rentschler",
+    t_legal:"MIT License · © 2026 Hanns-Steffen Rentschler · Analogies carry measured signatures; no breakthrough claimed, none implied."
+  },
+  de:{
+    t_back:"← Übersicht",
+    t_eyebrow:"Mathematische & philosophische Grundlagen",
+    t_title:'Die harte Theorie hinter DESi — und die Ahnenlinie des <span class="hl">Alexandria-Protokolls.</span>',
+    t_sub:"Von Determinismus und einer epistemischen Unschärferelation bis zu Kant, Popper und Heisenberg: die formale und philosophische Struktur, aus der DESi und das Alexandria-Protokoll abgeleitet sind. Nichts hier ist Dekoration; jede Analogie trägt eine gemessene Signatur.",
+    t_note_k:"Eine Anmerkung zu den Namen",
+    t_note_b:"DESis Determinism Scanner <b>verbietet die Namen „Kant“ und „Popper“</b> dauerhaft in jeder gerenderten System-Ausgabe — ein bewusster Schutz davor, sich unverdiente Autorität zu leihen. Diese Seite ist Meta-Kommentar, keine System-Ausgabe; hier wird die Linie ausdrücklich benannt und zur Rechenschaft gezogen.",
+
+    t_p1_k:"Teil I",
+    t_p1_t:"Die Mathematik",
+    t_p1_s:"Alles Folgende ist bit-genau, falsifizierbar und aus Konstrukten abgeleitet, die im Code stecken.",
+    t_m1_h:"Determinismus und der Replay-Funktor",
+    t_m1_b:"Eine epistemische Operation sei eine Abbildung E auf einem Zustandsraum 𝒮. DESi verlangt, dass E replay-stabil ist: identische Eingaben liefern byte-identische Ausgaben und Signaturen. Kein Pseudozufall gelangt in den Governance-Kern; jede Signatur ist der SHA-256-Hash einer kanonischen Kodierung.",
+    t_m1_cap:"Replay-Stabilität σ — eine Design-Invariante, kein gemessener Mittelwert",
+    t_m1_b2:"σ = 1 wurde über alle 38 Experimentphasen Byte für Byte gehalten. Es ist die Minimalbedingung, die das Beobachter-Problem überhaupt lösbar macht: Der Prüfer muss deterministisch sein, wo das Modell stochastisch ist.",
+    t_m2_h:"Geschlossene Enumerationen und die Verdikt-Algebra",
+    t_m2_b:"Alle Verdikte leben in einer endlichen, eingefrorenen Menge 𝒱. Klassifikation ist eine totale Funktion von Beobachtungen nach 𝒱 — keine Open-World-Kategorien werden zur Laufzeit erfunden. Genau das Schließen der Welt, über die die Governance-Schicht sprechen darf, macht Replay entscheidbar.",
+    t_m3_h:"Der StateVector und eine epistemische Unschärferelation",
+    t_m3_b:"Eine Trajektorie τ wird durch eine Abbildung Φ in einen 9-dimensionalen StateVector komprimiert. Über 1.525 DriftBench-Trajektorien erreicht die Kompression ≈ 96,5 %, während das Drift-Governance-Signal mit Verhältnis ρ ≈ 1,06 erhalten bleibt.",
+    t_m3_b2:"Kompression C und Signalerhalt S lassen sich nicht beide gegen Eins treiben. Jenseits eines Pareto-optimalen Punktes kostet jedes weitere Bit Kompression messbares Signal — ein Trade-off, den wir als Unschärferelation schreiben (eine Analogie zur, kein Fall von Quantenmechanik):",
+    t_m3_cap:"κ — der Pareto-Boden; Verlust darunter wird explizit zugeordnet",
+    t_m3_b3:"Der berichtete Betriebspunkt ist der Pareto-Punkt, nicht maximale Kompression. Zwei ehrliche Fehlergrenzen bleiben: Robustheit gegen Themenwechsel und semantisches Über-Falten.",
+    t_m4_h:"Das Concept Gate",
+    t_m4_b:"Eine Phase erreicht Klasse A nur, wenn alle sechs Gate-Bedingungen gleichzeitig gelten — eine boolesche Konjunktion. Versagen wird nicht stetig benotet; die Prioritätsordnung ist lexikographisch und wurde bei Systemstart fixiert:",
+    t_m4_b2:"Die Ordnung — Replay-Kollaps vor Governance-Versagen vor Architektur-Instabilität vor Drift — wurde nie an Ergebnisse angepasst. Eine einzige falsche Bedingung schließt Klasse A aus.",
+    t_m5_h:"Suchraum-Kompression unter Wahrheitserhalt",
+    t_m5_b:"Branch-Pruning reduziert Suchraum-Knoten um 41–60 %, während jeder kritische und erzwungene Zweig mit Rate 1,0 erhalten bleibt. Die Pruning-Regeln sind geschlossen und total:",
+    t_m6_h:"Komplementarität (Paper 11)",
+    t_m6_b:"Feldverstärkung zwischen epistemischen Ankern wird durch Komplementarität getrieben, nicht durch semantische Resonanz. Geometrische Distanz ist notwendig, aber nicht hinreichend; der Coverage-Gain ist kausal notwendig. Das Ablations-Raster (Distanz × Korpus-Familie):",
+    t_m6_b2:"Zwei komplementäre Anker beleuchten nicht-redundante Regionen des Aussagenraums — das epistemische Analogon komplementärer Observablen. Aktivierung allein durch Distanz = 0,423 < kombiniert 0,633.",
+    t_tbl_dist:"Distanz",t_tbl_fam:"Familie",t_tbl_pairs:"Paare",t_tbl_res:"Resonant",t_tbl_rate:"Rate",
+
+    t_p2_k:"Teil II",
+    t_p2_t:"Die Philosophie",
+    t_p2_s:"Drei Denker, drei strukturelle Zwänge — jeder auf einen konkreten Mechanismus abgebildet, kein Ornament.",
+    t_ph1_h:"Kant — die Bedingungen der Möglichkeit",
+    t_ph1_b:"DESi greift nie auf das Denken des Modells an sich zu (das Noumenon); es sieht nur Erscheinungen — Ausgaben und Trajektorien (Phänomene). Das Beobachter-Problem ist die transzendentale Fassung dieser Grenze: Prüfer und Geprüftes können nicht dasselbe System sein.",
+    t_ph1_b2:"Die vier epistemischen Kategorien — EMPIRICAL, NORMATIVE, MODEL, SPECULATIVE — wirken als Kategorien des Verstandes: apriorische Formen, ohne die ein eingehender Anspruch gar nicht als strukturiertes Wissen erfahren werden könnte. Die geschlossenen Enumerationen sind dieses Apriori; das Audit Gate erzwingt die transzendentalen Zulässigkeitsbedingungen (Schema, Kategorien-Reinheit, zeitliche Monotonie). Die deterministischen Invarianten sind DESis synthetisches Apriori — notwendig, inhaltsunabhängig, vor jedem Lauf.",
+    t_ph2_h:"Popper — Falsifizierbarkeit und kritischer Rationalismus",
+    t_ph2_b:"Jedes Concept Gate ist ein Falsifikationstest: eine Schwelle, die scheitern und Klasse B–E zuweisen kann. Das System verifiziert nie Wahrheit; es scheitert nur am Widerlegen. Halluzinationen werden sichtbar gemacht — nie für beseitigt erklärt.",
+    t_ph2_b2:"Vermutung und Widerlegung sind strukturell: Dissens erzeugt einen BRANCH, nie eine Löschung; negative Ergebnisse werden neben positiven veröffentlicht; die Architektur ist, in ihren eigenen Worten, „getestet, falsifizierbar, bit-reproduzierbar“. Die Kategorie EMPIRICAL ist Poppers Abgrenzungskriterium, als Typ kodiert.",
+    t_ph3_h:"Heisenberg — Unschärfe und Komplementarität",
+    t_ph3_b:"Messen heißt stören. Eine Governance-Schicht, die den beobachteten Zustand umschriebe, würde genau die Trajektorie stören, die sie auditiert; daher ist Governance strikt read-only — Messung ohne Kollaps.",
+    t_ph3_b2:"Und manche epistemischen Eigenschaften sind komplementär: Kompression und Signalerhalt lassen sich nicht gemeinsam maximieren (I.3), so wie komplementäre Anker nötig sind, um den Aussagenraum abzudecken (I.6). Das ist Bohrs Komplementarität als Zwang mit gemessener Signatur — keine Metapher um ihrer selbst willen.",
+
+    t_p3_k:"Teil III",
+    t_p3_t:"Das Alexandria-Protokoll, abgeleitet",
+    t_p3_s:"Die drei Zwänge laufen in einer einzigen Konstruktion zusammen.",
+    t_a_b:"Alexandria bindet Wissensansprüche an eine append-only, hash-verkettete Linie mit Manipulationserkennung. Jeder Strang oben steuert eine tragende Eigenschaft bei:",
+    t_a_kant:"Die vier Kategorien und das apriorische Audit Gate — Schema, Kategorien-Reinheit, zeitliche Monotonie.",
+    t_a_pop:"BRANCH-bei-Dissens statt Überschreiben: Widerlegung bleibt erhalten, wird nie gelöscht.",
+    t_a_heis:"Append-only, kollaps-freie Evolution: die Vergangenheit wird nie verändert, nur erweitert.",
+    t_a_mivp:"MIVP schließt den Kreis, indem es jeden Patch an einen Composite Instance Hash des erzeugenden Systems bindet — Modell, Policy und Runtime:",
+    t_a_sum:"Wissen, das <b>strukturell solide</b> (Alexandria) und <b>an eine verifizierbare Identität gebunden</b> ist (MIVP): Das Protokoll ist der deterministische Schnitt aus einer kantischen Architektur, einer popperschen Methode und einer heisenbergschen Disziplin der Beobachtung.",
+    t_close_h:"Was dies behauptet — und was nicht",
+    t_close_b:"Dies sind strukturelle Analogien mit gemessenen Signaturen, keine Behauptungen, DESi „sei“ Quantenmechanik oder die Philosophen würden es gutheißen. Keine allgemeine Intelligenz wird behauptet; kein Durchbruch impliziert. Die Mathematik ist reproduzierbar; die Philosophie ist eine Ahnenlinie, ehrlich benannt — samt der Ironie, dass zwei dieser Namen in den eigenen Ausgaben des Systems verboten sind.",
+    t_foot_h:"Grundlagen",
+    t_foot_by:"DESi · Alexandria-Protokoll · Hanns-Steffen Rentschler",
+    t_legal:"MIT-Lizenz · © 2026 Hanns-Steffen Rentschler · Analogien tragen gemessene Signaturen; kein Durchbruch behauptet, keiner impliziert."
+  },
+  zh:{
+    t_back:"← 概览",
+    t_eyebrow:"数学与哲学基础",
+    t_title:'DESi 背后的硬核理论——以及<span class="hl">亚历山大协议</span>的思想谱系。',
+    t_sub:"从确定性与一条认知不确定性关系，到康德、波普尔与海森堡：DESi 与亚历山大协议据以推导的形式结构与哲学结构。此处没有装饰；每一个类比都带有可测量的签名。",
+    t_note_k:"关于命名的说明",
+    t_note_b:"DESi 的确定性扫描器<b>永久禁止「康德」与「波普尔」之名</b>出现在任何渲染的系统输出中——这是为了防止借用未经赢得的权威。本页是元评论，而非系统输出；在这里，思想谱系被明确指名并接受检验。",
+
+    t_p1_k:"第一部分",
+    t_p1_t:"数学",
+    t_p1_s:"以下一切都逐位精确、可证伪，并源自代码库中真实存在的构造。",
+    t_m1_h:"确定性与重放函子",
+    t_m1_b:"设一次认知操作为状态空间 𝒮 上的映射 E。DESi 要求 E 是重放稳定的：相同输入产生逐字节相同的输出与签名。治理内核中不引入任何伪随机；每个签名都是某个规范编码的 SHA-256 摘要。",
+    t_m1_cap:"重放稳定性 σ——是设计不变量，而非测量均值",
+    t_m1_b2:"σ = 1 在全部 38 个实验阶段中逐字节保持。这是使观察者难题得以可解的最低条件：在模型随机之处，审计者必须确定。",
+    t_m2_h:"封闭枚举与判定代数",
+    t_m2_b:"所有判定都存在于一个有限、冻结的集合 𝒱 中。分类是从观测到 𝒱 的全函数——运行时不发明任何开放世界的类别。正是封闭了治理层所能言说的世界，才使重放可判定。",
+    t_m3_h:"状态向量与一条认知不确定性关系",
+    t_m3_b:"一条轨迹 τ 经映射 Φ 压缩为一个 9 维状态向量。在 1,525 条 DriftBench 轨迹上，压缩达到约 96.5%，而漂移治理信号以比率 ρ ≈ 1.06 得以保留。",
+    t_m3_b2:"压缩 C 与信号保留 S 不能同时趋于一。越过帕累托最优点后，每多压缩一比特都要付出可测量的信号代价——我们将此权衡写作一条不确定性关系（是对量子力学的类比，而非其实例）：",
+    t_m3_cap:"κ——帕累托下界；低于它的损失被明确归因",
+    t_m3_b3:"所报告的工作点是帕累托点，而非最大压缩。两条诚实的失效边界仍在：话题漂移鲁棒性与语义过度折叠。",
+    t_m4_h:"概念门（Concept Gate）",
+    t_m4_b:"一个阶段唯有当六个门条件同时成立时才达到 A 级——一个布尔合取。失败不作连续评分；优先级是字典序的，并在系统创立之初即固定：",
+    t_m4_b2:"该次序——重放崩溃先于治理失败先于架构不稳定先于漂移——从未为迎合结果而调整。任何单一条件为假即排除 A 级。",
+    t_m5_h:"保真前提下的搜索空间压缩",
+    t_m5_b:"分支剪枝将搜索空间节点削减 41–60%，同时以 1.0 的比率保留每一个关键与强制分支。剪枝规则封闭且完备：",
+    t_m6_h:"互补性（论文 11）",
+    t_m6_b:"认知锚点间的场放大由互补性驱动，而非语义共振。几何距离必要但不充分；覆盖增益（coverage gain）才是因果必要。消融网格（距离 × 语料族）：",
+    t_m6_b2:"两个互补的锚点照亮论断空间中非冗余的区域——这是互补可观测量的认知类比。仅距离激活 = 0.423 < 组合 0.633。",
+    t_tbl_dist:"距离",t_tbl_fam:"族",t_tbl_pairs:"对数",t_tbl_res:"共振",t_tbl_rate:"比率",
+
+    t_p2_k:"第二部分",
+    t_p2_t:"哲学",
+    t_p2_s:"三位思想家，三重结构性约束——每一个都映射到具体机制，而非装饰。",
+    t_ph1_h:"康德——可能性的条件",
+    t_ph1_b:"DESi 从不触及模型自身的推理（物自体／本体）；它只看见显象——输出与轨迹（现象）。观察者难题正是这一界限的先验表述：评估者与被评估者不能是同一系统。",
+    t_ph1_b2:"四个认知范畴——EMPIRICAL、NORMATIVE、MODEL、SPECULATIVE——充当知性的范畴：没有这些先验形式，传入的论断根本无法被经验为有结构的知识。封闭枚举即此先验；审计门强制执行可受理性的先验条件（模式、范畴纯度、时间单调性）。确定性不变量是 DESi 的先天综合——必然、与内容无关、先于任何一次运行。",
+    t_ph2_h:"波普尔——可证伪性与批判理性主义",
+    t_ph2_b:"每一个概念门都是一次证伪检验：一个可以失败并判为 B–E 级的阈值。系统从不验证真理；它只是未能被反驳。幻觉被使其可见——绝不宣称已被消除。",
+    t_ph2_b2:"猜想与反驳是结构性的：异议生成一个 BRANCH，绝非删除；负面结果与正面结果并列发表；架构用其自己的话说是「经过检验、可证伪、逐位可复现」。EMPIRICAL 范畴正是波普尔的划界标准，被编码为一种类型。",
+    t_ph3_h:"海森堡——不确定性与互补性",
+    t_ph3_b:"测量即扰动。一个会改写其所观察状态的治理层，将扰动它所审计的那条轨迹；因此治理严格只读——测量而不坍缩。",
+    t_ph3_b2:"而某些认知属性是互补的：压缩与信号保留不能同时最大化（I.3），正如需要互补的锚点才能覆盖论断空间（I.6）。这是把玻尔的互补性当作一条带有可测签名的约束，而非为类比而类比。",
+
+    t_p3_k:"第三部分",
+    t_p3_t:"亚历山大协议的推导",
+    t_p3_s:"三重约束汇聚为单一构造。",
+    t_a_b:"亚历山大将知识论断绑定到一条仅追加、哈希链式、可检测篡改的谱系上。上述每条线索各贡献一项承重属性：",
+    t_a_kant:"四个范畴与先验审计门——模式、范畴纯度、时间单调性。",
+    t_a_pop:"异议即分支，而非覆盖：反驳被保留，绝不抹去。",
+    t_a_heis:"仅追加、不坍缩的演化：过去从不被改写，只被延伸。",
+    t_a_mivp:"MIVP 闭合此环，将每个补丁绑定到产生系统的复合实例哈希——模型、策略与运行时：",
+    t_a_sum:"既<b>结构稳健</b>（亚历山大）又<b>绑定到可验证身份</b>（MIVP）的知识：该协议是康德式架构、波普尔式方法与海森堡式观察纪律的确定性交集。",
+    t_close_h:"它主张什么——以及不主张什么",
+    t_close_b:"这些是带有可测签名的结构性类比，而非主张 DESi「就是」量子力学，或哲学家会为之背书。不主张通用智能；不暗示突破。数学是可复现的；哲学是一条诚实指名的谱系——包括这一反讽：其中两个名字在系统自身的输出中是被禁止的。",
+    t_foot_h:"基础",
+    t_foot_by:"DESi · 亚历山大协议 · Hanns-Steffen Rentschler",
+    t_legal:"MIT 许可证 · © 2026 Hanns-Steffen Rentschler · 类比带有可测签名；不主张突破，亦无暗示。"
+  },
+  es:{
+    t_back:"← Resumen",
+    t_eyebrow:"Fundamentos matemáticos y filosóficos",
+    t_title:'La teoría dura tras DESi — y el linaje del <span class="hl">Protocolo Alexandria.</span>',
+    t_sub:"Del determinismo y una relación de incertidumbre epistémica a Kant, Popper y Heisenberg: la estructura formal y filosófica de la que se derivan DESi y el Protocolo Alexandria. Nada aquí es decorativo; cada analogía lleva una firma medida.",
+    t_note_k:"Una nota sobre los nombres",
+    t_note_b:"El Determinism Scanner de DESi <b>prohíbe permanentemente los nombres «Kant» y «Popper»</b> en toda salida renderizada del sistema — una salvaguarda deliberada contra tomar prestada autoridad no ganada. Esta página es metacomentario, no una salida del sistema; aquí el linaje se nombra explícitamente y se somete a rendición de cuentas.",
+
+    t_p1_k:"Parte I",
+    t_p1_t:"La Matemática",
+    t_p1_s:"Todo lo siguiente es exacto bit a bit, falsable y derivado de construcciones que existen en el código.",
+    t_m1_h:"Determinismo y el funtor de repetición",
+    t_m1_b:"Sea una operación epistémica una función E sobre un espacio de estados 𝒮. DESi exige que E sea estable ante repetición: entradas idénticas producen salidas y firmas idénticas byte a byte. Ningún pseudoaleatorio entra en el núcleo de gobernanza; cada firma es el hash SHA-256 de una codificación canónica.",
+    t_m1_cap:"estabilidad ante repetición σ — un invariante de diseño, no un promedio medido",
+    t_m1_b2:"σ = 1 se mantuvo byte a byte en las 38 fases experimentales. Es la condición mínima que hace soluble el problema del observador: el auditor debe ser determinista donde el modelo es estocástico.",
+    t_m2_h:"Enumeraciones cerradas y el álgebra de veredictos",
+    t_m2_b:"Todos los veredictos viven en un conjunto finito y congelado 𝒱. La clasificación es una función total de las observaciones a 𝒱 — no se inventan categorías de mundo abierto en tiempo de ejecución. Cerrar el mundo del que la capa de gobernanza puede hablar es justo lo que hace decidible la repetición.",
+    t_m3_h:"El StateVector y una relación de incertidumbre epistémica",
+    t_m3_b:"Una trayectoria τ se comprime mediante una función Φ en un StateVector de 9 dimensiones. En 1.525 trayectorias DriftBench la compresión alcanza ≈ 96,5 % mientras la señal de gobernanza de deriva se preserva con razón ρ ≈ 1,06.",
+    t_m3_b2:"La compresión C y la preservación de señal S no pueden llevarse ambas a la unidad. Más allá de un punto Pareto-óptimo, cada bit adicional de compresión cuesta señal medible — un compromiso que escribimos como una relación de incertidumbre (una analogía con, no un caso de, la mecánica cuántica):",
+    t_m3_cap:"κ — el piso de Pareto; la pérdida por debajo se atribuye explícitamente",
+    t_m3_b3:"El punto de operación reportado es el punto de Pareto, no la compresión máxima. Quedan dos fronteras de fallo honestas: robustez ante cambio de tema y sobre-plegado semántico.",
+    t_m4_h:"El Concept Gate",
+    t_m4_b:"Una fase alcanza la Clase A solo si las seis condiciones de la puerta se cumplen simultáneamente — una conjunción booleana. El fallo no se gradúa de forma continua; el orden de prioridad es lexicográfico y se fijó al inicio:",
+    t_m4_b2:"El orden — colapso de repetición antes que fallo de gobernanza antes que inestabilidad arquitectónica antes que deriva — nunca se ajustó a los resultados. Una sola condición falsa excluye la Clase A.",
+    t_m5_h:"Compresión del espacio de búsqueda con preservación de la verdad",
+    t_m5_b:"La poda de ramas reduce los nodos del espacio de búsqueda en 41–60 % preservando toda rama crítica y forzada con razón 1,0. Las reglas de poda son cerradas y totales:",
+    t_m6_h:"Complementariedad (Paper 11)",
+    t_m6_b:"La amplificación de campo entre anclas epistémicas se debe a la complementariedad, no a la resonancia semántica. La distancia geométrica es necesaria pero no suficiente; la ganancia de cobertura es causalmente necesaria. La rejilla de ablación (distancia × familia de corpus):",
+    t_m6_b2:"Dos anclas complementarias iluminan regiones no redundantes del espacio de afirmaciones — el análogo epistémico de los observables complementarios. activación solo por distancia = 0,423 < combinada 0,633.",
+    t_tbl_dist:"Distancia",t_tbl_fam:"Familia",t_tbl_pairs:"Pares",t_tbl_res:"Resonante",t_tbl_rate:"Tasa",
+
+    t_p2_k:"Parte II",
+    t_p2_t:"La Filosofía",
+    t_p2_s:"Tres pensadores, tres restricciones estructurales — cada una asignada a un mecanismo concreto, no a un ornamento.",
+    t_ph1_h:"Kant — las condiciones de posibilidad",
+    t_ph1_b:"DESi nunca accede al razonamiento del modelo en sí (el noúmeno); solo ve apariencias — salidas y trayectorias (fenómenos). El problema del observador es el enunciado trascendental de este límite: el evaluador y lo evaluado no pueden ser el mismo sistema.",
+    t_ph1_b2:"Las cuatro categorías epistémicas — EMPIRICAL, NORMATIVE, MODEL, SPECULATIVE — actúan como categorías del entendimiento: formas a priori sin las cuales una afirmación entrante no podría experimentarse como conocimiento estructurado. Las enumeraciones cerradas son ese a priori; el Audit Gate impone las condiciones trascendentales de admisibilidad (esquema, pureza de categoría, monotonía temporal). Los invariantes deterministas son el a priori sintético de DESi — necesario, independiente del contenido, previo a toda ejecución.",
+    t_ph2_h:"Popper — falsabilidad y racionalismo crítico",
+    t_ph2_b:"Cada Concept Gate es una prueba de falsación: un umbral que puede fallar y asignar Clase B–E. El sistema nunca verifica la verdad; solo no logra refutar. Las alucinaciones se hacen visibles — nunca se declaran eliminadas.",
+    t_ph2_b2:"Conjetura y refutación son estructurales: el disenso crea una BRANCH, nunca un borrado; los resultados negativos se publican junto a los positivos; la arquitectura es, en sus propias palabras, «probada, falsable, reproducible bit a bit». La categoría EMPIRICAL es el criterio de demarcación de Popper, codificado como un tipo.",
+    t_ph3_h:"Heisenberg — incertidumbre y complementariedad",
+    t_ph3_b:"Medir es perturbar. Una capa de gobernanza que reescribiera el estado que observa perturbaría la misma trayectoria que audita; por eso la gobernanza es estrictamente de solo lectura — medición sin colapso.",
+    t_ph3_b2:"Y algunas propiedades epistémicas son complementarias: compresión y preservación de señal no pueden maximizarse a la vez (I.3), igual que se requieren anclas complementarias para cubrir el espacio de afirmaciones (I.6). Es la complementariedad de Bohr usada como restricción con firma medida, no una metáfora por sí misma.",
+
+    t_p3_k:"Parte III",
+    t_p3_t:"El Protocolo Alexandria, derivado",
+    t_p3_s:"Las tres restricciones convergen en una sola construcción.",
+    t_a_b:"Alexandria liga las afirmaciones de conocimiento a un linaje append-only, encadenado por hash y con detección de manipulación. Cada hilo anterior aporta una propiedad portante:",
+    t_a_kant:"Las cuatro categorías y el Audit Gate a priori — esquema, pureza de categoría, monotonía temporal.",
+    t_a_pop:"BRANCH ante disenso en vez de sobrescritura: la refutación se preserva, nunca se borra.",
+    t_a_heis:"Evolución append-only y sin colapso: el pasado nunca se muta, solo se extiende.",
+    t_a_mivp:"MIVP cierra el ciclo ligando cada parche a un Composite Instance Hash del sistema productor — modelo, política y runtime:",
+    t_a_sum:"Conocimiento <b>estructuralmente sólido</b> (Alexandria) y <b>ligado a una identidad verificable</b> (MIVP): el protocolo es la intersección determinista de una arquitectura kantiana, un método popperiano y una disciplina heisenberguiana de observación.",
+    t_close_h:"Qué afirma — y qué no",
+    t_close_b:"Son analogías estructurales con firmas medidas, no afirmaciones de que DESi «sea» mecánica cuántica o de que los filósofos lo respaldarían. No se afirma inteligencia general; no se implica ningún avance. La matemática es reproducible; la filosofía es un linaje, nombrado con honestidad — incluida la ironía de que dos de estos nombres están prohibidos en las propias salidas del sistema.",
+    t_foot_h:"Fundamentos",
+    t_foot_by:"DESi · Protocolo Alexandria · Hanns-Steffen Rentschler",
+    t_legal:"Licencia MIT · © 2026 Hanns-Steffen Rentschler · Las analogías llevan firmas medidas; ningún avance proclamado, ninguno implícito."
+  },
+  ja:{
+    t_back:"← 概要へ",
+    t_eyebrow:"数学的・哲学的基礎",
+    t_title:'DESi を支える硬派な理論——そして<span class="hl">アレクサンドリア・プロトコル</span>の系譜。',
+    t_sub:"決定性と認識論的不確定性関係から、カント・ポパー・ハイゼンベルクへ。DESi とアレクサンドリア・プロトコルが導かれる形式的・哲学的構造。ここに装飾はない。どの類比も測定された署名を伴う。",
+    t_note_k:"名前についての注記",
+    t_note_b:"DESi の Determinism Scanner は、レンダリングされるあらゆるシステム出力から<b>「カント」「ポパー」の名を恒久的に禁止</b>している——獲得していない権威を借りないための意図的な防御だ。本ページはメタ注釈であってシステム出力ではない。ここでは系譜を明示的に名指し、説明責任を負わせる。",
+
+    t_p1_k:"第 I 部",
+    t_p1_t:"数学",
+    t_p1_s:"以下のすべてはビット単位で正確、反証可能であり、コードベースに実在する構成から導かれている。",
+    t_m1_h:"決定性とリプレイ函手",
+    t_m1_b:"認識操作を状態空間 𝒮 上の写像 E とする。DESi は E がリプレイ安定であることを要求する：同一の入力はバイト単位で同一の出力と署名を生む。統治コアに擬似乱数は一切入らない。各署名は正準符号化の SHA-256 ダイジェストである。",
+    t_m1_cap:"リプレイ安定性 σ——測定平均ではなく設計不変量",
+    t_m1_b2:"σ = 1 は全 38 実験フェーズでバイト単位に保たれた。これは観測者問題を解きうるものにする最小条件である：モデルが確率的なところで、監査者は決定的でなければならない。",
+    t_m2_h:"閉じた列挙と判定代数",
+    t_m2_b:"すべての判定は有限・凍結された集合 𝒱 に属する。分類は観測から 𝒱 への全域関数であり、実行時に開かれた世界のカテゴリを発明しない。統治層が語りうる世界を閉じることこそ、リプレイを決定可能にする。",
+    t_m3_h:"StateVector と認識論的不確定性関係",
+    t_m3_b:"軌跡 τ は写像 Φ により 9 次元の StateVector に圧縮される。1,525 件の DriftBench 軌跡で、圧縮は約 96.5 % に達し、ドリフト統治信号は比 ρ ≈ 1.06 で保たれる。",
+    t_m3_b2:"圧縮 C と信号保持 S を同時に 1 へ追い込むことはできない。パレート最適点を越えると、圧縮を 1 ビット増すごとに測定可能な信号を失う——この trade-off を不確定性関係として書く（量子力学の類比であって、その実例ではない）：",
+    t_m3_cap:"κ——パレートの下限。それを下回る損失は明示的に帰属される",
+    t_m3_b3:"報告される動作点は最大圧縮ではなくパレート点である。誠実な失敗境界が二つ残る：話題遷移に対する頑健性と、意味の過剰な畳み込み。",
+    t_m4_h:"Concept Gate（概念ゲート）",
+    t_m4_b:"フェーズがクラス A に至るのは、六つのゲート条件が同時に成り立つときのみ——ブール積である。失敗は連続的に採点されない。優先順位は辞書式であり、創設時に固定された：",
+    t_m4_b2:"その順序——リプレイ崩壊 ＞ 統治失敗 ＞ アーキテクチャ不安定 ＞ ドリフト——は結果に合わせて調整されたことが一度もない。条件が一つでも偽ならクラス A は閉ざされる。",
+    t_m5_h:"真理保持の下での探索空間圧縮",
+    t_m5_b:"分岐の刈り込みは探索空間ノードを 41–60 % 削減しつつ、すべての重要・強制分岐を比 1.0 で保持する。刈り込み規則は閉じており全域的である：",
+    t_m6_h:"相補性（Paper 11）",
+    t_m6_b:"認識アンカー間の場の増幅は、意味的共鳴ではなく相補性に駆動される。幾何学的距離は必要だが十分ではない。被覆利得（coverage gain）が因果的に必要である。アブレーション格子（距離 × コーパス族）：",
+    t_m6_b2:"二つの相補的アンカーは主張空間の非冗長な領域を照らす——相補的観測量の認識論的類比である。距離のみの活性 = 0.423 ＜ 複合 0.633。",
+    t_tbl_dist:"距離",t_tbl_fam:"族",t_tbl_pairs:"対数",t_tbl_res:"共鳴",t_tbl_rate:"率",
+
+    t_p2_k:"第 II 部",
+    t_p2_t:"哲学",
+    t_p2_s:"三人の思想家、三つの構造的制約——いずれも装飾ではなく具体的機構へ写される。",
+    t_ph1_h:"カント——可能性の条件",
+    t_ph1_b:"DESi はモデルの思考それ自体（物自体／ヌーメノン）には決して到達しない。見えるのは現れ——出力と軌跡（フェノメノン）だけである。観測者問題はこの限界の超越論的言明だ：評価する者と評価される者は同一のシステムではありえない。",
+    t_ph1_b2:"四つの認識カテゴリ——EMPIRICAL, NORMATIVE, MODEL, SPECULATIVE——は悟性のカテゴリーとして働く：これらア・プリオリな形式なしには、入ってくる主張はそもそも構造化された知として経験されえない。閉じた列挙がそのア・プリオリであり、Audit Gate は受理可能性の超越論的条件（スキーマ、カテゴリ純度、時間的単調性）を強制する。決定性不変量は DESi の総合的ア・プリオリ——必然的で、内容に依らず、いかなる実行にも先立つ。",
+    t_ph2_h:"ポパー——反証可能性と批判的合理主義",
+    t_ph2_b:"あらゆる Concept Gate は反証テストである：失敗してクラス B–E を割り当てうる閾値だ。システムは真理を検証しない。ただ反証に失敗するだけである。幻覚は可視化される——消去されたとは決して宣言されない。",
+    t_ph2_b2:"推測と反駁は構造に組み込まれている：異議は BRANCH を生み、削除を生まない。否定的結果は肯定的結果と並べて公開される。アーキテクチャはみずからの言葉で「検証済み・反証可能・ビット再現可能」である。EMPIRICAL カテゴリはポパーの境界設定基準を型として符号化したものだ。",
+    t_ph3_h:"ハイゼンベルク——不確定性と相補性",
+    t_ph3_b:"測ることは乱すことだ。観測対象の状態を書き換える統治層は、監査するまさにその軌跡を乱してしまう。ゆえに統治は厳密にリードオンリー——崩壊なき測定である。",
+    t_ph3_b2:"そして一部の認識的性質は相補的だ：圧縮と信号保持は同時に最大化できない（I.3）。ちょうど主張空間を被覆するのに相補的アンカーが要るように（I.6）。これはボーアの相補性を、測定された署名をもつ制約として用いるのであって、類比のための類比ではない。",
+
+    t_p3_k:"第 III 部",
+    t_p3_t:"アレクサンドリア・プロトコルの導出",
+    t_p3_s:"三つの制約は単一の構成へ収束する。",
+    t_a_b:"アレクサンドリアは知の主張を、追記専用・ハッシュ連鎖・改竄検知つきの系譜へ束縛する。上の各筋がそれぞれ一つの支持的性質を与える：",
+    t_a_kant:"四つのカテゴリとア・プリオリな Audit Gate——スキーマ、カテゴリ純度、時間的単調性。",
+    t_a_pop:"上書きではなく異議＝分岐：反駁は保存され、決して消されない。",
+    t_a_heis:"追記専用・崩壊なき進化：過去は決して改変されず、ただ延長される。",
+    t_a_mivp:"MIVP は各パッチを、生成システム（モデル・ポリシー・ランタイム）の Composite Instance Hash に束縛して環を閉じる：",
+    t_a_sum:"<b>構造的に健全</b>（アレクサンドリア）で、かつ<b>検証可能な同一性に束縛</b>された知（MIVP）：このプロトコルは、カント的アーキテクチャ・ポパー的方法・ハイゼンベルク的観測規律の決定論的交わりである。",
+    t_close_h:"何を主張し——何を主張しないか",
+    t_close_b:"これらは測定された署名をもつ構造的類比であって、DESi が量子力学「である」とか、哲学者たちが是認するといった主張ではない。汎用知能は主張せず、突破も含意しない。数学は再現可能であり、哲学は誠実に名指された系譜である——そのうち二つの名が、システム自身の出力では禁止されているという皮肉も含めて。",
+    t_foot_h:"基礎",
+    t_foot_by:"DESi · アレクサンドリア・プロトコル · Hanns-Steffen Rentschler",
+    t_legal:"MIT ライセンス · © 2026 Hanns-Steffen Rentschler · 類比は測定された署名を伴う。突破は主張せず、含意もせず。"
+  }
+};
+
+function applyLang(lang){
+  const dict = I18N[lang] || I18N.en;
+  document.documentElement.lang = lang;
+  document.body.classList.remove("lang-en","lang-de","lang-zh","lang-es","lang-ja");
+  document.body.classList.add("lang-" + lang);
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k = el.getAttribute("data-i18n");
+    if(dict[k]!==undefined) el.textContent = dict[k];
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{
+    const k = el.getAttribute("data-i18n-html");
+    if(dict[k]!==undefined) el.innerHTML = dict[k];
+  });
+  document.querySelectorAll(".langs button").forEach(b=>{
+    b.classList.toggle("active", b.getAttribute("data-lang")===lang);
+  });
+  try{ localStorage.setItem("desi_lang", lang); }catch(e){}
+}
+
+document.getElementById("langs").addEventListener("click", e=>{
+  const b = e.target.closest("button[data-lang]");
+  if(b) applyLang(b.getAttribute("data-lang"));
+});
+
+(function init(){
+  let lang = "";
+  try{ lang = localStorage.getItem("desi_lang") || ""; }catch(e){}
+  if(!I18N[lang]){
+    const nav = (navigator.language||"en").slice(0,2).toLowerCase();
+    lang = I18N[nav] ? nav : "en";
+  }
+  applyLang(lang);
+})();
+</script>
+</body>
+</html>
