@@ -333,6 +333,16 @@
   .hp-btn:disabled{opacity:.5;cursor:default}
   .hp-ok{color:#066}
   .hp-no{color:#900}
+  /* Drift Catcher */
+  .dc{display:none;max-width:600px;margin:10px auto 0;border:4px ridge #c0c0c0;background:#000;padding:14px;font-family:"Courier New",monospace}
+  .dc.open{display:block}
+  .dc-board{position:relative;height:320px;overflow:hidden;background:#001a00;border:1px solid #0a0;margin:8px 0}
+  .dc-graph{position:absolute;left:0;right:0;bottom:0;height:30px;background:#022;border-top:2px dashed #0a0;color:#6c8;font-size:11px;text-align:center;line-height:30px;letter-spacing:1px}
+  .dc-graph.hit{background:#400;border-top-color:#f66;color:#f66}
+  .dc-chip{position:absolute;transform:translateX(-50%);padding:4px 8px;font-size:12px;border:2px outset #c0c0c0;background:#c0c0c0;color:#002;cursor:pointer;white-space:nowrap;border-radius:0;user-select:none}
+  .dc-chip:active{border-style:inset}
+  .dc-pop{position:absolute;transform:translateX(-50%);font-size:13px;font-weight:bold;pointer-events:none}
+  .dc-hint{color:#9fd;font-size:12px;text-align:center;margin:6px 0 0}
   .retro-updated{text-align:center;color:#000080;font-style:italic}
 </style>
 </head>
@@ -563,6 +573,37 @@
   </div>
 </section>
 
+<!-- RETRO MINI-GAME 2: Drift Catcher -->
+<section class="retro-only dc-section">
+  <div class="wrap">
+    <p style="text-align:center"><a href="#" id="dcLaunch" class="hp-launch">🕹 <span data-i18n="dc_open"></span></a></p>
+    <div id="dc" class="dc">
+      <div id="dcStart" class="hp-screen">
+        <div class="hp-title" data-i18n="dc_title"></div>
+        <p class="hp-howto" data-i18n="dc_howto"></p>
+        <p class="hp-best"><span data-i18n="gp_best"></span>: <b id="dcBestStart">0</b></p>
+        <button id="dcStartBtn" class="hp-btn" data-i18n="gp_start"></button>
+      </div>
+      <div id="dcPlay" class="hp-screen" style="display:none">
+        <div class="hp-hud">
+          <span><span data-i18n="gp_lives"></span> <b id="dcLives"></b></span>
+          <span><span data-i18n="gp_score"></span> <b id="dcScore">0</b></span>
+          <span><span data-i18n="gp_streak"></span> <b id="dcStreak">0</b></span>
+        </div>
+        <div id="dcBoard" class="dc-board"><div class="dc-graph" data-i18n="dc_graph"></div></div>
+        <p class="dc-hint" data-i18n="dc_hint"></p>
+      </div>
+      <div id="dcOver" class="hp-screen" style="display:none">
+        <div class="hp-title" data-i18n="gp_over"></div>
+        <p><span data-i18n="gp_score"></span>: <b id="dcFinal">0</b></p>
+        <p class="hp-best"><span data-i18n="gp_best"></span>: <b id="dcBest">0</b></p>
+        <p id="dcRec" class="hp-rec" data-i18n="gp_record" style="display:none"></p>
+        <button id="dcAgain" class="hp-btn" data-i18n="gp_again"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -706,6 +747,11 @@ const I18N = {
     gp_over:"GAME OVER",
     gp_record:"★ New high score! ★",
     gp_again:"Play again",
+    dc_open:"Play: Drift Catcher",
+    dc_title:"Drift Catcher",
+    dc_howto:"Catch the drift before it reaches the graph. Let supported claims through.",
+    dc_graph:"knowledge graph",
+    dc_hint:"Click drift (unsupported). Don't click supported.",
     rt_best:"Best viewed in Netscape Navigator 4.0 & Internet Explorer",
     rt_updated:"Last updated:"
   },
@@ -807,6 +853,11 @@ const I18N = {
     gp_over:"GAME OVER",
     gp_record:"★ Neuer Bestwert! ★",
     gp_again:"Nochmal spielen",
+    dc_open:"Spielen: Drift Catcher",
+    dc_title:"Drift Catcher",
+    dc_howto:"Fang die Drift, bevor sie den Graphen erreicht. Gedeckte Aussagen durchlassen.",
+    dc_graph:"Wissensgraph",
+    dc_hint:"Drift (ungedeckt) anklicken. Gedecktes nicht anklicken.",
     rt_best:"Optimiert für Netscape Navigator 4.0 & Internet Explorer",
     rt_updated:"Zuletzt aktualisiert:"
   },
@@ -908,6 +959,11 @@ const I18N = {
     gp_over:"游戏结束",
     gp_record:"★ 新纪录！ ★",
     gp_again:"再玩一次",
+    dc_open:"开玩：漂移捕手",
+    dc_title:"漂移捕手",
+    dc_howto:"在漂移到达图谱前抓住它；放有依据的主张通过。",
+    dc_graph:"知识图谱",
+    dc_hint:"点击漂移（无依据）。别点有依据的。",
     rt_best:"最佳浏览器：Netscape Navigator 4.0 与 Internet Explorer",
     rt_updated:"最后更新："
   },
@@ -1009,6 +1065,11 @@ const I18N = {
     gp_over:"FIN DEL JUEGO",
     gp_record:"★ ¡Nuevo récord! ★",
     gp_again:"Jugar otra vez",
+    dc_open:"Jugar: Cazador de Derivas",
+    dc_title:"Cazador de Derivas",
+    dc_howto:"Atrapa la deriva antes de que llegue al grafo. Deja pasar lo respaldado.",
+    dc_graph:"grafo de conocimiento",
+    dc_hint:"Haz clic en la deriva (sin respaldo). No hagas clic en lo respaldado.",
     rt_best:"Mejor visto en Netscape Navigator 4.0 e Internet Explorer",
     rt_updated:"Última actualización:"
   },
@@ -1110,6 +1171,11 @@ const I18N = {
     gp_over:"ゲームオーバー",
     gp_record:"★ ハイスコア更新！ ★",
     gp_again:"もう一度",
+    dc_open:"プレイ：ドリフト・キャッチャー",
+    dc_title:"ドリフト・キャッチャー",
+    dc_howto:"ドリフトがグラフに届く前に捕まえろ。裏づけある主張は通せ。",
+    dc_graph:"知識グラフ",
+    dc_hint:"ドリフト（裏づけ無し）をクリック。裏づけ有りは押さない。",
     rt_best:"Netscape Navigator 4.0 と Internet Explorer での閲覧を推奨",
     rt_updated:"最終更新："
   }
@@ -1327,6 +1393,93 @@ document.getElementById("themeToggle").addEventListener("click", ()=>{
   $("hpLaunch").addEventListener("click",e=>{
     e.preventDefault();root.classList.toggle("open");
     if(root.classList.contains("open")){show("hpStart");$("hpBestStart").textContent=loadBest();root.scrollIntoView({behavior:"smooth",block:"center"});}
+  });
+})();
+
+/* ---- retro mini-game 2: DESi Drift Catcher ---- */
+(function(){
+  const root=document.getElementById("dc"); if(!root) return;
+  const $=id=>document.getElementById(id);
+  const CHIPS=[
+    {drift:false,t:{en:"from the sources",de:"aus den Quellen",zh:"出自来源",es:"de las fuentes",ja:"出典より"}},
+    {drift:false,t:{en:"in the context",de:"im Kontext",zh:"在上下文中",es:"en el contexto",ja:"文脈内"}},
+    {drift:false,t:{en:"matches the input",de:"passt zum Input",zh:"与输入一致",es:"coincide con la entrada",ja:"入力に一致"}},
+    {drift:false,t:{en:"cited & checked",de:"zitiert & geprüft",zh:"已引用并核对",es:"citado y verificado",ja:"引用・確認済"}},
+    {drift:false,t:{en:"given datum",de:"gegebene Angabe",zh:"已给数据",es:"dato dado",ja:"与えられた値"}},
+    {drift:false,t:{en:"within scope",de:"im Rahmen",zh:"在范围内",es:"dentro del alcance",ja:"範囲内"}},
+    {drift:false,t:{en:"supported step",de:"gedeckter Schritt",zh:"有依据的步骤",es:"paso respaldado",ja:"裏づけある手順"}},
+    {drift:false,t:{en:"stated in doc",de:"steht im Dokument",zh:"文档中写明",es:"consta en el doc",ja:"文書に記載"}},
+    {drift:true,t:{en:"no source",de:"keine Quelle",zh:"无来源",es:"sin fuente",ja:"出典なし"}},
+    {drift:true,t:{en:"invented citation",de:"erfundenes Zitat",zh:"捏造的引用",es:"cita inventada",ja:"捏造の引用"}},
+    {drift:true,t:{en:"off-topic tangent",de:"Themen-Abschweifung",zh:"离题跑偏",es:"tangente fuera de tema",ja:"話題逸脱"}},
+    {drift:true,t:{en:"confident guess",de:"selbstsichere Vermutung",zh:"自信的猜测",es:"conjetura segura",ja:"自信ある当て推量"}},
+    {drift:true,t:{en:"made-up number",de:"erfundene Zahl",zh:"编造的数字",es:"número inventado",ja:"でっち上げの数字"}},
+    {drift:true,t:{en:"out of context",de:"aus dem Kontext gerissen",zh:"脱离上下文",es:"fuera de contexto",ja:"文脈の外"}},
+    {drift:true,t:{en:"unverified leap",de:"ungeprüfter Sprung",zh:"未经验证的跳步",es:"salto no verificado",ja:"未検証の飛躍"}},
+    {drift:true,t:{en:"topic drift",de:"Themen-Drift",zh:"主题漂移",es:"deriva de tema",ja:"トピックのドリフト"}}
+  ];
+  const L=()=>I18N[document.documentElement.lang]?document.documentElement.lang:"en";
+  const loadBest=()=>{try{return +(localStorage.getItem("desi_dc_best")||0);}catch(e){return 0;}};
+  const saveBest=v=>{try{localStorage.setItem("desi_dc_best",v);}catch(e){}};
+  let lives,score,streak,best,running,spawnT,raf,chips,board,bh,t0,last,gTimer;
+  function show(s){["dcStart","dcPlay","dcOver"].forEach(x=>$(x).style.display=(x===s?"block":"none"));}
+  function hud(){$("dcLives").textContent="♥".repeat(Math.max(0,lives))+"·".repeat(Math.max(0,3-lives));$("dcScore").textContent=score;$("dcStreak").textContent=streak;}
+  function stop(){running=false;clearTimeout(spawnT);cancelAnimationFrame(raf);last=0;}
+  function clearBoard(){[...board.querySelectorAll(".dc-chip,.dc-pop")].forEach(n=>n.remove());}
+  function start(){
+    board=$("dcBoard");bh=board.clientHeight||320;
+    lives=3;score=0;streak=0;best=loadBest();chips=[];running=true;t0=Date.now();last=0;
+    show("dcPlay");hud();clearBoard();scheduleSpawn();raf=requestAnimationFrame(loop);
+  }
+  const elapsed=()=>(Date.now()-t0)/1000;
+  function scheduleSpawn(){ if(!running) return; spawn(); spawnT=setTimeout(scheduleSpawn, Math.max(560,1500-elapsed()*45)); }
+  function spawn(){
+    const c=CHIPS[Math.floor(Math.random()*CHIPS.length)];
+    const el=document.createElement("div");
+    el.className="dc-chip"; el.textContent=c.t[L()]||c.t.en;
+    const x=8+Math.random()*84; el.style.left=x+"%"; el.style.top="-8px";
+    el.dataset.drift=c.drift?"1":"0";
+    el.addEventListener("click",()=>clickChip(el));
+    board.appendChild(el); chips.push({el,y:-8,x});
+  }
+  function pop(x,y,txt,color){
+    const p=document.createElement("div");p.className="dc-pop";p.textContent=txt;p.style.color=color;
+    p.style.left=x+"%";p.style.top=y+"px";board.appendChild(p);
+    let a=1;const f=setInterval(()=>{a-=0.08;p.style.opacity=a;p.style.top=(parseFloat(p.style.top)-1)+"px";if(a<=0){clearInterval(f);p.remove();}},40);
+  }
+  function flashGraph(){const g=board.querySelector(".dc-graph");if(!g)return;g.classList.add("hit");clearTimeout(gTimer);gTimer=setTimeout(()=>g.classList.remove("hit"),200);}
+  function loop(){
+    if(!running) return;
+    raf=requestAnimationFrame(loop);
+    const now=performance.now(); if(!last){last=now;return;} const dt=Math.min(0.05,(now-last)/1000); last=now;
+    const sp=45+elapsed()*3.2, limit=bh-30-16;
+    for(let i=chips.length-1;i>=0;i--){
+      const o=chips[i]; o.y+=sp*dt; o.el.style.top=o.y+"px";
+      if(o.y>=limit){
+        if(o.el.dataset.drift==="1"){ lives--; streak=0; flashGraph(); pop(o.x,o.y,"-1","#f66"); }
+        o.el.remove(); chips.splice(i,1); hud();
+        if(lives<=0){ return over(); }
+      }
+    }
+  }
+  function clickChip(el){
+    const i=chips.findIndex(o=>o.el===el); if(i<0) return; const o=chips[i];
+    if(el.dataset.drift==="1"){ const g=5+streak; score+=g; streak++; pop(o.x,o.y,"+"+g,"#0f0"); }
+    else { score=Math.max(0,score-3); streak=0; pop(o.x,o.y,"-3","#fd6"); }
+    el.remove(); chips.splice(i,1); hud();
+  }
+  function over(){
+    stop(); best=loadBest(); let rec=false; if(score>best){best=score;saveBest(best);rec=true;}
+    $("dcFinal").textContent=score;$("dcBest").textContent=best;$("dcRec").style.display=rec?"block":"none";
+    show("dcOver");
+  }
+  $("dcStartBtn").addEventListener("click",start);
+  $("dcAgain").addEventListener("click",start);
+  $("dcLaunch").addEventListener("click",e=>{
+    e.preventDefault();
+    const open=root.classList.toggle("open");
+    board=$("dcBoard"); stop();
+    if(open){ clearBoard&&board&&clearBoard(); show("dcStart"); $("dcBestStart").textContent=loadBest(); root.scrollIntoView({behavior:"smooth",block:"center"}); }
   });
 })();
 
