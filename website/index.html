@@ -343,6 +343,9 @@
   .dc-chip:active{border-style:inset}
   .dc-pop{position:absolute;transform:translateX(-50%);font-size:13px;font-weight:bold;pointer-events:none}
   .dc-hint{color:#9fd;font-size:12px;text-align:center;margin:6px 0 0}
+  .dc-legend{font-size:12px;margin:10px auto;max-width:470px;text-align:left;line-height:1.6}
+  .dc-legend .dc-lg-bad{color:#f66}
+  .dc-legend .dc-lg-good{color:#0f0}
   .retro-updated{text-align:center;color:#000080;font-style:italic}
 </style>
 </head>
@@ -581,6 +584,10 @@
       <div id="dcStart" class="hp-screen">
         <div class="hp-title" data-i18n="dc_title"></div>
         <p class="hp-howto" data-i18n="dc_howto"></p>
+        <div class="dc-legend">
+          <div class="dc-lg-bad" data-i18n="dc_catch"></div>
+          <div class="dc-lg-good" data-i18n="dc_leave"></div>
+        </div>
         <p class="hp-best"><span data-i18n="gp_best"></span>: <b id="dcBestStart">0</b></p>
         <button id="dcStartBtn" class="hp-btn" data-i18n="gp_start"></button>
       </div>
@@ -752,6 +759,8 @@ const I18N = {
     dc_howto:"Catch the drift before it reaches the graph. Let supported claims through.",
     dc_graph:"knowledge graph",
     dc_hint:"Click drift (unsupported). Don't click supported.",
+    dc_catch:"🚩 Catch: drift / unsupported (no source, invented citation, topic drift)",
+    dc_leave:"✅ Leave: supported (from the sources, in the context, cited & checked)",
     rt_best:"Best viewed in Netscape Navigator 4.0 & Internet Explorer",
     rt_updated:"Last updated:"
   },
@@ -858,6 +867,8 @@ const I18N = {
     dc_howto:"Fang die Drift, bevor sie den Graphen erreicht. Gedeckte Aussagen durchlassen.",
     dc_graph:"Wissensgraph",
     dc_hint:"Drift (ungedeckt) anklicken. Gedecktes nicht anklicken.",
+    dc_catch:"🚩 Fangen: Drift / ungedeckt (keine Quelle, erfundenes Zitat, Themen-Drift)",
+    dc_leave:"✅ Durchlassen: gedeckt (aus den Quellen, im Kontext, zitiert & geprüft)",
     rt_best:"Optimiert für Netscape Navigator 4.0 & Internet Explorer",
     rt_updated:"Zuletzt aktualisiert:"
   },
@@ -964,6 +975,8 @@ const I18N = {
     dc_howto:"在漂移到达图谱前抓住它；放有依据的主张通过。",
     dc_graph:"知识图谱",
     dc_hint:"点击漂移（无依据）。别点有依据的。",
+    dc_catch:"🚩 抓住：漂移／无依据（无来源、捏造的引用、主题漂移）",
+    dc_leave:"✅ 放行：有依据（出自来源、在上下文中、已引用并核对）",
     rt_best:"最佳浏览器：Netscape Navigator 4.0 与 Internet Explorer",
     rt_updated:"最后更新："
   },
@@ -1070,6 +1083,8 @@ const I18N = {
     dc_howto:"Atrapa la deriva antes de que llegue al grafo. Deja pasar lo respaldado.",
     dc_graph:"grafo de conocimiento",
     dc_hint:"Haz clic en la deriva (sin respaldo). No hagas clic en lo respaldado.",
+    dc_catch:"🚩 Atrapar: deriva / sin respaldo (sin fuente, cita inventada, deriva de tema)",
+    dc_leave:"✅ Dejar pasar: respaldado (de las fuentes, en el contexto, citado y verificado)",
     rt_best:"Mejor visto en Netscape Navigator 4.0 e Internet Explorer",
     rt_updated:"Última actualización:"
   },
@@ -1176,6 +1191,8 @@ const I18N = {
     dc_howto:"ドリフトがグラフに届く前に捕まえろ。裏づけある主張は通せ。",
     dc_graph:"知識グラフ",
     dc_hint:"ドリフト（裏づけ無し）をクリック。裏づけ有りは押さない。",
+    dc_catch:"🚩 捕まえる：ドリフト／裏づけ無し（出典なし、捏造の引用、トピックのドリフト）",
+    dc_leave:"✅ 通す：裏づけ有り（出典より、文脈内、引用・確認済）",
     rt_best:"Netscape Navigator 4.0 と Internet Explorer での閲覧を推奨",
     rt_updated:"最終更新："
   }
@@ -1429,10 +1446,10 @@ document.getElementById("themeToggle").addEventListener("click", ()=>{
   function start(){
     board=$("dcBoard");bh=board.clientHeight||320;
     lives=3;score=0;streak=0;best=loadBest();chips=[];running=true;t0=Date.now();last=0;
-    show("dcPlay");hud();clearBoard();scheduleSpawn();raf=requestAnimationFrame(loop);
+    show("dcPlay");hud();clearBoard();spawnT=setTimeout(scheduleSpawn,1300);raf=requestAnimationFrame(loop);
   }
   const elapsed=()=>(Date.now()-t0)/1000;
-  function scheduleSpawn(){ if(!running) return; spawn(); spawnT=setTimeout(scheduleSpawn, Math.max(560,1500-elapsed()*45)); }
+  function scheduleSpawn(){ if(!running) return; spawn(); spawnT=setTimeout(scheduleSpawn, Math.max(600,2100-elapsed()*46)); }
   function spawn(){
     const c=CHIPS[Math.floor(Math.random()*CHIPS.length)];
     const el=document.createElement("div");
@@ -1452,7 +1469,7 @@ document.getElementById("themeToggle").addEventListener("click", ()=>{
     if(!running) return;
     raf=requestAnimationFrame(loop);
     const now=performance.now(); if(!last){last=now;return;} const dt=Math.min(0.05,(now-last)/1000); last=now;
-    const sp=45+elapsed()*3.2, limit=bh-30-16;
+    const sp=32+elapsed()*2.6, limit=bh-30-16;
     for(let i=chips.length-1;i>=0;i--){
       const o=chips[i]; o.y+=sp*dt; o.el.style.top=o.y+"px";
       if(o.y>=limit){
