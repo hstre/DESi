@@ -179,6 +179,11 @@
     background:linear-gradient(180deg,var(--panel),var(--bg-2));padding:18px}
   .figure svg{width:100%;height:auto;display:block}
   .figure .cap{font-size:13.5px;color:var(--muted);margin:14px auto 0;max-width:74ch;text-align:center;line-height:1.55}
+  .ascii-fig{font-family:var(--mono);font-size:12.5px;line-height:1.4;color:var(--muted);
+    background:var(--bg-2);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:12px;padding:16px 18px;margin:6px 0 0;overflow-x:auto;white-space:pre;tab-size:2}
+  .ascii-cap{font-size:13.5px;color:var(--muted);text-align:center;margin:14px auto 0;max-width:74ch;line-height:1.55}
+  .theme-retro .ascii-fig{background:#000;color:#0f0;border:3px ridge #c0c0c0}
   .theme-retro .figure{border:3px outset #c0c0c0;border-radius:0}
 
   /* ===== theme toggle (works in both skins) ===== */
@@ -395,55 +400,22 @@
 <section class="plainwords">
   <div class="wrap">
     <div class="kicker" data-i18n="hp_fig_k"></div>
-    <figure class="figure">
-      <svg viewBox="0 0 900 410" role="img" aria-label="How DESi works: it observes an LLM pipeline from outside, read-only"
-           font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif">
-        <defs>
-          <marker id="hm" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 Z" fill="#8a99af"/></marker>
-          <marker id="ha" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 Z" fill="#2ce6c4"/></marker>
-          <marker id="hw" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 Z" fill="#ff6b6b"/></marker>
-          <marker id="hb" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 Z" fill="#5aa8ff"/></marker>
-        </defs>
-
-        <!-- top pipeline -->
-        <rect x="48" y="60" width="170" height="48" rx="10" fill="#0f1622" stroke="#1c2737"/>
-        <text x="133" y="89" text-anchor="middle" fill="#e8eef7" font-size="15">Input</text>
-        <line x1="218" y1="84" x2="296" y2="84" stroke="#8a99af" stroke-width="2" marker-end="url(#hm)"/>
-
-        <rect x="300" y="60" width="240" height="48" rx="10" fill="#0f1622" stroke="#1c2737"/>
-        <text x="420" y="84" text-anchor="middle" fill="#e8eef7" font-size="15">LLM pipeline</text>
-        <text x="420" y="100" text-anchor="middle" fill="#5c6b82" font-size="11.5" font-family="ui-monospace,Menlo,Consolas,monospace">stochastic</text>
-        <line x1="540" y1="84" x2="618" y2="84" stroke="#8a99af" stroke-width="2" marker-end="url(#hm)"/>
-
-        <rect x="622" y="60" width="230" height="48" rx="10" fill="#0f1622" stroke="#1c2737"/>
-        <text x="737" y="84" text-anchor="middle" fill="#e8eef7" font-size="15">Output</text>
-        <text x="737" y="100" text-anchor="middle" fill="#5c6b82" font-size="11.5">answer · claims</text>
-
-        <!-- read-only observation (dashed) -->
-        <line x1="420" y1="110" x2="402" y2="206" stroke="#8a99af" stroke-width="1.8" stroke-dasharray="5 5" marker-end="url(#hm)"/>
-        <line x1="737" y1="110" x2="560" y2="206" stroke="#8a99af" stroke-width="1.8" stroke-dasharray="5 5" marker-end="url(#hm)"/>
-        <text x="648" y="150" text-anchor="middle" fill="#5c6b82" font-size="12" font-style="italic">read-only — observes, never rewrites</text>
-
-        <!-- DESi -->
-        <rect x="210" y="208" width="480" height="66" rx="12" fill="#0b101a" stroke="#2ce6c4"/>
-        <text x="450" y="236" text-anchor="middle" fill="#2ce6c4" font-size="16" font-weight="600">DESi</text>
-        <text x="450" y="256" text-anchor="middle" fill="#8a99af" font-size="12.5">deterministic governance · sits outside the model</text>
-
-        <!-- verdict arrows -->
-        <line x1="396" y1="276" x2="262" y2="322" stroke="#2ce6c4" stroke-width="2" marker-end="url(#ha)"/>
-        <line x1="450" y1="276" x2="470" y2="322" stroke="#ff6b6b" stroke-width="2" marker-end="url(#hw)"/>
-        <line x1="506" y1="276" x2="700" y2="322" stroke="#5aa8ff" stroke-width="2" marker-end="url(#hb)"/>
-
-        <!-- verdict pills -->
-        <rect x="150" y="326" width="206" height="46" rx="23" fill="#0f1622" stroke="#2ce6c4"/>
-        <text x="253" y="354" text-anchor="middle" fill="#2ce6c4" font-size="14">✓ supported</text>
-        <rect x="372" y="326" width="234" height="46" rx="23" fill="#0f1622" stroke="#ff6b6b"/>
-        <text x="489" y="354" text-anchor="middle" fill="#ff6b6b" font-size="14">unsupported → flagged</text>
-        <rect x="622" y="326" width="240" height="46" rx="23" fill="#0f1622" stroke="#5aa8ff"/>
-        <text x="742" y="354" text-anchor="middle" fill="#5aa8ff" font-size="14">drift / early closure</text>
-      </svg>
-      <figcaption class="cap" data-i18n="hp_fig"></figcaption>
-    </figure>
+    <pre class="ascii-fig" role="img" aria-label="How DESi works: DESi observes the LLM pipeline from outside, read-only">prompt + sources
+   |
+   v
++-------------------------------+
+|  LLM pipeline   (stochastic)  |
++-------------------------------+
+   |   output: answer + claims
+   v
++--------------------------------+
+|  DESi - deterministic,         |
+|  read-only observer (outside)  |
++--------------------------------+
+   |            |            |
+   v            v            v
+[ok] supported  [!] flagged  [~] drift</pre>
+    <div class="ascii-cap" data-i18n="hp_fig"></div>
   </div>
 </section>
 
@@ -1317,10 +1289,10 @@ document.getElementById("themeToggle").addEventListener("click", ()=>{
   const loadBest=()=>{try{return +(localStorage.getItem("desi_hp_best")||0);}catch(e){return 0;}};
   const saveBest=v=>{try{localStorage.setItem("desi_hp_best",v);}catch(e){}};
   const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
-  let lives,score,streak,order,idx,timer,tleft,best;
+  let lives,score,streak,order,idx,timer,tleft,best,round;
   function show(s){["hpStart","hpPlay","hpOver"].forEach(x=>$(x).style.display=(x===s?"block":"none"));}
   function hud(){$("hpLives").textContent="♥".repeat(lives)+"·".repeat(3-lives);$("hpScore").textContent=score;$("hpStreak").textContent=streak;}
-  function start(){lives=3;score=0;streak=0;idx=0;order=shuffle(CARDS.map((_,i)=>i));best=loadBest();show("hpPlay");next();}
+  function start(){lives=3;score=0;streak=0;idx=0;round=0;order=shuffle(CARDS.map((_,i)=>i));best=loadBest();show("hpPlay");next();}
   function next(){
     clearInterval(timer);
     if(lives<=0) return over();
@@ -1330,7 +1302,8 @@ document.getElementById("themeToggle").addEventListener("click", ()=>{
     const fb=$("hpFb");fb.textContent="";fb.className="hp-fb";
     hud();tleft=100;$("hpBar").style.width="100%";
     btns(true);
-    timer=setInterval(()=>{tleft-=2;if(tleft<=0){clearInterval(timer);answer(null);}else $("hpBar").style.width=tleft+"%";},130);
+    const step=Math.min(3,1.1+round*0.12); round++;   // start slow, ramp up
+    timer=setInterval(()=>{tleft-=step;if(tleft<=0){clearInterval(timer);answer(null);}else $("hpBar").style.width=tleft+"%";},130);
   }
   function btns(on){$("hpAdmit").disabled=!on;$("hpFlag").disabled=!on;}
   function answer(admit){
