@@ -166,6 +166,7 @@
   .pw-box p:last-child{margin-bottom:0}
   .pw-box b{color:var(--ink)}
   .pw-box .pw-note{color:var(--faint);font-style:italic;font-size:15px}
+  .pw-box .pw-claim{color:var(--accent);font-weight:650;font-size:17px;letter-spacing:-.2px;margin:2px 0 14px}
 
   /* ===== theme toggle (works in both skins) ===== */
   .nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
@@ -245,6 +246,7 @@
   .theme-retro .pw-box p{color:#000}
   .theme-retro .pw-box b{color:#000080}
   .theme-retro .pw-box .pw-note{color:#444}
+  .theme-retro .pw-box .pw-claim{color:#000080}
 
   /* footer + hash line */
   .theme-retro footer{background:transparent;border-top:none}
@@ -433,6 +435,7 @@
     <div class="pw-box">
       <p data-i18n="mot_1"></p>
       <p data-i18n="mot_2"></p>
+      <p class="pw-claim" data-i18n="mot_claim"></p>
       <p class="pw-note" data-i18n="mot_3"></p>
     </div>
   </div>
@@ -488,6 +491,7 @@ const I18N = {
     mot_kicker:"Why I'm doing this",
     mot_1:"This isn't about fame — and not even about ever recovering the roughly €600 I put into building it.",
     mot_2:"What drives me is something else. A large part of today's AI work keeps building bigger data centers, hoping new capabilities will “emerge” on their own from sheer scale. I'm convinced much of that can also be achieved with clear, deterministic algorithms — without the same hunger for energy.",
+    mot_claim:"Logical consistency does not arise by itself in a purely statistical system. It has to be constructed.",
     mot_3:"If DESi helps us burn a little less energy and avoid building data centers we may not even need, then the work was worth it.",
     hero_hash:"Every output is bit-exact reproducible —",
     prob_kicker:"The observer problem",
@@ -563,6 +567,7 @@ const I18N = {
     mot_kicker:"Warum ich das mache",
     mot_1:"Mir geht es nicht um Ruhm — und nicht einmal darum, die rund 600 €, die in der Entwicklung stecken, je wieder hereinzuholen.",
     mot_2:"Was mich antreibt, ist etwas anderes: Ein großer Teil der heutigen KI-Entwicklung baut immer größere Rechenzentren, in der Hoffnung, dass aus schierer Größe neue Fähigkeiten von selbst „emergieren“. Ich bin überzeugt, dass sich vieles davon auch mit klaren, deterministischen Algorithmen erreichen lässt — ohne denselben Energiehunger.",
+    mot_claim:"Logische Konsistenz stellt sich in einem rein statistischen System nicht von selbst ein. Sie muss konstruiert werden.",
     mot_3:"Wenn DESi dazu beiträgt, dass wir ein bisschen weniger Energie verbrennen und nicht Rechenzentren bauen, die es vielleicht gar nicht braucht, dann hat sich die Arbeit gelohnt.",
     hero_hash:"Jede Ausgabe ist bit-genau reproduzierbar —",
     prob_kicker:"Das Beobachter-Problem",
@@ -638,6 +643,7 @@ const I18N = {
     mot_kicker:"我为什么做这件事",
     mot_1:"这不是为了名声——甚至也不指望收回我投入开发的那大约 600 欧元。",
     mot_2:"真正驱动我的是另一件事：当下很大一部分 AI 研发不断兴建更大的数据中心，指望仅凭规模就能自行「涌现」出新能力。我相信，其中很多其实也能用清晰的确定性算法实现——而不必有同样的能耗。",
+    mot_claim:"在纯统计的系统里，逻辑一致性不会自行出现。它必须被构造出来。",
     mot_3:"如果 DESi 能帮助我们少烧一点能源、不去建也许根本不需要的数据中心，那这份工作就值了。",
     hero_hash:"每一次输出都逐位精确可复现 —",
     prob_kicker:"观察者难题",
@@ -713,6 +719,7 @@ const I18N = {
     mot_kicker:"Por qué hago esto",
     mot_1:"No es por fama, ni siquiera por recuperar alguna vez los aproximadamente 600 € que invertí en desarrollarlo.",
     mot_2:"Lo que me mueve es otra cosa. Buena parte del trabajo actual en IA sigue construyendo centros de datos cada vez mayores, con la esperanza de que de la pura escala “emerjan” solas nuevas capacidades. Estoy convencido de que mucho de eso también se puede lograr con algoritmos claros y deterministas, sin la misma hambre de energía.",
+    mot_claim:"La consistencia lógica no surge por sí sola en un sistema puramente estadístico. Hay que construirla.",
     mot_3:"Si DESi ayuda a quemar un poco menos de energía y a no construir centros de datos que quizá ni necesitamos, entonces el trabajo habrá valido la pena.",
     hero_hash:"Cada salida es reproducible bit a bit —",
     prob_kicker:"El problema del observador",
@@ -788,6 +795,7 @@ const I18N = {
     mot_kicker:"なぜこれをやっているのか",
     mot_1:"名声のためではありません。開発に費やしたおよそ 600 ユーロを取り戻すためですらありません。",
     mot_2:"私を動かしているのは別のことです。今日の AI 開発の多くは、規模さえ大きくすれば新しい能力がひとりでに「創発」すると期待して、より大きなデータセンターを建て続けています。私は、その多くは明快で決定論的なアルゴリズムでも実現でき、同じだけのエネルギーを必要としないと確信しています。",
+    mot_claim:"純粋に統計的なシステムでは、論理的整合性はひとりでに生じない。それは構築されねばならない。",
     mot_3:"DESi が、私たちが少しでも消費エネルギーを減らし、必要ないかもしれないデータセンターを建てずに済むことに貢献できるなら、この仕事には意味があったと思えます。",
     hero_hash:"すべての出力はビット単位で完全に再現可能 —",
     prob_kicker:"観測者問題",
