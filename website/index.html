@@ -1365,7 +1365,79 @@ document.getElementById("themeToggle").addEventListener("click", ()=>{
       de:{c:"Kontext reicht bis 2022.",q:"Das Modell beschreibt, was 2025 geschah.",w:"Jenseits des Kontexts."},
       zh:{c:"上下文只到 2022 年。",q:"模型描述了 2025 年发生的事。",w:"超出上下文。"},
       es:{c:"El contexto llega hasta 2022.",q:"El modelo describe lo ocurrido en 2025.",w:"Más allá del contexto."},
-      ja:{c:"文脈は2022年までを列挙。",q:"モデルは2025年の出来事を述べる。",w:"文脈の外。"}}}
+      ja:{c:"文脈は2022年までを列挙。",q:"モデルは2025年の出来事を述べる。",w:"文脈の外。"}}},
+    {ok:true,t:{
+      en:{c:"Context: revenue rose 10% year-over-year.",q:"Revenue grew 10% vs last year.",w:"Same fact, reworded."},
+      de:{c:"Kontext: Umsatz stieg 10% gegenüber Vorjahr.",q:"Umsatz wuchs 10% ggü. letztem Jahr.",w:"Gleiche Aussage, anders formuliert."},
+      zh:{c:"上下文：营收同比增长 10%。",q:"营收比去年增长 10%。",w:"同一事实，换种说法。"},
+      es:{c:"Contexto: los ingresos subieron 10% interanual.",q:"Los ingresos crecieron 10% frente al año pasado.",w:"Mismo hecho, reformulado."},
+      ja:{c:"文脈：売上は前年比10%増。",q:"売上は昨年比で10%伸びた。",w:"同じ事実の言い換え。"}}},
+    {ok:false,t:{
+      en:{c:"Context: sales rose in Q3.",q:"Sales rose sharply in Q3.",w:"'Sharply' isn't in the context."},
+      de:{c:"Kontext: der Umsatz stieg im Q3.",q:"Der Umsatz stieg im Q3 stark.",w:"'Stark' steht nicht im Kontext."},
+      zh:{c:"上下文：第三季度销售上升。",q:"第三季度销售大幅上升。",w:"上下文没有‘大幅’。"},
+      es:{c:"Contexto: las ventas subieron en el T3.",q:"Las ventas subieron con fuerza en el T3.",w:"'Con fuerza' no está en el contexto."},
+      ja:{c:"文脈：第3四半期に売上が増加。",q:"第3四半期に売上が急増した。",w:"「急」は文脈に無い。"}}},
+    {ok:true,t:{
+      en:{c:"Context: 2 of 5 tests passed.",q:"Fewer than half the tests passed.",w:"2 of 5 is below half."},
+      de:{c:"Kontext: 2 von 5 Tests bestanden.",q:"Weniger als die Hälfte der Tests bestand.",w:"2 von 5 ist unter der Hälfte."},
+      zh:{c:"上下文：5 项测试中通过了 2 项。",q:"不到一半的测试通过了。",w:"2/5 低于一半。"},
+      es:{c:"Contexto: pasaron 2 de 5 pruebas.",q:"Pasaron menos de la mitad de las pruebas.",w:"2 de 5 es menos de la mitad."},
+      ja:{c:"文脈：5件中2件のテストが合格。",q:"半分未満のテストが合格した。",w:"2/5は半分未満。"}}},
+    {ok:false,t:{
+      en:{c:"Context: most participants improved.",q:"All participants improved.",w:"'Most' is not 'all'."},
+      de:{c:"Kontext: die meisten Teilnehmer verbesserten sich.",q:"Alle Teilnehmer verbesserten sich.",w:"'Die meisten' ist nicht 'alle'."},
+      zh:{c:"上下文：大多数参与者有所改善。",q:"所有参与者都改善了。",w:"‘大多数’不是‘所有’。"},
+      es:{c:"Contexto: la mayoría de participantes mejoró.",q:"Todos los participantes mejoraron.",w:"'La mayoría' no es 'todos'."},
+      ja:{c:"文脈：ほとんどの参加者が改善。",q:"全参加者が改善した。",w:"「ほとんど」は「全員」ではない。"}}},
+    {ok:true,t:{
+      en:{c:"Context: X correlates with Y.",q:"X is associated with Y.",w:"Association means correlation."},
+      de:{c:"Kontext: X korreliert mit Y.",q:"X hängt mit Y zusammen.",w:"Zusammenhang = Korrelation."},
+      zh:{c:"上下文：X 与 Y 相关。",q:"X 与 Y 存在关联。",w:"关联即相关。"},
+      es:{c:"Contexto: X correlaciona con Y.",q:"X está asociado con Y.",w:"Asociación = correlación."},
+      ja:{c:"文脈：X は Y と相関する。",q:"X は Y と関連している。",w:"関連＝相関。"}}},
+    {ok:false,t:{
+      en:{c:"Context: the change may reduce latency.",q:"The change reduces latency.",w:"'May' was dropped."},
+      de:{c:"Kontext: die Änderung könnte die Latenz senken.",q:"Die Änderung senkt die Latenz.",w:"'Könnte' wurde weggelassen."},
+      zh:{c:"上下文：该改动可能降低延迟。",q:"该改动降低了延迟。",w:"去掉了‘可能’。"},
+      es:{c:"Contexto: el cambio podría reducir la latencia.",q:"El cambio reduce la latencia.",w:"Se quitó 'podría'."},
+      ja:{c:"文脈：その変更は遅延を下げるかもしれない。",q:"その変更は遅延を下げる。",w:"「かも」が消えた。"}}},
+    {ok:true,t:{
+      en:{c:"Context: the study found no significant effect.",q:"No significant effect was found.",w:"Same finding, passive voice."},
+      de:{c:"Kontext: die Studie fand keinen signifikanten Effekt.",q:"Es wurde kein signifikanter Effekt gefunden.",w:"Gleiche Aussage, passiv."},
+      zh:{c:"上下文：研究未发现显著效应。",q:"没有发现显著效应。",w:"同一结论。"},
+      es:{c:"Contexto: el estudio no halló un efecto significativo.",q:"No se encontró un efecto significativo.",w:"Mismo hallazgo, en pasiva."},
+      ja:{c:"文脈：研究は有意な効果を見いださなかった。",q:"有意な効果は見つからなかった。",w:"同じ結論（受動）。"}}},
+    {ok:false,t:{
+      en:{c:"Context: errors dropped after the fix.",q:"The fix caused the errors to drop.",w:"After is not because."},
+      de:{c:"Kontext: nach dem Fix sanken die Fehler.",q:"Der Fix ließ die Fehler sinken.",w:"Danach ist nicht deswegen."},
+      zh:{c:"上下文：修复之后错误下降。",q:"修复导致错误下降。",w:"之后不等于因此。"},
+      es:{c:"Contexto: los errores bajaron tras el arreglo.",q:"El arreglo hizo bajar los errores.",w:"Después no es por causa."},
+      ja:{c:"文脈：修正後にエラーが減った。",q:"修正がエラーを減らした。",w:"後は故ではない。"}}},
+    {ok:true,t:{
+      en:{c:"Context: the meeting is at 14:00.",q:"The meeting is at 2 PM.",w:"Same time, 24h vs 12h."},
+      de:{c:"Kontext: das Meeting ist um 14:00 Uhr.",q:"Das Meeting ist um 2 Uhr nachmittags.",w:"Gleiche Zeit."},
+      zh:{c:"上下文：会议在 14:00。",q:"会议在下午 2 点。",w:"同一时间。"},
+      es:{c:"Contexto: la reunión es a las 14:00.",q:"La reunión es a las 2 de la tarde.",w:"La misma hora."},
+      ja:{c:"文脈：会議は14:00。",q:"会議は午後2時。",w:"同じ時刻。"}}},
+    {ok:false,t:{
+      en:{c:"Context: the drug reduced symptoms in a trial.",q:"The drug cures the disease.",w:"Reducing symptoms is not a cure."},
+      de:{c:"Kontext: das Mittel linderte Symptome in einer Studie.",q:"Das Mittel heilt die Krankheit.",w:"Lindern ist keine Heilung."},
+      zh:{c:"上下文：该药在试验中减轻了症状。",q:"该药能治愈这种疾病。",w:"减轻症状不等于治愈。"},
+      es:{c:"Contexto: el fármaco redujo síntomas en un ensayo.",q:"El fármaco cura la enfermedad.",w:"Reducir síntomas no es curar."},
+      ja:{c:"文脈：その薬は試験で症状を軽減した。",q:"その薬は病気を治す。",w:"症状軽減は治癒ではない。"}}},
+    {ok:true,t:{
+      en:{c:"Context: all units shipped on Monday.",q:"Every unit shipped on Monday.",w:"All means every."},
+      de:{c:"Kontext: alle Einheiten wurden Montag versandt.",q:"Jede Einheit wurde am Montag versandt.",w:"Alle = jede."},
+      zh:{c:"上下文：所有单元周一发货。",q:"每个单元都在周一发货。",w:"所有＝每个。"},
+      es:{c:"Contexto: todas las unidades se enviaron el lunes.",q:"Cada unidad se envió el lunes.",w:"Todas = cada una."},
+      ja:{c:"文脈：全ユニットが月曜に出荷。",q:"どのユニットも月曜に出荷された。",w:"すべて＝どれも。"}}},
+    {ok:false,t:{
+      en:{c:"Context: the report covers Europe.",q:"The report covers the EU.",w:"Europe is not the EU."},
+      de:{c:"Kontext: der Bericht deckt Europa ab.",q:"Der Bericht deckt die EU ab.",w:"Europa ist nicht die EU."},
+      zh:{c:"上下文：报告涵盖欧洲。",q:"报告涵盖欧盟。",w:"欧洲不等于欧盟。"},
+      es:{c:"Contexto: el informe cubre Europa.",q:"El informe cubre la UE.",w:"Europa no es la UE."},
+      ja:{c:"文脈：報告は欧州を対象とする。",q:"報告は EU を対象とする。",w:"欧州は EU ではない。"}}}
   ];
   const L=()=>I18N[document.documentElement.lang]?document.documentElement.lang:"en";
   const gp=k=>{const d=I18N[L()]||I18N.en;return d[k]||I18N.en[k]||k;};
@@ -1433,7 +1505,13 @@ document.getElementById("themeToggle").addEventListener("click", ()=>{
     {drift:true,t:{en:"made-up number",de:"erfundene Zahl",zh:"编造的数字",es:"número inventado",ja:"でっち上げの数字"}},
     {drift:true,t:{en:"out of context",de:"aus dem Kontext gerissen",zh:"脱离上下文",es:"fuera de contexto",ja:"文脈の外"}},
     {drift:true,t:{en:"unverified leap",de:"ungeprüfter Sprung",zh:"未经验证的跳步",es:"salto no verificado",ja:"未検証の飛躍"}},
-    {drift:true,t:{en:"topic drift",de:"Themen-Drift",zh:"主题漂移",es:"deriva de tema",ja:"トピックのドリフト"}}
+    {drift:true,t:{en:"topic drift",de:"Themen-Drift",zh:"主题漂移",es:"deriva de tema",ja:"トピックのドリフト"}},
+    {drift:false,t:{en:"logically entailed",de:"logisch impliziert",zh:"逻辑蕴含",es:"lógicamente implicado",ja:"論理的に含意"}},
+    {drift:false,t:{en:"directly quoted",de:"direkt zitiert",zh:"直接引用",es:"citado directamente",ja:"直接引用"}},
+    {drift:false,t:{en:"valid inference",de:"gültige Folgerung",zh:"有效推断",es:"inferencia válida",ja:"妥当な推論"}},
+    {drift:true,t:{en:"scope creep",de:"Scope-Ausweitung",zh:"范围蔓延",es:"ampliación de alcance",ja:"範囲の拡大"}},
+    {drift:true,t:{en:"wrong timeframe",de:"falscher Zeitrahmen",zh:"时间范围错误",es:"marco temporal erróneo",ja:"時間枠の誤り"}},
+    {drift:true,t:{en:"quantifier shift",de:"Quantor-Verschiebung",zh:"量词偏移",es:"cambio de cuantificador",ja:"量化子のずれ"}}
   ];
   const L=()=>I18N[document.documentElement.lang]?document.documentElement.lang:"en";
   const loadBest=()=>{try{return +(localStorage.getItem("desi_dc_best")||0);}catch(e){return 0;}};
