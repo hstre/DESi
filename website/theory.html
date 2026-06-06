@@ -157,6 +157,31 @@
 </div>
 
 <div class="wrap">
+  <figure class="figure">
+    <svg viewBox="0 0 760 372" role="img" aria-label="DESi layered architecture" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif">
+      <defs><marker id="d1m" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 Z" fill="#8a99af"/></marker></defs>
+      <rect x="120" y="14" width="520" height="42" rx="9" fill="#0c111b" stroke="#2b3a52" stroke-dasharray="4 4"/>
+      <text x="380" y="40" text-anchor="middle" fill="#8a99af" font-size="13">External input · claims · trajectories · LLM outputs</text>
+      <line x1="380" y1="56" x2="380" y2="68" stroke="#8a99af" stroke-width="2" marker-end="url(#d1m)"/>
+      <rect x="120" y="70" width="520" height="42" rx="9" fill="#0f1622" stroke="#1c2737"/>
+      <text x="380" y="96" text-anchor="middle" fill="#e8eef7" font-size="13.5">Connector · versioned · hashed · replay-bound</text>
+      <line x1="380" y1="112" x2="380" y2="124" stroke="#8a99af" stroke-width="2" marker-end="url(#d1m)"/>
+      <rect x="120" y="126" width="520" height="42" rx="9" fill="#0f1622" stroke="#1c2737"/>
+      <text x="380" y="152" text-anchor="middle" fill="#e8eef7" font-size="13.5">Adapter · drift · search · audit mappings</text>
+      <line x1="380" y1="168" x2="380" y2="180" stroke="#8a99af" stroke-width="2" marker-end="url(#d1m)"/>
+      <rect x="120" y="182" width="520" height="66" rx="10" fill="#0b101a" stroke="#2ce6c4" stroke-width="2"/>
+      <text x="380" y="208" text-anchor="middle" fill="#2ce6c4" font-size="14.5" font-weight="600">Governance Core — IMMUTABLE</text>
+      <text x="380" y="230" text-anchor="middle" fill="#8a99af" font-size="11.5">Replay Kernel · Concept Gates · Determinism Scanner · Authority Filters</text>
+      <line x1="380" y1="248" x2="380" y2="260" stroke="#8a99af" stroke-width="2" marker-end="url(#d1m)"/>
+      <rect x="120" y="262" width="520" height="42" rx="9" fill="#0f1622" stroke="#1c2737"/>
+      <text x="380" y="288" text-anchor="middle" fill="#e8eef7" font-size="13.5">Output ports · report · reproducibility · citations</text>
+      <line x1="380" y1="304" x2="380" y2="316" stroke="#8a99af" stroke-width="2" marker-end="url(#d1m)"/>
+      <rect x="120" y="318" width="520" height="42" rx="9" fill="#0f1622" stroke="#3a4a63"/>
+      <text x="380" y="344" text-anchor="middle" fill="#8a99af" font-size="13">Evolution · peripheral · branch-isolated (mutates)</text>
+    </svg>
+    <figcaption class="cap" data-i18n="fig1"></figcaption>
+  </figure>
+
   <section class="blk">
     <h2><span class="nm">1</span><span data-i18n="t_m1_h"></span></h2>
     <p data-i18n="t_m1_b"></p>
@@ -187,6 +212,24 @@
       <div class="cap" data-i18n="t_m3_cap"></div>
     </div>
     <p data-i18n="t_m3_b3"></p>
+    <figure class="figure">
+      <svg viewBox="0 0 640 400" role="img" aria-label="Compression versus signal-preservation trade-off" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif">
+        <defs><marker id="d3m" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L6,3 L0,6 Z" fill="#5c6b82"/></marker></defs>
+        <line x1="88" y1="330" x2="88" y2="54" stroke="#5c6b82" stroke-width="1.5" marker-end="url(#d3m)"/>
+        <line x1="88" y1="330" x2="588" y2="330" stroke="#5c6b82" stroke-width="1.5" marker-end="url(#d3m)"/>
+        <text x="338" y="362" text-anchor="middle" fill="#8a99af" font-size="13">Compression  C  →</text>
+        <text fill="#8a99af" font-size="13" transform="translate(40,210) rotate(-90)" text-anchor="middle">Signal preservation  S</text>
+        <path d="M112,78 C 250,94 330,138 405,176 C 470,206 525,270 552,308" fill="none" stroke="#2ce6c4" stroke-width="2.5"/>
+        <line x1="405" y1="176" x2="405" y2="330" stroke="#5c6b82" stroke-width="1.2" stroke-dasharray="4 4"/>
+        <line x1="405" y1="176" x2="88" y2="176" stroke="#5c6b82" stroke-width="1.2" stroke-dasharray="4 4"/>
+        <circle cx="405" cy="176" r="6" fill="#2ce6c4"/>
+        <text x="420" y="166" fill="#2ce6c4" font-size="13">Pareto point (κ)</text>
+        <text x="420" y="183" fill="#8a99af" font-size="11">DESi operates here</text>
+        <text x="300" y="300" text-anchor="middle" fill="#8a99af" font-size="11">beyond κ: each +C costs −S</text>
+        <text x="150" y="92" fill="#5c6b82" font-size="11">high S · low C</text>
+      </svg>
+      <figcaption class="cap" data-i18n="fig3"></figcaption>
+    </figure>
   </section>
 
   <section class="blk">
@@ -197,6 +240,39 @@
       \[ \text{replay collapse}\ \succ\ \text{governance failure}\ \succ\ \text{architecture instability}\ \succ\ \text{drift}. \]
     </div>
     <p data-i18n="t_m4_b2"></p>
+    <figure class="figure">
+      <svg viewBox="0 0 820 332" role="img" aria-label="Concept Gate: logical AND of six conditions" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif">
+        <defs>
+          <marker id="d2m" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L6,3 L0,6 Z" fill="#8a99af"/></marker>
+          <marker id="d2a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 Z" fill="#2ce6c4"/></marker>
+          <marker id="d2w" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 Z" fill="#ff6b6b"/></marker>
+        </defs>
+        <rect x="40" y="16" width="150" height="30" rx="15" fill="#0f1622" stroke="#1c2737"/><text x="115" y="36" text-anchor="middle" fill="#e8eef7" font-size="13" font-family="ui-monospace,Menlo,Consolas,monospace">g₁</text>
+        <rect x="40" y="52" width="150" height="30" rx="15" fill="#0f1622" stroke="#1c2737"/><text x="115" y="72" text-anchor="middle" fill="#e8eef7" font-size="13" font-family="ui-monospace,Menlo,Consolas,monospace">g₂</text>
+        <rect x="40" y="88" width="150" height="30" rx="15" fill="#0f1622" stroke="#1c2737"/><text x="115" y="108" text-anchor="middle" fill="#e8eef7" font-size="13" font-family="ui-monospace,Menlo,Consolas,monospace">g₃</text>
+        <rect x="40" y="124" width="150" height="30" rx="15" fill="#0f1622" stroke="#1c2737"/><text x="115" y="144" text-anchor="middle" fill="#e8eef7" font-size="13" font-family="ui-monospace,Menlo,Consolas,monospace">g₄</text>
+        <rect x="40" y="160" width="150" height="30" rx="15" fill="#0f1622" stroke="#1c2737"/><text x="115" y="180" text-anchor="middle" fill="#e8eef7" font-size="13" font-family="ui-monospace,Menlo,Consolas,monospace">g₅</text>
+        <rect x="40" y="196" width="150" height="30" rx="15" fill="#0f1622" stroke="#1c2737"/><text x="115" y="216" text-anchor="middle" fill="#e8eef7" font-size="13" font-family="ui-monospace,Menlo,Consolas,monospace">g₆</text>
+        <line x1="192" y1="31" x2="356" y2="118" stroke="#8a99af" stroke-width="1.4" marker-end="url(#d2m)"/>
+        <line x1="192" y1="67" x2="356" y2="120" stroke="#8a99af" stroke-width="1.4" marker-end="url(#d2m)"/>
+        <line x1="192" y1="103" x2="356" y2="122" stroke="#8a99af" stroke-width="1.4" marker-end="url(#d2m)"/>
+        <line x1="192" y1="139" x2="356" y2="126" stroke="#8a99af" stroke-width="1.4" marker-end="url(#d2m)"/>
+        <line x1="192" y1="175" x2="356" y2="128" stroke="#8a99af" stroke-width="1.4" marker-end="url(#d2m)"/>
+        <line x1="192" y1="211" x2="356" y2="130" stroke="#8a99af" stroke-width="1.4" marker-end="url(#d2m)"/>
+        <rect x="360" y="80" width="140" height="90" rx="12" fill="#0b101a" stroke="#2ce6c4" stroke-width="2"/>
+        <text x="430" y="120" text-anchor="middle" fill="#2ce6c4" font-size="15" font-weight="600">AND</text>
+        <text x="430" y="140" text-anchor="middle" fill="#8a99af" font-size="11">all six gᵢ</text>
+        <line x1="500" y1="125" x2="558" y2="125" stroke="#2ce6c4" stroke-width="2" marker-end="url(#d2a)"/>
+        <rect x="560" y="103" width="180" height="44" rx="10" fill="#0f1622" stroke="#2ce6c4"/>
+        <text x="650" y="131" text-anchor="middle" fill="#2ce6c4" font-size="15">Class A</text>
+        <line x1="430" y1="170" x2="555" y2="214" stroke="#ff6b6b" stroke-width="2" marker-end="url(#d2w)"/>
+        <text x="470" y="196" fill="#ff6b6b" font-size="11">any false</text>
+        <rect x="560" y="216" width="220" height="42" rx="10" fill="#0f1622" stroke="#ff6b6b"/>
+        <text x="670" y="243" text-anchor="middle" fill="#ff6b6b" font-size="13.5">→ Class B–E</text>
+        <text x="410" y="312" text-anchor="middle" fill="#5c6b82" font-size="11.5" font-family="ui-monospace,Menlo,Consolas,monospace">priority: replay collapse &gt; governance &gt; architecture &gt; drift</text>
+      </svg>
+      <figcaption class="cap" data-i18n="fig2"></figcaption>
+    </figure>
   </section>
 
   <section class="blk">
@@ -275,6 +351,46 @@
       \[ \mathrm{CIH}=H_{\textsf{SHA-256}}\!\big(\mathrm{MH}\,\Vert\,\mathrm{PH}\,\Vert\,\mathrm{RH}\,\Vert\,\text{epoch}\big). \]
     </div>
     <p data-i18n-html="t_a_sum"></p>
+
+    <figure class="figure">
+      <svg viewBox="0 0 820 284" role="img" aria-label="Append-only hash chain with branch on dissent" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif">
+        <defs>
+          <marker id="d4m" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L6,3 L0,6 Z" fill="#8a99af"/></marker>
+          <marker id="d4b" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 Z" fill="#5aa8ff"/></marker>
+        </defs>
+        <text x="120" y="26" text-anchor="middle" fill="#5c6b82" font-size="11.5">append-only · tamper-evident</text>
+        <rect x="24" y="108" width="132" height="58" rx="9" fill="#0f1622" stroke="#1c2737"/><text x="90" y="132" text-anchor="middle" fill="#e8eef7" font-size="13">patch P₁</text><text x="90" y="151" text-anchor="middle" fill="#5c6b82" font-size="11" font-family="ui-monospace,Menlo,Consolas,monospace">#9a1…</text>
+        <rect x="192" y="108" width="132" height="58" rx="9" fill="#0f1622" stroke="#1c2737"/><text x="258" y="132" text-anchor="middle" fill="#e8eef7" font-size="13">patch P₂</text><text x="258" y="151" text-anchor="middle" fill="#5c6b82" font-size="11" font-family="ui-monospace,Menlo,Consolas,monospace">#c4f…</text>
+        <rect x="360" y="108" width="132" height="58" rx="9" fill="#0f1622" stroke="#1c2737"/><text x="426" y="132" text-anchor="middle" fill="#e8eef7" font-size="13">patch P₃</text><text x="426" y="151" text-anchor="middle" fill="#5c6b82" font-size="11" font-family="ui-monospace,Menlo,Consolas,monospace">#7b2…</text>
+        <line x1="156" y1="137" x2="190" y2="137" stroke="#8a99af" stroke-width="2" marker-end="url(#d4m)"/>
+        <line x1="324" y1="137" x2="358" y2="137" stroke="#8a99af" stroke-width="2" marker-end="url(#d4m)"/>
+        <text x="173" y="128" text-anchor="middle" fill="#5c6b82" font-size="10">H(prev)</text>
+        <text x="341" y="128" text-anchor="middle" fill="#5c6b82" font-size="10">H(prev)</text>
+        <line x1="492" y1="128" x2="596" y2="86" stroke="#8a99af" stroke-width="2" marker-end="url(#d4m)"/>
+        <line x1="492" y1="146" x2="596" y2="198" stroke="#5aa8ff" stroke-width="2" marker-end="url(#d4b)"/>
+        <rect x="598" y="58" width="150" height="58" rx="9" fill="#0f1622" stroke="#2ce6c4"/><text x="673" y="82" text-anchor="middle" fill="#2ce6c4" font-size="13">patch P₄</text><text x="673" y="101" text-anchor="middle" fill="#8a99af" font-size="11">main</text>
+        <rect x="598" y="176" width="150" height="58" rx="9" fill="#0f1622" stroke="#5aa8ff"/><text x="673" y="200" text-anchor="middle" fill="#5aa8ff" font-size="13">patch P₄</text><text x="673" y="219" text-anchor="middle" fill="#8a99af" font-size="11">branch · dissent</text>
+        <text x="548" y="252" text-anchor="middle" fill="#5aa8ff" font-size="11.5">BRANCH — dissent, never deleted</text>
+      </svg>
+      <figcaption class="cap" data-i18n="fig4"></figcaption>
+    </figure>
+
+    <figure class="figure">
+      <svg viewBox="0 0 760 304" role="img" aria-label="Kant, Popper and Heisenberg converge into the Alexandria Protocol" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif">
+        <defs><marker id="d5m" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 Z" fill="#8a99af"/></marker></defs>
+        <rect x="24" y="22" width="280" height="58" rx="10" fill="#0f1622" stroke="#2ce6c4"/><text x="164" y="46" text-anchor="middle" fill="#2ce6c4" font-size="14" font-weight="600">Kant</text><text x="164" y="65" text-anchor="middle" fill="#8a99af" font-size="11">categories · a-priori audit gate</text>
+        <rect x="24" y="122" width="280" height="58" rx="10" fill="#0f1622" stroke="#5aa8ff"/><text x="164" y="146" text-anchor="middle" fill="#5aa8ff" font-size="14" font-weight="600">Popper</text><text x="164" y="165" text-anchor="middle" fill="#8a99af" font-size="11">branch = conjecture &amp; refutation</text>
+        <rect x="24" y="222" width="280" height="58" rx="10" fill="#0f1622" stroke="#c79bff"/><text x="164" y="246" text-anchor="middle" fill="#c79bff" font-size="14" font-weight="600">Heisenberg</text><text x="164" y="265" text-anchor="middle" fill="#8a99af" font-size="11">append-only · no collapse</text>
+        <line x1="306" y1="51" x2="468" y2="138" stroke="#8a99af" stroke-width="1.6" marker-end="url(#d5m)"/>
+        <line x1="306" y1="151" x2="468" y2="151" stroke="#8a99af" stroke-width="1.6" marker-end="url(#d5m)"/>
+        <line x1="306" y1="251" x2="468" y2="166" stroke="#8a99af" stroke-width="1.6" marker-end="url(#d5m)"/>
+        <rect x="470" y="100" width="266" height="104" rx="12" fill="#0b101a" stroke="#2ce6c4" stroke-width="2"/>
+        <text x="603" y="142" text-anchor="middle" fill="#2ce6c4" font-size="15" font-weight="600">Alexandria Protocol</text>
+        <text x="603" y="166" text-anchor="middle" fill="#8a99af" font-size="11.5">append-only · hash-chained</text>
+        <text x="603" y="184" text-anchor="middle" fill="#8a99af" font-size="11.5">MIVP-bound (CIH)</text>
+      </svg>
+      <figcaption class="cap" data-i18n="fig5"></figcaption>
+    </figure>
   </section>
 </div>
 
@@ -481,6 +597,11 @@ const I18N = {
     p4_5h:"What it guarantees — and what it doesn't",
     p4_5b:"These are deterministic decision rules: on identical inputs they fire identically, which is what makes the supervisor replay-stable. But determinism is not truth. H_norm bounds ambiguity, not falsehood — a confident, low-entropy hallucination passes the τ₃ gate untouched. The thresholds τ₃, τ₄ are governance choices, and the persistence of S(t) is a design premise, not a theorem. The PES does not certify content as correct; it only makes stochastic inconsistency measurable and forces it into the open through suspensions and forks. Same transparency as DESi — and the fork is exactly Alexandria's BRANCH-on-dissent.",
     p4_fig:"The PES pipeline: a stochastic generator G feeds a separate, deterministic evaluator. A persistent state S(t) conditions every verdict; the Shannon-entropy gate (τ₃) suspends ambiguous claims, the JSD gate (τ₄) forks on ontological conflict. Only what passes both is admitted to the graph.",
+    fig1:"DESi's layered architecture. External input passes through the Connector and Adapter layers into the immutable Governance Core (replay kernel, concept gates, determinism scanner, authority filters); only the peripheral layers — output ports and evolution — may change.",
+    fig2:"The Concept Gate is a logical AND of six conditions: a phase reaches Class A only if all six hold. A single false condition drops it to Class B–E. The priority order is fixed and lexicographic.",
+    fig3:"Compression versus signal preservation is a trade-off, not a free lunch. Up to a Pareto-optimal point (κ) you compress almost for free; beyond it, every extra bit of compression costs measurable drift signal. DESi reports the Pareto point, not maximal compression.",
+    fig4:"Alexandria stores claims as an append-only chain of hash-linked patches, so tampering is detectable. Dissent never overwrites: it creates a branch (Popper's conjecture and refutation), and both lines are kept.",
+    fig5:"Three constraints converge into one construction: Kant's categories and a-priori audit gate, Popper's branch-on-dissent, and Heisenberg's append-only, no-collapse evolution — bound together, and to a verifiable identity, by the Alexandria Protocol (with MIVP's CIH).",
     t_close_h:"What this claims — and what it does not",
     t_close_b:"These are structural analogies with measured signatures, not assertions that DESi “is” quantum mechanics or that the philosophers would endorse it. No general intelligence is claimed; no breakthrough is implied. The mathematics is reproducible; the philosophy is a lineage, named honestly — including the irony that two of these names are banned from the system's own outputs.",
     t_foot_h:"Foundations",
@@ -555,6 +676,11 @@ const I18N = {
     p4_5h:"Was es garantiert — und was nicht",
     p4_5b:"Das sind deterministische Entscheidungsregeln: bei gleichen Eingaben feuern sie identisch — das macht den Supervisor replay-stabil. Aber Determinismus ist nicht Wahrheit. H_norm beschränkt Mehrdeutigkeit, nicht Falschheit — eine selbstbewusste, niedrig-entropische Halluzination passiert das τ₃-Gate unbehelligt. Die Schwellen τ₃, τ₄ sind Governance-Entscheidungen, und die Persistenz von S(t) ist eine Design-Prämisse, kein Theorem. Der PES zertifiziert keine inhaltliche Korrektheit; er macht stochastische Inkonsistenz nur messbar und zwingt sie über Suspendierungen und Forks ans Licht. Dieselbe Transparenz wie bei DESi — und der Fork ist genau Alexandrias BRANCH-bei-Dissens.",
     p4_fig:"Die PES-Pipeline: Ein stochastischer Generator G speist einen separaten, deterministischen Evaluator. Ein persistenter Zustand S(t) bedingt jedes Urteil; das Shannon-Entropie-Gate (τ₃) setzt mehrdeutige Aussagen aus, das JSD-Gate (τ₄) forkt bei ontologischem Konflikt. Nur was beide passiert, gelangt in den Graphen.",
+    fig1:"DESis Schichtenarchitektur. Externe Eingaben laufen über Connector- und Adapter-Schicht in den unveränderlichen Governance-Core (Replay-Kernel, Concept Gates, Determinism Scanner, Authority Filters); nur die peripheren Schichten — Output-Ports und Evolution — dürfen sich ändern.",
+    fig2:"Das Concept Gate ist ein logisches UND aus sechs Bedingungen: Eine Phase erreicht Klasse A nur, wenn alle sechs gelten. Eine einzige falsche Bedingung wirft sie auf Klasse B–E. Die Prioritätsordnung ist fest und lexikographisch.",
+    fig3:"Kompression gegen Signalerhalt ist ein Trade-off, kein Nulltarif. Bis zu einem Pareto-optimalen Punkt (κ) komprimiert man fast gratis; darüber kostet jedes weitere Bit messbares Drift-Signal. DESi berichtet den Pareto-Punkt, nicht maximale Kompression.",
+    fig4:"Alexandria speichert Behauptungen als append-only Kette hash-verketteter Patches, sodass Manipulation erkennbar ist. Dissens überschreibt nie: Er erzeugt einen Branch (Poppers Vermutung und Widerlegung), und beide Linien bleiben erhalten.",
+    fig5:"Drei Zwänge laufen in einer Konstruktion zusammen: Kants Kategorien und apriorisches Audit Gate, Poppers Branch-bei-Dissens und Heisenbergs append-only, kollaps-freie Evolution — zusammengebunden, und an eine verifizierbare Identität, durch das Alexandria-Protokoll (mit MIVPs CIH).",
     t_close_h:"Was dies behauptet — und was nicht",
     t_close_b:"Dies sind strukturelle Analogien mit gemessenen Signaturen, keine Behauptungen, DESi „sei“ Quantenmechanik oder die Philosophen würden es gutheißen. Keine allgemeine Intelligenz wird behauptet; kein Durchbruch impliziert. Die Mathematik ist reproduzierbar; die Philosophie ist eine Ahnenlinie, ehrlich benannt — samt der Ironie, dass zwei dieser Namen in den eigenen Ausgaben des Systems verboten sind.",
     t_foot_h:"Grundlagen",
@@ -629,6 +755,11 @@ const I18N = {
     p4_5h:"它保证什么——又不保证什么",
     p4_5b:"这些是确定性的决策规则：对相同输入会以相同方式触发，这正是监督器可重放稳定的原因。但确定性不等于真理。H_norm 约束的是歧义，而非谬误——一个自信、低熵的幻觉会原封不动地通过 τ₃ 闸门。阈值 τ₃、τ₄ 是治理选择，而 S(t) 的持久性是设计前提，并非定理。PES 不为内容的正确性背书；它只是让随机的不一致变得可测，并通过挂起与分叉把它逼到台面上。这与 DESi 是同样的透明——而分叉正是亚历山大协议里的 BRANCH-on-dissent。",
     p4_fig:"PES 流水线：随机生成器 G 馈入一个独立的确定性评估器。持久状态 S(t) 制约每一次判定；香农熵闸门（τ₃）挂起有歧义的主张，JSD 闸门（τ₄）在本体冲突时分叉。只有同时通过两道闸门的内容，才会进入图谱。",
+    fig1:"DESi 的分层架构。外部输入经连接层与适配层进入不可变的治理内核（重放内核、概念门、确定性扫描器、权限过滤器）；只有外围层——输出端口与演化层——才可改变。",
+    fig2:"概念门是六个条件的逻辑与：唯有六者全部成立，阶段才达到 A 级。任一条件为假即降为 B–E 级。优先级固定且按字典序。",
+    fig3:"压缩与信号保留是权衡，没有免费午餐。在帕累托最优点（κ）之前，压缩几乎免费；越过之后，每多压缩一比特都要付出可测的漂移信号。DESi 报告的是帕累托点，而非最大压缩。",
+    fig4:"亚历山大把主张存为仅追加、哈希相连的补丁链，因此篡改可被发现。异议从不覆盖：它创建一个分支（波普尔的猜想与反驳），两条线都被保留。",
+    fig5:"三重约束汇聚为一个构造：康德的范畴与先验审计门、波普尔的异议即分支、海森堡的仅追加且不坍缩的演化——由亚历山大协议（连同 MIVP 的 CIH）绑定在一起，并绑定到可验证的身份。",
     t_close_h:"它主张什么——以及不主张什么",
     t_close_b:"这些是带有可测签名的结构性类比，而非主张 DESi「就是」量子力学，或哲学家会为之背书。不主张通用智能；不暗示突破。数学是可复现的；哲学是一条诚实指名的谱系——包括这一反讽：其中两个名字在系统自身的输出中是被禁止的。",
     t_foot_h:"基础",
@@ -703,6 +834,11 @@ const I18N = {
     p4_5h:"Qué garantiza — y qué no",
     p4_5b:"Son reglas de decisión deterministas: ante entradas idénticas se disparan de forma idéntica, y eso es lo que hace al supervisor estable ante repetición. Pero el determinismo no es verdad. H_norm acota la ambigüedad, no la falsedad — una alucinación segura y de baja entropía atraviesa intacta la compuerta τ₃. Los umbrales τ₃, τ₄ son decisiones de gobernanza, y la persistencia de S(t) es una premisa de diseño, no un teorema. El PES no certifica la corrección del contenido; solo hace medible la inconsistencia estocástica y la fuerza a la superficie mediante suspensiones y bifurcaciones. La misma transparencia que DESi — y la bifurcación es exactamente el BRANCH-on-dissent de Alexandria.",
     p4_fig:"El flujo del PES: un generador estocástico G alimenta un evaluador determinista separado. Un estado persistente S(t) condiciona cada veredicto; la compuerta de entropía de Shannon (τ₃) suspende afirmaciones ambiguas, la compuerta JSD (τ₄) bifurca ante conflicto ontológico. Solo lo que pasa ambas entra al grafo.",
+    fig1:"La arquitectura por capas de DESi. La entrada externa pasa por las capas Connector y Adapter hacia el Núcleo de Gobernanza inmutable (replay kernel, concept gates, determinism scanner, authority filters); solo las capas periféricas — puertos de salida y evolución — pueden cambiar.",
+    fig2:"El Concept Gate es un AND lógico de seis condiciones: una fase alcanza la Clase A solo si las seis se cumplen. Una sola condición falsa la baja a Clase B–E. El orden de prioridad es fijo y lexicográfico.",
+    fig3:"Compresión frente a preservación de señal es un compromiso, no es gratis. Hasta un punto Pareto-óptimo (κ) comprimes casi gratis; más allá, cada bit extra cuesta señal de deriva medible. DESi reporta el punto de Pareto, no la compresión máxima.",
+    fig4:"Alexandria guarda las afirmaciones como una cadena append-only de parches enlazados por hash, así la manipulación es detectable. El disenso nunca sobrescribe: crea una rama (conjetura y refutación de Popper), y ambas líneas se conservan.",
+    fig5:"Tres restricciones convergen en una construcción: las categorías y la compuerta a priori de Kant, la rama-ante-disenso de Popper y la evolución append-only sin colapso de Heisenberg — unidas entre sí, y a una identidad verificable, por el Protocolo Alexandria (con el CIH de MIVP).",
     t_close_h:"Qué afirma — y qué no",
     t_close_b:"Son analogías estructurales con firmas medidas, no afirmaciones de que DESi «sea» mecánica cuántica o de que los filósofos lo respaldarían. No se afirma inteligencia general; no se implica ningún avance. La matemática es reproducible; la filosofía es un linaje, nombrado con honestidad — incluida la ironía de que dos de estos nombres están prohibidos en las propias salidas del sistema.",
     t_foot_h:"Fundamentos",
@@ -777,6 +913,11 @@ const I18N = {
     p4_5h:"何を保証し——何を保証しないか",
     p4_5b:"これらは決定論的な判定規則です。同じ入力には同じように発火し、それがスーパーバイザーをリプレイ安定にします。しかし決定論は真理ではありません。H_norm が抑えるのは曖昧さであって、誤りではありません——自信に満ちた低エントロピーの幻覚は τ₃ ゲートをそのまま通り抜けます。しきい値 τ₃、τ₄ はガバナンス上の選択であり、S(t) の持続性は設計上の前提であって定理ではありません。PES は内容の正しさを証明しません。確率的な不整合を測定可能にし、保留とフォークによって表に引き出すだけです。DESi と同じ透明性であり、フォークはまさにアレクサンドリア・プロトコルの BRANCH-on-dissent です。",
     p4_fig:"PES のパイプライン：確率的生成器 G が、分離された決定論的評価器に入力する。持続状態 S(t) が各判定を条件づけ、シャノン・エントロピー・ゲート（τ₃）が曖昧な主張を保留し、JSD ゲート（τ₄）が存在論的対立でフォークする。両方を通過したものだけがグラフに入る。",
+    fig1:"DESi の層構造。外部入力はコネクタ層・アダプタ層を経て、不変のガバナンス・コア（リプレイ・カーネル、コンセプト・ゲート、決定性スキャナ、権限フィルタ）へ入る。変わってよいのは周辺層——出力ポートと進化層——だけ。",
+    fig2:"コンセプト・ゲートは六条件の論理積：六つすべてが成り立つときだけフェーズはクラス A に達する。一つでも偽ならクラス B–E に落ちる。優先順位は固定で辞書式。",
+    fig3:"圧縮と信号保持はトレードオフであり、ただ飯ではない。パレート最適点（κ）までは、ほぼ無償で圧縮できる。それを越えると、圧縮 1 ビットごとに測定可能なドリフト信号を失う。DESi が報告するのはパレート点であって、最大圧縮ではない。",
+    fig4:"アレクサンドリアは主張を、ハッシュで連結された追記専用のパッチ連鎖として保存するため、改竄を検知できる。異議は決して上書きせず、ブランチを作る（ポパーの推測と反駁）。そして両方の系統が保たれる。",
+    fig5:"三つの制約が一つの構成へ収束する：カントのカテゴリーとア・プリオリな監査ゲート、ポパーの異議＝分岐、ハイゼンベルクの追記専用・崩壊なき進化——それらを互いに、そして検証可能な同一性に結びつけるのが、アレクサンドリア・プロトコル（MIVP の CIH を伴う）である。",
     t_close_h:"何を主張し——何を主張しないか",
     t_close_b:"これらは測定された署名をもつ構造的類比であって、DESi が量子力学「である」とか、哲学者たちが是認するといった主張ではない。汎用知能は主張せず、突破も含意しない。数学は再現可能であり、哲学は誠実に名指された系譜である——そのうち二つの名が、システム自身の出力では禁止されているという皮肉も含めて。",
     t_foot_h:"基礎",
