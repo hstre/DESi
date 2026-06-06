@@ -272,6 +272,54 @@
     </div>
     <p data-i18n-html="t_a_sum"></p>
   </section>
+</div>
+
+<!-- ===================== PART IV — PES ===================== -->
+<div class="part">
+  <div class="wrap">
+    <div class="part-k" data-i18n="p4_k"></div>
+    <div class="part-t" data-i18n="p4_t"></div>
+    <p class="part-s" data-i18n="p4_s"></p>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="blk">
+    <h2><span class="nm">1</span><span data-i18n="p4_1h"></span></h2>
+    <p data-i18n="p4_1b"></p>
+    <div class="math">
+      \[ G:\ \text{stochastic generation}\qquad E:\ \text{deterministic evaluation},\quad E \perp G. \]
+    </div>
+  </section>
+
+  <section class="blk">
+    <h2><span class="nm">2</span><span data-i18n="p4_2h"></span></h2>
+    <p data-i18n="p4_2b"></p>
+    <div class="math">
+      \[ v_t = E(x_t, S_t),\qquad S_{t+1}=U(S_t,x_t),\qquad S_t \neq \varphi(x_t). \]
+    </div>
+  </section>
+
+  <section class="blk">
+    <h2><span class="nm">3</span><span data-i18n="p4_3h"></span></h2>
+    <p data-i18n="p4_3b"></p>
+    <div class="math">
+      \[ H_{\mathrm{norm}}(p) = -\frac{1}{\log n}\sum_{i=1}^{n} p_i \log p_i \in [0,1],\qquad H_{\mathrm{norm}}(p) > \tau_3 \ \Rightarrow\ \text{suspend}. \]
+    </div>
+  </section>
+
+  <section class="blk">
+    <h2><span class="nm">4</span><span data-i18n="p4_4h"></span></h2>
+    <p data-i18n="p4_4b"></p>
+    <div class="math">
+      \[ \mathrm{JSD}(P\Vert Q)=\tfrac12 D_{\mathrm{KL}}(P\Vert M)+\tfrac12 D_{\mathrm{KL}}(Q\Vert M),\quad M=\tfrac12(P+Q),\qquad \mathrm{JSD}>\tau_4 \ \Rightarrow\ \text{fork}. \]
+    </div>
+  </section>
+
+  <section class="blk">
+    <h2><span class="nm">5</span><span data-i18n="p4_5h"></span></h2>
+    <p data-i18n="p4_5b"></p>
+  </section>
 
   <section class="blk">
     <h2 data-i18n="t_close_h"></h2>
@@ -353,6 +401,19 @@ const I18N = {
     t_a_heis:"Append-only, no-collapse evolution: the past is never mutated, only extended.",
     t_a_mivp:"MIVP closes the loop by binding every patch to a Composite Instance Hash of the producing system — model, policy and runtime:",
     t_a_sum:"Knowledge that is <b>structurally sound</b> (Alexandria) and <b>bound to a verifiable identity</b> (MIVP): the protocol is the deterministic intersection of a Kantian architecture, a Popperian method, and a Heisenbergian discipline of observation.",
+    p4_k:"Part IV",
+    p4_t:"Toward a Persistent Epistemic Supervisor (PES)",
+    p4_s:"DESi is the groundwork. The PES is the deterministic governance layer it prepares for — and consistency in a stochastic space never installs itself. Here is its information-theoretic skeleton.",
+    p4_1h:"Separation of inference and evaluation",
+    p4_1b:"A probabilistic model cannot bound its own epistemic noise from the inside — the evaluator and the evaluated would be the same system. The PES is therefore a structurally separate, deterministic evaluator E above a stochastic generator G.",
+    p4_2h:"Persistent state S(t) and entropy drift",
+    p4_2b:"Pure inference accumulates entropy drift: left alone, stochastic noise corrupts the knowledge graph over time. The PES carries a persistent state that causally conditions future verdicts and, by design, is not a function of the momentary input alone — so the system must hold a stable epistemic anchor.",
+    p4_3h:"The ambiguity gate (normalized Shannon entropy)",
+    p4_3b:"Each claim carries a distribution p over interpretations; its normalized Shannon entropy measures ambiguity. Above a fixed threshold τ₃ the PES suspends the claim before it can settle into the graph.",
+    p4_4h:"Ontological divergence and structural forks (JSD)",
+    p4_4b:"When competing ontological distributions P and Q arise (for example between builders), they are first embedded into a global reference space by zero-padding, then compared with the Jensen–Shannon divergence. Above τ₄ the conflict is too large to smooth statistically — so the PES forks the graph instead of averaging the contradiction away.",
+    p4_5h:"What it guarantees — and what it doesn't",
+    p4_5b:"These are deterministic decision rules: on identical inputs they fire identically, which is what makes the supervisor replay-stable. But determinism is not truth. H_norm bounds ambiguity, not falsehood — a confident, low-entropy hallucination passes the τ₃ gate untouched. The thresholds τ₃, τ₄ are governance choices, and the persistence of S(t) is a design premise, not a theorem. The PES does not certify content as correct; it only makes stochastic inconsistency measurable and forces it into the open through suspensions and forks. Same transparency as DESi — and the fork is exactly Alexandria's BRANCH-on-dissent.",
     t_close_h:"What this claims — and what it does not",
     t_close_b:"These are structural analogies with measured signatures, not assertions that DESi “is” quantum mechanics or that the philosophers would endorse it. No general intelligence is claimed; no breakthrough is implied. The mathematics is reproducible; the philosophy is a lineage, named honestly — including the irony that two of these names are banned from the system's own outputs.",
     t_foot_h:"Foundations",
@@ -413,6 +474,19 @@ const I18N = {
     t_a_heis:"Append-only, kollaps-freie Evolution: die Vergangenheit wird nie verändert, nur erweitert.",
     t_a_mivp:"MIVP schließt den Kreis, indem es jeden Patch an einen Composite Instance Hash des erzeugenden Systems bindet — Modell, Policy und Runtime:",
     t_a_sum:"Wissen, das <b>strukturell solide</b> (Alexandria) und <b>an eine verifizierbare Identität gebunden</b> ist (MIVP): Das Protokoll ist der deterministische Schnitt aus einer kantischen Architektur, einer popperschen Methode und einer heisenbergschen Disziplin der Beobachtung.",
+    p4_k:"Teil IV",
+    p4_t:"Hin zu einem Persistenten Epistemischen Supervisor (PES)",
+    p4_s:"DESi ist die Vorarbeit. Der PES ist die deterministische Governance-Schicht, auf die sie vorbereitet — und Konsistenz installiert sich in einem stochastischen Raum nie von selbst. Hier ist sein informationstheoretisches Skelett.",
+    p4_1h:"Trennung von Inferenz und Evaluation",
+    p4_1b:"Ein probabilistisches Modell kann sein eigenes epistemisches Rauschen von innen nicht begrenzen — Prüfer und Geprüftes wären dasselbe System. Der PES ist deshalb ein strukturell getrennter, deterministischer Evaluator E über einem stochastischen Generator G.",
+    p4_2h:"Persistenter Zustand S(t) und Entropie-Drift",
+    p4_2b:"Reine Inferenz sammelt Entropie-Drift an: sich selbst überlassen, korrumpiert das stochastische Rauschen über die Zeit den Wissensgraphen. Der PES trägt einen persistenten Zustand, der künftige Urteile kausal bedingt und sich per Konstruktion nicht allein aus dem momentanen Input ergibt — das System muss also einen stabilen epistemischen Anker halten.",
+    p4_3h:"Der Ambiguitätsfilter (normalisierte Shannon-Entropie)",
+    p4_3b:"Jede Aussage trägt eine Verteilung p über Interpretationen; ihre normalisierte Shannon-Entropie misst die Mehrdeutigkeit. Oberhalb einer festen Schwelle τ₃ setzt der PES die Aussage aus, bevor sie sich im Graphen festsetzen kann.",
+    p4_4h:"Ontologische Divergenz und strukturelle Forks (JSD)",
+    p4_4b:"Entstehen konkurrierende ontologische Verteilungen P und Q (etwa zwischen Buildern), werden sie zunächst per Zero-Padding in einen globalen Referenzraum eingebettet und dann mit der Jensen–Shannon-Divergenz verglichen. Oberhalb von τ₄ ist der Konflikt zu groß für statistische Glättung — der PES forkt den Graphen, statt den Widerspruch wegzumitteln.",
+    p4_5h:"Was es garantiert — und was nicht",
+    p4_5b:"Das sind deterministische Entscheidungsregeln: bei gleichen Eingaben feuern sie identisch — das macht den Supervisor replay-stabil. Aber Determinismus ist nicht Wahrheit. H_norm beschränkt Mehrdeutigkeit, nicht Falschheit — eine selbstbewusste, niedrig-entropische Halluzination passiert das τ₃-Gate unbehelligt. Die Schwellen τ₃, τ₄ sind Governance-Entscheidungen, und die Persistenz von S(t) ist eine Design-Prämisse, kein Theorem. Der PES zertifiziert keine inhaltliche Korrektheit; er macht stochastische Inkonsistenz nur messbar und zwingt sie über Suspendierungen und Forks ans Licht. Dieselbe Transparenz wie bei DESi — und der Fork ist genau Alexandrias BRANCH-bei-Dissens.",
     t_close_h:"Was dies behauptet — und was nicht",
     t_close_b:"Dies sind strukturelle Analogien mit gemessenen Signaturen, keine Behauptungen, DESi „sei“ Quantenmechanik oder die Philosophen würden es gutheißen. Keine allgemeine Intelligenz wird behauptet; kein Durchbruch impliziert. Die Mathematik ist reproduzierbar; die Philosophie ist eine Ahnenlinie, ehrlich benannt — samt der Ironie, dass zwei dieser Namen in den eigenen Ausgaben des Systems verboten sind.",
     t_foot_h:"Grundlagen",
@@ -473,6 +547,19 @@ const I18N = {
     t_a_heis:"仅追加、不坍缩的演化：过去从不被改写，只被延伸。",
     t_a_mivp:"MIVP 闭合此环，将每个补丁绑定到产生系统的复合实例哈希——模型、策略与运行时：",
     t_a_sum:"既<b>结构稳健</b>（亚历山大）又<b>绑定到可验证身份</b>（MIVP）的知识：该协议是康德式架构、波普尔式方法与海森堡式观察纪律的确定性交集。",
+    p4_k:"第四部分",
+    p4_t:"迈向持久认知监督器（PES）",
+    p4_s:"DESi 是铺路工作。PES 是它所要通向的确定性治理层——而在随机空间里，一致性从不会自行就位。下面是它的信息论骨架。",
+    p4_1h:"推理与评估的分离",
+    p4_1b:"概率模型无法从内部约束自身的认知噪声——评估者与被评估者会是同一个系统。因此 PES 是一个在结构上独立的确定性评估器 E，位于随机生成器 G 之上。",
+    p4_2h:"持久状态 S(t) 与熵漂移",
+    p4_2b:"纯推理会累积熵漂移：放任不管，随机噪声会随时间侵蚀知识图谱。PES 持有一个持久状态，它因果地制约未来的判定，并且按设计并不仅仅是当下输入的函数——因此系统必须守住一个稳定的认知锚点。",
+    p4_3h:"歧义闸门（归一化香农熵）",
+    p4_3b:"每条主张都带有一个关于解释的分布 p；其归一化香农熵衡量歧义程度。超过固定阈值 τ₃ 时，PES 在该主张沉淀进图谱之前将其挂起。",
+    p4_4h:"本体论分歧与结构性分叉（JSD）",
+    p4_4b:"当出现相互竞争的本体论分布 P 与 Q（例如在不同构建器之间），先通过零填充嵌入到全局参照空间，再用 Jensen–Shannon 散度比较。超过 τ₄ 时，冲突大到无法用统计方式抹平——于是 PES 让图谱分叉，而不是把矛盾平均掉。",
+    p4_5h:"它保证什么——又不保证什么",
+    p4_5b:"这些是确定性的决策规则：对相同输入会以相同方式触发，这正是监督器可重放稳定的原因。但确定性不等于真理。H_norm 约束的是歧义，而非谬误——一个自信、低熵的幻觉会原封不动地通过 τ₃ 闸门。阈值 τ₃、τ₄ 是治理选择，而 S(t) 的持久性是设计前提，并非定理。PES 不为内容的正确性背书；它只是让随机的不一致变得可测，并通过挂起与分叉把它逼到台面上。这与 DESi 是同样的透明——而分叉正是亚历山大协议里的 BRANCH-on-dissent。",
     t_close_h:"它主张什么——以及不主张什么",
     t_close_b:"这些是带有可测签名的结构性类比，而非主张 DESi「就是」量子力学，或哲学家会为之背书。不主张通用智能；不暗示突破。数学是可复现的；哲学是一条诚实指名的谱系——包括这一反讽：其中两个名字在系统自身的输出中是被禁止的。",
     t_foot_h:"基础",
@@ -533,6 +620,19 @@ const I18N = {
     t_a_heis:"Evolución append-only y sin colapso: el pasado nunca se muta, solo se extiende.",
     t_a_mivp:"MIVP cierra el ciclo ligando cada parche a un Composite Instance Hash del sistema productor — modelo, política y runtime:",
     t_a_sum:"Conocimiento <b>estructuralmente sólido</b> (Alexandria) y <b>ligado a una identidad verificable</b> (MIVP): el protocolo es la intersección determinista de una arquitectura kantiana, un método popperiano y una disciplina heisenberguiana de observación.",
+    p4_k:"Parte IV",
+    p4_t:"Hacia un Supervisor Epistémico Persistente (PES)",
+    p4_s:"DESi es el trabajo de base. El PES es la capa de gobernanza determinista hacia la que apunta — y en un espacio estocástico la consistencia nunca se instala sola. Aquí está su esqueleto teórico-informacional.",
+    p4_1h:"Separación de inferencia y evaluación",
+    p4_1b:"Un modelo probabilístico no puede acotar su propio ruido epistémico desde dentro — el evaluador y lo evaluado serían el mismo sistema. Por eso el PES es un evaluador determinista E, estructuralmente separado, por encima de un generador estocástico G.",
+    p4_2h:"Estado persistente S(t) y deriva de entropía",
+    p4_2b:"La inferencia pura acumula deriva de entropía: si se la deja, el ruido estocástico corrompe el grafo con el tiempo. El PES porta un estado persistente que condiciona causalmente los veredictos futuros y, por diseño, no es función solo de la entrada momentánea — así el sistema debe sostener un ancla epistémica estable.",
+    p4_3h:"La compuerta de ambigüedad (entropía de Shannon normalizada)",
+    p4_3b:"Cada afirmación lleva una distribución p sobre interpretaciones; su entropía de Shannon normalizada mide la ambigüedad. Por encima de un umbral fijo τ₃ el PES suspende la afirmación antes de que se asiente en el grafo.",
+    p4_4h:"Divergencia ontológica y bifurcaciones estructurales (JSD)",
+    p4_4b:"Cuando surgen distribuciones ontológicas en competencia P y Q (por ejemplo entre builders), primero se incrustan en un espacio de referencia global mediante zero-padding y luego se comparan con la divergencia de Jensen–Shannon. Por encima de τ₄ el conflicto es demasiado grande para suavizarlo estadísticamente — así que el PES bifurca el grafo en vez de promediar la contradicción.",
+    p4_5h:"Qué garantiza — y qué no",
+    p4_5b:"Son reglas de decisión deterministas: ante entradas idénticas se disparan de forma idéntica, y eso es lo que hace al supervisor estable ante repetición. Pero el determinismo no es verdad. H_norm acota la ambigüedad, no la falsedad — una alucinación segura y de baja entropía atraviesa intacta la compuerta τ₃. Los umbrales τ₃, τ₄ son decisiones de gobernanza, y la persistencia de S(t) es una premisa de diseño, no un teorema. El PES no certifica la corrección del contenido; solo hace medible la inconsistencia estocástica y la fuerza a la superficie mediante suspensiones y bifurcaciones. La misma transparencia que DESi — y la bifurcación es exactamente el BRANCH-on-dissent de Alexandria.",
     t_close_h:"Qué afirma — y qué no",
     t_close_b:"Son analogías estructurales con firmas medidas, no afirmaciones de que DESi «sea» mecánica cuántica o de que los filósofos lo respaldarían. No se afirma inteligencia general; no se implica ningún avance. La matemática es reproducible; la filosofía es un linaje, nombrado con honestidad — incluida la ironía de que dos de estos nombres están prohibidos en las propias salidas del sistema.",
     t_foot_h:"Fundamentos",
@@ -593,6 +693,19 @@ const I18N = {
     t_a_heis:"追記専用・崩壊なき進化：過去は決して改変されず、ただ延長される。",
     t_a_mivp:"MIVP は各パッチを、生成システム（モデル・ポリシー・ランタイム）の Composite Instance Hash に束縛して環を閉じる：",
     t_a_sum:"<b>構造的に健全</b>（アレクサンドリア）で、かつ<b>検証可能な同一性に束縛</b>された知（MIVP）：このプロトコルは、カント的アーキテクチャ・ポパー的方法・ハイゼンベルク的観測規律の決定論的交わりである。",
+    p4_k:"第 IV 部",
+    p4_t:"持続的認識スーパーバイザー（PES）へ",
+    p4_s:"DESi は土台づくりです。PES はその先にある決定論的ガバナンス層であり、確率的な空間では整合性がひとりでに据わることはありません。これがその情報理論的な骨格です。",
+    p4_1h:"推論と評価の分離",
+    p4_1b:"確率モデルは自分の認識ノイズを内側から抑え込めません——評価する側とされる側が同一のシステムになってしまうからです。だから PES は、確率的な生成器 G の上に置かれた、構造的に分離された決定論的評価器 E です。",
+    p4_2h:"持続状態 S(t) とエントロピー・ドリフト",
+    p4_2b:"純粋な推論はエントロピー・ドリフトを蓄積します。放っておけば、確率的ノイズが時間とともに知識グラフを侵食します。PES は、将来の判定を因果的に条件づける持続状態を保持し、設計上それは今この瞬間の入力だけの関数ではありません——ゆえにシステムは安定した認識の錨を保たねばなりません。",
+    p4_3h:"曖昧性ゲート（正規化シャノン・エントロピー）",
+    p4_3b:"各主張は解釈上の分布 p を伴い、その正規化シャノン・エントロピーが曖昧さを測ります。固定しきい値 τ₃ を超えると、PES はその主張がグラフに定着する前に保留します。",
+    p4_4h:"存在論的ダイバージェンスと構造的フォーク（JSD）",
+    p4_4b:"競合する存在論的分布 P と Q が（たとえばビルダー間で）生じると、まずゼロパディングで大域的な参照空間に埋め込み、次に Jensen–Shannon ダイバージェンスで比較します。τ₄ を超えると、対立は統計的に均すには大きすぎる——そこで PES は矛盾を平均化せず、グラフをフォークします。",
+    p4_5h:"何を保証し——何を保証しないか",
+    p4_5b:"これらは決定論的な判定規則です。同じ入力には同じように発火し、それがスーパーバイザーをリプレイ安定にします。しかし決定論は真理ではありません。H_norm が抑えるのは曖昧さであって、誤りではありません——自信に満ちた低エントロピーの幻覚は τ₃ ゲートをそのまま通り抜けます。しきい値 τ₃、τ₄ はガバナンス上の選択であり、S(t) の持続性は設計上の前提であって定理ではありません。PES は内容の正しさを証明しません。確率的な不整合を測定可能にし、保留とフォークによって表に引き出すだけです。DESi と同じ透明性であり、フォークはまさにアレクサンドリア・プロトコルの BRANCH-on-dissent です。",
     t_close_h:"何を主張し——何を主張しないか",
     t_close_b:"これらは測定された署名をもつ構造的類比であって、DESi が量子力学「である」とか、哲学者たちが是認するといった主張ではない。汎用知能は主張せず、突破も含意しない。数学は再現可能であり、哲学は誠実に名指された系譜である——そのうち二つの名が、システム自身の出力では禁止されているという皮肉も含めて。",
     t_foot_h:"基礎",
