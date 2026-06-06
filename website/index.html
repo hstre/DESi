@@ -167,6 +167,11 @@
   .pw-box b{color:var(--ink)}
   .pw-box .pw-note{color:var(--faint);font-style:italic;font-size:15px}
   .pw-box .pw-claim{color:var(--accent);font-weight:650;font-size:17px;letter-spacing:-.2px;margin:2px 0 14px}
+  .figure{margin:6px 0 0;border:1px solid var(--line);border-radius:14px;
+    background:linear-gradient(180deg,var(--panel),var(--bg-2));padding:18px}
+  .figure svg{width:100%;height:auto;display:block}
+  .figure .cap{font-size:13.5px;color:var(--muted);margin:14px auto 0;max-width:74ch;text-align:center;line-height:1.55}
+  .theme-retro .figure{border:3px outset #c0c0c0;border-radius:0}
 
   /* ===== theme toggle (works in both skins) ===== */
   .nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
@@ -338,6 +343,62 @@
   </div>
 </section>
 
+<!-- HOW IT WORKS (diagram) -->
+<section class="plainwords">
+  <div class="wrap">
+    <div class="kicker" data-i18n="hp_fig_k"></div>
+    <figure class="figure">
+      <svg viewBox="0 0 900 410" role="img" aria-label="How DESi works: it observes an LLM pipeline from outside, read-only"
+           font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif">
+        <defs>
+          <marker id="hm" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 Z" fill="#8a99af"/></marker>
+          <marker id="ha" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 Z" fill="#2ce6c4"/></marker>
+          <marker id="hw" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 Z" fill="#ff6b6b"/></marker>
+          <marker id="hb" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 Z" fill="#5aa8ff"/></marker>
+        </defs>
+
+        <!-- top pipeline -->
+        <rect x="48" y="60" width="170" height="48" rx="10" fill="#0f1622" stroke="#1c2737"/>
+        <text x="133" y="89" text-anchor="middle" fill="#e8eef7" font-size="15">Input</text>
+        <line x1="218" y1="84" x2="296" y2="84" stroke="#8a99af" stroke-width="2" marker-end="url(#hm)"/>
+
+        <rect x="300" y="60" width="240" height="48" rx="10" fill="#0f1622" stroke="#1c2737"/>
+        <text x="420" y="84" text-anchor="middle" fill="#e8eef7" font-size="15">LLM pipeline</text>
+        <text x="420" y="100" text-anchor="middle" fill="#5c6b82" font-size="11.5" font-family="ui-monospace,Menlo,Consolas,monospace">stochastic</text>
+        <line x1="540" y1="84" x2="618" y2="84" stroke="#8a99af" stroke-width="2" marker-end="url(#hm)"/>
+
+        <rect x="622" y="60" width="230" height="48" rx="10" fill="#0f1622" stroke="#1c2737"/>
+        <text x="737" y="84" text-anchor="middle" fill="#e8eef7" font-size="15">Output</text>
+        <text x="737" y="100" text-anchor="middle" fill="#5c6b82" font-size="11.5">answer · claims</text>
+
+        <!-- read-only observation (dashed) -->
+        <line x1="420" y1="110" x2="402" y2="206" stroke="#8a99af" stroke-width="1.8" stroke-dasharray="5 5" marker-end="url(#hm)"/>
+        <line x1="737" y1="110" x2="560" y2="206" stroke="#8a99af" stroke-width="1.8" stroke-dasharray="5 5" marker-end="url(#hm)"/>
+        <text x="648" y="150" text-anchor="middle" fill="#5c6b82" font-size="12" font-style="italic">read-only — observes, never rewrites</text>
+
+        <!-- DESi -->
+        <rect x="210" y="208" width="480" height="66" rx="12" fill="#0b101a" stroke="#2ce6c4"/>
+        <text x="450" y="236" text-anchor="middle" fill="#2ce6c4" font-size="16" font-weight="600">DESi</text>
+        <text x="450" y="256" text-anchor="middle" fill="#8a99af" font-size="12.5">deterministic governance · sits outside the model</text>
+
+        <!-- verdict arrows -->
+        <line x1="396" y1="276" x2="262" y2="322" stroke="#2ce6c4" stroke-width="2" marker-end="url(#ha)"/>
+        <line x1="450" y1="276" x2="470" y2="322" stroke="#ff6b6b" stroke-width="2" marker-end="url(#hw)"/>
+        <line x1="506" y1="276" x2="700" y2="322" stroke="#5aa8ff" stroke-width="2" marker-end="url(#hb)"/>
+
+        <!-- verdict pills -->
+        <rect x="150" y="326" width="206" height="46" rx="23" fill="#0f1622" stroke="#2ce6c4"/>
+        <text x="253" y="354" text-anchor="middle" fill="#2ce6c4" font-size="14">✓ supported</text>
+        <rect x="372" y="326" width="234" height="46" rx="23" fill="#0f1622" stroke="#ff6b6b"/>
+        <text x="489" y="354" text-anchor="middle" fill="#ff6b6b" font-size="14">unsupported → flagged</text>
+        <rect x="622" y="326" width="240" height="46" rx="23" fill="#0f1622" stroke="#5aa8ff"/>
+        <text x="742" y="354" text-anchor="middle" fill="#5aa8ff" font-size="14">drift / early closure</text>
+      </svg>
+      <figcaption class="cap" data-i18n="hp_fig"></figcaption>
+    </figure>
+  </div>
+</section>
+
 <!-- THE OBSERVER PROBLEM -->
 <section>
   <div class="wrap">
@@ -488,6 +549,8 @@ const I18N = {
     pw_2:"DESi watches from the outside. It doesn't change the model's answer; it checks whether what comes out actually follows from what went in — and marks the parts that aren't supported. Because DESi can repeat every check exactly, each result is traceable instead of random.",
     pw_ex:"<b>Example:</b> a model backs its answer with a study that appears nowhere in the supplied documents. DESi recomputes the run bit-for-bit, sees that the claim doesn't follow from the inputs, and flags it. Nothing is deleted or hidden — only made visible.",
     pw_3:"DESi doesn't replace the model and doesn't make it smarter. It makes what the model does visible.",
+    hp_fig_k:"How it works",
+    hp_fig:"An LLM pipeline turns a prompt into an answer. DESi sits outside it and only observes (read-only): it checks the output and the path that produced it, then labels each claim — supported, unsupported (flagged), or drifting. It marks; it never rewrites.",
     mot_kicker:"Why I'm doing this",
     mot_1:"This isn't about fame — and not even about ever recovering the roughly €600 I put into building it.",
     mot_2:"What drives me is something else. A large part of today's AI work keeps building bigger data centers, hoping new capabilities will “emerge” on their own from sheer scale. I'm convinced much of that can also be achieved with clear, deterministic algorithms — without the same hunger for energy.",
@@ -564,6 +627,8 @@ const I18N = {
     pw_2:"DESi schaut von außen zu. Es verändert die Antwort des Modells nicht, sondern prüft, ob das, was herauskommt, wirklich aus dem folgt, was hineingegeben wurde — und markiert die Stellen, die nicht gedeckt sind. Weil DESi jede Prüfung exakt gleich wiederholen kann, ist jedes Ergebnis nachvollziehbar statt Zufall.",
     pw_ex:"<b>Beispiel:</b> Ein Modell beruft sich in seiner Antwort auf eine Studie, die in den gelieferten Unterlagen gar nicht vorkommt. DESi rechnet den Ablauf bit-genau nach, erkennt, dass diese Behauptung aus den Eingaben nicht hervorgeht, und kennzeichnet sie. Gelöscht oder versteckt wird nichts — nur sichtbar gemacht.",
     pw_3:"DESi ersetzt das Modell nicht und macht es nicht schlauer. Es macht sichtbar, was es tut.",
+    hp_fig_k:"So funktioniert es",
+    hp_fig:"Eine LLM-Pipeline macht aus einer Eingabe eine Antwort. DESi sitzt außerhalb und beobachtet nur (read-only): Es prüft die Ausgabe und den Weg dorthin und kennzeichnet jede Behauptung — gedeckt, ungedeckt (markiert) oder driftend. Es markiert; es schreibt nie um.",
     mot_kicker:"Warum ich das mache",
     mot_1:"Mir geht es nicht um Ruhm — und nicht einmal darum, die rund 600 €, die in der Entwicklung stecken, je wieder hereinzuholen.",
     mot_2:"Was mich antreibt, ist etwas anderes: Ein großer Teil der heutigen KI-Entwicklung baut immer größere Rechenzentren, in der Hoffnung, dass aus schierer Größe neue Fähigkeiten von selbst „emergieren“. Ich bin überzeugt, dass sich vieles davon auch mit klaren, deterministischen Algorithmen erreichen lässt — ohne denselben Energiehunger.",
@@ -640,6 +705,8 @@ const I18N = {
     pw_2:"DESi 从外部观察。它不改动模型的回答，而是检查输出是否真的能从输入推出，并标记出没有依据的部分。因为 DESi 能把每次检查一字不差地重复，所以每个结果都可追溯，而非碰运气。",
     pw_ex:"<b>例子：</b>模型在回答中援引了一项研究，可这项研究在所提供的资料里根本不存在。DESi 把整个过程逐位重算，发现该说法无法从输入推出，于是把它标记出来。什么都不删除、不隐藏——只是让它显形。",
     pw_3:"DESi 不替代模型，也不让它更聪明。它只是让模型的所作所为变得可见。",
+    hp_fig_k:"工作原理",
+    hp_fig:"LLM 流水线把提示变成答案。DESi 处在它之外，只做观察（只读）：它检查输出以及产生输出的路径，然后给每条主张贴上标签——有依据、无依据（标记）或正在漂移。它只标记，从不改写。",
     mot_kicker:"我为什么做这件事",
     mot_1:"这不是为了名声——甚至也不指望收回我投入开发的那大约 600 欧元。",
     mot_2:"真正驱动我的是另一件事：当下很大一部分 AI 研发不断兴建更大的数据中心，指望仅凭规模就能自行「涌现」出新能力。我相信，其中很多其实也能用清晰的确定性算法实现——而不必有同样的能耗。",
@@ -716,6 +783,8 @@ const I18N = {
     pw_2:"DESi observa desde fuera. No cambia la respuesta del modelo; comprueba si lo que sale realmente se deduce de lo que entró, y marca las partes que no están respaldadas. Como DESi puede repetir cada comprobación de forma idéntica, cada resultado es trazable en lugar de azaroso.",
     pw_ex:"<b>Ejemplo:</b> un modelo apoya su respuesta en un estudio que no aparece en ninguna parte de los documentos aportados. DESi recalcula la ejecución bit a bit, ve que la afirmación no se deduce de las entradas y la marca. No se borra ni se oculta nada: solo se hace visible.",
     pw_3:"DESi no sustituye al modelo ni lo hace más inteligente. Hace visible lo que el modelo hace.",
+    hp_fig_k:"Cómo funciona",
+    hp_fig:"Una tubería de LLM convierte un prompt en una respuesta. DESi está fuera y solo observa (solo lectura): revisa la salida y el camino que la produjo, y etiqueta cada afirmación — respaldada, sin respaldo (marcada) o a la deriva. Marca; nunca reescribe.",
     mot_kicker:"Por qué hago esto",
     mot_1:"No es por fama, ni siquiera por recuperar alguna vez los aproximadamente 600 € que invertí en desarrollarlo.",
     mot_2:"Lo que me mueve es otra cosa. Buena parte del trabajo actual en IA sigue construyendo centros de datos cada vez mayores, con la esperanza de que de la pura escala “emerjan” solas nuevas capacidades. Estoy convencido de que mucho de eso también se puede lograr con algoritmos claros y deterministas, sin la misma hambre de energía.",
@@ -792,6 +861,8 @@ const I18N = {
     pw_2:"DESi は外側から見ます。モデルの答えを書き換えるのではなく、出てきたものが入れたものから本当に導けるかを確かめ、裏づけのない箇所に印をつけます。DESi はどの検査もまったく同じに再現できるので、結果は偶然ではなく追跡可能です。",
     pw_ex:"<b>例：</b>モデルが、提供された資料のどこにも出てこない研究を根拠に答えたとします。DESi はその過程をビット単位で再計算し、その主張が入力から導けないと見抜いて印をつけます。何も削除も隠蔽もしません——ただ見えるようにするだけです。",
     pw_3:"DESi はモデルを置き換えず、賢くもしません。モデルが何をしているかを見えるようにします。",
+    hp_fig_k:"仕組み",
+    hp_fig:"LLM パイプラインはプロンプトを答えに変える。DESi はその外側にいて、観察するだけ（リードオンリー）：出力とそれを生んだ経路を確かめ、各主張にラベルを付ける——裏づけあり、裏づけなし（マーク）、またはドリフト。印をつけるだけで、書き換えはしない。",
     mot_kicker:"なぜこれをやっているのか",
     mot_1:"名声のためではありません。開発に費やしたおよそ 600 ユーロを取り戻すためですらありません。",
     mot_2:"私を動かしているのは別のことです。今日の AI 開発の多くは、規模さえ大きくすれば新しい能力がひとりでに「創発」すると期待して、より大きなデータセンターを建て続けています。私は、その多くは明快で決定論的なアルゴリズムでも実現でき、同じだけのエネルギーを必要としないと確信しています。",
