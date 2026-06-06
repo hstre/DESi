@@ -158,6 +158,15 @@
     header.hero{padding:64px 0 48px}
   }
 
+  /* plain-words explainer box */
+  .plainwords{padding:48px 0 8px}
+  .pw-box{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);
+    border-left:3px solid var(--accent);border-radius:14px;padding:24px 26px}
+  .pw-box p{color:var(--muted);font-size:16.5px;margin:0 0 14px;max-width:72ch}
+  .pw-box p:last-child{margin-bottom:0}
+  .pw-box b{color:var(--ink)}
+  .pw-box .pw-note{color:var(--faint);font-style:italic;font-size:15px}
+
   /* ===== theme toggle (works in both skins) ===== */
   .nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
   .theme-toggle{font-family:var(--mono);font-size:12px;letter-spacing:.5px;cursor:pointer;
@@ -232,6 +241,10 @@
   .theme-retro .is,.theme-retro .inv:hover{transform:none;border-color:#c0c0c0}
   .theme-retro .is .mk{color:#008000}.theme-retro .isnot .mk{color:#ff0000}
   .theme-retro .strike{border:2px inset #c0c0c0;background:#fff;color:#808080}
+  .theme-retro .pw-box{background:#fff;border:3px outset #c0c0c0;border-radius:0}
+  .theme-retro .pw-box p{color:#000}
+  .theme-retro .pw-box b{color:#000080}
+  .theme-retro .pw-box .pw-note{color:#444}
 
   /* footer + hash line */
   .theme-retro footer{background:transparent;border-top:none}
@@ -309,6 +322,19 @@
     </div>
   </div>
 </header>
+
+<!-- IN PLAIN WORDS -->
+<section class="plainwords">
+  <div class="wrap">
+    <div class="kicker" data-i18n="pw_kicker"></div>
+    <div class="pw-box">
+      <p data-i18n="pw_1"></p>
+      <p data-i18n="pw_2"></p>
+      <p data-i18n-html="pw_ex"></p>
+      <p class="pw-note" data-i18n="pw_3"></p>
+    </div>
+  </div>
+</section>
 
 <!-- THE OBSERVER PROBLEM -->
 <section>
@@ -442,6 +468,11 @@ const I18N = {
     cta_github:"View on GitHub ↗",
     cta_paper:"Read the paper",
     cta_theory:"Foundations →",
+    pw_kicker:"In plain words",
+    pw_1:"Language models (like ChatGPT) often sound convincing — even when they're wrong, invent sources, or change their answer under pressure. The tricky part: from the inside, such a system can't notice its own mistake.",
+    pw_2:"DESi watches from the outside. It doesn't change the model's answer; it checks whether what comes out actually follows from what went in — and marks the parts that aren't supported. Because DESi can repeat every check exactly, each result is traceable instead of random.",
+    pw_ex:"<b>Example:</b> a model backs its answer with a study that appears nowhere in the supplied documents. DESi recomputes the run bit-for-bit, sees that the claim doesn't follow from the inputs, and flags it. Nothing is deleted or hidden — only made visible.",
+    pw_3:"DESi doesn't replace the model and doesn't make it smarter. It makes what the model does visible.",
     hero_hash:"Every output is bit-exact reproducible —",
     prob_kicker:"The observer problem",
     prob_quote:'A model asked to grade itself reports confidence — <span class="hl">not error.</span>',
@@ -508,6 +539,11 @@ const I18N = {
     cta_github:"Auf GitHub ansehen ↗",
     cta_paper:"Paper lesen",
     cta_theory:"Grundlagen →",
+    pw_kicker:"In einfachen Worten",
+    pw_1:"Sprachmodelle (wie ChatGPT) klingen oft überzeugend — auch wenn sie sich irren, Quellen erfinden oder unter Druck ihre Aussage ändern. Das Tückische: Von innen merkt so ein System seinen eigenen Fehler nicht.",
+    pw_2:"DESi schaut von außen zu. Es verändert die Antwort des Modells nicht, sondern prüft, ob das, was herauskommt, wirklich aus dem folgt, was hineingegeben wurde — und markiert die Stellen, die nicht gedeckt sind. Weil DESi jede Prüfung exakt gleich wiederholen kann, ist jedes Ergebnis nachvollziehbar statt Zufall.",
+    pw_ex:"<b>Beispiel:</b> Ein Modell beruft sich in seiner Antwort auf eine Studie, die in den gelieferten Unterlagen gar nicht vorkommt. DESi rechnet den Ablauf bit-genau nach, erkennt, dass diese Behauptung aus den Eingaben nicht hervorgeht, und kennzeichnet sie. Gelöscht oder versteckt wird nichts — nur sichtbar gemacht.",
+    pw_3:"DESi ersetzt das Modell nicht und macht es nicht schlauer. Es macht sichtbar, was es tut.",
     hero_hash:"Jede Ausgabe ist bit-genau reproduzierbar —",
     prob_kicker:"Das Beobachter-Problem",
     prob_quote:'Ein Modell, das sich selbst benoten soll, meldet Zuversicht — <span class="hl">nicht den Fehler.</span>',
@@ -574,6 +610,11 @@ const I18N = {
     cta_github:"在 GitHub 上查看 ↗",
     cta_paper:"阅读论文",
     cta_theory:"理论基础 →",
+    pw_kicker:"用大白话说",
+    pw_1:"语言模型（比如 ChatGPT）常常听起来很有说服力——即便它出错、编造来源，或在压力下改口。棘手之处在于：从系统内部，它察觉不到自己的错误。",
+    pw_2:"DESi 从外部观察。它不改动模型的回答，而是检查输出是否真的能从输入推出，并标记出没有依据的部分。因为 DESi 能把每次检查一字不差地重复，所以每个结果都可追溯，而非碰运气。",
+    pw_ex:"<b>例子：</b>模型在回答中援引了一项研究，可这项研究在所提供的资料里根本不存在。DESi 把整个过程逐位重算，发现该说法无法从输入推出，于是把它标记出来。什么都不删除、不隐藏——只是让它显形。",
+    pw_3:"DESi 不替代模型，也不让它更聪明。它只是让模型的所作所为变得可见。",
     hero_hash:"每一次输出都逐位精确可复现 —",
     prob_kicker:"观察者难题",
     prob_quote:'让模型给自己打分，它报告的是自信——<span class="hl">而不是错误。</span>',
@@ -640,6 +681,11 @@ const I18N = {
     cta_github:"Ver en GitHub ↗",
     cta_paper:"Leer el artículo",
     cta_theory:"Fundamentos →",
+    pw_kicker:"En palabras sencillas",
+    pw_1:"Los modelos de lenguaje (como ChatGPT) suelen sonar convincentes, incluso cuando se equivocan, inventan fuentes o cambian su respuesta bajo presión. Lo complicado: desde dentro, un sistema así no nota su propio error.",
+    pw_2:"DESi observa desde fuera. No cambia la respuesta del modelo; comprueba si lo que sale realmente se deduce de lo que entró, y marca las partes que no están respaldadas. Como DESi puede repetir cada comprobación de forma idéntica, cada resultado es trazable en lugar de azaroso.",
+    pw_ex:"<b>Ejemplo:</b> un modelo apoya su respuesta en un estudio que no aparece en ninguna parte de los documentos aportados. DESi recalcula la ejecución bit a bit, ve que la afirmación no se deduce de las entradas y la marca. No se borra ni se oculta nada: solo se hace visible.",
+    pw_3:"DESi no sustituye al modelo ni lo hace más inteligente. Hace visible lo que el modelo hace.",
     hero_hash:"Cada salida es reproducible bit a bit —",
     prob_kicker:"El problema del observador",
     prob_quote:'Un modelo al que se le pide calificarse a sí mismo informa confianza — <span class="hl">no el error.</span>',
@@ -706,6 +752,11 @@ const I18N = {
     cta_github:"GitHubで見る ↗",
     cta_paper:"論文を読む",
     cta_theory:"理論的基礎 →",
+    pw_kicker:"やさしい言葉で",
+    pw_1:"言語モデル（ChatGPT など）は、間違っていても、出典をでっち上げても、圧力をかけられて答えを変えても、しばしば説得力があるように聞こえます。やっかいなのは、内側からはそのシステム自身が自分の誤りに気づけないことです。",
+    pw_2:"DESi は外側から見ます。モデルの答えを書き換えるのではなく、出てきたものが入れたものから本当に導けるかを確かめ、裏づけのない箇所に印をつけます。DESi はどの検査もまったく同じに再現できるので、結果は偶然ではなく追跡可能です。",
+    pw_ex:"<b>例：</b>モデルが、提供された資料のどこにも出てこない研究を根拠に答えたとします。DESi はその過程をビット単位で再計算し、その主張が入力から導けないと見抜いて印をつけます。何も削除も隠蔽もしません——ただ見えるようにするだけです。",
+    pw_3:"DESi はモデルを置き換えず、賢くもしません。モデルが何をしているかを見えるようにします。",
     hero_hash:"すべての出力はビット単位で完全に再現可能 —",
     prob_kicker:"観測者問題",
     prob_quote:'自己採点を求められたモデルが報告するのは自信であって——<span class="hl">誤りではない。</span>',
