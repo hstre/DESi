@@ -8,6 +8,13 @@
 <meta property="og:title" content="DESi — Deterministic governance for LLM pipelines" />
 <meta property="og:description" content="Replay-stable. Read-only. Auditable. DESi watches LLM pipelines from the outside — and reports its own failures too." />
 <meta property="og:type" content="website" />
+<meta property="og:image" content="https://hstre.github.io/DESi/assets/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/png" sizes="256x256" href="assets/favicon-256.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/favicon-180.png" />
 <style>
   :root{
     --bg:#070a10;
@@ -53,6 +60,7 @@
   }
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px}
+  .brand-mark{height:26px;width:auto;display:block}
   .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--accent);
     box-shadow:0 0 0 4px rgba(44,230,196,.15);animation:pulse 2.6s ease-in-out infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
@@ -184,6 +192,8 @@
      EARLY-2000s RETRO SKIN — looks hand-coded, ~2003 GeoCities
      ============================================================ */
   .retro-only{display:none}
+  .retro-logo{display:none}
+  .theme-retro .retro-logo{display:block;max-width:520px;width:90%;height:auto;margin:18px auto 2px}
 
   body.theme-retro{
     background:#008080 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='6' cy='7' r='1.4' fill='white' opacity='0.45'/%3E%3Ccircle cx='22' cy='19' r='1' fill='%23ffff66' opacity='0.55'/%3E%3Ccircle cx='14' cy='27' r='0.8' fill='white' opacity='0.4'/%3E%3C/svg%3E") repeat;
@@ -289,7 +299,7 @@
 <nav>
   <div class="wrap">
     <div class="brand">
-      <span class="dot"></span><b>DESi</b>
+      <img class="brand-mark" src="assets/desi-mark.png" alt="" /><b>DESi</b>
       <span class="v">Dynamic Epistemic Sequencer · Diagnostic</span>
     </div>
     <div class="nav-right">
@@ -306,6 +316,7 @@
 </nav>
 
 <!-- retro-only decorations -->
+<img class="retro-logo" src="assets/desi-logo-retro.png" alt="DESi" />
 <div class="retro-marquee retro-only"><span data-i18n="rt_ticker"></span></div>
 <div class="retro-construction retro-only">
   <span class="blink" data-i18n="rt_construction"></span>
