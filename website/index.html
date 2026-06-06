@@ -291,6 +291,17 @@
     font-weight:bold;letter-spacing:3px;margin-left:6px}
   .retro-links{text-align:center;margin:8px 0}
   .retro-best{text-align:center;color:#ff0000;font-family:"Comic Sans MS",cursive;font-weight:bold}
+  .retro-gb{display:none;max-width:560px;margin:12px auto 0;text-align:left;border:3px ridge #c0c0c0;background:#fffff0;padding:12px}
+  .retro-gb.open{display:block}
+  .gb-head{font-family:"Comic Sans MS",cursive;color:#000080;font-weight:bold;text-align:center;margin-bottom:8px}
+  .gb-form input,.gb-form textarea{width:100%;box-sizing:border-box;margin:3px 0;padding:4px;font-family:"Times New Roman",serif;border:2px inset #c0c0c0;background:#fff}
+  .gb-form button{margin-top:4px;padding:4px 14px;font-family:"Comic Sans MS",cursive;font-weight:bold;color:#000080;background:#c0c0c0;border:2px outset #c0c0c0;border-radius:0;cursor:pointer}
+  .gb-form button:active{border-style:inset}
+  .gb-note{margin-top:4px;font-size:11px;color:#777;font-style:italic}
+  .gb-list{list-style:none;padding:0;margin:12px 0 0}
+  .gb-list li{border-top:1px dotted #808080;padding:7px 2px;font-family:"Times New Roman",serif;color:#000;overflow:hidden}
+  .gb-list li .gb-n{color:#000080;font-weight:bold}
+  .gb-list li .gb-d{color:#888;font-size:11px;float:right}
   .retro-updated{text-align:center;color:#000080;font-style:italic}
 </style>
 </head>
@@ -535,10 +546,20 @@
         <span class="counter-digits">0&nbsp;0&nbsp;2&nbsp;4&nbsp;6&nbsp;0&nbsp;1</span>
       </div>
       <p class="retro-links">
-        <a href="#">📖 <span data-i18n="rt_guestbook"></span></a> ·
+        <a href="#" id="gbLink">📖 <span data-i18n="rt_guestbook"></span></a> ·
         <a href="https://github.com/hstre/DESi">🏠 HOME</a> ·
         <a href="https://github.com/hstre">✉ E-MAIL</a>
       </p>
+      <div class="retro-gb" id="gbPanel">
+        <div class="gb-head" data-i18n="gb_title"></div>
+        <form id="gbForm" class="gb-form" autocomplete="off">
+          <input id="gbName" type="text" maxlength="40" data-i18n-ph="gb_name" />
+          <textarea id="gbMsg" rows="2" maxlength="200" data-i18n-ph="gb_msg"></textarea>
+          <button type="submit" data-i18n="gb_sign"></button>
+          <div class="gb-note" data-i18n="gb_local"></div>
+        </form>
+        <ul class="gb-list" id="gbList"></ul>
+      </div>
       <p class="retro-best blink" data-i18n="rt_best"></p>
       <p class="retro-updated"><span data-i18n="rt_updated"></span> 06/05/2026</p>
     </div>
@@ -623,6 +644,11 @@ const I18N = {
     rt_construction:"⚠ This page is under construction! ⚠",
     rt_counter:"You are visitor number:",
     rt_guestbook:"Sign my guestbook!",
+    gb_title:"Sign the guestbook",
+    gb_name:"Your name",
+    gb_msg:"Your message",
+    gb_sign:"Sign!",
+    gb_local:"(saved only in your browser)",
     rt_best:"Best viewed in Netscape Navigator 4.0 & Internet Explorer",
     rt_updated:"Last updated:"
   },
@@ -701,6 +727,11 @@ const I18N = {
     rt_construction:"⚠ Diese Seite ist im Aufbau! ⚠",
     rt_counter:"Du bist Besucher Nummer:",
     rt_guestbook:"Trag dich ins Gästebuch ein!",
+    gb_title:"Ins Gästebuch eintragen",
+    gb_name:"Dein Name",
+    gb_msg:"Deine Nachricht",
+    gb_sign:"Eintragen!",
+    gb_local:"(wird nur in deinem Browser gespeichert)",
     rt_best:"Optimiert für Netscape Navigator 4.0 & Internet Explorer",
     rt_updated:"Zuletzt aktualisiert:"
   },
@@ -779,6 +810,11 @@ const I18N = {
     rt_construction:"⚠ 本页正在建设中！⚠",
     rt_counter:"您是第几位访客：",
     rt_guestbook:"在我的留言簿上签名！",
+    gb_title:"在留言簿签名",
+    gb_name:"你的名字",
+    gb_msg:"你的留言",
+    gb_sign:"签名！",
+    gb_local:"（仅保存在你的浏览器中）",
     rt_best:"最佳浏览器：Netscape Navigator 4.0 与 Internet Explorer",
     rt_updated:"最后更新："
   },
@@ -857,6 +893,11 @@ const I18N = {
     rt_construction:"⚠ ¡Esta página está en construcción! ⚠",
     rt_counter:"Eres el visitante número:",
     rt_guestbook:"¡Firma mi libro de visitas!",
+    gb_title:"Firma el libro de visitas",
+    gb_name:"Tu nombre",
+    gb_msg:"Tu mensaje",
+    gb_sign:"¡Firmar!",
+    gb_local:"(se guarda solo en tu navegador)",
     rt_best:"Mejor visto en Netscape Navigator 4.0 e Internet Explorer",
     rt_updated:"Última actualización:"
   },
@@ -935,6 +976,11 @@ const I18N = {
     rt_construction:"⚠ このページは工事中です！⚠",
     rt_counter:"あなたは訪問者番号：",
     rt_guestbook:"ゲストブックに記帳してね！",
+    gb_title:"ゲストブックに記帳",
+    gb_name:"あなたの名前",
+    gb_msg:"あなたのメッセージ",
+    gb_sign:"記帳！",
+    gb_local:"（あなたのブラウザにのみ保存されます）",
     rt_best:"Netscape Navigator 4.0 と Internet Explorer での閲覧を推奨",
     rt_updated:"最終更新："
   }
@@ -953,6 +999,10 @@ function applyLang(lang){
   document.querySelectorAll("[data-i18n-html]").forEach(el=>{
     const k = el.getAttribute("data-i18n-html");
     if(dict[k]!==undefined) el.innerHTML = dict[k];
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>{
+    const k = el.getAttribute("data-i18n-ph");
+    if(dict[k]!==undefined) el.placeholder = dict[k];
   });
   document.querySelectorAll(".langs button").forEach(b=>{
     b.classList.toggle("active", b.getAttribute("data-lang")===lang);
@@ -984,6 +1034,48 @@ document.getElementById("langs").addEventListener("click", e=>{
 document.getElementById("themeToggle").addEventListener("click", ()=>{
   applyTheme(currentTheme() === "retro" ? "modern" : "retro");
 });
+
+/* ---- retro guestbook (client-side, localStorage) ---- */
+(function(){
+  const seed=[
+    {n:"WebSurfer2003", m:"Coole Page! Best viewed in Netscape ;-)", d:"14.03.2003"},
+    {n:"~*Sandy*~", m:"bin über einen Webring hier gelandet :o)", d:"02.07.2003"},
+    {n:"d4rkc0der", m:"determinism > vibes. respekt.", d:"21.11.2003"}
+  ];
+  const link=document.getElementById("gbLink"),
+        panel=document.getElementById("gbPanel"),
+        form=document.getElementById("gbForm"),
+        list=document.getElementById("gbList");
+  if(!link||!panel||!form||!list) return;
+  const load=()=>{ try{return JSON.parse(localStorage.getItem("desi_gb")||"[]");}catch(e){return [];} };
+  const save=a=>{ try{localStorage.setItem("desi_gb",JSON.stringify(a));}catch(e){} };
+  function render(){
+    list.textContent="";
+    load().concat(seed).forEach(e=>{
+      const li=document.createElement("li");
+      const d=document.createElement("span"); d.className="gb-d"; d.textContent=e.d||"";
+      const n=document.createElement("span"); n.className="gb-n"; n.textContent=e.n+": ";
+      const m=document.createElement("span"); m.textContent=e.m;
+      li.appendChild(d); li.appendChild(n); li.appendChild(m);
+      list.appendChild(li);
+    });
+  }
+  let built=false;
+  link.addEventListener("click",e=>{
+    e.preventDefault();
+    panel.classList.toggle("open");
+    if(panel.classList.contains("open")){ if(!built){render();built=true;} panel.scrollIntoView({behavior:"smooth",block:"nearest"}); }
+  });
+  form.addEventListener("submit",e=>{
+    e.preventDefault();
+    const name=document.getElementById("gbName").value.trim().slice(0,40);
+    const msg=document.getElementById("gbMsg").value.trim().slice(0,200);
+    if(!name||!msg) return;
+    const dt=new Date();
+    const d=String(dt.getDate()).padStart(2,"0")+"."+String(dt.getMonth()+1).padStart(2,"0")+"."+dt.getFullYear();
+    const a=load(); a.unshift({n:name,m:msg,d:d}); save(a); render(); form.reset();
+  });
+})();
 
 (function init(){
   let lang = "en";
