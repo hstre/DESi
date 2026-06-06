@@ -426,6 +426,18 @@
   </div>
 </section>
 
+<!-- WHY / MOTIVATION -->
+<section class="plainwords">
+  <div class="wrap">
+    <div class="kicker" data-i18n="mot_kicker"></div>
+    <div class="pw-box">
+      <p data-i18n="mot_1"></p>
+      <p data-i18n="mot_2"></p>
+      <p class="pw-note" data-i18n="mot_3"></p>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -473,6 +485,10 @@ const I18N = {
     pw_2:"DESi watches from the outside. It doesn't change the model's answer; it checks whether what comes out actually follows from what went in — and marks the parts that aren't supported. Because DESi can repeat every check exactly, each result is traceable instead of random.",
     pw_ex:"<b>Example:</b> a model backs its answer with a study that appears nowhere in the supplied documents. DESi recomputes the run bit-for-bit, sees that the claim doesn't follow from the inputs, and flags it. Nothing is deleted or hidden — only made visible.",
     pw_3:"DESi doesn't replace the model and doesn't make it smarter. It makes what the model does visible.",
+    mot_kicker:"Why I'm doing this",
+    mot_1:"This isn't about fame — and not even about ever recovering the roughly €600 I put into building it.",
+    mot_2:"What drives me is something else. A large part of today's AI work keeps building bigger data centers, hoping new capabilities will “emerge” on their own from sheer scale. I'm convinced much of that can also be achieved with clear, deterministic algorithms — without the same hunger for energy.",
+    mot_3:"If DESi helps us burn a little less energy and avoid building data centers we may not even need, then the work was worth it.",
     hero_hash:"Every output is bit-exact reproducible —",
     prob_kicker:"The observer problem",
     prob_quote:'A model asked to grade itself reports confidence — <span class="hl">not error.</span>',
@@ -544,6 +560,10 @@ const I18N = {
     pw_2:"DESi schaut von außen zu. Es verändert die Antwort des Modells nicht, sondern prüft, ob das, was herauskommt, wirklich aus dem folgt, was hineingegeben wurde — und markiert die Stellen, die nicht gedeckt sind. Weil DESi jede Prüfung exakt gleich wiederholen kann, ist jedes Ergebnis nachvollziehbar statt Zufall.",
     pw_ex:"<b>Beispiel:</b> Ein Modell beruft sich in seiner Antwort auf eine Studie, die in den gelieferten Unterlagen gar nicht vorkommt. DESi rechnet den Ablauf bit-genau nach, erkennt, dass diese Behauptung aus den Eingaben nicht hervorgeht, und kennzeichnet sie. Gelöscht oder versteckt wird nichts — nur sichtbar gemacht.",
     pw_3:"DESi ersetzt das Modell nicht und macht es nicht schlauer. Es macht sichtbar, was es tut.",
+    mot_kicker:"Warum ich das mache",
+    mot_1:"Mir geht es nicht um Ruhm — und nicht einmal darum, die rund 600 €, die in der Entwicklung stecken, je wieder hereinzuholen.",
+    mot_2:"Was mich antreibt, ist etwas anderes: Ein großer Teil der heutigen KI-Entwicklung baut immer größere Rechenzentren, in der Hoffnung, dass aus schierer Größe neue Fähigkeiten von selbst „emergieren“. Ich bin überzeugt, dass sich vieles davon auch mit klaren, deterministischen Algorithmen erreichen lässt — ohne denselben Energiehunger.",
+    mot_3:"Wenn DESi dazu beiträgt, dass wir ein bisschen weniger Energie verbrennen und nicht Rechenzentren bauen, die es vielleicht gar nicht braucht, dann hat sich die Arbeit gelohnt.",
     hero_hash:"Jede Ausgabe ist bit-genau reproduzierbar —",
     prob_kicker:"Das Beobachter-Problem",
     prob_quote:'Ein Modell, das sich selbst benoten soll, meldet Zuversicht — <span class="hl">nicht den Fehler.</span>',
@@ -615,6 +635,10 @@ const I18N = {
     pw_2:"DESi 从外部观察。它不改动模型的回答，而是检查输出是否真的能从输入推出，并标记出没有依据的部分。因为 DESi 能把每次检查一字不差地重复，所以每个结果都可追溯，而非碰运气。",
     pw_ex:"<b>例子：</b>模型在回答中援引了一项研究，可这项研究在所提供的资料里根本不存在。DESi 把整个过程逐位重算，发现该说法无法从输入推出，于是把它标记出来。什么都不删除、不隐藏——只是让它显形。",
     pw_3:"DESi 不替代模型，也不让它更聪明。它只是让模型的所作所为变得可见。",
+    mot_kicker:"我为什么做这件事",
+    mot_1:"这不是为了名声——甚至也不指望收回我投入开发的那大约 600 欧元。",
+    mot_2:"真正驱动我的是另一件事：当下很大一部分 AI 研发不断兴建更大的数据中心，指望仅凭规模就能自行「涌现」出新能力。我相信，其中很多其实也能用清晰的确定性算法实现——而不必有同样的能耗。",
+    mot_3:"如果 DESi 能帮助我们少烧一点能源、不去建也许根本不需要的数据中心，那这份工作就值了。",
     hero_hash:"每一次输出都逐位精确可复现 —",
     prob_kicker:"观察者难题",
     prob_quote:'让模型给自己打分，它报告的是自信——<span class="hl">而不是错误。</span>',
@@ -686,6 +710,10 @@ const I18N = {
     pw_2:"DESi observa desde fuera. No cambia la respuesta del modelo; comprueba si lo que sale realmente se deduce de lo que entró, y marca las partes que no están respaldadas. Como DESi puede repetir cada comprobación de forma idéntica, cada resultado es trazable en lugar de azaroso.",
     pw_ex:"<b>Ejemplo:</b> un modelo apoya su respuesta en un estudio que no aparece en ninguna parte de los documentos aportados. DESi recalcula la ejecución bit a bit, ve que la afirmación no se deduce de las entradas y la marca. No se borra ni se oculta nada: solo se hace visible.",
     pw_3:"DESi no sustituye al modelo ni lo hace más inteligente. Hace visible lo que el modelo hace.",
+    mot_kicker:"Por qué hago esto",
+    mot_1:"No es por fama, ni siquiera por recuperar alguna vez los aproximadamente 600 € que invertí en desarrollarlo.",
+    mot_2:"Lo que me mueve es otra cosa. Buena parte del trabajo actual en IA sigue construyendo centros de datos cada vez mayores, con la esperanza de que de la pura escala “emerjan” solas nuevas capacidades. Estoy convencido de que mucho de eso también se puede lograr con algoritmos claros y deterministas, sin la misma hambre de energía.",
+    mot_3:"Si DESi ayuda a quemar un poco menos de energía y a no construir centros de datos que quizá ni necesitamos, entonces el trabajo habrá valido la pena.",
     hero_hash:"Cada salida es reproducible bit a bit —",
     prob_kicker:"El problema del observador",
     prob_quote:'Un modelo al que se le pide calificarse a sí mismo informa confianza — <span class="hl">no el error.</span>',
@@ -757,6 +785,10 @@ const I18N = {
     pw_2:"DESi は外側から見ます。モデルの答えを書き換えるのではなく、出てきたものが入れたものから本当に導けるかを確かめ、裏づけのない箇所に印をつけます。DESi はどの検査もまったく同じに再現できるので、結果は偶然ではなく追跡可能です。",
     pw_ex:"<b>例：</b>モデルが、提供された資料のどこにも出てこない研究を根拠に答えたとします。DESi はその過程をビット単位で再計算し、その主張が入力から導けないと見抜いて印をつけます。何も削除も隠蔽もしません——ただ見えるようにするだけです。",
     pw_3:"DESi はモデルを置き換えず、賢くもしません。モデルが何をしているかを見えるようにします。",
+    mot_kicker:"なぜこれをやっているのか",
+    mot_1:"名声のためではありません。開発に費やしたおよそ 600 ユーロを取り戻すためですらありません。",
+    mot_2:"私を動かしているのは別のことです。今日の AI 開発の多くは、規模さえ大きくすれば新しい能力がひとりでに「創発」すると期待して、より大きなデータセンターを建て続けています。私は、その多くは明快で決定論的なアルゴリズムでも実現でき、同じだけのエネルギーを必要としないと確信しています。",
+    mot_3:"DESi が、私たちが少しでも消費エネルギーを減らし、必要ないかもしれないデータセンターを建てずに済むことに貢献できるなら、この仕事には意味があったと思えます。",
     hero_hash:"すべての出力はビット単位で完全に再現可能 —",
     prob_kicker:"観測者問題",
     prob_quote:'自己採点を求められたモデルが報告するのは自信であって——<span class="hl">誤りではない。</span>',
