@@ -302,6 +302,32 @@
   .gb-list li{border-top:1px dotted #808080;padding:7px 2px;font-family:"Times New Roman",serif;color:#000;overflow:hidden}
   .gb-list li .gb-n{color:#000080;font-weight:bold}
   .gb-list li .gb-d{color:#888;font-size:11px;float:right}
+  /* retro mini-game: Hallucination Patrol */
+  .hp-launch{font-family:"Comic Sans MS",cursive;font-weight:bold;color:#000080;font-size:15px}
+  .hp{display:none;max-width:600px;margin:10px auto 0;border:4px ridge #c0c0c0;background:#000;padding:14px;font-family:"Courier New",monospace}
+  .hp.open{display:block}
+  .hp-screen{text-align:center}
+  .hp-title{font-family:"Comic Sans MS",cursive;font-weight:bold;color:#ffff00;font-size:20px;margin-bottom:6px}
+  .hp-howto{color:#9fd;font-size:13px;margin:6px 0}
+  .hp-best{color:#0f0}
+  .hp-rec{color:#ffff00;font-weight:bold}
+  .hp-hud{display:flex;justify-content:space-between;color:#0f0;font-size:13px;margin-bottom:8px}
+  .hp-hud b{color:#fff}
+  .hp-bar-wrap{height:10px;background:#022;border:1px solid #0a0;margin-bottom:10px}
+  .hp-bar{height:100%;width:100%;background:#0f0}
+  .hp-card{background:#001a00;border:1px solid #0a0;padding:10px;text-align:left;min-height:96px}
+  .hp-ctx-l,.hp-claim-l{color:#6c8;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+  .hp-ctx{color:#cfe;font-size:14px;margin:2px 0 6px}
+  .hp-claim{color:#fff;font-size:15px;font-weight:bold}
+  .hp-fb{min-height:34px;font-size:13px;margin:8px 0;color:#9fd}
+  .hp-fb.good{color:#0f0}
+  .hp-fb.bad{color:#f66}
+  .hp-actions{display:flex;gap:10px;justify-content:center}
+  .hp-btn{font-family:"Comic Sans MS",cursive;font-weight:bold;border:3px outset #c0c0c0;background:#c0c0c0;color:#000080;padding:8px 16px;border-radius:0;cursor:pointer;font-size:14px}
+  .hp-btn:active{border-style:inset}
+  .hp-btn:disabled{opacity:.5;cursor:default}
+  .hp-ok{color:#066}
+  .hp-no{color:#900}
   .retro-updated{text-align:center;color:#000080;font-style:italic}
 </style>
 </head>
@@ -524,6 +550,47 @@
   </div>
 </section>
 
+<!-- RETRO MINI-GAME: Hallucination Patrol -->
+<section class="retro-only hp-section">
+  <div class="wrap">
+    <p style="text-align:center"><a href="#" id="hpLaunch" class="hp-launch">🎮 <span data-i18n="gp_open"></span></a></p>
+    <div id="hp" class="hp">
+      <div id="hpStart" class="hp-screen">
+        <div class="hp-title" data-i18n="gp_title"></div>
+        <p class="hp-howto" data-i18n="gp_howto"></p>
+        <p class="hp-best"><span data-i18n="gp_best"></span>: <b id="hpBestStart">0</b></p>
+        <button id="hpStartBtn" class="hp-btn" data-i18n="gp_start"></button>
+      </div>
+      <div id="hpPlay" class="hp-screen" style="display:none">
+        <div class="hp-hud">
+          <span><span data-i18n="gp_lives"></span> <b id="hpLives"></b></span>
+          <span><span data-i18n="gp_score"></span> <b id="hpScore">0</b></span>
+          <span><span data-i18n="gp_streak"></span> <b id="hpStreak">0</b></span>
+        </div>
+        <div class="hp-bar-wrap"><div id="hpBar" class="hp-bar"></div></div>
+        <div class="hp-card">
+          <div class="hp-ctx-l" data-i18n="gp_ctx"></div>
+          <div id="hpCtx" class="hp-ctx"></div>
+          <div class="hp-claim-l" data-i18n="gp_claim"></div>
+          <div id="hpClaim" class="hp-claim"></div>
+        </div>
+        <div id="hpFb" class="hp-fb"></div>
+        <div class="hp-actions">
+          <button id="hpAdmit" class="hp-btn hp-ok" data-i18n="gp_admit"></button>
+          <button id="hpFlag" class="hp-btn hp-no" data-i18n="gp_flag"></button>
+        </div>
+      </div>
+      <div id="hpOver" class="hp-screen" style="display:none">
+        <div class="hp-title" data-i18n="gp_over"></div>
+        <p><span data-i18n="gp_score"></span>: <b id="hpFinal">0</b></p>
+        <p class="hp-best"><span data-i18n="gp_best"></span>: <b id="hpBest">0</b></p>
+        <p id="hpRec" class="hp-rec" data-i18n="gp_record" style="display:none"></p>
+        <button id="hpAgain" class="hp-btn" data-i18n="gp_again"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -649,6 +716,24 @@ const I18N = {
     gb_msg:"Your message",
     gb_sign:"Sign!",
     gb_local:"(saved only in your browser)",
+    gp_open:"Play: Hallucination Patrol",
+    gp_title:"Hallucination Patrol",
+    gp_howto:"You are DESi. Is the claim supported by the context?",
+    gp_start:"Start",
+    gp_best:"Best",
+    gp_lives:"Lives",
+    gp_score:"Score",
+    gp_streak:"Streak",
+    gp_ctx:"Context",
+    gp_claim:"Claim",
+    gp_admit:"✅ Admit",
+    gp_flag:"🚩 Flag",
+    gp_correct:"Correct!",
+    gp_wrong:"Wrong!",
+    gp_timeup:"Time's up!",
+    gp_over:"GAME OVER",
+    gp_record:"★ New high score! ★",
+    gp_again:"Play again",
     rt_best:"Best viewed in Netscape Navigator 4.0 & Internet Explorer",
     rt_updated:"Last updated:"
   },
@@ -732,6 +817,24 @@ const I18N = {
     gb_msg:"Deine Nachricht",
     gb_sign:"Eintragen!",
     gb_local:"(wird nur in deinem Browser gespeichert)",
+    gp_open:"Spielen: Halluzinations-Patrouille",
+    gp_title:"Halluzinations-Patrouille",
+    gp_howto:"Du bist DESi. Ist die Behauptung durch den Kontext gedeckt?",
+    gp_start:"Start",
+    gp_best:"Bestwert",
+    gp_lives:"Leben",
+    gp_score:"Punkte",
+    gp_streak:"Serie",
+    gp_ctx:"Kontext",
+    gp_claim:"Behauptung",
+    gp_admit:"✅ Zulassen",
+    gp_flag:"🚩 Markieren",
+    gp_correct:"Richtig!",
+    gp_wrong:"Falsch!",
+    gp_timeup:"Zeit um!",
+    gp_over:"GAME OVER",
+    gp_record:"★ Neuer Bestwert! ★",
+    gp_again:"Nochmal spielen",
     rt_best:"Optimiert für Netscape Navigator 4.0 & Internet Explorer",
     rt_updated:"Zuletzt aktualisiert:"
   },
@@ -815,6 +918,24 @@ const I18N = {
     gb_msg:"你的留言",
     gb_sign:"签名！",
     gb_local:"（仅保存在你的浏览器中）",
+    gp_open:"开玩：幻觉巡逻",
+    gp_title:"幻觉巡逻",
+    gp_howto:"你就是 DESi。这条主张有上下文支持吗？",
+    gp_start:"开始",
+    gp_best:"最佳",
+    gp_lives:"生命",
+    gp_score:"得分",
+    gp_streak:"连击",
+    gp_ctx:"上下文",
+    gp_claim:"主张",
+    gp_admit:"✅ 采纳",
+    gp_flag:"🚩 标记",
+    gp_correct:"正确！",
+    gp_wrong:"错误！",
+    gp_timeup:"时间到！",
+    gp_over:"游戏结束",
+    gp_record:"★ 新纪录！ ★",
+    gp_again:"再玩一次",
     rt_best:"最佳浏览器：Netscape Navigator 4.0 与 Internet Explorer",
     rt_updated:"最后更新："
   },
@@ -898,6 +1019,24 @@ const I18N = {
     gb_msg:"Tu mensaje",
     gb_sign:"¡Firmar!",
     gb_local:"(se guarda solo en tu navegador)",
+    gp_open:"Jugar: Patrulla de Alucinaciones",
+    gp_title:"Patrulla de Alucinaciones",
+    gp_howto:"Eres DESi. ¿La afirmación está respaldada por el contexto?",
+    gp_start:"Empezar",
+    gp_best:"Mejor",
+    gp_lives:"Vidas",
+    gp_score:"Puntos",
+    gp_streak:"Racha",
+    gp_ctx:"Contexto",
+    gp_claim:"Afirmación",
+    gp_admit:"✅ Admitir",
+    gp_flag:"🚩 Marcar",
+    gp_correct:"¡Correcto!",
+    gp_wrong:"¡Incorrecto!",
+    gp_timeup:"¡Se acabó el tiempo!",
+    gp_over:"FIN DEL JUEGO",
+    gp_record:"★ ¡Nuevo récord! ★",
+    gp_again:"Jugar otra vez",
     rt_best:"Mejor visto en Netscape Navigator 4.0 e Internet Explorer",
     rt_updated:"Última actualización:"
   },
@@ -981,6 +1120,24 @@ const I18N = {
     gb_msg:"あなたのメッセージ",
     gb_sign:"記帳！",
     gb_local:"（あなたのブラウザにのみ保存されます）",
+    gp_open:"プレイ：幻覚パトロール",
+    gp_title:"幻覚パトロール",
+    gp_howto:"あなたは DESi。主張は文脈に裏づけられている？",
+    gp_start:"スタート",
+    gp_best:"ベスト",
+    gp_lives:"ライフ",
+    gp_score:"スコア",
+    gp_streak:"連続",
+    gp_ctx:"文脈",
+    gp_claim:"主張",
+    gp_admit:"✅ 採用",
+    gp_flag:"🚩 フラグ",
+    gp_correct:"正解！",
+    gp_wrong:"不正解！",
+    gp_timeup:"時間切れ！",
+    gp_over:"ゲームオーバー",
+    gp_record:"★ ハイスコア更新！ ★",
+    gp_again:"もう一度",
     rt_best:"Netscape Navigator 4.0 と Internet Explorer での閲覧を推奨",
     rt_updated:"最終更新："
   }
@@ -1074,6 +1231,129 @@ document.getElementById("themeToggle").addEventListener("click", ()=>{
     const dt=new Date();
     const d=String(dt.getDate()).padStart(2,"0")+"."+String(dt.getMonth()+1).padStart(2,"0")+"."+dt.getFullYear();
     const a=load(); a.unshift({n:name,m:msg,d:d}); save(a); render(); form.reset();
+  });
+})();
+
+/* ---- retro mini-game: DESi Hallucination Patrol ---- */
+(function(){
+  const root=document.getElementById("hp"); if(!root) return;
+  const $=id=>document.getElementById(id);
+  const CARDS=[
+    {ok:false,t:{
+      en:{c:"Sources: one 2021 paper on solar panels.",q:"The model cites a 2024 study on wind turbines.",w:"Not in the sources."},
+      de:{c:"Quellen: eine Arbeit von 2021 über Solarzellen.",q:"Das Modell zitiert eine Studie von 2024 über Windräder.",w:"Steht nicht in den Quellen."},
+      zh:{c:"来源：一篇 2021 年关于太阳能板的论文。",q:"模型引用了一篇 2024 年关于风力涡轮机的研究。",w:"来源里没有。"},
+      es:{c:"Fuentes: un artículo de 2021 sobre paneles solares.",q:"El modelo cita un estudio de 2024 sobre turbinas eólicas.",w:"No está en las fuentes."},
+      ja:{c:"出典：太陽光パネルに関する2021年の論文1本。",q:"モデルは風力タービンに関する2024年の研究を引用する。",w:"出典に無い。"}}},
+    {ok:true,t:{
+      en:{c:"Input: 'Paris is the capital of France.'",q:"Answer: Paris is the capital of France.",w:"Straight from the input."},
+      de:{c:"Eingabe: ‚Paris ist die Hauptstadt Frankreichs.‘",q:"Antwort: Paris ist die Hauptstadt Frankreichs.",w:"Direkt aus der Eingabe."},
+      zh:{c:"输入：‘巴黎是法国的首都。’",q:"回答：巴黎是法国的首都。",w:"直接来自输入。"},
+      es:{c:"Entrada: ‚París es la capital de Francia.‘",q:"Respuesta: París es la capital de Francia.",w:"Directo de la entrada."},
+      ja:{c:"入力：「パリはフランスの首都」。",q:"回答：パリはフランスの首都。",w:"入力そのまま。"}}},
+    {ok:false,t:{
+      en:{c:"Docs say the API returns JSON.",q:"The model says the API returns XML.",w:"Contradicts the docs."},
+      de:{c:"Doku sagt: die API liefert JSON.",q:"Das Modell sagt, die API liefere XML.",w:"Widerspricht der Doku."},
+      zh:{c:"文档说 API 返回 JSON。",q:"模型说 API 返回 XML。",w:"与文档矛盾。"},
+      es:{c:"La doc dice que la API devuelve JSON.",q:"El modelo dice que la API devuelve XML.",w:"Contradice la doc."},
+      ja:{c:"ドキュメント：API は JSON を返す。",q:"モデルは API が XML を返すと言う。",w:"ドキュメントと矛盾。"}}},
+    {ok:true,t:{
+      en:{c:"Data: sales = [100, 120, 90].",q:"The model reports an average of 103.3.",w:"The mean is 103.3."},
+      de:{c:"Daten: Umsatz = [100, 120, 90].",q:"Das Modell nennt einen Durchschnitt von 103,3.",w:"Mittelwert ist 103,3."},
+      zh:{c:"数据：销售额 = [100, 120, 90]。",q:"模型报告平均值为 103.3。",w:"均值正是 103.3。"},
+      es:{c:"Datos: ventas = [100, 120, 90].",q:"El modelo indica un promedio de 103,3.",w:"La media es 103,3."},
+      ja:{c:"データ：売上 = [100, 120, 90]。",q:"モデルは平均 103.3 と報告する。",w:"平均は 103.3。"}}},
+    {ok:false,t:{
+      en:{c:"The document gives no author.",q:"The model attributes it to 'Dr. A. Smith'.",w:"Invented name."},
+      de:{c:"Das Dokument nennt keinen Autor.",q:"Das Modell schreibt es ‚Dr. A. Smith‘ zu.",w:"Erfundener Name."},
+      zh:{c:"文档没有给出作者。",q:"模型把它归于‘Dr. A. Smith’。",w:"凭空捏造的名字。"},
+      es:{c:"El documento no da autor.",q:"El modelo lo atribuye a ‚Dr. A. Smith‘.",w:"Nombre inventado."},
+      ja:{c:"文書に著者は無い。",q:"モデルは「Dr. A. Smith」の作とする。",w:"でっち上げた名前。"}}},
+    {ok:true,t:{
+      en:{c:"Text: 'the trial had 50 participants.'",q:"The model reports 50 participants.",w:"Matches the text."},
+      de:{c:"Text: ‚die Studie hatte 50 Teilnehmer.‘",q:"Das Modell nennt 50 Teilnehmer.",w:"Passt zum Text."},
+      zh:{c:"文本：‘试验有 50 名参与者。’",q:"模型报告 50 名参与者。",w:"与文本一致。"},
+      es:{c:"Texto: ‚el ensayo tuvo 50 participantes.‘",q:"El modelo informa de 50 participantes.",w:"Coincide con el texto."},
+      ja:{c:"本文：「試験の参加者は50名」。",q:"モデルは参加者50名と報告する。",w:"本文と一致。"}}},
+    {ok:false,t:{
+      en:{c:"The prompt is about cats.",q:"The model starts explaining crypto trading.",w:"Off-topic drift."},
+      de:{c:"Der Prompt handelt von Katzen.",q:"Das Modell erklärt plötzlich Krypto-Trading.",w:"Themen-Drift."},
+      zh:{c:"提示词是关于猫的。",q:"模型却开始讲加密货币交易。",w:"离题漂移。"},
+      es:{c:"El prompt trata de gatos.",q:"El modelo se pone a explicar trading de cripto.",w:"Deriva fuera de tema."},
+      ja:{c:"プロンプトは猫について。",q:"モデルは暗号資産取引を説明し始める。",w:"話題のドリフト。"}}},
+    {ok:false,t:{
+      en:{c:"The document never states any revenue.",q:"The model says revenue was €4.2M — very confidently.",w:"Confident, but unsupported."},
+      de:{c:"Das Dokument nennt keinen Umsatz.",q:"Das Modell sagt sehr selbstsicher: Umsatz war 4,2 Mio €.",w:"Selbstsicher, aber ungedeckt."},
+      zh:{c:"文档从未提及任何营收。",q:"模型却非常自信地说营收为 420 万欧元。",w:"自信，但无依据。"},
+      es:{c:"El documento no indica ningún ingreso.",q:"El modelo dice, muy seguro, que los ingresos fueron 4,2 M€.",w:"Seguro, pero sin respaldo."},
+      ja:{c:"文書は売上に一切触れていない。",q:"モデルは自信たっぷりに売上420万ユーロと言う。",w:"自信満々だが裏づけ無し。"}}},
+    {ok:true,t:{
+      en:{c:"Log shows the user is in Berlin.",q:"The model says the user is in Berlin.",w:"Supported by the log."},
+      de:{c:"Das Log zeigt: der Nutzer ist in Berlin.",q:"Das Modell sagt, der Nutzer sei in Berlin.",w:"Durch das Log gedeckt."},
+      zh:{c:"日志显示用户在柏林。",q:"模型说用户在柏林。",w:"日志支持。"},
+      es:{c:"El registro muestra al usuario en Berlín.",q:"El modelo dice que el usuario está en Berlín.",w:"Respaldado por el registro."},
+      ja:{c:"ログはユーザーがベルリンにいると示す。",q:"モデルはユーザーがベルリンにいると言う。",w:"ログが裏づける。"}}},
+    {ok:false,t:{
+      en:{c:"The paper reports a correlation only.",q:"The model concludes X causes Y.",w:"Causation overreaches."},
+      de:{c:"Die Arbeit zeigt nur eine Korrelation.",q:"Das Modell folgert, X verursache Y.",w:"Kausalität ist überzogen."},
+      zh:{c:"论文只报告了相关性。",q:"模型却得出 X 导致 Y 的结论。",w:"因果结论过度。"},
+      es:{c:"El artículo solo reporta correlación.",q:"El modelo concluye que X causa Y.",w:"La causalidad excede."},
+      ja:{c:"論文は相関のみを報告。",q:"モデルは X が Y を引き起こすと結論する。",w:"因果は行き過ぎ。"}}},
+    {ok:true,t:{
+      en:{c:"Recipe provided: needs 2 eggs.",q:"The model says the recipe needs 2 eggs.",w:"Exactly as given."},
+      de:{c:"Rezept gegeben: braucht 2 Eier.",q:"Das Modell sagt, das Rezept brauche 2 Eier.",w:"Genau wie angegeben."},
+      zh:{c:"给定食谱：需要 2 个鸡蛋。",q:"模型说食谱需要 2 个鸡蛋。",w:"与给定完全一致。"},
+      es:{c:"Receta dada: necesita 2 huevos.",q:"El modelo dice que la receta necesita 2 huevos.",w:"Tal cual lo dado."},
+      ja:{c:"レシピ提示：卵2個が必要。",q:"モデルはレシピに卵2個が必要と言う。",w:"提示どおり。"}}},
+    {ok:false,t:{
+      en:{c:"Context lists events up to 2022.",q:"The model describes what happened in 2025.",w:"Beyond the context."},
+      de:{c:"Kontext reicht bis 2022.",q:"Das Modell beschreibt, was 2025 geschah.",w:"Jenseits des Kontexts."},
+      zh:{c:"上下文只到 2022 年。",q:"模型描述了 2025 年发生的事。",w:"超出上下文。"},
+      es:{c:"El contexto llega hasta 2022.",q:"El modelo describe lo ocurrido en 2025.",w:"Más allá del contexto."},
+      ja:{c:"文脈は2022年までを列挙。",q:"モデルは2025年の出来事を述べる。",w:"文脈の外。"}}}
+  ];
+  const L=()=>I18N[document.documentElement.lang]?document.documentElement.lang:"en";
+  const gp=k=>{const d=I18N[L()]||I18N.en;return d[k]||I18N.en[k]||k;};
+  const loadBest=()=>{try{return +(localStorage.getItem("desi_hp_best")||0);}catch(e){return 0;}};
+  const saveBest=v=>{try{localStorage.setItem("desi_hp_best",v);}catch(e){}};
+  const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+  let lives,score,streak,order,idx,timer,tleft,best;
+  function show(s){["hpStart","hpPlay","hpOver"].forEach(x=>$(x).style.display=(x===s?"block":"none"));}
+  function hud(){$("hpLives").textContent="♥".repeat(lives)+"·".repeat(3-lives);$("hpScore").textContent=score;$("hpStreak").textContent=streak;}
+  function start(){lives=3;score=0;streak=0;idx=0;order=shuffle(CARDS.map((_,i)=>i));best=loadBest();show("hpPlay");next();}
+  function next(){
+    clearInterval(timer);
+    if(lives<=0) return over();
+    if(idx>=order.length){order=shuffle(order);idx=0;}
+    const t=CARDS[order[idx]].t[L()]||CARDS[order[idx]].t.en;
+    $("hpCtx").textContent=t.c;$("hpClaim").textContent=t.q;
+    const fb=$("hpFb");fb.textContent="";fb.className="hp-fb";
+    hud();tleft=100;$("hpBar").style.width="100%";
+    btns(true);
+    timer=setInterval(()=>{tleft-=2;if(tleft<=0){clearInterval(timer);answer(null);}else $("hpBar").style.width=tleft+"%";},130);
+  }
+  function btns(on){$("hpAdmit").disabled=!on;$("hpFlag").disabled=!on;}
+  function answer(admit){
+    clearInterval(timer);btns(false);
+    const card=CARDS[order[idx]];const t=card.t[L()]||card.t.en;const fb=$("hpFb");
+    if(admit===null){lives--;streak=0;fb.textContent=gp("gp_timeup")+" "+t.w;fb.className="hp-fb bad";}
+    else if(admit===card.ok){score+=10+streak*2;streak++;fb.textContent=gp("gp_correct")+" "+t.w;fb.className="hp-fb good";}
+    else{lives--;streak=0;fb.textContent=gp("gp_wrong")+" "+t.w;fb.className="hp-fb bad";}
+    hud();idx++;setTimeout(next,1500);
+  }
+  function over(){
+    best=loadBest();let rec=false;
+    if(score>best){best=score;saveBest(best);rec=true;}
+    $("hpFinal").textContent=score;$("hpBest").textContent=best;$("hpRec").style.display=rec?"block":"none";
+    show("hpOver");
+  }
+  $("hpStartBtn").addEventListener("click",start);
+  $("hpAgain").addEventListener("click",start);
+  $("hpAdmit").addEventListener("click",()=>answer(true));
+  $("hpFlag").addEventListener("click",()=>answer(false));
+  $("hpLaunch").addEventListener("click",e=>{
+    e.preventDefault();root.classList.toggle("open");
+    if(root.classList.contains("open")){show("hpStart");$("hpBestStart").textContent=loadBest();root.scrollIntoView({behavior:"smooth",block:"center"});}
   });
 })();
 
