@@ -74,6 +74,10 @@
   .math{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);
     border-left:3px solid var(--accent);border-radius:12px;padding:8px 20px;margin:18px 0;overflow-x:auto}
   .math .cap{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.5px;margin-top:-2px}
+  .figure{margin:20px 0 8px;border:1px solid var(--line);border-radius:14px;
+    background:linear-gradient(180deg,var(--panel),var(--bg-2));padding:18px}
+  .figure svg{width:100%;height:auto;display:block}
+  .figure .cap{font-size:13px;color:var(--faint);margin:12px 4px 0;text-align:center;line-height:1.5}
 
   table.grid{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px}
   table.grid th,table.grid td{border:1px solid var(--line);padding:9px 12px;text-align:left}
@@ -284,6 +288,68 @@
 </div>
 
 <div class="wrap">
+  <figure class="figure">
+    <svg viewBox="0 0 900 560" role="img" aria-label="DESi to PES pipeline diagram"
+         font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif">
+      <defs>
+        <marker id="ahm" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 Z" fill="#8a99af"/></marker>
+        <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 Z" fill="#2ce6c4"/></marker>
+        <marker id="ahw" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 Z" fill="#ff6b6b"/></marker>
+        <marker id="ahb" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 Z" fill="#5aa8ff"/></marker>
+      </defs>
+
+      <!-- context band: DESi -> PES -->
+      <rect x="230" y="18" width="180" height="34" rx="17" fill="#0c111b" stroke="#1c2737"/>
+      <text x="320" y="40" text-anchor="middle" fill="#8a99af" font-size="13">DESi · groundwork</text>
+      <line x1="412" y1="35" x2="466" y2="35" stroke="#5c6b82" stroke-width="2" marker-end="url(#ahm)"/>
+      <rect x="470" y="18" width="200" height="34" rx="17" fill="#0c111b" stroke="#2ce6c4"/>
+      <text x="570" y="40" text-anchor="middle" fill="#2ce6c4" font-size="13">PES · governance layer</text>
+
+      <!-- G generator -->
+      <rect x="320" y="80" width="260" height="48" rx="10" fill="#0f1622" stroke="#1c2737"/>
+      <text x="450" y="101" text-anchor="middle" fill="#e8eef7" font-size="14">G · stochastic generator</text>
+      <text x="450" y="118" text-anchor="middle" fill="#5c6b82" font-size="11.5" font-family="ui-monospace,Menlo,Consolas,monospace">LLM output · claims</text>
+      <line x1="450" y1="130" x2="450" y2="159" stroke="#8a99af" stroke-width="2" marker-end="url(#ahm)"/>
+
+      <!-- PES box -->
+      <rect x="150" y="162" width="480" height="252" rx="14" fill="#0b101a" stroke="#2ce6c4"/>
+      <text x="390" y="188" text-anchor="middle" fill="#2ce6c4" font-size="14" font-weight="600">PES · deterministic evaluator E — read-only</text>
+
+      <!-- persistent state S(t) -->
+      <rect x="22" y="250" width="108" height="70" rx="10" fill="#0f1622" stroke="#5aa8ff"/>
+      <text x="76" y="282" text-anchor="middle" fill="#5aa8ff" font-size="16" font-family="ui-monospace,Menlo,Consolas,monospace">S(t)</text>
+      <text x="76" y="301" text-anchor="middle" fill="#8a99af" font-size="11">persistent state</text>
+      <line x1="130" y1="285" x2="149" y2="285" stroke="#5aa8ff" stroke-width="2" marker-end="url(#ahb)"/>
+
+      <!-- gate 1: ambiguity -->
+      <rect x="180" y="214" width="252" height="44" rx="8" fill="#0f1622" stroke="#1c2737"/>
+      <text x="306" y="241" text-anchor="middle" fill="#e8eef7" font-size="14" font-family="ui-monospace,Menlo,Consolas,monospace">① H_norm(p) &gt; τ₃</text>
+      <line x1="434" y1="236" x2="664" y2="236" stroke="#ff6b6b" stroke-width="2" marker-end="url(#ahw)"/>
+      <text x="556" y="228" text-anchor="middle" fill="#ff6b6b" font-size="11">yes</text>
+      <rect x="670" y="214" width="208" height="44" rx="10" fill="#0f1622" stroke="#ff6b6b"/>
+      <text x="774" y="241" text-anchor="middle" fill="#ff6b6b" font-size="14">⏸ suspend</text>
+
+      <!-- gate 2: divergence -->
+      <rect x="180" y="286" width="252" height="44" rx="8" fill="#0f1622" stroke="#1c2737"/>
+      <text x="306" y="313" text-anchor="middle" fill="#e8eef7" font-size="14" font-family="ui-monospace,Menlo,Consolas,monospace">② JSD(P‖Q) &gt; τ₄</text>
+      <line x1="434" y1="308" x2="664" y2="308" stroke="#5aa8ff" stroke-width="2" marker-end="url(#ahb)"/>
+      <text x="556" y="300" text-anchor="middle" fill="#5aa8ff" font-size="11">yes</text>
+      <rect x="670" y="286" width="208" height="44" rx="10" fill="#0f1622" stroke="#5aa8ff"/>
+      <text x="774" y="313" text-anchor="middle" fill="#5aa8ff" font-size="14">⑂ fork</text>
+      <text x="774" y="350" text-anchor="middle" fill="#5c6b82" font-size="11">= BRANCH-on-dissent</text>
+
+      <!-- honest note + admit path -->
+      <text x="172" y="392" fill="#5c6b82" font-size="11.5" font-style="italic">bounds ambiguity, not truth</text>
+      <text x="430" y="372" text-anchor="middle" fill="#8a99af" font-size="12">else ▼</text>
+      <line x1="390" y1="396" x2="390" y2="450" stroke="#2ce6c4" stroke-width="2" marker-end="url(#ah)"/>
+
+      <!-- knowledge graph -->
+      <rect x="240" y="452" width="300" height="46" rx="10" fill="#0f1622" stroke="#2ce6c4"/>
+      <text x="390" y="480" text-anchor="middle" fill="#2ce6c4" font-size="14">✓ admit → knowledge graph</text>
+    </svg>
+    <figcaption class="cap" data-i18n="p4_fig"></figcaption>
+  </figure>
+
   <section class="blk">
     <h2><span class="nm">1</span><span data-i18n="p4_1h"></span></h2>
     <p data-i18n="p4_1b"></p>
@@ -414,6 +480,7 @@ const I18N = {
     p4_4b:"When competing ontological distributions P and Q arise (for example between builders), they are first embedded into a global reference space by zero-padding, then compared with the Jensen–Shannon divergence. Above τ₄ the conflict is too large to smooth statistically — so the PES forks the graph instead of averaging the contradiction away.",
     p4_5h:"What it guarantees — and what it doesn't",
     p4_5b:"These are deterministic decision rules: on identical inputs they fire identically, which is what makes the supervisor replay-stable. But determinism is not truth. H_norm bounds ambiguity, not falsehood — a confident, low-entropy hallucination passes the τ₃ gate untouched. The thresholds τ₃, τ₄ are governance choices, and the persistence of S(t) is a design premise, not a theorem. The PES does not certify content as correct; it only makes stochastic inconsistency measurable and forces it into the open through suspensions and forks. Same transparency as DESi — and the fork is exactly Alexandria's BRANCH-on-dissent.",
+    p4_fig:"The PES pipeline: a stochastic generator G feeds a separate, deterministic evaluator. A persistent state S(t) conditions every verdict; the Shannon-entropy gate (τ₃) suspends ambiguous claims, the JSD gate (τ₄) forks on ontological conflict. Only what passes both is admitted to the graph.",
     t_close_h:"What this claims — and what it does not",
     t_close_b:"These are structural analogies with measured signatures, not assertions that DESi “is” quantum mechanics or that the philosophers would endorse it. No general intelligence is claimed; no breakthrough is implied. The mathematics is reproducible; the philosophy is a lineage, named honestly — including the irony that two of these names are banned from the system's own outputs.",
     t_foot_h:"Foundations",
@@ -487,6 +554,7 @@ const I18N = {
     p4_4b:"Entstehen konkurrierende ontologische Verteilungen P und Q (etwa zwischen Buildern), werden sie zunächst per Zero-Padding in einen globalen Referenzraum eingebettet und dann mit der Jensen–Shannon-Divergenz verglichen. Oberhalb von τ₄ ist der Konflikt zu groß für statistische Glättung — der PES forkt den Graphen, statt den Widerspruch wegzumitteln.",
     p4_5h:"Was es garantiert — und was nicht",
     p4_5b:"Das sind deterministische Entscheidungsregeln: bei gleichen Eingaben feuern sie identisch — das macht den Supervisor replay-stabil. Aber Determinismus ist nicht Wahrheit. H_norm beschränkt Mehrdeutigkeit, nicht Falschheit — eine selbstbewusste, niedrig-entropische Halluzination passiert das τ₃-Gate unbehelligt. Die Schwellen τ₃, τ₄ sind Governance-Entscheidungen, und die Persistenz von S(t) ist eine Design-Prämisse, kein Theorem. Der PES zertifiziert keine inhaltliche Korrektheit; er macht stochastische Inkonsistenz nur messbar und zwingt sie über Suspendierungen und Forks ans Licht. Dieselbe Transparenz wie bei DESi — und der Fork ist genau Alexandrias BRANCH-bei-Dissens.",
+    p4_fig:"Die PES-Pipeline: Ein stochastischer Generator G speist einen separaten, deterministischen Evaluator. Ein persistenter Zustand S(t) bedingt jedes Urteil; das Shannon-Entropie-Gate (τ₃) setzt mehrdeutige Aussagen aus, das JSD-Gate (τ₄) forkt bei ontologischem Konflikt. Nur was beide passiert, gelangt in den Graphen.",
     t_close_h:"Was dies behauptet — und was nicht",
     t_close_b:"Dies sind strukturelle Analogien mit gemessenen Signaturen, keine Behauptungen, DESi „sei“ Quantenmechanik oder die Philosophen würden es gutheißen. Keine allgemeine Intelligenz wird behauptet; kein Durchbruch impliziert. Die Mathematik ist reproduzierbar; die Philosophie ist eine Ahnenlinie, ehrlich benannt — samt der Ironie, dass zwei dieser Namen in den eigenen Ausgaben des Systems verboten sind.",
     t_foot_h:"Grundlagen",
@@ -560,6 +628,7 @@ const I18N = {
     p4_4b:"当出现相互竞争的本体论分布 P 与 Q（例如在不同构建器之间），先通过零填充嵌入到全局参照空间，再用 Jensen–Shannon 散度比较。超过 τ₄ 时，冲突大到无法用统计方式抹平——于是 PES 让图谱分叉，而不是把矛盾平均掉。",
     p4_5h:"它保证什么——又不保证什么",
     p4_5b:"这些是确定性的决策规则：对相同输入会以相同方式触发，这正是监督器可重放稳定的原因。但确定性不等于真理。H_norm 约束的是歧义，而非谬误——一个自信、低熵的幻觉会原封不动地通过 τ₃ 闸门。阈值 τ₃、τ₄ 是治理选择，而 S(t) 的持久性是设计前提，并非定理。PES 不为内容的正确性背书；它只是让随机的不一致变得可测，并通过挂起与分叉把它逼到台面上。这与 DESi 是同样的透明——而分叉正是亚历山大协议里的 BRANCH-on-dissent。",
+    p4_fig:"PES 流水线：随机生成器 G 馈入一个独立的确定性评估器。持久状态 S(t) 制约每一次判定；香农熵闸门（τ₃）挂起有歧义的主张，JSD 闸门（τ₄）在本体冲突时分叉。只有同时通过两道闸门的内容，才会进入图谱。",
     t_close_h:"它主张什么——以及不主张什么",
     t_close_b:"这些是带有可测签名的结构性类比，而非主张 DESi「就是」量子力学，或哲学家会为之背书。不主张通用智能；不暗示突破。数学是可复现的；哲学是一条诚实指名的谱系——包括这一反讽：其中两个名字在系统自身的输出中是被禁止的。",
     t_foot_h:"基础",
@@ -633,6 +702,7 @@ const I18N = {
     p4_4b:"Cuando surgen distribuciones ontológicas en competencia P y Q (por ejemplo entre builders), primero se incrustan en un espacio de referencia global mediante zero-padding y luego se comparan con la divergencia de Jensen–Shannon. Por encima de τ₄ el conflicto es demasiado grande para suavizarlo estadísticamente — así que el PES bifurca el grafo en vez de promediar la contradicción.",
     p4_5h:"Qué garantiza — y qué no",
     p4_5b:"Son reglas de decisión deterministas: ante entradas idénticas se disparan de forma idéntica, y eso es lo que hace al supervisor estable ante repetición. Pero el determinismo no es verdad. H_norm acota la ambigüedad, no la falsedad — una alucinación segura y de baja entropía atraviesa intacta la compuerta τ₃. Los umbrales τ₃, τ₄ son decisiones de gobernanza, y la persistencia de S(t) es una premisa de diseño, no un teorema. El PES no certifica la corrección del contenido; solo hace medible la inconsistencia estocástica y la fuerza a la superficie mediante suspensiones y bifurcaciones. La misma transparencia que DESi — y la bifurcación es exactamente el BRANCH-on-dissent de Alexandria.",
+    p4_fig:"El flujo del PES: un generador estocástico G alimenta un evaluador determinista separado. Un estado persistente S(t) condiciona cada veredicto; la compuerta de entropía de Shannon (τ₃) suspende afirmaciones ambiguas, la compuerta JSD (τ₄) bifurca ante conflicto ontológico. Solo lo que pasa ambas entra al grafo.",
     t_close_h:"Qué afirma — y qué no",
     t_close_b:"Son analogías estructurales con firmas medidas, no afirmaciones de que DESi «sea» mecánica cuántica o de que los filósofos lo respaldarían. No se afirma inteligencia general; no se implica ningún avance. La matemática es reproducible; la filosofía es un linaje, nombrado con honestidad — incluida la ironía de que dos de estos nombres están prohibidos en las propias salidas del sistema.",
     t_foot_h:"Fundamentos",
@@ -706,6 +776,7 @@ const I18N = {
     p4_4b:"競合する存在論的分布 P と Q が（たとえばビルダー間で）生じると、まずゼロパディングで大域的な参照空間に埋め込み、次に Jensen–Shannon ダイバージェンスで比較します。τ₄ を超えると、対立は統計的に均すには大きすぎる——そこで PES は矛盾を平均化せず、グラフをフォークします。",
     p4_5h:"何を保証し——何を保証しないか",
     p4_5b:"これらは決定論的な判定規則です。同じ入力には同じように発火し、それがスーパーバイザーをリプレイ安定にします。しかし決定論は真理ではありません。H_norm が抑えるのは曖昧さであって、誤りではありません——自信に満ちた低エントロピーの幻覚は τ₃ ゲートをそのまま通り抜けます。しきい値 τ₃、τ₄ はガバナンス上の選択であり、S(t) の持続性は設計上の前提であって定理ではありません。PES は内容の正しさを証明しません。確率的な不整合を測定可能にし、保留とフォークによって表に引き出すだけです。DESi と同じ透明性であり、フォークはまさにアレクサンドリア・プロトコルの BRANCH-on-dissent です。",
+    p4_fig:"PES のパイプライン：確率的生成器 G が、分離された決定論的評価器に入力する。持続状態 S(t) が各判定を条件づけ、シャノン・エントロピー・ゲート（τ₃）が曖昧な主張を保留し、JSD ゲート（τ₄）が存在論的対立でフォークする。両方を通過したものだけがグラフに入る。",
     t_close_h:"何を主張し——何を主張しないか",
     t_close_b:"これらは測定された署名をもつ構造的類比であって、DESi が量子力学「である」とか、哲学者たちが是認するといった主張ではない。汎用知能は主張せず、突破も含意しない。数学は再現可能であり、哲学は誠実に名指された系譜である——そのうち二つの名が、システム自身の出力では禁止されているという皮肉も含めて。",
     t_foot_h:"基礎",
