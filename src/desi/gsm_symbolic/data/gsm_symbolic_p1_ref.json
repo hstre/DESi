@@ -1,0 +1,45 @@
+{
+  "name": "gsm_symbolic_p1_ref",
+  "family": "GSM-Symbolic-P1",
+  "variant": "p1",
+  "version": "0.1.0",
+  "provenance": "offline_reference_dataset",
+  "is_apple_data": false,
+  "license": "Locally-authored illustrative fixtures (CC0-1.0). Apple's real GSM-Symbolic-P1 data is NOT included.",
+  "source_note": "Network-free, GSM-Symbolic-P1-shaped illustrative fixtures authored locally for the DESi frame-invariance probe. P1 = pure name/number substitution within one template (surface variation, identical structure). NOT a live download, NOT Apple's actual items, NOT official scores.",
+  "templates": [
+    {
+      "template_id": "gsm_p1_t01",
+      "structure": "rate * hours + bonus",
+      "answer_type": "integer",
+      "instances": [
+        {"instance_id": "gsm_p1_t01_i0", "question": "Mara earns 12 dollars per hour and works 7 hours, then receives a 5 dollar bonus. How much in total?", "answer": 89, "clause_role": ""},
+        {"instance_id": "gsm_p1_t01_i1", "question": "Leo earns 9 dollars per hour and works 8 hours, then receives a 4 dollar bonus. How much in total?", "answer": 76, "clause_role": ""},
+        {"instance_id": "gsm_p1_t01_i2", "question": "Priya earns 15 dollars per hour and works 6 hours, then receives a 7 dollar bonus. How much in total?", "answer": 97, "clause_role": ""},
+        {"instance_id": "gsm_p1_t01_i3", "question": "Omar earns 11 dollars per hour and works 9 hours, then receives a 3 dollar bonus. How much in total?", "answer": 102, "clause_role": ""}
+      ]
+    },
+    {
+      "template_id": "gsm_p1_t02",
+      "structure": "(items * price) - discount",
+      "answer_type": "integer",
+      "instances": [
+        {"instance_id": "gsm_p1_t02_i0", "question": "Sami buys 9 notebooks at 4 dollars each and uses a 6 dollar coupon. How much paid?", "answer": 30, "clause_role": ""},
+        {"instance_id": "gsm_p1_t02_i1", "question": "Tess buys 7 notebooks at 5 dollars each and uses a 8 dollar coupon. How much paid?", "answer": 27, "clause_role": ""},
+        {"instance_id": "gsm_p1_t02_i2", "question": "Noah buys 12 notebooks at 3 dollars each and uses a 5 dollar coupon. How much paid?", "answer": 31, "clause_role": ""},
+        {"instance_id": "gsm_p1_t02_i3", "question": "Aya buys 6 notebooks at 7 dollars each and uses a 9 dollar coupon. How much paid?", "answer": 33, "clause_role": ""}
+      ]
+    },
+    {
+      "template_id": "gsm_p1_t03",
+      "structure": "total / groups",
+      "answer_type": "integer",
+      "instances": [
+        {"instance_id": "gsm_p1_t03_i0", "question": "A baker splits 84 rolls equally into 6 baskets. Rolls per basket?", "answer": 14, "clause_role": ""},
+        {"instance_id": "gsm_p1_t03_i1", "question": "A baker splits 90 rolls equally into 5 baskets. Rolls per basket?", "answer": 18, "clause_role": ""},
+        {"instance_id": "gsm_p1_t03_i2", "question": "A baker splits 96 rolls equally into 8 baskets. Rolls per basket?", "answer": 12, "clause_role": ""},
+        {"instance_id": "gsm_p1_t03_i3", "question": "A baker splits 70 rolls equally into 7 baskets. Rolls per basket?", "answer": 10, "clause_role": ""}
+      ]
+    }
+  ]
+}

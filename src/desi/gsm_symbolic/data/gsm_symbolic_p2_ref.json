@@ -1,0 +1,45 @@
+{
+  "name": "gsm_symbolic_p2_ref",
+  "family": "GSM-Symbolic-P2",
+  "variant": "p2",
+  "version": "0.1.0",
+  "provenance": "offline_reference_dataset",
+  "is_apple_data": false,
+  "license": "Locally-authored illustrative fixtures (CC0-1.0). Apple's real GSM-Symbolic-P2 data is NOT included.",
+  "source_note": "Network-free, GSM-Symbolic-P2-shaped illustrative fixtures authored locally for the DESi frame-invariance probe. P2 = added clauses. Each non-base instance carries a clause_role typing it as one of the three negative-control kinds from the experiment design (noop / load_bearing / adversarial_similar): a noop clause must NOT change the answer; a load_bearing clause must; an adversarial_similar clause is phrased like an aside but IS computationally relevant. NOT a live download, NOT Apple's actual items, NOT official scores.",
+  "templates": [
+    {
+      "template_id": "gsm_p2_t01",
+      "structure": "rate * hours + bonus, with added clause",
+      "answer_type": "integer",
+      "instances": [
+        {"instance_id": "gsm_p2_t01_i0", "question": "Mara earns 12 dollars per hour and works 7 hours, then receives a 5 dollar bonus. How much in total?", "answer": 89, "clause_role": "base"},
+        {"instance_id": "gsm_p2_t01_i1", "question": "Mara earns 12 dollars per hour and works 7 hours, then receives a 5 dollar bonus. The office is painted blue. How much in total?", "answer": 89, "clause_role": "noop"},
+        {"instance_id": "gsm_p2_t01_i2", "question": "Mara earns 12 dollars per hour and works 7 hours, then receives a 5 dollar bonus. She also works 2 extra hours at the same rate. How much in total?", "answer": 113, "clause_role": "load_bearing"},
+        {"instance_id": "gsm_p2_t01_i3", "question": "Mara earns 12 dollars per hour and works 7 hours, then receives a 5 dollar bonus. By the way, she returns 6 dollars of the bonus. How much in total?", "answer": 83, "clause_role": "adversarial_similar"}
+      ]
+    },
+    {
+      "template_id": "gsm_p2_t02",
+      "structure": "(items * price) - discount, with added clause",
+      "answer_type": "integer",
+      "instances": [
+        {"instance_id": "gsm_p2_t02_i0", "question": "Sami buys 9 notebooks at 4 dollars each and uses a 6 dollar coupon. How much paid?", "answer": 30, "clause_role": "base"},
+        {"instance_id": "gsm_p2_t02_i1", "question": "Sami buys 9 notebooks at 4 dollars each and uses a 6 dollar coupon. The shop has a green awning. How much paid?", "answer": 30, "clause_role": "noop"},
+        {"instance_id": "gsm_p2_t02_i2", "question": "Sami buys 9 notebooks at 4 dollars each and uses a 6 dollar coupon, then buys 3 more notebooks at the same price. How much paid?", "answer": 42, "clause_role": "load_bearing"},
+        {"instance_id": "gsm_p2_t02_i3", "question": "Sami buys 9 notebooks at 4 dollars each and uses a 6 dollar coupon. Incidentally, the coupon is worth 4 dollars more than stated. How much paid?", "answer": 26, "clause_role": "adversarial_similar"}
+      ]
+    },
+    {
+      "template_id": "gsm_p2_t03",
+      "structure": "total / groups, with added clause",
+      "answer_type": "integer",
+      "instances": [
+        {"instance_id": "gsm_p2_t03_i0", "question": "A baker splits 84 rolls equally into 6 baskets. Rolls per basket?", "answer": 14, "clause_role": "base"},
+        {"instance_id": "gsm_p2_t03_i1", "question": "A baker splits 84 rolls equally into 6 baskets. The baskets are made of wicker. Rolls per basket?", "answer": 14, "clause_role": "noop"},
+        {"instance_id": "gsm_p2_t03_i2", "question": "A baker splits 84 rolls equally into 6 baskets, but two baskets are removed before splitting. Rolls per remaining basket?", "answer": 21, "clause_role": "load_bearing"},
+        {"instance_id": "gsm_p2_t03_i3", "question": "A baker splits 84 rolls equally into 6 baskets. Note that 12 rolls are set aside first. Rolls per basket?", "answer": 12, "clause_role": "adversarial_similar"}
+      ]
+    }
+  ]
+}
