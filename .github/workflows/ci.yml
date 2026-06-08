@@ -18,6 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history: tests/regression_governance/test_v3_122
+          # reads `git log` over HEAD; a shallow (depth-1) checkout
+          # collapses its mutation-classification metrics to zero.
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"

@@ -45,8 +45,9 @@ def test_v50_modules_do_not_modify_runtime_packages() -> None:
         "src/desi/recursive", "src/desi/consilium",
         "src/desi/tools",
     )
-    pkg = pathlib.Path(
-        "/home/user/DESi/src/desi/methodology_transfer"
+    pkg = (
+        pathlib.Path(__file__).resolve().parents[2]
+        / "src" / "desi" / "methodology_transfer"
     )
     for py in pkg.glob("*.py"):
         txt = py.read_text(encoding="utf-8")
@@ -78,7 +79,7 @@ def test_v5_writes_only_under_allowed_paths() -> None:
     """The v5.0 artifact directory exists and is the only
     artifact path under ``artifacts/`` carrying the
     ``v5_0`` prefix."""
-    root = pathlib.Path("/home/user/DESi")
+    root = pathlib.Path(__file__).resolve().parents[2]
     a = root / "artifacts" / "v5_0"
     assert a.is_dir()
     assert (a / "report.json").is_file()

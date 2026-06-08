@@ -124,12 +124,17 @@ def test_artifact_report_matches_live_build() -> None:
     (``cpu_count``, ``ram_gb``, ``kernel``,
     ``cgroup_*``). Only the DERIVED /
     classification fields are guaranteed to be
-    stable across replays on any sufficiently
-    similar Linux VM: ``runner_type`` (closed
-    enum), ``ci_env`` (env-var fingerprint, empty
-    off CI), ``machine`` (target arch),
-    ``recommendation``, ``halt``, and
-    ``replay_stability``."""
+    stable across replays: ``machine`` (target
+    arch), ``recommendation``, ``halt``, and
+    ``replay_stability``. ``runner_type`` and
+    ``ci_env`` are deliberately NOT asserted:
+    they are environment fingerprints that
+    legitimately differ between the non-CI VM
+    where the artifact was pinned (``non_ci_vm``,
+    empty ci_env) and a GitHub-hosted runner
+    (``github_hosted_runner``, populated ci_env),
+    so they are not replay-stable across
+    environments."""
     root = pathlib.Path(
         __file__,
     ).resolve().parents[2]
@@ -140,9 +145,8 @@ def test_artifact_report_matches_live_build() -> None:
     )
     live = build_report().to_dict()
     stable_keys = {
-        "ci_env", "halt", "machine",
+        "halt", "machine",
         "recommendation", "replay_stability",
-        "runner_type",
     }
     for k in stable_keys:
         assert art[k] == live[k], k
