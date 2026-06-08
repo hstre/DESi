@@ -203,7 +203,7 @@
     <h2><span class="nm">1</span><span data-i18n="t_m1_h"></span></h2>
     <p data-i18n="t_m1_b"></p>
     <div class="math">
-      \[ E(x)\equiv_{\text{byte}}E(x),\qquad s(x)=H_{\textsf{SHA-256}}\!\big(\operatorname{canon}(E(x))\big),\qquad \sigma=1. \]
+      \[ E_{t_1}(x)\equiv_{\text{byte}}E_{t_2}(x)\ \ \forall\,t_1,t_2,\qquad s(x)=H_{\textsf{SHA-256}}\!\big(\operatorname{canon}(E(x))\big),\qquad \sigma=1. \]
       <div class="cap" data-i18n="t_m1_cap"></div>
     </div>
     <p data-i18n="t_m1_b2"></p>
@@ -564,7 +564,7 @@ const I18N = {
     t_m2_h:"Closed enumerations and the verdict algebra",
     t_m2_b:"All verdicts live in a finite, frozen set 𝒱. Classification is a total function from observations into 𝒱 — no open-world categories are invented at run time. Closing the world the governance layer can speak about is precisely what makes replay decidable.",
     t_m3_h:"The StateVector and an epistemic uncertainty relation",
-    t_m3_b:"A trajectory τ is compressed by a map Φ into a 9-dimensional StateVector. On 1,525 DriftBench trajectories the compression reaches ≈ 96.5 % while the drift-governance signal is preserved at ratio ρ ≈ 1.06.",
+    t_m3_b:"A trajectory τ is compressed by a map Φ into a 9-dimensional StateVector. On 1,525 DriftBench trajectories the compression reaches ≈ 96.5 % while the drift-governance signal is preserved at ratio ρ ≈ 1.06. Here S is the retained governance signal — a relevance density, not the Shannon entropy of the raw data — so ρ > 1 means denser signal once noise is shed, not information conjured from nothing (no Data-Processing-Inequality violation).",
     t_m3_b2:"Compression C and signal preservation S cannot both be driven to unity. Beyond a Pareto-optimal point every further bit of compression costs measurable signal — a trade-off we write as an uncertainty relation (an analogy to, not an instance of, quantum mechanics):",
     t_m3_cap:"κ — the Pareto floor; loss below it is attributed explicitly",
     t_m3_b3:"The reported operating point is the Pareto point, not maximal compression. Two honest failure boundaries remain: topic-shift robustness and semantic over-folding.",
@@ -643,7 +643,7 @@ const I18N = {
     t_m2_h:"Geschlossene Enumerationen und die Verdikt-Algebra",
     t_m2_b:"Alle Verdikte leben in einer endlichen, eingefrorenen Menge 𝒱. Klassifikation ist eine totale Funktion von Beobachtungen nach 𝒱 — keine Open-World-Kategorien werden zur Laufzeit erfunden. Genau das Schließen der Welt, über die die Governance-Schicht sprechen darf, macht Replay entscheidbar.",
     t_m3_h:"Der StateVector und eine epistemische Unschärferelation",
-    t_m3_b:"Eine Trajektorie τ wird durch eine Abbildung Φ in einen 9-dimensionalen StateVector komprimiert. Über 1.525 DriftBench-Trajektorien erreicht die Kompression ≈ 96,5 %, während das Drift-Governance-Signal mit Verhältnis ρ ≈ 1,06 erhalten bleibt.",
+    t_m3_b:"Eine Trajektorie τ wird durch eine Abbildung Φ in einen 9-dimensionalen StateVector komprimiert. Über 1.525 DriftBench-Trajektorien erreicht die Kompression ≈ 96,5 %, während das Drift-Governance-Signal mit Verhältnis ρ ≈ 1,06 erhalten bleibt. S ist dabei das erhaltene Governance-Signal — eine Relevanzdichte, nicht die Shannon-Entropie der Rohdaten — sodass ρ > 1 dichteres Signal nach dem Abwerfen von Rauschen bedeutet, keine aus dem Nichts erzeugte Information (kein Verstoß gegen die Data-Processing-Inequality).",
     t_m3_b2:"Kompression C und Signalerhalt S lassen sich nicht beide gegen Eins treiben. Jenseits eines Pareto-optimalen Punktes kostet jedes weitere Bit Kompression messbares Signal — ein Trade-off, den wir als Unschärferelation schreiben (eine Analogie zur, kein Fall von Quantenmechanik):",
     t_m3_cap:"κ — der Pareto-Boden; Verlust darunter wird explizit zugeordnet",
     t_m3_b3:"Der berichtete Betriebspunkt ist der Pareto-Punkt, nicht maximale Kompression. Zwei ehrliche Fehlergrenzen bleiben: Robustheit gegen Themenwechsel und semantisches Über-Falten.",
@@ -722,7 +722,7 @@ const I18N = {
     t_m2_h:"封闭枚举与判定代数",
     t_m2_b:"所有判定都存在于一个有限、冻结的集合 𝒱 中。分类是从观测到 𝒱 的全函数——运行时不发明任何开放世界的类别。正是封闭了治理层所能言说的世界，才使重放可判定。",
     t_m3_h:"状态向量与一条认知不确定性关系",
-    t_m3_b:"一条轨迹 τ 经映射 Φ 压缩为一个 9 维状态向量。在 1,525 条 DriftBench 轨迹上，压缩达到约 96.5%，而漂移治理信号以比率 ρ ≈ 1.06 得以保留。",
+    t_m3_b:"一条轨迹 τ 经映射 Φ 压缩为一个 9 维状态向量。在 1,525 条 DriftBench 轨迹上，压缩达到约 96.5%，而漂移治理信号以比率 ρ ≈ 1.06 得以保留。此处 S 是保留下来的治理信号——一种相关性密度，而非原始数据的香农熵——因此 ρ > 1 表示剔除噪声后信号更密，而非凭空创造信息（不违反数据处理不等式）。",
     t_m3_b2:"压缩 C 与信号保留 S 不能同时趋于一。越过帕累托最优点后，每多压缩一比特都要付出可测量的信号代价——我们将此权衡写作一条不确定性关系（是对量子力学的类比，而非其实例）：",
     t_m3_cap:"κ——帕累托下界；低于它的损失被明确归因",
     t_m3_b3:"所报告的工作点是帕累托点，而非最大压缩。两条诚实的失效边界仍在：话题漂移鲁棒性与语义过度折叠。",
@@ -801,7 +801,7 @@ const I18N = {
     t_m2_h:"Enumeraciones cerradas y el álgebra de veredictos",
     t_m2_b:"Todos los veredictos viven en un conjunto finito y congelado 𝒱. La clasificación es una función total de las observaciones a 𝒱 — no se inventan categorías de mundo abierto en tiempo de ejecución. Cerrar el mundo del que la capa de gobernanza puede hablar es justo lo que hace decidible la repetición.",
     t_m3_h:"El StateVector y una relación de incertidumbre epistémica",
-    t_m3_b:"Una trayectoria τ se comprime mediante una función Φ en un StateVector de 9 dimensiones. En 1.525 trayectorias DriftBench la compresión alcanza ≈ 96,5 % mientras la señal de gobernanza de deriva se preserva con razón ρ ≈ 1,06.",
+    t_m3_b:"Una trayectoria τ se comprime mediante una función Φ en un StateVector de 9 dimensiones. En 1.525 trayectorias DriftBench la compresión alcanza ≈ 96,5 % mientras la señal de gobernanza de deriva se preserva con razón ρ ≈ 1,06. Aquí S es la señal de gobernanza preservada —una densidad de relevancia, no la entropía de Shannon de los datos brutos—, de modo que ρ > 1 significa señal más densa tras descartar ruido, no información creada de la nada (sin violación de la desigualdad de procesamiento de datos).",
     t_m3_b2:"La compresión C y la preservación de señal S no pueden llevarse ambas a la unidad. Más allá de un punto Pareto-óptimo, cada bit adicional de compresión cuesta señal medible — un compromiso que escribimos como una relación de incertidumbre (una analogía con, no un caso de, la mecánica cuántica):",
     t_m3_cap:"κ — el piso de Pareto; la pérdida por debajo se atribuye explícitamente",
     t_m3_b3:"El punto de operación reportado es el punto de Pareto, no la compresión máxima. Quedan dos fronteras de fallo honestas: robustez ante cambio de tema y sobre-plegado semántico.",
@@ -880,7 +880,7 @@ const I18N = {
     t_m2_h:"閉じた列挙と判定代数",
     t_m2_b:"すべての判定は有限・凍結された集合 𝒱 に属する。分類は観測から 𝒱 への全域関数であり、実行時に開かれた世界のカテゴリを発明しない。統治層が語りうる世界を閉じることこそ、リプレイを決定可能にする。",
     t_m3_h:"StateVector と認識論的不確定性関係",
-    t_m3_b:"軌跡 τ は写像 Φ により 9 次元の StateVector に圧縮される。1,525 件の DriftBench 軌跡で、圧縮は約 96.5 % に達し、ドリフト統治信号は比 ρ ≈ 1.06 で保たれる。",
+    t_m3_b:"軌跡 τ は写像 Φ により 9 次元の StateVector に圧縮される。1,525 件の DriftBench 軌跡で、圧縮は約 96.5 % に達し、ドリフト統治信号は比 ρ ≈ 1.06 で保たれる。ここで S は保持された統治信号——生データのシャノンエントロピーではなく関連性の密度——であり、ρ > 1 はノイズ除去後に信号が密になったことを意味し、無からの情報生成ではない（データ処理不等式に反しない）。",
     t_m3_b2:"圧縮 C と信号保持 S を同時に 1 へ追い込むことはできない。パレート最適点を越えると、圧縮を 1 ビット増すごとに測定可能な信号を失う——この trade-off を不確定性関係として書く（量子力学の類比であって、その実例ではない）：",
     t_m3_cap:"κ——パレートの下限。それを下回る損失は明示的に帰属される",
     t_m3_b3:"報告される動作点は最大圧縮ではなくパレート点である。誠実な失敗境界が二つ残る：話題遷移に対する頑健性と、意味の過剰な畳み込み。",
