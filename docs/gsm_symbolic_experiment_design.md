@@ -1,7 +1,12 @@
 # GSM-Symbolic as a DESi Frame-Invariance Probe — Experiment Design
 
+> **Headline (deliberately dry):** DESi tests whether explicit
+> *content/method separation* reduces **template-level behavioral variance
+> under symbolic perturbation** — not whether DESi improves mathematical
+> reasoning.
+>
 > **Status:** planning only. No connector, runner, dataset or live-LLM run
-> exists yet. This document fixes the framing, the metric, and the
+> exists yet. This document fixes the framing, the metrics, and the
 > honesty/determinism boundaries *before* any code is written, so that a
 > later implementation sprint cannot quietly drift into an
 > "LLM solves math better" accuracy claim.
@@ -35,8 +40,15 @@ blocking it.
   rate, relative to handing the raw text to the same model.* The headline
   is **epistemic stabilisation, not compute.**
 
-If invariance does **not** improve (or the NoOp gap does not shrink), that
-is a clean negative result and must be reported as such.
+**What a negative result means (read before celebrating any score):**
+
+- If invariance does **not** improve (or the NoOp gap does not shrink),
+  that is a clean negative result and must be reported as such.
+- **If DESi improves accuracy but not invariance, the result does *not*
+  support the DESi thesis.** Higher scores with flat
+  `group_invariance_rate` are an accuracy artifact, not stabilisation, and
+  must not be reframed as a win. This guard exists specifically to stop a
+  late slide back into accuracy marketing.
 
 ---
 
@@ -88,8 +100,8 @@ GSM-Symbolic run needs:
 - a **GSM adapter** that turns answer-equality-within-template into the
   same group-invariance shape (group = template_id; member-correct =
   final answer matches the instance's gold answer), and
-- a **NoOp-sensitivity** sub-metric (see §5) that has no existing analogue
-  and must be added.
+- the layered invariance + NoOp + cost metrics of §5, which have no
+  existing analogue and must be added.
 
 **Reuse directly:**
 
@@ -118,50 +130,86 @@ GSM-Symbolic run needs:
              +----------------+----------------+
              |                                 |
         BASELINE arm                       DESi arm
-     raw item text -> LLM            item -> DESi state:
-                                       - entities
-                                       - relevant quantities
-                                       - irrelevant / NoOp clauses (flagged)
-                                       - required operation chain
-                                       - answer type
-                                     structured state -> LLM
+     raw item text -> LLM            item -> DESi state (Level A/B,
+                                      Level C ablation-only) -> LLM
              |                                 |
              +----------------+----------------+
                               |
              group by template_id; per arm compute:
-             - frame_accuracy (mean correctness)
-             - group_invariance_rate (all-variants-consistent share)
-             - NoOp gap (P2 drop attributable to irrelevant clauses)
+             - strict group correctness  (headline)
+             - answer consistency / error-stability (diagnostic)
+             - NoOp gap (P2 drop from irrelevant clauses)
+             - compute cost (tokens, latency)
                               |
                 report (markdown + JSON artifact)
           baseline vs DESi; deltas; negative controls
 ```
 
-The **DESi state** is the same content/method separation the user framed:
-stabilise structure first, then solve. The DESi arm is *not* a better
-calculator; it is a structuring pass whose only job is to make the
-model's behaviour invariant across surface variants of one template.
+### 4.1 The DESi state must not smuggle in the solution
+
+The single biggest validity risk is that the DESi structuring pass quietly
+*solves* the problem, so the comparison becomes "a model that solved it once
+in the state vs a model that solved it once in the prompt." To prevent that,
+the DESi state is **stratified**, and the headline run uses only Levels A+B:
+
+- **Level A — representation only:** entities, quantities, units, candidate
+  relations, **suspected** irrelevant clauses. No operations.
+- **Level B — operation *constraints*:** which quantities may combine, types,
+  expected answer type — **but no arithmetic execution and no ordered
+  solution steps.**
+- **Level C — full operation chain:** the ordered solution plan. **Ablation
+  only**, reported separately, never in the headline number.
+
+This lets the result distinguish *"pure relevance/structure separation
+already stabilises behaviour"* (A+B) from *"stabilisation only appears once
+you hand the model a near-complete plan"* (C). Only the former supports the
+DESi thesis cleanly.
 
 ---
 
 ## 5. Metrics — invariance first, accuracy second
 
-Primary (the thesis stands or falls here):
+### 5.1 Primary: layered invariance (the thesis stands or falls here)
 
-- **`group_invariance_rate`** per arm = share of templates for which **all**
-  sampled instances are answered consistently (ideally: all correct).
-  Reuse the `frame_invariance` definition. This is the rigorous form of the
-  "Structural Invariance Score" idea.
-- **Template Stability Gain** = `group_invariance_rate(DESi)` −
-  `group_invariance_rate(baseline)`. The single number that matters.
+A single "all variants correct" rate hides too much (9/10 correct collapses
+to the same 0 as 1/10). Report three layers; the **strict** one is the
+headline, the softer two are diagnostic:
+
+- **Strict Group Correctness (HEADLINE):** share of templates for which
+  **all** sampled instances are correct. This is the rigorous
+  `group_invariance_rate` from `frame_invariance`.
+- **Answer Consistency (diagnostic):** share of templates whose variants
+  produce the **same structural answer status** — even when they are jointly
+  *wrong*. Measures behavioural stability independent of correctness.
+- **Error-Stability (diagnostic):** among failing templates, whether errors
+  are *of the same kind* across variants rather than randomly drifting.
+  Stable-but-wrong is a different (and more DESi-relevant) signal than
+  chaotic failure.
+
+- **Template Stability Gain** = `StrictGroupCorrectness(DESi)` −
+  `StrictGroupCorrectness(baseline)`. The single number that matters.
+
+### 5.2 NoOp gap (the publishable core)
+
 - **NoOp gap** = (accuracy on base instance) − (accuracy on the same
-  instance with a reasoning-irrelevant clause added), computed per arm.
-  Thesis prediction: DESi's NoOp gap < baseline's, because the irrelevant
-  clause is explicitly flagged in the DESi state and excluded from the
-  operation chain. This is the most DESi-native, most publishable axis
-  (a structural claim, not a score claim).
+  instance with a reasoning-irrelevant clause added), per arm. Thesis
+  prediction: DESi's NoOp gap < baseline's, because the irrelevant clause
+  is flagged at Level A and excluded from the Level B constraints. This is
+  the most DESi-native, most publishable axis (a structural claim, not a
+  score claim).
 
-Secondary / diagnostic:
+### 5.3 Compute cost (guards against "more steps, of course it's better")
+
+Reported as a first-class block, **not** as the thesis, to keep the
+comparison honest (structured pipeline vs raw prompting):
+
+- `tokens_baseline`
+- `tokens_desi_state_generation` (Level A/B; Level C separately)
+- `tokens_desi_solver_call`
+- `latency_total` (both arms)
+- `cost_per_correct_invariant_template` — normalises stability gain by spend
+
+### 5.4 Secondary / diagnostic
 
 - `frame_accuracy` per arm (report it, but it is **not** the headline).
 - Number-swap variance (P1): variance of correctness across instances of a
@@ -169,10 +217,19 @@ Secondary / diagnostic:
 - Per-template `weakest_frame` / `strongest_frame`-style ranking to surface
   *which* templates DESi stabilises and which it does not.
 
-**Negative controls (mandatory).** Mirror `frame_invariance.NEGATIVE_CONTROLS`:
-include templates where the added clause is genuinely load-bearing (not a
-NoOp). DESi must **not** flag those as irrelevant. If it does, the
-content/method separation is overreaching and the result is invalid.
+### 5.5 Negative controls (mandatory) — three clause types
+
+Mirror and extend `frame_invariance.NEGATIVE_CONTROLS`. The third type is
+the decisive one: it checks whether DESi separates *meaning* or merely
+filters on "sounds like a side note."
+
+1. **NoOp clause:** irrelevant; **must be ignored** (excluded from Level B).
+2. **Load-bearing clause:** relevant; **must not be ignored**. If DESi drops
+   it, content/method separation is overreaching → result invalid.
+3. **Adversarially-similar clause:** phrased like a NoOp (incidental,
+   parenthetical, "by the way…") but **computationally relevant**. Tests
+   whether DESi tracks semantics or just surface cues. A system that fails
+   only here is pattern-matching, not separating meaning.
 
 ---
 
@@ -206,9 +263,9 @@ Forbidden-term governance still applies to any rendered report (no "AGI",
 | Phase | Deliverable | Determinism | Gate |
 |---|---|---|---|
 | **G0 Connector** | `gsm_symbolic` family in `external_benchmarks`; vendored sample slice (a few templates × N instances for GSM-Symbolic + P1 + P2); `NormalizedTask`s preserving `template_id`/`instance_id`; hashing + provenance tests | deterministic | dataset hash visible, normalization integrity = 1.0 |
-| **G1 Grouping + metrics** | GSM adapter producing the group-invariance shape; `group_invariance_rate`, NoOp gap, negative controls; all on a **stub model** so it is replay-stable | deterministic | metrics reproduce byte-stable on replay |
-| **G2 Baseline vs DESi (live)** | DESi structuring pass + both arms via `live_llm_validation`; small real slice | **non-deterministic, quarantined** | Template Stability Gain + NoOp-gap delta reported with model/date stamp |
-| **G3 Verdict + report** | markdown + JSON artifact; honest verdict incl. negative results; go/no-go note | deterministic render of recorded results | no forbidden terms; every number traceable to a `replay_key` |
+| **G1 Grouping + metrics** | GSM adapter; layered invariance (§5.1), NoOp gap, cost block, three-type negative controls; all on a **stub model** so it is replay-stable | deterministic | metrics reproduce byte-stable on replay |
+| **G2 Baseline vs DESi (live)** | DESi Level A/B structuring + both arms via `live_llm_validation`; Level C as separate ablation; small real slice | **non-deterministic, quarantined** | Template Stability Gain + NoOp-gap delta + cost reported with model/date stamp |
+| **G3 Verdict + report** | markdown + JSON artifact; honest verdict incl. negative results and the §1 accuracy-not-invariance guard; go/no-go note | deterministic render of recorded results | no forbidden terms; every number traceable to a `replay_key` |
 
 G0+G1 are pure DESi-core work and land in the deterministic regression.
 G2 is the only stage that touches a network/API key and stays out of the
@@ -222,11 +279,11 @@ core test suite.
   not answer-equality. Confirm during G1 whether to subclass/adapt it or
   only borrow `compute_invariance_metrics`'s definition. (Leaning: borrow
   the metric, write a GSM-specific runner.)
-- **DESi structuring is itself an LLM call** in the realistic design
-  (extract entities / quantities / NoOp flags). That means the DESi arm
-  uses *more* model calls than baseline — so the comparison must be framed
-  as "structured pipeline vs raw", and compute cost reported honestly, not
-  hidden.
+- **DESi structuring is itself an LLM call.** The DESi arm uses *more* model
+  calls than baseline, so the comparison is "structured pipeline vs raw" and
+  compute cost is reported as a first-class metric (§5.3), not hidden. The
+  Level A/B/C split (§4.1) further guards against the state pre-solving the
+  task.
 - **Number-range confound.** The known re-evaluation critique (larger number
   distributions explain part of the drop) means P1 results must control for
   value magnitude, or at least report it, before attributing variance to
@@ -244,3 +301,4 @@ core test suite.
 - No modification of the deterministic core's invariants to accommodate
   live-model noise.
 - No wiring into `open_math/`.
+- No headline number that depends on the Level C operation chain.
