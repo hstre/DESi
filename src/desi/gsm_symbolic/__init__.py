@@ -58,15 +58,33 @@ from .scoring import (
     score_predictions,
     template_stability_gain,
 )
+from .state import (
+    Clause,
+    DesiState,
+    clause_is_suspected_irrelevant,
+    extract_all,
+    extract_state,
+    has_number,
+    noop_detection_metrics,
+    split_clauses,
+)
 
 __all__ = [
     "VERDICTS",
+    "Clause",
     "ComparisonReport",
+    "DesiState",
     "InvarianceMetrics",
     "Predictions",
     "build_report",
     "classify",
+    "clause_is_suspected_irrelevant",
+    "extract_all",
+    "extract_state",
+    "has_number",
+    "noop_detection_metrics",
     "render_markdown",
+    "split_clauses",
     "supports_thesis",
     "CLAUSE_ROLES",
     "KNOWN_VARIANTS",
