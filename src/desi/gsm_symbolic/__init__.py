@@ -43,6 +43,14 @@ from .predictions import (
     first_only_correct_predictions,
     noop_fragile_predictions,
 )
+from .report import (
+    VERDICTS,
+    ComparisonReport,
+    build_report,
+    classify,
+    render_markdown,
+    supports_thesis,
+)
 from .scoring import (
     InvarianceMetrics,
     Predictions,
@@ -52,8 +60,14 @@ from .scoring import (
 )
 
 __all__ = [
+    "VERDICTS",
+    "ComparisonReport",
     "InvarianceMetrics",
     "Predictions",
+    "build_report",
+    "classify",
+    "render_markdown",
+    "supports_thesis",
     "CLAUSE_ROLES",
     "KNOWN_VARIANTS",
     "PROVENANCE_OFFLINE_REFERENCE",
