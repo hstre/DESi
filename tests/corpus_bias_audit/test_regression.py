@@ -6,7 +6,7 @@ import json
 import pathlib
 
 
-_REPO = pathlib.Path("/home/user/DESi")
+_REPO = pathlib.Path(__file__).resolve().parents[2]
 
 
 def test_v5_0_taxonomy_artifact_unchanged() -> None:
