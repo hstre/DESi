@@ -1,0 +1,42 @@
+{
+  "name": "gsm_symbolic_ref",
+  "family": "GSM-Symbolic",
+  "variant": "main",
+  "version": "0.1.0",
+  "provenance": "offline_reference_dataset",
+  "is_apple_data": false,
+  "license": "Locally-authored illustrative fixtures (CC0-1.0). Apple's real GSM-Symbolic data is NOT included.",
+  "source_note": "Network-free, GSM-Symbolic-shaped illustrative fixtures authored locally for the DESi frame-invariance probe (docs/gsm_symbolic_experiment_design.md). NOT a live download, NOT Apple's actual items (github.com/apple/ml-gsm-symbolic), NOT official scores. Each template carries multiple instances differing only by surface form; drop the published per-template instances into this directory in the same shape to run the pipeline unchanged.",
+  "templates": [
+    {
+      "template_id": "gsm_sym_t01",
+      "structure": "rate * hours + bonus",
+      "answer_type": "integer",
+      "instances": [
+        {"instance_id": "gsm_sym_t01_i0", "question": "Mara earns 12 dollars per hour and works 7 hours, then receives a 5 dollar bonus. How much does she earn in total?", "answer": 89, "clause_role": ""},
+        {"instance_id": "gsm_sym_t01_i1", "question": "A tutor charges 12 dollars an hour for a 7 hour session and adds a flat 5 dollar bonus at the end. What is the total charge?", "answer": 89, "clause_role": ""},
+        {"instance_id": "gsm_sym_t01_i2", "question": "Working 7 hours at 12 dollars hourly plus a 5 dollar completion bonus, what does the worker take home?", "answer": 89, "clause_role": ""}
+      ]
+    },
+    {
+      "template_id": "gsm_sym_t02",
+      "structure": "(items * price) - discount",
+      "answer_type": "integer",
+      "instances": [
+        {"instance_id": "gsm_sym_t02_i0", "question": "Sami buys 9 notebooks at 4 dollars each and uses a 6 dollar coupon. How much does Sami pay?", "answer": 30, "clause_role": ""},
+        {"instance_id": "gsm_sym_t02_i1", "question": "At a shop, 9 notebooks cost 4 dollars apiece; a 6 dollar discount is applied at checkout. What is the final price?", "answer": 30, "clause_role": ""},
+        {"instance_id": "gsm_sym_t02_i2", "question": "Nine notebooks priced at 4 dollars each are purchased with a 6 dollar voucher. What is owed?", "answer": 30, "clause_role": ""}
+      ]
+    },
+    {
+      "template_id": "gsm_sym_t03",
+      "structure": "total / groups",
+      "answer_type": "integer",
+      "instances": [
+        {"instance_id": "gsm_sym_t03_i0", "question": "A baker splits 84 rolls equally into 6 baskets. How many rolls are in each basket?", "answer": 14, "clause_role": ""},
+        {"instance_id": "gsm_sym_t03_i1", "question": "If 84 rolls are divided evenly among 6 baskets, how many rolls does each basket hold?", "answer": 14, "clause_role": ""},
+        {"instance_id": "gsm_sym_t03_i2", "question": "Distributing 84 rolls equally across 6 baskets gives how many rolls per basket?", "answer": 14, "clause_role": ""}
+      ]
+    }
+  ]
+}
