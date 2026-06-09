@@ -1,0 +1,106 @@
+{
+  "table": {
+    "ibm-granite/granite-4.0-h-micro": {
+      "label": "Granite Micro",
+      "params": "~3B",
+      "peak_k": 3,
+      "lme": {
+        "score": 0.56,
+        "cost": 0.00013
+      },
+      "cr": {
+        "score": 0.867,
+        "cost": 5e-05
+      },
+      "pa": {
+        "score": 0.867,
+        "cost": 4e-05
+      }
+    },
+    "ibm-granite/granite-4.1-8b": {
+      "label": "Granite 4.1 8B",
+      "params": "7-8B",
+      "peak_k": 10,
+      "lme": {
+        "score": 0.6,
+        "cost": 0.00134
+      },
+      "cr": {
+        "score": 0.833,
+        "cost": 6e-05
+      },
+      "pa": {
+        "score": 0.967,
+        "cost": 8e-05
+      }
+    },
+    "meta-llama/llama-3.2-3b-instruct": {
+      "label": "Llama 3.2 3B",
+      "params": "~3B",
+      "peak_k": 3,
+      "lme": {
+        "score": 0.44,
+        "cost": 0.00041
+      },
+      "cr": {
+        "score": 0.567,
+        "cost": 0.00011
+      },
+      "pa": {
+        "score": 0.633,
+        "cost": 9e-05
+      }
+    },
+    "meta-llama/llama-3.1-8b-instruct": {
+      "label": "Llama 3.1 8B",
+      "params": "7-8B",
+      "peak_k": 5,
+      "lme": {
+        "score": 0.56,
+        "cost": 0.00026
+      },
+      "cr": {
+        "score": 0.833,
+        "cost": 3e-05
+      },
+      "pa": {
+        "score": 0.767,
+        "cost": 3e-05
+      }
+    },
+    "qwen/qwen-2.5-7b-instruct": {
+      "label": "Qwen 2.5 7B",
+      "params": "7-8B",
+      "peak_k": 3,
+      "lme": {
+        "score": 0.56,
+        "cost": 0.00032
+      },
+      "cr": {
+        "score": 0.367,
+        "cost": 4e-05
+      },
+      "pa": {
+        "score": 0.9,
+        "cost": 6e-05
+      }
+    },
+    "mistralai/ministral-3b-2512": {
+      "label": "Ministral 3B",
+      "params": "~3B",
+      "peak_k": 8,
+      "lme": {
+        "score": 0.52,
+        "cost": 0.00212
+      },
+      "cr": {
+        "score": 0.767,
+        "cost": 9e-05
+      },
+      "pa": {
+        "score": 0.833,
+        "cost": 0.00013
+      }
+    }
+  }
+}

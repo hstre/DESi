@@ -1,0 +1,70 @@
+{
+  "N": 30,
+  "by_condition": {
+    "Q8-proxy (8B)__raw": {
+      "score": 0.233,
+      "errors": 2,
+      "n": 30
+    },
+    "Q8-proxy (8B)__state": {
+      "score": 0.5,
+      "errors": 0,
+      "n": 30
+    },
+    "Q4-proxy (micro)__raw": {
+      "score": 0.133,
+      "errors": 2,
+      "n": 30
+    },
+    "Q4-proxy (micro)__state": {
+      "score": 0.4,
+      "errors": 0,
+      "n": 30
+    }
+  },
+  "by_question_type": {
+    "knowledge-update": {
+      "n": 5,
+      "8b_raw": 0.6,
+      "micro_raw": 0.4,
+      "8b_state": 0.8,
+      "micro_state": 1.0
+    },
+    "multi-session": {
+      "n": 5,
+      "8b_raw": 0.0,
+      "micro_raw": 0.0,
+      "8b_state": 0.2,
+      "micro_state": 0.0
+    },
+    "single-session-assistant": {
+      "n": 5,
+      "8b_raw": 0.4,
+      "micro_raw": 0.4,
+      "8b_state": 0.8,
+      "micro_state": 0.8
+    },
+    "single-session-preference": {
+      "n": 5,
+      "8b_raw": 0.0,
+      "micro_raw": 0.0,
+      "8b_state": 0.0,
+      "micro_state": 0.0
+    },
+    "single-session-user": {
+      "n": 5,
+      "8b_raw": 0.2,
+      "micro_raw": 0.0,
+      "8b_state": 0.8,
+      "micro_state": 0.4
+    },
+    "temporal-reasoning": {
+      "n": 5,
+      "8b_raw": 0.2,
+      "micro_raw": 0.0,
+      "8b_state": 0.4,
+      "micro_state": 0.2
+    }
+  },
+  "total_cost_usd": 0.217
+}

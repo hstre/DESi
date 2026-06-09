@@ -1,0 +1,41 @@
+{
+  "N_scorable": 25,
+  "curve": {
+    "3": {
+      "q4_score": 0.56,
+      "q8_score": 0.44,
+      "recall": 0.807,
+      "q4_tokens_in": 7740,
+      "q8_tokens_in": 8139,
+      "q4_latency_ms": 2133,
+      "q8_latency_ms": 1163
+    },
+    "5": {
+      "q4_score": 0.48,
+      "q8_score": 0.52,
+      "recall": 0.917,
+      "q4_tokens_in": 12697,
+      "q8_tokens_in": 13350,
+      "q4_latency_ms": 3004,
+      "q8_latency_ms": 1356
+    },
+    "8": {
+      "q4_score": 0.48,
+      "q8_score": 0.52,
+      "recall": 0.94,
+      "q4_tokens_in": 20408,
+      "q8_tokens_in": 21436,
+      "q4_latency_ms": 4636,
+      "q8_latency_ms": 1756
+    },
+    "10": {
+      "q4_score": 0.4,
+      "q8_score": 0.6,
+      "recall": 0.96,
+      "q4_tokens_in": 25333,
+      "q8_tokens_in": 26599,
+      "q4_latency_ms": 5481,
+      "q8_latency_ms": 2596
+    }
+  }
+}

@@ -1,0 +1,207 @@
+{
+  "schema_version": "0.1.0",
+  "description": "Empirisch erhobene Routing-Tabelle für DESi. Jede Zelle ist (task_class, model, k) -> (score, mean_input_tokens, mean_latency_ms, cost_per_item_usd). Quelle: minimaltest-Serie auf LongMemEval-S (25 scorable items), SciFact (30 items), planted-bug code-review (15 items).",
+  "tasks": {
+    "memory_recall": {
+      "description": "LongMemEval-S — multi-session conversation history, factual lookup. Tests retrieval + small-context-window pressure.",
+      "haystack_size_tokens_avg": 100000,
+      "question_specificity": "high",
+      "scoring": "substring_match",
+      "n_test_items": 25,
+      "winning_strategy": "embedding_top_k",
+      "winning_state_note": "k varies per model",
+      "cells": [
+        {"model": "ibm-granite/granite-4.0-h-micro", "params": "~3B", "k": 3, "score": 0.560, "mean_tokens_in": 7740, "mean_latency_ms": 2100, "cost_per_item_usd": 0.00013},
+        {"model": "ibm-granite/granite-4.1-8b",      "params": "8B",  "k": 10, "score": 0.600, "mean_tokens_in": 26599, "mean_latency_ms": 2600, "cost_per_item_usd": 0.00134},
+        {"model": "meta-llama/llama-3.2-3b-instruct", "params": "3B", "k": 3, "score": 0.440, "mean_tokens_in": 7828, "mean_latency_ms": 700, "cost_per_item_usd": 0.00041},
+        {"model": "meta-llama/llama-3.1-8b-instruct", "params": "8B", "k": 5, "score": 0.560, "mean_tokens_in": 12699, "mean_latency_ms": 2200, "cost_per_item_usd": 0.00026},
+        {"model": "qwen/qwen-2.5-7b-instruct",        "params": "7B", "k": 3, "score": 0.560, "mean_tokens_in": 7818, "mean_latency_ms": 1600, "cost_per_item_usd": 0.00032},
+        {"model": "mistralai/ministral-3b-2512",      "params": "3B", "k": 8, "score": 0.520, "mean_tokens_in": 21180, "mean_latency_ms": 2700, "cost_per_item_usd": 0.00212},
+        {"model": "anthropic/claude-haiku-4.5",       "params": "frontier-cheap", "k": 10, "score": 0.680, "mean_tokens_in": 28246, "mean_latency_ms": 3900, "cost_per_item_usd": 0.02884, "note": "highest score across all 14 measured models"},
+        {"model": "openai/gpt-4o-mini",               "params": "frontier-cheap", "k": 8,  "score": 0.640, "mean_tokens_in": 20099, "mean_latency_ms": 3600, "cost_per_item_usd": 0.00303},
+        {"model": "google/gemini-2.5-flash-lite",     "params": "frontier-cheap", "k": 5,  "score": 0.600, "mean_tokens_in": 13147, "mean_latency_ms": 1900, "cost_per_item_usd": 0.00132},
+        {"model": "anthropic/claude-sonnet-4.6",      "params": "frontier-mid",   "k": 8,  "score": 0.640, "mean_tokens_in": 22775, "mean_latency_ms": 5300, "cost_per_item_usd": 0.06946},
+        {"model": "google/gemini-2.5-flash",          "params": "frontier-cheap-mid", "k": 5, "score": 0.520, "mean_tokens_in": 13147, "mean_latency_ms": 3400, "cost_per_item_usd": 0.00397},
+        {"model": "google/gemini-2.5-pro",            "params": "frontier-mid",   "k": 5,  "score": 0.280, "mean_tokens_in": 13147, "mean_latency_ms": 5600, "cost_per_item_usd": 0.01893, "note": "disappointing — Pareto-dominated"},
+        {"model": "deepseek/deepseek-v4-flash",       "params": "frontier-cheap", "k": 8,  "score": 0.560, "mean_tokens_in": 20099, "mean_latency_ms": 10400, "cost_per_item_usd": 0.00203},
+        {"model": "deepseek/deepseek-v4-pro",         "params": "frontier-cheap-mid", "k": 8, "score": 0.560, "mean_tokens_in": 20099, "mean_latency_ms": 13000, "cost_per_item_usd": 0.00903, "note": "weak vs cheaper DS siblings"},
+        {"model": "deepseek/deepseek-v3.2",           "params": "frontier-cheap", "k": 5,  "score": 0.640, "mean_tokens_in": 12699, "mean_latency_ms": 7100, "cost_per_item_usd": 0.00291, "note": "tied for best memory @k=5"},
+        {"model": "deepseek/deepseek-chat-v3.1",      "params": "frontier-cheap", "k": 8,  "score": 0.640, "mean_tokens_in": 20099, "mean_latency_ms": 9100, "cost_per_item_usd": 0.00429},
+        {"model": "deepseek/deepseek-chat-v3-0324",   "params": "frontier-cheap", "k": 5,  "score": 0.600, "mean_tokens_in": 12699, "mean_latency_ms": 7100, "cost_per_item_usd": 0.00257}
+      ]
+    },
+    "code_audit": {
+      "description": "Planted-bug code review — 15 distinct bug types in 9-module mini-codebase. Tests bug localization with scattered evidence.",
+      "haystack_size_tokens_avg": 600,
+      "question_specificity": "low",
+      "scoring": "function_name + bug_marker in response",
+      "n_test_items": 15,
+      "winning_strategy": "raw_full",
+      "winning_state_note": "retrieval HURTS — 40% recall on generic 'find bugs' question",
+      "cells": [
+        {"model": "ibm-granite/granite-4.0-h-micro", "params": "~3B", "k": null, "score": 0.867, "mean_tokens_in": 558, "mean_latency_ms": 11500, "cost_per_item_usd": 0.00005, "note": "best score on this task"},
+        {"model": "ibm-granite/granite-4.1-8b",      "params": "8B",  "k": null, "score": 0.833, "mean_tokens_in": 648, "mean_latency_ms": 2100, "cost_per_item_usd": 0.00006},
+        {"model": "meta-llama/llama-3.2-3b-instruct", "params": "3B", "k": null, "score": 0.567, "mean_tokens_in": null, "mean_latency_ms": null, "cost_per_item_usd": 0.00011},
+        {"model": "meta-llama/llama-3.1-8b-instruct", "params": "8B", "k": null, "score": 0.833, "mean_tokens_in": null, "mean_latency_ms": null, "cost_per_item_usd": 0.00003, "note": "Pareto-cheapest at score >= 0.5"},
+        {"model": "qwen/qwen-2.5-7b-instruct",        "params": "7B", "k": null, "score": 0.367, "mean_tokens_in": null, "mean_latency_ms": null, "cost_per_item_usd": 0.00004, "note": "AVOID — worst score across all models on this task"},
+        {"model": "mistralai/ministral-3b-2512",      "params": "3B", "k": null, "score": 0.767, "mean_tokens_in": null, "mean_latency_ms": null, "cost_per_item_usd": 0.00009},
+        {"model": "anthropic/claude-haiku-4.5",       "params": "frontier-cheap", "k": null, "score": 0.967, "mean_tokens_in": 656, "mean_latency_ms": 3400, "cost_per_item_usd": 0.00151},
+        {"model": "openai/gpt-4o-mini",               "params": "frontier-cheap", "k": null, "score": 0.933, "mean_tokens_in": 558, "mean_latency_ms": 4500, "cost_per_item_usd": 0.00027},
+        {"model": "google/gemini-2.5-flash-lite",     "params": "frontier-cheap", "k": null, "score": 0.967, "mean_tokens_in": 623, "mean_latency_ms": 2400, "cost_per_item_usd": 0.00013, "note": "new Pareto-cost king: 0.967 at granite-micro price"},
+        {"model": "anthropic/claude-sonnet-4.6",      "params": "frontier-mid",   "k": null, "score": 0.967, "mean_tokens_in": 657, "mean_latency_ms": 6700, "cost_per_item_usd": 0.00666},
+        {"model": "google/gemini-2.5-flash",          "params": "frontier-cheap-mid", "k": null, "score": 0.933, "mean_tokens_in": 623, "mean_latency_ms": 1500, "cost_per_item_usd": 0.00056},
+        {"model": "google/gemini-2.5-pro",            "params": "frontier-mid",   "k": null, "score": 0.500, "mean_tokens_in": 623, "mean_latency_ms": 5100, "cost_per_item_usd": 0.00474, "note": "underperforms"},
+        {"model": "deepseek/deepseek-v4-flash",       "params": "frontier-cheap", "k": null, "score": 0.733, "mean_tokens_in": 563, "mean_latency_ms": 10400, "cost_per_item_usd": 0.00014},
+        {"model": "deepseek/deepseek-v4-pro",         "params": "frontier-cheap-mid", "k": null, "score": 0.467, "mean_tokens_in": 568, "mean_latency_ms": 13000, "cost_per_item_usd": 0.00065, "note": "underperforms vs cheaper DS siblings"},
+        {"model": "deepseek/deepseek-v3.2",           "params": "frontier-cheap", "k": null, "score": 0.967, "mean_tokens_in": 563, "mean_latency_ms": 11500, "cost_per_item_usd": 0.00020},
+        {"model": "deepseek/deepseek-chat-v3.1",      "params": "frontier-cheap", "k": null, "score": 0.867, "mean_tokens_in": 564, "mean_latency_ms": 9100, "cost_per_item_usd": 0.00023},
+        {"model": "deepseek/deepseek-chat-v3-0324",   "params": "frontier-cheap", "k": null, "score": 1.000, "mean_tokens_in": 562, "mean_latency_ms": 13400, "cost_per_item_usd": 0.00029, "note": "PERFECT 1.000 — only model to ace code-audit"}
+      ]
+    },
+    "scientific_claim": {
+      "description": "SciFact 3-way classification: SUPPORT / CONTRADICT / NEI. Tests retrieval + scientific reasoning with high question specificity.",
+      "haystack_size_tokens_avg": 3000,
+      "question_specificity": "very_high",
+      "scoring": "exact_label_match",
+      "n_test_items": 30,
+      "winning_strategy": "embedding_top_k",
+      "winning_state_note": "retrieval recall is 100% on this benchmark, k=3 works well",
+      "cells": [
+        {"model": "ibm-granite/granite-4.0-h-micro", "params": "~3B", "k": 3, "score": 0.867, "mean_tokens_in": 1262, "mean_latency_ms": 4200, "cost_per_item_usd": 0.00004},
+        {"model": "ibm-granite/granite-4.1-8b",      "params": "8B",  "k": 3, "score": 0.967, "mean_tokens_in": 1302, "mean_latency_ms": 1200, "cost_per_item_usd": 0.00008, "note": "best score on this task"},
+        {"model": "meta-llama/llama-3.2-3b-instruct", "params": "3B", "k": 3, "score": 0.633, "mean_tokens_in": null, "mean_latency_ms": null, "cost_per_item_usd": 0.00009},
+        {"model": "meta-llama/llama-3.1-8b-instruct", "params": "8B", "k": 3, "score": 0.767, "mean_tokens_in": null, "mean_latency_ms": null, "cost_per_item_usd": 0.00003, "note": "Pareto-cheapest at score >= 0.5"},
+        {"model": "qwen/qwen-2.5-7b-instruct",        "params": "7B", "k": 3, "score": 0.900, "mean_tokens_in": null, "mean_latency_ms": null, "cost_per_item_usd": 0.00006, "note": "specializes in scientific text — strong here"},
+        {"model": "mistralai/ministral-3b-2512",      "params": "3B", "k": 3, "score": 0.833, "mean_tokens_in": null, "mean_latency_ms": null, "cost_per_item_usd": 0.00013},
+        {"model": "anthropic/claude-haiku-4.5",       "params": "frontier-cheap", "k": 3, "score": 0.867, "mean_tokens_in": 1422, "mean_latency_ms": 2600, "cost_per_item_usd": 0.00202},
+        {"model": "openai/gpt-4o-mini",               "params": "frontier-cheap", "k": 3, "score": 0.933, "mean_tokens_in": 1225, "mean_latency_ms": 1200, "cost_per_item_usd": 0.00021},
+        {"model": "google/gemini-2.5-flash-lite",     "params": "frontier-cheap", "k": 3, "score": 0.900, "mean_tokens_in": 1229, "mean_latency_ms": 1700, "cost_per_item_usd": 0.00014},
+        {"model": "anthropic/claude-sonnet-4.6",      "params": "frontier-mid",   "k": 3, "score": 0.800, "mean_tokens_in": 1423, "mean_latency_ms": 2900, "cost_per_item_usd": 0.00544},
+        {"model": "google/gemini-2.5-flash",          "params": "frontier-cheap-mid", "k": 3, "score": 0.833, "mean_tokens_in": 1229, "mean_latency_ms": 900, "cost_per_item_usd": 0.00050},
+        {"model": "google/gemini-2.5-pro",            "params": "frontier-mid",   "k": 3, "score": 0.667, "mean_tokens_in": 1229, "mean_latency_ms": 3400, "cost_per_item_usd": 0.00350},
+        {"model": "deepseek/deepseek-v4-flash",       "params": "frontier-cheap", "k": 3, "score": 0.733, "mean_tokens_in": 1191, "mean_latency_ms": 8600, "cost_per_item_usd": 0.00015},
+        {"model": "deepseek/deepseek-v4-pro",         "params": "frontier-cheap-mid", "k": 3, "score": 0.500, "mean_tokens_in": 1197, "mean_latency_ms": 8100, "cost_per_item_usd": 0.00068, "note": "underperforms"},
+        {"model": "deepseek/deepseek-v3.2",           "params": "frontier-cheap", "k": 3, "score": 0.900, "mean_tokens_in": 1191, "mean_latency_ms": 7100, "cost_per_item_usd": 0.00029},
+        {"model": "deepseek/deepseek-chat-v3.1",      "params": "frontier-cheap", "k": 3, "score": 0.867, "mean_tokens_in": 1192, "mean_latency_ms": 7400, "cost_per_item_usd": 0.00029},
+        {"model": "deepseek/deepseek-chat-v3-0324",   "params": "frontier-cheap", "k": 3, "score": 0.933, "mean_tokens_in": 1190, "mean_latency_ms": 7100, "cost_per_item_usd": 0.00028}
+      ]
+    }
+  },
+  "untested_tasks": [
+    "multi_hop_reasoning",
+    "temporal_updates_with_conflict",
+    "tool_use_planning",
+    "creative_synthesis",
+    "long_document_summarization"
+  ],
+  "provisional_models": {
+    "_description": "Models not yet empirically validated on DESi's three task classes. Three categories: (1) reasoning-mode-incompatible — API integration bug returns empty content; (2) untested top-tier — calibration cost-prohibitive without specific need.",
+    "_calibration_cost_estimate_usd": {
+      "minimal_longmemeval_only": 1.0,
+      "top_tier_full_three_tasks": 30.0
+    },
+    "models": {
+      "openai/gpt-5-nano": {
+        "provider": "openai", "tier": "cheap",
+        "params": "estimated very small",
+        "context_length": 400000, "price_in_per_m": 0.05, "price_out_per_m": 0.40,
+        "status": "reasoning_mode_incompatible",
+        "note": "Returned empty content on all 145 calibration calls. OpenRouter routes GPT-5 family through reasoning mode where content is empty and the actual answer is in the 'reasoning' field. desi/answerer.py needs to read both fields to support GPT-5."
+      },
+      "openai/gpt-5": {
+        "provider": "openai", "tier": "mid",
+        "params": "estimated mid",
+        "context_length": 400000, "price_in_per_m": 1.25, "price_out_per_m": 10.00,
+        "status": "reasoning_mode_incompatible",
+        "note": "Same reasoning-mode issue as gpt-5-nano. Spent some output tokens (so the request worked), but content field is empty."
+      },
+      "anthropic/claude-opus-4.8": {
+        "provider": "anthropic", "tier": "top",
+        "params": "estimated large (Opus class)",
+        "context_length": 1000000, "price_in_per_m": 5.00, "price_out_per_m": 25.00,
+        "status": "untested_top_tier",
+        "note": "Full calibration would cost ~\\$15-20. Only worth running if a specific need arises (e.g. a task where Sonnet 4.6 is the current ceiling and we need to know whether Opus closes the gap)."
+      },
+      "openai/gpt-5-pro": {
+        "provider": "openai", "tier": "top",
+        "params": "estimated large",
+        "context_length": 400000, "price_in_per_m": 15.00, "price_out_per_m": 120.00,
+        "status": "untested_top_tier",
+        "note": "Also reasoning-mode — both untested AND incompatible with current call_or() output parsing. Two issues to fix before promotion."
+      }
+    },
+    "calibration_results_summary": {
+      "calibrated_at": "2026-06-01",
+      "n_models_tested": 8,
+      "n_models_promoted_to_cells": 6,
+      "n_models_remain_provisional": 2,
+      "actual_cost_usd": 4.20,
+      "hypotheses_resolved": {
+        "k_star_generalizes_across_providers": "PARTIAL — k* exists for all measured frontier models, but values trend higher (k=5-10) than open-source small models (k=3). claude-haiku-4.5 peaks at k=10 (long-context capable cheap tier).",
+        "frontier_models_have_task_specialty": "YES — gemini-2.5-pro disappointing (0.28/0.50/0.67); gemini-2.5-flash-lite dominant on code/paper but only 0.60 on memory; sonnet-4.6 not best on paper-audit (0.80, beat by gpt-4o-mini 0.93).",
+        "cross_provider_mix_pareto_dominates": "LIKELY — at the Pareto-cost level, the winners per task come from different providers (Granite Micro for cheapest memory, gemini-2.5-flash-lite for cheapest code+paper). Needs mixed-workload re-run to confirm.",
+        "gpt5_nano_is_new_floor": "NO — gpt-5-nano returns empty content (reasoning-mode integration bug). Cannot conclude without fixing call_or() to read reasoning field."
+      }
+    }
+  },
+  "router_rules": {
+    "memory_recall": {
+      "default": {"model": "ibm-granite/granite-4.0-h-micro", "k": 3, "reason": "Pareto-cheapest at score >= 0.5 (\\$0.00013, score 0.56)"},
+      "balanced": {"model": "google/gemini-2.5-flash-lite", "k": 5, "reason": "Score 0.60 at \\$0.00132 — same score as Granite 8B at similar cost"},
+      "high_accuracy": {"model": "anthropic/claude-haiku-4.5", "k": 10, "reason": "Highest measured score 0.68 — 222x cost of cheapest"},
+      "low_latency": {"model": "meta-llama/llama-3.2-3b-instruct", "k": 3, "reason": "0.7s but score only 0.44"}
+    },
+    "code_audit": {
+      "default": {"model": "deepseek/deepseek-chat-v3-0324", "k": null, "reason": "PERFECT 1.000 score at \\$0.00029 — only model to ace this task"},
+      "cost_critical": {"model": "meta-llama/llama-3.1-8b-instruct", "k": null, "reason": "Score 0.833 at \\$0.00003 — absolute cheapest above 0.5"},
+      "pareto_cost_optimal": {"model": "google/gemini-2.5-flash-lite", "k": null, "reason": "Score 0.967 at \\$0.00013 — Pareto-cost-optimal at this score level"},
+      "deepseek_cheap_alternative": {"model": "deepseek/deepseek-v3.2", "k": null, "reason": "Score 0.967 at \\$0.00020 — strong DS-cheap option"},
+      "avoid": ["qwen/qwen-2.5-7b-instruct", "google/gemini-2.5-pro", "deepseek/deepseek-v4-pro"]
+    },
+    "scientific_claim": {
+      "default": {"model": "ibm-granite/granite-4.1-8b", "k": 3, "reason": "Best score 0.967 with retrieval"},
+      "cost_critical": {"model": "meta-llama/llama-3.1-8b-instruct", "k": 3, "reason": "Score 0.767 at \\$0.00003"},
+      "qwen_specialty": {"model": "qwen/qwen-2.5-7b-instruct", "k": 3, "score": 0.900, "reason": "Qwen specializes in scientific text"}
+    }
+  },
+  "escalation_rules": {
+    "_description": "Per-task escalation policies derived from empirical confidence calibration (ab_evidence/results/confidence_calibration_summary.json, 3295 runs across 57 cells). When the default model returns low-confidence, should we re-route to a stronger model? Answer is task-specific.",
+    "memory_recall": {
+      "escalate_on_low_conf": true,
+      "escalation_target_model": "anthropic/claude-haiku-4.5",
+      "escalation_target_k": 10,
+      "expected_gain": 0.61,
+      "trigger_rate": 0.16,
+      "rationale": "granite-micro at low-conf is correct 0% of the time (n=38); haiku-4.5 overall is 0.61. Massive expected gain on 16% of items. Marginal cost per extra correct answer ~$0.05."
+    },
+    "code_audit": {
+      "escalate_on_low_conf": false,
+      "rationale": "deepseek-chat-v3-0324 at low-conf is correct 100% (small n=1, but heuristic mis-signals on this strong default). Escalation expected gain -0.03. Save the cost."
+    },
+    "scientific_claim": {
+      "escalate_on_low_conf": false,
+      "rationale": "granite-4.1-8b at low-conf is correct 96.2% (n=26). The heuristic mis-reads NEI-verdict phrasing as hedging — but NEI is often the correct answer. Escalation expected gain -0.03. Save the cost."
+    }
+  },
+  "epistemic_specialties": {
+    "ibm-granite/granite-4.0-h-micro": "Was code audit best-in-class before frontier calibration; remains Pareto-cheapest for memory at score >= 0.5",
+    "ibm-granite/granite-4.1-8b": "Max score on scientific_claim (0.967); long-context capable (k=10) on memory",
+    "meta-llama/llama-3.1-8b-instruct": "Pareto-cheapest at score >= 0.5 on code and science (\\$0.00003); cheap frontier-OSS hybrid pick",
+    "qwen/qwen-2.5-7b-instruct": "Strong on scientific text (0.90), catastrophic on code (0.37) — task-heterogeneity ratio 2.4x",
+    "anthropic/claude-haiku-4.5": "Highest measured score on memory_recall (0.68 @k=10) — long-context cheap tier; 0.967 on code-audit; 222x granite-micro cost",
+    "anthropic/claude-sonnet-4.6": "0.967 on code-audit, 0.640 on memory @k=8; weaker on paper (0.80) than expected; pricey at \\$0.07/item on memory",
+    "openai/gpt-4o-mini": "Solid Frontier-cheap: 0.640/0.933/0.933 across all three tasks; reliable cross-task baseline",
+    "google/gemini-2.5-flash-lite": "New Pareto-cost king on code-audit and paper-audit (0.967/0.900 at ~\\$0.0001/item); long-context (1M tokens)",
+    "google/gemini-2.5-flash": "Cheap-mid: 0.520/0.933/0.833 — solid all-rounder, fastest latency on paper-audit (0.9s)",
+    "google/gemini-2.5-pro": "DISAPPOINTING — 0.280/0.500/0.667 at mid-tier pricing; Pareto-dominated by gemini-flash and gpt-4o-mini",
+    "meta-llama/llama-3.2-3b-instruct": "Fastest latency (0.7s) but weak scores across all tasks",
+    "mistralai/ministral-3b-2512": "Solid all-rounder but Pareto-dominated by Granite Micro and Llama 8B"
+  },
+  "open_questions": [
+    "Does this routing table generalize across more task classes (multi-hop, tool-use, creative)?",
+    "What is the k* for Llama / Qwen / Mistral on Code-Audit and Paper-Audit specifically (we only used the Granite-winning state)?",
+    "Is there a structural signature (model architecture / training mix) that predicts k* and task specialty?",
+    "How does the router behave under task-class uncertainty (when the input doesn't cleanly belong to one bucket)?",
+    "Confidence signals: can we read self-uncertainty from logprobs / verdict-confidence and use that for escalation?"
+  ]
+}

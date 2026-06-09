@@ -1,0 +1,93 @@
+{
+  "N": 180,
+  "by_length": {
+    "4096": {
+      "niah_multikey_2": {
+        "n": 20,
+        "ds_a": 1.0,
+        "ds_b": 1.0,
+        "gr_a": 0.95,
+        "gr_b": 1.0,
+        "delta_ds": 0.0,
+        "delta_gr": 0.05
+      },
+      "niah_single_1": {
+        "n": 20,
+        "ds_a": 1.0,
+        "ds_b": 1.0,
+        "gr_a": 1.0,
+        "gr_b": 1.0,
+        "delta_ds": 0.0,
+        "delta_gr": 0.0
+      },
+      "niah_single_3": {
+        "n": 20,
+        "ds_a": 0.95,
+        "ds_b": 0.9,
+        "gr_a": 0.8,
+        "gr_b": 0.8,
+        "delta_ds": -0.05,
+        "delta_gr": 0.0
+      }
+    },
+    "8192": {
+      "niah_multikey_2": {
+        "n": 20,
+        "ds_a": 1.0,
+        "ds_b": 0.95,
+        "gr_a": 0.9,
+        "gr_b": 0.9,
+        "delta_ds": -0.05,
+        "delta_gr": 0.0
+      },
+      "niah_single_1": {
+        "n": 20,
+        "ds_a": 1.0,
+        "ds_b": 1.0,
+        "gr_a": 1.0,
+        "gr_b": 1.0,
+        "delta_ds": 0.0,
+        "delta_gr": 0.0
+      },
+      "niah_single_3": {
+        "n": 20,
+        "ds_a": 0.75,
+        "ds_b": 0.85,
+        "gr_a": 0.75,
+        "gr_b": 0.95,
+        "delta_ds": 0.1,
+        "delta_gr": 0.2
+      }
+    },
+    "16384": {
+      "niah_multikey_2": {
+        "n": 20,
+        "ds_a": 1.0,
+        "ds_b": 1.0,
+        "gr_a": 0.7,
+        "gr_b": 0.95,
+        "delta_ds": 0.0,
+        "delta_gr": 0.25
+      },
+      "niah_single_1": {
+        "n": 20,
+        "ds_a": 1.0,
+        "ds_b": 1.0,
+        "gr_a": 0.9,
+        "gr_b": 1.0,
+        "delta_ds": 0.0,
+        "delta_gr": 0.1
+      },
+      "niah_single_3": {
+        "n": 20,
+        "ds_a": 0.55,
+        "ds_b": 1.0,
+        "gr_a": 0.45,
+        "gr_b": 0.75,
+        "delta_ds": 0.45,
+        "delta_gr": 0.3
+      }
+    }
+  },
+  "total_cost_usd": 0.8375
+}

@@ -1,0 +1,26 @@
+{
+  "id": "case2_research",
+  "type": "research_analysis",
+  "description": "Analyzing whether a sudden drop in user retention was caused by a UI change or a pricing change. Competing hypotheses.",
+  "chat": [
+    {"role": "user", "content": "We had a 14% drop in week-4 retention starting on March 11. Two things shipped that week: a redesigned onboarding flow on March 9, and a pricing-page A/B test that ran from March 10 to March 24. We need to figure out which one caused the drop, if either."},
+    {"role": "assistant", "content": "Do we have a control group for either change?"},
+    {"role": "user", "content": "Only for pricing. The pricing A/B was 50/50 random assignment. Onboarding was rolled out to 100%, no control."},
+    {"role": "assistant", "content": "Then the cleanest signal is whether the pricing test arm shows the drop and the control arm doesn't. Have we looked?"},
+    {"role": "user", "content": "We pulled the numbers. Pricing test arm: 13.8% drop. Pricing control arm: 13.1% drop. The drop is in both arms. So the pricing change is not the dominant cause."},
+    {"role": "assistant", "content": "That's pretty conclusive on pricing. The remaining candidate is onboarding, but we have no control. Can we use a pre-post comparison with a control series?"},
+    {"role": "user", "content": "We have organic-search-only signups as a quasi-control because they go through a different onboarding (legacy). Their week-4 retention is flat over the same window. That's suggestive but not airtight: organic-search users may differ in baseline."},
+    {"role": "assistant", "content": "It's a weak control, but better than nothing. If organic is flat and paid-funnel users (who got the new onboarding) dropped, that's consistent with onboarding being the cause."},
+    {"role": "user", "content": "Right. So our working hypothesis is: the redesigned onboarding caused the drop, not pricing. Pricing is ruled out by the A/B."},
+    {"role": "assistant", "content": "We should note an open question: were there any other infra or product changes in that week that we haven't accounted for? A confounding ship would invalidate the conclusion."},
+    {"role": "user", "content": "Good catch. I'll check the changelog for that week. Open question for now."},
+    {"role": "user", "content": "Also — we should NOT roll back the onboarding change yet. Even if it's correlated, we don't know if it's the activation funnel or the post-onboarding flow that dropped users. Let's instrument first, decide later."},
+    {"role": "assistant", "content": "Agreed. So the plan is: keep onboarding live, instrument the funnel, and reassess in two weeks?"},
+    {"role": "user", "content": "Yes. Two weeks of instrumentation, then we look again. And we explicitly do not claim onboarding causes the drop in any external comms until we have funnel data."},
+    {"role": "assistant", "content": "What about the question of seasonality? Could March 11 just be a calendar effect — spring break, end of fiscal year?"},
+    {"role": "user", "content": "Possible. Last year's same week didn't show this drop, but we shipped many other things since then so the year-over-year comparison is contaminated. I'd treat seasonality as a tentative rival hypothesis we can't fully exclude with current data."},
+    {"role": "assistant", "content": "Recorded as a tentative rival, not ruled out."},
+    {"role": "user", "content": "Last thing: there's a genuine tension here. The PM wants a fast answer for next week's review. The analysis discipline says wait for funnel data. We can't both move fast and be rigorous."},
+    {"role": "assistant", "content": "Real conflict. We need to surface that to leadership, not paper over it."}
+  ]
+}

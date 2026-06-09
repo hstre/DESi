@@ -1,0 +1,25 @@
+{
+  "N": 30,
+  "N_scorable": 25,
+  "by_state_model": {
+    "Q8 (8B)__raw": 0.28,
+    "Q4 (micro)__raw": 0.16,
+    "Q8 (8B)__oracle": 0.6,
+    "Q4 (micro)__oracle": 0.48,
+    "Q8 (8B)__desi_llm": 0.2,
+    "Q4 (micro)__desi_llm": 0.2,
+    "Q8 (8B)__desi_emb": 0.24,
+    "Q4 (micro)__desi_emb": 0.28,
+    "Q8 (8B)__hybrid": 0.12,
+    "Q4 (micro)__hybrid": 0.16
+  },
+  "hybrid_retention_pct": -60.0,
+  "extraction_diagnostics": {
+    "cards_per_item_mean": 10.9,
+    "sessions_with_cards_mean": 4.1,
+    "hallucinated_cards_total": 184,
+    "evidence_recall_mean": 0.967
+  },
+  "total_cost_usd": 0.0193,
+  "extractor_cost_usd": 0.0175
+}

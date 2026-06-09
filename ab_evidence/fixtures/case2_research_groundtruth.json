@@ -1,0 +1,29 @@
+{
+  "id": "case2_research",
+  "frozen": "ground truth annotated manually by the author after reading the chat, BEFORE writing any extractor or running any A/B; never modified afterwards",
+  "expected": {
+    "active_claims": [
+      {"id": "C1", "what": "the pricing-page A/B test is NOT the dominant cause of the week-4 retention drop (drop appears in both arms: 13.8% test vs 13.1% control)", "evidence": "established"},
+      {"id": "C2", "what": "working hypothesis: the redesigned onboarding caused the drop", "evidence": "likely"},
+      {"id": "C3", "what": "organic-search signups (legacy onboarding) showed flat week-4 retention in the same window — a weak but supportive quasi-control", "evidence": "likely"},
+      {"id": "C4", "what": "seasonality is a tentative rival hypothesis that cannot be fully excluded with current data", "evidence": "unclear"}
+    ],
+    "active_constraints": [
+      {"id": "R1", "what": "do not roll back the onboarding change yet; instrument the funnel first"},
+      {"id": "R2", "what": "do not claim externally that onboarding causes the drop until funnel data is available"}
+    ],
+    "decisions": [
+      {"id": "D1", "what": "rule out the pricing change as the primary cause (based on the A/B comparison)"},
+      {"id": "D2", "what": "keep the new onboarding live; instrument the funnel; reassess in two weeks"},
+      {"id": "D3", "what": "treat the organic-search comparison as a quasi-control, not an airtight control"}
+    ],
+    "open_conflicts": [
+      {"id": "K1", "what": "PM wants a fast answer for next week's review; analysis discipline says wait for funnel data — speed vs rigor", "claim_ids": []}
+    ],
+    "open_questions": [
+      {"id": "Q1", "what": "were there other infra or product changes in that week that could be confounders (check the changelog)"},
+      {"id": "Q2", "what": "is the drop in the activation funnel itself or in the post-onboarding flow"},
+      {"id": "Q3", "what": "how do we surface the speed-vs-rigor conflict to leadership rather than paper over it"}
+    ]
+  }
+}

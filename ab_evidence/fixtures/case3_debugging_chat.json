@@ -1,0 +1,29 @@
+{
+  "id": "case3_debugging",
+  "type": "software_debugging",
+  "description": "Debugging a memory leak in a long-running worker process. Multiple decisions, architectural implications.",
+  "chat": [
+    {"role": "user", "content": "Our background worker leaks memory: RSS grows ~80MB per hour and OOMs after about a day. It started after we shipped v4.2 last Wednesday."},
+    {"role": "assistant", "content": "Anything obvious in the v4.2 diff? Caches, global lists, connection pools?"},
+    {"role": "user", "content": "Three changes: switched the HTTP client from requests to httpx, added a per-task in-memory cache for parsed YAML configs, and updated the JSON serializer."},
+    {"role": "assistant", "content": "The per-task in-memory cache is suspicious. Is it process-global or task-scoped?"},
+    {"role": "user", "content": "I named it 'per-task' but actually it lives in a module-level dict. So effectively process-global. That looks like the leak."},
+    {"role": "assistant", "content": "Did you bound it with an LRU or just an unbounded dict?"},
+    {"role": "user", "content": "Unbounded dict, keyed by config-path-plus-hash. With unique tasks running over hours that grows monotonically. That's the bug."},
+    {"role": "assistant", "content": "Quick fix: wrap it in functools.lru_cache with a maxsize, or use cachetools.LRUCache?"},
+    {"role": "user", "content": "Decision: use functools.lru_cache(maxsize=256). It's stdlib, no new dep."},
+    {"role": "assistant", "content": "Are we sure the httpx switch doesn't also leak? httpx-Client objects need explicit close."},
+    {"role": "user", "content": "Good question. We need to verify that. I think we use httpx.Client as a context manager everywhere, but I haven't checked."},
+    {"role": "assistant", "content": "If httpx clients aren't closed, they hold connection pools. That can look like a leak under load. Worth a regression test before we ship the lru_cache fix."},
+    {"role": "user", "content": "Add the test. Don't ship the cache fix until we've verified httpx isn't also leaking. The two could mask each other."},
+    {"role": "assistant", "content": "Also: should we add a memory-budget alert at the worker level? RSS > 1GB → page someone?"},
+    {"role": "user", "content": "Yes, but as a follow-up. Don't block the leak fix on adding alerting infra."},
+    {"role": "user", "content": "And on the JSON serializer — we briefly considered switching to orjson. I think we should not, for now. It's a new C dependency and the perf gain doesn't justify the risk while we have a leak."},
+    {"role": "assistant", "content": "Drop orjson direction, keep stdlib json."},
+    {"role": "user", "content": "Question we haven't answered: are there other module-level mutable containers in the codebase that could leak the same way? We patched one; the pattern might exist elsewhere."},
+    {"role": "assistant", "content": "Worth a static audit. Not now, but flag it."},
+    {"role": "user", "content": "Tension: we want to ship the fix today to stop the OOM bleeding. But the proper diligence (verify httpx, run a memory regression suite, audit for similar patterns) takes another day or two. Ship today vs ship right."},
+    {"role": "assistant", "content": "Ship the lru_cache fix as a hotfix today, do the rest in a follow-up branch. That's the honest compromise."},
+    {"role": "user", "content": "Agreed: hotfix today with the lru_cache. Follow-up branch for httpx verification, memory regression, and the broader audit. Document the partial fix as such."}
+  ]
+}

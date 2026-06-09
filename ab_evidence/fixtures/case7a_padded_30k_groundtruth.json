@@ -1,0 +1,380 @@
+{
+  "id": "case7a_padded_30k",
+  "frozen": "IDENTICAL to case6 GT; padding adds NO new GT items by construction",
+  "expected": {
+    "active_claims": [
+      {
+        "id": "C1",
+        "what": "Neo4j has not been benchmarked at 50 billion edges; public references cap at single-digit billions and required professional services",
+        "evidence": "established"
+      },
+      {
+        "id": "C2",
+        "what": "JanusGraph on Cassandra is the most credible scale story among open-source graph stores at our budget",
+        "evidence": "likely"
+      },
+      {
+        "id": "C3",
+        "what": "Cassandra incremental backup gives a timestamp boundary but not snapshot isolation in the SQL sense",
+        "evidence": "established"
+      },
+      {
+        "id": "C4",
+        "what": "eventual consistency is acceptable for v1 analytical because there are no audit-style analytical queries in scope",
+        "evidence": "likely"
+      },
+      {
+        "id": "C5",
+        "what": "constraining the online API is essential for the 50ms p99 latency guarantee",
+        "evidence": "likely"
+      },
+      {
+        "id": "C6",
+        "what": "Postgres-with-AGE will not fit at our scale; the sharded Citus-on-AGE variant becomes exotic and defeats the simpler-stack motivation",
+        "evidence": "likely"
+      },
+      {
+        "id": "C7",
+        "what": "an erasure log keyed by user id is itself user data under GDPR but is required to prove erasure happened",
+        "evidence": "unclear"
+      },
+      {
+        "id": "C8",
+        "what": "GDPR does not require instant erasure; 5-minute analytical erasure window is permissible under 'without undue delay'",
+        "evidence": "likely"
+      },
+      {
+        "id": "C9",
+        "what": "JanusGraph autoscaling is constrained by Cassandra rebalancing cost; new nodes take minutes to hours to become useful",
+        "evidence": "likely"
+      },
+      {
+        "id": "C10",
+        "what": "JanusGraph 25ms p99 is feasible only if cache hit rates stay high (likely >85%)",
+        "evidence": "likely"
+      },
+      {
+        "id": "C11",
+        "what": "Parquet on graph data typically achieves 3-5x compression vs raw Cassandra storage",
+        "evidence": "likely"
+      },
+      {
+        "id": "C12",
+        "what": "pure technical solutions cannot fully solve insider-threat risk; role/break-glass/anomaly/culture together are best available",
+        "evidence": "likely"
+      },
+      {
+        "id": "C13",
+        "what": "DuckDB is read-only on Parquet so destructive SQL statements are impossible at the engine layer",
+        "evidence": "established"
+      },
+      {
+        "id": "C14",
+        "what": "cross-tenant graph leakage depends on whether traversed vertex types are user-private or shared",
+        "evidence": "likely"
+      }
+    ],
+    "active_constraints": [
+      {
+        "id": "R1",
+        "what": "online lookups must hit p99 under 50ms and p50 under 10ms"
+      },
+      {
+        "id": "R2",
+        "what": "analytical staleness must not exceed 5 minutes (hard data-team requirement)"
+      },
+      {
+        "id": "R3",
+        "what": "snapshots must use Cassandra incremental backup with a consistent timestamp boundary; no naive nodetool snapshot on live tables"
+      },
+      {
+        "id": "R4",
+        "what": "schema changes are additive-only at the edge-type level; renames or tightenings require migrations"
+      },
+      {
+        "id": "R5",
+        "what": "migrations must be idempotent (applying twice is a no-op)"
+      },
+      {
+        "id": "R6",
+        "what": "online API exposes only a fixed set of query patterns; new patterns added via migration, not at runtime (closed-world API)"
+      },
+      {
+        "id": "R7",
+        "what": "no analytical writes ever; analytical is read-only as a hard rule beyond v1"
+      },
+      {
+        "id": "R8",
+        "what": "user-erasure deletes the user's vertices and all edges where the user is an endpoint, in both layers, with analytical propagation within one snapshot window"
+      },
+      {
+        "id": "R9",
+        "what": "5-minute analytical erasure window must be documented and visible to analytical users via API and UI"
+      },
+      {
+        "id": "R10",
+        "what": "encryption at rest for Cassandra and Parquet; encryption in transit for all client connections; key management via standard org KMS"
+      },
+      {
+        "id": "R11",
+        "what": "writes to online restricted to the ingestion service authenticated via mTLS"
+      },
+      {
+        "id": "R12",
+        "what": "no cut-over on a Friday, no cut-over before a holiday, no cut-over while any team member is on PTO"
+      },
+      {
+        "id": "R13",
+        "what": "local NVMe storage for live Cassandra data with replication factor 3; no network-attached storage on the latency path"
+      },
+      {
+        "id": "R14",
+        "what": "no new tracing or metrics infrastructure; reuse the org observability stack"
+      },
+      {
+        "id": "R15",
+        "what": "no page without a linked runbook"
+      },
+      {
+        "id": "R16",
+        "what": "incremental backups stream to object storage (S3 or equivalent)"
+      },
+      {
+        "id": "R17",
+        "what": "five-minute snapshots retained only as the current one; daily snapshots retained 14 days; monthly snapshots retained 12 months"
+      },
+      {
+        "id": "R18",
+        "what": "all third-party artifacts mirrored internally; no upstream pulls at build or runtime; SBOM generated per release"
+      },
+      {
+        "id": "R19",
+        "what": "defense-in-depth on row-level access: API-layer filter AND query-validator gate that fails closed if the filter is missing"
+      },
+      {
+        "id": "R20",
+        "what": "vertex schema must mark each vertex type as user-private or shared; queries crossing a user-private boundary without permission must be blocked at the query validator"
+      },
+      {
+        "id": "R21",
+        "what": "analytical exports capped at 1M rows per query, rate limited to 5 exports per hour per user, all exports logged, PII exports flagged for security review"
+      },
+      {
+        "id": "R22",
+        "what": "no SQL string concatenation in the analytical query frontend; all queries via parameterized form"
+      },
+      {
+        "id": "R23",
+        "what": "auth verified at both gateway and service; 15-minute TTL tokens; 10-in-5-min IP block; full auth audit log; quarterly penetration testing"
+      },
+      {
+        "id": "R24",
+        "what": "engineers do not have prod data access by default; break-glass for incidents is audited and reviewed"
+      },
+      {
+        "id": "R25",
+        "what": "partner data access only via partner-scoped DuckDB views; no direct Cassandra access for partners"
+      },
+      {
+        "id": "R26",
+        "what": "partner audit endpoint is scoped to each partner's own access history; no visibility into other partners or internal access"
+      },
+      {
+        "id": "R27",
+        "what": "60-day post-launch feature freeze: only fixes, performance, and ops maturity work"
+      },
+      {
+        "id": "R28",
+        "what": "analytical Parquet schema must be ML-pipeline-ready from day one (consistent column ordering, standard types, no proprietary encodings)"
+      },
+      {
+        "id": "R29",
+        "what": "production date is not committed until all gating items are resolved"
+      }
+    ],
+    "decisions": [
+      {
+        "id": "D1",
+        "what": "physically separate online and analytical workloads"
+      },
+      {
+        "id": "D2",
+        "what": "online store is source of truth; analytical is read-only replica refreshed every 5 minutes"
+      },
+      {
+        "id": "D3",
+        "what": "use JanusGraph on Cassandra for the online side (replaces the earlier Neo4j direction)"
+      },
+      {
+        "id": "D4",
+        "what": "use DuckDB on Parquet for the analytical side"
+      },
+      {
+        "id": "D5",
+        "what": "expose different APIs per workload: constrained REST for online, full SQL for analytical"
+      },
+      {
+        "id": "D6",
+        "what": "no Gremlin endpoint on the analytical side"
+      },
+      {
+        "id": "D7",
+        "what": "shadow-query divergence monitoring at 10-minute interval, alert above 0.1% diff to on-call"
+      },
+      {
+        "id": "D8",
+        "what": "JanusGraph is the architecture choice but production rollout is conditional on confirmed operational expertise"
+      },
+      {
+        "id": "D9",
+        "what": "drop Apache Spark direction; DuckDB is the analytical engine"
+      },
+      {
+        "id": "D10",
+        "what": "append-only erasure log keyed by user id and timestamp, separate from deleted data"
+      },
+      {
+        "id": "D11",
+        "what": "SLOs: p99 online latency <50ms, error rate <0.1%, JanusGraph queue depth <100, freshness <6 minutes (alert) / <10 minutes (page)"
+      },
+      {
+        "id": "D12",
+        "what": "replay-based migration from a known checkpoint, not dual-write (dual-write rejected due to write-load doubling)"
+      },
+      {
+        "id": "D13",
+        "what": "cut-over validation gates: bit-exact result match on holdout, 1.5x throughput test passes, 7-day staging soak; all three are hard gates"
+      },
+      {
+        "id": "D14",
+        "what": "default-no on Redis cache in v1; reconsider only if production measurements force it"
+      },
+      {
+        "id": "D15",
+        "what": "access control: online reads via authenticated REST with row-level access by user identity; analytical reads via SSO restricted to data team users"
+      },
+      {
+        "id": "D16",
+        "what": "static 15-node JanusGraph cluster sized for 20k peak; no storage-layer autoscaling"
+      },
+      {
+        "id": "D17",
+        "what": "API-gateway rate limiting: steady-state limit, bursts allowed within budget, queueing/rejection beyond"
+      },
+      {
+        "id": "D18",
+        "what": "OpenTelemetry distributed tracing at 1% baseline sampling with tail-sampling at p95+ latency"
+      },
+      {
+        "id": "D19",
+        "what": "page thresholds: freshness >10min, p99 >100ms sustained, error rate >1% sustained; sustained = 10 minutes"
+      },
+      {
+        "id": "D20",
+        "what": "quarterly game-day exercises covering at least freshness breach, hot shard, and Cassandra node loss"
+      },
+      {
+        "id": "D21",
+        "what": "online availability target 99.9% (three nines); active-active multi-region explicitly out of scope for v1"
+      },
+      {
+        "id": "D22",
+        "what": "analytical store has no formal availability SLO; freshness SLO is the user-facing reliability signal"
+      },
+      {
+        "id": "D23",
+        "what": "partner access via partner-scoped DuckDB views; partner role in the standard auth flow"
+      },
+      {
+        "id": "D24",
+        "what": "partner rate limits negotiated contractually and enforced at the gateway; conservative defaults"
+      },
+      {
+        "id": "D25",
+        "what": "partner kill-switch: one-command credential revoke at the gateway plus one-command view removal, documented in incident response runbook"
+      },
+      {
+        "id": "D26",
+        "what": "post-v1 deferred features: multi-region active-active, audit-isolation analytical, real-time analytical, Gremlin endpoint, automated schema discovery"
+      },
+      {
+        "id": "D27",
+        "what": "quarterly architecture review with decision log read, items flagged for revisit, RFC + discussion + decision"
+      },
+      {
+        "id": "D28",
+        "what": "six gating items must be resolved before any production date is committed"
+      }
+    ],
+    "open_conflicts": [
+      {
+        "id": "K1",
+        "what": "backfill throughput (hours of bulk load) vs the 5-minute analytical staleness guarantee; during a backfill analytical would be stale by hours or days",
+        "claim_ids": []
+      },
+      {
+        "id": "K2",
+        "what": "scale-fit technology choice vs operational tax on a small team; right-tool-per-workload vs minimizing stack complexity",
+        "claim_ids": []
+      },
+      {
+        "id": "K3",
+        "what": "GDPR right-to-erasure vs right-to-audit obligation; erasure log keyed by user id is itself user data but is required to prove erasure happened",
+        "claim_ids": [
+          "C7"
+        ]
+      },
+      {
+        "id": "K4",
+        "what": "cluster cost vs burst headroom; static-sized for bursts is expensive but avoids autoscaling complexity at the storage layer",
+        "claim_ids": [
+          "C9"
+        ]
+      },
+      {
+        "id": "K5",
+        "what": "DuckDB instance sharing across partners vs partner-specific instances; depends on actual partner load measurements",
+        "claim_ids": []
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "Q1",
+        "what": "how to handle the analytical staleness window during long backfills (candidate: announce known-staleness window via status banner)"
+      },
+      {
+        "id": "Q2",
+        "what": "do we have operational expertise to run JanusGraph at production scale, or do we need to hire it (6-month timeline if we hire)"
+      },
+      {
+        "id": "Q3",
+        "what": "legal interpretation of the erasure log under GDPR; do not ship without an answer"
+      },
+      {
+        "id": "Q4",
+        "what": "verify Cassandra incremental backup behavior at our intended write rate (open task, blocks production rollout)"
+      },
+      {
+        "id": "Q5",
+        "what": "what minimum JanusGraph cache hit rate is required to maintain the 50ms p99 latency budget"
+      },
+      {
+        "id": "Q6",
+        "what": "what is the current annual cost of the legacy graph system (needed for cost-justification with leadership)"
+      },
+      {
+        "id": "Q7",
+        "what": "do we share the analytical DuckDB instance across partners or run partner-specific instances (depends on load measurements)"
+      },
+      {
+        "id": "Q8",
+        "what": "embedding service architecture for future ML pipelines: pre-computed and stored vs computed on demand"
+      },
+      {
+        "id": "Q9",
+        "what": "specific steady-state and burst rate-limit budgets pending capacity planning"
+      }
+    ]
+  },
+  "based_on": "case6_long_research"
+}

@@ -1,0 +1,71 @@
+{
+  "N": 25,
+  "curves": {
+    "Granite Micro (~3B)": {
+      "label": "Granite Micro (~3B)",
+      "k_scores": {
+        "3": 0.56,
+        "5": 0.48,
+        "8": 0.48,
+        "10": 0.4
+      },
+      "peak_k": 3,
+      "peak_score": 0.56
+    },
+    "Granite 4.1 8B": {
+      "label": "Granite 4.1 8B",
+      "k_scores": {
+        "3": 0.44,
+        "5": 0.52,
+        "8": 0.52,
+        "10": 0.6
+      },
+      "peak_k": 10,
+      "peak_score": 0.6
+    },
+    "Llama 3.2 3B": {
+      "label": "Llama 3.2 3B",
+      "k_scores": {
+        "3": 0.44,
+        "5": 0.44,
+        "8": 0.28,
+        "10": 0.32
+      },
+      "peak_k": 3,
+      "peak_score": 0.44
+    },
+    "Llama 3.1 8B": {
+      "label": "Llama 3.1 8B",
+      "k_scores": {
+        "3": 0.4,
+        "5": 0.56,
+        "8": 0.44,
+        "10": 0.56
+      },
+      "peak_k": 5,
+      "peak_score": 0.56
+    },
+    "Qwen 2.5 7B": {
+      "label": "Qwen 2.5 7B",
+      "k_scores": {
+        "3": 0.56,
+        "5": 0.56,
+        "8": 0.48,
+        "10": 0.32
+      },
+      "peak_k": 3,
+      "peak_score": 0.56
+    },
+    "Ministral 3B": {
+      "label": "Ministral 3B",
+      "k_scores": {
+        "3": 0.48,
+        "5": 0.48,
+        "8": 0.52,
+        "10": 0.52
+      },
+      "peak_k": 8,
+      "peak_score": 0.52
+    }
+  }
+}
