@@ -36,8 +36,38 @@ from .normalizer import (
     normalized_tasks,
     task_normalization_integrity,
 )
+from .predictions import (
+    all_correct_predictions,
+    constant_wrong_predictions,
+    drifting_wrong_predictions,
+    first_only_correct_predictions,
+    noop_fragile_predictions,
+)
+from .report import (
+    VERDICTS,
+    ComparisonReport,
+    build_report,
+    classify,
+    render_markdown,
+    supports_thesis,
+)
+from .scoring import (
+    InvarianceMetrics,
+    Predictions,
+    noop_gap,
+    score_predictions,
+    template_stability_gain,
+)
 
 __all__ = [
+    "VERDICTS",
+    "ComparisonReport",
+    "InvarianceMetrics",
+    "Predictions",
+    "build_report",
+    "classify",
+    "render_markdown",
+    "supports_thesis",
     "CLAUSE_ROLES",
     "KNOWN_VARIANTS",
     "PROVENANCE_OFFLINE_REFERENCE",
@@ -45,15 +75,23 @@ __all__ = [
     "GsmInstance",
     "NormalizedGsmTask",
     "TemplateGroup",
+    "all_correct_predictions",
     "all_normalized_tasks",
     "available_datasets",
     "build_groups",
+    "constant_wrong_predictions",
     "data_dir",
+    "drifting_wrong_predictions",
+    "first_only_correct_predictions",
     "grouping_integrity",
     "load_all",
     "load_dataset",
     "network_free",
+    "noop_fragile_predictions",
+    "noop_gap",
     "normalize_dataset",
     "normalized_tasks",
+    "score_predictions",
     "task_normalization_integrity",
+    "template_stability_gain",
 ]
