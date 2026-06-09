@@ -1,0 +1,43 @@
+{
+  "_comment": "Example DESi router config. Local and API providers are identical except for base_url and whether an api_key_env is set. Copy to config.json and edit. task_scores are optional accuracy hints per task class (0..1); leave empty if unmeasured.",
+  "providers": [
+    {
+      "name": "ollama-local",
+      "base_url": "http://localhost:11434/v1",
+      "api_key_env": null,
+      "models": [
+        {
+          "id": "llama3.1:8b",
+          "locality": "local",
+          "cost_per_item_usd": 0.0,
+          "task_scores": {"code_audit": 0.83, "scientific_claim": 0.77}
+        },
+        {
+          "id": "qwen2.5:7b",
+          "locality": "local",
+          "cost_per_item_usd": 0.0,
+          "task_scores": {"memory_recall": 0.56}
+        }
+      ]
+    },
+    {
+      "name": "openrouter-api",
+      "base_url": "https://openrouter.ai/api/v1",
+      "api_key_env": "OPENROUTER_API_KEY",
+      "models": [
+        {
+          "id": "anthropic/claude-haiku-4.5",
+          "locality": "api",
+          "cost_per_item_usd": 0.02884,
+          "task_scores": {"memory_recall": 0.68, "code_audit": 0.967}
+        },
+        {
+          "id": "google/gemini-2.5-flash-lite",
+          "locality": "api",
+          "cost_per_item_usd": 0.00013,
+          "task_scores": {"code_audit": 0.967}
+        }
+      ]
+    }
+  ]
+}

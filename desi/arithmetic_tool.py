@@ -109,3 +109,22 @@ def solve_question(structure: str, question: str, *, words: bool = True) -> int 
     here is an extraction/semantic (language) failure, never arithmetic.
     """
     return solve(structure, extract_operands(question, words=words))
+
+
+_EXPR_RE = re.compile(r"[-+*/().\d\s]+")
+
+
+def evaluate_expression(text: str) -> int | float:
+    """Safely evaluate a free-text arithmetic expression (the calculator tool).
+
+    Finds the longest run of digits/operators/parens in ``text`` and evaluates
+    it with the same safe AST evaluator — no ``eval`` of arbitrary code. Raises
+    ValueError if no usable arithmetic expression is present.
+    """
+    candidates = [m.group(0).strip() for m in _EXPR_RE.finditer(text)]
+    candidates = [c for c in candidates if re.search(r"\d", c) and re.search(r"[-+*/]", c)]
+    if not candidates:
+        raise ValueError("no arithmetic expression found")
+    expr = max(candidates, key=len)
+    value = _eval(ast.parse(expr, mode="eval"), {})
+    return int(value) if float(value).is_integer() else value
