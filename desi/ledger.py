@@ -6,13 +6,19 @@ to its predecessor (Alexandria-style tamper evidence): the chain hash of row N
 covers row N's content *and* the chain hash of row N-1, so any later edit to any
 past row breaks verification.
 
+Beyond storage, the ledger is what lets an instance ask, before working: *has
+this already been done?* — by **content** (the same task/query) or by **method**
+(the same routing approach). Those are indexed by ``content_hash`` and
+``method_hash``; they are derived metadata for fast lookup and are deliberately
+NOT part of the hash chain (the chain covers the canonical event; the indexes are
+recomputable from it).
+
 Scope, honestly: this is the *local* substrate — one file, shared by local
 instances. It is not the federated, cross-institutional Layer 9 of the working
 paper; it is its smallest honest, running form. Concurrency across instances is
 handled by SQLite WAL + an IMMEDIATE write transaction (the chain is serialized).
 
-Stdlib only (``sqlite3``). Queries and answers are stored locally as given —
-treat the file as you would any local data store.
+Stdlib only (``sqlite3``).
 """
 from __future__ import annotations
 
@@ -34,7 +40,9 @@ CREATE TABLE IF NOT EXISTS events (
     decision_hash   TEXT,
     payload         TEXT NOT NULL,
     prev_chain_hash TEXT NOT NULL,
-    chain_hash      TEXT NOT NULL
+    chain_hash      TEXT NOT NULL,
+    content_hash    TEXT DEFAULT '',
+    method_hash     TEXT DEFAULT ''
 );
 CREATE INDEX IF NOT EXISTS idx_events_kind ON events(kind);
 CREATE INDEX IF NOT EXISTS idx_events_dhash ON events(decision_hash);
@@ -55,14 +63,32 @@ class Ledger:
         self.path = str(path)
         self.instance_id = instance_id or default_instance_id()
         self._con = sqlite3.connect(self.path, timeout=30.0, isolation_level=None)
+        self._con.row_factory = sqlite3.Row
         self._con.execute("PRAGMA journal_mode=WAL")
         self._con.execute("PRAGMA synchronous=NORMAL")
         self._con.execute("PRAGMA busy_timeout=30000")
         self._con.executescript(_SCHEMA)
+        self._migrate()
+
+    def _migrate(self) -> None:
+        cols = {r["name"] for r in self._con.execute("PRAGMA table_info(events)")}
+        for col in ("content_hash", "method_hash"):
+            if col not in cols:
+                self._con.execute(f"ALTER TABLE events ADD COLUMN {col} TEXT DEFAULT ''")
+        self._con.execute("CREATE INDEX IF NOT EXISTS idx_events_chash ON events(content_hash)")
+        self._con.execute("CREATE INDEX IF NOT EXISTS idx_events_mhash ON events(method_hash)")
 
     # ---- write (append-only, serialized) ----
 
-    def record(self, kind: str, payload: dict[str, Any], *, decision_hash: str | None = None) -> dict:
+    def record(
+        self,
+        kind: str,
+        payload: dict[str, Any],
+        *,
+        decision_hash: str | None = None,
+        content_hash: str | None = None,
+        method_hash: str | None = None,
+    ) -> dict:
         ts = datetime.now(timezone.utc).isoformat()
         while True:
             try:
@@ -70,7 +96,7 @@ class Ledger:
                 row = self._con.execute(
                     "SELECT seq, chain_hash FROM events ORDER BY seq DESC LIMIT 1"
                 ).fetchone()
-                prev_seq, prev_chain = (row[0], row[1]) if row else (0, "")
+                prev_seq, prev_chain = (row["seq"], row["chain_hash"]) if row else (0, "")
                 seq = prev_seq + 1
                 core = {
                     "seq": seq, "ts": ts, "instance_id": self.instance_id,
@@ -78,10 +104,12 @@ class Ledger:
                 }
                 chain_hash = _chain(prev_chain, core)
                 self._con.execute(
-                    "INSERT INTO events(seq,ts,instance_id,kind,decision_hash,payload,prev_chain_hash,chain_hash)"
-                    " VALUES(?,?,?,?,?,?,?,?)",
+                    "INSERT INTO events(seq,ts,instance_id,kind,decision_hash,payload,"
+                    "prev_chain_hash,chain_hash,content_hash,method_hash)"
+                    " VALUES(?,?,?,?,?,?,?,?,?,?)",
                     (seq, ts, self.instance_id, kind, decision_hash or "",
-                     json.dumps(payload, ensure_ascii=False), prev_chain, chain_hash),
+                     json.dumps(payload, ensure_ascii=False), prev_chain, chain_hash,
+                     content_hash or "", method_hash or ""),
                 )
                 self._con.execute("COMMIT")
                 return {"seq": seq, "ts": ts, "chain_hash": chain_hash}
@@ -91,11 +119,14 @@ class Ledger:
 
     # ---- read ----
 
-    def _to_dict(self, r: tuple) -> dict:
+    @staticmethod
+    def _to_dict(r: sqlite3.Row) -> dict:
         return {
-            "seq": r[0], "ts": r[1], "instance_id": r[2], "kind": r[3],
-            "decision_hash": r[4], "payload": json.loads(r[5]),
-            "prev_chain_hash": r[6], "chain_hash": r[7],
+            "seq": r["seq"], "ts": r["ts"], "instance_id": r["instance_id"],
+            "kind": r["kind"], "decision_hash": r["decision_hash"],
+            "payload": json.loads(r["payload"]),
+            "prev_chain_hash": r["prev_chain_hash"], "chain_hash": r["chain_hash"],
+            "content_hash": r["content_hash"], "method_hash": r["method_hash"],
         }
 
     def all(self, limit: int | None = None, kind: str | None = None) -> list[dict]:
@@ -119,17 +150,29 @@ class Ledger:
         return [self._to_dict(r) for r in self._con.execute(
             "SELECT * FROM events WHERE decision_hash=? ORDER BY seq", (decision_hash,))]
 
+    def by_content_hash(self, content_hash: str) -> list[dict]:
+        if not content_hash:
+            return []
+        return [self._to_dict(r) for r in self._con.execute(
+            "SELECT * FROM events WHERE content_hash=? ORDER BY seq", (content_hash,))]
+
+    def by_method_hash(self, method_hash: str) -> list[dict]:
+        if not method_hash:
+            return []
+        return [self._to_dict(r) for r in self._con.execute(
+            "SELECT * FROM events WHERE method_hash=? ORDER BY seq", (method_hash,))]
+
     def stats(self) -> dict:
         c = self._con
-        count = c.execute("SELECT COUNT(*) FROM events").fetchone()[0]
-        instances = [r[0] for r in c.execute("SELECT DISTINCT instance_id FROM events")]
-        kinds = {r[0]: r[1] for r in c.execute("SELECT kind, COUNT(*) FROM events GROUP BY kind")}
+        count = c.execute("SELECT COUNT(*) AS n FROM events").fetchone()["n"]
+        instances = [r["instance_id"] for r in c.execute("SELECT DISTINCT instance_id FROM events")]
+        kinds = {r["kind"]: r["n"] for r in c.execute("SELECT kind, COUNT(*) AS n FROM events GROUP BY kind")}
         head = c.execute("SELECT chain_hash FROM events ORDER BY seq DESC LIMIT 1").fetchone()
         return {
             "count": count,
             "instances": sorted(instances),
             "kinds": kinds,
-            "head_chain_hash": head[0] if head else "",
+            "head_chain_hash": head["chain_hash"] if head else "",
         }
 
     # ---- integrity ----

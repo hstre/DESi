@@ -102,6 +102,9 @@ async function route(){
   <div class="rationale">${dec.rationale}</div>
   <div class="kv">cost ~$${dec.expected_cost_usd} · score ${dec.expected_score==null?'—':dec.expected_score}${dec.below_target?' · ⚠ below target':''}</div>
  </div>
+ <div class="card"><div class="k">prior work · local Layer 9</div>
+  <div class="kv">content: ${d.prior.content_seen?('seen '+d.prior.content_count+'× · last #'+d.prior.content_prior_seq+' by '+d.prior.content_prior_instance):'new'} · method: ${d.prior.method_seen?('known '+d.prior.method_count+'×'):'new'}${d.prior.reused?' · <span class="tool">♻ reused '+(d.prior.reuse_source||'')+'</span>':''}</div>
+ </div>
  <div class="card"><div class="k">answer · ${d.answer_source}</div>
   <div class="ans">${d.answer!=null?escapeHtml(d.answer):'<span class="err">'+(d.error||'no answer (model not executed)')+'</span>'}</div></div>
  <div class="card"><div class="k">audit (replay-stable decision hash)</div><div class="hash">${d.audit.decision_hash}</div></div>`;

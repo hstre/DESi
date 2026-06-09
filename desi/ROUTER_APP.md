@@ -36,7 +36,8 @@ Privacy is a first-class routing axis: `local_only` never leaves your network;
 | `tool_registry.py` | pluggable deterministic tools: `calculator`, `date_math`, `unit_conversion`, and (with a corpus) `keyword_retrieval` |
 | `routing_table.py` | reads **measured** capability scores from `routing_table.json` |
 | `policy.py` | deterministic decision: tool → local → API, by privacy/accuracy/cost |
-| `engine.py` | classify → decide → execute → audit → (optional) ledger |
+| `engine.py` | classify → check prior (content/method) → reuse or execute → audit → ledger |
+| `dedup.py` | content hash (normalized query) + method signature for prior-work lookup |
 | `audit.py` | replay-stable SHA-256 over (query + constraints + decision) |
 | `ledger.py` | **local Layer 9**: shared, append-only, hash-chained SQLite store |
 | `reviewer_port.py` | local web UI (`python -m desi.reviewer_port`) |
@@ -72,6 +73,23 @@ The Reviewer Port shows the live shared history (count, contributing instances,
 chain status) and exposes it at `GET /api/ledger`. Scope: this is the *local*
 substrate — one shared file — not the federated cross-institutional Layer 9 of
 the working paper. Queries/answers are stored locally; treat the file accordingly.
+
+## Prior-work reuse — don't recompute what the ledger already has
+
+Before working, each instance asks the shared ledger two questions (`dedup.py`):
+
+- **content** — has this exact task been done? Keyed by a light normalization of
+  the query (lowercase, collapsed whitespace, trailing punctuation removed;
+  operators preserved so `2+2` ≠ `2*2`). A matching **deterministic tool** answer
+  is reused exactly (`answer_source: reused:tool#<seq>`) — no recomputation, even
+  if a *different* instance produced it. A model answer is reported as a match but
+  not auto-reused (it could be stale).
+- **method** — has this approach (`task_class | kind | target`) been used before?
+  Reported even when the content is new.
+
+Every result carries a `prior` block (`content_seen`, `method_seen`, `reused`,
+which instance/seq it came from); the Reviewer Port shows it per query. This is
+exact-match reuse, not semantic similarity — honest and deterministic by design.
 
 ## Scores: measured, not asserted
 
