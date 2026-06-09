@@ -70,18 +70,18 @@ configure one. Run it from the cloned repo directory:
 
 ```bash
 # 1. (optional) configure local (Ollama/llama.cpp/LM Studio) and/or API providers
-cp desi/config.example.json desi/config.json     # then edit base_url / models / keys
+cp desi_router/config.example.json desi_router/config.json     # then edit base_url / models / keys
 
 # 2. graphical Reviewer Port — no extra deps, opens a local web UI
-python -m desi.reviewer_port                      # -> http://localhost:8765
+python -m desi_router.reviewer_port                      # -> http://localhost:8765
 
 # 3. inspect the shared ledger (everything every instance has ever done)
-python -m desi.ledger desi/desi_ledger.db --stats --verify --tail 20
+python -m desi_router.ledger desi_router/desi_ledger.db --stats --verify --tail 20
 ```
 
 Type a query (e.g. `what is (9*4)-6 ?`), pick privacy/accuracy/cost, and see the
 routed target, the rationale, the answer, prior-work reuse, and the replay-stable
-audit hash. Full guide: [desi/ROUTER_APP.md](desi/ROUTER_APP.md).
+audit hash. Full guide: [desi/ROUTER_APP.md](desi_router/ROUTER_APP.md).
 
 ## Notes
 

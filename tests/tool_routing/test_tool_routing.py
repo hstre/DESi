@@ -16,8 +16,8 @@ sys.path.insert(0, str(REPO_ROOT / "scripts"))
 
 import pytest  # noqa: E402
 
-from desi.arithmetic_tool import solve, solve_question  # noqa: E402
-from desi.tool_router import ToolRoute, ToolRouter  # noqa: E402
+from desi_router.arithmetic_tool import solve, solve_question  # noqa: E402
+from desi_router.tool_router import ToolRoute, ToolRouter  # noqa: E402
 from reproduce_tool_routing import run  # noqa: E402
 
 

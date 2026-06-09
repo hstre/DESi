@@ -29,7 +29,7 @@ _HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(_HERE.parent))
 
 # Reuse the production confidence heuristic from the answerer
-from desi.answerer import _heuristic_confidence, _CONF_RE
+from desi_router.answerer import _heuristic_confidence, _CONF_RE
 
 _OUT_JSON = _HERE / "results" / "confidence_calibration_summary.json"
 _OUT_MD = _HERE / "reports" / "confidence_calibration_report.md"

@@ -7,14 +7,14 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
-from desi import engine  # noqa: E402
-from desi.policy import ANY, Constraints, classify, decide  # noqa: E402
-from desi.providers import load_config  # noqa: E402
-from desi.routing_table import measured_score  # noqa: E402
-from desi.tool_registry import default_registry  # noqa: E402
-from desi.tools import convert_units, make_keyword_search, solve_date  # noqa: E402
+from desi_router import engine  # noqa: E402
+from desi_router.policy import ANY, Constraints, classify, decide  # noqa: E402
+from desi_router.providers import load_config  # noqa: E402
+from desi_router.routing_table import measured_score  # noqa: E402
+from desi_router.tool_registry import default_registry  # noqa: E402
+from desi_router.tools import convert_units, make_keyword_search, solve_date  # noqa: E402
 
-CONFIG = REPO_ROOT / "desi" / "config.example.json"
+CONFIG = REPO_ROOT / "desi_router" / "config.example.json"
 
 
 def _reg():

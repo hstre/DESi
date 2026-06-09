@@ -32,7 +32,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
-from desi.arithmetic_tool import (  # noqa: E402
+from desi_router.arithmetic_tool import (  # noqa: E402
     extract_operands,
     solve,
     solve_question,

@@ -7,18 +7,18 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
-from desi import engine  # noqa: E402
-from desi.dedup import (  # noqa: E402
+from desi_router import engine  # noqa: E402
+from desi_router.dedup import (  # noqa: E402
     content_hash,
     method_class,
     method_hash,
     normalize_query,
 )
-from desi.ledger import Ledger  # noqa: E402
-from desi.providers import load_config  # noqa: E402
-from desi.tool_registry import default_registry  # noqa: E402
+from desi_router.ledger import Ledger  # noqa: E402
+from desi_router.providers import load_config  # noqa: E402
+from desi_router.tool_registry import default_registry  # noqa: E402
 
-CONFIG = REPO_ROOT / "desi" / "config.example.json"
+CONFIG = REPO_ROOT / "desi_router" / "config.example.json"
 
 
 def _reg():

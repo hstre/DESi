@@ -19,9 +19,9 @@ We present DESi (Dynamic Epistemic Sequencer — Diagnostic), a deterministic, r
 > small router that routes each query to a **deterministic tool, a local model, or
 > an API model** (privacy/accuracy/cost aware), records everything to a shared,
 > append-only **"local Layer 9"** ledger, and reuses prior deterministic results —
-> with a graphical Reviewer Port. Run `python -m desi.reviewer_port` from the repo
+> with a graphical Reviewer Port. Run `python -m desi_router.reviewer_port` from the repo
 > and open `http://localhost:8765`. See [QUICKSTART.md](QUICKSTART.md#6-run-the-router-local-tools--llms--shared-ledger)
-> and [desi/ROUTER_APP.md](desi/ROUTER_APP.md). (Appendix D.4.)
+> and [desi/ROUTER_APP.md](desi_router/ROUTER_APP.md). (Appendix D.4.)
 
 -----
 
@@ -1009,7 +1009,7 @@ science). Llama 3.1 8B is Pareto-cheapest winner on 2 of 3 tasks. Granite
 Micro *beats* Granite 8B on code-audit — smaller model wins on a specific
 task class within the same family.
 
-### D.4 Architecture — DESi v0.1–v0.4 (working code in `desi/`)
+### D.4 Architecture — DESi v0.1–v0.4 (working code in `desi_router/`)
 
 | Version | Component | Honest result |
 | --- | --- | --- |
@@ -1030,7 +1030,7 @@ task class within the same family.
 DESi v0.4 is Pareto-dominant: highest accuracy, lowest cost, lowest latency.
 vs. naive_big: +0.134 accuracy (+25 % relative), 18× lower cost, 3× lower latency.
 
-The architecture in working form (`desi/`):
+The architecture in working form (`desi_router/`):
 1. `classifier.py` — Llama 3B closed-enumeration classifier (~600 ms, $0.000017/call).
 2. `routing_table.json` — 18 measured cells + per-task `winning_strategy`, per-model
    `epistemic_specialties`, `untested_tasks`, `open_questions`.
@@ -1045,7 +1045,7 @@ The architecture in working form (`desi/`):
 
 Model-routing answers *which model*. The endpoint of "LLM for language, rules for
 logic" is one question earlier: should this run a model at all, or a deterministic
-*tool*? `desi/tool_router.py` adds that seam — task classes whose core is a known
+*tool*? `desi_router/tool_router.py` adds that seam — task classes whose core is a known
 computation go to a tool (exact, replay-stable, frame-invariant, ~$0); everything
 else delegates to `EpistemicRouter`. The first wired tool is `arithmetic_tool.py`.
 
@@ -1062,7 +1062,7 @@ fixtures, not a head-to-head against a live LLM (no model outputs exist in-repo)
 #### D.4.2 Runnable router (v0.1), local Layer 9, and prior-work reuse
 
 The routing idea is now a small, mostly-local, runnable product in the repo-root
-`desi/` package (run from the cloned repo, not the pip package):
+`desi_router/` package (run from the cloned repo, not the pip package):
 
 - **One adapter for local and API** (`providers.py`) — Ollama/llama.cpp/LM Studio
   and OpenRouter/DeepSeek/OpenAI are the same OpenAI-compatible wire format, so a
@@ -1087,7 +1087,7 @@ The routing idea is now a small, mostly-local, runnable product in the repo-root
 Verified by `tests/router_app/` and `tests/tool_routing/` (incl. a real
 multi-process concurrency test) and end-to-end through the running web server for
 the offline tool path; the live model path runs on the user's machine. Full
-usage: [`desi/ROUTER_APP.md`](desi/ROUTER_APP.md), [QUICKSTART.md](QUICKSTART.md).
+usage: [`desi/ROUTER_APP.md`](desi_router/ROUTER_APP.md), [QUICKSTART.md](QUICKSTART.md).
 
 ### D.5 Honest Negative Results
 
@@ -1131,7 +1131,7 @@ Pre-registration discipline applied throughout. Recorded negatives:
    k\*. The function is not trivial in model size: Qwen 7B behaves like a 3B
    on this axis; Ministral 3B behaves like an 8B. Family / training profile
    dominates parameter count.
-3. **Architecture.** A working router (`desi/`) backed by an empirically
+3. **Architecture.** A working router (`desi_router/`) backed by an empirically
    grounded routing table beats every fixed-strategy baseline on heterogeneous
    workloads. The win required separating *method* (confidence reporting) from
    *content* (the answer) — re-validating the project's older "Inhalt und
@@ -1143,7 +1143,7 @@ DESi decides *which model handles which task class at which evidence density*,
 backed by measured per-cell scores rather than hand-waving.
 
 All artifacts to reproduce: `ab_evidence/` (per-item JSONs, pre-registrations,
-runners) and `desi/` (router, classifier, answerer, pipeline). The PDF dossier
+runners) and `desi_router/` (router, classifier, answerer, pipeline). The PDF dossier
 `ab_evidence/reports/desi_evidence_dossier.pdf` is the single-file audit
 reference.
 

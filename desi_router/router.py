@@ -5,7 +5,7 @@ The routing table is grounded in the minimaltest series (LongMemEval-S, SciFact,
 planted-bug code review). See routing_table.json for sources and caveats.
 
 Usage:
-    from desi.router import EpistemicRouter, RouteRequest
+    from desi_router.router import EpistemicRouter, RouteRequest
 
     router = EpistemicRouter()
     decision = router.route(RouteRequest(
@@ -70,7 +70,7 @@ class EpistemicRouter:
 
     def _get_classifier(self):
         if self._classifier is None:
-            from desi.classifier import TaskClassifier
+            from desi_router.classifier import TaskClassifier
             self._classifier = TaskClassifier()
         return self._classifier
 

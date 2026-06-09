@@ -24,7 +24,7 @@ from pathlib import Path
 _HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(_HERE.parent))
 
-from desi.classifier import TaskClassifier
+from desi_router.classifier import TaskClassifier
 
 LABELED_QUERIES = [
     # memory_recall (10)

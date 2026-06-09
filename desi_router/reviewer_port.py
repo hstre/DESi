@@ -6,8 +6,8 @@ with its rationale, the answer (the tool answers live and offline; a model is
 called only if configured and reachable), and the deterministic audit hash.
 
 Run:
-    python -m desi.reviewer_port                 # uses desi/config.json or the example
-    python -m desi.reviewer_port --port 8765 --config /path/to/config.json
+    python -m desi_router.reviewer_port                 # uses desi/config.json or the example
+    python -m desi_router.reviewer_port --port 8765 --config /path/to/config.json
 
 Then open http://localhost:8765 . Nothing leaves your machine unless you route
 to an API provider.
@@ -21,11 +21,11 @@ import socket
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
-from desi.engine import run
-from desi.ledger import Ledger
-from desi.policy import Constraints
-from desi.providers import Registry, load_config
-from desi.tool_registry import default_registry
+from desi_router.engine import run
+from desi_router.ledger import Ledger
+from desi_router.policy import Constraints
+from desi_router.providers import Registry, load_config
+from desi_router.tool_registry import default_registry
 
 _HERE = Path(__file__).resolve().parent
 

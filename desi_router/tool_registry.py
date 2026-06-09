@@ -11,8 +11,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable
 
-from desi.arithmetic_tool import evaluate_expression
-from desi.tools import convert_units, make_keyword_search, solve_date
+from desi_router.arithmetic_tool import evaluate_expression
+from desi_router.tools import convert_units, make_keyword_search, solve_date
 
 
 @dataclass(frozen=True)

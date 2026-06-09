@@ -8,7 +8,7 @@ Implementation: a single cheap LLM call (Llama 3B by default — fast, cheap).
 The prompt is bounded to a closed enumeration so the output is parseable.
 
 Usage:
-    from desi.classifier import TaskClassifier
+    from desi_router.classifier import TaskClassifier
     c = TaskClassifier()
     res = c.classify("How long did I wait for my asylum decision?")
     # res = ClassificationResult(task_class='memory_recall', confidence=0.92, ...)

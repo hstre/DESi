@@ -5,7 +5,7 @@ This is v0.3 — adds confidence-based escalation. If the routed model returns
 Each attempt is logged for audit.
 
 Usage:
-    from desi.pipeline import DESiPipeline
+    from desi_router.pipeline import DESiPipeline
 
     p = DESiPipeline()
     result = p.run(
@@ -23,8 +23,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Callable
 
-from desi.router import EpistemicRouter, Decision
-from desi.answerer import Answer, answer as call_answerer
+from desi_router.router import EpistemicRouter, Decision
+from desi_router.answerer import Answer, answer as call_answerer
 
 
 @dataclass
@@ -78,7 +78,7 @@ class DESiPipeline:
             return result
 
         # 2. Initial route
-        from desi.router import RouteRequest
+        from desi_router.router import RouteRequest
         avoid_models: list[str] = []
         for attempt_idx in range(self.max_attempts):
             req = RouteRequest(

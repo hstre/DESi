@@ -8,12 +8,12 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
-from desi import engine  # noqa: E402
-from desi.ledger import Ledger  # noqa: E402
-from desi.providers import load_config  # noqa: E402
-from desi.tool_registry import default_registry  # noqa: E402
+from desi_router import engine  # noqa: E402
+from desi_router.ledger import Ledger  # noqa: E402
+from desi_router.providers import load_config  # noqa: E402
+from desi_router.tool_registry import default_registry  # noqa: E402
 
-CONFIG = REPO_ROOT / "desi" / "config.example.json"
+CONFIG = REPO_ROOT / "desi_router" / "config.example.json"
 
 
 def test_record_read_and_chain(tmp_path):
@@ -56,7 +56,7 @@ def test_concurrent_multi_instance(tmp_path):
     """Several processes (= several local DESi instances) append at once."""
     db = tmp_path / "l9.db"
     code = (
-        "import sys;from desi.ledger import Ledger;"
+        "import sys;from desi_router.ledger import Ledger;"
         "p,iid,m=sys.argv[1],sys.argv[2],int(sys.argv[3]);"
         "l=Ledger(p,instance_id=iid);"
         "[l.record('route',{'i':i,'task_class':'math_arithmetic'}) for i in range(m)];"

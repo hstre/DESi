@@ -6,33 +6,33 @@ This project is experimental; versions are alpha.
 ## [Unreleased] — Runnable router, local Layer 9, and verified reproductions
 
 Additive only; no epistemic invariant changed. New work lives in the repo-root
-`desi/` package and is run from the cloned repo (not the pip package).
+`desi_router/` package and is run from the cloned repo (not the pip package).
 
 ### Added
 - **DriftBench reproduction** — the headline 96.5% compression / ρ=1.06 claim is
   now backed by committed data (`data/driftbench/driftbench_compression.jsonl`,
   1,525 rows), a runnable `scripts/reproduce_driftbench.py`, and a pinning test
   (`tests/driftbench/`). Every figure regenerates exactly.
-- **Tool-routing** — `desi/tool_router.py` + `desi/arithmetic_tool.py`: route a
+- **Tool-routing** — `desi_router/tool_router.py` + `desi_router/arithmetic_tool.py`: route a
   task to a deterministic tool, not just a model. Demonstrated on the
   GSM-Symbolic-shaped fixtures with 0 arithmetic errors (`tests/tool_routing/`).
-- **Runnable router v0.1** (`desi/`) — `providers.py` (one OpenAI-compatible
+- **Runnable router v0.1** (`desi_router/`) — `providers.py` (one OpenAI-compatible
   adapter for local **and** API models), `policy.py` (tool → local → API by
   privacy/accuracy/cost), `tool_registry.py` + `tools/` (calculator, date math,
   unit conversion, keyword retrieval), `engine.py`, `audit.py`, and
   `reviewer_port.py` (a dependency-free local web Reviewer Port). Capability
   scores read from the measured `routing_table.json`.
-- **Local Layer 9** (`desi/ledger.py`) — a shared, append-only, hash-chained
+- **Local Layer 9** (`desi_router/ledger.py`) — a shared, append-only, hash-chained
   SQLite ledger that multiple local instances write to concurrently; CLI
-  `python -m desi.ledger <db> --stats --verify --tail N`.
-- **Prior-work reuse** (`desi/dedup.py`) — instances check the shared ledger for
+  `python -m desi_router.ledger <db> --stats --verify --tail N`.
+- **Prior-work reuse** (`desi_router/dedup.py`) — instances check the shared ledger for
   matching content/method before working and reuse deterministic results exactly.
-- Docs: `desi/ROUTER_APP.md`, QUICKSTART §6, README Appendix D.4, website section
+- Docs: `desi_router/ROUTER_APP.md`, QUICKSTART §6, README Appendix D.4, website section
   "Measure & route LLMs".
 - Website foundations page fixes (determinism notation; signal-preservation note).
 
 ### Notes
-- The router runs from the cloned repo (`python -m desi.reviewer_port`); the live
+- The router runs from the cloned repo (`python -m desi_router.reviewer_port`); the live
   model path needs a reachable local/API endpoint. Tool, ledger and dedup paths
   are fully offline and covered by `tests/router_app/` (incl. a multi-process
   concurrency test).

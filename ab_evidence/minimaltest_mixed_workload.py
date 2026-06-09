@@ -35,8 +35,8 @@ from sentence_transformers import SentenceTransformer
 _HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(_HERE.parent))
 
-from desi.pipeline import DESiPipeline
-from desi.answerer import answer as call_answerer
+from desi_router.pipeline import DESiPipeline
+from desi_router.answerer import answer as call_answerer
 from code_review_bugs import BUGS, DISTRACTORS
 
 _OUT = _HERE / "results" / "minimaltest_mixed_workload"

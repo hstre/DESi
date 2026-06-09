@@ -15,13 +15,13 @@ from __future__ import annotations
 
 from typing import Any
 
-from desi.audit import AuditRecord
-from desi.dedup import content_hash as _content_hash
-from desi.dedup import method_class as _method_class
-from desi.dedup import method_hash as _method_hash
-from desi.policy import Constraints, Decision, classify, decide
-from desi.providers import OpenAICompatibleClient, Registry
-from desi.tool_registry import ToolRegistry
+from desi_router.audit import AuditRecord
+from desi_router.dedup import content_hash as _content_hash
+from desi_router.dedup import method_class as _method_class
+from desi_router.dedup import method_hash as _method_hash
+from desi_router.policy import Constraints, Decision, classify, decide
+from desi_router.providers import OpenAICompatibleClient, Registry
+from desi_router.tool_registry import ToolRegistry
 
 
 def _provider_by_name(registry: Registry, name: str):

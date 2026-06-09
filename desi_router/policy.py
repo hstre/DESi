@@ -17,9 +17,9 @@ import re
 from dataclasses import dataclass, field
 from typing import Any
 
-from desi.providers import ModelSpec, Provider, Registry
-from desi.routing_table import measured_score
-from desi.tool_registry import ToolRegistry
+from desi_router.providers import ModelSpec, Provider, Registry
+from desi_router.routing_table import measured_score
+from desi_router.tool_registry import ToolRegistry
 
 # privacy modes
 LOCAL_ONLY = "local_only"

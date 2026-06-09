@@ -40,7 +40,7 @@ class ToolRouter:
 
     def _models(self):
         if self._model_router is None:
-            from desi.router import EpistemicRouter
+            from desi_router.router import EpistemicRouter
 
             self._model_router = EpistemicRouter()
         return self._model_router
@@ -61,6 +61,6 @@ class ToolRouter:
                     "running a stochastic model here can only add error and cost."
                 ),
             )
-        from desi.router import RouteRequest
+        from desi_router.router import RouteRequest
 
         return self._models().route(RouteRequest(task_class=task_class, **model_kwargs))

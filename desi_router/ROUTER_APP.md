@@ -9,11 +9,11 @@ deterministically; a model is called only if you configure and reach one.
 
 ```bash
 # 1. configure providers (local and/or API). Both are OpenAI-compatible.
-cp desi/config.example.json desi/config.json   # then edit base_url / models / keys
+cp desi_router/config.example.json desi_router/config.json   # then edit base_url / models / keys
 
 # 2. start the Reviewer Port (stdlib only, no extra deps)
-python -m desi.reviewer_port            # -> http://localhost:8765
-#   options: --port 8765  --config desi/config.json
+python -m desi_router.reviewer_port            # -> http://localhost:8765
+#   options: --port 8765  --config desi_router/config.json
 ```
 
 Open `http://localhost:8765`, type a query, pick **privacy** (prefer-local /
@@ -40,7 +40,7 @@ Privacy is a first-class routing axis: `local_only` never leaves your network;
 | `dedup.py` | content hash (normalized query) + method signature for prior-work lookup |
 | `audit.py` | replay-stable SHA-256 over (query + constraints + decision) |
 | `ledger.py` | **local Layer 9**: shared, append-only, hash-chained SQLite store |
-| `reviewer_port.py` | local web UI (`python -m desi.reviewer_port`) |
+| `reviewer_port.py` | local web UI (`python -m desi_router.reviewer_port`) |
 
 ## What is verified vs. what runs on your machine
 
@@ -66,7 +66,7 @@ SQLite WAL + a serialized IMMEDIATE write.
 Inspect it:
 
 ```bash
-python -m desi.ledger desi/desi_ledger.db --stats --verify --tail 20
+python -m desi_router.ledger desi_router/desi_ledger.db --stats --verify --tail 20
 ```
 
 The Reviewer Port shows the live shared history (count, contributing instances,
