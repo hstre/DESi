@@ -26,7 +26,7 @@
       "instances": [
         {"instance_id": "gsm_p2_t02_i0", "question": "Sami buys 9 notebooks at 4 dollars each and uses a 6 dollar coupon. How much paid?", "answer": 30, "clause_role": "base"},
         {"instance_id": "gsm_p2_t02_i1", "question": "Sami buys 9 notebooks at 4 dollars each and uses a 6 dollar coupon. The shop has a green awning. How much paid?", "answer": 30, "clause_role": "noop"},
-        {"instance_id": "gsm_p2_t02_i2", "question": "Sami buys 9 notebooks at 4 dollars each and uses a 6 dollar coupon, then buys 3 more notebooks at the same price. How much paid?", "answer": 42, "clause_role": "load_bearing"},
+        {"instance_id": "gsm_p2_t02_i2", "question": "Sami buys 9 notebooks at 4 dollars each and uses a 6 dollar coupon. He also buys 3 more notebooks at the same price. How much paid?", "answer": 42, "clause_role": "load_bearing"},
         {"instance_id": "gsm_p2_t02_i3", "question": "Sami buys 9 notebooks at 4 dollars each and uses a 6 dollar coupon. Incidentally, the coupon is worth 4 dollars more than stated. How much paid?", "answer": 26, "clause_role": "adversarial_similar"}
       ]
     },
@@ -37,7 +37,7 @@
       "instances": [
         {"instance_id": "gsm_p2_t03_i0", "question": "A baker splits 84 rolls equally into 6 baskets. Rolls per basket?", "answer": 14, "clause_role": "base"},
         {"instance_id": "gsm_p2_t03_i1", "question": "A baker splits 84 rolls equally into 6 baskets. The baskets are made of wicker. Rolls per basket?", "answer": 14, "clause_role": "noop"},
-        {"instance_id": "gsm_p2_t03_i2", "question": "A baker splits 84 rolls equally into 6 baskets, but two baskets are removed before splitting. Rolls per remaining basket?", "answer": 21, "clause_role": "load_bearing"},
+        {"instance_id": "gsm_p2_t03_i2", "question": "A baker splits 84 rolls equally into 6 baskets. But 2 of the baskets are removed before splitting. Rolls per basket?", "answer": 21, "clause_role": "load_bearing"},
         {"instance_id": "gsm_p2_t03_i3", "question": "A baker splits 84 rolls equally into 6 baskets. Note that 12 rolls are set aside first. Rolls per basket?", "answer": 12, "clause_role": "adversarial_similar"}
       ]
     }
