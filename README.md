@@ -1033,6 +1033,24 @@ The architecture in working form (`desi/`):
 5. `pipeline.py` — `DESiPipeline.run(query, haystack_builder)` orchestrates the
    four stages and escalates on low confidence.
 
+#### D.4.1 Tool-routing (next step) — route to a deterministic tool, not just a model
+
+Model-routing answers *which model*. The endpoint of "LLM for language, rules for
+logic" is one question earlier: should this run a model at all, or a deterministic
+*tool*? `desi/tool_router.py` adds that seam — task classes whose core is a known
+computation go to a tool (exact, replay-stable, frame-invariant, ~$0); everything
+else delegates to `EpistemicRouter`. The first wired tool is `arithmetic_tool.py`.
+
+`scripts/reproduce_tool_routing.py` runs it over the committed GSM-Symbolic-shaped
+fixtures (`src/desi/gsm_symbolic/data/`; locally authored, **not** Apple's data,
+**not** model outputs) and `tests/tool_routing/` pins the result. The headline is
+the failure breakdown, not the score: of 33 items the tool computes **0 arithmetic
+errors** — the 6 residual misses are all operative-clause semantics (e.g. "she also
+works 2 extra hours" → 113), i.e. operand-binding and clause-relevance, which are
+the model's job. The boundary is the point: hand the computation to the tool, keep
+the language with the model. This is a tool-*arm* demonstration on illustrative
+fixtures, not a head-to-head against a live LLM (no model outputs exist in-repo).
+
 ### D.5 Honest Negative Results
 
 Pre-registration discipline applied throughout. Recorded negatives:
