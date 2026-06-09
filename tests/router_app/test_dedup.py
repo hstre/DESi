@@ -8,7 +8,12 @@ REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
 from desi import engine  # noqa: E402
-from desi.dedup import content_hash, method_hash, normalize_query  # noqa: E402
+from desi.dedup import (  # noqa: E402
+    content_hash,
+    method_class,
+    method_hash,
+    normalize_query,
+)
 from desi.ledger import Ledger  # noqa: E402
 from desi.providers import load_config  # noqa: E402
 from desi.tool_registry import default_registry  # noqa: E402
@@ -79,3 +84,39 @@ def test_method_hash_signature_is_stable():
     d = {"kind": "tool", "target": "calculator"}
     assert method_hash("math_arithmetic", d) == method_hash("math_arithmetic", d)
     assert method_hash("math_arithmetic", d) != method_hash("date_math", d)
+
+
+# ---- SPL S7: content/method as a closed, governed class ----
+
+def test_method_class_is_closed_two_valued():
+    assert method_class({"kind": "tool"}) == "deterministic"
+    assert method_class({"kind": "model"}) == "stochastic"
+    assert method_class({"kind": "none"}) == "stochastic"
+
+
+def test_s7_same_content_different_method_kept_distinct_and_not_reused(tmp_path):
+    db = tmp_path / "l9.db"
+    q = "what is 2+2"
+    led = Ledger(db, instance_id="A")
+
+    # 1) deterministic (tool) run -> answer produced, method_class deterministic
+    r1 = engine.run(q, registry=_reg(), tools=default_registry(),
+                    task_class="math_arithmetic", ledger=led)
+    assert r1["answer"] == "4"
+    assert r1["prior"]["method_class"] == "deterministic"
+
+    # 2) SAME content, but routed as a stochastic (model) task -> must NOT reuse
+    #    the deterministic answer (S7), and content is flagged as seen-under-other-method
+    r2 = engine.run(q, registry=_reg(), tools=default_registry(),
+                    task_class="code_audit", execute_model=False, ledger=led)
+    assert r2["prior"]["content_seen"] is True          # same normalized content
+    assert r2["prior"]["method_class"] == "stochastic"
+    assert r2["prior"]["reused"] is False               # never reuse across the boundary
+    assert r2["prior"]["content_other_method"] is True  # kept distinct per S7
+
+    # 3) deterministic again -> reuses the deterministic prior (#1), ignoring the stochastic row
+    r3 = engine.run(q, registry=_reg(), tools=default_registry(),
+                    task_class="math_arithmetic", ledger=led)
+    assert r3["prior"]["reused"] is True
+    assert r3["answer_source"].startswith("reused:tool#")
+    led.close()

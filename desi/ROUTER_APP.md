@@ -87,9 +87,17 @@ Before working, each instance asks the shared ledger two questions (`dedup.py`):
 - **method** — has this approach (`task_class | kind | target`) been used before?
   Reported even when the content is new.
 
-Every result carries a `prior` block (`content_seen`, `method_seen`, `reused`,
-which instance/seq it came from); the Reviewer Port shows it per query. This is
-exact-match reuse, not semantic similarity — honest and deterministic by design.
+Reuse obeys SPL's **S7 invariant** (content ≠ method): identity is `(content,
+method_class)` where `method_class` is the closed set `{deterministic, stochastic}`
+(a tool is deterministic; a model is stochastic). Results are **never reused or
+merged across that boundary** — a stochastic request never serves a deterministic
+cached answer, and the same content produced by a different method class is kept
+distinct (flagged `content_other_method`). Only deterministic results are reused.
+
+Every result carries a `prior` block (`content_seen`, `method_class`,
+`content_other_method`, `method_seen`, `reused`, which instance/seq it came from);
+the Reviewer Port shows it per query. This is exact-match reuse, not semantic
+similarity — honest and deterministic by design.
 
 ## Scores: measured, not asserted
 

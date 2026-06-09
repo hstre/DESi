@@ -104,6 +104,7 @@ async function route(){
  </div>
  <div class="card"><div class="k">prior work · local Layer 9</div>
   <div class="kv">content: ${d.prior.content_seen?('seen '+d.prior.content_count+'× · last #'+d.prior.content_prior_seq+' by '+d.prior.content_prior_instance):'new'} · method: ${d.prior.method_seen?('known '+d.prior.method_count+'×'):'new'}${d.prior.reused?' · <span class="tool">♻ reused '+(d.prior.reuse_source||'')+'</span>':''}</div>
+  <div class="kv">method class: <b>${d.prior.method_class}</b>${d.prior.content_other_method?' · <span class="api">same content via other method → kept distinct (S7)</span>':''}</div>
  </div>
  <div class="card"><div class="k">answer · ${d.answer_source}</div>
   <div class="ans">${d.answer!=null?escapeHtml(d.answer):'<span class="err">'+(d.error||'no answer (model not executed)')+'</span>'}</div></div>

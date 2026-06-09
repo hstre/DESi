@@ -17,6 +17,7 @@ from typing import Any
 
 from desi.audit import AuditRecord
 from desi.dedup import content_hash as _content_hash
+from desi.dedup import method_class as _method_class
 from desi.dedup import method_hash as _method_hash
 from desi.policy import Constraints, Decision, classify, decide
 from desi.providers import OpenAICompatibleClient, Registry
@@ -30,12 +31,21 @@ def _provider_by_name(registry: Registry, name: str):
     return None
 
 
-def _reusable_tool_answer(prior_content: list[dict]) -> dict | None:
-    """Most recent prior event with the same content and a deterministic
-    (tool) answer — safe to reuse exactly. Model answers are not auto-reused."""
+def _prior_method_class(event: dict) -> str:
+    """Method class of a stored event, with a back-compat fallback for rows
+    written before method_class existed (a 'tool' answer_source == deterministic)."""
+    p = event["payload"]
+    if "method_class" in p:
+        return p["method_class"]
+    return "deterministic" if str(p.get("answer_source", "")).startswith("tool") else "stochastic"
+
+
+def _reusable_deterministic(prior_content: list[dict]) -> dict | None:
+    """Most recent prior event with the same content AND method_class
+    'deterministic' and a stored answer — the only case safe to reuse exactly
+    (SPL S7: never reuse/merge across the deterministic/stochastic boundary)."""
     for e in reversed(prior_content):
-        p = e["payload"]
-        if p.get("answer") is not None and str(p.get("answer_source", "")).startswith("tool"):
+        if e["payload"].get("answer") is not None and _prior_method_class(e) == "deterministic":
             return e
     return None
 
@@ -57,6 +67,7 @@ def run(
 
     ch = _content_hash(query)
     mh = _method_hash(tc, decision.to_dict())
+    mc = _method_class(decision.to_dict())
 
     # ask the shared ledger: is this content / method already present?
     prior_content = ledger.by_content_hash(ch) if ledger is not None else []
@@ -67,7 +78,8 @@ def run(
     error: str | None = None
     reused = False
 
-    reusable = _reusable_tool_answer(prior_content) if reuse else None
+    # SPL S7: reuse only within the deterministic method class, never across it
+    reusable = _reusable_deterministic(prior_content) if (reuse and mc == "deterministic") else None
     if reusable is not None:
         # exact reuse of a deterministic prior result — no recomputation
         answer = reusable["payload"]["answer"]
@@ -98,6 +110,9 @@ def run(
         "content_count": len(prior_content),
         "content_prior_seq": prior_content[-1]["seq"] if prior_content else None,
         "content_prior_instance": prior_content[-1]["instance_id"] if prior_content else None,
+        "method_class": mc,
+        # S7: same content seen, but produced by a different method class -> kept distinct
+        "content_other_method": any(_prior_method_class(e) != mc for e in prior_content),
         "method_seen": bool(prior_method),
         "method_count": len(prior_method),
         "reused": reused,
@@ -136,6 +151,7 @@ def run(
                 "decision": decision.to_dict(),
                 "answer": answer,
                 "answer_source": answer_source,
+                "method_class": mc,
                 "reused": reused,
                 "prior_seq": prior["content_prior_seq"],
             },
