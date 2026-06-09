@@ -33,7 +33,8 @@ Privacy is a first-class routing axis: `local_only` never leaves your network;
 | File | Role |
 |---|---|
 | `providers.py` | provider registry + one OpenAI-compatible adapter for local **and** API |
-| `tool_registry.py` | pluggable deterministic tools (ships a `calculator`) |
+| `tool_registry.py` | pluggable deterministic tools: `calculator`, `date_math`, `unit_conversion`, and (with a corpus) `keyword_retrieval` |
+| `routing_table.py` | reads **measured** capability scores from `routing_table.json` |
 | `policy.py` | deterministic decision: tool → local → API, by privacy/accuracy/cost |
 | `engine.py` | classify → decide → execute → audit |
 | `audit.py` | replay-stable SHA-256 over (query + constraints + decision) |
@@ -49,6 +50,25 @@ Privacy is a first-class routing axis: `local_only` never leaves your network;
   or API LLM). It needs a reachable endpoint and, for API providers, a key. The
   routing *decision* and *audit* are produced and reproducible either way; only
   the model's text answer is outside the deterministic boundary.
+
+## Scores: measured, not asserted
+
+Model capability per task class comes from the **measured** `routing_table.json`
+(17 models × 3 task classes) whenever a configured model id exactly matches a
+table entry — surfaced as `score_source: "measured"`. A config `task_scores`
+hint is used only as a fallback (`config_hint`), and an unmatched local model is
+`unmeasured`. A locally-named model never inherits a measured score from a
+differently-named API model — that would be a dishonest claim about a different
+deployment.
+
+## Tools: deterministic and safe
+
+`calculator`, `date_math` (ISO-date differences/offsets) and `unit_conversion`
+(length/mass/temperature) run offline and are exact. `keyword_retrieval` is a
+read-only, deterministic search over a local corpus folder, registered only when
+you pass `corpus_dir`. **Arbitrary code execution is deliberately not shipped:**
+a real code-exec tool needs a sandbox, and an unsandboxed evaluator would be a
+security footgun — the registry slot is left open for a sandboxed executor.
 
 This is v0.1: a deliberately small, honest seam. The tool catalogue and the
 routing table are meant to grow by measurement, not assertion.
