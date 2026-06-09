@@ -1,12 +1,13 @@
 name: Deploy advertising site to GitHub Pages
 
 # Publishes the multilingual DESi advertising site (website/) to GitHub Pages.
+# Deploys ONLY from main: the github-pages environment rejects deploys from other
+# branches, so triggering on feature branches just produced confusing red runs.
 # One-time setup: repo Settings -> Pages -> Build and deployment -> Source: "GitHub Actions".
 
 on:
   push:
     branches:
-      - claude/desi-advertising-website-RchDf
       - main
     paths:
       - "website/**"
