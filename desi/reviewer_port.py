@@ -16,10 +16,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import socket
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 from desi.engine import run
+from desi.ledger import Ledger
 from desi.policy import Constraints
 from desi.providers import Registry, load_config
 from desi.tool_registry import default_registry
@@ -81,6 +84,7 @@ font-weight:700;font-size:14px;cursor:pointer;margin-top:6px}
 </div>
 <button onclick="route()">Route</button>
 <div id="out"></div>
+<div class="card" id="ledger"><div class="k">shared ledger · local Layer 9</div><div class="sub">loading…</div></div>
 </div><script>
 async function route(){
  const body={query:document.getElementById('q').value,
@@ -101,13 +105,25 @@ async function route(){
  <div class="card"><div class="k">answer · ${d.answer_source}</div>
   <div class="ans">${d.answer!=null?escapeHtml(d.answer):'<span class="err">'+(d.error||'no answer (model not executed)')+'</span>'}</div></div>
  <div class="card"><div class="k">audit (replay-stable decision hash)</div><div class="hash">${d.audit.decision_hash}</div></div>`;
+ loadLedger();
 }
 function escapeHtml(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+async function loadLedger(){
+ const el=document.getElementById('ledger');
+ try{
+  const d=await(await fetch('/api/ledger')).json();const s=d.stats;
+  const rows=d.tail.map(e=>`<div class="kv">#${e.seq} · ${e.instance_id} · ${e.kind} · ${e.payload.task_class||''} · ${e.chain_hash.slice(0,10)}</div>`).join('');
+  el.innerHTML=`<div class="k">shared ledger · local Layer 9</div>
+   <div class="big ${d.chain_intact?'tool':'api'}">${s.count} events · chain ${d.chain_intact?'intact ✓':'BROKEN ✗'}</div>
+   <div class="kv">instances: ${s.instances.join(', ')||'—'}</div>${rows}`;
+ }catch(e){el.innerHTML='<div class="k">shared ledger</div><div class="err">unavailable</div>';}
+}
 document.getElementById('q').addEventListener('keydown',e=>{if(e.key==='Enter'&&(e.metaKey||e.ctrlKey))route();});
+loadLedger();
 </script></body></html>"""
 
 
-def _make_handler(registry: Registry):
+def _make_handler(registry: Registry, ledger_path: str, instance_id: str):
     tools = default_registry()
 
     class Handler(BaseHTTPRequestHandler):
@@ -122,6 +138,17 @@ def _make_handler(registry: Registry):
         def do_GET(self):
             if self.path in ("/", "/index.html"):
                 self._send(200, PAGE, "text/html; charset=utf-8")
+            elif self.path == "/api/ledger":
+                led = Ledger(ledger_path, instance_id=instance_id)
+                try:
+                    body = {
+                        "stats": led.stats(),
+                        "chain_intact": led.verify_chain(),
+                        "tail": led.tail(8),
+                    }
+                finally:
+                    led.close()
+                self._send(200, json.dumps(_json_safe(body)))
             else:
                 self._send(404, json.dumps({"error": "not found"}))
 
@@ -140,13 +167,18 @@ def _make_handler(registry: Registry):
                 cost_budget_usd=float(payload.get("cost_budget_usd", float("inf"))),
                 accuracy_target=float(payload.get("accuracy_target", 0.0)),
             )
-            result = run(
-                payload.get("query", ""),
-                registry=registry,
-                tools=tools,
-                constraints=constraints,
-                task_class=payload.get("task_class") or None,
-            )
+            led = Ledger(ledger_path, instance_id=instance_id)
+            try:
+                result = run(
+                    payload.get("query", ""),
+                    registry=registry,
+                    tools=tools,
+                    constraints=constraints,
+                    task_class=payload.get("task_class") or None,
+                    ledger=led,
+                )
+            finally:
+                led.close()
             self._send(200, json.dumps(_json_safe(result)))
 
         def log_message(self, *args):  # quiet
@@ -162,15 +194,26 @@ def resolve_config(path: str | None) -> Path:
     return local if local.exists() else _HERE / "config.example.json"
 
 
+def resolve_ledger(path: str | None) -> str:
+    if path:
+        return path
+    return os.environ.get("DESI_LEDGER", str(_HERE / "desi_ledger.db"))
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="DESi Reviewer Port (local router UI)")
     ap.add_argument("--port", type=int, default=8765)
     ap.add_argument("--config", default=None)
+    ap.add_argument("--ledger", default=None, help="shared local-Layer-9 SQLite file")
     args = ap.parse_args()
     cfg = resolve_config(args.config)
     registry = load_config(cfg)
-    httpd = ThreadingHTTPServer(("127.0.0.1", args.port), _make_handler(registry))
-    print(f"DESi Reviewer Port · config={cfg.name} · http://localhost:{args.port}")
+    ledger_path = resolve_ledger(args.ledger)
+    instance_id = f"reviewer:{socket.gethostname()}:{args.port}"
+    handler = _make_handler(registry, ledger_path, instance_id)
+    httpd = ThreadingHTTPServer(("127.0.0.1", args.port), handler)
+    print(f"DESi Reviewer Port · config={cfg.name} · ledger={Path(ledger_path).name} "
+          f"· http://localhost:{args.port}")
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:

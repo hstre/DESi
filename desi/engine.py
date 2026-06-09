@@ -36,6 +36,7 @@ def run(
     constraints: Constraints | None = None,
     task_class: str | None = None,
     execute_model: bool = True,
+    ledger=None,
 ) -> dict[str, Any]:
     constraints = constraints or Constraints()
     tc = task_class or classify(query)
@@ -77,7 +78,7 @@ def run(
         answer=answer,
         answer_source=answer_source,
     )
-    return {
+    result = {
         "task_class": tc,
         "decision": decision.to_dict(),
         "answer": answer,
@@ -85,3 +86,19 @@ def run(
         "error": error,
         "audit": audit.to_dict(),
     }
+
+    # persist to the local Layer 9 (append-only, shared across instances)
+    if ledger is not None:
+        entry = ledger.record(
+            "route",
+            {
+                "task_class": tc,
+                "query": query,
+                "decision": decision.to_dict(),
+                "answer_source": answer_source,
+            },
+            decision_hash=audit.decision_hash,
+        )
+        result["ledger"] = entry
+
+    return result

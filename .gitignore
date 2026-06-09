@@ -226,3 +226,8 @@ src/*.egg-info/
 # DESi usability config + secrets (never commit real keys)
 config/desi.local.ini
 secrets/
+
+# DESi local ledger (runtime, do not commit)
+desi/desi_ledger.db
+desi/desi_ledger.db-wal
+desi/desi_ledger.db-shm

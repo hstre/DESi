@@ -36,8 +36,9 @@ Privacy is a first-class routing axis: `local_only` never leaves your network;
 | `tool_registry.py` | pluggable deterministic tools: `calculator`, `date_math`, `unit_conversion`, and (with a corpus) `keyword_retrieval` |
 | `routing_table.py` | reads **measured** capability scores from `routing_table.json` |
 | `policy.py` | deterministic decision: tool → local → API, by privacy/accuracy/cost |
-| `engine.py` | classify → decide → execute → audit |
+| `engine.py` | classify → decide → execute → audit → (optional) ledger |
 | `audit.py` | replay-stable SHA-256 over (query + constraints + decision) |
+| `ledger.py` | **local Layer 9**: shared, append-only, hash-chained SQLite store |
 | `reviewer_port.py` | local web UI (`python -m desi.reviewer_port`) |
 
 ## What is verified vs. what runs on your machine
@@ -50,6 +51,27 @@ Privacy is a first-class routing axis: `local_only` never leaves your network;
   or API LLM). It needs a reachable endpoint and, for API providers, a key. The
   routing *decision* and *audit* are produced and reproducible either way; only
   the model's text answer is outside the deterministic boundary.
+
+## Local Layer 9 — one shared ledger across instances
+
+Every routed query is appended to a shared SQLite ledger (`ledger.py`): the local,
+running form of the Layer 9 idea. Multiple DESi instances on the machine (or a
+shared path) write to the **same file** — point them at it with `--ledger` or the
+`DESI_LEDGER` env var. Each row is **append-only** and **hash-chained** to its
+predecessor, so any later edit to any past row breaks `verify_chain()`
+(Alexandria-style tamper evidence). Concurrency across instances is handled by
+SQLite WAL + a serialized IMMEDIATE write.
+
+Inspect it:
+
+```bash
+python -m desi.ledger desi/desi_ledger.db --stats --verify --tail 20
+```
+
+The Reviewer Port shows the live shared history (count, contributing instances,
+chain status) and exposes it at `GET /api/ledger`. Scope: this is the *local*
+substrate — one shared file — not the federated cross-institutional Layer 9 of
+the working paper. Queries/answers are stored locally; treat the file accordingly.
 
 ## Scores: measured, not asserted
 
