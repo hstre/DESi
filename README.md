@@ -15,6 +15,14 @@ We present DESi (Dynamic Epistemic Sequencer — Diagnostic), a deterministic, r
 
 **Keywords:** epistemic governance, LLM systems, replay stability, search space compression, deterministic pipelines, epistemic failure taxonomy, controlled self-improvement
 
+> **Try it — a runnable, mostly-local router.** Beyond the paper, the repo ships a
+> small router that routes each query to a **deterministic tool, a local model, or
+> an API model** (privacy/accuracy/cost aware), records everything to a shared,
+> append-only **"local Layer 9"** ledger, and reuses prior deterministic results —
+> with a graphical Reviewer Port. Run `python -m desi.reviewer_port` from the repo
+> and open `http://localhost:8765`. See [QUICKSTART.md](QUICKSTART.md#6-run-the-router-local-tools--llms--shared-ledger)
+> and [desi/ROUTER_APP.md](desi/ROUTER_APP.md). (Appendix D.4.)
+
 -----
 
 ## 1. Introduction
@@ -1050,6 +1058,36 @@ works 2 extra hours" → 113), i.e. operand-binding and clause-relevance, which 
 the model's job. The boundary is the point: hand the computation to the tool, keep
 the language with the model. This is a tool-*arm* demonstration on illustrative
 fixtures, not a head-to-head against a live LLM (no model outputs exist in-repo).
+
+#### D.4.2 Runnable router (v0.1), local Layer 9, and prior-work reuse
+
+The routing idea is now a small, mostly-local, runnable product in the repo-root
+`desi/` package (run from the cloned repo, not the pip package):
+
+- **One adapter for local and API** (`providers.py`) — Ollama/llama.cpp/LM Studio
+  and OpenRouter/DeepSeek/OpenAI are the same OpenAI-compatible wire format, so a
+  provider is just a `base_url` (+ optional key). **Privacy is a routing axis**
+  (`local_only` / `prefer_local` / `any`); model **capability scores are read from
+  the measured `routing_table.json`**, not asserted (`score_source: measured`).
+- **Deterministic tool catalogue** (`tool_registry.py`, `tools/`) — calculator,
+  date math, unit conversion, and keyword retrieval over a local corpus. Arbitrary
+  code execution is deliberately not shipped (needs a sandbox).
+- **Local Layer 9** (`ledger.py`) — a shared, append-only, **hash-chained** SQLite
+  store that several local instances write to concurrently (WAL + serialized
+  writes); tamper-evident (`verify_chain`). The running form of the Layer 9 idea
+  at local scope (one shared file), not the federated version of the paper.
+- **Prior-work reuse** (`dedup.py`) — before working, an instance checks the
+  ledger for the same **content** (normalized query; operators preserved so
+  `2+2` ≠ `2*2`) or **method** (`task_class | kind | target`), and reuses a
+  matching *deterministic* tool result exactly — even across instances. Model
+  answers are reported as matches but not auto-reused (possible staleness).
+- **Reviewer Port** (`reviewer_port.py`) — a dependency-free local web UI showing
+  the decision, rationale, answer, prior-work status and audit hash.
+
+Verified by `tests/router_app/` and `tests/tool_routing/` (incl. a real
+multi-process concurrency test) and end-to-end through the running web server for
+the offline tool path; the live model path runs on the user's machine. Full
+usage: [`desi/ROUTER_APP.md`](desi/ROUTER_APP.md), [QUICKSTART.md](QUICKSTART.md).
 
 ### D.5 Honest Negative Results
 

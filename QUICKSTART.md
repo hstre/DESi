@@ -60,6 +60,29 @@ print("gate passes:", concept_gate.passes_all(
     concept_gate.phase_gate("external_benchmarks")))
 ```
 
+## 6. Run the router (local: tools + LLMs + shared ledger)
+
+Beyond the governance CLI, the repo ships a small, mostly-local **router** (v0.1):
+for each query it decides **tool vs. local model vs. API model**, runs it, and
+records everything to a shared, append-only **"local Layer 9"** ledger. Tools
+(calculator, date, units) run fully offline; a model is called only if you
+configure one. Run it from the cloned repo directory:
+
+```bash
+# 1. (optional) configure local (Ollama/llama.cpp/LM Studio) and/or API providers
+cp desi/config.example.json desi/config.json     # then edit base_url / models / keys
+
+# 2. graphical Reviewer Port — no extra deps, opens a local web UI
+python -m desi.reviewer_port                      # -> http://localhost:8765
+
+# 3. inspect the shared ledger (everything every instance has ever done)
+python -m desi.ledger desi/desi_ledger.db --stats --verify --tail 20
+```
+
+Type a query (e.g. `what is (9*4)-6 ?`), pick privacy/accuracy/cost, and see the
+routed target, the rationale, the answer, prior-work reuse, and the replay-stable
+audit hash. Full guide: [desi/ROUTER_APP.md](desi/ROUTER_APP.md).
+
 ## Notes
 
 - DESi is **experimental** (`0.1.0a0`). Treat results as exploratory.
