@@ -329,6 +329,8 @@ The compact DESi state preserved the measured drift-governance signal despite ~9
 
 **Important caveat:** the signal “preservation” is partially by construction — the DESi summary *is* the structured state, so its correlation with drift severity reflects what the state was designed to capture. This is not an independent validation of correctness.
 
+**Reproduction.** The dataset is committed at `data/driftbench/driftbench_compression.jsonl` (1,525 rows, one JSON object per trajectory). Every number in the table above is regenerated directly from it — no network, no LLM calls, no PRNG — via `python scripts/reproduce_driftbench.py`, and pinned by `tests/driftbench/test_compression_repro.py` (96.5% compression, correlations 0.438 / 0.466, ρ = 1.06, and 1525/1525 on each preservation flag). What is *not* yet committed to this repository is the upstream pipeline that derives `desi_state_tokens` and `desi_drift` per raw trajectory; those columns are taken as given here, so this reproduces the reported aggregates, not the per-trajectory state extraction.
+
 ### 7.2 Compression Ablation and Loss Attribution
 
 A nested ablation decomposed the ~96.5% compression into six variants to attribute information loss per pipeline step:
