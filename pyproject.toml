@@ -43,8 +43,11 @@ neo4j = ["neo4j>=5.0"]
 # for symbolic math verification; it is optional and never imported at
 # package load time.
 tools = ["sympy>=1.12"]
+# The GSM-Symbolic G2 live solver arm (desi.gsm_symbolic.solver.build_openai_solver)
+# lazily imports openai; optional, never imported at package load time.
+gsm = ["openai>=1.0"]
 test = ["pytest>=8.0"]
-dev = ["pytest>=8.0", "build>=1.0", "sympy>=1.12"]
+dev = ["pytest>=8.0", "build>=1.0", "sympy>=1.12", "openai>=1.0"]
 
 [project.urls]
 Homepage = "https://github.com/hstre/DESi"

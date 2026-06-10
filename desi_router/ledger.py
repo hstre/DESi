@@ -27,6 +27,7 @@ import json
 import os
 import socket
 import sqlite3
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -64,9 +65,18 @@ class Ledger:
         self.instance_id = instance_id or default_instance_id()
         self._con = sqlite3.connect(self.path, timeout=30.0, isolation_level=None)
         self._con.row_factory = sqlite3.Row
-        self._con.execute("PRAGMA journal_mode=WAL")
-        self._con.execute("PRAGMA synchronous=NORMAL")
         self._con.execute("PRAGMA busy_timeout=30000")
+        # WAL is a persistent, file-level mode. Under heavy concurrent first-open
+        # (many instances at once) the switch can transiently raise
+        # 'database is locked'; retry briefly, then proceed — the mode is a
+        # performance optimization, and once any instance sets it the file stays WAL.
+        for _attempt in range(100):
+            try:
+                self._con.execute("PRAGMA journal_mode=WAL")
+                break
+            except sqlite3.OperationalError:
+                time.sleep(0.05)
+        self._con.execute("PRAGMA synchronous=NORMAL")
         self._con.executescript(_SCHEMA)
         self._migrate()
 
