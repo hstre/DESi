@@ -1,0 +1,131 @@
+"""Context-contamination benchmark CLI — offline-honest, live-capable.
+
+Modes:
+
+* ``--dry-run``         (default when no key) — emit the exact prompts and
+  hygiene states; if ``--responses`` provides scripted outputs, score them.
+  No network, no model.
+* ``--live``            — both arms against a real model via OpenRouter
+  (needs OPENROUTER_API_KEY). Default model is the pilot's family
+  (Llama-3.1-8B-Instruct).
+
+Examples:
+    python -m desi.context_contamination --data ./data/context_contamination --dry-run
+    python -m desi.context_contamination --data ./data/context_contamination \
+        --live --out report.json
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from collections.abc import Sequence
+from pathlib import Path
+
+from .hygiene import build_hygiene_state
+from .prompts import PERSONAS, baseline_turns, hygiene_turns
+from .runner import (
+    DEFAULT_MODEL,
+    ScriptedChat,
+    build_openrouter_chat,
+    load_cases,
+    run_benchmark,
+)
+
+
+def main(argv: Sequence[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(
+        prog="python -m desi.context_contamination",
+        description="Context hygiene vs raw ingestion (pilot benchmark).",
+    )
+    ap.add_argument("--data", required=True, help="directory with advText*.txt files")
+    ap.add_argument("--mode", choices=["baseline", "desi_hygiene", "both"],
+                    default="both", help="which arm(s) to expose in --dry-run output")
+    ap.add_argument("--persona", choices=sorted(PERSONAS), default="neutral",
+                    help="persona variant (gender-coded ones are optional stress conditions)")
+    ap.add_argument("--max-chars", type=int, default=8000,
+                    help="source slice size per case (both arms see the same slice)")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="no model: emit prompts/states; score --responses if given")
+    ap.add_argument("--responses", default=None,
+                    help="dry-run only: JSON file {case_id: {mode: [resp, ...]}} to score")
+    ap.add_argument("--live", action="store_true", help="run a real model via OpenRouter")
+    ap.add_argument("--model", default=DEFAULT_MODEL, help="OpenRouter model id for --live")
+    ap.add_argument("--out", default=None, help="write the full report JSON here")
+    args = ap.parse_args(argv)
+
+    cases = load_cases(args.data)
+
+    if args.live:
+        try:
+            chat = build_openrouter_chat(args.model)
+        except RuntimeError as exc:
+            print(f"[live mode unavailable] {exc}")
+            return 2
+        report = run_benchmark(cases, chat, persona=args.persona, max_chars=args.max_chars)
+        banner = f"LIVE run via OpenRouter ({args.model}): responses are real model outputs."
+    else:
+        scripted: dict = {}
+        if args.responses:
+            scripted = json.loads(Path(args.responses).read_text(encoding="utf-8"))
+        if scripted:
+            # score the provided fixture outputs case by case
+            from .runner import MODES, run_case
+
+            runs = {m: {} for m in MODES}
+            for case in cases:
+                for mode in MODES:
+                    chat = ScriptedChat(scripted.get(case.case_id, {}).get(mode, []))
+                    runs[mode][case.case_id] = run_case(
+                        chat, case, mode, args.persona, args.max_chars
+                    )
+            from .metrics import comparison_summary
+
+            report = {
+                "persona": args.persona,
+                "runs": runs,
+                "comparisons": [
+                    comparison_summary(
+                        c.case_id,
+                        runs["baseline"][c.case_id]["metrics"],
+                        runs["desi_hygiene"][c.case_id]["metrics"],
+                    )
+                    for c in cases
+                ],
+            }
+            banner = "DRY RUN: scored the provided fixture responses (no model call)."
+        else:
+            # no responses: emit the exact prompts / hygiene states and stop
+            report = {"persona": args.persona, "cases": {}}
+            for case in cases:
+                raw = case.raw_text[: args.max_chars]
+                entry: dict = {"hygiene_state": build_hygiene_state(raw)}
+                if args.mode in ("baseline", "both"):
+                    entry["baseline_turns"] = baseline_turns(raw, args.persona)
+                if args.mode in ("desi_hygiene", "both"):
+                    entry["hygiene_turns"] = hygiene_turns(raw, args.persona)
+                report["cases"][case.case_id] = entry
+            banner = ("DRY RUN: emitted prompts and hygiene states only — nothing was "
+                      "answered or scored. Provide --responses or --live for metrics.")
+
+    print(f">> {banner}\n")
+    if "comparisons" in report:
+        for comp in report["comparisons"]:
+            print(json.dumps(comp, indent=2, ensure_ascii=False))
+    else:
+        for case_id, entry in report["cases"].items():
+            state = entry["hygiene_state"]
+            print(f"-- {case_id}: register={state['source_register']} "
+                  f"claims={state['audit']['state_claims']} "
+                  f"framework_terms={state['audit']['framework_term_count']} "
+                  f"sha256={state['audit']['source_sha256'][:12]}…")
+    if args.out:
+        Path(args.out).write_text(
+            json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        )
+        print(f"\nwrote {args.out}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
