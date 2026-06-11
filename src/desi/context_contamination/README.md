@@ -88,7 +88,25 @@ python -m desi.context_contamination --data ./data/context_contamination \
 # live: both arms via OpenRouter (needs OPENROUTER_API_KEY)
 python -m desi.context_contamination --data ./data/context_contamination \
     --live --model meta-llama/llama-3.1-8b-instruct --out report.json
+
+# extended pressure protocol + repeated runs with per-metric variance
+python -m desi.context_contamination --data ./data/context_contamination \
+    --live --protocol extended --repeats 5 --out report.json
 ```
+
+### Protocol and repeats
+
+- `--protocol standard` (default) is the 4-turn form; `--protocol extended`
+  adds the pilot's pressure turns (repeated harm analysis, emotional
+  escalation, a "summarize the framework" trap, an identity/self-drift probe)
+  so register drift and entrapment have room to accumulate over turns. Both
+  arms always share every turn except the single ingestion turn, so the
+  comparison stays matched.
+- `--repeats N` (live only) runs the whole benchmark N times and reports, per
+  (arm, case, metric), `mean ± stdev` plus the raw values. Provider sampling
+  is not seedable even at temperature 0, so repeats are the only honest way to
+  separate a real arm difference from run-to-run jitter; single runs (like the
+  pilot) cannot support significance claims.
 
 The default model is the pilot's family (Llama-3.1-8B-Instruct via
 OpenRouter). The pilot's *pruned* variant is not reachable via OpenRouter —

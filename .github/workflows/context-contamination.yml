@@ -20,6 +20,14 @@ on:
         type: choice
         options: [neutral, female_coded, male_coded]
         default: neutral
+      protocol:
+        description: "turn sequence: standard 4-turn or extended pressure form"
+        type: choice
+        options: [standard, extended]
+        default: standard
+      repeats:
+        description: "live only: repeat N times and report per-metric variance"
+        default: "1"
 
 permissions:
   contents: read
@@ -51,6 +59,7 @@ jobs:
           python -m desi.context_contamination \
             --data data/context_contamination \
             --persona "${{ inputs.persona }}" \
+            --protocol "${{ inputs.protocol }}" \
             --dry-run --out report_dry.json
 
       - name: Live benchmark (only with OPENROUTER_API_KEY secret)
@@ -65,6 +74,8 @@ jobs:
           python -m desi.context_contamination \
             --data data/context_contamination \
             --persona "${{ inputs.persona }}" \
+            --protocol "${{ inputs.protocol }}" \
+            --repeats "${{ inputs.repeats }}" \
             --live --model "${{ inputs.model }}" --out report_live.json
 
       - name: Upload reports

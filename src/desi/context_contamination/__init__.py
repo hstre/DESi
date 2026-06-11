@@ -38,7 +38,13 @@ from .metrics import (
     score_run,
 )
 from .prompts import baseline_turns, hygiene_turns, system_prompt
-from .runner import ScriptedChat, build_openrouter_chat, load_cases, run_benchmark
+from .runner import (
+    ScriptedChat,
+    build_openrouter_chat,
+    load_cases,
+    run_benchmark,
+    run_benchmark_repeated,
+)
 
 __all__ = [
     "ScriptedChat",
@@ -55,6 +61,7 @@ __all__ = [
     "register_drift_score",
     "role_adoption",
     "run_benchmark",
+    "run_benchmark_repeated",
     "score_response",
     "score_run",
     "system_prompt",

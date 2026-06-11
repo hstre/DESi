@@ -71,16 +71,17 @@ def load_cases(data_dir: str | Path, pattern: str = "advText*.txt") -> list[Case
 
 
 def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
-             max_chars: int = 8000) -> dict:
+             max_chars: int = 8000, protocol: str = "standard") -> dict:
     """Drive one case through one arm; returns responses + metrics.
 
     ``max_chars`` truncates the raw source (the pilot worked with 2k/8k
     token slices, not whole files); applied before either arm so both see
-    the same source slice.
+    the same source slice. ``protocol`` selects the turn sequence
+    ("standard" 4-turn or "extended" multi-turn pressure form).
     """
     raw = case.raw_text[:max_chars]
     build = baseline_turns if mode == "baseline" else hygiene_turns
-    turns = build(raw, persona=persona)
+    turns = build(raw, persona=persona, protocol=protocol)
 
     messages: list[dict] = [{"role": "system", "content": system_prompt()}]
     responses: list[str] = []
@@ -94,16 +95,20 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
         "case_id": case.case_id,
         "mode": mode,
         "persona": persona,
+        "protocol": protocol,
         "responses": responses,
         "metrics": score_run(responses),
     }
 
 
 def run_benchmark(cases: list[Case], chat: Chat, persona: str = "neutral",
-                  max_chars: int = 8000) -> dict:
+                  max_chars: int = 8000, protocol: str = "standard") -> dict:
     """Both arms over all cases + per-case comparison summaries."""
     runs = {
-        mode: {c.case_id: run_case(chat, c, mode, persona, max_chars) for c in cases}
+        mode: {
+            c.case_id: run_case(chat, c, mode, persona, max_chars, protocol)
+            for c in cases
+        }
         for mode in MODES
     }
     comparisons = [
@@ -114,7 +119,69 @@ def run_benchmark(cases: list[Case], chat: Chat, persona: str = "neutral",
         )
         for c in cases
     ]
-    return {"persona": persona, "runs": runs, "comparisons": comparisons}
+    return {"persona": persona, "protocol": protocol,
+            "runs": runs, "comparisons": comparisons}
+
+
+_VARIANCE_METRICS = (
+    "attribution_failures",
+    "register_drift",
+    "framing_leakage",
+    "role_adoption",
+)
+
+
+def _summarize_repeats(values: list[float]) -> dict:
+    """mean / min / max / sample-stdev for one metric across repeats."""
+    n = len(values)
+    mean = sum(values) / n if n else 0.0
+    if n > 1:
+        var = sum((v - mean) ** 2 for v in values) / (n - 1)
+        stdev = var ** 0.5
+    else:
+        stdev = 0.0
+    return {
+        "mean": round(mean, 4),
+        "stdev": round(stdev, 4),
+        "min": min(values) if values else 0.0,
+        "max": max(values) if values else 0.0,
+        "values": values,
+    }
+
+
+def run_benchmark_repeated(cases: list[Case], chat: Chat, persona: str = "neutral",
+                           max_chars: int = 8000, protocol: str = "standard",
+                           repeats: int = 1) -> dict:
+    """Run the benchmark ``repeats`` times and estimate variance per metric.
+
+    Provider sampling is not seedable even at temperature 0, so repeats are the
+    only honest way to separate a real arm difference from run-to-run jitter.
+    Per (arm, case, metric) this reports mean ± stdev and the raw values; with
+    repeats=1 it degrades to a single run plus the per-repeat report list.
+    """
+    per_repeat = [
+        run_benchmark(cases, chat, persona, max_chars, protocol)
+        for _ in range(max(1, repeats))
+    ]
+
+    variance: dict[str, dict] = {}
+    for mode in MODES:
+        variance[mode] = {}
+        for case in cases:
+            cid = case.case_id
+            variance[mode][cid] = {
+                metric: _summarize_repeats(
+                    [rep["runs"][mode][cid]["metrics"][metric] for rep in per_repeat]
+                )
+                for metric in _VARIANCE_METRICS
+            }
+    return {
+        "persona": persona,
+        "protocol": protocol,
+        "repeats": max(1, repeats),
+        "variance": variance,
+        "reports": per_repeat,
+    }
 
 
 def build_openrouter_chat(model: str = DEFAULT_MODEL, *, api_key: str | None = None,

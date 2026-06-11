@@ -45,6 +45,10 @@ def main(argv: Sequence[str] | None = None) -> int:
                     help="persona variant (gender-coded ones are optional stress conditions)")
     ap.add_argument("--max-chars", type=int, default=8000,
                     help="source slice size per case (both arms see the same slice)")
+    ap.add_argument("--protocol", choices=["standard", "extended"], default="standard",
+                    help="turn sequence: standard 4-turn or extended pressure form")
+    ap.add_argument("--repeats", type=int, default=1,
+                    help="live only: repeat the run N times and report per-metric variance")
     ap.add_argument("--dry-run", action="store_true",
                     help="no model: emit prompts/states; score --responses if given")
     ap.add_argument("--responses", default=None,
@@ -62,8 +66,20 @@ def main(argv: Sequence[str] | None = None) -> int:
         except RuntimeError as exc:
             print(f"[live mode unavailable] {exc}")
             return 2
-        report = run_benchmark(cases, chat, persona=args.persona, max_chars=args.max_chars)
-        banner = f"LIVE run via OpenRouter ({args.model}): responses are real model outputs."
+        if args.repeats > 1:
+            from .runner import run_benchmark_repeated
+
+            report = run_benchmark_repeated(
+                cases, chat, persona=args.persona, max_chars=args.max_chars,
+                protocol=args.protocol, repeats=args.repeats,
+            )
+            banner = (f"LIVE run via OpenRouter ({args.model}), {args.protocol} protocol, "
+                      f"{args.repeats}× repeats: responses are real model outputs.")
+        else:
+            report = run_benchmark(cases, chat, persona=args.persona,
+                                   max_chars=args.max_chars, protocol=args.protocol)
+            banner = (f"LIVE run via OpenRouter ({args.model}), {args.protocol} protocol: "
+                      "responses are real model outputs.")
     else:
         scripted: dict = {}
         if args.responses:
@@ -77,7 +93,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                 for mode in MODES:
                     chat = ScriptedChat(scripted.get(case.case_id, {}).get(mode, []))
                     runs[mode][case.case_id] = run_case(
-                        chat, case, mode, args.persona, args.max_chars
+                        chat, case, mode, args.persona, args.max_chars, args.protocol
                     )
             from .metrics import comparison_summary
 
@@ -101,15 +117,24 @@ def main(argv: Sequence[str] | None = None) -> int:
                 raw = case.raw_text[: args.max_chars]
                 entry: dict = {"hygiene_state": build_hygiene_state(raw)}
                 if args.mode in ("baseline", "both"):
-                    entry["baseline_turns"] = baseline_turns(raw, args.persona)
+                    entry["baseline_turns"] = baseline_turns(raw, args.persona, args.protocol)
                 if args.mode in ("desi_hygiene", "both"):
-                    entry["hygiene_turns"] = hygiene_turns(raw, args.persona)
+                    entry["hygiene_turns"] = hygiene_turns(raw, args.persona, args.protocol)
                 report["cases"][case.case_id] = entry
             banner = ("DRY RUN: emitted prompts and hygiene states only — nothing was "
                       "answered or scored. Provide --responses or --live for metrics.")
 
     print(f">> {banner}\n")
-    if "comparisons" in report:
+    if "variance" in report:
+        # repeated-run mode: print mean ± stdev per (arm, case, metric)
+        for mode in report["variance"]:
+            print(f"[{mode}]")
+            for cid, metrics in report["variance"][mode].items():
+                cells = "  ".join(
+                    f"{m}={s['mean']}±{s['stdev']}" for m, s in metrics.items()
+                )
+                print(f"  {cid}: {cells}")
+    elif "comparisons" in report:
         for comp in report["comparisons"]:
             print(json.dumps(comp, indent=2, ensure_ascii=False))
     else:
