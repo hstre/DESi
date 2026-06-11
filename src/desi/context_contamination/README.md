@@ -47,26 +47,63 @@ evidence (auditability over elegance):
 
 ## Calibration status — read this before citing numbers
 
-Since the tested model has no DESi calibration profile for this task family
-and no known task-specific k-value, all results so far should be interpreted
-as an **unoptimized pilot signal**, not a calibrated performance estimate.
-The observed effect is therefore not evidence of an optimal DESi
-configuration; it is evidence that **even a non-calibrated hygiene-state
-intervention can measurably alter the contamination profile** — which speaks
-to the structure of the approach rather than to tuning.
+The early persona runs used a model with no DESi calibration profile for
+this task family; those results should be interpreted as an **unoptimized
+pilot signal**, not a calibrated performance estimate. They are not evidence
+of an optimal DESi configuration; they are evidence that **even a
+non-calibrated hygiene-state intervention can measurably alter the
+contamination profile** — which speaks to the structure of the approach
+rather than to tuning.
 
-What DESi has measured about the default model (`llama-3.1-8b-instruct`,
-routing_table.json) covers *other* task families — memory_recall (k=5,
-score 0.56), code_audit (raw, 0.833), scientific_claim (k=3, 0.767).
-Context contamination is a separate task family; its profiling step is the
-**state-density sweep** below (`--density-sweep`), which locates how much
-hygiene-state structure this model needs (k ∈ {1, 3, 5, 8}) before the
-structured state beats raw ingestion. Findings from the uncalibrated runs so
-far: the hygiene state robustly reduces *source-driven* contamination
-(framing leakage; loops appeared almost only in baseline arms), and does
-**not** reduce *user-driven* register drift under emotional pressure turns —
-that channel needs its own mechanism (e.g. frame re-anchoring), not
-ingestion hygiene.
+The profiling step (`--density-sweep`) has since been run once for the
+default model. Measured profile:
+
+### Model profile: `meta-llama/llama-3.1-8b-instruct` × context_contamination
+
+Source: workflow run [27383274237](https://github.com/hstre/DESi/actions/runs/27383274237)
+(2026-06-11, extended protocol, neutral persona, 2 repeats, one shared
+baseline per repeat; report + hash-chained `cc_ledger.db` attached as
+artifacts, ledger chain verified). Aggregates over 3 cases; mean ± stdev
+across repeats; drift = max over cases.
+
+| arm | attribution | register drift | framing leakage | role | loop case-runs |
+|---|---|---|---|---|---|
+| baseline (raw) | 0.0 | 0.50±0.14 | 3.0±2.2 | 3.0 | 0/6 |
+| hygiene k=1 | 1.5±0.7 | 0.10 | 0.0 | 0.0 | **5/6** ⚠ |
+| hygiene k=3 | 0.5 | 0.50 | 4.0±1.7 | 1.0 | 0/6 |
+| **hygiene k=5** | **0.0** | 0.50 | **1.5±2.1** | 1.0 | **0/6** |
+| hygiene k=8 | 0.5 | 0.50 | 3.0±2.7 | 1.0 | 1/6 |
+
+**Calibrated k for this (model, task family): 5** — the only level with zero
+attribution failures, the lowest non-degenerate framing leakage, and zero
+loops. Three structural observations the profile supports:
+
+1. **The profile is non-monotonic.** k=8 (more/longer quoted claims) moves
+   framing leakage back toward baseline — more quoted source material gives
+   the model more to echo. Structure has an optimum, not a "more is better"
+   gradient.
+2. **k=1 is a trap that only loop detection catches.** The bare label looks
+   spotless on the contamination metrics (framing 0, drift 0.1) but loops in
+   5 of 6 runs: with nothing to analyze, the model starves and repeats. Its
+   "clean" scores are trivial, not hygienic — exactly the multi-layer blind
+   spot the source paper documents.
+3. **Register drift sits at 0.50 across baseline and every functional
+   density** — third independent confirmation that drift is *user-driven*
+   (emotional pressure turns, identical in all arms) and is not treatable
+   via ingestion density. That channel needs its own mechanism (e.g. frame
+   re-anchoring), not ingestion hygiene.
+
+Since the pre-sweep persona runs already used k=5 (the default), they stand
+as the at-calibration results for this model. Caveats: one sweep, 2 repeats,
+neutral persona only, one model/provider — the profile is a first
+measurement, not a settled constant; re-run the sweep before porting the k
+to other models or providers.
+
+For *other* task families this model is profiled in routing_table.json —
+memory_recall (k=5, score 0.56), code_audit (raw, 0.833), scientific_claim
+(k=3, 0.767). The density-k of this benchmark is a state-structure level,
+not the retrieval-k of those entries; they share only the calibration
+discipline.
 
 ## What it does NOT claim
 
