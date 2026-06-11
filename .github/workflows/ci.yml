@@ -17,10 +17,10 @@ permissions:
 jobs:
   test-core:
     name: pytest (core, fast)
-    # Fast, high-value subset on every push/PR for quick feedback.
-    # The full ~17k-test regression runs nightly (schedule) and on manual
+    # Fast, high-value subset on every push for quick feedback.
+    # The full ~17k-test regression gates every PR and runs nightly + on manual
     # dispatch via the 'pytest (full regression)' job below.
-    if: github.event_name != 'schedule'
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -41,13 +41,17 @@ jobs:
           tests/driftbench
           tests/gsm_symbolic
           tests/spl_adapter
+          tests/spl_core
+          tests/calibration
           tests/memory
           tests/release_validation
 
   test-full:
     name: pytest (full regression)
-    # The complete suite — slow (~1h+). Nightly + on demand, not on every push.
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    # The complete suite — slow (~1h+). Gates every PR (merges to main must pass
+    # the whole suite); also nightly + manual dispatch. Not on plain pushes,
+    # where the fast core job above gives quick feedback instead.
+    if: github.event_name != 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

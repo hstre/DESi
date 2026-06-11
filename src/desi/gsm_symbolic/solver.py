@@ -38,7 +38,9 @@ from .report import ComparisonReport, build_report
 from .scoring import Predictions
 from .state import extract_state
 
-_NUMBER = re.compile(r"-?\d+(?:\.\d+)?")
+# Thousands-separated numbers ("1,234.5") must match as ONE token — otherwise
+# "1,234" splits into ['1', '234'] and the last-token rule returns '234'.
+_NUMBER = re.compile(r"-?\d{1,3}(?:,\d{3})+(?:\.\d+)?|-?\d+(?:\.\d+)?")
 
 
 class SolverConfigError(RuntimeError):
@@ -56,7 +58,7 @@ def parse_answer(text: str, answer_type: str = "integer") -> str:
     matches = _NUMBER.findall(text or "")
     if not matches:
         return ""
-    token = matches[-1]
+    token = matches[-1].replace(",", "")
     if answer_type == "integer":
         try:
             value = float(token)
@@ -100,6 +102,33 @@ def desi_prompt(task: NormalizedGsmTask) -> str:
     if dropped:
         lines += ["", "Ignore these irrelevant statements:"]
         lines += [f"  - {c}" for c in dropped]
+    lines += ["", f"Answer type: {task.answer_type}", "Answer:"]
+    return "\n".join(lines)
+
+
+def relevant_only_prompt(task: NormalizedGsmTask) -> str:
+    """Ablation arm: the DESi structuring with the irrelevant clauses
+    *silently removed* instead of being named in an ignore-list.
+
+    This deconfounds the two things ``desi_prompt`` changes at once:
+    a shorter context (irrelevant content gone) and the explicit
+    irrelevance *marking*. Everything else - intro line, relevant
+    statements, quantities, answer-type footer - is byte-identical to
+    ``desi_prompt``, so baseline→relevant_only isolates the pruning
+    effect and relevant_only→desi isolates the marking effect."""
+    state = extract_state(task)
+    relevant = [c.text for c in state.relevant_clauses()]
+    quantities = state.quantities()
+
+    lines = [
+        "Solve the math word problem using only the relevant "
+        "information below. Reply with only the final number.",
+        "",
+        "Relevant statements:",
+    ]
+    lines += [f"  - {c}" for c in relevant]
+    if quantities:
+        lines += ["", f"Known quantities: {', '.join(quantities)}"]
     lines += ["", f"Answer type: {task.answer_type}", "Answer:"]
     return "\n".join(lines)
 
@@ -214,6 +243,60 @@ def run_comparison(
     return build_report(baseline_preds, desi_preds)
 
 
+def run_decomposition(
+    baseline_solver: Solver,
+    relevant_only_solver: Solver | None = None,
+    desi_solver: Solver | None = None,
+    tasks: Sequence[NormalizedGsmTask] | None = None,
+) -> dict:
+    """Three-arm ablation: decompose the DESi effect into pruning + marking.
+
+    The two-arm comparison confounds two interventions, because the DESi
+    prompt simultaneously *removes* irrelevant content (shorter context)
+    and *names* it in an ignore-list (explicit marking). The middle arm
+    (``relevant_only_prompt``) applies only the removal, so the headline
+    metric decomposes exactly:
+
+        pruning  = relevant_only - baseline   (shorter context alone)
+        marking  = desi - relevant_only       (the ignore-list on top)
+        total    = desi - baseline            (= pruning + marking)
+
+    Solvers default to the baseline solver (same model, three prompt
+    strategies), mirroring ``run_comparison``. Deterministic given the
+    solvers; offline with ``ScriptedSolver``.
+    """
+    from .scoring import score_predictions
+
+    rel = relevant_only_solver if relevant_only_solver is not None else baseline_solver
+    desi = desi_solver if desi_solver is not None else baseline_solver
+    preds = {
+        "baseline": run_arm(baseline_solver, baseline_prompt, tasks),
+        "relevant_only": run_arm(rel, relevant_only_prompt, tasks),
+        "desi": run_arm(desi, desi_prompt, tasks),
+    }
+    metrics = {arm: score_predictions(p).to_dict() for arm, p in preds.items()}
+
+    def _effects(key: str) -> dict[str, float]:
+        b = float(metrics["baseline"][key])
+        r = float(metrics["relevant_only"][key])
+        d = float(metrics["desi"][key])
+        # rounded from the same raw values so pruning + marking == total
+        return {
+            "pruning": round(r - b, 6),
+            "marking": round(d - r, 6),
+            "total": round(d - b, 6),
+        }
+
+    return {
+        "arms": metrics,
+        "effects": {
+            "strict_group_correctness": _effects("strict_group_correctness"),
+            "frame_accuracy": _effects("frame_accuracy"),
+        },
+        "predictions": preds,
+    }
+
+
 __all__ = [
     "CallableSolver",
     "ScriptedSolver",
@@ -223,6 +306,8 @@ __all__ = [
     "build_openai_solver",
     "desi_prompt",
     "parse_answer",
+    "relevant_only_prompt",
     "run_arm",
     "run_comparison",
+    "run_decomposition",
 ]

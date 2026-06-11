@@ -98,12 +98,16 @@ def from_desi_spl_candidate(cand: Any, *, gateway: Any = None) -> CanonicalClaim
     `proposed_relations`. There is no triple and no entropy, so `subject /
     predicate / object` stay empty and `projection_entropy` stays None. The
     admissibility decision mirrors `desi.spl_adapter.SPLGateway` precedence
-    (empty_content → hallucinated_relation → ambiguous/confidence)."""
+    (empty_content → hallucinated_relation → ambiguous/confidence →
+    invalid_method, the closed-set check `candidate_to_claim` applies last)."""
+    from desi.spl_adapter.mapping import LEGAL_METHODS
+
     from .gateway import CanonicalGateway
     gw = gateway or CanonicalGateway()
     errors: list[str] = []
     content = getattr(cand, "content", "") or ""
     proposed = getattr(cand, "proposed_relations", ()) or ()
+    method = getattr(cand, "method", "") or ""
     if not content:
         admissible, reason = False, "empty_content"
     elif proposed:
@@ -112,6 +116,11 @@ def from_desi_spl_candidate(cand: Any, *, gateway: Any = None) -> CanonicalClaim
         d = gw.admit_flag(confidence=getattr(cand, "confidence", 1.0),
                           ambiguous=getattr(cand, "ambiguous", False))
         admissible, reason = d.admissible, d.reason
+        if admissible and method not in LEGAL_METHODS:
+            # S7 closed method set: SPLGateway rejects any method outside
+            # LEGAL_METHODS; the canonical layer must never admit what the
+            # layer it consolidates rejects.
+            admissible, reason = False, "invalid_method"
     if not admissible:
         errors.append(reason)
     return CanonicalClaimCandidate(
@@ -119,7 +128,7 @@ def from_desi_spl_candidate(cand: Any, *, gateway: Any = None) -> CanonicalClaim
         ambiguous=getattr(cand, "ambiguous", False),
         projection_entropy=None, emission_rule=None,
         admissible=admissible, admission_reason=reason,
-        origin="desi_spl_adapter", claim_type=getattr(cand, "method", ""),
+        origin="desi_spl_adapter", claim_type=method,
         errors=errors)
 
 

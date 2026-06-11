@@ -120,3 +120,25 @@ def test_s7_same_content_different_method_kept_distinct_and_not_reused(tmp_path)
     assert r3["prior"]["reused"] is True
     assert r3["answer_source"].startswith("reused:tool#")
     led.close()
+
+
+def test_reuse_never_crosses_task_class(tmp_path):
+    """Same normalized text routed to a DIFFERENT deterministic tool is a
+    different computation — its prior answer must never be reused (S7 keys
+    identity on content + method, not content alone)."""
+    db = tmp_path / "l9.db"
+    led = Ledger(db, instance_id="A")
+    q = "convert 5 km to miles"
+
+    r1 = engine.run(q, registry=_reg(), tools=default_registry(), ledger=led)
+    assert r1["task_class"] == "unit_conversion"
+    assert r1["answer"] == "3.1069" and r1["answer_source"] == "tool"
+
+    # same text, explicitly forced onto the calculator -> different method,
+    # the unit tool's 3.1069 must NOT come back as a reused answer
+    r2 = engine.run(q, registry=_reg(), tools=default_registry(), ledger=led,
+                    task_class="math_arithmetic")
+    assert r2["prior"]["reused"] is False
+    assert not str(r2["answer_source"]).startswith("reused")
+    assert r2["answer"] != "3.1069"
+    led.close()

@@ -26,7 +26,7 @@ For each new model M:
 ### Step 1 — pricing
 
 Already done if M is in `provisional_models`. Otherwise add `(price_in, price_out)`
-to `desi/answerer.py:_PRICES` and to `provisional_models.models.<M>` in
+to `desi_router/answerer.py:_PRICES` and to `provisional_models.models.<M>` in
 `routing_table.json`.
 
 ### Step 2 — k-curve on LongMemEval-S (~$0.30 per model)

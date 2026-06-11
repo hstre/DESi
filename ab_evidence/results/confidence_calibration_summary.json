@@ -952,5 +952,52 @@
         }
       }
     }
+  },
+  "discrimination_by_task": {
+    "code_audit": {
+      "n_total": 345,
+      "n_keep": 281,
+      "n_escalate": 64,
+      "p_correct_keep": 0.8167,
+      "p_correct_escalate": 0.2109,
+      "separation": 0.6058,
+      "trigger_rate": 0.1855,
+      "confusion": {
+        "escalate_and_wrong": 53,
+        "escalate_and_correct": 11,
+        "keep_and_wrong": 75,
+        "keep_and_correct": 206
+      }
+    },
+    "memory_recall": {
+      "n_total": 2260,
+      "n_keep": 1643,
+      "n_escalate": 617,
+      "p_correct_keep": 0.5058,
+      "p_correct_escalate": 0.1929,
+      "separation": 0.3129,
+      "trigger_rate": 0.273,
+      "confusion": {
+        "escalate_and_wrong": 498,
+        "escalate_and_correct": 119,
+        "keep_and_wrong": 812,
+        "keep_and_correct": 831
+      }
+    },
+    "scientific_claim": {
+      "n_total": 690,
+      "n_keep": 488,
+      "n_escalate": 202,
+      "p_correct_keep": 0.8648,
+      "p_correct_escalate": 0.5198,
+      "separation": 0.345,
+      "trigger_rate": 0.2928,
+      "confusion": {
+        "escalate_and_wrong": 97,
+        "escalate_and_correct": 105,
+        "keep_and_wrong": 66,
+        "keep_and_correct": 422
+      }
+    }
   }
 }

@@ -91,7 +91,8 @@ def _http_post(url, headers, body, timeout=60, retries=2):
             last = f"HTTP {e.code}: {text}"
         except Exception as e:
             last = f"{type(e).__name__}: {str(e)[:200]}"
-        time.sleep(2 ** i)
+        if i + 1 < retries:  # no pointless sleep after the final attempt
+            time.sleep(2 ** i)
     return {"_http_error": "retry_exhausted", "_body": last}
 
 

@@ -63,6 +63,13 @@ def test_units_tool():
     assert convert_units("1 mile in km") == 1.6093
 
 
+def test_units_tool_into_phrasing():
+    # 'into' must not be parsed as 'in' + leftover 'to' (km -> 'to' crash)
+    assert convert_units("5 km into miles") == 3.1069
+    assert convert_units("turn 10 kg into lb") == 22.0462
+    assert classify("5 km into miles") == "unit_conversion"
+
+
 # ---- step 2: retrieval tool (over a temp corpus) ----
 
 def test_retrieval_tool(tmp_path):

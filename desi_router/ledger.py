@@ -16,7 +16,8 @@ recomputable from it).
 Scope, honestly: this is the *local* substrate — one file, shared by local
 instances. It is not the federated, cross-institutional Layer 9 of the working
 paper; it is its smallest honest, running form. Concurrency across instances is
-handled by SQLite WAL + an IMMEDIATE write transaction (the chain is serialized).
+handled by an IMMEDIATE write transaction (the chain is serialized); WAL mode is
+enabled best-effort as a performance optimization on top of that.
 
 Stdlib only (``sqlite3``).
 """
@@ -60,12 +61,14 @@ def _chain(prev_chain_hash: str, core: dict[str, Any]) -> str:
 
 
 class Ledger:
-    def __init__(self, path: str | Path, instance_id: str | None = None):
+    def __init__(self, path: str | Path, instance_id: str | None = None,
+                 busy_timeout_ms: int = 30000):
         self.path = str(path)
         self.instance_id = instance_id or default_instance_id()
-        self._con = sqlite3.connect(self.path, timeout=30.0, isolation_level=None)
+        self._con = sqlite3.connect(self.path, timeout=busy_timeout_ms / 1000.0,
+                                    isolation_level=None)
         self._con.row_factory = sqlite3.Row
-        self._con.execute("PRAGMA busy_timeout=30000")
+        self._con.execute(f"PRAGMA busy_timeout={int(busy_timeout_ms)}")
         # WAL is a persistent, file-level mode. Under heavy concurrent first-open
         # (many instances at once) the switch can transiently raise
         # 'database is locked'; retry briefly, then proceed — the mode is a
@@ -100,7 +103,10 @@ class Ledger:
         method_hash: str | None = None,
     ) -> dict:
         ts = datetime.now(timezone.utc).isoformat()
-        while True:
+        # Bounded retry on lock contention only. Non-transient errors (disk
+        # full, read-only file, corruption) are raised, never spun on.
+        max_attempts = 120
+        for attempt in range(max_attempts):
             try:
                 self._con.execute("BEGIN IMMEDIATE")
                 row = self._con.execute(
@@ -123,9 +129,19 @@ class Ledger:
                 )
                 self._con.execute("COMMIT")
                 return {"seq": seq, "ts": ts, "chain_hash": chain_hash}
-            except sqlite3.OperationalError:
-                self._con.execute("ROLLBACK")
-                continue  # busy: another instance is mid-append; retry
+            except sqlite3.OperationalError as exc:
+                # ROLLBACK only if BEGIN actually opened a transaction —
+                # rolling back without one raises its own OperationalError.
+                if self._con.in_transaction:
+                    self._con.execute("ROLLBACK")
+                msg = str(exc).lower()
+                if "locked" not in msg and "busy" not in msg:
+                    raise
+                # busy: another instance is mid-append; back off and retry
+                time.sleep(min(0.05 * (attempt + 1), 0.5))
+        raise sqlite3.OperationalError(
+            f"ledger {self.path}: still locked after {max_attempts} attempts"
+        )
 
     # ---- read ----
 
@@ -146,7 +162,7 @@ class Ledger:
             sql += " WHERE kind=?"
             args.append(kind)
         sql += " ORDER BY seq ASC"
-        if limit:
+        if limit is not None:
             sql += f" LIMIT {int(limit)}"
         return [self._to_dict(r) for r in self._con.execute(sql, args)]
 
@@ -188,17 +204,30 @@ class Ledger:
     # ---- integrity ----
 
     def verify_chain(self) -> bool:
-        prev = ""
-        for r in self._con.execute("SELECT * FROM events ORDER BY seq ASC"):
+        ok, _, _ = self.verify_chain_from()
+        return ok
+
+    def verify_chain_from(self, start_after_seq: int = 0,
+                          prev_chain_hash: str = "") -> tuple[bool, int, str]:
+        """Verify rows with ``seq > start_after_seq`` given the chain hash at
+        that seq. Returns ``(intact, last_verified_seq, last_chain_hash)`` so
+        callers of an append-only ledger can verify incrementally instead of
+        re-hashing the whole table on every call."""
+        prev = prev_chain_hash
+        seq = start_after_seq
+        for r in self._con.execute(
+            "SELECT * FROM events WHERE seq > ? ORDER BY seq ASC", (start_after_seq,)
+        ):
             d = self._to_dict(r)
             core = {
                 "seq": d["seq"], "ts": d["ts"], "instance_id": d["instance_id"],
                 "kind": d["kind"], "decision_hash": d["decision_hash"], "payload": d["payload"],
             }
             if d["prev_chain_hash"] != prev or _chain(prev, core) != d["chain_hash"]:
-                return False
+                return False, seq, prev
             prev = d["chain_hash"]
-        return True
+            seq = d["seq"]
+        return True, seq, prev
 
     def close(self) -> None:
         self._con.close()

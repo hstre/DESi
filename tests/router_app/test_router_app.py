@@ -52,6 +52,16 @@ def test_classify():
     assert classify("hello there, who are you") == "general"
 
 
+def test_classify_hyphen_ranges_are_not_arithmetic():
+    # a bare hyphen between digits is a range, not subtraction
+    assert classify("What happened in 2020-2021") != "math_arithmetic"
+    assert classify("book rooms 5-10 for the visit") != "math_arithmetic"
+    # real subtraction still classifies: spaced operator or an explicit cue
+    assert classify("what is 12 - 4") == "math_arithmetic"
+    assert classify("what is 12-4") == "math_arithmetic"
+    assert classify("calculate 2026-1989") == "math_arithmetic"
+
+
 # ---- policy: tool wins; privacy & accuracy steer model choice ----
 
 def test_math_routes_to_tool():
@@ -106,3 +116,23 @@ def test_audit_decision_hash_is_replay_stable():
     a = engine.run("what is 2+2*3", registry=_reg(), tools=default_registry())
     b = engine.run("what is 2+2*3", registry=_reg(), tools=default_registry())
     assert a["audit"]["decision_hash"] == b["audit"]["decision_hash"]
+
+
+# ---- epistemic router: decision reasons are per-call, never cached in the table ----
+
+def test_route_reason_is_not_stale_across_calls():
+    from desi_router.router import EpistemicRouter, RouteRequest
+
+    r = EpistemicRouter()
+    d1 = r.route(RouteRequest(task_class="memory_recall", accuracy_target=0.5))
+    assert "Hand-curated default" in d1.reason
+
+    # same cell may win again via the cost-constrained Pareto branch — its
+    # reason must describe THIS call, not the earlier default-rule pick
+    d2 = r.route(RouteRequest(task_class="memory_recall",
+                              cost_budget_usd=0.0005, accuracy_target=0.5))
+    assert "Hand-curated default" not in d2.reason
+
+    # and the shared table must not be polluted with derived keys
+    for cells in (c["cells"] for c in r.table["tasks"].values()):
+        assert all("_reason_hint" not in cell for cell in cells)

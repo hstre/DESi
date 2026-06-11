@@ -44,8 +44,12 @@ def res():
     return run(words=True)
 
 
-def test_no_arithmetic_failures(res):
-    assert len(res["arithmetic"]) == 0
+def test_every_failure_is_linguistic_not_arithmetic(res):
+    # arithmetic failures are impossible by construction (exact AST evaluation),
+    # so every fixture must be either correct or categorized as a language
+    # failure (lexical extraction / operative-clause semantics) — no third bucket
+    assert res["correct"] + len(res["lexical"]) + len(res["semantic"]) == res["n"]
+    assert "arithmetic" not in res  # no fake "measured zero"; see run()'s comment
 
 
 def test_all_residual_failures_are_semantic(res):
