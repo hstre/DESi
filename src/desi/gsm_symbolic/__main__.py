@@ -25,8 +25,38 @@ from .solver import (
     SolverConfigError,
     build_openai_solver,
     run_comparison,
+    run_decomposition,
 )
 from .state import noop_detection_metrics
+
+
+def _decomposition_table(dec: dict) -> str:
+    lines = [
+        "",
+        "## Three-arm ablation: pruning vs marking",
+        "",
+        "The DESi prompt changes two things at once: it removes irrelevant",
+        "content (pruning) and names it in an ignore-list (marking). The",
+        "middle arm applies only the removal, so the effect decomposes:",
+        "",
+        "| arm | strict group correctness | frame accuracy |",
+        "|---|---|---|",
+    ]
+    for arm in ("baseline", "relevant_only", "desi"):
+        m = dec["arms"][arm]
+        lines.append(
+            f"| {arm} | {m['strict_group_correctness']} | {m['frame_accuracy']} |"
+        )
+    eff = dec["effects"]["strict_group_correctness"]
+    lines += [
+        "",
+        "| effect (on strict group correctness) | value |",
+        "|---|---|",
+        f"| pruning (relevant_only − baseline) | {eff['pruning']:+} |",
+        f"| marking (desi − relevant_only) | {eff['marking']:+} |",
+        f"| total (desi − baseline) | {eff['total']:+} |",
+    ]
+    return "\n".join(lines)
 
 
 def _noop_table() -> str:
@@ -66,8 +96,17 @@ def main(argv: Sequence[str] | None = None) -> int:
         ),
     )
     parser.add_argument("--model", default=None, help="Model id for --live.")
+    parser.add_argument(
+        "--decompose",
+        action="store_true",
+        help=(
+            "Also run the three-arm ablation (baseline / relevant-only / "
+            "DESi) that splits the effect into pruning vs marking."
+        ),
+    )
     args = parser.parse_args(argv)
 
+    decomposition = None
     if args.live:
         try:
             solver = build_openai_solver(model=args.model)
@@ -75,11 +114,17 @@ def main(argv: Sequence[str] | None = None) -> int:
             print(f"[live mode unavailable] {exc}")
             return 2
         report = run_comparison(solver)
+        if args.decompose:
+            decomposition = run_decomposition(solver)
         banner = "LIVE run: predictions are real model outputs."
     elif args.demo:
         baseline = ScriptedSolver(noop_fragile_predictions())
         desi = ScriptedSolver(all_correct_predictions())
         report = run_comparison(baseline, desi)
+        if args.decompose:
+            # stub middle arm = the all-correct stub, so the demo decomposition
+            # attributes everything to pruning; illustrative only, like the rest
+            decomposition = run_decomposition(baseline, desi, desi)
         banner = (
             "OFFLINE DEMO: predictions are documented illustrative STUB "
             "arms, NOT model outputs - this only exercises the pipeline "
@@ -87,6 +132,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
     else:
         report = run_comparison(ScriptedSolver())  # empty -> nothing solved
+        if args.decompose:
+            decomposition = run_decomposition(ScriptedSolver())
         banner = (
             "OFFLINE: no solver configured, so every prediction is empty "
             "and nothing is solved. Use --demo for an illustrative stub "
@@ -96,6 +143,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     print(f">> {banner}\n")
     print(render_markdown(report))
     print(_noop_table())
+    if decomposition is not None:
+        print(_decomposition_table(decomposition))
     return 0
 
 
