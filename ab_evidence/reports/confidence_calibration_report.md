@@ -2,7 +2,7 @@
 
 Sources: 11 per-item directories aggregated.
 Confidence is derived retrospectively from the response_text via the production
-heuristic in desi/answerer.py (`_heuristic_confidence` + explicit `[CONFIDENCE:]`
+heuristic in desi_router/answerer.py (`_heuristic_confidence` + explicit `[CONFIDENCE:]`
 tag regex). No new API calls.
 
 ## Confidence calibration per (task, model)
@@ -10,6 +10,20 @@ tag regex). No new API calls.
 For each cell: how often was the answer actually correct, given the heuristic
 confidence read? Format: `bucket: n  P(correct)  share-of-runs`.
 
+
+## Does the heuristic discriminate? (escalation precondition)
+
+Pooled per task across all models. The escalation gate fires on the
+low/unknown buckets, so it is only worth its cost if those answers are
+actually *less* accurate. `separation = P(✓|keep) − P(✓|escalate)`:
+> 0 the heuristic flags worse answers (escalation can help); ≈ 0 it fires
+on noise; < 0 it is inverted.
+
+| Task | n | P(✓ | keep) | P(✓ | escalate) | separation | trigger rate |
+| --- | --- | --- | --- | --- | --- | --- |
+| memory_recall | 2260 | 0.506 | 0.193 | +0.313 | 27% |
+| code_audit | 345 | 0.817 | 0.211 | +0.606 | 19% |
+| scientific_claim | 690 | 0.865 | 0.520 | +0.345 | 29% |
 
 ### memory_recall
 

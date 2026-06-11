@@ -42,6 +42,7 @@ jobs:
           tests/gsm_symbolic
           tests/spl_adapter
           tests/spl_core
+          tests/calibration
           tests/memory
           tests/release_validation
 
