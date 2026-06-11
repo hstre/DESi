@@ -71,17 +71,31 @@ def load_cases(data_dir: str | Path, pattern: str = "advText*.txt") -> list[Case
 
 
 def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
-             max_chars: int = 8000, protocol: str = "standard") -> dict:
+             max_chars: int = 8000, protocol: str = "standard",
+             density: int = 5, ledger=None) -> dict:
     """Drive one case through one arm; returns responses + metrics.
 
     ``max_chars`` truncates the raw source (the pilot worked with 2k/8k
     token slices, not whole files); applied before either arm so both see
     the same source slice. ``protocol`` selects the turn sequence
-    ("standard" 4-turn or "extended" multi-turn pressure form).
+    ("standard" 4-turn or "extended" multi-turn pressure form); ``density``
+    the hygiene-state structure level (ignored by the baseline arm).
+
+    When a ``ledger`` is supplied (any object with the local-Layer-9
+    ``record(kind, payload, ...)`` shape, e.g. ``desi_router.ledger.Ledger``),
+    the run is appended as a ``context_contamination`` event — slim metrics
+    plus a sha256 over the responses — so the Reviewer Port / ledger CLI can
+    show what happened without storing the transcripts themselves.
     """
+    import hashlib
+    import json as _json
+
     raw = case.raw_text[:max_chars]
-    build = baseline_turns if mode == "baseline" else hygiene_turns
-    turns = build(raw, persona=persona, protocol=protocol)
+    if mode == "baseline":
+        turns = baseline_turns(raw, persona=persona, protocol=protocol)
+    else:
+        turns = hygiene_turns(raw, persona=persona, protocol=protocol,
+                              density=density)
 
     messages: list[dict] = [{"role": "system", "content": system_prompt()}]
     responses: list[str] = []
@@ -91,22 +105,47 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
         messages.append({"role": "assistant", "content": reply})
         responses.append(reply)
 
-    return {
+    metrics = score_run(responses)
+    result = {
         "case_id": case.case_id,
         "mode": mode,
         "persona": persona,
         "protocol": protocol,
+        "density": density,
         "responses": responses,
-        "metrics": score_run(responses),
+        "metrics": metrics,
     }
+    if ledger is not None:
+        ledger.record(
+            "context_contamination",
+            {
+                "task_class": "context_contamination",
+                "case_id": case.case_id,
+                "arm": mode,
+                "persona": persona,
+                "protocol": protocol,
+                "density": density,
+                "attribution_failures": metrics["attribution_failures"],
+                "register_drift": metrics["register_drift"],
+                "framing_leakage": metrics["framing_leakage"],
+                "role_adoption": metrics["role_adoption"],
+                "loop_detected": metrics["loop_detected"],
+                "responses_sha256": hashlib.sha256(
+                    _json.dumps(responses, ensure_ascii=False).encode("utf-8")
+                ).hexdigest(),
+            },
+        )
+    return result
 
 
 def run_benchmark(cases: list[Case], chat: Chat, persona: str = "neutral",
-                  max_chars: int = 8000, protocol: str = "standard") -> dict:
+                  max_chars: int = 8000, protocol: str = "standard",
+                  density: int = 5, ledger=None) -> dict:
     """Both arms over all cases + per-case comparison summaries."""
     runs = {
         mode: {
-            c.case_id: run_case(chat, c, mode, persona, max_chars, protocol)
+            c.case_id: run_case(chat, c, mode, persona, max_chars, protocol,
+                                density, ledger)
             for c in cases
         }
         for mode in MODES
@@ -119,7 +158,7 @@ def run_benchmark(cases: list[Case], chat: Chat, persona: str = "neutral",
         )
         for c in cases
     ]
-    return {"persona": persona, "protocol": protocol,
+    return {"persona": persona, "protocol": protocol, "density": density,
             "runs": runs, "comparisons": comparisons}
 
 
@@ -151,7 +190,7 @@ def _summarize_repeats(values: list[float]) -> dict:
 
 def run_benchmark_repeated(cases: list[Case], chat: Chat, persona: str = "neutral",
                            max_chars: int = 8000, protocol: str = "standard",
-                           repeats: int = 1) -> dict:
+                           repeats: int = 1, density: int = 5, ledger=None) -> dict:
     """Run the benchmark ``repeats`` times and estimate variance per metric.
 
     Provider sampling is not seedable even at temperature 0, so repeats are the
@@ -160,7 +199,7 @@ def run_benchmark_repeated(cases: list[Case], chat: Chat, persona: str = "neutra
     repeats=1 it degrades to a single run plus the per-repeat report list.
     """
     per_repeat = [
-        run_benchmark(cases, chat, persona, max_chars, protocol)
+        run_benchmark(cases, chat, persona, max_chars, protocol, density, ledger)
         for _ in range(max(1, repeats))
     ]
 
@@ -178,9 +217,87 @@ def run_benchmark_repeated(cases: list[Case], chat: Chat, persona: str = "neutra
     return {
         "persona": persona,
         "protocol": protocol,
+        "density": density,
         "repeats": max(1, repeats),
         "variance": variance,
         "reports": per_repeat,
+    }
+
+
+def run_density_sweep(cases: list[Case], chat: Chat, persona: str = "neutral",
+                      max_chars: int = 8000, protocol: str = "standard",
+                      densities: tuple[int, ...] | None = None,
+                      repeats: int = 1, ledger=None) -> dict:
+    """Sweep the hygiene-state density ("k") against a shared baseline.
+
+    The model-profiling step for this task family: per repeat, the baseline
+    arm runs ONCE and every density level runs only the hygiene arm against
+    it — so the per-density comparisons differ exactly in the state density,
+    and the sweep costs (1 + len(densities)) case-runs per repeat instead of
+    2 × len(densities).
+    """
+    from .hygiene import DENSITY_LEVELS
+
+    ks = tuple(densities) if densities else DENSITY_LEVELS
+    for k in ks:
+        if k not in DENSITY_LEVELS:
+            raise ValueError(f"unknown density {k!r}; choose from {DENSITY_LEVELS}")
+
+    sweeps: dict[int, list[dict]] = {k: [] for k in ks}
+    baselines: list[dict] = []
+    for _ in range(max(1, repeats)):
+        base = {
+            c.case_id: run_case(chat, c, "baseline", persona, max_chars,
+                                protocol, ledger=ledger)
+            for c in cases
+        }
+        baselines.append(base)
+        for k in ks:
+            hyg = {
+                c.case_id: run_case(chat, c, "desi_hygiene", persona, max_chars,
+                                    protocol, density=k, ledger=ledger)
+                for c in cases
+            }
+            sweeps[k].append({
+                "runs": hyg,
+                "comparisons": [
+                    comparison_summary(c.case_id, base[c.case_id]["metrics"],
+                                       hyg[c.case_id]["metrics"])
+                    for c in cases
+                ],
+            })
+
+    # per density: variance summary of the hygiene arm across repeats
+    profile: dict[int, dict] = {}
+    for k in ks:
+        profile[k] = {
+            c.case_id: {
+                metric: _summarize_repeats(
+                    [rep["runs"][c.case_id]["metrics"][metric]
+                     for rep in sweeps[k]]
+                )
+                for metric in _VARIANCE_METRICS
+            }
+            for c in cases
+        }
+    baseline_profile = {
+        c.case_id: {
+            metric: _summarize_repeats(
+                [b[c.case_id]["metrics"][metric] for b in baselines]
+            )
+            for metric in _VARIANCE_METRICS
+        }
+        for c in cases
+    }
+    return {
+        "persona": persona,
+        "protocol": protocol,
+        "densities": list(ks),
+        "repeats": max(1, repeats),
+        "baseline": baseline_profile,
+        "by_density": profile,
+        "sweeps": sweeps,
+        "baseline_runs": baselines,
     }
 
 

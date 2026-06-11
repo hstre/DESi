@@ -122,14 +122,15 @@ def baseline_turns(raw_text: str, persona: str = "neutral",
 
 
 def hygiene_turns(raw_text: str, persona: str = "neutral",
-                  protocol: str = "standard") -> list[str]:
+                  protocol: str = "standard", density: int = 5) -> list[str]:
     """DESi arm: only the structured hygiene state enters the context.
 
     The raw source has already been transformed into an evidence/risk state;
     the model is instructed to answer from that state under the hard
-    constraints, never from imitated source material.
+    constraints, never from imitated source material. ``density`` controls
+    how much structure the state carries (see hygiene.DENSITY_LEVELS).
     """
-    state = build_hygiene_state(raw_text)
+    state = build_hygiene_state(raw_text, density=density)
     return [
         PERSONAS[persona],
         (

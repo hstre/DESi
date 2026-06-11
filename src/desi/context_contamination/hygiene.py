@@ -23,6 +23,18 @@ from .markers import FRAMEWORK_TERMS, THERAPY_MARKERS
 _MAX_CLAIMS = 12
 _MAX_CLAIM_CHARS = 200
 
+# Closed set of state-density levels ("k" for this task family). The sweep
+# over these is the model-profiling step: how much structure does a given
+# model need before the hygiene state beats raw ingestion?
+#   1 — minimal: register classification + audit only (a contamination label)
+#   3 — + quoted claims (capped 6) + hard constraints
+#   5 — + risk markers, forbidden transfers, framework terms (the default;
+#       same content as the pre-density behaviour, plus audit.density)
+#   8 — richer: more and longer quoted claims (24 × 300 chars)
+DENSITY_LEVELS: tuple[int, ...] = (1, 3, 5, 8)
+_DENSITY_CLAIM_CAPS = {3: (6, _MAX_CLAIM_CHARS), 5: (_MAX_CLAIMS, _MAX_CLAIM_CHARS),
+                       8: (24, 300)}
+
 _SENTENCE_END = re.compile(r"(?<=[.!?])\s+")
 
 RISK_MARKERS: tuple[str, ...] = (
@@ -84,7 +96,8 @@ def classify_register(text: str) -> list[str]:
     return registers
 
 
-def _extract_claims(text: str) -> list[str]:
+def _extract_claims(text: str, max_claims: int = _MAX_CLAIMS,
+                    max_chars: int = _MAX_CLAIM_CHARS) -> list[str]:
     """Quoted, capped excerpts: first sentence of each paragraph.
 
     Each claim is an explicitly attributed quotation, never a paraphrase —
@@ -99,37 +112,54 @@ def _extract_claims(text: str) -> list[str]:
         first = _SENTENCE_END.split(para)[0].strip()
         if len(first) < 15:  # headers / decoration, not a claim
             continue
-        claims.append(first[:_MAX_CLAIM_CHARS])
-        if len(claims) >= _MAX_CLAIMS:
+        claims.append(first[:max_chars])
+        if len(claims) >= max_claims:
             break
     return claims
 
 
-def build_hygiene_state(raw_text: str, source_label: str = "uploaded_file") -> dict:
+def build_hygiene_state(raw_text: str, source_label: str = "uploaded_file",
+                        density: int = 5) -> dict:
     """Raw adversarial text -> structured neutral state.
 
     The state carries everything the analysis needs (what the source claims,
     what register it uses, what the risks are, what must not transfer) and
     an audit block binding it to the exact source bytes — without handing
     the generation context the raw material itself.
+
+    ``density`` selects how much structure the state carries (see
+    ``DENSITY_LEVELS``). The default (5) is the full state and carries the
+    same content as the pre-density behaviour; lower levels strip components
+    so a sweep can locate the model's sweet spot between "bare contamination
+    label" and "rich structured evidence".
     """
+    if density not in DENSITY_LEVELS:
+        raise ValueError(f"unknown density {density!r}; choose from {DENSITY_LEVELS}")
     raw = raw_text or ""
     t = raw.lower()
     terms_present = sorted({term for term in FRAMEWORK_TERMS if term in t})
-    return {
+
+    state: dict = {
         "source_label": source_label,
-        "source_claims": [
-            f'Quoted from {source_label}: "{c}"' for c in _extract_claims(raw)
-        ],
         "source_register": classify_register(raw),
-        "framework_terms_present": terms_present,
-        "risk_markers": list(RISK_MARKERS),
-        "hard_constraints": list(HARD_CONSTRAINTS),
-        "forbidden_transfers": list(FORBIDDEN_TRANSFERS),
-        "audit": {
-            "source_sha256": hashlib.sha256(raw.encode("utf-8")).hexdigest(),
-            "source_chars": len(raw),
-            "state_claims": len(_extract_claims(raw)),
-            "framework_term_count": len(terms_present),
-        },
     }
+    claims: list[str] = []
+    if density >= 3:
+        max_claims, max_chars = _DENSITY_CLAIM_CAPS[density]
+        claims = _extract_claims(raw, max_claims, max_chars)
+        state["source_claims"] = [
+            f'Quoted from {source_label}: "{c}"' for c in claims
+        ]
+        state["hard_constraints"] = list(HARD_CONSTRAINTS)
+    if density >= 5:
+        state["framework_terms_present"] = terms_present
+        state["risk_markers"] = list(RISK_MARKERS)
+        state["forbidden_transfers"] = list(FORBIDDEN_TRANSFERS)
+    state["audit"] = {
+        "source_sha256": hashlib.sha256(raw.encode("utf-8")).hexdigest(),
+        "source_chars": len(raw),
+        "state_claims": len(claims),
+        "framework_term_count": len(terms_present),
+        "density": density,
+    }
+    return state

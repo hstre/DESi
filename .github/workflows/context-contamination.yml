@@ -28,6 +28,13 @@ on:
       repeats:
         description: "live only: repeat N times and report per-metric variance"
         default: "1"
+      state_density:
+        description: "hygiene-state density k (1/3/5/8)"
+        default: "5"
+      density_sweep:
+        description: "sweep all density levels against a shared baseline"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -71,12 +78,27 @@ jobs:
             echo "::warning::no OPENROUTER_API_KEY secret configured — skipping live run"
             exit 0
           fi
+          SWEEP_FLAG=""
+          if [ "${{ inputs.density_sweep }}" = "true" ]; then
+            SWEEP_FLAG="--density-sweep"
+          fi
           python -m desi.context_contamination \
             --data data/context_contamination \
             --persona "${{ inputs.persona }}" \
             --protocol "${{ inputs.protocol }}" \
             --repeats "${{ inputs.repeats }}" \
+            --state-density "${{ inputs.state_density }}" \
+            $SWEEP_FLAG \
+            --ledger cc_ledger.db \
             --live --model "${{ inputs.model }}" --out report_live.json
+
+      - name: Upload Layer-9 ledger (auditable run history)
+        if: ${{ inputs.mode == 'live' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: context-contamination-ledger
+          path: cc_ledger.db
+          if-no-files-found: ignore
 
       - name: Upload reports
         uses: actions/upload-artifact@v4
