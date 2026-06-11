@@ -65,10 +65,15 @@ _UNIT_WORDS = (
     r"pounds?|oz|ounces?|tonnes?|grams?|meters?|metres?|celsius|fahrenheit|kelvin)"
 )
 _UNIT = re.compile(
-    rf"-?\d+(?:\.\d+)?\s*{_UNIT_WORDS}\s*(?:to|in|into)\s*{_UNIT_WORDS}", re.I
+    rf"-?\d+(?:\.\d+)?\s*{_UNIT_WORDS}\s*(?:into|to|in)\s*{_UNIT_WORDS}", re.I
 )
 _MATH = re.compile(r"\d")
-_MATH_OPS = re.compile(r"[-+*/]|times|plus|minus|divided|product|sum\b")
+# A bare hyphen between digits is NOT an operator by itself: "2020-2021" and
+# "rooms 5-10" are ranges, not subtraction. A hyphen counts as minus only when
+# whitespace-separated, or when the query carries an explicit compute cue.
+_MATH_OPS = re.compile(r"[+*/]|\s-\s|times|plus|minus|divided|product|sum\b")
+_MATH_CUE = re.compile(r"\b(what is|calculate|compute|how much is|equals?)\b", re.I)
+_HYPHEN_NUM = re.compile(r"\d\s*-\s*\d")
 _CODE = re.compile(r"\b(bug|function|code|stack ?trace|exception|compile|refactor)\b", re.I)
 _SCI = re.compile(r"\b(study|claim|evidence|hypothesis|paper|citation|abstract)\b", re.I)
 _MEM = re.compile(r"\b(earlier|before|you said|i told you|remember|last time|previously)\b", re.I)
@@ -86,7 +91,10 @@ def classify(query: str) -> str:
         return "date_math"
     if _UNIT.search(query):
         return "unit_conversion"
-    if _MATH.search(query) and _MATH_OPS.search(query):
+    if _MATH.search(query) and (
+        _MATH_OPS.search(query)
+        or (_MATH_CUE.search(query) and _HYPHEN_NUM.search(query))
+    ):
         return "math_arithmetic"
     if _CODE.search(query):
         return "code_audit"

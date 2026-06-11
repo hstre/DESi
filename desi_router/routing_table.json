@@ -106,7 +106,7 @@
         "params": "estimated very small",
         "context_length": 400000, "price_in_per_m": 0.05, "price_out_per_m": 0.40,
         "status": "reasoning_mode_incompatible",
-        "note": "Returned empty content on all 145 calibration calls. OpenRouter routes GPT-5 family through reasoning mode where content is empty and the actual answer is in the 'reasoning' field. desi/answerer.py needs to read both fields to support GPT-5."
+        "note": "Returned empty content on all 145 calibration calls. OpenRouter routes GPT-5 family through reasoning mode where content is empty and the actual answer is in the 'reasoning' field. desi_router/answerer.py needs to read both fields to support GPT-5."
       },
       "openai/gpt-5": {
         "provider": "openai", "tier": "mid",

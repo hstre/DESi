@@ -38,7 +38,9 @@ from .report import ComparisonReport, build_report
 from .scoring import Predictions
 from .state import extract_state
 
-_NUMBER = re.compile(r"-?\d+(?:\.\d+)?")
+# Thousands-separated numbers ("1,234.5") must match as ONE token — otherwise
+# "1,234" splits into ['1', '234'] and the last-token rule returns '234'.
+_NUMBER = re.compile(r"-?\d{1,3}(?:,\d{3})+(?:\.\d+)?|-?\d+(?:\.\d+)?")
 
 
 class SolverConfigError(RuntimeError):
@@ -56,7 +58,7 @@ def parse_answer(text: str, answer_type: str = "integer") -> str:
     matches = _NUMBER.findall(text or "")
     if not matches:
         return ""
-    token = matches[-1]
+    token = matches[-1].replace(",", "")
     if answer_type == "integer":
         try:
             value = float(token)

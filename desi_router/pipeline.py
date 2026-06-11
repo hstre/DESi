@@ -1,7 +1,8 @@
 """DESi end-to-end pipeline: classify -> route -> answer -> (escalate).
 
-This is v0.3 — adds confidence-based escalation. If the routed model returns
-[CONFIDENCE: low], the pipeline retries with the next Pareto point.
+This is v0.3 — adds confidence-based escalation. If the answerer derives
+'low' confidence (heuristic hedging/refusal markers; see desi_router.answerer),
+the pipeline retries with the next Pareto point.
 Each attempt is logged for audit.
 
 Usage:

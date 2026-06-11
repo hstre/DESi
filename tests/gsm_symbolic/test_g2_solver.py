@@ -41,6 +41,15 @@ def test_parse_answer_takes_last_number_and_normalises() -> None:
     assert parse_answer("", "integer") == ""
 
 
+def test_parse_answer_handles_thousands_separators() -> None:
+    # "1,234" must be one token, not ['1', '234'] with '234' as the answer
+    assert parse_answer("The total is 1,234", "integer") == "1234"
+    assert parse_answer("It comes to 12,345,678.", "integer") == "12345678"
+    assert parse_answer("price: 1,234.50", "decimal") == "1234.50"
+    # a list of numbers still yields the LAST one
+    assert parse_answer("we have 1, 2 and 3", "integer") == "3"
+
+
 # --- prompts: the structuring shows up in the DESi prompt --------------
 def test_desi_prompt_drops_noop_clause_baseline_keeps_it() -> None:
     task = _task("gsm_p2_t01_i1")  # noop clause: "painted blue"

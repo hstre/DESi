@@ -165,13 +165,16 @@ class EpistemicRouter:
         # 3. Otherwise: Score-led Pareto — prefer highest score, break ties by cost.
         default_rule = rules.get("default", {})
         default_model = default_rule.get("model")
+        # Derived per-call; never written into the shared table cells (a stamped
+        # cell would report a stale reason on later calls via other branches).
+        default_reason: str | None = None
         if default_model and any(c["model"] == default_model for c in candidates):
             # Score-driven path: explicit default beats lone cost optimization.
             cost_tight = req.cost_budget_usd < float("inf")
             if not cost_tight:
                 best = next(c for c in candidates if c["model"] == default_model)
-                best["_reason_hint"] = (f"Hand-curated default for {req.task_class}: "
-                                       f"{default_rule.get('reason', '(no reason)')}")
+                default_reason = (f"Hand-curated default for {req.task_class}: "
+                                  f"{default_rule.get('reason', '(no reason)')}")
             else:
                 # Cost is constrained — fall back to Pareto-cheapest.
                 best = min(candidates, key=lambda c: (c["cost_per_item_usd"], -c["score"]))
@@ -186,7 +189,7 @@ class EpistemicRouter:
         )
         fallback_models = [c["model"] for c in sorted_alts[:2]]
 
-        reason = (best.get("_reason_hint") or best.get("note") or
+        reason = (default_reason or best.get("note") or
                   f"Score-led pick at score >= {req.accuracy_target:.2f} "
                   f"within cost budget ${req.cost_budget_usd:.5f}")
         return Decision(

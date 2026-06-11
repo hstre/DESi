@@ -6,7 +6,7 @@ with its rationale, the answer (the tool answers live and offline; a model is
 called only if configured and reachable), and the deterministic audit hash.
 
 Run:
-    python -m desi_router.reviewer_port                 # uses desi/config.json or the example
+    python -m desi_router.reviewer_port                 # uses desi_router/config.json or the example
     python -m desi_router.reviewer_port --port 8765 --config /path/to/config.json
 
 Then open http://localhost:8765 . Nothing leaves your machine unless you route
@@ -18,6 +18,7 @@ import argparse
 import json
 import os
 import socket
+import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -129,6 +130,21 @@ loadLedger();
 
 def _make_handler(registry: Registry, ledger_path: str, instance_id: str):
     tools = default_registry()
+    # Incremental chain verification: the ledger is append-only, so once a
+    # prefix is verified it stays verified — re-hash only rows after it instead
+    # of the whole (ever-growing) table on every request.
+    chain_cache = {"seq": 0, "hash": "", "intact": True}
+    chain_lock = threading.Lock()
+
+    def _chain_intact(led: Ledger) -> bool:
+        with chain_lock:
+            seq, h, ok = chain_cache["seq"], chain_cache["hash"], chain_cache["intact"]
+        if not ok:
+            return False
+        ok, seq, h = led.verify_chain_from(seq, h)
+        with chain_lock:
+            chain_cache.update(seq=seq, hash=h, intact=ok)
+        return ok
 
     class Handler(BaseHTTPRequestHandler):
         def _send(self, code, body, ctype="application/json"):
@@ -147,7 +163,7 @@ def _make_handler(registry: Registry, ledger_path: str, instance_id: str):
                 try:
                     body = {
                         "stats": led.stats(),
-                        "chain_intact": led.verify_chain(),
+                        "chain_intact": _chain_intact(led),
                         "tail": led.tail(8),
                     }
                 finally:

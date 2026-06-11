@@ -27,8 +27,10 @@ _MASS = {
 }
 _TEMP = {"c", "celsius", "f", "fahrenheit", "k", "kelvin"}
 
+# Longest alternative first: with "to|in|into", 'in' matches inside 'into' and
+# the leftover 'to' is parsed as the target unit ("5 km into miles" -> km->to).
 _RE = re.compile(
-    r"(-?\d+(?:\.\d+)?)\s*([a-zA-Z]+)\s*(?:to|in|into)\s*([a-zA-Z]+)", re.I
+    r"(-?\d+(?:\.\d+)?)\s*([a-zA-Z]+)\s*(?:into|to|in)\s*([a-zA-Z]+)", re.I
 )
 
 

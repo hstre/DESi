@@ -10,8 +10,7 @@ Alexandria SPL, `desi.spl_adapter`, and the P8 benchmark adapter) onto:
 
 SPL-core is a **projection / admissibility** layer: it decides which atomic
 claims are well-formed and confident enough to become comparable candidates. It
-is NOT the conflict engine, NOT a truth solver, NOT NER/ontology. See
-`artifacts/architecture/spl_consolidation_analysis.md`.
+is NOT the conflict engine, NOT a truth solver, NOT NER/ontology.
 """
 from __future__ import annotations
 

@@ -43,12 +43,16 @@ def mean(rows: list[dict], key: str) -> float:
 
 def pearson(rows: list[dict], x_key: str, y_key: str) -> float:
     n = len(rows)
+    if n == 0:
+        return 0.0
     xs = [r[x_key] for r in rows]
     ys = [r[y_key] for r in rows]
     mx, my = sum(xs) / n, sum(ys) / n
     cov = sum((x - mx) * (y - my) for x, y in zip(xs, ys))
     sx = sum((x - mx) ** 2 for x in xs) ** 0.5
     sy = sum((y - my) ** 2 for y in ys) ** 0.5
+    if sx == 0 or sy == 0:  # degenerate (constant) column, not a crash
+        return 0.0
     return cov / (sx * sy)
 
 
@@ -64,7 +68,7 @@ def compute(rows: list[dict]) -> dict:
         "frac_over_90pct": sum(1 for r in rows if r["compression_ratio"] > 0.90) / n,
         "corr_raw": r_raw,
         "corr_desi": r_desi,
-        "rho": r_desi / r_raw,
+        "rho": r_desi / r_raw if r_raw else float("nan"),
         "preservation": {f: sum(r[f] for r in rows) for f in PRESERVATION_FLAGS},
     }
 

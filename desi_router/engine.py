@@ -40,13 +40,23 @@ def _prior_method_class(event: dict) -> str:
     return "deterministic" if str(p.get("answer_source", "")).startswith("tool") else "stochastic"
 
 
-def _reusable_deterministic(prior_content: list[dict]) -> dict | None:
-    """Most recent prior event with the same content AND method_class
-    'deterministic' and a stored answer — the only case safe to reuse exactly
-    (SPL S7: never reuse/merge across the deterministic/stochastic boundary)."""
+def _reusable_deterministic(
+    prior_content: list[dict], *, task_class: str, method_hash: str
+) -> dict | None:
+    """Most recent prior event with the same content AND the same method
+    (same task class / tool) AND method_class 'deterministic' with a stored
+    answer — the only case safe to reuse exactly (SPL S7: never reuse/merge
+    across the deterministic/stochastic boundary, and never across methods:
+    the same text routed to a different tool is a different computation)."""
     for e in reversed(prior_content):
-        if e["payload"].get("answer") is not None and _prior_method_class(e) == "deterministic":
-            return e
+        if e["payload"].get("answer") is None or _prior_method_class(e) != "deterministic":
+            continue
+        if e.get("method_hash"):
+            if e["method_hash"] != method_hash:
+                continue
+        elif e["payload"].get("task_class") not in (None, task_class):
+            continue  # legacy row without method_hash: require same task class
+        return e
     return None
 
 
@@ -79,7 +89,11 @@ def run(
     reused = False
 
     # SPL S7: reuse only within the deterministic method class, never across it
-    reusable = _reusable_deterministic(prior_content) if (reuse and mc == "deterministic") else None
+    reusable = (
+        _reusable_deterministic(prior_content, task_class=tc, method_hash=mh)
+        if (reuse and mc == "deterministic")
+        else None
+    )
     if reusable is not None:
         # exact reuse of a deterministic prior result — no recomputation
         answer = reusable["payload"]["answer"]

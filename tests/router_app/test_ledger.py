@@ -1,8 +1,10 @@
 """Tests for the local Layer 9 ledger — append-only, hash-chained, multi-instance."""
 from __future__ import annotations
 
+import sqlite3
 import subprocess
 import sys
+import threading
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -78,4 +80,44 @@ def test_concurrent_multi_instance(tmp_path):
     assert led.verify_chain() is True              # chain intact despite concurrency
     seqs = [e["seq"] for e in led.all()]
     assert seqs == list(range(1, n * m + 1))       # contiguous, no gaps/dups
+    led.close()
+
+
+def test_all_limit_zero_returns_no_rows(tmp_path):
+    led = Ledger(tmp_path / "l9.db", instance_id="t")
+    led.record("route", {"task_class": "x"})
+    assert led.all(limit=0) == []                  # 0 is a limit, not "no limit"
+    assert len(led.all(limit=1)) == 1
+    assert len(led.all()) == 1
+    led.close()
+
+
+def test_record_survives_held_write_lock(tmp_path):
+    """A second writer holding the lock past busy_timeout must lead to a retry,
+    never to an uncaught 'cannot rollback - no transaction is active'."""
+    db = tmp_path / "l9.db"
+    led = Ledger(db, instance_id="b", busy_timeout_ms=100)
+    blocker = sqlite3.connect(str(db), isolation_level=None, check_same_thread=False)
+    blocker.execute("BEGIN IMMEDIATE")
+    t = threading.Timer(0.5, blocker.execute, args=("COMMIT",))
+    t.start()
+    entry = led.record("route", {"task_class": "x"})   # retries until the lock clears
+    assert entry["seq"] == 1
+    t.join()
+    blocker.close()
+    led.close()
+
+
+def test_verify_chain_incremental(tmp_path):
+    led = Ledger(tmp_path / "l9.db", instance_id="t")
+    led.record("route", {"task_class": "x"})
+    ok, seq, head = led.verify_chain_from()
+    assert ok is True and seq == 1
+    led.record("route", {"task_class": "y"})
+    ok2, seq2, _head2 = led.verify_chain_from(seq, head)   # verifies only row 2
+    assert ok2 is True and seq2 == 2
+    # tamper -> incremental verification from the verified prefix catches it
+    led._con.execute("UPDATE events SET payload=? WHERE seq=2", ('{"task_class":"HACKED"}',))
+    ok3, _, _ = led.verify_chain_from(seq, head)
+    assert ok3 is False
     led.close()

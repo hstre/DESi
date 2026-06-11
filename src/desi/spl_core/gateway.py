@@ -13,10 +13,9 @@ between them:
 `EmissionEngine` E0–E3); `admit_flag` is the flag path (faithful to
 `desi.spl_adapter.SPLGateway` rejection rules). Both return the same
 `AdmissionDecision`. Closing this seam — giving the flag model a real `P_r` so
-everything flows through `admit_projection` — is the documented future step
-(see `artifacts/architecture/spl_consolidation_analysis.md`); it is *not* done
-here because there is no NLP backend to produce a real distribution and
-inventing one would be an overclaim.
+everything flows through `admit_projection` — is the documented future step;
+it is *not* done here because there is no NLP backend to produce a real
+distribution and inventing one would be an overclaim.
 """
 from __future__ import annotations
 

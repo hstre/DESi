@@ -2,15 +2,12 @@
 
 Single source of truth for the projection *uncertainty* model. The normalised
 Shannon entropy and the threshold set Θ are the Alexandria WP2 model (§7.1,
-§7.2), **reimplemented here** so that `src/desi` does not import the
-benchmark-vendored copy under `benchmarks/static_eval/vendor/`. The dependency
-direction is therefore clean (`src` never depends on `benchmarks`).
+§7.2), **reimplemented here** so that `src/desi` carries no dependency on the
+upstream Alexandria repository.
 
-The reimplementation is small and deliberately byte-faithful to the vendored
-`compute_h_norm` / `SPLThresholds`; `benchmarks/static_eval/spl_core_benchmark.py`
-validates it claim-by-claim against the vendored Alexandria reference and reports
-any **compatibility drift** (expected: zero). This is "reuse the model, validate
-the reimplementation", not a fresh invention.
+The reimplementation is small and deliberately faithful to Alexandria's
+`compute_h_norm` / `SPLThresholds`; `tests/spl_core/` pins its behaviour. This
+is "reuse the model, validate the reimplementation", not a fresh invention.
 """
 from __future__ import annotations
 

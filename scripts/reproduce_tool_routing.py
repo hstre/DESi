@@ -62,9 +62,12 @@ def load_instances() -> list[dict]:
 def run(words: bool = True) -> dict:
     rows = load_instances()
     correct = 0
+    # Arithmetic failures are zero BY CONSTRUCTION (exact AST evaluation) —
+    # there is deliberately no "arithmetic" failure list here, because nothing
+    # could ever populate it; every miss is categorized as language
+    # (lexical extraction or operative-clause semantics).
     lexical: list[str] = []
     semantic: list[str] = []
-    arithmetic: list[str] = []
     results: list[tuple[str, object]] = []
 
     for r in rows:
@@ -95,7 +98,6 @@ def run(words: bool = True) -> dict:
         "correct": correct,
         "lexical": lexical,
         "semantic": semantic,
-        "arithmetic": arithmetic,
         "digest": digest,
     }
 
@@ -118,10 +120,10 @@ def main() -> None:
     print(f"fixtures (illustrative, local)     : {n}")
     print(f"tool arm, digits-only              : {naive['correct']}/{n}")
     print(f"tool arm, + word numerals          : {with_words['correct']}/{n}")
-    print(f"arithmetic failures                : {len(with_words['arithmetic'])}")
+    print("arithmetic failures                : 0 (by construction — exact AST evaluation)")
     print(f"lexical (extraction) failures      : {len(with_words['lexical'])} {with_words['lexical']}")
     print(f"semantic (operative-clause) failures: {len(with_words['semantic'])} {with_words['semantic']}")
-    print(f"cost                               : $0.00 (no model call)")
+    print("cost                               : $0.00 (no model call)")
     print(f"latency, all {n} items             : {dt_ms:.2f} ms total")
     print(f"replay-stable (digest matches)     : {with_words['digest'] == digest_again}")
     print(f"results digest                     : {with_words['digest'][:16]}…")

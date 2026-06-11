@@ -1,14 +1,16 @@
-"""DESi answerer — runs the routed model and extracts self-confidence.
+"""DESi answerer — runs the routed model and derives a confidence signal.
 
 Wraps a single LLM call so the pipeline can:
   1. Call the model with the chosen (model, k, strategy)
-  2. Ask it to suffix with [CONFIDENCE: high/medium/low]
-  3. Return answer + parsed confidence so the pipeline can escalate
-     when confidence is 'low'.
+  2. Derive confidence from the response text via refusal/hedging-marker
+     heuristics (the system prompt deliberately forbids a CONFIDENCE tag so
+     verdict-style answers stay clean; if a model emits an explicit
+     [CONFIDENCE: ...] tag anyway, that tag wins)
+  3. Return answer + confidence so the pipeline can escalate when it is 'low'.
 
 This is intentionally minimal — it doesn't read logprobs (most OpenRouter
-providers don't expose them); it relies on the model's self-report. That's
-known-noisy but cheap and universal.
+providers don't expose them). The heuristic is known-noisy but cheap and
+universal.
 """
 from __future__ import annotations
 
@@ -93,7 +95,8 @@ def _http_post(url, headers, body, timeout=180, retries=2):
             last = f"HTTP {e.code}: {text}"
         except Exception as e:
             last = f"{type(e).__name__}: {str(e)[:200]}"
-        time.sleep(2 ** i)
+        if i + 1 < retries:  # no pointless sleep after the final attempt
+            time.sleep(2 ** i)
     return {"_http_error": "retry_exhausted", "_body": last}
 
 
