@@ -60,11 +60,27 @@ default model. Measured profile:
 
 ### Model profile: `meta-llama/llama-3.1-8b-instruct` × context_contamination
 
-Source: workflow run [27383274237](https://github.com/hstre/DESi/actions/runs/27383274237)
-(2026-06-11, extended protocol, neutral persona, 2 repeats, one shared
-baseline per repeat; report + hash-chained `cc_ledger.db` attached as
-artifacts, ledger chain verified). Aggregates over 3 cases; mean ± stdev
-across repeats; drift = max over cases.
+```
+Context Contamination profile
+Model:                 meta-llama/llama-3.1-8b-instruct (via OpenRouter)
+Task family:           context_contamination
+Protocol:              extended, neutral persona, 2 repetitions
+Density sweep:         k = {1, 3, 5, 8}
+Shared baseline:       yes (one per repeat)
+Ledger:                verified (hash chain intact, 30 events)
+Observed best density: k = 5
+Known limitation:      register drift remains user-driven
+Source:                workflow run 27383274237 (2026-06-11)
+```
+
+Interpretation: the unoptimized pilot later turned out to have run at the
+local optimum — the default k=5 matched the best observed point for
+source-driven framing-leakage reduction. **Caveat:** small n (2 repeats),
+neutral persona only, one model/provider; the profile is preliminary and
+strictly model- and task-family-specific. "k=5" is the best *observed* point
+in this small sweep, not a general optimum.
+
+Aggregates over 3 cases; mean ± stdev across repeats; drift = max over cases.
 
 | arm | attribution | register drift | framing leakage | role | loop case-runs |
 |---|---|---|---|---|---|
@@ -74,18 +90,25 @@ across repeats; drift = max over cases.
 | **hygiene k=5** | **0.0** | 0.50 | **1.5±2.1** | 1.0 | **0/6** |
 | hygiene k=8 | 0.5 | 0.50 | 3.0±2.7 | 1.0 | 1/6 |
 
-**Calibrated k for this (model, task family): 5** — the only level with zero
-attribution failures, the lowest non-degenerate framing leakage, and zero
-loops. Three structural observations the profile supports:
+> The density sweep revealed a non-monotonic hygiene profile: minimal state
+> suppressed source vocabulary but induced looping, while excessive state
+> density reintroduced source echoing. The best observed trade-off for this
+> model and task family was k=5.
 
-1. **The profile is non-monotonic.** k=8 (more/longer quoted claims) moves
+Three structural observations the profile supports:
+
+1. **State density is calibratable, not arbitrary.** Too little structure
+   starves the task; too much becomes context material itself. "Just add
+   more metadata" is refuted by the k=8 row: more/longer quoted claims move
    framing leakage back toward baseline — more quoted source material gives
-   the model more to echo. Structure has an optimum, not a "more is better"
-   gradient.
-2. **k=1 is a trap that only loop detection catches.** The bare label looks
-   spotless on the contamination metrics (framing 0, drift 0.1) but loops in
-   5 of 6 runs: with nothing to analyze, the model starves and repeats. Its
-   "clean" scores are trivial, not hygienic — exactly the multi-layer blind
+   the model more to echo.
+2. **k=1 is the negative example this benchmark exists for — without loop
+   detection, k=1 would look best.** The bare label is spotless on the
+   contamination metrics (framing 0, drift 0.1) while looping in 5 of 6
+   runs: a starved state repeating itself. Anyone optimizing on framing
+   leakage alone would celebrate a degenerate configuration — single-channel
+   metrics are dangerous; the multi-channel design (leakage AND loops AND
+   attribution AND drift) is load-bearing, exactly the multi-layer blind
    spot the source paper documents.
 3. **Register drift sits at 0.50 across baseline and every functional
    density** — third independent confirmation that drift is *user-driven*
@@ -94,10 +117,8 @@ loops. Three structural observations the profile supports:
    re-anchoring), not ingestion hygiene.
 
 Since the pre-sweep persona runs already used k=5 (the default), they stand
-as the at-calibration results for this model. Caveats: one sweep, 2 repeats,
-neutral persona only, one model/provider — the profile is a first
-measurement, not a settled constant; re-run the sweep before porting the k
-to other models or providers.
+as the at-calibration results for this model. Re-run the sweep before
+porting the k to other models or providers.
 
 For *other* task families this model is profiled in routing_table.json —
 memory_recall (k=5, score 0.56), code_audit (raw, 0.833), scientific_claim
