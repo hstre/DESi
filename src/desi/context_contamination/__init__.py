@@ -26,7 +26,7 @@ detect all contamination.
 """
 from __future__ import annotations
 
-from .hygiene import build_hygiene_state, classify_register
+from .hygiene import DENSITY_LEVELS, build_hygiene_state, classify_register
 from .metrics import (
     attribution_failures,
     comparison_summary,
@@ -44,9 +44,11 @@ from .runner import (
     load_cases,
     run_benchmark,
     run_benchmark_repeated,
+    run_density_sweep,
 )
 
 __all__ = [
+    "DENSITY_LEVELS",
     "ScriptedChat",
     "attribution_failures",
     "baseline_turns",
@@ -62,6 +64,7 @@ __all__ = [
     "role_adoption",
     "run_benchmark",
     "run_benchmark_repeated",
+    "run_density_sweep",
     "score_response",
     "score_run",
     "system_prompt",

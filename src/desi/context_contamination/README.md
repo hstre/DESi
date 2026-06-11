@@ -45,6 +45,29 @@ evidence (auditability over elegance):
   pipeline logged as `FALSE`.
 - **Comparison summary** — per-case deltas between the two arms.
 
+## Calibration status — read this before citing numbers
+
+Since the tested model has no DESi calibration profile for this task family
+and no known task-specific k-value, all results so far should be interpreted
+as an **unoptimized pilot signal**, not a calibrated performance estimate.
+The observed effect is therefore not evidence of an optimal DESi
+configuration; it is evidence that **even a non-calibrated hygiene-state
+intervention can measurably alter the contamination profile** — which speaks
+to the structure of the approach rather than to tuning.
+
+What DESi has measured about the default model (`llama-3.1-8b-instruct`,
+routing_table.json) covers *other* task families — memory_recall (k=5,
+score 0.56), code_audit (raw, 0.833), scientific_claim (k=3, 0.767).
+Context contamination is a separate task family; its profiling step is the
+**state-density sweep** below (`--density-sweep`), which locates how much
+hygiene-state structure this model needs (k ∈ {1, 3, 5, 8}) before the
+structured state beats raw ingestion. Findings from the uncalibrated runs so
+far: the hygiene state robustly reduces *source-driven* contamination
+(framing leakage; loops appeared almost only in baseline arms), and does
+**not** reduce *user-driven* register drift under emotional pressure turns —
+that channel needs its own mechanism (e.g. frame re-anchoring), not
+ingestion hygiene.
+
 ## What it does NOT claim
 
 - These are **proposed, unvalidated heuristics** — not a psychometric
@@ -92,7 +115,29 @@ python -m desi.context_contamination --data ./data/context_contamination \
 # extended pressure protocol + repeated runs with per-metric variance
 python -m desi.context_contamination --data ./data/context_contamination \
     --live --protocol extended --repeats 5 --out report.json
+
+# model profiling: sweep the hygiene-state density k against a shared baseline,
+# and append every case-run to the local Layer-9 ledger
+python -m desi.context_contamination --data ./data/context_contamination \
+    --live --density-sweep --repeats 2 --ledger desi_router/desi_ledger.db \
+    --out sweep.json
 ```
+
+### State density ("k") and the ledger
+
+- `--state-density {1,3,5,8}` controls how much structure the hygiene state
+  carries: 1 = bare contamination label (register + audit), 3 = + quoted
+  claims and hard constraints, 5 = full state (default), 8 = richer/longer
+  claims. `--density-sweep` runs the hygiene arm at every level against ONE
+  shared baseline per repeat — the profiling step for this task family.
+- `--ledger PATH` appends every case-run to the local Layer-9 ledger
+  (`desi_router.ledger`, hash-chained, append-only): arm, persona, protocol,
+  density, slim metrics, and a sha256 over the transcripts (never the
+  transcripts themselves). Inspect with
+  `python -m desi_router.ledger PATH --tail 20 --verify` or in the
+  **Reviewer Port** (`python -m desi_router.reviewer_port`), so "what
+  happened" is auditable after the fact. Requires a repo checkout
+  (`desi_router` is not part of the pip distribution).
 
 ### Protocol and repeats
 
