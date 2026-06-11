@@ -33,6 +33,28 @@ from .runner import (
 )
 
 
+def _load_layer9_ledger():
+    """Load the checkout-only Layer-9 ledger by file location, or None.
+
+    ``desi_router`` is deliberately NOT a dependency of the packaged ``desi``
+    distribution (the release-validation gate forbids undeclared package
+    imports from src/desi, and the router is never published). The ledger
+    integration therefore only exists when running from a repo checkout,
+    where ``desi_router/ledger.py`` sits next to ``src/`` — loaded here
+    explicitly by path, never via an import statement. ledger.py is
+    stdlib-only, so a standalone module load is safe.
+    """
+    import importlib.util
+
+    ledger_py = Path(__file__).resolve().parents[3] / "desi_router" / "ledger.py"
+    if not ledger_py.exists():
+        return None
+    spec = importlib.util.spec_from_file_location("_desi_layer9_ledger", ledger_py)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.Ledger
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     ap = argparse.ArgumentParser(
         prog="python -m desi.context_contamination",
@@ -69,14 +91,13 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     ledger = None
     if args.ledger:
-        try:
-            from desi_router.ledger import Ledger
-        except ImportError:
-            print("[--ledger unavailable] desi_router is not importable here — "
-                  "run from a repo checkout (the router package is not part of "
-                  "the pip distribution).")
+        ledger_cls = _load_layer9_ledger()
+        if ledger_cls is None:
+            print("[--ledger unavailable] desi_router/ledger.py not found — "
+                  "run from a repo checkout (the router package is deliberately "
+                  "not part of the pip distribution).")
             return 2
-        ledger = Ledger(args.ledger, instance_id="context_contamination")
+        ledger = ledger_cls(args.ledger, instance_id="context_contamination")
 
     if args.live:
         try:
