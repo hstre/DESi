@@ -93,6 +93,15 @@ def main(argv: Sequence[str] | None = None) -> int:
                     help="dry-run only: JSON file {case_id: {mode: [resp, ...]}} to score")
     ap.add_argument("--live", action="store_true", help="run a real model via OpenRouter")
     ap.add_argument("--model", default=DEFAULT_MODEL, help="OpenRouter model id for --live")
+    ap.add_argument("--temperature", type=float, default=0.0,
+                    help="sampling temperature sent on every request (default 0.0)")
+    ap.add_argument("--seed", type=int, default=None,
+                    help="optional sampling seed (best-effort only; not guaranteed "
+                         "to make outputs reproducible — see README)")
+    ap.add_argument("--temperature-compare", default=None,
+                    help="live only: comma-separated pair, e.g. '0.0,0.7' — run the "
+                         "two-arm benchmark at both temperatures and emit a paired "
+                         "comparison (identical models, cases, prompts)")
     ap.add_argument("--out", default=None, help="write the full report JSON here")
     args = ap.parse_args(argv)
 
@@ -110,15 +119,32 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     if args.live:
         try:
-            chat = build_openrouter_chat(args.model)
+            chat = build_openrouter_chat(args.model, temperature=args.temperature,
+                                         seed=args.seed)
         except RuntimeError as exc:
             print(f"[live mode unavailable] {exc}")
             return 2
-        if args.mixed_model:
+        if args.temperature_compare:
+            from .runner import run_temperature_comparison
+
+            temps = tuple(float(x) for x in args.temperature_compare.split(","))
+            report = run_temperature_comparison(
+                cases, lambda t: build_openrouter_chat(args.model, temperature=t,
+                                                       seed=args.seed),
+                temperatures=temps, persona=args.persona, max_chars=args.max_chars,
+                protocol=args.protocol, density=args.state_density,
+                repeats=args.repeats, ledger=ledger,
+            )
+            banner = (f"LIVE temperature comparison via OpenRouter ({args.model}): "
+                      f"temps={list(temps)}, {args.repeats}× repeats each, "
+                      f"{args.protocol} protocol, k={args.state_density}.")
+        elif args.mixed_model:
             from .runner import run_mixed_experiment
 
-            analyst = build_openrouter_chat(args.analyst_model)
-            reviewer = build_openrouter_chat(args.reviewer_model)
+            analyst = build_openrouter_chat(args.analyst_model,
+                                            temperature=args.temperature, seed=args.seed)
+            reviewer = build_openrouter_chat(args.reviewer_model,
+                                             temperature=args.temperature, seed=args.seed)
             report = run_mixed_experiment(
                 cases, analyst, reviewer,
                 analyst_name=args.analyst_model, reviewer_name=args.reviewer_model,
@@ -216,7 +242,17 @@ def main(argv: Sequence[str] | None = None) -> int:
                       "answered or scored. Provide --responses or --live for metrics.")
 
     print(f">> {banner}\n")
-    if "mixed_vs_best_single" in report:
+    if "comparison" in report and "per_temperature" in report:
+        t_lo, t_hi = (str(t) for t in report["temperatures"])
+        for metric, blk in report["comparison"].items():
+            print(f"[{metric}]  hygiene-effect direction change per case:")
+            for case_id, e in blk["hygiene_effect"].items():
+                flag = "  <-- DIRECTION CHANGED" if e["direction_changed"] else ""
+                print(f"  {case_id}: effect@{t_lo}={e[t_lo]:+}  "
+                      f"effect@{t_hi}={e[t_hi]:+}{flag}")
+        print(f"\nsampling@{t_lo}:", report["per_temperature"][t_lo]["sampling"])
+        print(f"sampling@{t_hi}:", report["per_temperature"][t_hi]["sampling"])
+    elif "mixed_vs_best_single" in report:
         for arm, metrics in report["arms"].items():
             cells = "  ".join(f"{m}={s['mean']}±{s['stdev']}" for m, s in metrics.items())
             print(f"[{arm}]  {cells}  loops={report['loops'][arm]}")

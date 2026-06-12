@@ -399,6 +399,49 @@ fewer contamination signals. Read them as *surface-signal reductions on this
 material*, nothing stronger. Single runs per condition (like the pilot)
 cannot support significance claims.
 
+## Sampling: what is sent, accepted, and not guaranteed
+
+This benchmark distinguishes three layers; treat them separately when reading
+or reporting results.
+
+1. **Sent by the client.** `build_openrouter_chat(model, temperature=0.0,
+   seed=None, max_tokens=700)` puts `temperature` (a float) in **every**
+   request body, and `seed` only when explicitly set (omitted otherwise, so
+   seedless providers are not handed a null field). `--temperature` and
+   `--seed` thread the values from the CLI/workflow to the request; the value
+   is recorded per run as a normalized sampling config plus its SHA-256
+   (`sampling_config`) in both the result and the Layer-9 ledger — so the
+   sampling/routing of any reported run is reconstructable without storing
+   prompt content. The default is `temperature 0.0`, so existing runs do not
+   change behaviour.
+2. **Accepted by OpenRouter.** `temperature` and `seed` are documented,
+   OpenAI-compatible parameters of the `/v1/chat/completions` endpoint.
+   OpenRouter may route the same model id to different upstream providers; the
+   provider it reports per response is captured into the ledger
+   (`providers_seen`) when present.
+3. **Not guaranteed to be applied by the routed upstream provider.**
+   Temperature 0.0 means greedy/near-greedy sampling, not determinism:
+   provider-side batching, mixture-of-experts routing, non-deterministic
+   kernels, and multi-provider routing remain. Seed is **best-effort only** —
+   reproducibility is not guaranteed and is not claimed anywhere in this code
+   or documentation. The honest separation of a real arm effect from
+   run-to-run jitter is therefore **repeats + variance**, not a seed.
+
+A controlled comparison of two temperatures on identical models, cases, and
+prompts is available:
+
+```bash
+python -m desi.context_contamination --data ./data/context_contamination \
+    --live --temperature-compare 0.0,0.7 --repeats 5 --protocol extended \
+    --ledger cc.db --out compare.json
+```
+
+It reports, per metric and per (case, arm): mean / stdev / median / min / max
+at each temperature, the mean difference (high − low), and — for the hygiene
+effect (hygiene − baseline) per case — a flag when the **sign of the effect
+changes between temperatures**. Workflow:
+`.github/workflows/context-contamination-temperature.yml`.
+
 ## Limitations
 
 - Marker lists are English-only and closed; contamination expressed in other
@@ -410,4 +453,6 @@ cannot support significance claims.
 - Quoted-vs-adopted distinction is line-local and will miss distancing that
   spans sentences.
 - One model family, one provider; temperature 0 reduces but does not
-  eliminate provider-side nondeterminism.
+  eliminate provider-side nondeterminism (see "Sampling" above — the client
+  sends temperature 0.0, but the routed upstream provider's actual sampling
+  is not guaranteed, and seed is best-effort).
