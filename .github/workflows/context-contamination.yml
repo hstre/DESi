@@ -39,6 +39,16 @@ on:
         description: "2x2 ablation: hygiene x turn-level re-anchoring"
         type: boolean
         default: false
+      mixed_model:
+        description: "mixed-model DESi (analyst + cross-model reviewer) vs single-model"
+        type: boolean
+        default: false
+      analyst_model:
+        description: "mixed-model: analyst model id"
+        default: "meta-llama/llama-3.1-8b-instruct"
+      reviewer_model:
+        description: "mixed-model: cross-model reviewer model id"
+        default: "ibm-granite/granite-4.0-h-micro"
 
 permissions:
   contents: read
@@ -88,6 +98,11 @@ jobs:
           fi
           if [ "${{ inputs.factorial }}" = "true" ]; then
             SWEEP_FLAG="$SWEEP_FLAG --factorial"
+          fi
+          if [ "${{ inputs.mixed_model }}" = "true" ]; then
+            SWEEP_FLAG="$SWEEP_FLAG --mixed-model \
+              --analyst-model ${{ inputs.analyst_model }} \
+              --reviewer-model ${{ inputs.reviewer_model }}"
           fi
           python -m desi.context_contamination \
             --data data/context_contamination \

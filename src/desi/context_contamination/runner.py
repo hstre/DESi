@@ -17,7 +17,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from .metrics import comparison_summary, score_run
-from .prompts import baseline_turns, hygiene_turns, system_prompt
+from .prompts import baseline_turns, hygiene_turns, review_messages, system_prompt
 
 Chat = Callable[[list[dict]], str]
 
@@ -72,7 +72,8 @@ def load_cases(data_dir: str | Path, pattern: str = "advText*.txt") -> list[Case
 
 def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
              max_chars: int = 8000, protocol: str = "standard",
-             density: int = 5, ledger=None, reanchor: bool = False) -> dict:
+             density: int = 5, ledger=None, reanchor: bool = False,
+             reviewer: Chat | None = None) -> dict:
     """Drive one case through one arm; returns responses + metrics.
 
     ``max_chars`` truncates the raw source (the pilot worked with 2k/8k
@@ -102,7 +103,13 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
     responses: list[str] = []
     for user_turn in turns:
         messages.append({"role": "user", "content": user_turn})
-        reply = chat(messages)
+        draft = chat(messages)
+        # Optional cross-model review/revise pass. The reviewer sees only the
+        # draft (never the raw context), and its corrected text becomes the
+        # delivered answer that is scored and carried in the conversation —
+        # so single-model and mixed arms stay metric-comparable, differing
+        # only in whether the reviewer is the same model or a different one.
+        reply = reviewer(review_messages(draft)) if reviewer is not None else draft
         messages.append({"role": "assistant", "content": reply})
         responses.append(reply)
 
@@ -114,6 +121,7 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
         "protocol": protocol,
         "density": density,
         "reanchor": reanchor,
+        "reviewed": reviewer is not None,
         "responses": responses,
         "metrics": metrics,
     }
@@ -128,6 +136,7 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
                 "protocol": protocol,
                 "density": density,
                 "reanchor": reanchor,
+                "reviewed": reviewer is not None,
                 "attribution_failures": metrics["attribution_failures"],
                 "register_drift": metrics["register_drift"],
                 "framing_leakage": metrics["framing_leakage"],
@@ -396,6 +405,95 @@ def run_factorial(cases: list[Case], chat: Chat, persona: str = "neutral",
         "repeats": max(1, repeats),
         "arms": arm_metrics,
         "effects": effects,
+        "loops": loops,
+        "raw": per_repeat,
+    }
+
+
+def run_mixed_experiment(cases: list[Case], analyst_chat: Chat, reviewer_chat: Chat,
+                         *, analyst_name: str, reviewer_name: str,
+                         persona: str = "neutral", max_chars: int = 8000,
+                         protocol: str = "standard", density: int = 5,
+                         repeats: int = 1, ledger=None) -> dict:
+    """Mixed-model DESi vs single-model controls (does orchestration help?).
+
+    The deterministic hygiene state is unchanged (the DESi invariant: rules,
+    not a model). The model dimension under test is a cross-model review pass:
+    one model analyzes, a different model reviews and revises. Arms:
+
+        A_analyst_raw       analyst alone, raw context (no hygiene, no review)
+        B_analyst_hygiene   analyst alone, hygiene state
+        B_reviewer_hygiene  reviewer model alone, hygiene state (the confound
+                            control — how good is the reviewer model by itself?)
+        C_mixed             hygiene state, analyst analyzes, reviewer reviews
+
+    The decisive comparison is ``mixed_vs_best_single`` = C minus the better of
+    the two single-model hygiene arms, per metric. A negative value means the
+    mixed pipeline beat the best constituent model used alone — i.e. the gain
+    is architectural, not merely "the reviewer model is more robust".
+    """
+    def _single(chat, mode, reviewer=None):
+        return {
+            c.case_id: run_case(chat, c, mode, persona, max_chars, protocol,
+                                density, ledger, reviewer=reviewer)
+            for c in cases
+        }
+
+    per_repeat: list[dict] = []
+    for _ in range(max(1, repeats)):
+        per_repeat.append({
+            "A_analyst_raw":      _single(analyst_chat, "baseline"),
+            "B_analyst_hygiene":  _single(analyst_chat, "desi_hygiene"),
+            "B_reviewer_hygiene": _single(reviewer_chat, "desi_hygiene"),
+            "C_mixed":            {
+                c.case_id: run_case(analyst_chat, c, "desi_hygiene", persona,
+                                    max_chars, protocol, density, ledger,
+                                    reviewer=reviewer_chat)
+                for c in cases
+            },
+        })
+
+    arm_names = ("A_analyst_raw", "B_analyst_hygiene", "B_reviewer_hygiene", "C_mixed")
+    arm_metrics = {
+        arm: {
+            metric: _summarize_repeats([
+                _aggregate_over_cases(
+                    {cid: run["metrics"] for cid, run in rep[arm].items()}, metric
+                )
+                for rep in per_repeat
+            ])
+            for metric in _VARIANCE_METRICS
+        }
+        for arm in arm_names
+    }
+
+    # mixed vs the better single-model hygiene arm, per repeat then summarized
+    mixed_vs_best: dict[str, dict] = {}
+    for metric in _VARIANCE_METRICS:
+        deltas = []
+        for rep in per_repeat:
+            def agg(arm):
+                return _aggregate_over_cases(
+                    {cid: run["metrics"] for cid, run in rep[arm].items()}, metric
+                )
+            best_single = min(agg("B_analyst_hygiene"), agg("B_reviewer_hygiene"))
+            deltas.append(agg("C_mixed") - best_single)
+        mixed_vs_best[metric] = _summarize_repeats(deltas)
+
+    loops = {
+        arm: sum(1 for rep in per_repeat for run in rep[arm].values()
+                 if run["metrics"]["loop_detected"])
+        for arm in arm_names
+    }
+    return {
+        "persona": persona,
+        "protocol": protocol,
+        "density": density,
+        "repeats": max(1, repeats),
+        "analyst": analyst_name,
+        "reviewer": reviewer_name,
+        "arms": arm_metrics,
+        "mixed_vs_best_single": mixed_vs_best,
         "loops": loops,
         "raw": per_repeat,
     }

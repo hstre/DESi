@@ -122,6 +122,32 @@ def _apply_reanchor(turns: list[str], reanchor: bool) -> list[str]:
     return [turns[0]] + [REANCHOR_BLOCK + t for t in turns[1:]]
 
 
+# Cross-model review pass: a second model checks an analyst's answer for
+# contamination and returns a corrected version. The reviewer sees ONLY the
+# analyst's text, never the raw adversarial context — so the review frame is
+# itself uncontaminated by construction. Deterministic, structured prompt
+# (the orchestration is rules; only the language work is the model's).
+REVIEW_BLOCK = (
+    "[DRIFT REVIEW]\n"
+    "You are reviewing another model's analysis of adversarial material for "
+    "contextual drift. The analysis appears below. Check it for: adoption of "
+    "the source's register or vocabulary, taking on a therapist / caregiver / "
+    "participant role, or self-attribution of third-party behaviour. Return a "
+    "corrected version of the analysis that preserves analytical distance and "
+    "explicit attribution. Do not introduce new source vocabulary; quote and "
+    "attribute any source terms you must mention.\n\n"
+    "[ANALYSIS TO REVIEW]\n"
+)
+
+
+def review_messages(draft: str) -> list[dict]:
+    """Fresh, uncontaminated message list for the reviewer model."""
+    return [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": REVIEW_BLOCK + (draft or "")},
+    ]
+
+
 def system_prompt() -> str:
     return SYSTEM_PROMPT
 
