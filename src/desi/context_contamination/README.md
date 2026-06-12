@@ -142,26 +142,62 @@ case-runs out of 6.
 
 What replicates across all five models, and what does not:
 
-- **Source-leakage reduction replicates everywhere**: every model has at
-  least one density with substantially lower framing leakage than its raw
-  baseline (ministral −65%, granite −100%, qwen −40% at its least-bad point).
-- **Non-monotonicity replicates everywhere**: k=8 is worse than the optimum
-  in all five profiles — excessive state density reintroduces source
-  echoing regardless of model.
-- **The optimal k does NOT transfer**: 5 (llama-3.1-8b), 3 (ministral,
-  llama-3.2-3b), 1 (granite), none clean (qwen). A density calibrated on one
-  model is not evidence for another — per-(model × task-family) sweeps are
-  required, which is the point of the profile format.
+- **Across five small models, at least one tested hygiene density showed
+  lower framing leakage than the model's raw-context baseline** (ministral
+  −65%, granite −100%, qwen −40% at its least-bad point). That is the
+  precise claim — *not* "DESi reduces contamination model-independently";
+  two repeats and one persona cannot carry that.
+- **Non-monotonic behaviour appeared in all five model profiles** — k=8 is
+  worse than the optimum in each. The concrete curve shapes differ; what
+  replicates is the absence of "more is always better". This argues for
+  treating state density as a calibratable variable of the method, not a
+  fixed configuration.
+- **In this pilot the best observed k was not transferable between models**:
+  5 (llama-3.1-8b), 3 (ministral, llama-3.2-3b), 1 (granite), none clean
+  (qwen). The k is evidently a property of (model × task family × protocol
+  × metric profile), not of the model alone — before productive use, DESi
+  needs either a known profile or a short calibration.
 - **The edge failure mode is model-specific and bidirectional**: llama-3.1-8b
   loops at *minimal* density (5/6 at k=1), qwen loops at *high* density
   (6/6 at k=8, behind its best framing number) and already loops raw (3/6
   baseline). Granite's k=1 is NOT degenerate — its k=1 responses are full
-  analyses with zero loops. Single-channel optimization would pick a
-  looping configuration for llama-3.1-8b (k=1) and for qwen (k=8) — in
-  opposite directions; the multi-channel design is load-bearing in both.
+  analyses with zero loops. The same k can therefore be a functional
+  optimum, a starved state, or a loop trap depending on the model. Low
+  contamination alone is not success if the system stops doing meaningful
+  work: hygiene must be evaluated as a multi-objective problem, never as
+  minimization of a single leakage metric.
 - **Raw contamination magnitude varies by an order of magnitude** (llama
   family ~3 vs qwen 43), and **register drift is llama-family behaviour**
   on this material (ministral 0.1, qwen 0.0, granite 0.2 vs llama 0.5).
+
+### Operating-range registry (what the sweep is actually for)
+
+The sweep measures a model's *valid operating range* for this task family —
+the beginning of profile-based orchestration (route by measured profile,
+not by model name):
+
+```yaml
+context_contamination:
+  ibm-granite/granite-4.0-h-micro:   {k: 1, status: suitable}
+  meta-llama/llama-3.2-3b-instruct:  {k: 3, status: suitable}
+  meta-llama/llama-3.1-8b-instruct:  {k: 5, status: suitable}
+  mistralai/ministral-3b-2512:       {k: 3, status: usable_with_residual_leakage}
+  qwen/qwen-2.5-7b-instruct:         {status: unsuitable_in_tested_configuration}
+```
+
+- **qwen** is the warning case: high raw contamination, loops already in the
+  baseline, no tested density without substantial residual leakage or loop
+  risk. That does not mean qwen is generally unfit; it means there is no
+  reliable operating point *in the tested range for this task family and
+  protocol*. A router should not send this task family to qwen — or only
+  with additional mechanisms (frame re-anchoring, loop abort, escalation).
+- **granite** is the interesting case: heavily contaminable raw (23.5), yet
+  clean at the most minimal state with full analytical output. *Hypothesis*
+  (not a causal claim from these numbers): a small model trained on more
+  curated data may respond better to a minimal explicit control state than
+  to rich context. If that holds, granite-class models are attractive as
+  specialized operators that need the least state to run a well-defined
+  operation stably.
 
 Caveats as before: 2 repeats per model, neutral persona only, one provider,
 heuristic metrics. These are first profiles, not settled constants; qwen's
