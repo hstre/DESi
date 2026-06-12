@@ -77,6 +77,13 @@ def main(argv: Sequence[str] | None = None) -> int:
                     help="live only: sweep all density levels against a shared baseline")
     ap.add_argument("--factorial", action="store_true",
                     help="live only: 2x2 ablation (hygiene x turn-level re-anchoring)")
+    ap.add_argument("--mixed-model", action="store_true",
+                    help="live only: mixed-model DESi (analyst + cross-model reviewer) "
+                         "vs single-model controls")
+    ap.add_argument("--analyst-model", default=DEFAULT_MODEL,
+                    help="mixed-model: the analyst model id")
+    ap.add_argument("--reviewer-model", default="ibm-granite/granite-4.0-h-micro",
+                    help="mixed-model: the cross-model reviewer model id")
     ap.add_argument("--ledger", default=None,
                     help="append every case-run to this local Layer-9 SQLite ledger "
                          "(viewable in the DESi Reviewer Port)")
@@ -107,7 +114,22 @@ def main(argv: Sequence[str] | None = None) -> int:
         except RuntimeError as exc:
             print(f"[live mode unavailable] {exc}")
             return 2
-        if args.factorial:
+        if args.mixed_model:
+            from .runner import run_mixed_experiment
+
+            analyst = build_openrouter_chat(args.analyst_model)
+            reviewer = build_openrouter_chat(args.reviewer_model)
+            report = run_mixed_experiment(
+                cases, analyst, reviewer,
+                analyst_name=args.analyst_model, reviewer_name=args.reviewer_model,
+                persona=args.persona, max_chars=args.max_chars,
+                protocol=args.protocol, density=args.state_density,
+                repeats=args.repeats, ledger=ledger,
+            )
+            banner = (f"LIVE mixed-model DESi: analyst={args.analyst_model}, "
+                      f"reviewer={args.reviewer_model}, {args.protocol} protocol, "
+                      f"k={args.state_density}, {args.repeats}× repeats.")
+        elif args.factorial:
             from .runner import run_factorial
 
             report = run_factorial(
@@ -194,7 +216,15 @@ def main(argv: Sequence[str] | None = None) -> int:
                       "answered or scored. Provide --responses or --live for metrics.")
 
     print(f">> {banner}\n")
-    if "effects" in report and "arms" in report:
+    if "mixed_vs_best_single" in report:
+        for arm, metrics in report["arms"].items():
+            cells = "  ".join(f"{m}={s['mean']}±{s['stdev']}" for m, s in metrics.items())
+            print(f"[{arm}]  {cells}  loops={report['loops'][arm]}")
+        print("\nmixed_vs_best_single (C - best single-model hygiene; negative = "
+              "mixed wins):")
+        for metric, s in report["mixed_vs_best_single"].items():
+            print(f"  {metric}: {s['mean']:+}±{s['stdev']}")
+    elif "effects" in report and "arms" in report:
         # factorial: per-arm aggregates, loop counts, then the 2x2 effects
         for arm, metrics in report["arms"].items():
             cells = "  ".join(f"{m}={s['mean']}±{s['stdev']}" for m, s in metrics.items())

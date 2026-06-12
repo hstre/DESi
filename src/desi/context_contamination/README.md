@@ -287,6 +287,30 @@ aggregates and the factorial effects (`main_hygiene`, `main_reanchor`,
 `interaction`), each as mean ± stdev across repeats. Negative main effects
 mean the factor reduced the metric.
 
+### Mixed-model DESi (`--mixed-model`)
+
+Tests whether DESi orchestrating *different* specialized models for separate
+steps beats a single model — and controls for the obvious confound (maybe one
+model is just more robust). The deterministic hygiene state is unchanged (the
+DESi invariant: rules, not a model); the model dimension under test is a
+**cross-model review pass** — one model analyzes, a *different* model reviews
+and revises. The reviewer sees only the draft, never the raw context, so its
+review frame is uncontaminated by construction.
+
+| arm | what runs |
+|---|---|
+| `A_analyst_raw` | analyst alone, raw context |
+| `B_analyst_hygiene` | analyst alone, hygiene state |
+| `B_reviewer_hygiene` | reviewer model alone, hygiene state (confound control) |
+| `C_mixed` | hygiene state, analyst analyzes, reviewer reviews/revises |
+
+The decisive number is `mixed_vs_best_single` = `C_mixed` minus the **better**
+of the two single-model hygiene arms, per metric. Negative means the mixed
+pipeline beat the best constituent model used alone — i.e. the gain is
+architectural, not merely "the reviewer model is more robust". CLI:
+`--mixed-model --analyst-model <id> --reviewer-model <id>`; workflow inputs
+`mixed_model`, `analyst_model`, `reviewer_model`.
+
 ### State density ("k") and the ledger
 
 - `--state-density {1,3,5,8}` controls how much structure the hygiene state
