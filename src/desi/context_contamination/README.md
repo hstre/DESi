@@ -120,6 +120,54 @@ Since the pre-sweep persona runs already used k=5 (the default), they stand
 as the at-calibration results for this model. Re-run the sweep before
 porting the k to other models or providers.
 
+### Cross-model comparison: the k does not transfer
+
+Same sweep configuration (extended protocol, neutral persona, 2 repeats,
+shared baseline per repeat, ledger recorded) run on four further small
+models (2026-06-12; runs
+[27387927526](https://github.com/hstre/DESi/actions/runs/27387927526) ministral,
+[27387935445](https://github.com/hstre/DESi/actions/runs/27387935445) llama-3.2-3b,
+[27387941260](https://github.com/hstre/DESi/actions/runs/27387941260) qwen-2.5-7b,
+[27387947968](https://github.com/hstre/DESi/actions/runs/27387947968) granite).
+Framing leakage summed over 3 cases (mean across repeats); loops = looping
+case-runs out of 6.
+
+| model | baseline framing (loops) | k=1 | k=3 | k=5 | k=8 | best observed k |
+|---|---|---|---|---|---|---|
+| llama-3.1-8b-instruct | 3.0 (0) | 0.0 (**5/6** ⚠) | 4.0 (0) | **1.5 (0)** | 3.0 (1/6) | **5** |
+| ministral-3b-2512 | 30.0 (0) | 12.5 (0) | **10.5 (0)** | 30.0 (0) | 24.5 (0) | **3** |
+| llama-3.2-3b-instruct | 3.5 (0) | 2.0 (1/6) | **0.0 (0)** | 0.5 (0) | 3.0 (0) | **3** |
+| qwen-2.5-7b-instruct | 43.0 (**3/6**) | 25.5 (1/6) | 25.0 (4/6) | 25.0 (4/6) | 16.0 (**6/6** ⚠) | **none clean** |
+| granite-4.0-h-micro | 23.5 (0) | **0.0 (0)** | 6.0 (0) | 9.0 (0) | 18.5 (0) | **1** |
+
+What replicates across all five models, and what does not:
+
+- **Source-leakage reduction replicates everywhere**: every model has at
+  least one density with substantially lower framing leakage than its raw
+  baseline (ministral −65%, granite −100%, qwen −40% at its least-bad point).
+- **Non-monotonicity replicates everywhere**: k=8 is worse than the optimum
+  in all five profiles — excessive state density reintroduces source
+  echoing regardless of model.
+- **The optimal k does NOT transfer**: 5 (llama-3.1-8b), 3 (ministral,
+  llama-3.2-3b), 1 (granite), none clean (qwen). A density calibrated on one
+  model is not evidence for another — per-(model × task-family) sweeps are
+  required, which is the point of the profile format.
+- **The edge failure mode is model-specific and bidirectional**: llama-3.1-8b
+  loops at *minimal* density (5/6 at k=1), qwen loops at *high* density
+  (6/6 at k=8, behind its best framing number) and already loops raw (3/6
+  baseline). Granite's k=1 is NOT degenerate — its k=1 responses are full
+  analyses with zero loops. Single-channel optimization would pick a
+  looping configuration for llama-3.1-8b (k=1) and for qwen (k=8) — in
+  opposite directions; the multi-channel design is load-bearing in both.
+- **Raw contamination magnitude varies by an order of magnitude** (llama
+  family ~3 vs qwen 43), and **register drift is llama-family behaviour**
+  on this material (ministral 0.1, qwen 0.0, granite 0.2 vs llama 0.5).
+
+Caveats as before: 2 repeats per model, neutral persona only, one provider,
+heuristic metrics. These are first profiles, not settled constants; qwen's
+profile in particular needs longer-protocol replication before any density
+is recommended for it.
+
 For *other* task families this model is profiled in routing_table.json —
 memory_recall (k=5, score 0.56), code_audit (raw, 0.833), scientific_claim
 (k=3, 0.767). The density-k of this benchmark is a state-structure level,
