@@ -43,6 +43,7 @@ jobs:
           tests/spl_adapter
           tests/spl_core
           tests/calibration
+          tests/control_plane
           tests/context_contamination
           tests/memory
           tests/release_validation
