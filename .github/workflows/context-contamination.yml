@@ -35,6 +35,10 @@ on:
         description: "sweep all density levels against a shared baseline"
         type: boolean
         default: false
+      factorial:
+        description: "2x2 ablation: hygiene x turn-level re-anchoring"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -81,6 +85,9 @@ jobs:
           SWEEP_FLAG=""
           if [ "${{ inputs.density_sweep }}" = "true" ]; then
             SWEEP_FLAG="--density-sweep"
+          fi
+          if [ "${{ inputs.factorial }}" = "true" ]; then
+            SWEEP_FLAG="$SWEEP_FLAG --factorial"
           fi
           python -m desi.context_contamination \
             --data data/context_contamination \

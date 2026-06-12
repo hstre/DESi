@@ -45,6 +45,7 @@ from .runner import (
     run_benchmark,
     run_benchmark_repeated,
     run_density_sweep,
+    run_factorial,
 )
 
 __all__ = [
@@ -65,6 +66,7 @@ __all__ = [
     "run_benchmark",
     "run_benchmark_repeated",
     "run_density_sweep",
+    "run_factorial",
     "score_response",
     "score_run",
     "system_prompt",
