@@ -1,0 +1,99 @@
+name: context-contamination temperature comparison
+
+# Controlled temperature comparison (0.0 vs 0.7) on identical models, cases,
+# and prompts. Report-only; the upstream dataset (GPL-3.0) is fetched at
+# runtime and never committed to this (MIT) repository.
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "OpenRouter model id"
+        default: "meta-llama/llama-3.1-8b-instruct"
+      persona:
+        description: "persona variant"
+        type: choice
+        options: [neutral, female_coded, male_coded]
+        default: neutral
+      protocol:
+        description: "turn sequence"
+        type: choice
+        options: [standard, extended]
+        default: extended
+      state_density:
+        description: "hygiene-state density k (1/3/5/8)"
+        default: "5"
+      temperatures:
+        description: "comma-separated pair, low first"
+        default: "0.0,0.7"
+      repeats:
+        description: "repetitions per temperature condition"
+        default: "5"
+      seed:
+        description: "optional sampling seed (best-effort only; leave blank for none)"
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  temperature-compare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install (editable)
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[test]"
+
+      - name: Offline tests (no network, no key)
+        run: pytest -q tests/context_contamination
+
+      - name: Fetch adversarial dataset (upstream, GPL-3.0 — runtime only)
+        run: |
+          git clone --depth 1 https://github.com/KatharinaJacoby/gendered-contextual-drift /tmp/gcd
+          mkdir -p data/context_contamination
+          cp /tmp/gcd/Data/Dataset/advText*.txt data/context_contamination/
+
+      - name: Temperature comparison (only with OPENROUTER_API_KEY secret)
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          if [ -z "$OPENROUTER_API_KEY" ]; then
+            echo "::warning::no OPENROUTER_API_KEY secret configured — skipping live run"
+            exit 0
+          fi
+          SEED_FLAG=""
+          if [ -n "${{ inputs.seed }}" ]; then
+            SEED_FLAG="--seed ${{ inputs.seed }}"
+          fi
+          python -m desi.context_contamination \
+            --data data/context_contamination \
+            --persona "${{ inputs.persona }}" \
+            --protocol "${{ inputs.protocol }}" \
+            --state-density "${{ inputs.state_density }}" \
+            --repeats "${{ inputs.repeats }}" \
+            --temperature-compare "${{ inputs.temperatures }}" \
+            $SEED_FLAG \
+            --ledger cc_temperature_ledger.db \
+            --live --model "${{ inputs.model }}" \
+            --out report_temperature_compare.json
+
+      - name: Upload comparison report
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: context-contamination-temperature-report
+          path: report_temperature_compare.json
+          if-no-files-found: ignore
+
+      - name: Upload Layer-9 ledger (auditable run + sampling provenance)
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: context-contamination-temperature-ledger
+          path: cc_temperature_ledger.db
+          if-no-files-found: ignore

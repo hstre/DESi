@@ -8,7 +8,9 @@ family (Llama-3.1-8B-Instruct) is the default.
 """
 from __future__ import annotations
 
+import hashlib
 import json
+import statistics
 import time
 import urllib.error
 import urllib.request
@@ -22,7 +24,23 @@ from .prompts import baseline_turns, hygiene_turns, review_messages, system_prom
 Chat = Callable[[list[dict]], str]
 
 DEFAULT_MODEL = "meta-llama/llama-3.1-8b-instruct"
+DEFAULT_MAX_TOKENS = 700
 MODES = ("baseline", "desi_hygiene")
+
+
+def sampling_config(model: str, temperature: float, seed: int | None,
+                    max_tokens: int) -> dict:
+    """Normalized, auditable sampling configuration + its SHA-256.
+
+    Records exactly the sampling-relevant request parameters (no prompt
+    content), so a run's configuration is reconstructable from the ledger.
+    The hash is over the canonical {model, temperature, seed, max_tokens}.
+    """
+    core = {"model": model, "temperature": float(temperature),
+            "seed": seed, "max_tokens": int(max_tokens)}
+    canonical = json.dumps(core, sort_keys=True, separators=(",", ":"))
+    return {**core, "config_sha256": hashlib.sha256(canonical.encode()).hexdigest()}
+
 
 
 @dataclass
@@ -43,6 +61,9 @@ class ScriptedChat:
     responses: list[str] = field(default_factory=list)
     default: str = ""
     calls: list[list[dict]] = field(default_factory=list)
+    # mirrors the live chat's auditable attributes (None offline by default)
+    config: dict | None = None
+    last_provider: str | None = None
 
     def __call__(self, messages: list[dict]) -> str:
         # snapshot — the runner keeps mutating the live list after this call
@@ -70,10 +91,15 @@ def load_cases(data_dir: str | Path, pattern: str = "advText*.txt") -> list[Case
     return cases
 
 
+def _chat_config(chat: Chat) -> dict | None:
+    """The auditable sampling config a live/scripted chat exposes, if any."""
+    return getattr(chat, "config", None)
+
+
 def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
              max_chars: int = 8000, protocol: str = "standard",
              density: int = 5, ledger=None, reanchor: bool = False,
-             reviewer: Chat | None = None) -> dict:
+             reviewer: Chat | None = None, repeat_index: int = 0) -> dict:
     """Drive one case through one arm; returns responses + metrics.
 
     ``max_chars`` truncates the raw source (the pilot worked with 2k/8k
@@ -82,15 +108,16 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
     ("standard" 4-turn or "extended" multi-turn pressure form); ``density``
     the hygiene-state structure level (ignored by the baseline arm).
 
+    Sampling provenance: the chat callable exposes its auditable sampling
+    config (model, temperature, seed, max_tokens, config_sha256) and the
+    upstream provider returned by OpenRouter, if any; both are recorded in the
+    result and ledger so the run's sampling/routing is reconstructable. Prompt
+    content is never stored — only the responses' sha256.
+
     When a ``ledger`` is supplied (any object with the local-Layer-9
     ``record(kind, payload, ...)`` shape, e.g. ``desi_router.ledger.Ledger``),
-    the run is appended as a ``context_contamination`` event — slim metrics
-    plus a sha256 over the responses — so the Reviewer Port / ledger CLI can
-    show what happened without storing the transcripts themselves.
+    the run is appended as a ``context_contamination`` event.
     """
-    import hashlib
-    import json as _json
-
     raw = case.raw_text[:max_chars]
     if mode == "baseline":
         turns = baseline_turns(raw, persona=persona, protocol=protocol,
@@ -101,19 +128,30 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
 
     messages: list[dict] = [{"role": "system", "content": system_prompt()}]
     responses: list[str] = []
+    providers: list[str] = []
     for user_turn in turns:
         messages.append({"role": "user", "content": user_turn})
         draft = chat(messages)
+        if getattr(chat, "last_provider", None):
+            providers.append(chat.last_provider)
         # Optional cross-model review/revise pass. The reviewer sees only the
         # draft (never the raw context), and its corrected text becomes the
         # delivered answer that is scored and carried in the conversation —
         # so single-model and mixed arms stay metric-comparable, differing
         # only in whether the reviewer is the same model or a different one.
-        reply = reviewer(review_messages(draft)) if reviewer is not None else draft
+        if reviewer is not None:
+            reply = reviewer(review_messages(draft))
+            if getattr(reviewer, "last_provider", None):
+                providers.append(reviewer.last_provider)
+        else:
+            reply = draft
         messages.append({"role": "assistant", "content": reply})
         responses.append(reply)
 
     metrics = score_run(responses)
+    sampling = _chat_config(chat)
+    reviewer_sampling = _chat_config(reviewer) if reviewer is not None else None
+    providers_seen = sorted(set(providers))
     result = {
         "case_id": case.case_id,
         "mode": mode,
@@ -122,6 +160,10 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
         "density": density,
         "reanchor": reanchor,
         "reviewed": reviewer is not None,
+        "repeat_index": repeat_index,
+        "sampling": sampling,
+        "reviewer_sampling": reviewer_sampling,
+        "providers_seen": providers_seen,
         "responses": responses,
         "metrics": metrics,
     }
@@ -137,13 +179,18 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
                 "density": density,
                 "reanchor": reanchor,
                 "reviewed": reviewer is not None,
+                "repeat_index": repeat_index,
+                # sampling/routing provenance (no prompt content)
+                "sampling": sampling,
+                "reviewer_sampling": reviewer_sampling,
+                "providers_seen": providers_seen,
                 "attribution_failures": metrics["attribution_failures"],
                 "register_drift": metrics["register_drift"],
                 "framing_leakage": metrics["framing_leakage"],
                 "role_adoption": metrics["role_adoption"],
                 "loop_detected": metrics["loop_detected"],
                 "responses_sha256": hashlib.sha256(
-                    _json.dumps(responses, ensure_ascii=False).encode("utf-8")
+                    json.dumps(responses, ensure_ascii=False).encode("utf-8")
                 ).hexdigest(),
             },
         )
@@ -152,12 +199,12 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
 
 def run_benchmark(cases: list[Case], chat: Chat, persona: str = "neutral",
                   max_chars: int = 8000, protocol: str = "standard",
-                  density: int = 5, ledger=None) -> dict:
+                  density: int = 5, ledger=None, repeat_index: int = 0) -> dict:
     """Both arms over all cases + per-case comparison summaries."""
     runs = {
         mode: {
             c.case_id: run_case(chat, c, mode, persona, max_chars, protocol,
-                                density, ledger)
+                                density, ledger, repeat_index=repeat_index)
             for c in cases
         }
         for mode in MODES
@@ -211,8 +258,9 @@ def run_benchmark_repeated(cases: list[Case], chat: Chat, persona: str = "neutra
     repeats=1 it degrades to a single run plus the per-repeat report list.
     """
     per_repeat = [
-        run_benchmark(cases, chat, persona, max_chars, protocol, density, ledger)
-        for _ in range(max(1, repeats))
+        run_benchmark(cases, chat, persona, max_chars, protocol, density, ledger,
+                      repeat_index=i)
+        for i in range(max(1, repeats))
     ]
 
     variance: dict[str, dict] = {}
@@ -257,17 +305,17 @@ def run_density_sweep(cases: list[Case], chat: Chat, persona: str = "neutral",
 
     sweeps: dict[int, list[dict]] = {k: [] for k in ks}
     baselines: list[dict] = []
-    for _ in range(max(1, repeats)):
+    for i in range(max(1, repeats)):
         base = {
             c.case_id: run_case(chat, c, "baseline", persona, max_chars,
-                                protocol, ledger=ledger)
+                                protocol, ledger=ledger, repeat_index=i)
             for c in cases
         }
         baselines.append(base)
         for k in ks:
             hyg = {
                 c.case_id: run_case(chat, c, "desi_hygiene", persona, max_chars,
-                                    protocol, density=k, ledger=ledger)
+                                    protocol, density=k, ledger=ledger, repeat_index=i)
                 for c in cases
             }
             sweeps[k].append({
@@ -352,13 +400,13 @@ def run_factorial(cases: list[Case], chat: Chat, persona: str = "neutral",
     Negative main effects mean the factor reduced the metric.
     """
     per_repeat: list[dict] = []
-    for _ in range(max(1, repeats)):
+    for i in range(max(1, repeats)):
         arms = {}
         for arm, cfg in FACTORIAL_ARMS.items():
             arms[arm] = {
                 c.case_id: run_case(chat, c, cfg["mode"], persona, max_chars,
                                     protocol, density, ledger,
-                                    reanchor=cfg["reanchor"])
+                                    reanchor=cfg["reanchor"], repeat_index=i)
                 for c in cases
             }
         per_repeat.append(arms)
@@ -432,23 +480,23 @@ def run_mixed_experiment(cases: list[Case], analyst_chat: Chat, reviewer_chat: C
     mixed pipeline beat the best constituent model used alone — i.e. the gain
     is architectural, not merely "the reviewer model is more robust".
     """
-    def _single(chat, mode, reviewer=None):
+    def _single(chat, mode, i, reviewer=None):
         return {
             c.case_id: run_case(chat, c, mode, persona, max_chars, protocol,
-                                density, ledger, reviewer=reviewer)
+                                density, ledger, reviewer=reviewer, repeat_index=i)
             for c in cases
         }
 
     per_repeat: list[dict] = []
-    for _ in range(max(1, repeats)):
+    for i in range(max(1, repeats)):
         per_repeat.append({
-            "A_analyst_raw":      _single(analyst_chat, "baseline"),
-            "B_analyst_hygiene":  _single(analyst_chat, "desi_hygiene"),
-            "B_reviewer_hygiene": _single(reviewer_chat, "desi_hygiene"),
+            "A_analyst_raw":      _single(analyst_chat, "baseline", i),
+            "B_analyst_hygiene":  _single(analyst_chat, "desi_hygiene", i),
+            "B_reviewer_hygiene": _single(reviewer_chat, "desi_hygiene", i),
             "C_mixed":            {
                 c.case_id: run_case(analyst_chat, c, "desi_hygiene", persona,
                                     max_chars, protocol, density, ledger,
-                                    reviewer=reviewer_chat)
+                                    reviewer=reviewer_chat, repeat_index=i)
                 for c in cases
             },
         })
@@ -500,12 +548,23 @@ def run_mixed_experiment(cases: list[Case], analyst_chat: Chat, reviewer_chat: C
 
 
 def build_openrouter_chat(model: str = DEFAULT_MODEL, *, api_key: str | None = None,
+                          temperature: float = 0.0, seed: int | None = None,
+                          max_tokens: int = DEFAULT_MAX_TOKENS,
                           timeout: int = 120, retries: int = 2) -> Chat:
     """Live chat via OpenRouter (OpenAI-compatible). Needs OPENROUTER_API_KEY.
 
-    temperature=0 for as much replay stability as the provider allows. Raises
-    RuntimeError when no key is configured, so the CLI can report the live
-    path as unavailable cleanly.
+    The client **sends** ``temperature`` (default 0.0) on every request, and
+    ``seed`` only when explicitly provided (omitted otherwise so providers
+    without seed support are not handed a null field). OpenRouter **accepts**
+    these OpenAI-compatible parameters, but their **actual application is not
+    guaranteed** by the routed upstream provider — temperature 0.0 does not
+    make outputs deterministic, and seed is best-effort only (see the README
+    methodology section). Do not assume reproducibility from either.
+
+    The returned callable exposes ``.config`` (the auditable sampling config
+    from ``sampling_config``) and ``.last_provider`` (the upstream provider
+    OpenRouter reports per response, if any). Raises RuntimeError when no key
+    is configured.
     """
     import os
 
@@ -517,9 +576,11 @@ def build_openrouter_chat(model: str = DEFAULT_MODEL, *, api_key: str | None = N
         )
 
     def chat(messages: list[dict]) -> str:
-        body = json.dumps(
-            {"model": model, "messages": messages, "temperature": 0, "max_tokens": 700}
-        ).encode()
+        payload: dict = {"model": model, "messages": messages,
+                         "temperature": float(temperature), "max_tokens": max_tokens}
+        if seed is not None:
+            payload["seed"] = seed
+        body = json.dumps(payload).encode()
         req = urllib.request.Request(
             "https://openrouter.ai/api/v1/chat/completions",
             data=body,
@@ -536,6 +597,8 @@ def build_openrouter_chat(model: str = DEFAULT_MODEL, *, api_key: str | None = N
             try:
                 with urllib.request.urlopen(req, timeout=timeout) as r:
                     d = json.loads(r.read())
+                # capture the actually-routed upstream provider, if reported
+                chat.last_provider = d.get("provider")
                 return d["choices"][0]["message"]["content"] or ""
             except urllib.error.HTTPError as e:
                 last = f"HTTP {e.code}: {e.read().decode(errors='replace')[:200]}"
@@ -547,4 +610,96 @@ def build_openrouter_chat(model: str = DEFAULT_MODEL, *, api_key: str | None = N
                 time.sleep(2**attempt)
         raise RuntimeError(f"OpenRouter call failed: {last}")
 
+    chat.config = sampling_config(model, temperature, seed, max_tokens)
+    chat.last_provider = None
     return chat
+
+
+def _stats(values: list[float]) -> dict:
+    """mean / stdev / median / min / max / n for a value list."""
+    n = len(values)
+    return {
+        "mean": round(statistics.mean(values), 4) if values else 0.0,
+        "stdev": round(statistics.stdev(values), 4) if n > 1 else 0.0,
+        "median": round(statistics.median(values), 4) if values else 0.0,
+        "min": min(values) if values else 0.0,
+        "max": max(values) if values else 0.0,
+        "n": n,
+    }
+
+
+def run_temperature_comparison(
+        cases: list[Case], build_chat: Callable[[float], Chat],
+        *, temperatures: tuple[float, ...] = (0.0, 0.7),
+        persona: str = "neutral", max_chars: int = 8000,
+        protocol: str = "standard", density: int = 5, repeats: int = 5,
+        ledger=None) -> dict:
+    """Controlled temperature comparison on identical models, cases and prompts.
+
+    Runs the two-arm benchmark at each temperature for ``repeats`` repetitions
+    and produces a paired comparison. ``build_chat`` is a factory
+    ``temperature -> Chat`` so every condition differs only in temperature.
+
+    The comparison reports, per metric and per (case, arm) cell: mean / stdev /
+    median / min / max at each temperature, the mean difference (high minus
+    low), and — for the hygiene effect (hygiene minus baseline) per case — a
+    flag when the sign of the effect changes between temperatures.
+    """
+    if len(temperatures) != 2:
+        raise ValueError("temperature comparison expects exactly two temperatures")
+    t_low, t_high = sorted(temperatures)
+
+    per_temperature: dict[str, dict] = {}
+    for t in (t_low, t_high):
+        chat = build_chat(t)
+        reports = [
+            run_benchmark(cases, chat, persona, max_chars, protocol, density,
+                          ledger, repeat_index=i)
+            for i in range(max(1, repeats))
+        ]
+        per_temperature[str(t)] = {
+            "sampling": getattr(chat, "config", None),
+            "reports": reports,
+        }
+
+    def _cell_values(t: float, metric: str, case_id: str, arm: str) -> list[float]:
+        return [rep["runs"][arm][case_id]["metrics"][metric]
+                for rep in per_temperature[str(t)]["reports"]]
+
+    comparison: dict[str, dict] = {}
+    for metric in _VARIANCE_METRICS:
+        by_cell: dict[str, dict] = {}
+        effect_dir: dict[str, dict] = {}
+        for c in cases:
+            for arm in MODES:
+                lo = _cell_values(t_low, metric, c.case_id, arm)
+                hi = _cell_values(t_high, metric, c.case_id, arm)
+                by_cell[f"{c.case_id}|{arm}"] = {
+                    str(t_low): _stats(lo), str(t_high): _stats(hi),
+                    "diff_mean": round(
+                        (statistics.mean(hi) if hi else 0.0)
+                        - (statistics.mean(lo) if lo else 0.0), 4),
+                }
+            # paired hygiene effect (hygiene minus baseline) per temperature
+            def _effect(t):
+                b = statistics.mean(_cell_values(t, metric, c.case_id, "baseline"))
+                h = statistics.mean(_cell_values(t, metric, c.case_id, "desi_hygiene"))
+                return round(h - b, 4)
+            e_lo, e_hi = _effect(t_low), _effect(t_high)
+            sign = lambda x: (x > 0) - (x < 0)  # noqa: E731
+            effect_dir[c.case_id] = {
+                str(t_low): e_lo, str(t_high): e_hi,
+                "direction_changed": sign(e_lo) != sign(e_hi),
+            }
+        comparison[metric] = {"by_case_arm": by_cell, "hygiene_effect": effect_dir}
+
+    return {
+        "model_factory": "build_chat",
+        "temperatures": [t_low, t_high],
+        "repeats": max(1, repeats),
+        "persona": persona,
+        "protocol": protocol,
+        "density": density,
+        "per_temperature": per_temperature,
+        "comparison": comparison,
+    }
