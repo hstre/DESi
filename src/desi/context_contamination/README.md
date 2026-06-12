@@ -174,35 +174,76 @@ What replicates across all five models, and what does not:
 
 The sweep measures a model's *valid operating range* for this task family —
 the beginning of profile-based orchestration (route by measured profile,
-not by model name):
+not by model name). The mixed-model experiment showed that the persona
+dimension belongs in the profile: granite's neutral entry did not transfer
+to the female-coded persona (tested at k=5 in the reviewer role, where it
+looped in 5/9 runs with framing 18.7). The supported claim is narrow — a
+neutral-persona profile is not transferable to another persona and role
+without recalibration — not that the model's operating range collapses in
+general (its female-coded entry was never tested at its own optimum k=1).
 
 ```yaml
 context_contamination:
-  ibm-granite/granite-4.0-h-micro:   {k: 1, status: suitable}
-  meta-llama/llama-3.2-3b-instruct:  {k: 3, status: suitable}
-  meta-llama/llama-3.1-8b-instruct:  {k: 5, status: suitable}
-  mistralai/ministral-3b-2512:       {k: 3, status: usable_with_residual_leakage}
-  qwen/qwen-2.5-7b-instruct:         {status: unsuitable_in_tested_configuration}
+  ibm-granite/granite-4.0-h-micro:
+    neutral:
+      k: 1
+      status: suitable_in_tested_configuration
+    female_coded:
+      k: 5
+      status: degenerate_in_reviewer_only_test
+      failure_modes: [loops, high_framing_leakage]
+      note: operating density not calibrated for this persona
+  meta-llama/llama-3.2-3b-instruct:
+    neutral: {k: 3, status: suitable_in_tested_configuration}
+  meta-llama/llama-3.1-8b-instruct:
+    neutral: {k: 5, status: suitable_in_tested_configuration}
+    female_coded: {k: 5, status: suitable_in_tested_configuration}
+  mistralai/ministral-3b-2512:
+    neutral: {k: 3, status: usable_with_residual_leakage}
+  qwen/qwen-2.5-7b-instruct:
+    neutral: {status: no_clean_operating_point_observed}
+  mixed_llama31_granite:
+    neutral:
+      status: profile_combination_without_single_metric_gain
+    female_coded:
+      status: nondegenerate_multi_channel_profile
+      limitations: [register_drift_not_improved]
 ```
+
+Prospectively the registry schema needs at least the dimensions
+**model × task family × persona/register pressure × role × k**, not
+model × task family alone.
 
 - **qwen** is the warning case: high raw contamination, loops already in the
   baseline, no tested density without substantial residual leakage or loop
-  risk. That does not mean qwen is generally unfit; it means there is no
-  reliable operating point *in the tested range for this task family and
+  risk. That does not mean qwen is generally unfit; it means no clean
+  operating point was observed *in the tested range for this task family and
   protocol*. A router should not send this task family to qwen — or only
   with additional mechanisms (frame re-anchoring, loop abort, escalation).
-- **granite** is the interesting case: heavily contaminable raw (23.5), yet
-  clean at the most minimal state with full analytical output. *Hypothesis*
-  (not a causal claim from these numbers): a small model trained on more
-  curated data may respond better to a minimal explicit control state than
-  to rich context. If that holds, granite-class models are attractive as
-  specialized operators that need the least state to run a well-defined
-  operation stably.
+- **granite** is the interesting case in both directions: heavily
+  contaminable raw (23.5) yet clean at the most minimal state under the
+  neutral persona — and degenerate under the female-coded persona at an
+  uncalibrated density. Whether the neutral behaviour reflects training
+  data, architecture, instruction tuning, or provider implementation cannot
+  be determined from this pilot.
+- **mixed (analyst llama-3.1-8b + reviewer granite)**: no single-channel
+  gain over the best individual model (`mixed_vs_best_single` ≈ 0 or
+  positive) — without the single-model confound control this could have
+  been misread as a generic mixed-model advantage. Its observed value was
+  profile combination (neutral: reviewer-level drift AND analyst-level
+  framing simultaneously) and degeneration avoidance (female-coded: the
+  only clean multi-channel arm). Post-hoc review did not remove
+  interaction-driven drift already present in the analyst draft —
+  consistent with the factorial: that channel needs turn-level
+  re-anchoring during generation, not downstream review. The most directly
+  supported orchestration for this task family is channel-specific control
+  (hygiene for the source path, re-anchoring for the interaction path),
+  with optional review where degeneration detection justifies the calls.
 
-Caveats as before: 2 repeats per model, neutral persona only, one provider,
-heuristic metrics. These are first profiles, not settled constants; qwen's
-profile in particular needs longer-protocol replication before any density
-is recommended for it.
+Caveats as before: 2–3 repeats per condition, one provider, heuristic
+metrics. These are first profiles, not settled constants; qwen's profile in
+particular needs longer-protocol replication before any density is
+recommended for it.
 
 For *other* task families this model is profiled in routing_table.json —
 memory_recall (k=5, score 0.56), code_audit (raw, 0.833), scientific_claim
