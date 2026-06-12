@@ -47,26 +47,84 @@ evidence (auditability over elegance):
 
 ## Calibration status — read this before citing numbers
 
-Since the tested model has no DESi calibration profile for this task family
-and no known task-specific k-value, all results so far should be interpreted
-as an **unoptimized pilot signal**, not a calibrated performance estimate.
-The observed effect is therefore not evidence of an optimal DESi
-configuration; it is evidence that **even a non-calibrated hygiene-state
-intervention can measurably alter the contamination profile** — which speaks
-to the structure of the approach rather than to tuning.
+The early persona runs used a model with no DESi calibration profile for
+this task family; those results should be interpreted as an **unoptimized
+pilot signal**, not a calibrated performance estimate. They are not evidence
+of an optimal DESi configuration; they are evidence that **even a
+non-calibrated hygiene-state intervention can measurably alter the
+contamination profile** — which speaks to the structure of the approach
+rather than to tuning.
 
-What DESi has measured about the default model (`llama-3.1-8b-instruct`,
-routing_table.json) covers *other* task families — memory_recall (k=5,
-score 0.56), code_audit (raw, 0.833), scientific_claim (k=3, 0.767).
-Context contamination is a separate task family; its profiling step is the
-**state-density sweep** below (`--density-sweep`), which locates how much
-hygiene-state structure this model needs (k ∈ {1, 3, 5, 8}) before the
-structured state beats raw ingestion. Findings from the uncalibrated runs so
-far: the hygiene state robustly reduces *source-driven* contamination
-(framing leakage; loops appeared almost only in baseline arms), and does
-**not** reduce *user-driven* register drift under emotional pressure turns —
-that channel needs its own mechanism (e.g. frame re-anchoring), not
-ingestion hygiene.
+The profiling step (`--density-sweep`) has since been run once for the
+default model. Measured profile:
+
+### Model profile: `meta-llama/llama-3.1-8b-instruct` × context_contamination
+
+```
+Context Contamination profile
+Model:                 meta-llama/llama-3.1-8b-instruct (via OpenRouter)
+Task family:           context_contamination
+Protocol:              extended, neutral persona, 2 repetitions
+Density sweep:         k = {1, 3, 5, 8}
+Shared baseline:       yes (one per repeat)
+Ledger:                verified (hash chain intact, 30 events)
+Observed best density: k = 5
+Known limitation:      register drift remains user-driven
+Source:                workflow run 27383274237 (2026-06-11)
+```
+
+Interpretation: the unoptimized pilot later turned out to have run at the
+local optimum — the default k=5 matched the best observed point for
+source-driven framing-leakage reduction. **Caveat:** small n (2 repeats),
+neutral persona only, one model/provider; the profile is preliminary and
+strictly model- and task-family-specific. "k=5" is the best *observed* point
+in this small sweep, not a general optimum.
+
+Aggregates over 3 cases; mean ± stdev across repeats; drift = max over cases.
+
+| arm | attribution | register drift | framing leakage | role | loop case-runs |
+|---|---|---|---|---|---|
+| baseline (raw) | 0.0 | 0.50±0.14 | 3.0±2.2 | 3.0 | 0/6 |
+| hygiene k=1 | 1.5±0.7 | 0.10 | 0.0 | 0.0 | **5/6** ⚠ |
+| hygiene k=3 | 0.5 | 0.50 | 4.0±1.7 | 1.0 | 0/6 |
+| **hygiene k=5** | **0.0** | 0.50 | **1.5±2.1** | 1.0 | **0/6** |
+| hygiene k=8 | 0.5 | 0.50 | 3.0±2.7 | 1.0 | 1/6 |
+
+> The density sweep revealed a non-monotonic hygiene profile: minimal state
+> suppressed source vocabulary but induced looping, while excessive state
+> density reintroduced source echoing. The best observed trade-off for this
+> model and task family was k=5.
+
+Three structural observations the profile supports:
+
+1. **State density is calibratable, not arbitrary.** Too little structure
+   starves the task; too much becomes context material itself. "Just add
+   more metadata" is refuted by the k=8 row: more/longer quoted claims move
+   framing leakage back toward baseline — more quoted source material gives
+   the model more to echo.
+2. **k=1 is the negative example this benchmark exists for — without loop
+   detection, k=1 would look best.** The bare label is spotless on the
+   contamination metrics (framing 0, drift 0.1) while looping in 5 of 6
+   runs: a starved state repeating itself. Anyone optimizing on framing
+   leakage alone would celebrate a degenerate configuration — single-channel
+   metrics are dangerous; the multi-channel design (leakage AND loops AND
+   attribution AND drift) is load-bearing, exactly the multi-layer blind
+   spot the source paper documents.
+3. **Register drift sits at 0.50 across baseline and every functional
+   density** — third independent confirmation that drift is *user-driven*
+   (emotional pressure turns, identical in all arms) and is not treatable
+   via ingestion density. That channel needs its own mechanism (e.g. frame
+   re-anchoring), not ingestion hygiene.
+
+Since the pre-sweep persona runs already used k=5 (the default), they stand
+as the at-calibration results for this model. Re-run the sweep before
+porting the k to other models or providers.
+
+For *other* task families this model is profiled in routing_table.json —
+memory_recall (k=5, score 0.56), code_audit (raw, 0.833), scientific_claim
+(k=3, 0.767). The density-k of this benchmark is a state-structure level,
+not the retrieval-k of those entries; they share only the calibration
+discipline.
 
 ## What it does NOT claim
 
