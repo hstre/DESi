@@ -265,6 +265,28 @@ python -m desi.context_contamination --data ./data/context_contamination \
     --out sweep.json
 ```
 
+### Re-anchoring ablation (2×2 factorial)
+
+`--factorial` runs the four-arm ablation that tests — rather than asserts —
+the mechanism conjecture that interaction-driven register drift needs a
+turn-level control which ingestion hygiene does not provide:
+
+| arm | ingestion | re-anchoring |
+|---|---|---|
+| `A_raw` | raw source | – |
+| `B_hygiene` | hygiene state | – |
+| `C_reanchor` | raw source | before every post-persona turn |
+| `D_hygiene_reanchor` | hygiene state | before every post-persona turn |
+
+The re-anchor is a short, structured frame reminder (`REANCHOR_BLOCK` in
+`prompts.py`: current role, task, source status, user affect, forbidden
+transfers, required next operation) — deliberately not a second system
+prompt — applied identically in both ingestion arms. Same cases, same user
+turns, same metrics throughout; per metric the report carries the per-arm
+aggregates and the factorial effects (`main_hygiene`, `main_reanchor`,
+`interaction`), each as mean ± stdev across repeats. Negative main effects
+mean the factor reduced the metric.
+
 ### State density ("k") and the ledger
 
 - `--state-density {1,3,5,8}` controls how much structure the hygiene state

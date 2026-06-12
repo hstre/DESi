@@ -75,6 +75,8 @@ def main(argv: Sequence[str] | None = None) -> int:
                     help="hygiene-state density k (1/3/5/8; see hygiene.DENSITY_LEVELS)")
     ap.add_argument("--density-sweep", action="store_true",
                     help="live only: sweep all density levels against a shared baseline")
+    ap.add_argument("--factorial", action="store_true",
+                    help="live only: 2x2 ablation (hygiene x turn-level re-anchoring)")
     ap.add_argument("--ledger", default=None,
                     help="append every case-run to this local Layer-9 SQLite ledger "
                          "(viewable in the DESi Reviewer Port)")
@@ -105,7 +107,18 @@ def main(argv: Sequence[str] | None = None) -> int:
         except RuntimeError as exc:
             print(f"[live mode unavailable] {exc}")
             return 2
-        if args.density_sweep:
+        if args.factorial:
+            from .runner import run_factorial
+
+            report = run_factorial(
+                cases, chat, persona=args.persona, max_chars=args.max_chars,
+                protocol=args.protocol, density=args.state_density,
+                repeats=args.repeats, ledger=ledger,
+            )
+            banner = (f"LIVE 2x2 factorial via OpenRouter ({args.model}), "
+                      f"{args.protocol} protocol, k={args.state_density}, "
+                      f"{args.repeats}× repeats: hygiene × re-anchoring.")
+        elif args.density_sweep:
             from .runner import run_density_sweep
 
             report = run_density_sweep(
@@ -181,7 +194,16 @@ def main(argv: Sequence[str] | None = None) -> int:
                       "answered or scored. Provide --responses or --live for metrics.")
 
     print(f">> {banner}\n")
-    if "by_density" in report:
+    if "effects" in report and "arms" in report:
+        # factorial: per-arm aggregates, loop counts, then the 2x2 effects
+        for arm, metrics in report["arms"].items():
+            cells = "  ".join(f"{m}={s['mean']}±{s['stdev']}" for m, s in metrics.items())
+            print(f"[{arm}]  {cells}  loops={report['loops'][arm]}")
+        print()
+        for metric, eff in report["effects"].items():
+            cells = "  ".join(f"{k}={s['mean']}±{s['stdev']}" for k, s in eff.items())
+            print(f"effects[{metric}]: {cells}")
+    elif "by_density" in report:
         # density sweep: shared baseline row, then one row per density level
         def _row(cells: dict) -> str:
             return "  ".join(

@@ -72,7 +72,7 @@ def load_cases(data_dir: str | Path, pattern: str = "advText*.txt") -> list[Case
 
 def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
              max_chars: int = 8000, protocol: str = "standard",
-             density: int = 5, ledger=None) -> dict:
+             density: int = 5, ledger=None, reanchor: bool = False) -> dict:
     """Drive one case through one arm; returns responses + metrics.
 
     ``max_chars`` truncates the raw source (the pilot worked with 2k/8k
@@ -92,10 +92,11 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
 
     raw = case.raw_text[:max_chars]
     if mode == "baseline":
-        turns = baseline_turns(raw, persona=persona, protocol=protocol)
+        turns = baseline_turns(raw, persona=persona, protocol=protocol,
+                               reanchor=reanchor)
     else:
         turns = hygiene_turns(raw, persona=persona, protocol=protocol,
-                              density=density)
+                              density=density, reanchor=reanchor)
 
     messages: list[dict] = [{"role": "system", "content": system_prompt()}]
     responses: list[str] = []
@@ -112,6 +113,7 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
         "persona": persona,
         "protocol": protocol,
         "density": density,
+        "reanchor": reanchor,
         "responses": responses,
         "metrics": metrics,
     }
@@ -125,6 +127,7 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
                 "persona": persona,
                 "protocol": protocol,
                 "density": density,
+                "reanchor": reanchor,
                 "attribution_failures": metrics["attribution_failures"],
                 "register_drift": metrics["register_drift"],
                 "framing_leakage": metrics["framing_leakage"],
@@ -298,6 +301,103 @@ def run_density_sweep(cases: list[Case], chat: Chat, persona: str = "neutral",
         "by_density": profile,
         "sweeps": sweeps,
         "baseline_runs": baselines,
+    }
+
+
+# 2x2 factorial arms: (ingestion path) x (turn-level frame re-anchoring).
+FACTORIAL_ARMS: dict[str, dict] = {
+    "A_raw":              {"mode": "baseline",     "reanchor": False},
+    "B_hygiene":          {"mode": "desi_hygiene", "reanchor": False},
+    "C_reanchor":         {"mode": "baseline",     "reanchor": True},
+    "D_hygiene_reanchor": {"mode": "desi_hygiene", "reanchor": True},
+}
+
+
+def _aggregate_over_cases(per_case_metrics: dict[str, dict], metric: str) -> float:
+    """One number per (arm, repeat): sum over cases; register_drift = max."""
+    vals = [m[metric] for m in per_case_metrics.values()]
+    return max(vals) if metric == "register_drift" else sum(vals)
+
+
+def run_factorial(cases: list[Case], chat: Chat, persona: str = "neutral",
+                  max_chars: int = 8000, protocol: str = "standard",
+                  density: int = 5, repeats: int = 1, ledger=None) -> dict:
+    """2x2 ablation: ingestion hygiene x turn-level frame re-anchoring.
+
+    Tests the previously untested mechanism conjecture — that interaction-
+    driven register drift needs a turn-level control — instead of asserting
+    it. Same cases, same user turns, same metrics in all four arms:
+
+        A_raw                raw source,    no re-anchor
+        B_hygiene            hygiene state, no re-anchor
+        C_reanchor           raw source,    re-anchor before every turn
+        D_hygiene_reanchor   hygiene state, re-anchor before every turn
+
+    Per metric and repeat the arms aggregate over cases (sum; drift = max),
+    then the factorial effects are computed per repeat and summarized:
+
+        main_hygiene   = ((B + D) - (A + C)) / 2
+        main_reanchor  = ((C + D) - (A + B)) / 2
+        interaction    = (D - B) - (C - A)
+
+    Negative main effects mean the factor reduced the metric.
+    """
+    per_repeat: list[dict] = []
+    for _ in range(max(1, repeats)):
+        arms = {}
+        for arm, cfg in FACTORIAL_ARMS.items():
+            arms[arm] = {
+                c.case_id: run_case(chat, c, cfg["mode"], persona, max_chars,
+                                    protocol, density, ledger,
+                                    reanchor=cfg["reanchor"])
+                for c in cases
+            }
+        per_repeat.append(arms)
+
+    arm_metrics = {
+        arm: {
+            metric: _summarize_repeats([
+                _aggregate_over_cases(
+                    {cid: run["metrics"] for cid, run in rep[arm].items()}, metric
+                )
+                for rep in per_repeat
+            ])
+            for metric in _VARIANCE_METRICS
+        }
+        for arm in FACTORIAL_ARMS
+    }
+
+    effects: dict[str, dict] = {}
+    for metric in _VARIANCE_METRICS:
+        per_rep_effects = {"main_hygiene": [], "main_reanchor": [], "interaction": []}
+        for rep in per_repeat:
+            agg = {
+                arm: _aggregate_over_cases(
+                    {cid: run["metrics"] for cid, run in rep[arm].items()}, metric
+                )
+                for arm in FACTORIAL_ARMS
+            }
+            a, b = agg["A_raw"], agg["B_hygiene"]
+            c, d = agg["C_reanchor"], agg["D_hygiene_reanchor"]
+            per_rep_effects["main_hygiene"].append(((b + d) - (a + c)) / 2)
+            per_rep_effects["main_reanchor"].append(((c + d) - (a + b)) / 2)
+            per_rep_effects["interaction"].append((d - b) - (c - a))
+        effects[metric] = {k: _summarize_repeats(v) for k, v in per_rep_effects.items()}
+
+    loops = {
+        arm: sum(1 for rep in per_repeat for run in rep[arm].values()
+                 if run["metrics"]["loop_detected"])
+        for arm in FACTORIAL_ARMS
+    }
+    return {
+        "persona": persona,
+        "protocol": protocol,
+        "density": density,
+        "repeats": max(1, repeats),
+        "arms": arm_metrics,
+        "effects": effects,
+        "loops": loops,
+        "raw": per_repeat,
     }
 
 
