@@ -32,6 +32,13 @@ on:
       seed:
         description: "optional sampling seed (best-effort only; leave blank for none)"
         default: ""
+      provider:
+        description: "pin OpenRouter upstream provider(s), comma-separated (blank = none)"
+        default: ""
+      no_fallbacks:
+        description: "forbid fallback routing when a provider is pinned"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -66,9 +73,15 @@ jobs:
             echo "::warning::no OPENROUTER_API_KEY secret configured — skipping live run"
             exit 0
           fi
-          SEED_FLAG=""
+          EXTRA=""
           if [ -n "${{ inputs.seed }}" ]; then
-            SEED_FLAG="--seed ${{ inputs.seed }}"
+            EXTRA="$EXTRA --seed ${{ inputs.seed }}"
+          fi
+          if [ -n "${{ inputs.provider }}" ]; then
+            EXTRA="$EXTRA --provider ${{ inputs.provider }}"
+          fi
+          if [ "${{ inputs.no_fallbacks }}" = "true" ]; then
+            EXTRA="$EXTRA --no-fallbacks"
           fi
           python -m desi.context_contamination \
             --data data/context_contamination \
@@ -77,7 +90,7 @@ jobs:
             --state-density "${{ inputs.state_density }}" \
             --repeats "${{ inputs.repeats }}" \
             --temperature-compare "${{ inputs.temperatures }}" \
-            $SEED_FLAG \
+            $EXTRA \
             --ledger cc_temperature_ledger.db \
             --live --model "${{ inputs.model }}" \
             --out report_temperature_compare.json
