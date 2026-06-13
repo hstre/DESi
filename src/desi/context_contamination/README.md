@@ -456,6 +456,64 @@ effect (hygiene − baseline) per case — a flag when the **sign of the effect
 changes between temperatures**. Workflow:
 `.github/workflows/context-contamination-temperature.yml`.
 
+### Routing-provenance audit and temperature-confound diagnosis
+
+`provenance.py` (`routing_provenance`, `hygiene_effect`, `compare_reports`)
+is a pure-stdlib offline tool that walks a comparison report's
+`provider_sequence` / `served_model_sequence` fields and answers two
+questions without a network or key:
+
+1. **Did the provider pin actually hold?** Reports distinct providers, served
+   models (quantization), within-run switching, and a `provider_pin_clean`
+   flag. CLI: `python -c '...' report.json --provider Groq`.
+2. **Does an effect survive pinning?** Puts a pinned and an unpinned report
+   side by side per case/metric/temperature — sign preservation,
+   `pinned_minus_unpinned`, magnitude ratio. Facts only; no verdict baked in.
+
+The workflow self-audits: the temperature comparison step runs the analyzer on
+its own report and uploads `report_temperature_provenance.json`.
+
+**Pinned Groq run results** (workflow run
+[27453273380](https://github.com/hstre/DESi/actions/runs/27453273380),
+2026-06-13, 5 repeats, extended protocol, neutral persona, k=5,
+`--provider Groq --no-fallbacks`):
+
+- **Pin integrity:** 540/540 upstream calls → Groq; 0 within-run switching;
+  single served model (`meta-llama/llama-3.1-8b-instruct`). `provider_pin_clean: true`.
+
+- **advText3 framing-leakage hygiene effect (pinned vs unpinned):**
+
+  | condition | T = 0.0 | T = 0.7 | Δ (high − low) |
+  |---|---|---|---|
+  | pinned (Groq, no_fallbacks) | −4.2 | −3.8 | **0.4** |
+  | unpinned (4 backends mixed) | −5.6 | −2.8 | 2.8 |
+
+  Paired 95% CI for the pinned Δ (t-distribution, df=4): **[−8.3, 9.1]**
+  — the CI includes 0 comfortably. **No detectable temperature effect under
+  controlled single-provider routing.**
+
+- **Diagnosis:** The "halving" in the unpinned run (−5.6 → −2.8) was
+  primarily a routing confound: the T=0.0 condition spread across
+  Groq/Novita/DeepInfra/Cloudflare, while T=0.7 landed almost exclusively on
+  Groq. Under pinning the temperature difference collapses to 0.4, well within
+  the run-to-run noise (stdev ≈ 4.3 on 5 repeats of integer-valued counts).
+  The hygiene effect itself is directionally consistent — negative in both
+  conditions at both temperatures — but at n=5 the individual-effect CIs also
+  include 0 (T=0.0: [−9.6, 1.2]; T=0.7: [−8.2, 0.6]). Both effects are
+  negative in all individual repeats except one at each temperature.
+
+- **What can be said from this data:** "Under provider-pinned conditions
+  (Groq, no_fallbacks, 5 repeats), the framing-leakage hygiene effect at
+  advText3 was −4.2 (T=0.0) and −3.8 (T=0.7), with 95% CI for the
+  temperature difference of [−8.3, 9.1]. No temperature effect on the hygiene
+  direction is detectable." The statement about the unpinned run is: "Routing
+  confound confirmed; the apparent temperature effect was primarily a
+  between-provider difference, not a T=0.0 vs T=0.7 difference."
+
+- **What cannot be said:** that the hygiene effect is formally significant
+  (n=5, integer counts, wide CI), that temperature has zero effect in general,
+  or that the pinned result generalises to other models, providers, or personas.
+
 ## Limitations
 
 - Marker lists are English-only and closed; contamination expressed in other
