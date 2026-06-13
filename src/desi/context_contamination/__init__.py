@@ -38,6 +38,13 @@ from .metrics import (
     score_run,
 )
 from .prompts import baseline_turns, hygiene_turns, system_prompt
+from .provenance import (
+    compare_reports,
+    hygiene_effect,
+    iter_run_results,
+    routing_provenance,
+    summarize,
+)
 from .runner import (
     ScriptedChat,
     build_openrouter_chat,
@@ -59,13 +66,18 @@ __all__ = [
     "build_hygiene_state",
     "build_openrouter_chat",
     "classify_register",
+    "compare_reports",
     "comparison_summary",
     "detect_loops",
     "framing_leakage",
+    "hygiene_effect",
     "hygiene_turns",
+    "iter_run_results",
     "load_cases",
     "register_drift_score",
     "role_adoption",
+    "routing_provenance",
+    "summarize",
     "run_benchmark",
     "run_benchmark_repeated",
     "run_density_sweep",
