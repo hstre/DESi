@@ -29,15 +29,20 @@ MODES = ("baseline", "desi_hygiene")
 
 
 def sampling_config(model: str, temperature: float, seed: int | None,
-                    max_tokens: int) -> dict:
+                    max_tokens: int, provider_order: tuple[str, ...] | None = None,
+                    allow_fallbacks: bool = True) -> dict:
     """Normalized, auditable sampling configuration + its SHA-256.
 
-    Records exactly the sampling-relevant request parameters (no prompt
-    content), so a run's configuration is reconstructable from the ledger.
-    The hash is over the canonical {model, temperature, seed, max_tokens}.
+    Records exactly the sampling- and routing-relevant request parameters (no
+    prompt content), so a run's configuration is reconstructable from the
+    ledger. The hash is over the canonical {model, temperature, seed,
+    max_tokens, provider_order, allow_fallbacks} — so pinning a provider, or
+    forbidding fallbacks, changes the config hash.
     """
     core = {"model": model, "temperature": float(temperature),
-            "seed": seed, "max_tokens": int(max_tokens)}
+            "seed": seed, "max_tokens": int(max_tokens),
+            "provider_order": list(provider_order) if provider_order else None,
+            "allow_fallbacks": bool(allow_fallbacks)}
     canonical = json.dumps(core, sort_keys=True, separators=(",", ":"))
     return {**core, "config_sha256": hashlib.sha256(canonical.encode()).hexdigest()}
 
@@ -64,6 +69,7 @@ class ScriptedChat:
     # mirrors the live chat's auditable attributes (None offline by default)
     config: dict | None = None
     last_provider: str | None = None
+    last_model: str | None = None
 
     def __call__(self, messages: list[dict]) -> str:
         # snapshot — the runner keeps mutating the live list after this call
@@ -128,12 +134,13 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
 
     messages: list[dict] = [{"role": "system", "content": system_prompt()}]
     responses: list[str] = []
-    providers: list[str] = []
+    providers: list[str | None] = []
+    served_models: list[str | None] = []
     for user_turn in turns:
         messages.append({"role": "user", "content": user_turn})
         draft = chat(messages)
-        if getattr(chat, "last_provider", None):
-            providers.append(chat.last_provider)
+        providers.append(getattr(chat, "last_provider", None))
+        served_models.append(getattr(chat, "last_model", None))
         # Optional cross-model review/revise pass. The reviewer sees only the
         # draft (never the raw context), and its corrected text becomes the
         # delivered answer that is scored and carried in the conversation —
@@ -141,8 +148,8 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
         # only in whether the reviewer is the same model or a different one.
         if reviewer is not None:
             reply = reviewer(review_messages(draft))
-            if getattr(reviewer, "last_provider", None):
-                providers.append(reviewer.last_provider)
+            providers.append(getattr(reviewer, "last_provider", None))
+            served_models.append(getattr(reviewer, "last_model", None))
         else:
             reply = draft
         messages.append({"role": "assistant", "content": reply})
@@ -151,7 +158,16 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
     metrics = score_run(responses)
     sampling = _chat_config(chat)
     reviewer_sampling = _chat_config(reviewer) if reviewer is not None else None
-    providers_seen = sorted(set(providers))
+    # provider_sequence / served_model_sequence: the ordered per-call upstream
+    # provider and the served model id (None where unreported). The set views
+    # (providers_seen / served_models_seen) give the distinct routing. The
+    # served model id matters because different providers can serve different
+    # quantizations of the same model id — a routing confound below the
+    # provider name itself.
+    provider_sequence = list(providers)
+    providers_seen = sorted({p for p in providers if p})
+    served_model_sequence = list(served_models)
+    served_models_seen = sorted({m for m in served_models if m})
     result = {
         "case_id": case.case_id,
         "mode": mode,
@@ -164,6 +180,9 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
         "sampling": sampling,
         "reviewer_sampling": reviewer_sampling,
         "providers_seen": providers_seen,
+        "provider_sequence": provider_sequence,
+        "served_models_seen": served_models_seen,
+        "served_model_sequence": served_model_sequence,
         "responses": responses,
         "metrics": metrics,
     }
@@ -184,6 +203,9 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
                 "sampling": sampling,
                 "reviewer_sampling": reviewer_sampling,
                 "providers_seen": providers_seen,
+                "provider_sequence": provider_sequence,
+                "served_models_seen": served_models_seen,
+                "served_model_sequence": served_model_sequence,
                 "attribution_failures": metrics["attribution_failures"],
                 "register_drift": metrics["register_drift"],
                 "framing_leakage": metrics["framing_leakage"],
@@ -550,6 +572,8 @@ def run_mixed_experiment(cases: list[Case], analyst_chat: Chat, reviewer_chat: C
 def build_openrouter_chat(model: str = DEFAULT_MODEL, *, api_key: str | None = None,
                           temperature: float = 0.0, seed: int | None = None,
                           max_tokens: int = DEFAULT_MAX_TOKENS,
+                          provider_order: tuple[str, ...] | None = None,
+                          allow_fallbacks: bool = True,
                           timeout: int = 120, retries: int = 2) -> Chat:
     """Live chat via OpenRouter (OpenAI-compatible). Needs OPENROUTER_API_KEY.
 
@@ -580,6 +604,12 @@ def build_openrouter_chat(model: str = DEFAULT_MODEL, *, api_key: str | None = N
                          "temperature": float(temperature), "max_tokens": max_tokens}
         if seed is not None:
             payload["seed"] = seed
+        if provider_order:
+            # OpenRouter provider routing: pin order, optionally forbid
+            # fallbacks so the call fails rather than silently re-routing —
+            # the only way to get a clean single-backend condition.
+            payload["provider"] = {"order": list(provider_order),
+                                   "allow_fallbacks": allow_fallbacks}
         body = json.dumps(payload).encode()
         req = urllib.request.Request(
             "https://openrouter.ai/api/v1/chat/completions",
@@ -597,8 +627,10 @@ def build_openrouter_chat(model: str = DEFAULT_MODEL, *, api_key: str | None = N
             try:
                 with urllib.request.urlopen(req, timeout=timeout) as r:
                     d = json.loads(r.read())
-                # capture the actually-routed upstream provider, if reported
+                # capture the actually-routed upstream provider and served
+                # model id (often a provider-specific quantization), if reported
                 chat.last_provider = d.get("provider")
+                chat.last_model = d.get("model")
                 return d["choices"][0]["message"]["content"] or ""
             except urllib.error.HTTPError as e:
                 last = f"HTTP {e.code}: {e.read().decode(errors='replace')[:200]}"
@@ -610,8 +642,10 @@ def build_openrouter_chat(model: str = DEFAULT_MODEL, *, api_key: str | None = N
                 time.sleep(2**attempt)
         raise RuntimeError(f"OpenRouter call failed: {last}")
 
-    chat.config = sampling_config(model, temperature, seed, max_tokens)
+    chat.config = sampling_config(model, temperature, seed, max_tokens,
+                                  provider_order, allow_fallbacks)
     chat.last_provider = None
+    chat.last_model = None
     return chat
 
 
