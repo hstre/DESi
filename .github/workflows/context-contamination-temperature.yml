@@ -108,8 +108,10 @@ jobs:
           fi
           # Verifies the pin actually held (single provider, single
           # quantization, no within-run switching) and extracts the advText3
-          # framing-leakage hygiene effect per temperature.
-          python -m desi.context_contamination.provenance \
+          # framing-leakage hygiene effect per temperature. Invoked via -c
+          # (not -m) so genuine errors still surface on stderr and fail the
+          # step, without the runpy import warning the package triggers.
+          python -c 'import sys; from desi.context_contamination.provenance import main; sys.exit(main(sys.argv[1:]))' \
             report_temperature_compare.json $PROV \
             --case advText3 --metric framing_leakage \
             | tee report_temperature_provenance.json
