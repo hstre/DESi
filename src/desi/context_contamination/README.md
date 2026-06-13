@@ -416,24 +416,38 @@ or reporting results.
    change behaviour.
 2. **Accepted by OpenRouter.** `temperature` and `seed` are documented,
    OpenAI-compatible parameters of the `/v1/chat/completions` endpoint.
-   OpenRouter may route the same model id to different upstream providers; the
-   provider it reports per response is captured into the ledger
-   (`providers_seen`) when present.
+   OpenRouter may route the same model id to **different upstream providers**,
+   which may in turn serve **different quantizations** of that id. Per response
+   the runner captures, per call, the reported upstream provider and the served
+   model id — as ordered sequences (`provider_sequence`, `served_model_sequence`)
+   and distinct sets (`providers_seen`, `served_models_seen`) in the ledger.
+   This makes within-run provider switching and per-call routing
+   reconstructable. **A first run found this is a real confound:** in an
+   unpinned 0.0-vs-0.7 comparison, OpenRouter routed the same model id across
+   four providers, and the two temperature conditions were not balanced
+   (0.0 spread across four providers, 0.7 almost purely one) — so an apparent
+   temperature effect there is temperature + provider + possible interaction.
+   To remove it, pin the backend: `--provider Groq --no-fallbacks` adds
+   OpenRouter's provider-routing object (pinned order; a pinned call fails
+   rather than silently re-routing). The pin is part of the sampling config
+   hash, so pinned vs unpinned runs are distinguishable.
 3. **Not guaranteed to be applied by the routed upstream provider.**
    Temperature 0.0 means greedy/near-greedy sampling, not determinism:
    provider-side batching, mixture-of-experts routing, non-deterministic
    kernels, and multi-provider routing remain. Seed is **best-effort only** —
    reproducibility is not guaranteed and is not claimed anywhere in this code
    or documentation. The honest separation of a real arm effect from
-   run-to-run jitter is therefore **repeats + variance**, not a seed.
+   run-to-run jitter is therefore **repeats + variance** (and, for a clean
+   sampling test, a **pinned provider**), not a seed.
 
 A controlled comparison of two temperatures on identical models, cases, and
-prompts is available:
+prompts is available — pin the provider to isolate temperature from backend
+routing:
 
 ```bash
 python -m desi.context_contamination --data ./data/context_contamination \
     --live --temperature-compare 0.0,0.7 --repeats 5 --protocol extended \
-    --ledger cc.db --out compare.json
+    --provider Groq --no-fallbacks --ledger cc.db --out compare.json
 ```
 
 It reports, per metric and per (case, arm): mean / stdev / median / min / max

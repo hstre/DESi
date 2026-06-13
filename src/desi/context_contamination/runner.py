@@ -69,6 +69,7 @@ class ScriptedChat:
     # mirrors the live chat's auditable attributes (None offline by default)
     config: dict | None = None
     last_provider: str | None = None
+    last_model: str | None = None
 
     def __call__(self, messages: list[dict]) -> str:
         # snapshot — the runner keeps mutating the live list after this call
@@ -134,10 +135,12 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
     messages: list[dict] = [{"role": "system", "content": system_prompt()}]
     responses: list[str] = []
     providers: list[str | None] = []
+    served_models: list[str | None] = []
     for user_turn in turns:
         messages.append({"role": "user", "content": user_turn})
         draft = chat(messages)
         providers.append(getattr(chat, "last_provider", None))
+        served_models.append(getattr(chat, "last_model", None))
         # Optional cross-model review/revise pass. The reviewer sees only the
         # draft (never the raw context), and its corrected text becomes the
         # delivered answer that is scored and carried in the conversation —
@@ -146,6 +149,7 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
         if reviewer is not None:
             reply = reviewer(review_messages(draft))
             providers.append(getattr(reviewer, "last_provider", None))
+            served_models.append(getattr(reviewer, "last_model", None))
         else:
             reply = draft
         messages.append({"role": "assistant", "content": reply})
@@ -154,11 +158,16 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
     metrics = score_run(responses)
     sampling = _chat_config(chat)
     reviewer_sampling = _chat_config(reviewer) if reviewer is not None else None
-    # provider_sequence: the ordered per-call upstream provider (None where the
-    # response did not report one); providers_seen: the distinct set. The
-    # sequence makes within-run provider switching and per-call routing visible.
+    # provider_sequence / served_model_sequence: the ordered per-call upstream
+    # provider and the served model id (None where unreported). The set views
+    # (providers_seen / served_models_seen) give the distinct routing. The
+    # served model id matters because different providers can serve different
+    # quantizations of the same model id — a routing confound below the
+    # provider name itself.
     provider_sequence = list(providers)
     providers_seen = sorted({p for p in providers if p})
+    served_model_sequence = list(served_models)
+    served_models_seen = sorted({m for m in served_models if m})
     result = {
         "case_id": case.case_id,
         "mode": mode,
@@ -172,6 +181,8 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
         "reviewer_sampling": reviewer_sampling,
         "providers_seen": providers_seen,
         "provider_sequence": provider_sequence,
+        "served_models_seen": served_models_seen,
+        "served_model_sequence": served_model_sequence,
         "responses": responses,
         "metrics": metrics,
     }
@@ -193,6 +204,8 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
                 "reviewer_sampling": reviewer_sampling,
                 "providers_seen": providers_seen,
                 "provider_sequence": provider_sequence,
+                "served_models_seen": served_models_seen,
+                "served_model_sequence": served_model_sequence,
                 "attribution_failures": metrics["attribution_failures"],
                 "register_drift": metrics["register_drift"],
                 "framing_leakage": metrics["framing_leakage"],
@@ -614,8 +627,10 @@ def build_openrouter_chat(model: str = DEFAULT_MODEL, *, api_key: str | None = N
             try:
                 with urllib.request.urlopen(req, timeout=timeout) as r:
                     d = json.loads(r.read())
-                # capture the actually-routed upstream provider, if reported
+                # capture the actually-routed upstream provider and served
+                # model id (often a provider-specific quantization), if reported
                 chat.last_provider = d.get("provider")
+                chat.last_model = d.get("model")
                 return d["choices"][0]["message"]["content"] or ""
             except urllib.error.HTTPError as e:
                 last = f"HTTP {e.code}: {e.read().decode(errors='replace')[:200]}"
@@ -630,6 +645,7 @@ def build_openrouter_chat(model: str = DEFAULT_MODEL, *, api_key: str | None = N
     chat.config = sampling_config(model, temperature, seed, max_tokens,
                                   provider_order, allow_fallbacks)
     chat.last_provider = None
+    chat.last_model = None
     return chat
 
 

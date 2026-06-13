@@ -32,13 +32,15 @@ class _FakeResponse(io.BytesIO):
         return False
 
 
-def _capture_bodies(monkeypatch, reply="ok", provider="some-provider"):
+def _capture_bodies(monkeypatch, reply="ok", provider="some-provider",
+                    served_model="served-mdl"):
     """Intercept urllib.urlopen; record each request body, return a canned reply."""
     sent: list[dict] = []
 
     def fake_urlopen(req, timeout=None):
         sent.append(json.loads(req.data.decode()))
-        payload = {"choices": [{"message": {"content": reply}}], "provider": provider}
+        payload = {"choices": [{"message": {"content": reply}}],
+                   "provider": provider, "model": served_model}
         return _FakeResponse(json.dumps(payload).encode())
 
     import desi.context_contamination.runner as runner
@@ -86,6 +88,14 @@ def test_provider_is_captured_from_response(monkeypatch):
     chat = build_openrouter_chat("m")
     chat([{"role": "user", "content": "x"}])
     assert chat.last_provider == "together"
+
+
+def test_served_model_is_captured_from_response(monkeypatch):
+    # different providers can serve different quantizations of the same id
+    _capture_bodies(monkeypatch, provider="Groq", served_model="llama-3.1-8b-instruct:fp8")
+    chat = build_openrouter_chat("meta-llama/llama-3.1-8b-instruct")
+    chat([{"role": "user", "content": "x"}])
+    assert chat.last_model == "llama-3.1-8b-instruct:fp8"
 
 
 def test_provider_pinning_lands_in_request(monkeypatch):
@@ -193,6 +203,31 @@ def test_provider_sequence_captures_per_call_and_within_run_switching():
     assert len(set(seq)) > 1
     _, payload = led.events[0]
     assert payload["provider_sequence"] == seq
+
+
+def test_served_model_sequence_recorded_in_result_and_ledger():
+    case = load_cases(FIXTURES, pattern="advText_*.txt")[0]
+
+    class QuantSwitchingChat:
+        config = sampling_config("m", 0.0, None, 700)
+
+        def __init__(self):
+            self.n = 0
+
+        def __call__(self, messages):
+            self.last_provider = "Groq"
+            self.last_model = "m:fp16" if self.n % 2 == 0 else "m:fp8"
+            self.n += 1
+            return "ok"
+
+    chat = QuantSwitchingChat()
+    led = _FakeLedger()
+    out = run_case(chat, case, "baseline", ledger=led)
+    assert out["served_model_sequence"] == ["m:fp16", "m:fp8", "m:fp16", "m:fp8"]
+    assert out["served_models_seen"] == ["m:fp16", "m:fp8"]
+    _, payload = led.events[0]
+    assert payload["served_model_sequence"] == out["served_model_sequence"]
+    assert payload["served_models_seen"] == ["m:fp16", "m:fp8"]
 
 
 # --- controlled temperature comparison (offline) --------------------------------
