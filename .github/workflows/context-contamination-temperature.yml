@@ -95,12 +95,35 @@ jobs:
             --live --model "${{ inputs.model }}" \
             --out report_temperature_compare.json
 
+      - name: Routing-provenance + effect self-audit (offline, report-derived)
+        if: ${{ always() }}
+        run: |
+          if [ ! -f report_temperature_compare.json ]; then
+            echo "::notice::no report produced (no key / failed run) — skipping provenance audit"
+            exit 0
+          fi
+          PROV=""
+          if [ -n "${{ inputs.provider }}" ]; then
+            PROV="--provider ${{ inputs.provider }}"
+          fi
+          # Verifies the pin actually held (single provider, single
+          # quantization, no within-run switching) and extracts the advText3
+          # framing-leakage hygiene effect per temperature. Invoked via -c
+          # (not -m) so genuine errors still surface on stderr and fail the
+          # step, without the runpy import warning the package triggers.
+          python -c 'import sys; from desi.context_contamination.provenance import main; sys.exit(main(sys.argv[1:]))' \
+            report_temperature_compare.json $PROV \
+            --case advText3 --metric framing_leakage \
+            | tee report_temperature_provenance.json
+
       - name: Upload comparison report
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
           name: context-contamination-temperature-report
-          path: report_temperature_compare.json
+          path: |
+            report_temperature_compare.json
+            report_temperature_provenance.json
           if-no-files-found: ignore
 
       - name: Upload Layer-9 ledger (auditable run + sampling provenance)
