@@ -514,6 +514,25 @@ its own report and uploads `report_temperature_provenance.json`.
   (n=5, integer counts, wide CI), that temperature has zero effect in general,
   or that the pinned result generalises to other models, providers, or personas.
 
+**Female-coded replication** (workflow run
+[27462964661](https://github.com/hstre/DESi/actions/runs/27462964661), same
+pinned config): pin clean again (540/540 Groq). Two results:
+
+- **The temperature conclusion is persona-robust.** advText3 framing effect
+  −0.6 (T=0.0) / +0.2 (T=0.7); paired temperature difference +0.8, 95% CI
+  [−5.6, 7.2] — includes 0, same as neutral.
+- **The strong neutral advText3 effect (−4.2) does not replicate under
+  female-coded (−0.6, CI includes 0) — a floor effect, not a hygiene
+  failure.** The female-coded persona produced *lower* raw framing leakage at
+  baseline on this model/material (3-case sum 6.8 vs neutral 10.4 at T=0.0),
+  so hygiene had less source-driven leakage to remove. Register drift was
+  essentially identical across personas (baseline ≈0.4), consistent with it
+  being interaction-driven. No degeneration (zero loops in any female-coded
+  arm). This is a persona×case interaction in the *baseline* contamination,
+  not evidence about gendered acceleration in general — the framing-leakage
+  channel on three cases with one model at n=5 neither confirms nor refutes
+  Jacoby's accelerant thesis (which concerns interaction-driven drift).
+
 ## Limitations
 
 - Marker lists are English-only and closed; contamination expressed in other
