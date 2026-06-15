@@ -162,11 +162,43 @@ of them runs a model or produces results.
 
 | File | Role |
 |---|---|
+| `case_schema.py` + `cases/*.json` | authored input cases (source text, task, pressure turns, detector markers, donors) |
+| `extract.py` | Stage A: LLM projection of each case → frozen claims (needs key) |
+| `slice_builder.py` | Steps 1 & 3: build correct + two matched wrong slices from frozen claims (offline) |
+| `freeze.py` | Steps 2 & 4: persist + hash all inputs into `frozen/manifest.json` before any run (offline) |
+| `detectors.py` | transparent admissibility detectors over the transcript |
+| `run_arms.py` | Step 5: run the four arms, score, paired analysis (needs key) |
 | `slice_matcher.py` | the strict matching gate (Section 5) |
 | `audit.py` | append-only audit of admit/reject decisions |
 | `result_schema.py` | the per-run result record + validator (the fixed contract) |
 | `analysis.py` | paired contrasts (exact McNemar) + the Section 6 decision rule |
-| `integration.py` | the single integration surface the live harness calls |
+| `integration.py` | drop-in surface for an external live harness |
+
+## 11. New-run pipeline (no prior artifacts existed)
+
+The earlier runs did not persist correct/wrong slices, so the ablation is built
+as a fresh run. The order is fixed and enforced:
+
+1. **`extract.py`** projects each case's `source_text` into a DESi epistemic
+   state (claims + status + provenance). The deterministic SPL backend yields
+   **zero** claims on free text (it is a toy for structured triples), so
+   extraction uses the real **LLM backend** — i.e. extraction is itself a model
+   call. It runs once per case under the CI secret and is written to
+   `frozen/<case>.claims.json` and hashed.
+2. **`slice_builder.py`** builds the `correct` slice from those claims and the
+   two wrong slices (`wrong_permuted` from a cross-context donor, `wrong_plausible`
+   from a same-domain donor), each gated by the matcher and audited.
+3. **`freeze.py`** writes `frozen/manifest.json` (all slices, hashes,
+   `prereg_hash`) — the inputs are now frozen.
+4. Only then does **`run_arms.py`** call the arm model (Llama 3.1 8B) over the
+   four arms, score with `detectors.py`, and run the paired analysis.
+
+Honest caveat carried from Section 7.1.x of the README: extraction quality is a
+**shared** factor across all arms (same extractor), so it does not bias the
+correct-vs-wrong contrast — but the realism of the "DESi state" depends on the
+LLM projection, which is non-deterministic across re-extractions. That is why
+the extraction output is frozen + hashed once and reused, never re-pulled per
+arm.
 
 Lifecycle: build `correct` → `integration.admit_wrong_slice(...)` (gate+audit;
 discard on reject) → run the model (harness) → `integration.record(...)` →

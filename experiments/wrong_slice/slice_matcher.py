@@ -119,9 +119,14 @@ def _structure_fingerprint(s: Slice) -> tuple:
     )
 
 
+def content_hash_text(text: str) -> str:
+    """SHA-256 over an arbitrary string (for hashing frozen artifacts)."""
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
 def content_hash(s: Slice) -> str:
     """SHA-256 over a canonical JSON of the slice content."""
-    return hashlib.sha256(render_slice(s).encode("utf-8")).hexdigest()
+    return content_hash_text(render_slice(s))
 
 
 def _status_key_multiset(s: Slice) -> Counter:
