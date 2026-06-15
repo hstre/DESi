@@ -339,6 +339,49 @@ The compact DESi state preserved the measured drift-governance signal despite ~9
 
 **Reproduction.** The dataset is committed at `data/driftbench/driftbench_compression.jsonl` (1,525 rows, one JSON object per trajectory). Every number in the table above is regenerated directly from it — no network, no LLM calls, no PRNG — via `python scripts/reproduce_driftbench.py`, and pinned by `tests/driftbench/test_compression_repro.py` (96.5% compression, correlations 0.438 / 0.466, ρ = 1.06, and 1525/1525 on each preservation flag). What is *not* yet committed to this repository is the upstream pipeline that derives `desi_state_tokens` and `desi_drift` per raw trajectory; those columns are taken as given here, so this reproduces the reported aggregates, not the per-trajectory state extraction.
 
+### 7.1.1 Degeneration Incidence (with vs without the layer)
+
+Prompted by external review (a methodological suggestion to "turn the loop-trap
+observation into a number — report degeneration incidence with vs without the
+layer"), we report a **paired** degeneration-incidence metric over the same
+1,525 trajectories. A trajectory counts as *degenerate* under a threshold τ if
+its drift score ≥ τ; the **same τ** is applied to the no-layer arm
+(`raw_drift`) and the with-layer arm (`desi_drift`). Criteria are
+**pre-registered** in the script (primary τ = 0.50, a sensitivity sweep over
+0.30–0.70, and the categorical `trajectory_lock_in` subset as the hard
+loop-trap analog) so the headline is not a hand-picked cut.
+
+|Metric (primary τ = 0.50)                 |Value                     |
+|------------------------------------------|--------------------------|
+|Degenerate, no layer (`raw_drift`)        |74.4% (1135/1525)         |
+|Degenerate, with layer (`desi_drift`)     |0.1% (1/1525)             |
+|Trajectories the layer made worse         |**0**                     |
+|Exact McNemar (paired)                    |p ≪ 1e-50                 |
+|Hard lock-in subset (`trajectory_lock_in`)|47/47 → 0/47              |
+|`single_shot` control (no multi-turn drift)|0/0 → 0/0 (null, as expected)|
+
+The reduction is directionally stable across every pre-registered threshold and
+the layer never makes a clean trajectory degenerate (`pairs_layer_broke = 0`
+throughout). The `single_shot` arm is an internal sanity check: with no
+multi-turn drift to carry, both arms are 0/0 — the metric does not "win"
+everywhere by construction.
+
+**Two honest caveats, both load-bearing:**
+
+1. This is degeneration of the **state representation**, not of model
+   **behaviour** on a task. It is therefore **partly entangled** with the
+   compression result above (a short, structured state object trivially drifts
+   less than a long transcript). Read it as "the carried state stays
+   on-trajectory", **not** as "DESi stops the model from looping."
+2. The full admissibility notion from the review (no_loop AND task_completed AND
+   no_severe_role_adoption AND no_control_failure) is a **behavioural** measure
+   that requires the separate adversarial role-adoption sweep — **not** in this
+   repository. This metric covers only the drift dimension.
+
+**Reproduction.** `python scripts/degeneration_incidence.py` (add `--json` for
+machine output), pinned by `tests/driftbench/test_degeneration_incidence.py`.
+No network, no LLM, no PRNG.
+
 ### 7.2 Compression Ablation and Loss Attribution
 
 A nested ablation decomposed the ~96.5% compression into six variants to attribute information loss per pipeline step:
