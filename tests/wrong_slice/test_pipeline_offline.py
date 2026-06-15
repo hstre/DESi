@@ -26,13 +26,23 @@ from slice_matcher import match  # noqa: E402
 
 # --- cases -----------------------------------------------------------------
 
-def test_cases_load_and_validate():
-    cases = load_cases()
-    assert {"c1_pe_workup", "c2_sepsis_workup", "c3_incident_response"} <= set(cases)
-    for c in cases.values():
-        assert c.permuted_donor in cases
-        assert c.plausible_donor in cases
-        assert c.permuted_donor != c.case_id
+def test_real_cases_load_and_validate():
+    real = load_cases("real")
+    assert {"ds_audit_tension", "ds_evidence_gap", "ds_multihop"} <= set(real)
+    for c in real.values():
+        assert c.track == "real"
+        assert c.expected_markers, c.case_id
+        assert c.provenance.get("captures"), c.case_id  # tied to real artifacts
+        assert c.permuted_donor in real and c.plausible_donor in real
+
+
+def test_adversarial_cases_are_labelled_constructed():
+    adv = load_cases("adversarial")
+    assert {"c1_pe_workup", "c2_sepsis_workup", "c3_incident_response"} <= set(adv)
+    for c in adv.values():
+        assert c.track == "adversarial"
+        assert c.control_violation_markers, c.case_id
+        assert "CONSTRUCTED" in c.notes  # never mistaken for a real-corpus finding
 
 
 # --- detectors -------------------------------------------------------------
@@ -121,8 +131,8 @@ def test_freeze_is_deterministic(tmp_path):
     _write_frozen(frozen, "c2_sepsis_workup", _claims(["b1", "b2", "b3", "b4", "b5"]))
     _write_frozen(frozen, "c3_incident_response", _claims(["c1", "c2", "c3", "c4", "c5"]))
     sink = frozen / "audit.jsonl"
-    m1 = freeze_mod.build_manifest(frozen_dir=frozen, audit_sink=sink)
-    m2 = freeze_mod.build_manifest(frozen_dir=frozen, audit_sink=sink)
+    m1 = freeze_mod.build_manifest(track="adversarial", frozen_dir=frozen, audit_sink=sink)
+    m2 = freeze_mod.build_manifest(track="adversarial", frozen_dir=frozen, audit_sink=sink)
     assert m1["manifest_hash"] == m2["manifest_hash"]
     assert set(m1["cases"]) == {"c1_pe_workup", "c2_sepsis_workup", "c3_incident_response"}
     for e in m1["cases"].values():

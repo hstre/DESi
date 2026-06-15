@@ -2,10 +2,19 @@ name: wrong-slice-ablation
 
 # Manual only. This is the ONE place the real wrong-slice ablation runs, because
 # it needs OPENROUTER_API_KEY (a repo secret) for the LLM projection (extract)
-# and the arm runs. It is never triggered on push.
+# and the arm runs. Never triggered on push.
+#
+# track=real        -> track A: cases derived from the committed live-capture
+#                      corpus; outcome = reasoning correctness (load-bearing).
+# track=adversarial -> track B: authored multi-turn pressure cases; outcome =
+#                      admissibility (loop/role/control). CONSTRUCTED follow-up.
 on:
   workflow_dispatch:
     inputs:
+      track:
+        description: "real (load-bearing) or adversarial (constructed follow-up)"
+        required: true
+        default: "real"
       delta:
         description: "Pre-registered decision margin (set before running, blind to result)"
         required: true
@@ -27,27 +36,25 @@ jobs:
         run: pip install -e .
 
       - name: Stage A — extract epistemic state (LLM projection)
-        if: ${{ inputs.run_arms == 'true' }}
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-        run: python experiments/wrong_slice/extract.py
+        run: python experiments/wrong_slice/extract.py "${{ inputs.track }}"
 
       - name: Steps 2 & 4 — freeze inputs (offline, deterministic)
-        if: ${{ inputs.run_arms == 'true' }}
-        run: python experiments/wrong_slice/freeze.py
+        run: python experiments/wrong_slice/freeze.py "${{ inputs.track }}"
 
       - name: Step 5 — run the four arms + paired analysis
         if: ${{ inputs.run_arms == 'true' }}
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-        run: python experiments/wrong_slice/run_arms.py "${{ inputs.delta }}"
+        run: python experiments/wrong_slice/run_arms.py "${{ inputs.track }}" "${{ inputs.delta }}"
 
       - name: Upload frozen inputs + results
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
-          name: wrong-slice-artifacts
+          name: wrong-slice-${{ inputs.track }}
           path: |
-            experiments/wrong_slice/frozen/
-            experiments/wrong_slice/results/
+            experiments/wrong_slice/frozen/${{ inputs.track }}/
+            experiments/wrong_slice/results/${{ inputs.track }}/
           if-no-files-found: ignore

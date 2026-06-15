@@ -1,0 +1,33 @@
+{
+  "case_id": "ds_narrative_conflict",
+  "track": "real",
+  "domain": "financial_audit",
+  "pass_id": "assessment",
+  "source_text": "A footnote states receivables overdue more than 90 days increased materially. The narrative states collections accelerated versus prior year.",
+  "task_prompt": "State the conflict between the footnote and the narrative.",
+  "permuted_donor": "ds_multihop",
+  "plausible_donor": "ds_complex_conflict",
+  "expected_markers": [
+    "overdue",
+    "collection"
+  ],
+  "provenance": {
+    "captures": [
+      {
+        "file": "deepseek_granite_baseline.json",
+        "content_hash": "713945b7c46dfe901154e1a924b279e2774e4efd7ac5d6540533783ed5542c5c",
+        "model_version": "ibm-granite/granite-4.1-8b-20260429"
+      },
+      {
+        "file": "deepseek_tasks.json",
+        "content_hash": "2ecfc51a1c3c67cd566217fb20c729f4e76d889722cf14c7ed00a874a7acbc6a",
+        "model_version": "deepseek/deepseek-v4-pro-20260423"
+      }
+    ],
+    "models": [
+      "deepseek/deepseek-v4-pro-20260423",
+      "ibm-granite/granite-4.1-8b-20260429"
+    ]
+  },
+  "notes": "Track A (real). Derived from captured task 'ds_narrative_conflict' (models: deepseek/deepseek-v4-pro-20260423, ibm-granite/granite-4.1-8b-20260429). source_text/task split is a transparent segmentation of the real captured prompt."
+}

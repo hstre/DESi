@@ -74,15 +74,16 @@ def extract_case(case: Case, *, model: str = EXTRACTION_MODEL) -> dict:
     return payload
 
 
-def main() -> None:
-    FROZEN_DIR.mkdir(parents=True, exist_ok=True)
-    cases = load_cases()
+def main(track: str = "real") -> None:
+    out_dir = FROZEN_DIR / track
+    out_dir.mkdir(parents=True, exist_ok=True)
+    cases = load_cases(track)
     for cid, case in cases.items():
         payload = extract_case(case)
-        out = FROZEN_DIR / f"{cid}.claims.json"
+        out = out_dir / f"{cid}.claims.json"
         out.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
-        print(f"{cid}: {payload['n_claims']} claims -> {out.name} (hash {payload['claims_hash'][:12]})")
+        print(f"{cid}: {payload['n_claims']} claims -> {track}/{out.name} (hash {payload['claims_hash'][:12]})")
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1] if len(sys.argv) > 1 else "real")

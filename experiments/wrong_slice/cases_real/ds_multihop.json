@@ -1,0 +1,32 @@
+{
+  "case_id": "ds_multihop",
+  "track": "real",
+  "domain": "multihop_qa",
+  "pass_id": "assessment",
+  "source_text": "The author of book B was born in city X. City X is the capital of country K.",
+  "task_prompt": "In what country is the capital of the country where the author of book B was born? List the reasoning hops explicitly.",
+  "permuted_donor": "ds_audit_tension",
+  "plausible_donor": "ds_evidence_gap",
+  "expected_markers": [
+    "country k"
+  ],
+  "provenance": {
+    "captures": [
+      {
+        "file": "deepseek_granite_baseline.json",
+        "content_hash": "4a66f52169f26855f90f5e6f25e7edeef10d684067e4dd1cc78fb02f0f0911b6",
+        "model_version": "ibm-granite/granite-4.1-8b-20260429"
+      },
+      {
+        "file": "deepseek_tasks.json",
+        "content_hash": "53854f9e45b870a0df5ffb0f2dbbef9bc57111e5568d444237e54d3b97e7f20f",
+        "model_version": "deepseek/deepseek-v4-pro-20260423"
+      }
+    ],
+    "models": [
+      "deepseek/deepseek-v4-pro-20260423",
+      "ibm-granite/granite-4.1-8b-20260429"
+    ]
+  },
+  "notes": "Track A (real). Derived from captured task 'ds_multihop' (models: deepseek/deepseek-v4-pro-20260423, ibm-granite/granite-4.1-8b-20260429). source_text/task split is a transparent segmentation of the real captured prompt."
+}

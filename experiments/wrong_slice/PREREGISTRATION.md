@@ -162,8 +162,10 @@ of them runs a model or produces results.
 
 | File | Role |
 |---|---|
-| `case_schema.py` + `cases/*.json` | authored input cases (source text, task, pressure turns, detector markers, donors) |
-| `extract.py` | Stage A: LLM projection of each case → frozen claims (needs key) |
+| `case_schema.py` | track-aware case schema + loader (`real` / `adversarial`) |
+| `build_real_cases.py` + `cases_real/*.json` | Track A: real cases derived from the live-capture corpus, with provenance |
+| `cases_adversarial/*.json` | Track B: CONSTRUCTED pressure cases (labelled), follow-up only |
+| `extract.py` | Stage A: LLM projection of each case → frozen claims per track (needs key) |
 | `slice_builder.py` | Steps 1 & 3: build correct + two matched wrong slices from frozen claims (offline) |
 | `freeze.py` | Steps 2 & 4: persist + hash all inputs into `frozen/manifest.json` before any run (offline) |
 | `detectors.py` | transparent admissibility detectors over the transcript |
@@ -174,24 +176,52 @@ of them runs a model or produces results.
 | `analysis.py` | paired contrasts (exact McNemar) + the Section 6 decision rule |
 | `integration.py` | drop-in surface for an external live harness |
 
-## 11. New-run pipeline (no prior artifacts existed)
+## 11. Two separated tracks (no prior slice artifacts existed)
 
 The earlier runs did not persist correct/wrong slices, so the ablation is built
-as a fresh run. The order is fixed and enforced:
+as a fresh run — split into two tracks that are **never mixed**:
 
-1. **`extract.py`** projects each case's `source_text` into a DESi epistemic
-   state (claims + status + provenance). The deterministic SPL backend yields
-   **zero** claims on free text (it is a toy for structured triples), so
+**Track A — real (load-bearing).** Cases are derived from the committed
+live-capture corpus (`src/desi/live_llm_validation/captures/*.json`) — real,
+hashed multi-LLM artifacts (DeepSeek **and** Granite). `build_real_cases.py`
+performs a *transparent segmentation* of each real captured prompt into
+`source_text` (facts) + `task_prompt` (question) and records provenance
+(capture file, per-model `content_hash`). Outcome = **reasoning correctness**:
+the answer must surface case-specific fact markers (`expected_markers`); a
+mismatched slice lacks those facts, so it cannot produce them. These are **not**
+invented cases. Cases live in `cases_real/`.
+
+**Track B — adversarial (constructed follow-up).** Authored multi-turn pressure
+scenarios with personas; outcome = admissibility (loop / role-adoption /
+control-failure). These are **CONSTRUCTED** and labelled as such in every case
+file's `notes`; they are a separate follow-up, **never** presented as a
+real-corpus finding. Cases live in `cases_adversarial/`.
+
+The decision rule (Section 6) and the matcher gate (Section 5) apply to both;
+only the corpus and the outcome detector differ. For Track A the four-boolean
+admissibility schema reduces to `task_completed = answer_correct` (single-shot;
+the loop/role/control components are not applicable and are True by
+construction). Honest limitation: the real corpus is single-domain (financial
+audit) plus one multihop case, so in Track A the `permuted` (cross-context) and
+`plausible` (same-domain) donors differ mainly by donor identity, not by domain
+distance.
+
+### Pipeline order (fixed and enforced, per track)
+
+1. **`extract.py <track>`** projects each case's `source_text` into a DESi
+   epistemic state (claims + status + provenance). The deterministic SPL backend
+   yields **zero** claims on free text (it is a toy for structured triples), so
    extraction uses the real **LLM backend** — i.e. extraction is itself a model
    call. It runs once per case under the CI secret and is written to
-   `frozen/<case>.claims.json` and hashed.
+   `frozen/<track>/<case>.claims.json` and hashed.
 2. **`slice_builder.py`** builds the `correct` slice from those claims and the
    two wrong slices (`wrong_permuted` from a cross-context donor, `wrong_plausible`
    from a same-domain donor), each gated by the matcher and audited.
-3. **`freeze.py`** writes `frozen/manifest.json` (all slices, hashes,
-   `prereg_hash`) — the inputs are now frozen.
-4. Only then does **`run_arms.py`** call the arm model (Llama 3.1 8B) over the
-   four arms, score with `detectors.py`, and run the paired analysis.
+3. **`freeze.py <track>`** writes `frozen/<track>/manifest.json` (all slices,
+   hashes, `prereg_hash`) — the inputs are now frozen.
+4. Only then does **`run_arms.py <track> <delta>`** call the arm model
+   (Llama 3.1 8B) over the four arms, score with `detectors.py` (correctness for
+   `real`, admissibility for `adversarial`), and run the paired analysis.
 
 Honest caveat carried from Section 7.1.x of the README: extraction quality is a
 **shared** factor across all arms (same extractor), so it does not bias the
