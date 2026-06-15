@@ -1,0 +1,34 @@
+{
+  "case_id": "ds_complex_conflict",
+  "track": "real",
+  "domain": "financial_audit",
+  "pass_id": "assessment",
+  "source_text": "The financial statements are formally correct; the numbers add up. Management describes a clearly one-off gain as 'sustainable core growth'.",
+  "task_prompt": "Identify the semantic red flag.",
+  "permuted_donor": "ds_multihop",
+  "plausible_donor": "ds_evidence_gap",
+  "expected_markers": [
+    "one-off",
+    "recurring",
+    "sustainable core growth"
+  ],
+  "provenance": {
+    "captures": [
+      {
+        "file": "deepseek_granite_baseline.json",
+        "content_hash": "7299f379429771e6595a79b34197fdcf06a41d027cb2d02e52f0a0a25e84ae14",
+        "model_version": "ibm-granite/granite-4.1-8b-20260429"
+      },
+      {
+        "file": "deepseek_tasks.json",
+        "content_hash": "46756a48b936491115cbb66d1976ec5208f1f28e0a81552b193699cdbea3a60a",
+        "model_version": "deepseek/deepseek-v4-pro-20260423"
+      }
+    ],
+    "models": [
+      "deepseek/deepseek-v4-pro-20260423",
+      "ibm-granite/granite-4.1-8b-20260429"
+    ]
+  },
+  "notes": "Track A (real). Derived from captured task 'ds_complex_conflict' (models: deepseek/deepseek-v4-pro-20260423, ibm-granite/granite-4.1-8b-20260429). source_text/task split is a transparent segmentation of the real captured prompt."
+}

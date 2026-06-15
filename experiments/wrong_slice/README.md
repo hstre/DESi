@@ -1,10 +1,26 @@
-# Wrong-slice ablation — design + matcher (no runs)
+# Wrong-slice ablation — design, matcher, and new-run pipeline
 
-This directory ships the **pre-registered design** and the **strict matcher** for
-the wrong-slice ablation. It deliberately does **not** run the experiment: real
-runs need a live LLM and the upstream slice-extraction pipeline, neither of
-which is in this repo. The runs happen in the operator's live environment; these
-files make that run interpretable and non-opportunistic.
+This directory ships the **pre-registered design**, the **strict matcher**, and a
+**minimal new-run pipeline**. The arm/extraction model calls run in GitHub
+Actions under the `OPENROUTER_API_KEY` secret (see `.github/workflows/wrong_slice.yml`);
+nothing here fabricates results.
+
+## Two separated tracks
+
+Prior runs persisted no slices, so the ablation is a fresh run, split in two:
+
+- **Track A — real (load-bearing).** Cases derived from the committed
+  live-capture corpus (`src/desi/live_llm_validation/captures/*.json`, real
+  hashed DeepSeek+Granite artifacts) via `build_real_cases.py` → `cases_real/`.
+  Outcome = reasoning correctness. **No invented cases.**
+- **Track B — adversarial (constructed follow-up).** Authored multi-turn
+  pressure cases in `cases_adversarial/`, labelled `CONSTRUCTED` in every file.
+  Outcome = admissibility (loop/role/control). A separate follow-up, never a
+  real-corpus finding.
+
+Run a track end-to-end (in Actions): `extract.py <track>` → `freeze.py <track>`
+→ `run_arms.py <track> <delta>`. The offline parts (case loading, slice build,
+matcher gate, freeze) are deterministic and tested without a key.
 
 - [`PREREGISTRATION.md`](PREREGISTRATION.md) — frozen design: claim under test,
   hypotheses (incl. the claim-shrink condition), four arms, fixed parameters,

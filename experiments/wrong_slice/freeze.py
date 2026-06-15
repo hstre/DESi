@@ -25,17 +25,18 @@ from slice_matcher import content_hash_text, default_token_count, render_slice  
 
 from case_schema import load_cases  # noqa: E402
 
-MANIFEST = FROZEN_DIR / "manifest.json"
 PREREG = HERE / "PREREGISTRATION.md"
-AUDIT_SINK = FROZEN_DIR / "match_audit.jsonl"
 
 
 def prereg_hash() -> str:
     return content_hash_text(PREREG.read_text(encoding="utf-8"))
 
 
-def build_manifest(frozen_dir: Path = FROZEN_DIR, audit_sink: Path = AUDIT_SINK) -> dict:
-    cases = load_cases()
+def build_manifest(track: str = "real", frozen_dir: Path | None = None,
+                   audit_sink: Path | None = None) -> dict:
+    frozen_dir = frozen_dir or (FROZEN_DIR / track)
+    audit_sink = audit_sink or (frozen_dir / "match_audit.jsonl")
+    cases = load_cases(track)
     entries: dict[str, dict] = {}
     for cid, case in cases.items():
         arms = build_arms(
@@ -63,6 +64,7 @@ def build_manifest(frozen_dir: Path = FROZEN_DIR, audit_sink: Path = AUDIT_SINK)
             "arms": arm_entries,
         }
     manifest = {
+        "track": track,
         "prereg_hash": prereg_hash(),
         "cases": entries,
     }
@@ -72,11 +74,13 @@ def build_manifest(frozen_dir: Path = FROZEN_DIR, audit_sink: Path = AUDIT_SINK)
     return manifest
 
 
-def main() -> None:
-    FROZEN_DIR.mkdir(parents=True, exist_ok=True)
-    manifest = build_manifest()
-    MANIFEST.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"froze {len(manifest['cases'])} cases -> {MANIFEST.name}")
+def main(track: str = "real") -> None:
+    out_dir = FROZEN_DIR / track
+    out_dir.mkdir(parents=True, exist_ok=True)
+    manifest = build_manifest(track)
+    manifest_path = out_dir / "manifest.json"
+    manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"[{track}] froze {len(manifest['cases'])} cases -> {manifest_path.relative_to(HERE)}")
     print(f"prereg_hash   = {manifest['prereg_hash'][:12]}")
     print(f"manifest_hash = {manifest['manifest_hash'][:12]}")
     for cid, e in manifest["cases"].items():
@@ -85,4 +89,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1] if len(sys.argv) > 1 else "real")

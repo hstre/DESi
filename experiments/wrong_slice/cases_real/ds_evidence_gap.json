@@ -1,0 +1,36 @@
+{
+  "case_id": "ds_evidence_gap",
+  "track": "real",
+  "domain": "financial_audit",
+  "pass_id": "assessment",
+  "source_text": "A paper claims the method generalizes across datasets. The paper reports evidence on only one dataset.",
+  "task_prompt": "What evidence is missing, and should the claim be accepted as stated?",
+  "permuted_donor": "ds_multihop",
+  "plausible_donor": "ds_audit_tension",
+  "expected_markers": [
+    "additional dataset",
+    "more dataset",
+    "multiple dataset",
+    "other dataset",
+    "second dataset"
+  ],
+  "provenance": {
+    "captures": [
+      {
+        "file": "deepseek_granite_baseline.json",
+        "content_hash": "c812f231df132bdc7aedde0dcd8a37b137775a45bbddd2457849a55ed85bf7b5",
+        "model_version": "ibm-granite/granite-4.1-8b-20260429"
+      },
+      {
+        "file": "deepseek_tasks.json",
+        "content_hash": "23995ecc823d1f989b804f96c0f1f5570e87d54fa3fa23bd4a543c7a70bbc3c0",
+        "model_version": "deepseek/deepseek-v4-pro-20260423"
+      }
+    ],
+    "models": [
+      "deepseek/deepseek-v4-pro-20260423",
+      "ibm-granite/granite-4.1-8b-20260429"
+    ]
+  },
+  "notes": "Track A (real). Derived from captured task 'ds_evidence_gap' (models: deepseek/deepseek-v4-pro-20260423, ibm-granite/granite-4.1-8b-20260429). source_text/task split is a transparent segmentation of the real captured prompt."
+}
