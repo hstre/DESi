@@ -126,7 +126,39 @@ def test_different_format_fails():
     cand.fmt = "desi.slice.v2"
     rep = match(_correct(), cand)
     assert not rep.ok
-    assert "format_structure" in {c.name for c in rep.failed()}
+    assert "format" in {c.name for c in rep.failed()}
+
+
+def test_different_outline_fails():
+    correct = _correct()
+    correct.outline = ["intro", "evidence"]
+    cand = _matched_wrong()
+    cand.outline = ["evidence", "intro"]  # same labels, different order
+    rep = match(correct, cand)
+    assert not rep.ok
+    assert "structure_outline" in {c.name for c in rep.failed()}
+
+
+def test_different_section_assignment_fails():
+    correct = _correct()
+    correct.claims[0].section = "intro"
+    cand = _matched_wrong()
+    cand.claims[0].section = "evidence"  # claim placed in a different section
+    rep = match(correct, cand)
+    assert not rep.ok
+    assert "structure_outline" in {c.name for c in rep.failed()}
+
+
+def test_matching_outline_and_sections_pass():
+    correct = _correct()
+    correct.outline = ["intro", "evidence"]
+    correct.claims[0].section = "intro"
+    correct.claims[1].section = "evidence"
+    cand = _matched_wrong()
+    cand.outline = ["intro", "evidence"]
+    cand.claims[0].section = "intro"
+    cand.claims[1].section = "evidence"
+    assert match(correct, cand).ok
 
 
 def test_content_hash_is_deterministic_and_distinguishing():

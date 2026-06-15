@@ -13,7 +13,9 @@ Required criteria (all must hold for an admissible wrong slice):
   * equal number of claims
   * equal status-field schema   (identical multiset of status keys)
   * equal provenance-field schema (identical multiset of provenance keys)
-  * equal format structure      (same format tag)
+  * equal structure / outline   (same Gliederung: outline order, per-claim
+    section sequence, and ordered per-claim field schema)
+  * equal format                (same format tag)
   * actually different          (content hash differs from the correct slice)
 
 The matcher does NOT judge plausibility (neutral-irrelevant vs
@@ -46,42 +48,74 @@ class Claim:
     """One claim in a slice.
 
     ``status`` and ``provenance`` are field dicts; the matcher compares their
-    *keys* (schema), never requiring the values to match.
+    *keys* (schema), never requiring the values to match. ``section`` is the
+    outline section the claim belongs to (part of the structural check).
     """
 
     text: str
     status: dict = field(default_factory=dict)
     provenance: dict = field(default_factory=dict)
+    section: str = ""
 
 
 @dataclass
 class Slice:
-    """A slice of epistemic state fed to the model for one pass."""
+    """A slice of epistemic state fed to the model for one pass.
+
+    ``outline`` is the ordered list of section identifiers (the slice's
+    Gliederung); ``fmt`` is the serialization format tag.
+    """
 
     claims: list[Claim] = field(default_factory=list)
     pass_id: str = ""
     fmt: str = "desi.slice.v1"
+    outline: list[str] = field(default_factory=list)
 
 
 def render_slice(s: Slice) -> str:
     """Deterministic textual rendering used for token counting.
 
-    Mirrors a serialized slice (claim text + status + provenance), so token
-    length reflects what the model actually receives. Override by passing your
-    own ``render`` to :func:`match` if your harness serializes differently.
+    Mirrors a serialized slice (claim text + status + provenance + section +
+    outline), so token length reflects what the model actually receives.
+    Override by passing your own ``render`` to :func:`match` if your harness
+    serializes differently.
     """
     return json.dumps(
         {
             "fmt": s.fmt,
             "pass_id": s.pass_id,
+            "outline": s.outline,
             "claims": [
-                {"text": c.text, "status": c.status, "provenance": c.provenance}
+                {
+                    "text": c.text,
+                    "status": c.status,
+                    "provenance": c.provenance,
+                    "section": c.section,
+                }
                 for c in s.claims
             ],
         },
         sort_keys=True,
         ensure_ascii=False,
         separators=(",", ":"),
+    )
+
+
+def _structure_fingerprint(s: Slice) -> tuple:
+    """Arrangement (Gliederung), independent of content and field *values*.
+
+    Captures the outline order, each claim's section in order, and the ordered
+    sequence of per-claim field schemas. Two slices with the same fingerprint
+    are structurally identical even if every claim's text and field values
+    differ.
+    """
+    return (
+        tuple(s.outline),
+        tuple(c.section for c in s.claims),
+        tuple(
+            (tuple(sorted(c.status.keys())), tuple(sorted(c.provenance.keys())))
+            for c in s.claims
+        ),
     )
 
 
@@ -191,16 +225,27 @@ def match(
         )
     )
 
-    # 5. format structure
+    # 5. structure / outline (Gliederung)
+    f_correct = _structure_fingerprint(correct)
+    f_cand = _structure_fingerprint(candidate)
     crit.append(
         Criterion(
-            "format_structure",
+            "structure_outline",
+            f_correct == f_cand,
+            f"correct={f_correct} candidate={f_cand}",
+        )
+    )
+
+    # 6. format tag
+    crit.append(
+        Criterion(
+            "format",
             correct.fmt == candidate.fmt,
             f"correct={correct.fmt!r} candidate={candidate.fmt!r}",
         )
     )
 
-    # 6. actually different content
+    # 7. actually different content
     if require_actually_different:
         h_correct = content_hash(correct)
         h_cand = content_hash(candidate)

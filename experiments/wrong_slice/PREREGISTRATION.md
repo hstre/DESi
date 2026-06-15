@@ -91,15 +91,17 @@ Required, all must hold (see `slice_matcher.match` for the exact checks):
   as the live harness, e.g. `model2vec/potion-base-8M`);
 - **equal number of claims**;
 - **equal status-field schema** — identical multiset of status keys across
-  claims (and therefore equal count);
+  claims (the *kind and number* of status fields, not just the count);
 - **equal provenance-field schema** — identical multiset of provenance keys
   (values differ; presence/shape does not);
-- **equal format structure** (same format tag / serialization shape);
+- **equal structure / outline (Gliederung)** — identical outline order,
+  per-claim section sequence, and ordered per-claim field schema;
+- **equal format** (same format tag / serialization shape);
 - **actually different** — the candidate's content hash must differ from
   `correct` (a wrong slice identical to the correct one is not a wrong slice).
 
-A failing matcher report **disqualifies** the candidate; it is not patched to
-pass.
+A failing matcher report **disqualifies** the candidate; it is **discarded and
+audited** (`audit.py`, append-only JSONL), never patched to pass.
 
 ## 6. Primary metric and decision rule (fixed before data)
 
@@ -149,7 +151,28 @@ If the claim shrinks under H0, the corrected public phrasing is
 
 Every run is logged with full provenance (Section 4) and the matcher report for
 the wrong arms, so the admitted slices and the comparison are reconstructable.
-The pre-registration hash of this file is recorded alongside the results.
+The pre-registration hash of this file is recorded in every result record
+(`prereg_hash`). Discarded (insufficiently matched) candidates are written to an
+append-only audit log (`audit.py`), so rejects are accountable, not invisible.
+
+## 10. Portable artifacts in this repo (design only — no runs)
+
+These are stdlib-only and meant to be wired into the existing live harness; none
+of them runs a model or produces results.
+
+| File | Role |
+|---|---|
+| `slice_matcher.py` | the strict matching gate (Section 5) |
+| `audit.py` | append-only audit of admit/reject decisions |
+| `result_schema.py` | the per-run result record + validator (the fixed contract) |
+| `analysis.py` | paired contrasts (exact McNemar) + the Section 6 decision rule |
+| `integration.py` | the single integration surface the live harness calls |
+
+Lifecycle: build `correct` → `integration.admit_wrong_slice(...)` (gate+audit;
+discard on reject) → run the model (harness) → `integration.record(...)` →
+`integration.analyse(records, delta=...)`. `delta` is fixed in the harness
+config **before** running, blind to the result. With no records the analysis
+returns `insufficient_data` — it never fabricates.
 
 ---
 
