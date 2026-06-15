@@ -1,0 +1,53 @@
+name: wrong-slice-ablation
+
+# Manual only. This is the ONE place the real wrong-slice ablation runs, because
+# it needs OPENROUTER_API_KEY (a repo secret) for the LLM projection (extract)
+# and the arm runs. It is never triggered on push.
+on:
+  workflow_dispatch:
+    inputs:
+      delta:
+        description: "Pre-registered decision margin (set before running, blind to result)"
+        required: true
+        default: "0.20"
+      run_arms:
+        description: "Run the four arms (true) or only extract+freeze the inputs (false)"
+        required: true
+        default: "true"
+
+jobs:
+  ablation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install DESi (for desi.spl_adapter + openrouter_client)
+        run: pip install -e .
+
+      - name: Stage A — extract epistemic state (LLM projection)
+        if: ${{ inputs.run_arms == 'true' }}
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python experiments/wrong_slice/extract.py
+
+      - name: Steps 2 & 4 — freeze inputs (offline, deterministic)
+        if: ${{ inputs.run_arms == 'true' }}
+        run: python experiments/wrong_slice/freeze.py
+
+      - name: Step 5 — run the four arms + paired analysis
+        if: ${{ inputs.run_arms == 'true' }}
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python experiments/wrong_slice/run_arms.py "${{ inputs.delta }}"
+
+      - name: Upload frozen inputs + results
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: wrong-slice-artifacts
+          path: |
+            experiments/wrong_slice/frozen/
+            experiments/wrong_slice/results/
+          if-no-files-found: ignore
