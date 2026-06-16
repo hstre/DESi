@@ -16,14 +16,33 @@ from dataclasses import dataclass, field
 
 @dataclass(frozen=True)
 class MethodRecord:
-    """One method's trial history - the real evidence of what HAS been tried and how it went."""
+    """A method's GENERAL repertoire - which thinking-moves it carries (not a per-conflict outcome).
+    Per-conflict, scope-bound outcomes live in ``MethodTrial`` so a local failure can NEVER become a
+    global demotion."""
 
     method_id: str
     affinities: tuple[str, ...]            # thinking-moves this method carries
     contexts_tested: tuple[str, ...] = ()  # ids of conflicts/questions it was tried on
-    positive_trials: int = 0
-    negative_trials: int = 0
-    inconclusive_trials: int = 0
+
+
+# A trial result is methodological information ONLY for the last three; a technical failure says
+# nothing about whether the move fits, so it must NOT demote the move.
+TRIAL_RESULTS = ("untried", "technical_failure", "no_benefit", "harmful", "success", "inconclusive",
+                 "unknown")
+
+
+@dataclass(frozen=True)
+class MethodTrial:
+    """ONE scope-bound attempt of a thinking-move on a conflict. The demotion of a move is bound to
+    (conflict, scope, method_variant, result) - never global. ``result`` distinguishes a technical
+    failure (no signal) from no_benefit / harmful / success (real signal)."""
+
+    affinity: str
+    target_conflict: str                   # the conflict id it was tried on
+    result: str                            # one of TRIAL_RESULTS
+    scope: str = "unknown"                 # task scope; "unknown" for missing, never silently empty
+    method_variant: str = "unknown"
+    count: int = 1
 
 
 @dataclass(frozen=True)
@@ -68,6 +87,7 @@ class EpistemicGapSnapshot:
 
     conflicts: tuple[ConflictGap, ...] = ()
     evidence_gaps: tuple[EvidenceGap, ...] = ()
-    method_history: tuple[MethodRecord, ...] = ()
+    method_history: tuple[MethodRecord, ...] = ()       # the general repertoire (affinities carried)
+    method_trials: tuple[MethodTrial, ...] = ()         # scope-bound per-conflict trial OUTCOMES
     open_questions: tuple[OpenQuestion, ...] = ()
     provenance: SnapshotProvenance = field(default_factory=SnapshotProvenance)

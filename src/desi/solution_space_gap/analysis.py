@@ -61,16 +61,36 @@ def _relevant_affinities(kind: str) -> tuple[tuple[str, float], ...]:
     return _RELEVANT_BY_KIND.get(kind, _BASE_RELEVANT)
 
 
-def _attempts_on(snapshot: EpistemicGapSnapshot, conflict_id: str, affinity: str):
-    """Aggregate the trial outcomes of methods carrying ``affinity`` that were tested on this
-    conflict - the real evidence of whether this move has been (un)successfully tried here."""
-    pos = neg = inc = 0
-    for m in snapshot.method_history:
-        if affinity in m.affinities and conflict_id in m.contexts_tested:
-            pos += m.positive_trials
-            neg += m.negative_trials
-            inc += m.inconclusive_trials
-    return pos, neg, inc
+def _under_addressed(snapshot: EpistemicGapSnapshot, conflict_id: str, affinity: str,
+                     attempted: tuple[str, ...]) -> tuple[float, str]:
+    """How much of a blind spot ``affinity`` still is FOR THIS conflict (scope-bound). The demotion
+    is bound to (conflict, scope, method_variant, result) - a local failure never demotes the move
+    globally, and ``technical_failure`` (no methodological signal) does NOT demote at all.
+
+    Returns ``(under, why)``; ``under == 0`` means "not a gap here" (already worked)."""
+    here = [t for t in snapshot.method_trials
+            if t.affinity == affinity and t.target_conflict == conflict_id]
+    if any(t.result == "success" for t in here):
+        return 0.0, "already worked on this conflict"
+    real_neg = sum(t.count for t in here if t.result in ("no_benefit", "harmful"))
+    tech = sum(t.count for t in here if t.result == "technical_failure")
+    inc = sum(t.count for t in here if t.result in ("inconclusive", "unknown"))
+    # success in ANOTHER scope is a promising-transfer signal: it raises the gap, not lowers it.
+    elsewhere = any(t.affinity == affinity and t.target_conflict != conflict_id
+                    and t.result == "success" for t in snapshot.method_trials)
+    if real_neg:
+        return 0.15, f"{affinity} tried {real_neg}x with no benefit/harm here (ineffective in scope)"
+    if tech and not inc:
+        # tried, but ONLY technical failures - that is not evidence the move is wrong; keep it open.
+        return (0.9, f"{affinity} attempted here but only {tech} technical failure(s) "
+                "(not methodological - worth a clean retry)")
+    if inc:
+        return 0.5, f"{affinity} only inconclusively tried here ({inc}x)"
+    if elsewhere:
+        return 1.0, f"{affinity} never tried on this conflict but SUCCEEDED in another scope"
+    if affinity in attempted:
+        return 0.5, f"{affinity} marked attempted on this conflict but no outcome recorded (unknown)"
+    return 1.0, f"{affinity} never tried on this conflict"
 
 
 def _info_gain(priority: float) -> str:
@@ -86,16 +106,9 @@ def analyze_gaps(snapshot: EpistemicGapSnapshot) -> list[BlindSpotProposal]:
     for c in snapshot.conflicts:
         sev = _SEVERITY_W.get(c.severity, 0.6)
         for aff, relevance in _relevant_affinities(c.kind):
-            pos, neg, inc = _attempts_on(snapshot, c.id, aff)
-            attempted = aff in c.attempted_affinities or (pos + neg + inc) > 0
-            if pos > 0:
+            under, why = _under_addressed(snapshot, c.id, aff, c.attempted_affinities)
+            if under <= 0:
                 continue                                  # the move already worked here - not a gap
-            if not attempted:
-                under, why = 1.0, f"{aff} never tried on this conflict"
-            elif neg > 0:
-                under, why = 0.15, f"{aff} tried {neg}x without success here (known not to help yet)"
-            else:
-                under, why = 0.5, f"{aff} only inconclusively tried here ({inc}x)"
             priority = round(sev * relevance * under, 6)
             if priority <= 0:
                 continue
@@ -112,14 +125,27 @@ def analyze_gaps(snapshot: EpistemicGapSnapshot) -> list[BlindSpotProposal]:
 
 
 def frequency_baseline(snapshot: EpistemicGapSnapshot, *, top_k: int = 4) -> list[str]:
-    """A pure affinity-FREQUENCY heuristic (the thing this must beat): the least-used moves across
-    the method history, ignoring conflicts, severity, trial outcomes and relevance. Provided so the
-    acceptance proof can show the epistemic analysis differs from - and is not just - frequency."""
+    """Baseline 1 - a pure affinity-FREQUENCY heuristic: the least-used moves across the repertoire,
+    ignoring conflicts, severity, trial OUTCOMES and relevance."""
     from collections import Counter
     counts: Counter = Counter()
     for m in snapshot.method_history:
         for a in m.affinities:
-            counts[a] += (m.positive_trials + m.negative_trials + m.inconclusive_trials) or 1
+            counts[a] += 1
     universe = sorted({a for m in snapshot.method_history for a in m.affinities}
                       | {a for a, _ in _BASE_RELEVANT})
     return sorted(universe, key=lambda a: (counts.get(a, 0), a))[:top_k]
+
+
+def static_kind_baseline(snapshot: EpistemicGapSnapshot) -> list[str]:
+    """Baseline 2 - a STATIC conflict-kind -> affinity lookup: per open conflict, the most-relevant
+    affinity not in ``attempted_affinities`` (BINARY tried/untried). It ignores trial RESULT KIND,
+    scope and success-elsewhere - so the real DESi analysis must beat IT, not just frequency, to earn
+    its keep (e.g. a move tried with only TECHNICAL failures should stay open, which this discards)."""
+    out: list[str] = []
+    for c in snapshot.conflicts:
+        for aff, _ in _relevant_affinities(c.kind):
+            if aff not in c.attempted_affinities:
+                out.append(aff)
+                break
+    return out
