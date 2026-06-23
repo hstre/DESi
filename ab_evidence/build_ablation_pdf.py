@@ -29,6 +29,8 @@ _COND_DESC = {
     "B_normal_desi": "B — normal DESi: the case's own categorised state slice (id+what per category).",
     "C_wrong_slice": "C — wrong-slice: B's format/budget, but another case's state (cross-domain donor).",
     "D_status_stripped": "D — status-stripped: B's claim texts with governance metadata removed.",
+    "E_budget_matched_status_stripped": ("E — budget-matched status-stripped: D's texts, no metadata, "
+                                         "padded with inert filler to B's token budget (~1%)."),
 }
 
 
@@ -115,9 +117,11 @@ def build() -> Path:
     flow.append(Paragraph("Density sweep (padding grows A; slice constant)", ss["Small"]))
     if density:
         flow.append(_input_table(density))
-    flow.append(Paragraph("Note: D is ~35&ndash;40% smaller than B &mdash; that gap IS the "
-                          "governance metadata's footprint; a budget-matched D is the recommended "
-                          "control before reading any B&gt;D result.", ss["Small"]))
+    flow.append(Paragraph("Note: D is ~35&ndash;40% smaller than B (that gap IS the governance "
+                          "metadata's footprint). <b>E</b> controls for it &mdash; D's texts padded "
+                          "with inert filler to B's budget (within ~1%) &mdash; so only <b>B&gt;E</b> "
+                          "(not merely B&gt;D) would be evidence for the metadata. Runner: temp 0, "
+                          "fixed seed, 3 reps/case.", ss["Small"]))
 
     flow.append(Paragraph("Degeneration metrics (first-class, deterministic, unit-tested)",
                           ss["H2b"]))
@@ -135,15 +139,16 @@ def build() -> Path:
                           "D ≈ B (metadata decorative); A ≥ B except at extreme density "
                           "(long-context artefact).", ss["Body2"]))
     flow.append(Paragraph("<b>Strengthen:</b> C collapses / high bad_framing_nonrecovery "
-                          "(selection is load-bearing); B &gt; D on conflict/decision typing and "
-                          "degeneration at matched budget (metadata governs); B's edge and lower "
-                          "degeneration grow with density (robustness under pressure).", ss["Body2"]))
+                          "(selection is load-bearing); <b>B &gt; E</b> (budget-matched) on "
+                          "conflict/decision typing and degeneration (metadata governs, not token "
+                          "count); B's edge and lower degeneration grow with density (robustness "
+                          "under pressure).", ss["Body2"]))
 
     flow.append(Paragraph("Limitations (stated plainly)", ss["H2b"]))
     flow.append(Paragraph("No backend here (instrument only, no verdict). Tiny sample "
                           f"({len(core['cases'])} core + {len(density['cases']) if density else 0} "
-                          "density) &mdash; no significance. D token-budget confound. "
-                          "Paraphrase-blind evaluator (relative comparison only). Wrong-slice "
+                          "density) &mdash; no significance. D token-budget confound now controlled "
+                          "by E. Paraphrase-blind evaluator (relative comparison only). Wrong-slice "
                           "budget only approximate. Negative results are primary; no promotional "
                           "claims.", ss["Body2"]))
     flow.append(Paragraph("Reproduce: <font face='Courier'>python ab_evidence/ablation_run.py</font>"

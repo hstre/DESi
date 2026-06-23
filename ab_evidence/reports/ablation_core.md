@@ -1,6 +1,6 @@
-# Ablation: A/B/C/D — DESi slice selection vs governance metadata (core)
+# Ablation: A/B/C/D/E — DESi slice selection vs governance metadata (core)
 
-Backend status: **UNAVAILABLE_in_this_env**. Conditions: A=baseline full chat · B=normal DESi slice · C=wrong-slice (another case) · D=status-stripped (same texts, no governance metadata).
+Backend status: **UNAVAILABLE_in_this_env** · reps=3 · temperature=0.0 · seed=0. Conditions: A=baseline full chat · B=normal DESi slice · C=wrong-slice (another case) · D=status-stripped (same texts, no governance metadata) · E=budget-matched status-stripped (D's texts padded with inert filler to B's token budget).
 
 ## Input-side characterisation (deterministic, no model)
 
@@ -12,18 +12,22 @@ Backend status: **UNAVAILABLE_in_this_env**. Conditions: A=baseline full chat ·
 | case1_architecture | B_normal_desi | 736 | 1.0 | 83 | 0 |
 | case1_architecture | C_wrong_slice | 613 | 0.0 | -40 | -123 |
 | case1_architecture | D_status_stripped | 444 | 1.0 | -209 | -292 |
+| case1_architecture | E_budget_matched_status_stripped | 743 | 1.0 | 90 | 7 |
 | case2_research | A_baseline_full_context | 748 | None | 0 | 93 |
 | case2_research | B_normal_desi | 655 | 1.0 | -93 | 0 |
 | case2_research | C_wrong_slice | 736 | 0.0 | -12 | 81 |
 | case2_research | D_status_stripped | 433 | 1.0 | -315 | -222 |
+| case2_research | E_budget_matched_status_stripped | 662 | 1.0 | -86 | 7 |
 | case3_debugging | A_baseline_full_context | 697 | None | 0 | 83 |
 | case3_debugging | B_normal_desi | 614 | 1.0 | -83 | 0 |
 | case3_debugging | C_wrong_slice | 656 | 0.0 | -41 | 42 |
 | case3_debugging | D_status_stripped | 406 | 1.0 | -291 | -208 |
+| case3_debugging | E_budget_matched_status_stripped | 621 | 1.0 | -76 | 7 |
 | case4_long_research | A_baseline_full_context | 4263 | None | 0 | 2510 |
 | case4_long_research | B_normal_desi | 1753 | 1.0 | -2510 | 0 |
 | case4_long_research | C_wrong_slice | 631 | 0.0 | -3632 | -1122 |
 | case4_long_research | D_status_stripped | 1125 | 1.0 | -3138 | -628 |
+| case4_long_research | E_budget_matched_status_stripped | 1760 | 1.0 | -2503 | 7 |
 
 ## Model-dependent metrics: UNAVAILABLE_in_this_env
 

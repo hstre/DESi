@@ -72,7 +72,25 @@ def _overall_recall(ev: dict) -> float:
     return round(matched / total, 3) if total else 1.0
 
 
-def _eval_condition(case_id: str, condition: str, responder=None) -> dict:
+def _agg_degeneration(deg_list: list[dict]) -> dict:
+    """Aggregate per-rep degeneration into rates (boolean flags) and means (counts)."""
+    n = len(deg_list) or 1
+    return {
+        "loop_trap_rate": round(sum(d["loop_trap"]["loop_trapped"] for d in deg_list) / n, 3),
+        "contradiction_persistence_mean": round(
+            sum(d["contradiction_persistence"]["persistence_count"] for d in deg_list) / n, 3),
+        "invalid_claim_reuse_mean": round(
+            sum(d["invalid_claim_reuse"]["reused"] for d in deg_list) / n, 3),
+        "bad_framing_nonrecovery_rate": round(
+            sum(d["bad_framing_nonrecovery"]["nonrecovered"] for d in deg_list) / n, 3),
+        "coherence_without_continuity_rate": round(
+            sum(d["coherence_without_continuity"]["coherence_without_continuity"]
+                for d in deg_list) / n, 3),
+    }
+
+
+def _eval_condition(case_id: str, condition: str, *, responder=None, reps: int = 1,
+                    temperature: float = 0.0, seed: int | None = 0) -> dict:
     payload = build_condition(case_id, condition)
     true_bodies = _true_bodies(case_id)
     sb = _slice_bodies(case_id, condition)
@@ -83,34 +101,49 @@ def _eval_condition(case_id: str, condition: str, responder=None) -> dict:
         "slice_source": payload["slice_source"],
         "slice_info_recall": (None if sb is None else _info_recall(sb, true_bodies)),
     }
-    available = backend.is_available()
-    if responder is None and not available:
+    if responder is None and not backend.is_available():
         rec["backend_status"] = "UNAVAILABLE_in_this_env"
         return rec
     rec["backend_status"] = "STUB_TEST" if responder is not None else "REAL"
-    call = responder or (lambda system, messages: backend.call_messages(system, messages))
-    resp = call(payload["system"], payload["messages"])
-    text = resp.get("text", "")
     gt = load_ground_truth(case_id)
-    ev = evaluate(text, gt)
-    true_recall = _overall_recall(ev)
     wrong_bodies = sb if condition == "C_wrong_slice" else None
-    rec["evaluation"] = ev
-    rec["overall_recall"] = true_recall
-    rec["degeneration"] = degeneration_summary(
-        text, open_conflicts=gt["open_conflicts"], true_bodies=true_bodies,
-        true_recall=true_recall, wrong_bodies=wrong_bodies, invalid_bodies=wrong_bodies)
-    rec["response_chars"] = len(text)
+    runs = []
+    for r in range(max(1, reps)):
+        if responder is not None:
+            resp = responder(payload["system"], payload["messages"])
+        else:
+            resp = backend.call_messages(payload["system"], payload["messages"],
+                                         temperature=temperature,
+                                         seed=(None if seed is None else seed + r))
+        text = resp.get("text", "")
+        ev = evaluate(text, gt)
+        tr = _overall_recall(ev)
+        deg = degeneration_summary(text, open_conflicts=gt["open_conflicts"],
+                                   true_bodies=true_bodies, true_recall=tr,
+                                   wrong_bodies=wrong_bodies, invalid_bodies=wrong_bodies)
+        runs.append({"overall_recall": tr, "evaluation": ev, "degeneration": deg,
+                     "response_chars": len(text)})
+    recalls = [x["overall_recall"] for x in runs]
+    rec["reps"] = len(runs)
+    rec["overall_recall"] = round(sum(recalls) / len(recalls), 3)
+    rec["overall_recall_min"], rec["overall_recall_max"] = min(recalls), max(recalls)
+    rec["evaluation"] = runs[0]["evaluation"]                 # representative single-rep detail
+    rec["degeneration"] = _agg_degeneration([x["degeneration"] for x in runs])
+    rec["runs"] = runs
     return rec
 
 
-def run(cases=CORE_CASES, *, responder=None, tag="core") -> dict:
+def run(cases=CORE_CASES, *, responder=None, tag="core", reps: int = 1,
+        temperature: float = 0.0, seed: int | None = 0) -> dict:
     _RES.mkdir(parents=True, exist_ok=True)
     rows = []
     for case_id in cases:
-        conditions = {c: _eval_condition(case_id, c, responder=responder) for c in CONDITIONS}
+        conditions = {c: _eval_condition(case_id, c, responder=responder, reps=reps,
+                                         temperature=temperature, seed=seed)
+                      for c in CONDITIONS}
         rows.append({"case_id": case_id, "conditions": conditions})
-    out = {"tag": tag, "conditions": list(CONDITIONS),
+    out = {"tag": tag, "conditions": list(CONDITIONS), "reps": reps,
+           "temperature": temperature, "seed": seed,
            "backend_status": rows[0]["conditions"]["B_normal_desi"]["backend_status"]
            if rows else "n/a", "cases": rows}
     (_RES / f"ablation_{tag}.json").write_text(
@@ -126,11 +159,13 @@ def _delta(x, base):
 
 def report(out: dict) -> str:
     _REP.mkdir(parents=True, exist_ok=True)
-    model = out["backend_status"] == "REAL"
-    md = [f"# Ablation: A/B/C/D — DESi slice selection vs governance metadata ({out['tag']})\n",
-          f"Backend status: **{out['backend_status']}**. Conditions: "
+    model = out["backend_status"] in ("REAL", "STUB_TEST")
+    md = [f"# Ablation: A/B/C/D/E — DESi slice selection vs governance metadata ({out['tag']})\n",
+          f"Backend status: **{out['backend_status']}** · reps={out.get('reps')} · "
+          f"temperature={out.get('temperature')} · seed={out.get('seed')}. Conditions: "
           "A=baseline full chat · B=normal DESi slice · C=wrong-slice (another case) · "
-          "D=status-stripped (same texts, no governance metadata).\n",
+          "D=status-stripped (same texts, no governance metadata) · E=budget-matched "
+          "status-stripped (D's texts padded with inert filler to B's token budget).\n",
           "## Input-side characterisation (deterministic, no model)\n",
           "`slice_info_recall` = fraction of the case's true ground-truth items actually present in "
           "the injected slice. It shows the wrong slice (C) really starves the model of correct "
@@ -165,9 +200,10 @@ def report(out: dict) -> str:
                "B > D on conflict/decision typing or degeneration, the metadata is doing work.\n"]
     else:
         md += ["",
-               "## Accuracy + degeneration (real backend)\n",
-               "| case | condition | recall | ΔR vs A | ΔR vs B | loop | contra_persist | "
-               "invalid_reuse | bad_framing | coh_no_cont |",
+               f"## Accuracy + degeneration (backend={out['backend_status']}, "
+               f"mean over {out.get('reps')} reps @ temp {out.get('temperature')})\n",
+               "| case | condition | recall | ΔR vs A | ΔR vs B | loop_rate | contra | "
+               "invalid | bad_frame | coh_no_cont |",
                "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
         for row in out["cases"]:
             c = row["conditions"]
@@ -179,14 +215,31 @@ def report(out: dict) -> str:
                 md.append(
                     f"| {row['case_id']} | {cond} | {r.get('overall_recall')} | "
                     f"{_delta(r.get('overall_recall'), rA)} | {_delta(r.get('overall_recall'), rB)} | "
-                    f"{int(d.get('loop_trap', {}).get('loop_trapped', False))} | "
-                    f"{d.get('contradiction_persistence', {}).get('persistence_count', '-')} | "
-                    f"{d.get('invalid_claim_reuse', {}).get('reused', '-')} | "
-                    f"{int(d.get('bad_framing_nonrecovery', {}).get('nonrecovered', False))} | "
-                    f"{int(d.get('coherence_without_continuity', {}).get('coherence_without_continuity', False))} |")
+                    f"{d.get('loop_trap_rate', '-')} | "
+                    f"{d.get('contradiction_persistence_mean', '-')} | "
+                    f"{d.get('invalid_claim_reuse_mean', '-')} | "
+                    f"{d.get('bad_framing_nonrecovery_rate', '-')} | "
+                    f"{d.get('coherence_without_continuity_rate', '-')} |")
+        md += ["",
+               "### B-centred accuracy deltas (recall(B) − recall(X); positive = B better)\n",
+               "| case | B−A | B−C | B−D | B−E |", "| --- | --- | --- | --- | --- |"]
+        for row in out["cases"]:
+            c = row["conditions"]
+            rB = c["B_normal_desi"].get("overall_recall")
+            md.append("| {0} | {1} | {2} | {3} | {4} |".format(
+                row["case_id"],
+                _delta(rB, c["A_baseline_full_context"].get("overall_recall")),
+                _delta(rB, c["C_wrong_slice"].get("overall_recall")),
+                _delta(rB, c["D_status_stripped"].get("overall_recall")),
+                _delta(rB, c["E_budget_matched_status_stripped"].get("overall_recall"))))
         md += ["",
                "### Degeneration RATES per condition (mean across cases)\n",
-               _rate_table(out)]
+               _rate_table(out),
+               "",
+               "_Read conservatively: C≈B ⇒ selection not load-bearing; C collapses ⇒ selection "
+               "load-bearing; D/E≈B ⇒ metadata likely decorative; **B>E** on conflict / "
+               "contradiction / degeneration (E controls for tokens) ⇒ governance metadata has "
+               "evidence; B beats A only at high density ⇒ mainly long-context robustness._"]
     md += ["",
            "## Statistical health\n",
            f"- Cases in this run: **{len(out['cases'])}** ({out['tag']}). This is a SMALL sample; "
@@ -208,22 +261,24 @@ def _rate_table(out: dict) -> str:
         recs = [row["conditions"][cond].get("degeneration") for row in out["cases"]]
         recs = [r for r in recs if r]
         n = len(recs) or 1
-        loop = sum(r["loop_trap"]["loop_trapped"] for r in recs) / n
-        badf = sum(r["bad_framing_nonrecovery"]["nonrecovered"] for r in recs) / n
-        coh = sum(r["coherence_without_continuity"]["coherence_without_continuity"] for r in recs) / n
-        cp = sum(r["contradiction_persistence"]["persistence_count"] for r in recs) / n
-        ir = sum(r["invalid_claim_reuse"]["reused"] for r in recs) / n
+        loop = sum(r["loop_trap_rate"] for r in recs) / n
+        badf = sum(r["bad_framing_nonrecovery_rate"] for r in recs) / n
+        coh = sum(r["coherence_without_continuity_rate"] for r in recs) / n
+        cp = sum(r["contradiction_persistence_mean"] for r in recs) / n
+        ir = sum(r["invalid_claim_reuse_mean"] for r in recs) / n
         lines.append(f"| {cond} | {round(loop,3)} | {round(badf,3)} | {round(coh,3)} | "
                      f"{round(cp,3)} | {round(ir,3)} |")
     return "\n".join(lines)
 
 
 def main() -> None:
-    core = run(CORE_CASES, tag="core")
-    print(report(core).split("\n\n")[0])
-    density = run(DENSITY_CASES, tag="density")
+    # temperature 0 + a fixed seed + 3 reps per case (per the brief). With no backend these run the
+    # deterministic input-side path only and report the model metrics as UNAVAILABLE.
+    core = run(CORE_CASES, tag="core", reps=3, temperature=0.0, seed=0)
+    report(core)
+    density = run(DENSITY_CASES, tag="density", reps=3, temperature=0.0, seed=0)
     report(density)
-    print(f"ablation: backend={core['backend_status']} "
+    print(f"ablation: backend={core['backend_status']} reps={core['reps']} temp={core['temperature']} "
           f"core_cases={len(core['cases'])} density_cases={len(density['cases'])} "
           f"-> results/ablation_core.json, results/ablation_density.json")
 

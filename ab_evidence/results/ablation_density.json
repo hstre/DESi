@@ -4,8 +4,12 @@
     "A_baseline_full_context",
     "B_normal_desi",
     "C_wrong_slice",
-    "D_status_stripped"
+    "D_status_stripped",
+    "E_budget_matched_status_stripped"
   ],
+  "reps": 3,
+  "temperature": 0.0,
+  "seed": 0,
   "backend_status": "UNAVAILABLE_in_this_env",
   "cases": [
     {
@@ -38,6 +42,14 @@
         "D_status_stripped": {
           "condition": "D_status_stripped",
           "input_token_estimate": 2057,
+          "n_messages": 1,
+          "slice_source": "case6_long_research",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "E_budget_matched_status_stripped": {
+          "condition": "E_budget_matched_status_stripped",
+          "input_token_estimate": 3294,
           "n_messages": 1,
           "slice_source": "case6_long_research",
           "slice_info_recall": 1.0,
@@ -79,6 +91,14 @@
           "slice_source": "case7a_padded_30k",
           "slice_info_recall": 1.0,
           "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "E_budget_matched_status_stripped": {
+          "condition": "E_budget_matched_status_stripped",
+          "input_token_estimate": 3294,
+          "n_messages": 1,
+          "slice_source": "case7a_padded_30k",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
         }
       }
     },
@@ -112,6 +132,14 @@
         "D_status_stripped": {
           "condition": "D_status_stripped",
           "input_token_estimate": 2057,
+          "n_messages": 1,
+          "slice_source": "case7b_padded_60k",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "E_budget_matched_status_stripped": {
+          "condition": "E_budget_matched_status_stripped",
+          "input_token_estimate": 3294,
           "n_messages": 1,
           "slice_source": "case7b_padded_60k",
           "slice_info_recall": 1.0,

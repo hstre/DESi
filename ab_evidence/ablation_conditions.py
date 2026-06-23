@@ -45,7 +45,8 @@ _SYSTEM_D_EXTRA = (
     "prior work."
 )
 
-CONDITIONS = ("A_baseline_full_context", "B_normal_desi", "C_wrong_slice", "D_status_stripped")
+CONDITIONS = ("A_baseline_full_context", "B_normal_desi", "C_wrong_slice", "D_status_stripped",
+              "E_budget_matched_status_stripped")
 
 # Deterministic donor for the wrong slice: a DIFFERENT-domain case with a real, structurally valid
 # state. Long-research cases borrow a non-long-research donor so the mismatch is unambiguous.
@@ -94,11 +95,14 @@ def _messages_A(case_id: str) -> dict:
             "messages": messages, "slice_source": None}
 
 
+def _b_user(case_id: str) -> str:
+    return _user_with_context(FOLLOW_UPS[case_id], _state_block(state_for_variant_B(case_id)),
+                              "DESi state")
+
+
 def _messages_B(case_id: str) -> dict:
-    state = state_for_variant_B(case_id)
-    user = _user_with_context(FOLLOW_UPS[case_id], _state_block(state), "DESi state")
     return {"condition": "B_normal_desi", "system": _SYSTEM_BASE + _SYSTEM_B_EXTRA,
-            "messages": [{"role": "user", "content": user}], "slice_source": case_id}
+            "messages": [{"role": "user", "content": _b_user(case_id)}], "slice_source": case_id}
 
 
 def _messages_C(case_id: str) -> dict:
@@ -117,8 +121,35 @@ def _messages_D(case_id: str) -> dict:
             "messages": [{"role": "user", "content": user}], "slice_source": case_id}
 
 
+def _messages_E(case_id: str) -> dict:
+    """Budget-matched status-stripped: D's exact claim texts, no governance metadata, padded to B's
+    token budget with INERT filler so a B>D gap cannot be dismissed as 'B just had more tokens'.
+
+    The notes are wrapped with neutral, meaning-free keys (``items``/``ref``/``note``) — ``ref`` is
+    pure 1-based ordering, NOT a typed governance id (C/R/D/K/Q) — and the remaining gap to B's
+    budget is filled with a single ``_padding`` field of repeated single-char tokens. The filler has
+    no content tokens (``len > 2`` are filtered by the evaluator's tokeniser), so it can neither
+    match ground truth nor leak epistemic information. No categories, validity, evidence or
+    provenance are present: same information as D, same budget as B.
+    """
+    notes = status_strip(state_for_variant_B(case_id))
+    obj: dict = {"items": [{"ref": f"i{i + 1}", "note": n} for i, n in enumerate(notes)]}
+    system = _SYSTEM_BASE + _SYSTEM_D_EXTRA
+
+    def _user_for(o: dict) -> str:
+        return _user_with_context(FOLLOW_UPS[case_id], _state_block(o), "Notes")
+
+    target = token_count(_SYSTEM_BASE + _SYSTEM_B_EXTRA) + token_count(_b_user(case_id))
+    gap = target - (token_count(system) + token_count(_user_for(obj)))
+    if gap > 0:
+        obj["_padding"] = " ".join(["x"] * gap)   # inert budget filler: no content, no governance
+    return {"condition": "E_budget_matched_status_stripped", "system": system,
+            "messages": [{"role": "user", "content": _user_for(obj)}], "slice_source": case_id}
+
+
 _BUILDERS = {"A_baseline_full_context": _messages_A, "B_normal_desi": _messages_B,
-             "C_wrong_slice": _messages_C, "D_status_stripped": _messages_D}
+             "C_wrong_slice": _messages_C, "D_status_stripped": _messages_D,
+             "E_budget_matched_status_stripped": _messages_E}
 
 
 def build_condition(case_id: str, condition: str) -> dict:

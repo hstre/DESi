@@ -22,14 +22,20 @@ lifecycle / admissibility, the typed IDs (C/R/D/K/Q) encode kind, and the confli
 
 ## What this extension adds
 
-Two new conditions over the same cases and task (`ablation_conditions.py`), plus a runner
-(`ablation_run.py`) and degeneration metrics (`degeneration.py`):
+Three new conditions over the same cases and task (`ablation_conditions.py`), plus a runner
+(`ablation_run.py`, temperature 0 + fixed seed + N repetitions per case) and degeneration metrics
+(`degeneration.py`):
 
 - **C — wrong-slice:** B's exact format and approximate budget, but the slice is **another case's**
   state (a deterministic cross-domain donor). Structurally valid, content-wrong.
 - **D — status-stripped:** the **same claim texts** as B, in the same order, with all governance
   metadata removed — categories flattened to one undifferentiated list, typed IDs dropped,
   `evidence`/`claim_ids` dropped. Same information, no typing.
+- **E — budget-matched status-stripped:** D's exact texts and absence of governance metadata, but
+  padded to **B's token budget** (within ~1%) with inert filler (a neutral `_padding` field of
+  single-char tokens that carry no content and match no ground truth). E removes the token-count
+  confound from the B-vs-D comparison: if B beats D *only* because B has more tokens, then B ≈ E; if
+  B beats E too, the advantage is the governance metadata, not the budget.
 
 ### Why wrong-slice matters
 
@@ -77,9 +83,9 @@ These are reported per condition and, where the cases support it, across the den
 
 - **C collapses** (accuracy drops toward or below A; `bad_framing_nonrecovery` high; the model parrots
   the wrong slice) → correct slice selection is load-bearing.
-- **B > D specifically on conflict/decision typing and on `contradiction_persistence` /
-  `coherence_without_continuity`**, at comparable budget → the epistemic metadata governs behaviour,
-  not just content.
+- **B > E specifically on conflict/decision typing and on `contradiction_persistence` /
+  `coherence_without_continuity`** (E holds the budget fixed) → the epistemic metadata governs
+  behaviour, not just content or token count.
 - **B's advantage and lower degeneration grow with density** → DESi buys robustness under context
   pressure, the regime it is meant for.
 
@@ -91,10 +97,11 @@ These are reported per condition and, where the cases support it, across the den
   and the deterministic input-side characterisation — not an empirical verdict.
 - **Tiny sample.** 4 core cases (+3 density). Differences of a few items are within noise; nothing
   here would support a significance claim. Repeat across more cases, seeds and models first.
-- **Token-budget confound on D.** Removing the metadata makes D ~35–40% smaller than B (the metadata
-  *is* that footprint). So a raw "B > D" could be partly "B simply had more tokens". The clean
-  control is a **budget-matched D** (pad with neutral, content-free filler to B's token count); until
-  that is run, a B > D result is suggestive, not conclusive.
+- **Token-budget confound on D — now controlled by E.** Removing the metadata makes D ~35–40%
+  smaller than B (the metadata *is* that footprint). **Condition E** is the control: D's texts padded
+  with inert filler to B's budget (within ~1%). Interpret B-vs-D *through* E — only **B > E** (not
+  merely B > D) is evidence for the metadata, since E holds the token budget fixed. The padding adds
+  no content tokens, so it cannot leak information.
 - **Paraphrase-blind evaluator.** Jaccard ≥ 0.25 under-counts semantically-preserved items; only the
   *relative* A/B/C/D comparison is intended, never the absolute recalls.
 - **Wrong-slice budget is only approximate.** The donor's real state is used unmodified, so C's budget
@@ -112,10 +119,14 @@ These are reported per condition and, where the cases support it, across the den
 
 ```bash
 python ab_evidence/ablation_run.py            # deterministic columns now; model columns need a key
-export OPENROUTER_API_KEY=...                  # then re-run for the full table
+export OPENROUTER_API_KEY=...                  # then re-run for the full table (temp 0, seed, 3 reps)
 python ab_evidence/ablation_run.py
 pytest tests/ab_ablation -q                    # the regression guarantees
 ```
+
+The runner uses `temperature=0`, a fixed `seed` (honoured by backends that support it; OpenRouter
+does, the Anthropic API has no seed param so determinism there rests on temp 0), and `reps=3` per
+case, reporting mean recall and degeneration rates across reps.
 
 Outputs: `ab_evidence/results/ablation_{core,density}.json`,
 `ab_evidence/reports/ablation_{core,density}.md`. Existing `ab_results.json` / `pressure_sweep.json`

@@ -4,8 +4,12 @@
     "A_baseline_full_context",
     "B_normal_desi",
     "C_wrong_slice",
-    "D_status_stripped"
+    "D_status_stripped",
+    "E_budget_matched_status_stripped"
   ],
+  "reps": 3,
+  "temperature": 0.0,
+  "seed": 0,
   "backend_status": "UNAVAILABLE_in_this_env",
   "cases": [
     {
@@ -38,6 +42,14 @@
         "D_status_stripped": {
           "condition": "D_status_stripped",
           "input_token_estimate": 444,
+          "n_messages": 1,
+          "slice_source": "case1_architecture",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "E_budget_matched_status_stripped": {
+          "condition": "E_budget_matched_status_stripped",
+          "input_token_estimate": 743,
           "n_messages": 1,
           "slice_source": "case1_architecture",
           "slice_info_recall": 1.0,
@@ -79,6 +91,14 @@
           "slice_source": "case2_research",
           "slice_info_recall": 1.0,
           "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "E_budget_matched_status_stripped": {
+          "condition": "E_budget_matched_status_stripped",
+          "input_token_estimate": 662,
+          "n_messages": 1,
+          "slice_source": "case2_research",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
         }
       }
     },
@@ -116,6 +136,14 @@
           "slice_source": "case3_debugging",
           "slice_info_recall": 1.0,
           "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "E_budget_matched_status_stripped": {
+          "condition": "E_budget_matched_status_stripped",
+          "input_token_estimate": 621,
+          "n_messages": 1,
+          "slice_source": "case3_debugging",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
         }
       }
     },
@@ -149,6 +177,14 @@
         "D_status_stripped": {
           "condition": "D_status_stripped",
           "input_token_estimate": 1125,
+          "n_messages": 1,
+          "slice_source": "case4_long_research",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "E_budget_matched_status_stripped": {
+          "condition": "E_budget_matched_status_stripped",
+          "input_token_estimate": 1760,
           "n_messages": 1,
           "slice_source": "case4_long_research",
           "slice_info_recall": 1.0,

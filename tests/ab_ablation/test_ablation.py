@@ -101,14 +101,52 @@ def test_contradiction_persistence_and_coherence_without_continuity():
     assert not coherence_without_continuity(fluent, true_recall=0.9)["coherence_without_continuity"]
 
 
-# --- 4. benchmark output includes all four conditions -------------------------------------------
-def test_run_output_includes_all_four_conditions():
-    def stub(system, messages):
-        return {"text": "- none"}
+# --- E. budget-matched status-stripped: D's texts, no metadata, ~B's budget, no hidden info ------
+def test_budget_matched_status_stripped_matches_budget_without_metadata():
+    e = build_condition(CASE, "E_budget_matched_status_stripped")
+    b = build_condition(CASE, "B_normal_desi")
+    user = e["messages"][0]["content"]
+    gt = load_ground_truth(CASE)
+    every = (gt["active_claims"] + gt["active_constraints"] + gt["decisions"]
+             + gt["open_conflicts"] + gt["open_questions"])
+    # same claim TEXT as D ...
+    for el in every:
+        assert el["what"] in user
+    # ... no epistemic-governance metadata (typed ids, category keys, evidence/provenance) ...
+    for token in ('"active_claims"', '"active_constraints"', '"decisions"', '"open_conflicts"',
+                  '"open_questions"', '"what"', '"id"', '"evidence"', '"claim_ids"'):
+        assert token not in user
+    for el in every:
+        assert f'"{el["id"]}"' not in user
+    # ... budget matched to B within 5% ...
+    assert abs(e["input_token_estimate"] - b["input_token_estimate"]) / b["input_token_estimate"] \
+        <= 0.05
+    # ... and the only padding is INERT: every padded token is the single char 'x' (no content
+    # token survives the evaluator's len>2 filter), so it cannot leak information or match GT.
+    import json as _json
+    block = user.split("Notes:\n", 1)[1]
+    pad = _json.loads(block.rsplit("\n---", 1)[0]).get("_padding", "")
+    assert pad == "" or set(pad.split()) <= {"x"}
+    # E carries the case's own info (same as D/B), nothing more
+    assert _info_recall(_slice_bodies(CASE, "E_budget_matched_status_stripped"),
+                        _true_bodies(CASE)) >= 0.9
 
-    out = run((CASE,), responder=stub, tag="selftest")
+
+# --- 4. benchmark output includes ALL conditions + renders the model table ----------------------
+def test_run_output_includes_all_conditions_and_renders_table():
+    import ablation_run
+
+    def stub(system, messages):
+        return {"text": "- open conflict: a vs b\n- none"}
+
+    out = run((CASE,), responder=stub, tag="selftest", reps=2)
     assert out["backend_status"] == "STUB_TEST"
     conds = out["cases"][0]["conditions"]
-    assert set(conds) == set(CONDITIONS)
+    assert set(conds) == set(CONDITIONS) and len(CONDITIONS) == 5
     for c in CONDITIONS:
         assert "evaluation" in conds[c] and "degeneration" in conds[c]
+        assert conds[c]["reps"] == 2
+        assert "loop_trap_rate" in conds[c]["degeneration"]
+    # the model-metrics report path renders for a stub run, with all conditions + the B−E delta
+    text = ablation_run.report(out)
+    assert "E_budget_matched_status_stripped" in text and "B−E" in text

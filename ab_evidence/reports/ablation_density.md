@@ -1,6 +1,6 @@
-# Ablation: A/B/C/D — DESi slice selection vs governance metadata (density)
+# Ablation: A/B/C/D/E — DESi slice selection vs governance metadata (density)
 
-Backend status: **UNAVAILABLE_in_this_env**. Conditions: A=baseline full chat · B=normal DESi slice · C=wrong-slice (another case) · D=status-stripped (same texts, no governance metadata).
+Backend status: **UNAVAILABLE_in_this_env** · reps=3 · temperature=0.0 · seed=0. Conditions: A=baseline full chat · B=normal DESi slice · C=wrong-slice (another case) · D=status-stripped (same texts, no governance metadata) · E=budget-matched status-stripped (D's texts padded with inert filler to B's token budget).
 
 ## Input-side characterisation (deterministic, no model)
 
@@ -12,14 +12,17 @@ Backend status: **UNAVAILABLE_in_this_env**. Conditions: A=baseline full chat ·
 | case6_long_research | B_normal_desi | 3287 | 1.0 | -5292 | 0 |
 | case6_long_research | C_wrong_slice | 631 | 0.0 | -7948 | -2656 |
 | case6_long_research | D_status_stripped | 2057 | 1.0 | -6522 | -1230 |
+| case6_long_research | E_budget_matched_status_stripped | 3294 | 1.0 | -5285 | 7 |
 | case7a_padded_30k | A_baseline_full_context | 26797 | None | 0 | 23510 |
 | case7a_padded_30k | B_normal_desi | 3287 | 1.0 | -23510 | 0 |
 | case7a_padded_30k | C_wrong_slice | 673 | 0.0 | -26124 | -2614 |
 | case7a_padded_30k | D_status_stripped | 2057 | 1.0 | -24740 | -1230 |
+| case7a_padded_30k | E_budget_matched_status_stripped | 3294 | 1.0 | -23503 | 7 |
 | case7b_padded_60k | A_baseline_full_context | 53196 | None | 0 | 49909 |
 | case7b_padded_60k | B_normal_desi | 3287 | 1.0 | -49909 | 0 |
 | case7b_padded_60k | C_wrong_slice | 673 | 0.0 | -52523 | -2614 |
 | case7b_padded_60k | D_status_stripped | 2057 | 1.0 | -51139 | -1230 |
+| case7b_padded_60k | E_budget_matched_status_stripped | 3294 | 1.0 | -49902 | 7 |
 
 ## Model-dependent metrics: UNAVAILABLE_in_this_env
 
