@@ -1,0 +1,123 @@
+{
+  "tag": "density",
+  "conditions": [
+    "A_baseline_full_context",
+    "B_normal_desi",
+    "C_wrong_slice",
+    "D_status_stripped"
+  ],
+  "backend_status": "UNAVAILABLE_in_this_env",
+  "cases": [
+    {
+      "case_id": "case6_long_research",
+      "conditions": {
+        "A_baseline_full_context": {
+          "condition": "A_baseline_full_context",
+          "input_token_estimate": 8579,
+          "n_messages": 240,
+          "slice_source": null,
+          "slice_info_recall": null,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "B_normal_desi": {
+          "condition": "B_normal_desi",
+          "input_token_estimate": 3287,
+          "n_messages": 1,
+          "slice_source": "case6_long_research",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "C_wrong_slice": {
+          "condition": "C_wrong_slice",
+          "input_token_estimate": 631,
+          "n_messages": 1,
+          "slice_source": "case3_debugging",
+          "slice_info_recall": 0.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "D_status_stripped": {
+          "condition": "D_status_stripped",
+          "input_token_estimate": 2057,
+          "n_messages": 1,
+          "slice_source": "case6_long_research",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        }
+      }
+    },
+    {
+      "case_id": "case7a_padded_30k",
+      "conditions": {
+        "A_baseline_full_context": {
+          "condition": "A_baseline_full_context",
+          "input_token_estimate": 26797,
+          "n_messages": 1404,
+          "slice_source": null,
+          "slice_info_recall": null,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "B_normal_desi": {
+          "condition": "B_normal_desi",
+          "input_token_estimate": 3287,
+          "n_messages": 1,
+          "slice_source": "case7a_padded_30k",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "C_wrong_slice": {
+          "condition": "C_wrong_slice",
+          "input_token_estimate": 673,
+          "n_messages": 1,
+          "slice_source": "case2_research",
+          "slice_info_recall": 0.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "D_status_stripped": {
+          "condition": "D_status_stripped",
+          "input_token_estimate": 2057,
+          "n_messages": 1,
+          "slice_source": "case7a_padded_30k",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        }
+      }
+    },
+    {
+      "case_id": "case7b_padded_60k",
+      "conditions": {
+        "A_baseline_full_context": {
+          "condition": "A_baseline_full_context",
+          "input_token_estimate": 53196,
+          "n_messages": 3092,
+          "slice_source": null,
+          "slice_info_recall": null,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "B_normal_desi": {
+          "condition": "B_normal_desi",
+          "input_token_estimate": 3287,
+          "n_messages": 1,
+          "slice_source": "case7b_padded_60k",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "C_wrong_slice": {
+          "condition": "C_wrong_slice",
+          "input_token_estimate": 673,
+          "n_messages": 1,
+          "slice_source": "case2_research",
+          "slice_info_recall": 0.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "D_status_stripped": {
+          "condition": "D_status_stripped",
+          "input_token_estimate": 2057,
+          "n_messages": 1,
+          "slice_source": "case7b_padded_60k",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        }
+      }
+    }
+  ]
+}

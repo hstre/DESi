@@ -1,0 +1,160 @@
+{
+  "tag": "core",
+  "conditions": [
+    "A_baseline_full_context",
+    "B_normal_desi",
+    "C_wrong_slice",
+    "D_status_stripped"
+  ],
+  "backend_status": "UNAVAILABLE_in_this_env",
+  "cases": [
+    {
+      "case_id": "case1_architecture",
+      "conditions": {
+        "A_baseline_full_context": {
+          "condition": "A_baseline_full_context",
+          "input_token_estimate": 653,
+          "n_messages": 21,
+          "slice_source": null,
+          "slice_info_recall": null,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "B_normal_desi": {
+          "condition": "B_normal_desi",
+          "input_token_estimate": 736,
+          "n_messages": 1,
+          "slice_source": "case1_architecture",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "C_wrong_slice": {
+          "condition": "C_wrong_slice",
+          "input_token_estimate": 613,
+          "n_messages": 1,
+          "slice_source": "case3_debugging",
+          "slice_info_recall": 0.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "D_status_stripped": {
+          "condition": "D_status_stripped",
+          "input_token_estimate": 444,
+          "n_messages": 1,
+          "slice_source": "case1_architecture",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        }
+      }
+    },
+    {
+      "case_id": "case2_research",
+      "conditions": {
+        "A_baseline_full_context": {
+          "condition": "A_baseline_full_context",
+          "input_token_estimate": 748,
+          "n_messages": 20,
+          "slice_source": null,
+          "slice_info_recall": null,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "B_normal_desi": {
+          "condition": "B_normal_desi",
+          "input_token_estimate": 655,
+          "n_messages": 1,
+          "slice_source": "case2_research",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "C_wrong_slice": {
+          "condition": "C_wrong_slice",
+          "input_token_estimate": 736,
+          "n_messages": 1,
+          "slice_source": "case1_architecture",
+          "slice_info_recall": 0.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "D_status_stripped": {
+          "condition": "D_status_stripped",
+          "input_token_estimate": 433,
+          "n_messages": 1,
+          "slice_source": "case2_research",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        }
+      }
+    },
+    {
+      "case_id": "case3_debugging",
+      "conditions": {
+        "A_baseline_full_context": {
+          "condition": "A_baseline_full_context",
+          "input_token_estimate": 697,
+          "n_messages": 23,
+          "slice_source": null,
+          "slice_info_recall": null,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "B_normal_desi": {
+          "condition": "B_normal_desi",
+          "input_token_estimate": 614,
+          "n_messages": 1,
+          "slice_source": "case3_debugging",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "C_wrong_slice": {
+          "condition": "C_wrong_slice",
+          "input_token_estimate": 656,
+          "n_messages": 1,
+          "slice_source": "case2_research",
+          "slice_info_recall": 0.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "D_status_stripped": {
+          "condition": "D_status_stripped",
+          "input_token_estimate": 406,
+          "n_messages": 1,
+          "slice_source": "case3_debugging",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        }
+      }
+    },
+    {
+      "case_id": "case4_long_research",
+      "conditions": {
+        "A_baseline_full_context": {
+          "condition": "A_baseline_full_context",
+          "input_token_estimate": 4263,
+          "n_messages": 106,
+          "slice_source": null,
+          "slice_info_recall": null,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "B_normal_desi": {
+          "condition": "B_normal_desi",
+          "input_token_estimate": 1753,
+          "n_messages": 1,
+          "slice_source": "case4_long_research",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "C_wrong_slice": {
+          "condition": "C_wrong_slice",
+          "input_token_estimate": 631,
+          "n_messages": 1,
+          "slice_source": "case3_debugging",
+          "slice_info_recall": 0.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        },
+        "D_status_stripped": {
+          "condition": "D_status_stripped",
+          "input_token_estimate": 1125,
+          "n_messages": 1,
+          "slice_source": "case4_long_research",
+          "slice_info_recall": 1.0,
+          "backend_status": "UNAVAILABLE_in_this_env"
+        }
+      }
+    }
+  ]
+}
