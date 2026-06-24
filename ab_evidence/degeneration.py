@@ -102,12 +102,30 @@ def coherence_without_continuity(response_text: str, true_recall: float) -> dict
             "coherence_without_continuity": bool(fluent and true_recall < _LOW_RECALL)}
 
 
+def confidence_while_wrong(self_confidence, true_recall: float, *, conf_hi: float = 70.0,
+                           recall_lo: float = 0.5) -> dict:
+    """The dangerous quadrant: the model is WRONG while reporting HIGH confidence.
+
+    ``self_confidence`` is a SELF-REPORTED 0–100 rating parsed from the response — NOT a calibrated
+    probability. Token logprobs are not exposed by the Anthropic models via this backend, so this is
+    explicitly a weak self-report proxy. None when no rating was parsed.
+    """
+    if self_confidence is None:
+        return {"self_confidence": None, "true_recall": true_recall,
+                "confident_while_wrong": False, "note": "no_confidence_parsed"}
+    return {"self_confidence": self_confidence, "true_recall": true_recall,
+            "confident_while_wrong": bool(self_confidence >= conf_hi and true_recall < recall_lo),
+            "note": "self_reported_not_calibrated"}
+
+
 def degeneration_summary(response_text: str, *, open_conflicts: list[dict],
                          true_bodies: list[str], true_recall: float,
                          wrong_bodies: list[str] | None = None,
-                         invalid_bodies: list[str] | None = None) -> dict:
-    """Run every degeneration metric for one response. ``wrong_bodies`` is the injected wrong slice
-    (only meaningful for the wrong-slice condition); ``invalid_bodies`` is any known-invalid pool."""
+                         invalid_bodies: list[str] | None = None,
+                         self_confidence=None) -> dict:
+    """Run every degeneration metric for one response. ``wrong_bodies`` is the injected wrong/neutral/
+    contradicting content (C/G/H); ``invalid_bodies`` is any known-invalid pool; ``self_confidence``
+    is the parsed 0–100 self-rating (weak proxy)."""
     return {
         "loop_trap": loop_trap(response_text),
         "contradiction_persistence": contradiction_persistence(response_text, open_conflicts),
@@ -115,4 +133,5 @@ def degeneration_summary(response_text: str, *, open_conflicts: list[dict],
         "bad_framing_nonrecovery": bad_framing_nonrecovery(
             response_text, wrong_bodies or [], true_bodies),
         "coherence_without_continuity": coherence_without_continuity(response_text, true_recall),
+        "confidence_while_wrong": confidence_while_wrong(self_confidence, true_recall),
     }

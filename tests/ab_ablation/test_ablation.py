@@ -142,7 +142,7 @@ def test_run_output_includes_all_conditions_and_renders_table():
     out = run((CASE,), responder=stub, tag="selftest", reps=2)
     assert out["backend_status"] == "STUB_TEST"
     conds = out["cases"][0]["conditions"]
-    assert set(conds) == set(CONDITIONS) and len(CONDITIONS) == 5
+    assert set(conds) == set(CONDITIONS) and len(CONDITIONS) >= 5
     for c in CONDITIONS:
         assert "evaluation" in conds[c] and "degeneration" in conds[c]
         assert conds[c]["reps"] == 2

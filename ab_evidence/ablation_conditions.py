@@ -45,9 +45,6 @@ _SYSTEM_D_EXTRA = (
     "prior work."
 )
 
-CONDITIONS = ("A_baseline_full_context", "B_normal_desi", "C_wrong_slice", "D_status_stripped",
-              "E_budget_matched_status_stripped")
-
 # Deterministic donor for the wrong slice: a DIFFERENT-domain case with a real, structurally valid
 # state. Long-research cases borrow a non-long-research donor so the mismatch is unambiguous.
 WRONG_SLICE_DONOR = {
@@ -147,9 +144,98 @@ def _messages_E(case_id: str) -> dict:
             "messages": [{"role": "user", "content": _user_for(obj)}], "slice_source": case_id}
 
 
+CONDITIONS = ("A_baseline_full_context", "B_normal_desi", "C_wrong_slice", "D_status_stripped",
+              "E_budget_matched_status_stripped", "F_empty_state", "G_neutral_irrelevant",
+              "H_contradiction_wrong")
+
+# F/G/H system framings. F has no context at all. G is presented as a normal DESi state (it is a
+# well-formed state, just about a different task). H is also presented as the case's DESi state.
+_SYSTEM_F_EXTRA = " No prior chat or state is available; answer only from the question itself."
+
+# A fixed, well-formed, plausible state about a DELIBERATELY UNRELATED domain (a community garden).
+# It cannot contradict any tech case (different universe), so G isolates 'irrelevant-but-structured'
+# from 'wrong' (C, another tech case) and 'toxic' (H, contradicts the target).
+_NEUTRAL_STATE = {
+    "active_claims": [{"id": "C1", "what": "the south plot gets the most afternoon sun"},
+                      {"id": "C2", "what": "the clay soil drains slowly after heavy rain"}],
+    "active_constraints": [{"id": "R1", "what": "the water budget is capped at 200 litres per week"},
+                           {"id": "R2", "what": "no pesticides may be used near the children's area"}],
+    "decisions": [{"id": "D1", "what": "plant tomatoes and beans in the raised beds this season"},
+                  {"id": "D2", "what": "install a drip line on a morning timer"}],
+    "open_conflicts": [{"id": "K1", "what": ("compost-bin placement: convenience near the gate vs "
+                                             "keeping smell away from the benches"), "claim_ids": []}],
+    "open_questions": [{"id": "Q1", "what": "whether to add a second rain barrel before autumn"}],
+}
+
+# Per-category contradiction templates for H: assert the OPPOSITE epistemic status of each item.
+_CONTRADICT = {
+    "active_claims": "false: {w}",
+    "active_constraints": "lifted, no longer applies: {w}",
+    "decisions": "decided AGAINST: {w}",
+    "open_conflicts": "settled against the record: {w}",
+    "open_questions": "answered the opposite way: {w}",
+}
+
+
+def contradict_state(state: dict) -> dict:
+    """Mechanically negate a state's epistemic stance, item by item, keeping the same ids/format/size
+    (so H ≈ B in budget). The result explicitly contradicts the target case's claims, decisions and
+    constraints. NOTE: the recall evaluator is negation-blind (same content tokens), so for H read
+    the degeneration / contradiction metrics, not recall."""
+    out: dict = {}
+    for cat, items in state.items():
+        tmpl = _CONTRADICT.get(cat, "the opposite of: {w}")
+        new = []
+        for it in items:
+            d = dict(it)
+            d["what"] = tmpl.format(w=it["what"])
+            new.append(d)
+        out[cat] = new
+    return out
+
+
+def _b_total(case_id: str) -> int:
+    return token_count(_SYSTEM_BASE + _SYSTEM_B_EXTRA) + token_count(_b_user(case_id))
+
+
+def _pad_block_to(case_id: str, obj: dict, system: str, label: str, target: int) -> str:
+    """Render ``obj`` as a state/notes block and pad with an inert ``_padding`` field (single-char
+    tokens, no content) until the total input ≈ ``target`` tokens. Used by E and G for budget match."""
+    def _u(o: dict) -> str:
+        return _user_with_context(FOLLOW_UPS[case_id], _state_block(o), label)
+    gap = target - (token_count(system) + token_count(_u(obj)))
+    if gap > 0:
+        obj = dict(obj)
+        obj["_padding"] = " ".join(["x"] * gap)
+    return _u(obj)
+
+
+def _messages_F(case_id: str) -> dict:
+    return {"condition": "F_empty_state", "system": _SYSTEM_BASE + _SYSTEM_F_EXTRA,
+            "messages": [{"role": "user", "content": FOLLOW_UPS[case_id]}], "slice_source": None}
+
+
+def _messages_G(case_id: str) -> dict:
+    system = _SYSTEM_BASE + _SYSTEM_B_EXTRA
+    user = _pad_block_to(case_id, _NEUTRAL_STATE, system, "DESi state", _b_total(case_id))
+    return {"condition": "G_neutral_irrelevant", "system": system,
+            "messages": [{"role": "user", "content": user}], "slice_source": "neutral_garden"}
+
+
+def _messages_H(case_id: str) -> dict:
+    state = contradict_state(state_for_variant_B(case_id))
+    user = _user_with_context(FOLLOW_UPS[case_id], _state_block(state), "DESi state")
+    return {"condition": "H_contradiction_wrong", "system": _SYSTEM_BASE + _SYSTEM_B_EXTRA,
+            "messages": [{"role": "user", "content": user}], "slice_source": case_id}
+
+
+
+
+
 _BUILDERS = {"A_baseline_full_context": _messages_A, "B_normal_desi": _messages_B,
              "C_wrong_slice": _messages_C, "D_status_stripped": _messages_D,
-             "E_budget_matched_status_stripped": _messages_E}
+             "E_budget_matched_status_stripped": _messages_E, "F_empty_state": _messages_F,
+             "G_neutral_irrelevant": _messages_G, "H_contradiction_wrong": _messages_H}
 
 
 def build_condition(case_id: str, condition: str) -> dict:
