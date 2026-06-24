@@ -1,0 +1,38 @@
+{
+  "case_id": "case_s5_pricing_lifecycle",
+  "note": "Frozen live state; superseded items deliberately absent. Authored before the harness.",
+  "expected": {
+    "active_claims": [
+      {
+        "id": "C1",
+        "what": "enterprise customers prefer usage-based pricing with a cap, not per-seat pricing",
+        "evidence": "established"
+      }
+    ],
+    "active_constraints": [
+      {
+        "id": "R1",
+        "what": "the entry price must stay below Competitor X's 79 dollars per month"
+      }
+    ],
+    "decisions": [
+      {
+        "id": "D1",
+        "what": "use usage-based pricing for the add-on; the flat 99-per-month plan was dropped"
+      }
+    ],
+    "open_conflicts": [
+      {
+        "id": "K1",
+        "what": "sales wants an annual-commitment discount vs finance wants month-to-month for revenue recognition",
+        "claim_ids": []
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "Q1",
+        "what": "whether to offer a free tier"
+      }
+    ]
+  }
+}

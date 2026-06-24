@@ -1,0 +1,55 @@
+{
+  "id": "case_s5_pricing_lifecycle",
+  "type": "pricing_lifecycle",
+  "description": "Lifecycle case (pricing decision) with a reversed decision and a ruled-out/deprecated item; the chat contains the superseded content, the live state does not.",
+  "chat": [
+    {
+      "role": "user",
+      "content": "How should we price the new analytics add-on?"
+    },
+    {
+      "role": "assistant",
+      "content": "A simple flat 99 dollars per month per account is easiest to sell."
+    },
+    {
+      "role": "user",
+      "content": "Two big customers said flat pricing punishes light users and blocks expansion."
+    },
+    {
+      "role": "assistant",
+      "content": "Then change it: the decision is usage-based pricing, not the flat 99 per month. Flat pricing is dropped."
+    },
+    {
+      "role": "user",
+      "content": "Sales claims enterprises only want per-seat pricing. Right?"
+    },
+    {
+      "role": "assistant",
+      "content": "We ruled that out — the enterprise interviews showed they prefer usage-based too, with a cap. Per-seat is not what they asked for."
+    },
+    {
+      "role": "user",
+      "content": "Any hard requirement?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes: the entry price must stay below Competitor X's 79 dollars per month."
+    },
+    {
+      "role": "user",
+      "content": "Where's the disagreement?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sales wants an annual commitment discount; finance wants month-to-month to protect revenue recognition. Open."
+    },
+    {
+      "role": "user",
+      "content": "Anything still undecided?"
+    },
+    {
+      "role": "assistant",
+      "content": "Whether to offer a free tier at all — undecided. So: usage-based pricing, enterprises want usage not seats, must stay under 79, commitment-discount conflict and free-tier question open."
+    }
+  ]
+}

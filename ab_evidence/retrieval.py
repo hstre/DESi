@@ -104,6 +104,38 @@ def _tfidf_cosine_scores(chunks, query):
     return scores
 
 
+_EMBEDDER = None
+
+
+def _embedder():
+    """Lazy, fail-closed neural embedder (fastembed BAAI/bge-small-en-v1.5). None if unavailable."""
+    global _EMBEDDER
+    if _EMBEDDER is None:
+        try:
+            from fastembed import TextEmbedding
+            _EMBEDDER = TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
+        except Exception:  # noqa: BLE001 - no embedder installed -> R2n simply unavailable
+            _EMBEDDER = False
+    return _EMBEDDER or None
+
+
+def neural_available() -> bool:
+    return _embedder() is not None
+
+
+def _neural_scores(chunks, query):
+    emb = _embedder()
+    vecs = [[float(x) for x in v] for v in emb.embed(list(chunks) + [query])]
+    q = vecs[-1]
+    qn = math.sqrt(sum(x * x for x in q)) or 1.0
+    out = []
+    for v in vecs[:-1]:
+        dot = sum(a * b for a, b in zip(v, q, strict=False))
+        vn = math.sqrt(sum(a * a for a in v)) or 1.0
+        out.append(dot / (vn * qn))
+    return out
+
+
 def _rank(scores):
     # indices sorted by score desc, ties broken by original order (stable, deterministic)
     return sorted(range(len(scores)), key=lambda i: (-scores[i], i))
@@ -132,6 +164,8 @@ def build_retrieval(case_id: str, method: str, *, target_tokens: int) -> dict:
         ranked = _rank(_bm25_scores(chunks, query))
     elif method == "R2_tfidf":
         ranked = _rank(_tfidf_cosine_scores(chunks, query))
+    elif method == "R2n_neural":
+        ranked = _rank(_neural_scores(chunks, query))
     elif method == "R3_hybrid":
         r1 = {i: r for r, i in enumerate(_rank(_bm25_scores(chunks, query)))}
         r2 = {i: r for r, i in enumerate(_rank(_tfidf_cosine_scores(chunks, query)))}

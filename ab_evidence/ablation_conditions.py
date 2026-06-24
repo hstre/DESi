@@ -58,6 +58,12 @@ WRONG_SLICE_DONOR = {
     "case7b_padded_60k": "case2_research",
     "case_s1_lifecycle": "case3_debugging",
     "case_s2_lifecycle": "case1_architecture",
+    "case_s3_ml_lifecycle": "case2_research",
+    "case_s4_incident_lifecycle": "case1_architecture",
+    "case_s5_pricing_lifecycle": "case3_debugging",
+    "case_s6_pipeline_lifecycle": "case2_research",
+    "case_s7_security_lifecycle": "case1_architecture",
+    "case_s8_mobile_lifecycle": "case3_debugging",
 }
 
 _STATE_ORDER = ("active_claims", "active_constraints", "decisions", "open_conflicts",
@@ -102,6 +108,17 @@ def _b_user(case_id: str) -> str:
 def _messages_B(case_id: str) -> dict:
     return {"condition": "B_normal_desi", "system": _SYSTEM_BASE + _SYSTEM_B_EXTRA,
             "messages": [{"role": "user", "content": _b_user(case_id)}], "slice_source": case_id}
+
+
+def b_payload_from_state(case_id: str, state: dict) -> dict:
+    """Format an ARBITRARY state (e.g. an auto-extracted one) as a B-style DESi slice. Used by the
+    B_auto_constructed condition so its only difference from B is WHERE the state came from."""
+    user = _user_with_context(FOLLOW_UPS[case_id], _state_block(state), "DESi state")
+    payload = {"condition": "B_auto_constructed", "system": _SYSTEM_BASE + _SYSTEM_B_EXTRA,
+               "messages": [{"role": "user", "content": user}], "slice_source": "auto_extracted",
+               "case_id": case_id, "n_messages": 1}
+    payload["input_token_estimate"] = token_count(payload["system"]) + token_count(user)
+    return payload
 
 
 def _messages_C(case_id: str) -> dict:

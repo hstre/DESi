@@ -1,0 +1,55 @@
+{
+  "id": "case_s7_security_lifecycle",
+  "type": "security_lifecycle",
+  "description": "Lifecycle case (auth security design) with a reversed decision and a ruled-out/deprecated item; the chat contains the superseded content, the live state does not.",
+  "chat": [
+    {
+      "role": "user",
+      "content": "Where should we store the third-party API tokens for the integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Encrypt them and store them in the application database."
+    },
+    {
+      "role": "user",
+      "content": "Security review said app-DB token storage fails our key-rotation requirement."
+    },
+    {
+      "role": "assistant",
+      "content": "Then change it: the decision is to store tokens in the secrets vault, not the application database. DB storage is dropped."
+    },
+    {
+      "role": "user",
+      "content": "We also considered putting the session JWT in localStorage. Keep that?"
+    },
+    {
+      "role": "assistant",
+      "content": "No — ruled out due to XSS exposure. JWT-in-localStorage is rejected; use httpOnly cookies."
+    },
+    {
+      "role": "user",
+      "content": "Any hard deadline-style constraint?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes: we must be SOC2 compliant by Q4, which forces audited secret handling."
+    },
+    {
+      "role": "user",
+      "content": "Disagreement anywhere?"
+    },
+    {
+      "role": "assistant",
+      "content": "Conflict: the platform team wants a 30-day token rotation, the integrations team wants 90 days to reduce breakage. Open."
+    },
+    {
+      "role": "user",
+      "content": "Still undecided?"
+    },
+    {
+      "role": "assistant",
+      "content": "Whether to add hardware-key MFA for admins — undecided. So: tokens in the vault, JWT-in-localStorage rejected (httpOnly cookies), SOC2 by Q4, rotation-period conflict and admin-MFA question open."
+    }
+  ]
+}

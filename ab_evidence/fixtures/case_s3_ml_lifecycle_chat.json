@@ -1,0 +1,55 @@
+{
+  "id": "case_s3_ml_lifecycle",
+  "type": "ml_lifecycle",
+  "description": "Lifecycle case (model-training effort) with a reversed decision and a ruled-out/deprecated item; the chat contains the superseded content, the live state does not.",
+  "chat": [
+    {
+      "role": "user",
+      "content": "We're picking the architecture for the churn model. Thoughts?"
+    },
+    {
+      "role": "assistant",
+      "content": "Start with gradient boosting (XGBoost); it's strong on tabular churn data."
+    },
+    {
+      "role": "user",
+      "content": "We trained XGBoost and a small MLP. The MLP beat it by 4 AUC points on the holdout."
+    },
+    {
+      "role": "assistant",
+      "content": "Then switch: the decision is to use the MLP, not XGBoost. XGBoost is dropped as the primary model."
+    },
+    {
+      "role": "user",
+      "content": "Someone said our gains came from just adding more training data. True?"
+    },
+    {
+      "role": "assistant",
+      "content": "No. We ruled that out — adding more rows didn't move AUC; the gain came from fixing label noise in the churn definition."
+    },
+    {
+      "role": "user",
+      "content": "What's the hard limit on training?"
+    },
+    {
+      "role": "assistant",
+      "content": "Initially one GPU. But after the MLP, we relaxed it: two GPUs are approved for training runs."
+    },
+    {
+      "role": "user",
+      "content": "Any disagreement on serving?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, open: the ML team wants real-time serving, the platform team wants nightly batch scoring. Unresolved."
+    },
+    {
+      "role": "user",
+      "content": "And still open beyond that?"
+    },
+    {
+      "role": "assistant",
+      "content": "Whether to quantize the MLP to int8 for serving — undecided. So: MLP chosen, label-noise fix is the real driver, two GPUs allowed, serving conflict and quantization open."
+    }
+  ]
+}

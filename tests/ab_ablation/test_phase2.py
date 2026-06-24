@@ -90,6 +90,38 @@ def test_lifecycle_cases_build_and_set_the_supersession_trap():
         assert all(s not in b["messages"][0]["content"].lower() for s in stale)  # B excludes it
 
 
+def test_auto_state_parse_normalises_to_categories():
+    import auto_state
+    raw = ('here is the state {"decisions": [{"id": "D1", "what": "use streaming"}], '
+           '"active_claims": ["schema drift is real"], "open_questions": []} done')
+    st = auto_state._parse(raw)
+    assert set(st) == {"active_claims", "active_constraints", "decisions", "open_conflicts",
+                       "open_questions"}
+    assert st["decisions"][0]["what"] == "use streaming"
+    assert st["active_claims"][0]["what"] == "schema drift is real"   # bare string normalised
+    assert st["active_constraints"] == [] and st["open_questions"] == []
+    assert auto_state._parse("no json here") == {k: [] for k in st}    # malformed -> empty, not crash
+
+
+def test_b_payload_from_state_is_b_styled():
+    from ablation_conditions import b_payload_from_state
+    state = {"decisions": [{"id": "D1", "what": "use the vault"}], "active_claims": [],
+             "active_constraints": [], "open_conflicts": [], "open_questions": []}
+    p = b_payload_from_state(CASE, state)
+    assert p["condition"] == "B_auto_constructed" and p["slice_source"] == "auto_extracted"
+    assert "use the vault" in p["messages"][0]["content"] and p["input_token_estimate"] > 0
+
+
+def test_neural_retriever_when_available():
+    import retrieval
+    if not retrieval.neural_available():
+        import pytest
+        pytest.skip("no neural embedder installed")
+    b = build_condition(CASE, "B_normal_desi")["input_token_estimate"]
+    p = build_retrieval(CASE, "R2n_neural", target_tokens=b)
+    assert p["input_token_estimate"] <= b and "Retrieved excerpts" in p["messages"][0]["content"]
+
+
 def test_run_emits_all_conditions_and_persistence_with_stub():
     def stub(system, messages):
         # echoes a fixed answer + a confidence line; deterministic

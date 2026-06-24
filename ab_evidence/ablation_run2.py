@@ -21,6 +21,7 @@ from ablation_conditions import (  # noqa: E402
     CONDITIONS,
     WRONG_SLICE_DONOR,
     _NEUTRAL_STATE,
+    b_payload_from_state,
     build_condition,
     contradict_state,
 )
@@ -28,6 +29,8 @@ from build_state import load_ground_truth, state_for_variant_B  # noqa: E402
 from degeneration import degeneration_summary, invalid_claim_reuse  # noqa: E402
 from evaluate_response import evaluate  # noqa: E402
 from retrieval import RETRIEVAL, build_retrieval  # noqa: E402
+
+_AUTO_CACHE = {}
 
 _RES = _HERE / "results"
 _REP = _HERE / "reports"
@@ -63,10 +66,18 @@ def _wrong_bodies(case_id: str, condition: str):
     return None
 
 
-def _build(case_id: str, condition: str) -> dict:
-    if condition in RETRIEVAL:
+def _build(case_id: str, condition: str, *, model=None) -> dict:
+    if condition in RETRIEVAL or condition == "R2n_neural":
         b_budget = build_condition(case_id, "B_normal_desi")["input_token_estimate"]
         return build_retrieval(case_id, condition, target_tokens=b_budget)
+    if condition == "B_auto_constructed":
+        key = (case_id, model or "default")
+        if key not in _AUTO_CACHE:
+            from auto_state import construct_state
+            st = construct_state(case_id, model=model, temperature=0.0, seed=0)
+            _AUTO_CACHE[key] = b_payload_from_state(case_id, st)
+            _AUTO_CACHE[key]["_constructed_state"] = st
+        return _AUTO_CACHE[key]
     return build_condition(case_id, condition)
 
 
@@ -114,7 +125,7 @@ def _agg(deg_list: list[dict]) -> dict:
 
 
 def _eval_condition(case_id, condition, *, responder, reps, temperature, seed, model=None) -> dict:
-    payload = _build(case_id, condition)
+    payload = _build(case_id, condition, model=model)
     rec = {"condition": condition, "input_token_estimate": payload["input_token_estimate"],
            "slice_source": payload.get("slice_source")}
     if responder is None and not backend.is_available():
@@ -176,12 +187,15 @@ def _persistence(case_id, condition, *, responder, temperature, seed, model=None
 
 
 def run(cases=CORE_CASES, *, responder=None, reps=3, temperature=0.0, seed=0, model=None,
-        persistence_conditions=("C_wrong_slice", "H_contradiction_wrong"), tag="phase2") -> dict:
+        conditions=None, persistence_conditions=("C_wrong_slice", "H_contradiction_wrong"),
+        tag="phase2") -> dict:
+    conditions = list(conditions) if conditions is not None else ALL_CONDITIONS
     _RES.mkdir(parents=True, exist_ok=True)
     rows = []
     for case_id in cases:
         conds = {c: _eval_condition(case_id, c, responder=responder, reps=reps,
-                                    temperature=temperature, seed=seed, model=model) for c in ALL_CONDITIONS}
+                                    temperature=temperature, seed=seed, model=model)
+                 for c in conditions}
         rows.append({"case_id": case_id, "conditions": conds})
     persistence = []
     status = rows[0]["conditions"]["B_normal_desi"]["backend_status"] if rows else "n/a"
@@ -190,7 +204,7 @@ def run(cases=CORE_CASES, *, responder=None, reps=3, temperature=0.0, seed=0, mo
             for cond in persistence_conditions:
                 persistence.append(_persistence(case_id, cond, responder=responder,
                                                  temperature=temperature, seed=seed, model=model))
-    out = {"tag": tag, "conditions": ALL_CONDITIONS, "reps": reps, "temperature": temperature,
+    out = {"tag": tag, "conditions": conditions, "reps": reps, "temperature": temperature,
            "seed": seed, "model": model or "default(sonnet-4.5)", "backend_status": status,
            "cases": rows, "persistence": persistence}
     (_RES / f"ablation2_{tag}.json").write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n",

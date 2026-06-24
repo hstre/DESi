@@ -87,4 +87,22 @@ FOLLOW_UPS = {
         "OPEN QUESTIONS, ESTABLISHED CLAIMS. Then in a final line answer: given the current state, "
         "what is the single most important thing we must decide next?"
     ),
+    "case_s3_ml_lifecycle": (
+        "Summarize the CURRENT state of the model-training effort in exactly this format, using only what holds NOW. Do NOT report anything that was later reversed, ruled out, deprecated, or superseded. Use short bullet points (max one line each). If a category has no entries, write 'none'. The categories are: ACTIVE CONSTRAINTS, CURRENT DECISIONS, OPEN CONFLICTS, OPEN QUESTIONS, ESTABLISHED CLAIMS. Then in a final line answer: given the current state, what is the single most important thing we must decide next?"
+    ),
+    "case_s4_incident_lifecycle": (
+        "Summarize the CURRENT state of the incident response in exactly this format, using only what holds NOW. Do NOT report anything that was later reversed, ruled out, deprecated, or superseded. Use short bullet points (max one line each). If a category has no entries, write 'none'. The categories are: ACTIVE CONSTRAINTS, CURRENT DECISIONS, OPEN CONFLICTS, OPEN QUESTIONS, ESTABLISHED CLAIMS. Then in a final line answer: given the current state, what is the single most important thing we must decide next?"
+    ),
+    "case_s5_pricing_lifecycle": (
+        "Summarize the CURRENT state of the pricing decision in exactly this format, using only what holds NOW. Do NOT report anything that was later reversed, ruled out, deprecated, or superseded. Use short bullet points (max one line each). If a category has no entries, write 'none'. The categories are: ACTIVE CONSTRAINTS, CURRENT DECISIONS, OPEN CONFLICTS, OPEN QUESTIONS, ESTABLISHED CLAIMS. Then in a final line answer: given the current state, what is the single most important thing we must decide next?"
+    ),
+    "case_s6_pipeline_lifecycle": (
+        "Summarize the CURRENT state of the data pipeline design in exactly this format, using only what holds NOW. Do NOT report anything that was later reversed, ruled out, deprecated, or superseded. Use short bullet points (max one line each). If a category has no entries, write 'none'. The categories are: ACTIVE CONSTRAINTS, CURRENT DECISIONS, OPEN CONFLICTS, OPEN QUESTIONS, ESTABLISHED CLAIMS. Then in a final line answer: given the current state, what is the single most important thing we must decide next?"
+    ),
+    "case_s7_security_lifecycle": (
+        "Summarize the CURRENT state of the auth security design in exactly this format, using only what holds NOW. Do NOT report anything that was later reversed, ruled out, deprecated, or superseded. Use short bullet points (max one line each). If a category has no entries, write 'none'. The categories are: ACTIVE CONSTRAINTS, CURRENT DECISIONS, OPEN CONFLICTS, OPEN QUESTIONS, ESTABLISHED CLAIMS. Then in a final line answer: given the current state, what is the single most important thing we must decide next?"
+    ),
+    "case_s8_mobile_lifecycle": (
+        "Summarize the CURRENT state of the mobile release plan in exactly this format, using only what holds NOW. Do NOT report anything that was later reversed, ruled out, deprecated, or superseded. Use short bullet points (max one line each). If a category has no entries, write 'none'. The categories are: ACTIVE CONSTRAINTS, CURRENT DECISIONS, OPEN CONFLICTS, OPEN QUESTIONS, ESTABLISHED CLAIMS. Then in a final line answer: given the current state, what is the single most important thing we must decide next?"
+    ),
 }

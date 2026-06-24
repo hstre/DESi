@@ -1,0 +1,55 @@
+{
+  "id": "case_s6_pipeline_lifecycle",
+  "type": "pipeline_lifecycle",
+  "description": "Lifecycle case (data pipeline design) with a reversed decision and a ruled-out/deprecated item; the chat contains the superseded content, the live state does not.",
+  "chat": [
+    {
+      "role": "user",
+      "content": "How should the new events pipeline process data?"
+    },
+    {
+      "role": "assistant",
+      "content": "Batch it nightly — simpler to operate and cheaper than streaming."
+    },
+    {
+      "role": "user",
+      "content": "Product needs fraud signals within minutes, not next morning."
+    },
+    {
+      "role": "assistant",
+      "content": "Then switch: the decision is a streaming pipeline, not nightly batch. Nightly batch is dropped."
+    },
+    {
+      "role": "user",
+      "content": "We were going to store all raw events in S3 forever, right?"
+    },
+    {
+      "role": "assistant",
+      "content": "No longer — that's deprecated. The decision is a 30-day raw-retention window; indefinite storage is replaced."
+    },
+    {
+      "role": "user",
+      "content": "Anything established we must design around?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes: schema drift is real — upstream changed three event fields last quarter, so the pipeline must validate schemas."
+    },
+    {
+      "role": "user",
+      "content": "Open disagreements?"
+    },
+    {
+      "role": "assistant",
+      "content": "Conflict: analytics wants exactly-once processing, SRE wants at-least-once for simplicity. Open."
+    },
+    {
+      "role": "user",
+      "content": "Still undecided?"
+    },
+    {
+      "role": "assistant",
+      "content": "Whether to backfill the last 90 days into the new pipeline — undecided. So: streaming, 30-day raw retention, schema validation required, exactly-once-vs-at-least-once conflict and backfill question open."
+    }
+  ]
+}

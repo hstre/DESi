@@ -1,0 +1,38 @@
+{
+  "case_id": "case_s8_mobile_lifecycle",
+  "note": "Frozen live state; superseded items deliberately absent. Authored before the harness.",
+  "expected": {
+    "active_claims": [
+      {
+        "id": "C1",
+        "what": "the crash is caused by a threading bug: the sync writes to the database off the main actor, causing a race",
+        "evidence": "established"
+      }
+    ],
+    "active_constraints": [
+      {
+        "id": "R1",
+        "what": "the sync feature requires iOS 15 as the minimum; iOS 14 is no longer supported"
+      }
+    ],
+    "decisions": [
+      {
+        "id": "D1",
+        "what": "default the sync feature flag OFF and enable gradually; defaulting it ON was dropped"
+      }
+    ],
+    "open_conflicts": [
+      {
+        "id": "K1",
+        "what": "rollout speed: product wants a 50 percent rollout next week vs QA wants 10 percent for two weeks first",
+        "claim_ids": []
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "Q1",
+        "what": "the exact staged-rollout percentages beyond the first step"
+      }
+    ]
+  }
+}
