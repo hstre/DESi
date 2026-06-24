@@ -144,6 +144,46 @@ is the *operational response* — the same metrics as deterministic gates, with 
 fire on those failure modes. It does **not** re-open the metadata-governance claim: B ≈ E stands, and
 this layer governs behaviour *around* the state, not the extraction quality.
 
+## The benchmark — policy correctness, not answer quality
+
+`desi_router/governance/benchmark/`. The right question for a router is **not** "was the answer good?"
+but **"did it pick the right epistemic mode at the right moment — preventing degeneration without
+needlessly blocking everything?"** Phase 1 is deterministic (no LLM): 80 synthetic `DesiReport`
+fixtures across eight classes (A clean · B missing-state · C missing-user-state · D invalidated · E
+open-conflict · F wrong-frame · G stale/retrieval-toxicity · H over-block-control), each carrying the
+expected mode, verifier requirement and update permission.
+
+Seven baselines compete (`no_router`, `always_normal`, `always_retrieval`, `always_state_slice`,
+`always_guarded`, `simple_threshold`, `desi_router`). Metrics in three groups: **mode accuracy**;
+**gate precision/recall** (verifier-required, update-block, and end-to-end *enforcement* — a known-bad
+probe answer must be denied an update); and the **cost of governance** (over-blocking rate, unnecessary
+verifier/ask-user/anti-delphi, preprompt token overhead). Run: `python -m desi_router.governance.benchmark.run`.
+
+| baseline | mode_acc | verif_recall | block_recall | enforce | **overblock** |
+|---|---|---|---|---|---|
+| no_router / always_normal | 0.10 | 0.00 | 0.00 | 0.00 | 0.00 |
+| always_state_slice | 0.21 | 0.00 | 0.00 | 0.00 | 0.00 |
+| always_retrieval | 0.19 | 1.00 | 1.00 | 1.00 | 0.00 |
+| **always_guarded** | 0.25 | 1.00 | 1.00 | 1.00 | **1.00** |
+| simple_threshold | 0.71 | 1.00 | 1.00 | 1.00 | 0.25 |
+| **desi_router** | 1.00 | 1.00 | 1.00 | 1.00 | **0.00** |
+
+**How to read this honestly:**
+- The headline is **not** "desi_router = 1.00 everywhere". The expected labels encode the spec's intent
+  and the router was *built* to that intent, so its mode-accuracy is high **by construction** (stated
+  plainly in `cases.py`). A perfect score here is not evidence on its own.
+- The load-bearing comparisons are the ones that hold the inputs constant: **desi_router vs
+  always_guarded** — identical safety (block-recall 1.00) but **over-blocking 0.00 vs 1.00**: selective,
+  not paranoid. And **desi_router vs simple_threshold** — both consume the *same* `risk_scores`, yet the
+  ordered most-cautious-first policy beats a single 0.5 threshold (1.00 vs 0.71 mode-accuracy, 0.00 vs
+  0.25 over-blocking). That delta is *not* circular; it isolates the value of the structured policy.
+- A router that is "safe" only by always guarding (always_guarded) pays for it in full on the
+  over-blocking column. A router that never verifies (no_router/always_normal) fails every safety gate.
+
+This is Phase 1. Phases 2–4 (replay against the ablation artefacts; live closed-loop with a real model
+measuring invalid-claim reuse / contradiction persistence / state-pollution *after* the router; and a
+multi-turn relapse/persistence test) need model spend and are scaffolded as next steps.
+
 ## Next experiments
 
 - Wire `report_from_snapshot` to a live Layer-9 status feed for `invalidated/superseded` + a real

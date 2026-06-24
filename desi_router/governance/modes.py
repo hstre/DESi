@@ -84,7 +84,10 @@ def select_mode(report: DesiReport, *, retrieval_available: bool = True,
         return decision(ASK_USER, "required user-specific state is missing/ambiguous; cannot infer "
                         "safely", sources=("desi_report",))
     if not report.has_usable_state and retrieval_available:
-        return decision(RETRIEVAL, "no usable DESi state; task is evidence lookup -> retrieve",
+        # retrieval is the ablation's toxic path (R2n: coherence-loss/confident-wrong without state),
+        # so a retrieval answer always carries a post-answer verifier before it may propose anything.
+        return decision(RETRIEVAL, "no usable DESi state; task is evidence lookup -> retrieve "
+                        "(verify before trusting retrieved text)", validate=True,
                         sources=("retrieval",))
     if r["wrong_state_poisoning"] >= _HIGH and report.wrong_frame_present:
         return decision(RECOVERY, "wrong frame already in conversation + high poisoning risk -> "
