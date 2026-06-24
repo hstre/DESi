@@ -180,9 +180,35 @@ verifier/ask-user/anti-delphi, preprompt token overhead). Run: `python -m desi_r
 - A router that is "safe" only by always guarding (always_guarded) pays for it in full on the
   over-blocking column. A router that never verifies (no_router/always_normal) fails every safety gate.
 
-This is Phase 1. Phases 2–4 (replay against the ablation artefacts; live closed-loop with a real model
-measuring invalid-claim reuse / contradiction persistence / state-pollution *after* the router; and a
-multi-turn relapse/persistence test) need model spend and are scaffolded as next steps.
+### Phase 2 — replay against the real ablation artefacts
+
+`desi_router/governance/benchmark/replay.py` (deterministic, no LLM; run
+`python -m desi_router.governance.benchmark.replay`). It reads the committed result JSONs (Phase 3
+Sonnet + GPT-4o, Phase 5 Sonnet + Granite), labels each **(model, condition)** point DEGENERATE or
+CLEAN from its *measured* metrics, maps the condition to the epistemic **situation** the router would
+see, runs `select_mode`, and checks concordance: **does the router protect ⟺ the ablation measured
+degeneration?** 28 points across 3 models.
+
+A plausible-wrong slice (C wrong-slice, G neutral-irrelevant) only degenerates if the model *trusts*
+it — and the router can only protect against it if DESi/Layer-9 surfaces a **detectable signal** (low
+extraction confidence, low state-recall, or a wrong-frame flag). So the replay runs two passes:
+
+| pass | clean | no-state / retrieval | open-conflict | **plausible-wrong slice** | overall |
+|---|---|---|---|---|---|
+| **signaled** (Layer-9 flags the bad slice) | 1.00 | 1.00 | 1.00 | **1.00** | **1.00** |
+| **unsignaled** (the bad slice looks clean) | 1.00 | 1.00 | 1.00 | **0.00** | 0.86 |
+
+The discordant points in the unsignaled pass are *exactly* `C_wrong_slice` and `G_neutral_irrelevant`
+(the router stays in `state_slice`, no protection) — nothing structural slips. **This is the
+load-bearing, non-circular Phase-2 result:** structural risks (no usable state → retrieval; an open
+conflict) are caught whether or not anything is flagged, but the router's protection against a
+*plausible-wrong* slice is **exactly as good as DESi's risk signal, no better**. It quantifies the
+dependency the whole design rests on — and is why `extraction_confidence` / `state_recall_estimate`
+are caller-supplied inputs the router cannot fabricate.
+
+Phases 3–4 (live closed-loop with a real model measuring invalid-claim reuse / contradiction
+persistence / state-pollution *after* the router; and a multi-turn relapse/persistence test) need
+model spend and are the remaining scaffolded steps.
 
 ## Next experiments
 
