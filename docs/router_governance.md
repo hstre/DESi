@@ -272,6 +272,44 @@ degeneration metrics trustworthy**; the rule verifier is a fast deterministic ga
 measure. That split — deterministic gate at runtime, semantic judge for evaluation — is the design
 that holds.
 
+## The state-integrity layer — closing the blind spot the benchmark found
+
+`state_integrity.py` + `benchmark/hard_cases.py`. Phase 2 showed the router's one real blind spot:
+it protects against a plausible-wrong slice **only when DESi/Layer-9 signals it**. The honest response
+is not a cleverer router — it is a better *signal*. This layer is DESi's diagnosis step **before** the
+router acts: it reads structural facts only (Layer-9 invalid/supersede status, provenance, conflict
+scope, relevance) and emits `state_integrity ∈ {clean, stale, contradictory, suspicious, irrelevant,
+uncertain}` + `state_mismatch_risk`, which map to router inputs. Every check is deterministic — *LLM
+for language, rules for logic*; no model decides integrity. It sits where `report.py` sits (a read-only
+projection of DESi diagnostics), so "DESi diagnoses, the router acts" and the Layer-9 boundary hold.
+
+**The honest design rule is the whole point:** it never certifies the slice is *correct*. A `clean`
+verdict means "no structural red flag fired" (`basis = no_flag`) — absence of evidence, not proof. The
+blind spot is **split**, not pretended away:
+
+- **Reducible** — a deterministic signal exists (status / provenance / scope / relevance). Converted to
+  a real signal; the router protects.
+- **Irreducible** — a slice that matches provenance, is relevant, carries no Layer-9 status and
+  contradicts nothing is undetectable here by construction. The only honest move is *calibrated
+  caution* when ANY secondary doubt exists (low/unknown confidence, borderline relevance) → `uncertain`
+  → guarded; if there is genuinely no signal at all, it is an **acknowledged miss**, not a silent one.
+
+13 hard fixtures encode exactly the cases DESi/router need (multi-supersession, wrong-slice near-miss,
+user-overlay, conflict-closure, stale-retrieval with **and** without a status signal, plausible-wrong
+fully-matching). Each is tagged `deterministic` or `irreducible`. The closure result:
+
+| share | closure | n |
+|---|---|---|
+| **deterministic blind spot** | **1.00** | 8 |
+| irreducible (closed only via calibrated caution) | 0.33 | 3 |
+| clean controls (no over-blocking) | 1.00 | 2 |
+
+Honest misses: `SR3_nosignal`, `PW1_plausible` — a fully plausible, fully matching, high-confidence
+wrong slice with no Layer-9 contradiction. **By construction, not oversight.** The layer *shrinks* the
+blind spot to exactly the part that is unsolvable without an external authority, and makes that part
+visible. (This does not re-open the metadata claim — B ≈ E stands; the layer uses metadata to *route*,
+not to claim recall.) Run: `python -m desi_router.governance.benchmark.hard_cases`.
+
 ## Next experiments
 
 - Wire `report_from_snapshot` to a live Layer-9 status feed for `invalidated/superseded` + a real
