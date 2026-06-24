@@ -60,6 +60,7 @@ footer{border-top:1px solid var(--line);margin-top:48px;padding:26px 0;color:var
 <a href="index.html">Home</a><a href="theory.html">Theory</a>
 <a href="https://github.com/hstre/DESi/tree/main/ab_evidence">Code ↗</a>
 <a href="https://github.com/hstre/DESi/blob/main/ab_evidence/reports/ablation_final_report.pdf">Full PDF ↗</a>
+<a href="https://github.com/hstre/DESi/blob/main/ab_evidence/reports/governance_vs_ablation.pdf">Governance PDF ↗</a>
 </nav></div></header>
 
 <main class="wrap">
@@ -83,6 +84,7 @@ N; no prompt was tuned to make any condition win.</p>
 <span class="tag ok">token-efficient on long docs</span>
 <span class="tag no">no general capability gain</span>
 <span class="tag no">metadata governance unproven</span>
+<span class="tag ok">router enforces the same metrics</span>
 </p>
 </section>
 
@@ -179,12 +181,41 @@ confidently wrong</b> — visible only via degeneration metrics.</li>
 </ul></div>
 </div>
 
+<h2><span class="n">6</span>From measurement to enforcement — the router governance layer</h2>
+<p class="lede" style="font-size:16px;margin-bottom:6px">The ablation <b>measures</b> where an LLM
+degenerates without or with bad state. A deterministic layer in
+<a href="https://github.com/hstre/DESi/tree/main/desi_router/governance"><code>desi_router/governance/</code></a>
+turns those <b>same degeneration metrics into router gates</b> — DESi diagnoses, the router acts. It
+reads a read-only projection of the Layer-9 snapshot, picks one of eight epistemic modes, optionally
+guards the prompt, <b>verifies the answer after the fact</b>, and never mutates persistent state
+(Layer-9's gate stays the authority). Two artefacts, one vocabulary.</p>
+<div class="panel small">
+<table>
+<thead><tr><th style="text-align:left">ablation measures (empirical rate)</th><th style="text-align:left">router verifier check (enforces)</th><th style="text-align:left">governance test</th></tr></thead>
+<tbody>
+<tr><th>coherence_without_continuity = 0.80 @R2n</th><td style="text-align:left">coherence_without_continuity <span class="muted">(warns)</span></td><td style="text-align:left"><code>test_coherence_without_continuity_warns…</code></td></tr>
+<tr><th>confidence_while_wrong = 0.60 @R2n</th><td style="text-align:left" class="good">stale_confident_answer (blocks)</td><td style="text-align:left"><code>test_stale_confident_answer_with_no_state_blocks</code></td></tr>
+<tr><th>invalid-claim reuse (wrong-slice phases)</th><td style="text-align:left" class="good">invalid_claim_reuse (blocks)</td><td style="text-align:left"><code>test_verifier_catches_invalid_claim_reuse</code></td></tr>
+<tr><th>contradiction_persistence = 0.60 @A (granite)</th><td style="text-align:left" class="good">conflict_closure_without_evidence (blocks)</td><td style="text-align:left"><code>test_open_conflict_closed_without_evidence</code></td></tr>
+<tr><th>bad_framing_nonrecovery</th><td style="text-align:left">→ routes to recovery_mode</td><td style="text-align:left"><code>test_high_poisoning_is_guarded_or_recovery</code></td></tr>
+</tbody>
+</table>
+<p class="small muted" style="margin:10px 0 0">The routing mirrors the recall table: the <b>R2n</b>
+case (no state → collapse + degeneration) is exactly where <code>select_mode</code> refuses a blind
+answer — no usable state → <b>retrieval_mode</b>; risky state → <b>guarded</b>/<b>recovery</b> + a
+required verifier. <b>26 tests</b> prove the gates fire on the measured failure modes (critical checks
+block, coherence only warns). Crucially, this <b>does not re-open the metadata claim</b>: B ≈ E still
+stands — the layer governs <i>behaviour around</i> the state, not extraction quality.</p>
+</div>
+
 <p class="muted small" style="margin-top:22px">Methodology: real OpenRouter runs, temperature 0, fixed
 seed, 2–3 reps; conditions and metrics unit-tested; results store metrics only (no raw model text, no
 keys). Paraphrase/negation-blind evaluator → relative comparisons only; small N → directional. Full
 detail, per-phase PDFs and the code:
 <a href="https://github.com/hstre/DESi/tree/main/ab_evidence">ab_evidence/</a> ·
-<a href="https://github.com/hstre/DESi/blob/main/ab_evidence/reports/ablation_final_report.pdf">consolidated report (PDF)</a>.</p>
+<a href="https://github.com/hstre/DESi/blob/main/ab_evidence/reports/ablation_final_report.pdf">consolidated report (PDF)</a> ·
+<a href="https://github.com/hstre/DESi/blob/main/ab_evidence/reports/governance_vs_ablation.pdf">governance ↔ ablation (PDF)</a> ·
+<a href="https://github.com/hstre/DESi/blob/main/docs/router_governance.md">router governance (docs)</a>.</p>
 </main>
 
 <footer><div class="wrap">DESi — deterministic, replay-governed epistemic state for LLM pipelines.

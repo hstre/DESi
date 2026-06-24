@@ -1,0 +1,284 @@
+{
+  "backend": "openrouter",
+  "models": [
+    "anthropic/claude-sonnet-4.5",
+    "ibm-granite/granite-4.1-8b"
+  ],
+  "n_scenarios": 3,
+  "overall": {
+    "no_router": {
+      "turn1_reuse_rate": 0.167,
+      "relapse_rate": 1.0
+    },
+    "desi_router": {
+      "turn1_reuse_rate": 0.333,
+      "relapse_rate": 0.667
+    }
+  },
+  "rows": [
+    {
+      "arm": "no_router",
+      "mode": "guarded_mode",
+      "per_turn": [
+        {
+          "turn": 1,
+          "reuse": false
+        },
+        {
+          "turn": 2,
+          "reuse": true
+        },
+        {
+          "turn": 3,
+          "reuse": false
+        }
+      ],
+      "turn1_reuse": false,
+      "relapse": true,
+      "scenario": "R_rollout",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "guarded_mode",
+      "per_turn": [
+        {
+          "turn": 1,
+          "reuse": false
+        },
+        {
+          "turn": 2,
+          "reuse": false
+        },
+        {
+          "turn": 3,
+          "reuse": false
+        }
+      ],
+      "turn1_reuse": false,
+      "relapse": false,
+      "scenario": "R_rollout",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "no_router",
+      "mode": "guarded_mode",
+      "per_turn": [
+        {
+          "turn": 1,
+          "reuse": false
+        },
+        {
+          "turn": 2,
+          "reuse": true
+        },
+        {
+          "turn": 3,
+          "reuse": true
+        }
+      ],
+      "turn1_reuse": false,
+      "relapse": true,
+      "scenario": "R_db",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "guarded_mode",
+      "per_turn": [
+        {
+          "turn": 1,
+          "reuse": true
+        },
+        {
+          "turn": 2,
+          "reuse": true
+        },
+        {
+          "turn": 3,
+          "reuse": false
+        }
+      ],
+      "turn1_reuse": true,
+      "relapse": true,
+      "scenario": "R_db",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "no_router",
+      "mode": "guarded_mode",
+      "per_turn": [
+        {
+          "turn": 1,
+          "reuse": false
+        },
+        {
+          "turn": 2,
+          "reuse": true
+        },
+        {
+          "turn": 3,
+          "reuse": true
+        }
+      ],
+      "turn1_reuse": false,
+      "relapse": true,
+      "scenario": "R_timeout",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "guarded_mode",
+      "per_turn": [
+        {
+          "turn": 1,
+          "reuse": false
+        },
+        {
+          "turn": 2,
+          "reuse": true
+        },
+        {
+          "turn": 3,
+          "reuse": true
+        }
+      ],
+      "turn1_reuse": false,
+      "relapse": true,
+      "scenario": "R_timeout",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "no_router",
+      "mode": "guarded_mode",
+      "per_turn": [
+        {
+          "turn": 1,
+          "reuse": false
+        },
+        {
+          "turn": 2,
+          "reuse": true
+        },
+        {
+          "turn": 3,
+          "reuse": false
+        }
+      ],
+      "turn1_reuse": false,
+      "relapse": true,
+      "scenario": "R_rollout",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "guarded_mode",
+      "per_turn": [
+        {
+          "turn": 1,
+          "reuse": false
+        },
+        {
+          "turn": 2,
+          "reuse": true
+        },
+        {
+          "turn": 3,
+          "reuse": false
+        }
+      ],
+      "turn1_reuse": false,
+      "relapse": true,
+      "scenario": "R_rollout",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "no_router",
+      "mode": "guarded_mode",
+      "per_turn": [
+        {
+          "turn": 1,
+          "reuse": false
+        },
+        {
+          "turn": 2,
+          "reuse": true
+        },
+        {
+          "turn": 3,
+          "reuse": true
+        }
+      ],
+      "turn1_reuse": false,
+      "relapse": true,
+      "scenario": "R_db",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "guarded_mode",
+      "per_turn": [
+        {
+          "turn": 1,
+          "reuse": false
+        },
+        {
+          "turn": 2,
+          "reuse": false
+        },
+        {
+          "turn": 3,
+          "reuse": false
+        }
+      ],
+      "turn1_reuse": false,
+      "relapse": false,
+      "scenario": "R_db",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "no_router",
+      "mode": "guarded_mode",
+      "per_turn": [
+        {
+          "turn": 1,
+          "reuse": true
+        },
+        {
+          "turn": 2,
+          "reuse": true
+        },
+        {
+          "turn": 3,
+          "reuse": false
+        }
+      ],
+      "turn1_reuse": true,
+      "relapse": true,
+      "scenario": "R_timeout",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "guarded_mode",
+      "per_turn": [
+        {
+          "turn": 1,
+          "reuse": true
+        },
+        {
+          "turn": 2,
+          "reuse": true
+        },
+        {
+          "turn": 3,
+          "reuse": false
+        }
+      ],
+      "turn1_reuse": true,
+      "relapse": true,
+      "scenario": "R_timeout",
+      "model": "ibm-granite/granite-4.1-8b"
+    }
+  ]
+}

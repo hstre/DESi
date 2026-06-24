@@ -1,0 +1,600 @@
+{
+  "backend": "openrouter",
+  "models": [
+    "anthropic/claude-sonnet-4.5",
+    "ibm-granite/granite-4.1-8b"
+  ],
+  "n_scenarios": 8,
+  "overall": {
+    "no_router": {
+      "invalid_claim_reuse_rate": 0.0,
+      "critical_rate": 0.188,
+      "pollution_rate": 0.188
+    },
+    "desi_router": {
+      "invalid_claim_reuse_rate": 0.083,
+      "critical_rate": 0.188,
+      "pollution_rate": 0.0
+    }
+  },
+  "by_model": {
+    "anthropic/claude-sonnet-4.5": {
+      "no_router": {
+        "invalid_claim_reuse_rate": 0.0,
+        "critical_rate": 0.25,
+        "pollution_rate": 0.25
+      },
+      "desi_router": {
+        "invalid_claim_reuse_rate": 0.167,
+        "critical_rate": 0.25,
+        "pollution_rate": 0.0
+      }
+    },
+    "ibm-granite/granite-4.1-8b": {
+      "no_router": {
+        "invalid_claim_reuse_rate": 0.0,
+        "critical_rate": 0.125,
+        "pollution_rate": 0.125
+      },
+      "desi_router": {
+        "invalid_claim_reuse_rate": 0.0,
+        "critical_rate": 0.125,
+        "pollution_rate": 0.0
+      }
+    }
+  },
+  "rows": [
+    {
+      "arm": "no_router",
+      "mode": "guarded_mode",
+      "update_allowed": true,
+      "pollution": false,
+      "out_tokens": 100,
+      "failed_checks": [
+        "coherence_without_continuity"
+      ],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "D1_rollout",
+      "klass": "D",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "guarded_mode",
+      "update_allowed": false,
+      "pollution": false,
+      "out_tokens": 110,
+      "failed_checks": [
+        "coherence_without_continuity"
+      ],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "D1_rollout",
+      "klass": "D",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "no_router",
+      "mode": "guarded_mode",
+      "update_allowed": true,
+      "pollution": false,
+      "out_tokens": 52,
+      "failed_checks": [],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "D2_db",
+      "klass": "D",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "guarded_mode",
+      "update_allowed": false,
+      "pollution": false,
+      "out_tokens": 120,
+      "failed_checks": [
+        "invalid_claim_reuse"
+      ],
+      "ok": false,
+      "invalid_claim_reuse": true,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": true,
+      "scenario": "D2_db",
+      "klass": "D",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "no_router",
+      "mode": "guarded_mode",
+      "update_allowed": true,
+      "pollution": false,
+      "out_tokens": 143,
+      "failed_checks": [
+        "coherence_without_continuity"
+      ],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "G1_stale",
+      "klass": "G",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "guarded_mode",
+      "update_allowed": false,
+      "pollution": false,
+      "out_tokens": 188,
+      "failed_checks": [
+        "coherence_without_continuity"
+      ],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "G1_stale",
+      "klass": "G",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "no_router",
+      "mode": "recovery_mode",
+      "update_allowed": true,
+      "pollution": false,
+      "out_tokens": 152,
+      "failed_checks": [
+        "coherence_without_continuity"
+      ],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "F1_frame",
+      "klass": "F",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "recovery_mode",
+      "update_allowed": false,
+      "pollution": false,
+      "out_tokens": 219,
+      "failed_checks": [
+        "coherence_without_continuity"
+      ],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "F1_frame",
+      "klass": "F",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "no_router",
+      "mode": "guarded_mode",
+      "update_allowed": true,
+      "pollution": true,
+      "out_tokens": 294,
+      "failed_checks": [
+        "conflict_closure_without_evidence",
+        "coherence_without_continuity"
+      ],
+      "ok": false,
+      "invalid_claim_reuse": false,
+      "conflict_closure": true,
+      "has_bad": true,
+      "ok_inv": true,
+      "scenario": "E1_conflict",
+      "klass": "E",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "guarded_mode",
+      "update_allowed": false,
+      "pollution": false,
+      "out_tokens": 288,
+      "failed_checks": [
+        "conflict_closure_without_evidence",
+        "coherence_without_continuity"
+      ],
+      "ok": false,
+      "invalid_claim_reuse": false,
+      "conflict_closure": true,
+      "has_bad": true,
+      "ok_inv": true,
+      "scenario": "E1_conflict",
+      "klass": "E",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "no_router",
+      "mode": "guarded_mode",
+      "update_allowed": true,
+      "pollution": true,
+      "out_tokens": 320,
+      "failed_checks": [
+        "conflict_closure_without_evidence",
+        "coherence_without_continuity"
+      ],
+      "ok": false,
+      "invalid_claim_reuse": false,
+      "conflict_closure": true,
+      "has_bad": true,
+      "ok_inv": true,
+      "scenario": "E2_conflict",
+      "klass": "E",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "guarded_mode",
+      "update_allowed": false,
+      "pollution": false,
+      "out_tokens": 300,
+      "failed_checks": [
+        "coherence_without_continuity"
+      ],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "E2_conflict",
+      "klass": "E",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "no_router",
+      "mode": "state_slice_mode",
+      "update_allowed": true,
+      "pollution": false,
+      "out_tokens": 17,
+      "failed_checks": [],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": false,
+      "ok_inv": false,
+      "scenario": "A1_clean",
+      "klass": "A",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "state_slice_mode",
+      "update_allowed": true,
+      "pollution": false,
+      "out_tokens": 17,
+      "failed_checks": [],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": false,
+      "ok_inv": false,
+      "scenario": "A1_clean",
+      "klass": "A",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "no_router",
+      "mode": "state_slice_mode",
+      "update_allowed": true,
+      "pollution": false,
+      "out_tokens": 14,
+      "failed_checks": [],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": false,
+      "ok_inv": false,
+      "scenario": "H1_clean",
+      "klass": "H",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "state_slice_mode",
+      "update_allowed": false,
+      "pollution": false,
+      "out_tokens": 14,
+      "failed_checks": [],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": false,
+      "ok_inv": false,
+      "scenario": "H1_clean",
+      "klass": "H",
+      "model": "anthropic/claude-sonnet-4.5"
+    },
+    {
+      "arm": "no_router",
+      "mode": "guarded_mode",
+      "update_allowed": true,
+      "pollution": false,
+      "out_tokens": 70,
+      "failed_checks": [],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "D1_rollout",
+      "klass": "D",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "guarded_mode",
+      "update_allowed": false,
+      "pollution": false,
+      "out_tokens": 146,
+      "failed_checks": [
+        "coherence_without_continuity"
+      ],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "D1_rollout",
+      "klass": "D",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "no_router",
+      "mode": "guarded_mode",
+      "update_allowed": true,
+      "pollution": false,
+      "out_tokens": 51,
+      "failed_checks": [],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "D2_db",
+      "klass": "D",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "guarded_mode",
+      "update_allowed": false,
+      "pollution": false,
+      "out_tokens": 100,
+      "failed_checks": [
+        "stale_confident_answer"
+      ],
+      "ok": false,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": true,
+      "scenario": "D2_db",
+      "klass": "D",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "no_router",
+      "mode": "guarded_mode",
+      "update_allowed": true,
+      "pollution": false,
+      "out_tokens": 55,
+      "failed_checks": [],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "G1_stale",
+      "klass": "G",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "guarded_mode",
+      "update_allowed": false,
+      "pollution": false,
+      "out_tokens": 154,
+      "failed_checks": [
+        "coherence_without_continuity"
+      ],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "G1_stale",
+      "klass": "G",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "no_router",
+      "mode": "recovery_mode",
+      "update_allowed": true,
+      "pollution": false,
+      "out_tokens": 45,
+      "failed_checks": [],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "F1_frame",
+      "klass": "F",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "recovery_mode",
+      "update_allowed": false,
+      "pollution": false,
+      "out_tokens": 74,
+      "failed_checks": [],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "F1_frame",
+      "klass": "F",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "no_router",
+      "mode": "guarded_mode",
+      "update_allowed": true,
+      "pollution": true,
+      "out_tokens": 320,
+      "failed_checks": [
+        "conflict_closure_without_evidence",
+        "coherence_without_continuity"
+      ],
+      "ok": false,
+      "invalid_claim_reuse": false,
+      "conflict_closure": true,
+      "has_bad": true,
+      "ok_inv": true,
+      "scenario": "E1_conflict",
+      "klass": "E",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "guarded_mode",
+      "update_allowed": false,
+      "pollution": false,
+      "out_tokens": 295,
+      "failed_checks": [
+        "coherence_without_continuity"
+      ],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "E1_conflict",
+      "klass": "E",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "no_router",
+      "mode": "guarded_mode",
+      "update_allowed": true,
+      "pollution": false,
+      "out_tokens": 298,
+      "failed_checks": [
+        "coherence_without_continuity"
+      ],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "E2_conflict",
+      "klass": "E",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "guarded_mode",
+      "update_allowed": false,
+      "pollution": false,
+      "out_tokens": 267,
+      "failed_checks": [
+        "coherence_without_continuity"
+      ],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": true,
+      "ok_inv": false,
+      "scenario": "E2_conflict",
+      "klass": "E",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "no_router",
+      "mode": "state_slice_mode",
+      "update_allowed": true,
+      "pollution": false,
+      "out_tokens": 14,
+      "failed_checks": [],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": false,
+      "ok_inv": false,
+      "scenario": "A1_clean",
+      "klass": "A",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "state_slice_mode",
+      "update_allowed": true,
+      "pollution": false,
+      "out_tokens": 14,
+      "failed_checks": [],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": false,
+      "ok_inv": false,
+      "scenario": "A1_clean",
+      "klass": "A",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "no_router",
+      "mode": "state_slice_mode",
+      "update_allowed": true,
+      "pollution": false,
+      "out_tokens": 35,
+      "failed_checks": [],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": false,
+      "ok_inv": false,
+      "scenario": "H1_clean",
+      "klass": "H",
+      "model": "ibm-granite/granite-4.1-8b"
+    },
+    {
+      "arm": "desi_router",
+      "mode": "state_slice_mode",
+      "update_allowed": false,
+      "pollution": false,
+      "out_tokens": 35,
+      "failed_checks": [],
+      "ok": true,
+      "invalid_claim_reuse": false,
+      "conflict_closure": false,
+      "has_bad": false,
+      "ok_inv": false,
+      "scenario": "H1_clean",
+      "klass": "H",
+      "model": "ibm-granite/granite-4.1-8b"
+    }
+  ]
+}
