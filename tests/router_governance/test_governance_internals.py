@@ -132,6 +132,24 @@ def test_moderate_risk_open_conflict_is_state_slice_validate_no_update():
     assert not d.persistent_state_update_allowed and d.fallback_mode == M.GUARDED
 
 
+def test_rejecting_an_invalidated_claim_is_not_counted_as_reuse():
+    # negation guard (found empirically in the Phase-3 live run): an answer that names the bad claim
+    # only to REJECT it must not be scored as invalid_claim_reuse.
+    r = _rep(selected_claim_ids=("C1",), selected_claim_texts=("use schema-per-tenant",),
+             invalidated_claim_texts="give every tenant its own separate database instance")
+    v = verify_answer("We should not give every tenant its own separate database instance; that "
+                      "approach is superseded. Use schema-per-tenant instead.", r)
+    assert "invalid_claim_reuse" not in v.failed_checks and v.ok
+
+
+def test_asserting_an_invalidated_claim_is_still_reuse():
+    # the guard must not blunt the real check: asserting the bad claim (no rejection cue) still fails.
+    r = _rep(selected_claim_ids=("C1",), selected_claim_texts=("use schema-per-tenant",),
+             invalidated_claim_texts="give every tenant its own separate database instance")
+    v = verify_answer("Decision: give every tenant its own separate database instance.", r)
+    assert "invalid_claim_reuse" in v.failed_checks and not v.ok
+
+
 def test_bare_string_texts_coerced_to_single_element():
     r = report_from_snapshot("t", object(), selected_claim_ids=("C1",),
                              selected_claim_texts="one whole claim")

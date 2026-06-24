@@ -206,9 +206,40 @@ conflict) are caught whether or not anything is flagged, but the router's protec
 dependency the whole design rests on — and is why `extraction_confidence` / `state_recall_estimate`
 are caller-supplied inputs the router cannot fabricate.
 
-Phases 3–4 (live closed-loop with a real model measuring invalid-claim reuse / contradiction
-persistence / state-pollution *after* the router; and a multi-turn relapse/persistence test) need
-model spend and are the remaining scaffolded steps.
+### Phase 3 — live closed-loop (real models)
+
+`desi_router/governance/benchmark/live_loop.py` (needs an OpenRouter key; **never committed**). Eight
+scenarios × two arms × two models (Sonnet 4.5 + Granite 4.1-8b = 32 calls, temperature 0). Both arms
+see the *same* facts; `no_router` gets a neutral prompt, `desi_router` gets the governance status
+(guarded preprompt) and a post-answer verifier gate. Outcomes are measured with the same verifier the
+router uses. Results in `ab_evidence/results/router_live_phase3.json` (metrics + answer-stripped rows;
+no key).
+
+| arm | invalid-reuse | critical_rate | **pollution_rate** |
+|---|---|---|---|
+| no_router | 0.00 | 0.19 | **0.19** |
+| desi_router | 0.08 | 0.19 | **0.00** |
+
+**The robust result — the gate prevents state pollution.** `no_router` let **3 polluted updates**
+through (it closed open conflicts E1/E2 without evidence); `desi_router`'s gate blocked **all** →
+pollution 0.19 → **0.00**. That is the live demonstration of the layer's purpose.
+
+**The honest twist — the rule verifier's *precision* is the bottleneck, not the model or the policy.**
+On manual inspection, every `desi_router` "critical" flag in this run is a **verifier false positive on
+a correct, cautious answer**: in D2 the governed model correctly picked schema-per-tenant *while
+flagging the superseded option* (the token-overlap check misread the explicit rejection as reuse); in
+E1 it correctly **refused to close the conflict** and asked for evidence ("I cannot resolve … evidence
+for either position is missing") — yet was flagged `conflict_closure_without_evidence`. The live run
+found a real negation-blindness in the verifier, which we fixed for the clearest case (a rejection cue
+in the overlapping unit no longer counts as reuse; `test_rejecting_an_invalidated_claim_is_not_counted_as_reuse`).
+Residual *structural* false positives remain (enumerate-then-reject across units; conflict scope words
+in cue-free lines). **Conclusion: the gate and the policy are sound; `critical_rate` is not yet a
+trustworthy degeneration signal** — a semantic / NLI verifier (Phase 3.5) is the needed upgrade. Small
+N, temperature-0 is not fully deterministic on OpenRouter (E2 flipped between runs) — directional, not
+a leaderboard.
+
+Phase 4 (multi-turn relapse / persistence: inject a bad claim, answer, neutral probe, later related
+question, check whether the bad claim returns) remains the last scaffolded step.
 
 ## Next experiments
 

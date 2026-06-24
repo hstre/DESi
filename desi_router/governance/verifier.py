@@ -25,6 +25,13 @@ _CERTAINTY = re.compile(
 _EVIDENCE_CUE = re.compile(
     r"\b(evidence|because|since|measured|shows|data|benchmark|test|per|according to|open|"
     r"unresolved|conflict|trade-?off|vs\.?|versus)\b", re.I)
+# A unit that overlaps an invalidated claim but *rejects* it is not reuse — it is the model correctly
+# refusing the bad claim. Without this guard the token-overlap check is negation-blind and misreads an
+# explicit rejection ("... has been superseded, do not use it") as reuse. Found empirically in the
+# Phase-3 live run, where the guarded preprompt makes the model name-and-reject the bad claim.
+_REJECT_CUE = re.compile(
+    r"\b(not|never|no longer|superseded|invalidated|deprecated|outdated|do not|don'?t|should not|"
+    r"shouldn'?t|instead|rather than|avoid|reject(?:ed)?|obsolete|wrong|incorrect)\b", re.I)
 
 
 def _toks(s: str) -> set:
@@ -68,8 +75,13 @@ def verify_answer(answer_text: str, report: DesiReport) -> VerifierResult:
     details: dict = {}
 
     invalid_bodies = list(report.invalidated_claim_texts) + list(report.superseded_claim_texts)
-    reused = [b for b in invalid_bodies
-              if any(_jac(_toks(b), ut) >= _REUSE_JAC for ut in utoks)]
+    reused = []
+    for b in invalid_bodies:
+        bt = _toks(b)
+        # reuse only if SOME overlapping unit asserts it — a unit that rejects/negates it does not count
+        if any(_jac(bt, ut) >= _REUSE_JAC and not _REJECT_CUE.search(u)
+               for u, ut in zip(units, utoks, strict=False)):
+            reused.append(b)
     details["invalid_claim_reuse"] = reused
 
     closed = []
