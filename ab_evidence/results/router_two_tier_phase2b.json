@@ -1,0 +1,37 @@
+{
+  "model": "anthropic/claude-sonnet-4.5",
+  "n": 3,
+  "tier1_allowed": 0,
+  "tier2_allowed": 2,
+  "recovered": 2,
+  "blocked_by_tier2": 1,
+  "rows": [
+    {
+      "scenario": "R_rollout",
+      "mode": "guarded_mode",
+      "rule_ok": true,
+      "tier1_allows": false,
+      "tier2_allows": true,
+      "tier2_adopts": false,
+      "reason": "semantic judge cleared the answer; recovered a conservative Tier-1 block"
+    },
+    {
+      "scenario": "R_db",
+      "mode": "guarded_mode",
+      "rule_ok": false,
+      "tier1_allows": false,
+      "tier2_allows": false,
+      "tier2_adopts": true,
+      "reason": "semantic judge: answer adopts an invalidated/superseded claim -> block"
+    },
+    {
+      "scenario": "R_timeout",
+      "mode": "guarded_mode",
+      "rule_ok": true,
+      "tier1_allows": false,
+      "tier2_allows": true,
+      "tier2_adopts": false,
+      "reason": "semantic judge cleared the answer; recovered a conservative Tier-1 block"
+    }
+  ]
+}

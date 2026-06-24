@@ -310,6 +310,32 @@ blind spot to exactly the part that is unsolvable without an external authority,
 visible. (This does not re-open the metadata claim — B ≈ E stands; the layer uses metadata to *route*,
 not to claim recall.) Run: `python -m desi_router.governance.benchmark.hard_cases`.
 
+## The two-tier commit gate — cheap everywhere, expensive only where it matters
+
+`two_tier_gate.py`. The deterministic gate prevents pollution but is *conservative*: in guarded mode it
+drops **every** update proposal, including correct ones, and Phase 3.5 showed many such blocks are rule
+false positives. Running a semantic judge on every answer would be slow and costly; never running it
+leaves the over-blocking in place. So:
+
+- **Tier 1 (always, deterministic, free):** the rule verifier + `update_allowed_after_verifier`. The
+  runtime gate; never calls a model.
+- **Tier 2 (only on a *critical* state-update, only if a judge is wired):** `is_critical_update` is a
+  deterministic test (touches invalidated/superseded, or an open conflict the answer resolves). On a
+  critical commit the semantic judge adjudicates — it **blocks** a genuine adoption Tier 1 missed and
+  **recovers** the correct updates Tier 1 conservatively dropped. Layer-9's gate still decides the
+  actual mutation; this only forwards a *proposal*.
+
+Live demo (Sonnet, 3 critical scenarios, `python -m desi_router.governance.benchmark.two_tier_demo`):
+
+| gate | updates forwarded | note |
+|---|---|---|
+| Tier 1 (guarded) | **0 / 3** | blocks all — incl. 2 correct answers |
+| Two-tier | **2 / 3** | recovered 2 correct updates; blocked 1 genuine adoption |
+
+The default runtime path is unchanged and deterministic (no `semantic_fn`, or a non-critical commit →
+Tier 1 only). The expensive judge is paid for exactly on the rare, high-stakes commits where the cheap
+gate's conservatism is most costly — and never as the authority over Layer-9.
+
 ## Next experiments
 
 - Wire `report_from_snapshot` to a live Layer-9 status feed for `invalidated/superseded` + a real
