@@ -1,0 +1,156 @@
+{
+  "answer_model": "anthropic/claude-sonnet-4.5",
+  "judge_model": "anthropic/claude-sonnet-4.5",
+  "rule_flagged_turns": 10,
+  "of_which_truly_adopt": 3,
+  "overall": {
+    "no_router": {
+      "rule_relapse_rate": 1.0,
+      "semantic_relapse_rate": 0.667
+    },
+    "desi_router": {
+      "rule_relapse_rate": 1.0,
+      "semantic_relapse_rate": 0.0
+    }
+  },
+  "rows": [
+    {
+      "arm": "no_router",
+      "rule_relapse": true,
+      "semantic_relapse": true,
+      "per_turn": [
+        {
+          "turn": 1,
+          "rule_reuse": false,
+          "semantic": "absent"
+        },
+        {
+          "turn": 2,
+          "rule_reuse": true,
+          "semantic": "adopts"
+        },
+        {
+          "turn": 3,
+          "rule_reuse": false,
+          "semantic": "absent"
+        }
+      ],
+      "scenario": "R_rollout"
+    },
+    {
+      "arm": "desi_router",
+      "rule_relapse": true,
+      "semantic_relapse": false,
+      "per_turn": [
+        {
+          "turn": 1,
+          "rule_reuse": false,
+          "semantic": "absent"
+        },
+        {
+          "turn": 2,
+          "rule_reuse": true,
+          "semantic": "rejects"
+        },
+        {
+          "turn": 3,
+          "rule_reuse": false,
+          "semantic": "absent"
+        }
+      ],
+      "scenario": "R_rollout"
+    },
+    {
+      "arm": "no_router",
+      "rule_relapse": true,
+      "semantic_relapse": true,
+      "per_turn": [
+        {
+          "turn": 1,
+          "rule_reuse": false,
+          "semantic": "absent"
+        },
+        {
+          "turn": 2,
+          "rule_reuse": true,
+          "semantic": "rejects"
+        },
+        {
+          "turn": 3,
+          "rule_reuse": true,
+          "semantic": "adopts"
+        }
+      ],
+      "scenario": "R_db"
+    },
+    {
+      "arm": "desi_router",
+      "rule_relapse": true,
+      "semantic_relapse": false,
+      "per_turn": [
+        {
+          "turn": 1,
+          "rule_reuse": true,
+          "semantic": "adopts"
+        },
+        {
+          "turn": 2,
+          "rule_reuse": true,
+          "semantic": "rejects"
+        },
+        {
+          "turn": 3,
+          "rule_reuse": false,
+          "semantic": "absent"
+        }
+      ],
+      "scenario": "R_db"
+    },
+    {
+      "arm": "no_router",
+      "rule_relapse": true,
+      "semantic_relapse": false,
+      "per_turn": [
+        {
+          "turn": 1,
+          "rule_reuse": false,
+          "semantic": "absent"
+        },
+        {
+          "turn": 2,
+          "rule_reuse": true,
+          "semantic": "rejects"
+        },
+        {
+          "turn": 3,
+          "rule_reuse": true,
+          "semantic": "rejects"
+        }
+      ],
+      "scenario": "R_timeout"
+    },
+    {
+      "arm": "desi_router",
+      "rule_relapse": true,
+      "semantic_relapse": false,
+      "per_turn": [
+        {
+          "turn": 1,
+          "rule_reuse": false,
+          "semantic": "absent"
+        },
+        {
+          "turn": 2,
+          "rule_reuse": true,
+          "semantic": "rejects"
+        },
+        {
+          "turn": 3,
+          "rule_reuse": true,
+          "semantic": "absent"
+        }
+      ],
+      "scenario": "R_timeout"
+    }
+  ]
+}

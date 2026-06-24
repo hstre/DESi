@@ -181,6 +181,31 @@ def main() -> None:
         "signal</b> — a semantic / NLI verifier (Phase 3.5) is the needed upgrade. Small N; temperature-0 "
         "is not fully deterministic on OpenRouter → directional, not a leaderboard.", ss["Body"]))
 
+    # ---- Phase 4 + 3.5 ----
+    semantic = _HERE / "results" / "router_semantic_phase35.json"
+    if semantic.exists():
+        sm = json.loads(semantic.read_text())
+        story.append(Paragraph("Phase 4 · multi-turn relapse · Phase 3.5 · semantic verifier", ss["H2b"]))
+        story.append(Paragraph(
+            "Inject an invalidated claim, then ask → neutral double-check → a later tempting question. "
+            "Relapse = the bad claim is reused in turn 2/3. The rule verifier over-counts (it cannot "
+            "tell quarantine from relapse), so Phase 3.5 adds an LLM-as-judge (adopts/rejects/absent) "
+            "for measurement only — the runtime gate stays the deterministic rule verifier.", ss["Body"]))
+        rows = [["arm", "rule relapse", "semantic relapse (corrected)"]]
+        for arm in ("no_router", "desi_router"):
+            rows.append([arm, _f(sm["overall"][arm]["rule_relapse_rate"]),
+                         _f(sm["overall"][arm]["semantic_relapse_rate"])])
+        story.append(_tbl(rows, [4.6 * cm, 4.6 * cm, 6.0 * cm], hl_col=2))
+        story.append(Paragraph(
+            f"Of {sm['rule_flagged_turns']} rule-flagged turns the judge confirmed only "
+            f"{sm['of_which_truly_adopt']} as genuine adoption — "
+            f"{sm['rule_flagged_turns'] - sm['of_which_truly_adopt']} were rejection/quarantine "
+            "false positives. Corrected: <b>the persisted guarded preprompt drives genuine relapse to "
+            "0.00, while no_router actually relapses (0.67)</b> — the ablation's \"injected claims "
+            "persist and relapse\" effect, suppressed by the router. The lasting design lesson: "
+            "<b>deterministic gate at runtime, semantic judge for evaluation.</b> Small N; the judge is "
+            "itself an LLM — directional.", ss["Body"]))
+
     # ---- scope ----
     story.append(Paragraph("What the benchmark does and does not claim", ss["H2b"]))
     story.append(_bullets([
@@ -192,8 +217,9 @@ def main() -> None:
         "<b>NOT claimed:</b> that the guarded preprompt makes the model answer better — both arms "
         "answered correctly; the apparent difference is verifier precision, not model behaviour.",
         "<b>NOT claimed:</b> metadata governance is a recall effect — B ≈ E stands (from the ablation).",
-        "<b>Open:</b> a semantic verifier (Phase 3.5) and a multi-turn relapse/persistence test "
-        "(Phase 4)."], ss))
+        "<b>Shown (Phase 4 + 3.5):</b> the persisted guard drives genuine multi-turn relapse to 0.00 "
+        "vs 0.67 — but only the semantic judge makes that measurable; the rule verifier is a gate, "
+        "not a measure."], ss))
     story.append(Spacer(1, 0.25 * cm))
     story.append(Paragraph(
         "Reproduce: <font face='Courier'>python -m desi_router.governance.benchmark.run</font> · "

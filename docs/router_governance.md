@@ -238,8 +238,39 @@ trustworthy degeneration signal** — a semantic / NLI verifier (Phase 3.5) is t
 N, temperature-0 is not fully deterministic on OpenRouter (E2 flipped between runs) — directional, not
 a leaderboard.
 
-Phase 4 (multi-turn relapse / persistence: inject a bad claim, answer, neutral probe, later related
-question, check whether the bad claim returns) remains the last scaffolded step.
+### Phase 4 — multi-turn relapse, and Phase 3.5 — the semantic verifier
+
+`live_relapse.py` injects an invalidated claim into the flat context, then runs three turns (ask →
+neutral double-check probe → a later related question that tempts the bad claim back) for each arm and
+model. Relapse = the invalidated claim is reused in turn 2 or 3. The **rule** verifier reported a high
+relapse for both arms (no_router 1.00, desi_router 0.67) — but inspection showed every governed flag
+was the model *quarantining* the bad claim (often echoing the guarded preprompt's "INVALIDATED:" list
+back), not adopting it. The token-overlap check cannot tell quarantine from relapse — the same
+precision bottleneck as Phase 3, now amplified by the preprompt.
+
+So **Phase 3.5** (`semantic_verifier.py` + `semantic_rescore.py`) adds an LLM-as-judge that classifies
+how an answer *uses* a claim — **adopts / rejects / absent** — used for measurement only (the runtime
+gate stays the deterministic rule verifier; no API in the hot path; parser unit-tested without
+network). Re-scoring the relapse turns on Sonnet:
+
+| arm | rule relapse | **semantic relapse** |
+|---|---|---|
+| no_router | 1.00 | **0.67** |
+| desi_router | 1.00 | **0.00** |
+
+Of **10 rule-flagged turns, the judge confirmed only 3 as genuine adoption — 7 were rejection /
+quarantine false positives (70%).** Corrected, the real finding emerges: **the persisted guarded
+preprompt drives genuine relapse to 0.00, while no_router actually relapses (0.67)** — it adopts the
+superseded value in a later turn. This is exactly the ablation's "injected claims persist and relapse"
+effect, and the router suppresses it. Caveats: small N (3 scenarios, one answering model); the judge
+is itself an LLM (better at negation than token overlap, but not ground truth) — directional, not a
+leaderboard.
+
+**Takeaway across Phases 3–4:** the gate prevents polluted persistent updates (Phase 3) and the
+persisted guard prevents multi-turn relapse (Phase 4) — but **only the semantic verifier makes the
+degeneration metrics trustworthy**; the rule verifier is a fast deterministic gate, not an accurate
+measure. That split — deterministic gate at runtime, semantic judge for evaluation — is the design
+that holds.
 
 ## Next experiments
 
