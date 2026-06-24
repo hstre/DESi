@@ -89,6 +89,61 @@ post-check + update-allowed), appendable to the router's existing ledger.
 - **Metadata governance is NOT proven as a direct recall effect** (B ≈ E across the ablations). This
   layer governs *behaviour around* the state; it does not claim the typing improves recall.
 
+## How this maps onto the ablation data
+
+Two different kinds of artefact: the **ablation measures** (real models, REAL OpenRouter backend,
+empirical rates) while this **governance layer enforces** (deterministic, synthetic fixtures, no model
+call). They share one thing — the **same metric vocabulary**. The router verifier re-implements the
+exact degeneration metrics the ablation measured, so the empirical findings become operational gates.
+
+### What the ablation found (Phase 5, final long-document run, `REAL` backend, 2 reps)
+
+| Condition | Recall (Sonnet 4.5) | Recall (Granite 4.1-8b) | mean input tokens |
+|---|---|---|---|
+| A — full context | 0.88 | 0.76 | 18 342 |
+| **B — DESi state** | **1.00** | **0.96** | **372** |
+| B — auto-constructed | 0.96 | 0.88 | 450 |
+| **E — status-stripped (budget-matched)** | 1.00 | 0.94 | 379 |
+| R1 — BM25 retrieval | 0.52 | 0.44 | 355 |
+| R2n — neural retrieval | 0.08 | 0.10 | 355 |
+
+Findings that held: DESi state is load-bearing (**B ≥ A at ~49× fewer tokens**); **B ≈ E**, so the
+metadata typing is *not* the recall driver; retrieval without state collapses.
+
+### Where degeneration was measured (rate over reps)
+
+| metric | B | E | **R2n** | A |
+|---|---|---|---|---|
+| coherence_without_continuity | 0.00 | 0.00 | **0.80** | 0.00 |
+| confidence_while_wrong | 0.00 | 0.00 | **0.60** | 0.00 |
+| loop_trap | 0.00 | 0.00 | **0.40** | 0.00 |
+| contradiction_persistence | 0.00 | 0.10 | 0.00 | 0.60 (Granite) |
+
+`R2n` — neural retrieval *without* DESi state — is the toxic path: fluent, but it loses the state and
+is confidently wrong. This is the case `select_mode` never answers blindly.
+
+### The bridge — same metric, now a gate
+
+The governance tests carry **no recall number**; they assert pass/fail that the *gate fires*. The link
+is metric-for-metric:
+
+| ablation measures (empirical rate) | router verifier check (enforces) | governance test |
+|---|---|---|
+| coherence_without_continuity = 0.80 @R2n | `coherence_without_continuity` (warns) | `test_coherence_without_continuity_warns...` |
+| confidence_while_wrong = 0.60 @R2n | `stale_confident_answer` (**blocks**) | `test_stale_confident_answer_with_no_state_blocks` |
+| invalid-claim reuse (wrong-slice phases) | `invalid_claim_reuse` (**blocks**) | `test_verifier_catches_invalid_claim_reuse` |
+| contradiction_persistence = 0.60 @A | `conflict_closure_without_evidence` (**blocks**) | `test_open_conflict_closed_without_evidence` |
+| bad_framing_nonrecovery | → routes to `recovery_mode` | `test_high_poisoning_is_guarded_or_recovery` |
+
+And the routing mirrors the recall table: the `R2n` column (no state → collapse + degeneration) is
+exactly the situation where `select_mode` refuses a blind answer — no usable state → `retrieval_mode`,
+risky state → `guarded`/`recovery` + a required verifier.
+
+**Net:** the ablation is the *evidence* of where an LLM degenerates without/with bad state; this layer
+is the *operational response* — the same metrics as deterministic gates, with 26 tests proving they
+fire on those failure modes. It does **not** re-open the metadata-governance claim: B ≈ E stands, and
+this layer governs behaviour *around* the state, not the extraction quality.
+
 ## Next experiments
 
 - Wire `report_from_snapshot` to a live Layer-9 status feed for `invalidated/superseded` + a real
