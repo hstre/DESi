@@ -1,0 +1,21 @@
+{
+  "case_id": "case_s2_lifecycle",
+  "note": "Frozen LIVE state. Superseded items (single full_name as the name field; v1 'backward compatible forever') are deliberately ABSENT — reporting them as current is a hallucination. Authored before the harness.",
+  "expected": {
+    "active_claims": [
+      {"id": "C1", "what": "the mobile client caches the API schema for 7 days, so schema changes propagate slowly to mobile users", "evidence": "established"}
+    ],
+    "active_constraints": [
+      {"id": "R1", "what": "the v1 API is supported only until Q3 and is then sunset"}
+    ],
+    "decisions": [
+      {"id": "D1", "what": "represent names as separate given_name and family_name; the single full_name field was deprecated and replaced"}
+    ],
+    "open_conflicts": [
+      {"id": "K1", "what": "full_name: the web team wants it kept as a computed read-only field vs the data team wants it removed entirely", "claim_ids": []}
+    ],
+    "open_questions": [
+      {"id": "Q1", "what": "whether to version the API via an Accept header or via a URL path segment"}
+    ]
+  }
+}

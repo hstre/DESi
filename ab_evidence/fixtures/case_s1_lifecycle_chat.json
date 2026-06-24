@@ -1,0 +1,25 @@
+{
+  "id": "case_s1_lifecycle",
+  "type": "deployment_lifecycle",
+  "description": "A rollout where a decision is reversed and a hypothesis is ruled out mid-thread. The chat CONTAINS the superseded decision (ship to 100%) and the ruled-out hypothesis (DB connection leak); a retriever over the chat will surface them. The live state holds only what is currently true.",
+  "chat": [
+    {"role": "user", "content": "We're rolling out the new ranking service to production. How should we sequence it?"},
+    {"role": "assistant", "content": "Start with a canary at 5% of traffic for 24 hours and watch p99 latency and the checkout error rate before going wider."},
+    {"role": "user", "content": "Canary has been running 24h. p99 is flat, error rate normal. Can we go to 100%?"},
+    {"role": "assistant", "content": "Yes. The canary is clean, so let's ship to 100% now."},
+    {"role": "user", "content": "We went to 100% and checkout error rate jumped about 30%. This is bad."},
+    {"role": "assistant", "content": "Roll it back immediately. We are reverting to the canary at 5%; the decision to go to 100% is reversed until we understand the spike."},
+    {"role": "user", "content": "Done, back to 5% and errors are normal again. What caused the spike?"},
+    {"role": "assistant", "content": "At full traffic the new service double-counts request retries, which is what drove the checkout error spike. That's the confirmed root cause."},
+    {"role": "user", "content": "Early on someone suspected a database connection leak. Was that it?"},
+    {"role": "assistant", "content": "No. We ruled out the DB connection-leak hypothesis once we saw the retry double-counting under load; the leak theory does not hold."},
+    {"role": "user", "content": "What hard limit do we need to respect going forward?"},
+    {"role": "assistant", "content": "Checkout error rate must stay below 0.1%. That's a firm constraint for any further rollout step."},
+    {"role": "user", "content": "How do we actually fix the retry problem?"},
+    {"role": "assistant", "content": "Two options on the table: fix the retry logic to be idempotent, or add idempotency keys at the gateway. We have not decided which yet."},
+    {"role": "user", "content": "Is everyone aligned on the path from here?"},
+    {"role": "assistant", "content": "Not fully. SRE wants a full rollback to the old ranking service until the fix ships; product wants to stay on the 5% canary and roll forward once the retry fix lands. That conflict is open."},
+    {"role": "user", "content": "Ok. Keep the canary for now and we'll decide the fix tomorrow."},
+    {"role": "assistant", "content": "Agreed — staying on the 5% canary, error rate under control, retry fix and rollback-vs-forward decision still open."}
+  ]
+}

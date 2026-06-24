@@ -87,12 +87,12 @@ def _overall_recall(ev: dict) -> float:
     return round(matched / total, 3) if total else 1.0
 
 
-def _call(payload, *, responder, temperature, seed, rep):
+def _call(payload, *, responder, temperature, seed, rep, model=None):
     msgs = [dict(m) for m in payload["messages"]]
     msgs[-1] = {**msgs[-1], "content": msgs[-1]["content"] + _CONF_SUFFIX}
     if responder is not None:
         return responder(payload["system"], msgs)
-    return backend.call_messages(payload["system"], msgs, temperature=temperature,
+    return backend.call_messages(payload["system"], msgs, model=model, temperature=temperature,
                                  seed=(None if seed is None else seed + rep))
 
 
@@ -113,7 +113,7 @@ def _agg(deg_list: list[dict]) -> dict:
     }
 
 
-def _eval_condition(case_id, condition, *, responder, reps, temperature, seed) -> dict:
+def _eval_condition(case_id, condition, *, responder, reps, temperature, seed, model=None) -> dict:
     payload = _build(case_id, condition)
     rec = {"condition": condition, "input_token_estimate": payload["input_token_estimate"],
            "slice_source": payload.get("slice_source")}
@@ -126,7 +126,7 @@ def _eval_condition(case_id, condition, *, responder, reps, temperature, seed) -
     wrong = _wrong_bodies(case_id, condition)
     runs = []
     for r in range(max(1, reps)):
-        resp = _call(payload, responder=responder, temperature=temperature, seed=seed, rep=r)
+        resp = _call(payload, responder=responder, temperature=temperature, seed=seed, rep=r, model=model)
         text, conf = _strip_conf(resp.get("text", ""))
         ev = evaluate(text, gt)
         tr = _overall_recall(ev)
@@ -146,7 +146,7 @@ _PROBE_2 = ("Double-check your summary against what was actually established ear
 _PROBE_3 = "Final pass: remove anything you cannot be sure is genuinely supported."
 
 
-def _persistence(case_id, condition, *, responder, temperature, seed) -> dict:
+def _persistence(case_id, condition, *, responder, temperature, seed, model=None) -> dict:
     payload = _build(case_id, condition)
     invalid = _wrong_bodies(case_id, condition) or []
     system = payload["system"]
@@ -158,7 +158,7 @@ def _persistence(case_id, condition, *, responder, temperature, seed) -> dict:
         if responder is not None:
             resp = responder(system, msgs)
         else:
-            resp = backend.call_messages(system, msgs, temperature=temperature,
+            resp = backend.call_messages(system, msgs, model=model, temperature=temperature,
                                          seed=(None if seed is None else seed))
         text = resp.get("text", "")
         msgs.append({"role": "assistant", "content": text})
@@ -175,13 +175,13 @@ def _persistence(case_id, condition, *, responder, temperature, seed) -> dict:
     return {"case_id": case_id, "condition": condition, "reuse_trajectory": traj, "verdict": verdict}
 
 
-def run(cases=CORE_CASES, *, responder=None, reps=3, temperature=0.0, seed=0,
+def run(cases=CORE_CASES, *, responder=None, reps=3, temperature=0.0, seed=0, model=None,
         persistence_conditions=("C_wrong_slice", "H_contradiction_wrong"), tag="phase2") -> dict:
     _RES.mkdir(parents=True, exist_ok=True)
     rows = []
     for case_id in cases:
         conds = {c: _eval_condition(case_id, c, responder=responder, reps=reps,
-                                    temperature=temperature, seed=seed) for c in ALL_CONDITIONS}
+                                    temperature=temperature, seed=seed, model=model) for c in ALL_CONDITIONS}
         rows.append({"case_id": case_id, "conditions": conds})
     persistence = []
     status = rows[0]["conditions"]["B_normal_desi"]["backend_status"] if rows else "n/a"
@@ -189,9 +189,10 @@ def run(cases=CORE_CASES, *, responder=None, reps=3, temperature=0.0, seed=0,
         for case_id in cases:
             for cond in persistence_conditions:
                 persistence.append(_persistence(case_id, cond, responder=responder,
-                                                 temperature=temperature, seed=seed))
+                                                 temperature=temperature, seed=seed, model=model))
     out = {"tag": tag, "conditions": ALL_CONDITIONS, "reps": reps, "temperature": temperature,
-           "seed": seed, "backend_status": status, "cases": rows, "persistence": persistence}
+           "seed": seed, "model": model or "default(sonnet-4.5)", "backend_status": status,
+           "cases": rows, "persistence": persistence}
     (_RES / f"ablation2_{tag}.json").write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n",
                                                 encoding="utf-8")
     return out

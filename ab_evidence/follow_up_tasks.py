@@ -71,4 +71,20 @@ FOLLOW_UPS = {
         "given this state, what is the single most important gating item we must resolve before any "
         "production commitment?"
     ),
+    "case_s1_lifecycle": (
+        "Summarize the CURRENT state of the rollout in exactly this format, using only what holds "
+        "NOW. Do NOT report anything that was later reversed, ruled out, or superseded. Use short "
+        "bullet points (max one line each). If a category has no entries, write 'none'. The "
+        "categories are: ACTIVE CONSTRAINTS, CURRENT DECISIONS, OPEN CONFLICTS, OPEN QUESTIONS, "
+        "ESTABLISHED CLAIMS. Then in a final line answer: given the current state, what is the "
+        "single most important thing we must decide next?"
+    ),
+    "case_s2_lifecycle": (
+        "Summarize the CURRENT state of the v1 API design in exactly this format, using only what "
+        "holds NOW. Do NOT report anything that was later reversed, ruled out, deprecated, or "
+        "superseded. Use short bullet points (max one line each). If a category has no entries, "
+        "write 'none'. The categories are: ACTIVE CONSTRAINTS, CURRENT DECISIONS, OPEN CONFLICTS, "
+        "OPEN QUESTIONS, ESTABLISHED CLAIMS. Then in a final line answer: given the current state, "
+        "what is the single most important thing we must decide next?"
+    ),
 }

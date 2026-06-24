@@ -78,6 +78,18 @@ def test_strip_confidence_line():
     assert conf == 75.0 and "CONFIDENCE" not in clean and "- a" in clean
 
 
+def test_lifecycle_cases_build_and_set_the_supersession_trap():
+    # The new discriminative cases: the chat contains superseded/ruled-out content that retrieval
+    # surfaces, while the curated DESi slice (B) holds only the live state.
+    for case, stale in (("case_s1_lifecycle", ("leak",)), ("case_s2_lifecycle", ("forever",))):
+        b = build_condition(case, "B_normal_desi")
+        assert b["input_token_estimate"] > 0
+        r1 = build_retrieval(case, "R1_bm25", target_tokens=b["input_token_estimate"])
+        r1_text = r1["messages"][0]["content"].lower()
+        assert any(s in r1_text for s in stale)              # retrieval surfaces the stale content
+        assert all(s not in b["messages"][0]["content"].lower() for s in stale)  # B excludes it
+
+
 def test_run_emits_all_conditions_and_persistence_with_stub():
     def stub(system, messages):
         # echoes a fixed answer + a confidence line; deterministic

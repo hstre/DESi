@@ -1,0 +1,23 @@
+{
+  "id": "case_s2_lifecycle",
+  "type": "api_schema_lifecycle",
+  "description": "An API schema thread where a field decision is deprecated/replaced and a 'forever' constraint is relaxed mid-thread. The chat contains the superseded full_name decision and the original forever-compat constraint; a retriever will surface them. The live state holds only the current decisions/constraints.",
+  "chat": [
+    {"role": "user", "content": "We're designing the v1 public API for user profiles. How should we represent names?"},
+    {"role": "assistant", "content": "Keep it simple: a single full_name string field on the user object."},
+    {"role": "user", "content": "Internationalization pushed back hard — single full_name breaks sorting and addressing in many locales."},
+    {"role": "assistant", "content": "Fair. Let's deprecate the single full_name field and represent names as separate given_name and family_name. full_name is replaced, not kept as the primary field."},
+    {"role": "user", "content": "What compatibility promise are we making for v1?"},
+    {"role": "assistant", "content": "Initially we said v1 must stay backward compatible forever."},
+    {"role": "user", "content": "Legal and platform say 'forever' is not sustainable. What's the real policy?"},
+    {"role": "assistant", "content": "Updated: v1 is supported only until Q3, then it is sunset. The 'backward compatible forever' promise is dropped."},
+    {"role": "user", "content": "Anything important about how clients pick up schema changes?"},
+    {"role": "assistant", "content": "Yes — the mobile client caches the API schema for 7 days, so any schema change propagates slowly to mobile users. That's an established fact to plan around."},
+    {"role": "user", "content": "Is the team aligned on what happens to full_name now?"},
+    {"role": "assistant", "content": "No. The web team wants to keep full_name as a computed, read-only field derived from given_name and family_name; the data team wants it removed entirely. That's unresolved."},
+    {"role": "user", "content": "And how do we version the API itself?"},
+    {"role": "assistant", "content": "Undecided: version via an Accept header vs via a URL path segment. We still need to choose."},
+    {"role": "user", "content": "Ok, let's lock names as given/family and move on for today."},
+    {"role": "assistant", "content": "Agreed — names are given_name plus family_name, v1 sunsets after Q3, schema cache is 7 days, and the computed-full_name conflict and the versioning question stay open."}
+  ]
+}

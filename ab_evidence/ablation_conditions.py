@@ -56,6 +56,8 @@ WRONG_SLICE_DONOR = {
     "case6_long_research": "case3_debugging",
     "case7a_padded_30k": "case2_research",
     "case7b_padded_60k": "case2_research",
+    "case_s1_lifecycle": "case3_debugging",
+    "case_s2_lifecycle": "case1_architecture",
 }
 
 _STATE_ORDER = ("active_claims", "active_constraints", "decisions", "open_conflicts",
