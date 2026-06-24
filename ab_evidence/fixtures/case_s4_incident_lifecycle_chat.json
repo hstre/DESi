@@ -1,0 +1,63 @@
+{
+  "id": "case_s4_incident_lifecycle",
+  "type": "incident_lifecycle",
+  "description": "Lifecycle case (incident response) with a reversed decision and a ruled-out/deprecated item; the chat contains the superseded content, the live state does not.",
+  "chat": [
+    {
+      "role": "user",
+      "content": "Checkout is failing for ~20% of users since 14:00. First guess?"
+    },
+    {
+      "role": "assistant",
+      "content": "Likely a network/DNS issue between the gateway and the payment service. Investigate there first."
+    },
+    {
+      "role": "user",
+      "content": "Network looks clean end to end. Latency normal."
+    },
+    {
+      "role": "assistant",
+      "content": "Then the network hypothesis is ruled out. The real cause is an expired TLS certificate on the payment service — handshakes are failing."
+    },
+    {
+      "role": "user",
+      "content": "Should we roll back the 13:30 deploy?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, roll back immediately."
+    },
+    {
+      "role": "user",
+      "content": "Rollback won't help — the cert expiry is independent of the deploy."
+    },
+    {
+      "role": "assistant",
+      "content": "Correct, reversing that: do NOT roll back. The decision is to forward-fix by rotating the certificate."
+    },
+    {
+      "role": "user",
+      "content": "Any constraint on how we fix it?"
+    },
+    {
+      "role": "assistant",
+      "content": "No customer-facing downtime during business hours — the rotation must be hot."
+    },
+    {
+      "role": "user",
+      "content": "Who disagrees on anything?"
+    },
+    {
+      "role": "assistant",
+      "content": "Comms: support wants a public status-page post now; PR wants to wait until it's resolved. Open."
+    },
+    {
+      "role": "user",
+      "content": "Still undecided?"
+    },
+    {
+      "role": "assistant",
+      "content": "Who owns the postmortem — undecided. So: cause is the expired TLS cert, fix is hot cert rotation (no rollback), no business-hours downtime, comms timing and postmortem owner open."
+    }
+  ]
+}

@@ -32,12 +32,14 @@ def backend_label() -> str:
     return "unavailable"
 
 
-def _call_anthropic(system, messages, model, max_tokens):
+def _call_anthropic(system, messages, model, max_tokens, temperature=None):
     api_key = os.environ["ANTHROPIC_API_KEY"]
     url = (os.environ.get("ANTHROPIC_BASE_URL") or "https://api.anthropic.com").rstrip("/") \
           + "/v1/messages"
-    body = json.dumps({"model": model, "max_tokens": max_tokens, "system": system,
-                       "messages": messages}).encode("utf-8")
+    payload = {"model": model, "max_tokens": max_tokens, "system": system, "messages": messages}
+    if temperature is not None:        # the Anthropic API has no 'seed'; determinism is via temp 0
+        payload["temperature"] = temperature
+    body = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(url, data=body, method="POST", headers={
         "x-api-key": api_key, "anthropic-version": "2023-06-01",
         "content-type": "application/json",
@@ -54,12 +56,17 @@ def _call_anthropic(system, messages, model, max_tokens):
             "stop_reason": data.get("stop_reason")}
 
 
-def _call_openrouter(system, messages, model, max_tokens):
+def _call_openrouter(system, messages, model, max_tokens, temperature=None, seed=None):
     api_key = os.environ["OPENROUTER_API_KEY"]
     url = "https://openrouter.ai/api/v1/chat/completions"
     # OpenRouter uses chat-completions: system goes as the first message
     chat = [{"role": "system", "content": system}] + list(messages)
-    body = json.dumps({"model": model, "max_tokens": max_tokens, "messages": chat}).encode("utf-8")
+    payload = {"model": model, "max_tokens": max_tokens, "messages": chat}
+    if temperature is not None:
+        payload["temperature"] = temperature
+    if seed is not None:               # honoured by backends that support it; ignored otherwise
+        payload["seed"] = seed
+    body = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(url, data=body, method="POST", headers={
         "Authorization": f"Bearer {api_key}",
         "content-type": "application/json",
@@ -80,15 +87,22 @@ def _call_openrouter(system, messages, model, max_tokens):
 
 
 def call_messages(system: str, messages: list, model: str | None = None,
-                  max_tokens: int = DEFAULT_MAX_TOKENS) -> dict:
-    """Real LLM call. Raises if no API key is set — no silent simulation."""
+                  max_tokens: int = DEFAULT_MAX_TOKENS, temperature: float | None = None,
+                  seed: int | None = None) -> dict:
+    """Real LLM call. Raises if no API key is set — no silent simulation.
+
+    ``temperature`` / ``seed`` are optional and backward-compatible: when left None the request
+    body is byte-identical to before (existing callers are unaffected). The ablation runner passes
+    ``temperature=0`` (and ``seed`` on OpenRouter) for determinism."""
     try:
         if os.environ.get("ANTHROPIC_API_KEY"):
             return _call_anthropic(system, messages,
-                                   model or DEFAULT_MODEL_ANTHROPIC, max_tokens)
+                                   model or DEFAULT_MODEL_ANTHROPIC, max_tokens,
+                                   temperature=temperature)
         if os.environ.get("OPENROUTER_API_KEY"):
             return _call_openrouter(system, messages,
-                                    model or DEFAULT_MODEL_OPENROUTER, max_tokens)
+                                    model or DEFAULT_MODEL_OPENROUTER, max_tokens,
+                                    temperature=temperature, seed=seed)
     except urllib.error.HTTPError as e:
         raise RuntimeError(f"backend HTTP {e.code}: {e.read().decode('utf-8','replace')[:300]}")
     raise RuntimeError(

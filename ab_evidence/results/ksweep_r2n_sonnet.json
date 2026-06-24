@@ -1,0 +1,12 @@
+{
+  "experiment": "retrieval top-k / budget sweep for R2n_neural",
+  "model": "anthropic/claude-sonnet-4.5", "reps": 1, "cases": 8, "note": "directional (1 rep, 1 model)",
+  "sweep": [
+    {"budget_x_B": 0.5, "mean_k": 1,  "mean_recall": 0.150},
+    {"budget_x_B": 1.0, "mean_k": 13, "mean_recall": 0.825},
+    {"budget_x_B": 2.0, "mean_k": 18, "mean_recall": 0.950},
+    {"budget_x_B": 4.0, "mean_k": 18, "mean_recall": 0.950}
+  ],
+  "reference": {"B_desi": 1.0, "A_full_chat": 0.94},
+  "finding": "k was NOT optimised; the Phase-2/3/4 retrieval used budget-matched k~13 (1xB). At optimal k (2xB ~= all chunks) neural retrieval reaches 0.95 ~= full chat ~= B. So at EQUAL token budget B>retrieval (1.0 vs 0.825 = token efficiency); at UNLIMITED budget B~=retrieval (1.0 vs 0.95). DESi's edge over a well-tuned neural retriever is mostly token efficiency + low-budget supersession robustness, NOT a large capability gap. The budget-match understated retrieval and overstated DESi's edge."
+}

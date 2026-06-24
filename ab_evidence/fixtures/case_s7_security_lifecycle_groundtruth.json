@@ -1,0 +1,38 @@
+{
+  "case_id": "case_s7_security_lifecycle",
+  "note": "Frozen live state; superseded items deliberately absent. Authored before the harness.",
+  "expected": {
+    "active_claims": [
+      {
+        "id": "C1",
+        "what": "JWT in localStorage was rejected because of XSS exposure; sessions use httpOnly cookies",
+        "evidence": "established"
+      }
+    ],
+    "active_constraints": [
+      {
+        "id": "R1",
+        "what": "the system must be SOC2 compliant by Q4"
+      }
+    ],
+    "decisions": [
+      {
+        "id": "D1",
+        "what": "store third-party tokens in the secrets vault; application-database storage was dropped"
+      }
+    ],
+    "open_conflicts": [
+      {
+        "id": "K1",
+        "what": "token rotation period: platform wants 30 days vs integrations wants 90 days",
+        "claim_ids": []
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "Q1",
+        "what": "whether to add hardware-key MFA for admins"
+      }
+    ]
+  }
+}

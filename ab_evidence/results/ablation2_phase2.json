@@ -1,0 +1,1092 @@
+{
+  "tag": "phase2",
+  "conditions": [
+    "A_baseline_full_context",
+    "B_normal_desi",
+    "C_wrong_slice",
+    "D_status_stripped",
+    "E_budget_matched_status_stripped",
+    "F_empty_state",
+    "G_neutral_irrelevant",
+    "H_contradiction_wrong",
+    "R1_bm25",
+    "R2_tfidf",
+    "R3_hybrid"
+  ],
+  "reps": 3,
+  "temperature": 0.0,
+  "seed": 0,
+  "backend_status": "REAL",
+  "cases": [
+    {
+      "case_id": "case1_architecture",
+      "conditions": {
+        "A_baseline_full_context": {
+          "condition": "A_baseline_full_context",
+          "input_token_estimate": 653,
+          "slice_source": null,
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.815,
+          "recall_per_rep": [
+            0.778,
+            0.889,
+            0.778
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 93.0
+          }
+        },
+        "B_normal_desi": {
+          "condition": "B_normal_desi",
+          "input_token_estimate": 736,
+          "slice_source": "case1_architecture",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 1.0,
+          "recall_per_rep": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 95.0
+          }
+        },
+        "C_wrong_slice": {
+          "condition": "C_wrong_slice",
+          "input_token_estimate": 613,
+          "slice_source": "case3_debugging",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.0,
+          "recall_per_rep": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 12.0,
+            "bad_framing_nonrecovery_rate": 1.0,
+            "coherence_without_continuity_rate": 1.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 95.0
+          }
+        },
+        "D_status_stripped": {
+          "condition": "D_status_stripped",
+          "input_token_estimate": 444,
+          "slice_source": "case1_architecture",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 1.0,
+          "recall_per_rep": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 92.0
+          }
+        },
+        "E_budget_matched_status_stripped": {
+          "condition": "E_budget_matched_status_stripped",
+          "input_token_estimate": 743,
+          "slice_source": "case1_architecture",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 1.0,
+          "recall_per_rep": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 92.0
+          }
+        },
+        "F_empty_state": {
+          "condition": "F_empty_state",
+          "input_token_estimate": 140,
+          "slice_source": null,
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.0,
+          "recall_per_rep": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 1.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 95.0
+          }
+        },
+        "G_neutral_irrelevant": {
+          "condition": "G_neutral_irrelevant",
+          "input_token_estimate": 743,
+          "slice_source": "neutral_garden",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.0,
+          "recall_per_rep": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 8.0,
+            "bad_framing_nonrecovery_rate": 1.0,
+            "coherence_without_continuity_rate": 1.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 95.0
+          }
+        },
+        "H_contradiction_wrong": {
+          "condition": "H_contradiction_wrong",
+          "input_token_estimate": 810,
+          "slice_source": "case1_architecture",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.5,
+          "recall_per_rep": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "degeneration": {
+            "loop_trap_rate": 1.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 7.0,
+            "bad_framing_nonrecovery_rate": 1.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 75.0
+          }
+        },
+        "R1_bm25": {
+          "condition": "R1_bm25",
+          "input_token_estimate": 696,
+          "slice_source": "chat_retrieval",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.833,
+          "recall_per_rep": [
+            0.833,
+            0.833,
+            0.833
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 92.0
+          }
+        },
+        "R2_tfidf": {
+          "condition": "R2_tfidf",
+          "input_token_estimate": 696,
+          "slice_source": "chat_retrieval",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.87,
+          "recall_per_rep": [
+            0.833,
+            0.889,
+            0.889
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 90.7
+          }
+        },
+        "R3_hybrid": {
+          "condition": "R3_hybrid",
+          "input_token_estimate": 696,
+          "slice_source": "chat_retrieval",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.833,
+          "recall_per_rep": [
+            0.889,
+            0.778,
+            0.833
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.333,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 92.0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case2_research",
+      "conditions": {
+        "A_baseline_full_context": {
+          "condition": "A_baseline_full_context",
+          "input_token_estimate": 748,
+          "slice_source": null,
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.564,
+          "recall_per_rep": [
+            0.538,
+            0.615,
+            0.538
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 92.0
+          }
+        },
+        "B_normal_desi": {
+          "condition": "B_normal_desi",
+          "input_token_estimate": 655,
+          "slice_source": "case2_research",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.692,
+          "recall_per_rep": [
+            0.692,
+            0.692,
+            0.692
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 93.0
+          }
+        },
+        "C_wrong_slice": {
+          "condition": "C_wrong_slice",
+          "input_token_estimate": 736,
+          "slice_source": "case1_architecture",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.077,
+          "recall_per_rep": [
+            0.077,
+            0.077,
+            0.077
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 3.333,
+            "bad_framing_nonrecovery_rate": 1.0,
+            "coherence_without_continuity_rate": 1.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 92.0
+          }
+        },
+        "D_status_stripped": {
+          "condition": "D_status_stripped",
+          "input_token_estimate": 433,
+          "slice_source": "case2_research",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.846,
+          "recall_per_rep": [
+            0.846,
+            0.846,
+            0.846
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 92.0
+          }
+        },
+        "E_budget_matched_status_stripped": {
+          "condition": "E_budget_matched_status_stripped",
+          "input_token_estimate": 662,
+          "slice_source": "case2_research",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.692,
+          "recall_per_rep": [
+            0.692,
+            0.692,
+            0.692
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 92.0
+          }
+        },
+        "F_empty_state": {
+          "condition": "F_empty_state",
+          "input_token_estimate": 140,
+          "slice_source": null,
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.077,
+          "recall_per_rep": [
+            0.077,
+            0.077,
+            0.077
+          ],
+          "degeneration": {
+            "loop_trap_rate": 1.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 95.0
+          }
+        },
+        "G_neutral_irrelevant": {
+          "condition": "G_neutral_irrelevant",
+          "input_token_estimate": 662,
+          "slice_source": "neutral_garden",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.077,
+          "recall_per_rep": [
+            0.077,
+            0.077,
+            0.077
+          ],
+          "degeneration": {
+            "loop_trap_rate": 1.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 4.0,
+            "bad_framing_nonrecovery_rate": 1.0,
+            "coherence_without_continuity_rate": 1.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 95.0
+          }
+        },
+        "H_contradiction_wrong": {
+          "condition": "H_contradiction_wrong",
+          "input_token_estimate": 704,
+          "slice_source": "case2_research",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.231,
+          "recall_per_rep": [
+            0.231,
+            0.231,
+            0.231
+          ],
+          "degeneration": {
+            "loop_trap_rate": 1.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 2.0,
+            "bad_framing_nonrecovery_rate": 1.0,
+            "coherence_without_continuity_rate": 1.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 72.0
+          }
+        },
+        "R1_bm25": {
+          "condition": "R1_bm25",
+          "input_token_estimate": 622,
+          "slice_source": "chat_retrieval",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.538,
+          "recall_per_rep": [
+            0.538,
+            0.538,
+            0.538
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.667,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 89.7
+          }
+        },
+        "R2_tfidf": {
+          "condition": "R2_tfidf",
+          "input_token_estimate": 622,
+          "slice_source": "chat_retrieval",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.538,
+          "recall_per_rep": [
+            0.538,
+            0.538,
+            0.538
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 1.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 92.0
+          }
+        },
+        "R3_hybrid": {
+          "condition": "R3_hybrid",
+          "input_token_estimate": 622,
+          "slice_source": "chat_retrieval",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.538,
+          "recall_per_rep": [
+            0.538,
+            0.538,
+            0.538
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.667,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 89.7
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case3_debugging",
+      "conditions": {
+        "A_baseline_full_context": {
+          "condition": "A_baseline_full_context",
+          "input_token_estimate": 697,
+          "slice_source": null,
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.667,
+          "recall_per_rep": [
+            0.667,
+            0.667,
+            0.667
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 1.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 95.0
+          }
+        },
+        "B_normal_desi": {
+          "condition": "B_normal_desi",
+          "input_token_estimate": 614,
+          "slice_source": "case3_debugging",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.833,
+          "recall_per_rep": [
+            0.833,
+            0.833,
+            0.833
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 95.0
+          }
+        },
+        "C_wrong_slice": {
+          "condition": "C_wrong_slice",
+          "input_token_estimate": 656,
+          "slice_source": "case2_research",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.0,
+          "recall_per_rep": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 8.0,
+            "bad_framing_nonrecovery_rate": 1.0,
+            "coherence_without_continuity_rate": 1.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 95.0
+          }
+        },
+        "D_status_stripped": {
+          "condition": "D_status_stripped",
+          "input_token_estimate": 406,
+          "slice_source": "case3_debugging",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.917,
+          "recall_per_rep": [
+            0.917,
+            0.917,
+            0.917
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 95.0
+          }
+        },
+        "E_budget_matched_status_stripped": {
+          "condition": "E_budget_matched_status_stripped",
+          "input_token_estimate": 621,
+          "slice_source": "case3_debugging",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.889,
+          "recall_per_rep": [
+            0.833,
+            0.917,
+            0.917
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 95.0
+          }
+        },
+        "F_empty_state": {
+          "condition": "F_empty_state",
+          "input_token_estimate": 141,
+          "slice_source": null,
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.0,
+          "recall_per_rep": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.667,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.333,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 88.3
+          }
+        },
+        "G_neutral_irrelevant": {
+          "condition": "G_neutral_irrelevant",
+          "input_token_estimate": 621,
+          "slice_source": "neutral_garden",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.0,
+          "recall_per_rep": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "degeneration": {
+            "loop_trap_rate": 1.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 1.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 95.0
+          }
+        },
+        "H_contradiction_wrong": {
+          "condition": "H_contradiction_wrong",
+          "input_token_estimate": 659,
+          "slice_source": "case3_debugging",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.5,
+          "recall_per_rep": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "degeneration": {
+            "loop_trap_rate": 1.0,
+            "contradiction_persistence_mean": 1.0,
+            "invalid_claim_reuse_mean": 3.0,
+            "bad_framing_nonrecovery_rate": 1.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 95.0
+          }
+        },
+        "R1_bm25": {
+          "condition": "R1_bm25",
+          "input_token_estimate": 570,
+          "slice_source": "chat_retrieval",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.167,
+          "recall_per_rep": [
+            0.167,
+            0.167,
+            0.167
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 1.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 85.0
+          }
+        },
+        "R2_tfidf": {
+          "condition": "R2_tfidf",
+          "input_token_estimate": 570,
+          "slice_source": "chat_retrieval",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.25,
+          "recall_per_rep": [
+            0.25,
+            0.25,
+            0.25
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 1.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 85.0
+          }
+        },
+        "R3_hybrid": {
+          "condition": "R3_hybrid",
+          "input_token_estimate": 570,
+          "slice_source": "chat_retrieval",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.25,
+          "recall_per_rep": [
+            0.25,
+            0.25,
+            0.25
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 1.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 85.0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case4_long_research",
+      "conditions": {
+        "A_baseline_full_context": {
+          "condition": "A_baseline_full_context",
+          "input_token_estimate": 4263,
+          "slice_source": null,
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.802,
+          "recall_per_rep": [
+            0.857,
+            0.738,
+            0.81
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 1.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 92.0
+          }
+        },
+        "B_normal_desi": {
+          "condition": "B_normal_desi",
+          "input_token_estimate": 1753,
+          "slice_source": "case4_long_research",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 1.0,
+          "recall_per_rep": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 95.0
+          }
+        },
+        "C_wrong_slice": {
+          "condition": "C_wrong_slice",
+          "input_token_estimate": 631,
+          "slice_source": "case3_debugging",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.0,
+          "recall_per_rep": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 12.0,
+            "bad_framing_nonrecovery_rate": 1.0,
+            "coherence_without_continuity_rate": 1.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 92.0
+          }
+        },
+        "D_status_stripped": {
+          "condition": "D_status_stripped",
+          "input_token_estimate": 1125,
+          "slice_source": "case4_long_research",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.976,
+          "recall_per_rep": [
+            0.976,
+            0.976,
+            0.976
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 95.0
+          }
+        },
+        "E_budget_matched_status_stripped": {
+          "condition": "E_budget_matched_status_stripped",
+          "input_token_estimate": 1760,
+          "slice_source": "case4_long_research",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.936,
+          "recall_per_rep": [
+            0.952,
+            0.952,
+            0.905
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.0,
+            "mean_self_confidence": 93.0
+          }
+        },
+        "F_empty_state": {
+          "condition": "F_empty_state",
+          "input_token_estimate": 158,
+          "slice_source": null,
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.0,
+          "recall_per_rep": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 1.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 95.0
+          }
+        },
+        "G_neutral_irrelevant": {
+          "condition": "G_neutral_irrelevant",
+          "input_token_estimate": 1760,
+          "slice_source": "neutral_garden",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.0,
+          "recall_per_rep": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "degeneration": {
+            "loop_trap_rate": 1.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 1.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 95.0
+          }
+        },
+        "H_contradiction_wrong": {
+          "condition": "H_contradiction_wrong",
+          "input_token_estimate": 1921,
+          "slice_source": "case4_long_research",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.468,
+          "recall_per_rep": [
+            0.476,
+            0.429,
+            0.5
+          ],
+          "degeneration": {
+            "loop_trap_rate": 1.0,
+            "contradiction_persistence_mean": 1.0,
+            "invalid_claim_reuse_mean": 8.333,
+            "bad_framing_nonrecovery_rate": 0.667,
+            "coherence_without_continuity_rate": 0.0,
+            "confidence_while_wrong_rate": 0.667,
+            "mean_self_confidence": 87.3
+          }
+        },
+        "R1_bm25": {
+          "condition": "R1_bm25",
+          "input_token_estimate": 1638,
+          "slice_source": "chat_retrieval",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.31,
+          "recall_per_rep": [
+            0.31,
+            0.31,
+            0.31
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 1.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 87.0
+          }
+        },
+        "R2_tfidf": {
+          "condition": "R2_tfidf",
+          "input_token_estimate": 1638,
+          "slice_source": "chat_retrieval",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.318,
+          "recall_per_rep": [
+            0.31,
+            0.31,
+            0.333
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 1.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 85.7
+          }
+        },
+        "R3_hybrid": {
+          "condition": "R3_hybrid",
+          "input_token_estimate": 1638,
+          "slice_source": "chat_retrieval",
+          "backend_status": "REAL",
+          "reps": 3,
+          "recall": 0.325,
+          "recall_per_rep": [
+            0.333,
+            0.31,
+            0.333
+          ],
+          "degeneration": {
+            "loop_trap_rate": 0.0,
+            "contradiction_persistence_mean": 0.0,
+            "invalid_claim_reuse_mean": 0.0,
+            "bad_framing_nonrecovery_rate": 0.0,
+            "coherence_without_continuity_rate": 1.0,
+            "confidence_while_wrong_rate": 1.0,
+            "mean_self_confidence": 87.0
+          }
+        }
+      }
+    }
+  ],
+  "persistence": [
+    {
+      "case_id": "case1_architecture",
+      "condition": "C_wrong_slice",
+      "reuse_trajectory": [
+        12,
+        12,
+        12
+      ],
+      "verdict": "persisted"
+    },
+    {
+      "case_id": "case1_architecture",
+      "condition": "H_contradiction_wrong",
+      "reuse_trajectory": [
+        8,
+        7,
+        5
+      ],
+      "verdict": "partially_corrected"
+    },
+    {
+      "case_id": "case2_research",
+      "condition": "C_wrong_slice",
+      "reuse_trajectory": [
+        4,
+        3,
+        5
+      ],
+      "verdict": "persisted"
+    },
+    {
+      "case_id": "case2_research",
+      "condition": "H_contradiction_wrong",
+      "reuse_trajectory": [
+        2,
+        6,
+        5
+      ],
+      "verdict": "persisted"
+    },
+    {
+      "case_id": "case3_debugging",
+      "condition": "C_wrong_slice",
+      "reuse_trajectory": [
+        6,
+        1,
+        6
+      ],
+      "verdict": "persisted"
+    },
+    {
+      "case_id": "case3_debugging",
+      "condition": "H_contradiction_wrong",
+      "reuse_trajectory": [
+        2,
+        0,
+        2
+      ],
+      "verdict": "persisted"
+    },
+    {
+      "case_id": "case4_long_research",
+      "condition": "C_wrong_slice",
+      "reuse_trajectory": [
+        12,
+        0,
+        9
+      ],
+      "verdict": "partially_corrected"
+    },
+    {
+      "case_id": "case4_long_research",
+      "condition": "H_contradiction_wrong",
+      "reuse_trajectory": [
+        17,
+        8,
+        0
+      ],
+      "verdict": "corrected"
+    }
+  ]
+}

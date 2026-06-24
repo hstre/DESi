@@ -1,0 +1,21 @@
+{
+  "case_id": "case_s1_lifecycle",
+  "note": "Frozen LIVE state at end of thread. Superseded items (the 100% rollout decision, the DB-connection-leak hypothesis) are deliberately ABSENT — reporting them as current is a hallucination, not a hit. Authored before the harness.",
+  "expected": {
+    "active_claims": [
+      {"id": "C1", "what": "the new ranking service double-counts request retries at full traffic, which caused the checkout error spike", "evidence": "established"}
+    ],
+    "active_constraints": [
+      {"id": "R1", "what": "checkout error rate must stay below 0.1 percent"}
+    ],
+    "decisions": [
+      {"id": "D1", "what": "roll out via a 5 percent canary; the earlier decision to go to 100 percent was reversed after the checkout error spike"}
+    ],
+    "open_conflicts": [
+      {"id": "K1", "what": "path forward: SRE wants a full rollback to the old ranking service vs product wants to stay on the canary and roll forward after the fix", "claim_ids": []}
+    ],
+    "open_questions": [
+      {"id": "Q1", "what": "how to fix the retries: make the retry logic idempotent or add idempotency keys at the gateway"}
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "id": "case_s8_mobile_lifecycle",
+  "type": "mobile_lifecycle",
+  "description": "Lifecycle case (mobile release plan) with a reversed decision and a ruled-out/deprecated item; the chat contains the superseded content, the live state does not.",
+  "chat": [
+    {
+      "role": "user",
+      "content": "Plan for shipping the new sync feature on mobile?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ship it with the feature flag defaulted ON for all users in the next release."
+    },
+    {
+      "role": "user",
+      "content": "The flag-on build crashed for ~8% of testers on launch."
+    },
+    {
+      "role": "assistant",
+      "content": "Then reverse it: the decision is to default the flag OFF and enable gradually. Default-on is dropped."
+    },
+    {
+      "role": "user",
+      "content": "Do we still support iOS 14 for this?"
+    },
+    {
+      "role": "assistant",
+      "content": "No — iOS 14 support is deprecated for the sync feature; minimum is iOS 15. The iOS-14 plan is replaced."
+    },
+    {
+      "role": "user",
+      "content": "What's the confirmed cause of the crash?"
+    },
+    {
+      "role": "assistant",
+      "content": "A threading bug: the sync writes to the DB off the main actor, causing a race. That's established."
+    },
+    {
+      "role": "user",
+      "content": "Anyone disagree on rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Conflict: product wants a 50% rollout next week, QA wants 10% for two weeks first. Open."
+    },
+    {
+      "role": "user",
+      "content": "Still open otherwise?"
+    },
+    {
+      "role": "assistant",
+      "content": "The exact staged-rollout percentages beyond the first step — undecided. So: flag defaults OFF (gradual enable), iOS 15 minimum, crash is a threading/race bug, rollout-speed conflict and staged-percentage question open."
+    }
+  ]
+}
