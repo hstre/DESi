@@ -64,6 +64,11 @@ WRONG_SLICE_DONOR = {
     "case_s6_pipeline_lifecycle": "case2_research",
     "case_s7_security_lifecycle": "case1_architecture",
     "case_s8_mobile_lifecycle": "case3_debugging",
+    "case_s1_lifecycle_long": "case3_debugging",
+    "case_s3_ml_lifecycle_long": "case2_research",
+    "case_s4_incident_lifecycle_long": "case1_architecture",
+    "case_s6_pipeline_lifecycle_long": "case2_research",
+    "case_s8_mobile_lifecycle_long": "case3_debugging",
 }
 
 _STATE_ORDER = ("active_claims", "active_constraints", "decisions", "open_conflicts",
