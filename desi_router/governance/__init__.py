@@ -15,8 +15,14 @@ from desi_router.governance.modes import (
 )
 from desi_router.governance.preprompt import guarded_preprompt
 from desi_router.governance.report import DesiReport, report_from_snapshot
+from desi_router.governance.two_tier_gate import (
+    GateResult,
+    decide_commit,
+    is_critical_update,
+)
 from desi_router.governance.verifier import VerifierResult, verify_answer
 
 __all__ = ["DesiReport", "report_from_snapshot", "RouterDecision", "select_mode",
            "update_allowed_after_verifier", "MODES", "guarded_preprompt", "verify_answer",
-           "VerifierResult", "GovernanceAudit", "audit_event"]
+           "VerifierResult", "GovernanceAudit", "audit_event",
+           "GateResult", "decide_commit", "is_critical_update"]
