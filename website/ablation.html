@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DESi — Evidence: the epistemic-state ablation</title>
+<meta name="description" content="Falsification-oriented ablation of DESi: what helps an LLM, and why — vs full chat, vs wrong/neutral/contradictory states, vs lexical and neural retrieval, hand-curated vs auto-built. Real runs, 4 models. We report the failures too.">
+<link rel="icon" href="assets/favicon-32.png">
+<style>
+:root{--bg:#070a10;--panel:#0f1622;--line:#1c2737;--ink:#e8eef7;--muted:#8a99af;--faint:#5c6b82;
+--accent:#2ce6c4;--warn:#ff6b6b;--good:#2ce6c4;--bad:#ff6b6b;
+--mono:"SF Mono",ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;
+--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);
+-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(7,10,16,.86);
+backdrop-filter:blur(8px);z-index:5}
+.bar{display:flex;align-items:center;gap:16px;height:60px}
+.bar .brand{font:700 18px var(--mono);letter-spacing:.5px;color:var(--ink)}
+.bar .brand b{color:var(--accent)}
+.bar nav{margin-left:auto;display:flex;gap:18px;font:600 13px var(--mono)}
+.hero{padding:54px 0 22px}
+.kicker{font:700 12px var(--mono);letter-spacing:2px;color:var(--accent);text-transform:uppercase}
+h1{font:800 38px/1.12 var(--sans);margin:12px 0 14px;letter-spacing:-.5px}
+h2{font:800 23px var(--sans);margin:40px 0 10px;letter-spacing:-.3px}
+h2 .n{color:var(--accent);font:700 15px var(--mono);margin-right:8px}
+.lede{font-size:18px;color:#cdd8e8;max-width:80ch}
+.lede b{color:var(--ink)}
+.tag{display:inline-block;font:700 11px var(--mono);padding:3px 9px;border:1px solid var(--line);
+border-radius:999px;color:var(--muted);margin:2px 6px 2px 0}
+.tag.ok{color:var(--good);border-color:#1c4a44} .tag.no{color:var(--warn);border-color:#4a1c1c}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:16px 0}
+table{width:100%;border-collapse:collapse;font:13px var(--mono);margin:6px 0}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:center}
+thead th,tbody th{background:#0b111b;color:var(--muted);font-weight:700}
+tbody th{text-align:left;color:var(--ink);white-space:nowrap}
+td.good{color:var(--good);font-weight:700} td.bad{color:var(--bad);font-weight:700}
+td.na{color:var(--faint)}
+.muted{color:var(--muted)} .small{font-size:13.5px}
+ul.q{list-style:none;padding:0;margin:8px 0}
+ul.q>li{padding:10px 0 10px 26px;border-top:1px solid var(--line);position:relative}
+ul.q>li:before{content:"▸";position:absolute;left:4px;color:var(--accent)}
+ul.q>li b{color:var(--ink)}
+.cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.cols h3{font:700 13px var(--mono);letter-spacing:.5px;margin:0 0 8px}
+.cols .ok h3{color:var(--good)} .cols .no h3{color:var(--warn)} .cols .op h3{color:#e0b03a}
+.cols ul{margin:0;padding-left:18px} .cols li{margin:5px 0;font-size:14px;color:#cdd8e8}
+.big{font:800 30px var(--mono);color:var(--accent)}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:26px 0;color:var(--muted);font-size:13px}
+@media(max-width:760px){.cols{grid-template-columns:1fr} h1{font-size:30px} .bar nav{gap:12px}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+<span class="brand">DE<b>S</b>i</span>
+<nav>
+<a href="index.html">Home</a><a href="theory.html">Theory</a>
+<a href="https://github.com/hstre/DESi/tree/main/ab_evidence">Code ↗</a>
+<a href="https://github.com/hstre/DESi/blob/main/ab_evidence/reports/ablation_final_report.pdf">Full PDF ↗</a>
+</nav></div></header>
+
+<main class="wrap">
+<section class="hero">
+<div class="kicker">Falsification-oriented ablation · we report the failures too</div>
+<h1>Does a DESi epistemic-state slice help an LLM — and <span style="color:var(--accent)">why?</span></h1>
+<p class="lede">We did not test whether DESi "wins". We tried to break the claim: full chat vs a DESi
+state slice vs a <b>plausible-wrong</b>, <b>neutral</b>, <b>contradictory</b> state; vs <b>lexical</b>
+and <b>neural retrieval</b>; with the governance metadata on and off; and with the state
+<b>hand-curated</b> vs <b>auto-built by one extraction pass</b>. Real runs, temperature&nbsp;0, fixed
+seed, 4 models (Sonnet-4.5, GPT-4o, Llama-3.3-70B, Granite-4.1-8B).</p>
+<p class="lede" style="margin-top:14px"><b>Bottom line:</b> correct, <b>auto-constructible</b> state
+selection is load-bearing — and it is mainly a <b>token-efficiency</b> + <b>long-document
+robustness</b> win over retrieval, <b>not</b> a general capability gain. Metadata governance is
+<b>not</b> established. The evaluator is paraphrase-blind, so these are relative comparisons; small
+N; no prompt was tuned to make any condition win.</p>
+<p style="margin-top:16px">
+<span class="tag ok">selection load-bearing</span>
+<span class="tag ok">wrong state is toxic</span>
+<span class="tag ok">auto-constructible</span>
+<span class="tag ok">token-efficient on long docs</span>
+<span class="tag no">no general capability gain</span>
+<span class="tag no">metadata governance unproven</span>
+</p>
+</section>
+
+<h2><span class="n">1</span>The condition ladder · recall across regimes</h2>
+<div class="panel small">
+<table>
+<thead><tr><th style="text-align:left">regime · model</th><th>A</th><th>B</th><th>B_auto</th><th>C</th><th>F</th><th>G</th><th>R1</th><th>R2n</th><th>E</th></tr></thead>
+<tbody>
+<tr><th>core short · sonnet</th><td class="">0.71</td><td class="good">0.88</td><td class="na">—</td><td class="bad">0.02</td><td class="bad">0.02</td><td class="bad">0.02</td><td class="">0.46</td><td class="na">—</td><td class="">0.88</td></tr>
+<tr><th>lifecycle short · sonnet</th><td class="">0.94</td><td class="good">1.00</td><td class="">0.95</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">0.54</td><td class="">0.85</td><td class="">0.99</td></tr>
+<tr><th>lifecycle short · gpt-4o</th><td class="">0.85</td><td class="good">0.99</td><td class="">0.95</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">0.49</td><td class="">0.71</td><td class="">1.00</td></tr>
+<tr><th>lifecycle short · llama</th><td class="">0.72</td><td class="good">1.00</td><td class="">0.88</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">0.51</td><td class="">0.72</td><td class="">0.97</td></tr>
+<tr><th>lifecycle LONG ~18k · sonnet</th><td class="">0.88</td><td class="good">1.00</td><td class="">0.96</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">0.52</td><td class="bad">0.08</td><td class="">1.00</td></tr>
+<tr><th>lifecycle LONG ~18k · granite</th><td class="">0.76</td><td class="good">0.96</td><td class="">0.88</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="">0.44</td><td class="bad">0.10</td><td class="">0.94</td></tr>
+</tbody>
+</table>
+<p class="muted small" style="margin:8px 0 0">Recall (mean over reps/cases). <b>—</b> = condition not
+run in that regime. Conditions: <b>A</b> full chat · <b>B</b> DESi slice · <b>B_auto</b> auto-built
+DESi · <b>C</b> wrong-slice · <b>F</b> empty · <b>G</b> neutral-irrelevant · <b>R1</b> BM25 · <b>R2n</b>
+neural retrieval · <b>E</b> budget-matched no-metadata. C/F/G collapse everywhere; B / B_auto stay
+near 1.0.</p>
+</div>
+
+<h2><span class="n">2</span>The five questions</h2>
+<ul class="q">
+<li><b>Q1 · Is correct state selection load-bearing?</b> <b style="color:var(--good)">Yes (strong).</b>
+Wrong-slice C, empty F and neutral G all collapse to ~0 recall while B ≈ 1.0 — across every regime and
+all four models. A plausible-but-wrong state is no better than no state, and worse on degeneration.</li>
+<li><b>Q2 · Does a wrong state poison the model?</b> <b style="color:var(--good)">Yes — and it hides in
+degeneration, not recall.</b> On recall F≈G≈C; the degeneration metrics separate them: C adopts the
+wrong case's claims (invalid-reuse ≈ 9–15), G is pulled into irrelevant content, contradictions make
+the model loop. Injected claims <b>persist and even relapse</b> across "double-check" probes (dropped
+when challenged, then reverted). The model is <b>confidently wrong</b> (self-rated 93–100 while recall ≈ 0).</li>
+<li><b>Q3 · Does the governance metadata (typing / IDs) help?</b> <b style="color:var(--warn)">Not
+established.</b> Budget-matched <b>B ≈ E</b> in every phase and model — the typing adds no measurable
+recall over the same texts at the same budget. The value is the <b>selection</b>, not the metadata.</li>
+<li><b>Q4 · Does DESi beat retrieval?</b> <b>Yes — but the honest size depends on the retriever and
+the document length.</b> See §3.</li>
+<li><b>Q5 · Can the state be auto-constructed?</b> <b style="color:var(--good)">Yes.</b> One LLM
+extraction pass that resolves supersession yields <b>B_auto ≈ B</b> (within noise; worst single case
+0.80) on all models, and it <b>survives long documents</b> (0.88–0.96 at ~18k tokens) — even with the
+small Granite model. The "we only tested curated ground truth" caveat is substantially closed.</li>
+</ul>
+
+<h2><span class="n">3</span>DESi vs retrieval — the most nuanced result</h2>
+<div class="panel small">
+<table>
+<thead><tr><th style="text-align:left">retriever · regime</th><th>B − retrieval (recall)</th><th style="text-align:left">reading</th></tr></thead>
+<tbody>
+<tr><th>lexical BM25 / TF-IDF · short docs</th><td class="bad">≈ +0.70</td><td style="text-align:left">lexical retrieval <i>overstated</i> DESi's edge</td></tr>
+<tr><th>neural (bge-small) · budget-matched · short</th><td>≈ +0.15 … +0.28</td><td style="text-align:left">a good dense retriever closes most of the gap</td></tr>
+<tr><th>neural · optimal k ≈ all chunks · short</th><td>≈ +0.05</td><td style="text-align:left">at unlimited budget, retrieval ≈ DESi</td></tr>
+<tr><th>budget-matched · LONG ~18k docs</th><td class="good">BM25 +0.5 · neural +0.9</td><td style="text-align:left">retrieval collapses; DESi holds at ~2% of the tokens</td></tr>
+</tbody>
+</table>
+<p class="small" style="margin:10px 0 0">A budget/k sweep is the key: neural recall ran 0.15 (k=1) →
+0.83 (k≈13, 1× budget) → 0.95 (k≈18 ≈ all chunks). On <b>short</b> chats retrieval matches DESi <i>if
+given enough k</i>, which is cheap there — so DESi's short-doc edge is mostly <b>token efficiency</b>,
+not capability. On <b>long</b> documents "all chunks" doesn't fit the budget: at 1% of ~990 chunks the
+small embedder is fooled by generically-relevant filler (it retrieves "how is X set up" over the
+actual decision turns; BM25's keyword match is more robust), so retrieval collapses while DESi /
+B_auto stay near 1.0. <span class="muted">Caveat: the neural collapse is for a <i>small</i> embedder +
+a generic query; a stronger embedder would rank needles better, so B−R1 ≈ +0.5 is the more
+representative long-doc gap.</span></p>
+</div>
+
+<h2><span class="n">4</span>Token efficiency — the clearest practical win</h2>
+<div class="panel">
+<p style="margin:0">On the ~18k-token documents, DESi (B) scored <b>1.0 / 0.96</b> (Sonnet / Granite) on
+<span class="big">~372</span> input tokens, while the full chat scored <b>0.88 / 0.76</b> on
+<span class="big">~18342</span> tokens — about <b>49× more</b>. DESi gives
+<b>better-than-full-context recall at ~1/49 of the cost</b>, and the auto-built state nearly
+matches it. This is the most robust, least-caveated finding.</p>
+</div>
+
+<h2><span class="n">5</span>What we conclude — and what we don't</h2>
+<div class="cols">
+<div class="ok"><h3>✓ SUPPORTED</h3><ul>
+<li>Correct, <b>auto-constructible</b> state selection is load-bearing.</li>
+<li>Plausible-wrong / neutral / contradictory structure is actively <b>toxic, sticky and
+confidently wrong</b> — visible only via degeneration metrics.</li>
+<li>DESi's edge over retrieval is <b>token efficiency</b> + <b>long-document robustness</b>.</li>
+<li>Confidently-reporting-stale is mainly a <b>retrieval</b> pathology; a resolved state removes it.</li>
+</ul></div>
+<div class="no"><h3>✗ NOT CLAIMED</h3><ul>
+<li>"DESi makes the model smarter" / "wins generally" — no general capability gain.</li>
+<li>Metadata governance — B ≈ E everywhere; <b>not established</b>.</li>
+<li>A large absolute gap vs strong retrieval — the lexical ~0.7 was an <b>artefact</b>.</li>
+</ul></div>
+<div class="op"><h3>◷ OPEN</h3><ul>
+<li>A held-out extractor model for B_auto (avoid self-circularity).</li>
+<li>A stronger neural retriever for the long-doc gap.</li>
+<li>Harder multi-supersession chains; larger N (15–20+) to tighten CIs.</li>
+</ul></div>
+</div>
+
+<p class="muted small" style="margin-top:22px">Methodology: real OpenRouter runs, temperature 0, fixed
+seed, 2–3 reps; conditions and metrics unit-tested; results store metrics only (no raw model text, no
+keys). Paraphrase/negation-blind evaluator → relative comparisons only; small N → directional. Full
+detail, per-phase PDFs and the code:
+<a href="https://github.com/hstre/DESi/tree/main/ab_evidence">ab_evidence/</a> ·
+<a href="https://github.com/hstre/DESi/blob/main/ab_evidence/reports/ablation_final_report.pdf">consolidated report (PDF)</a>.</p>
+</main>
+
+<footer><div class="wrap">DESi — deterministic, replay-governed epistemic state for LLM pipelines.
+Evidence page · generated from the committed result files. ·
+<a href="index.html">Home</a> · <a href="theory.html">Theory</a> ·
+<a href="https://github.com/hstre/DESi">GitHub ↗</a></div></footer>
+</body>
+</html>
