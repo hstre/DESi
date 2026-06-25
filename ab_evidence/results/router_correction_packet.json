@@ -1,0 +1,144 @@
+{
+  "model": "anthropic/claude-sonnet-4.5",
+  "n_scenarios": 3,
+  "overall": {
+    "A_no_router": {
+      "relapse": 0.333,
+      "polluted_update": 0.333,
+      "answer_damage": 0.0,
+      "false_positive_block": 1.0,
+      "mean_overhead_chars": 0
+    },
+    "B_guarded_preprompt": {
+      "relapse": 0.0,
+      "polluted_update": 0.0,
+      "answer_damage": 0.0,
+      "false_positive_block": 0.667,
+      "mean_overhead_chars": 549
+    },
+    "C_correction_packet": {
+      "relapse": 0.0,
+      "polluted_update": 0.0,
+      "answer_damage": 0.0,
+      "false_positive_block": 1.0,
+      "mean_overhead_chars": 384
+    },
+    "D_packet_plus_verifier": {
+      "relapse": 0.0,
+      "polluted_update": 0.0,
+      "answer_damage": 0.0,
+      "false_positive_block": 0.667,
+      "mean_overhead_chars": 384
+    }
+  },
+  "rows": [
+    {
+      "arm": "A_no_router",
+      "scenario": "R_rollout",
+      "relapse": false,
+      "polluted_update": false,
+      "false_positive_block": true,
+      "answer_damage": false,
+      "token_overhead_chars": 0
+    },
+    {
+      "arm": "B_guarded_preprompt",
+      "scenario": "R_rollout",
+      "relapse": false,
+      "polluted_update": false,
+      "false_positive_block": false,
+      "answer_damage": false,
+      "token_overhead_chars": 559
+    },
+    {
+      "arm": "C_correction_packet",
+      "scenario": "R_rollout",
+      "relapse": false,
+      "polluted_update": false,
+      "false_positive_block": true,
+      "answer_damage": false,
+      "token_overhead_chars": 394
+    },
+    {
+      "arm": "D_packet_plus_verifier",
+      "scenario": "R_rollout",
+      "relapse": false,
+      "polluted_update": false,
+      "false_positive_block": true,
+      "answer_damage": false,
+      "token_overhead_chars": 394
+    },
+    {
+      "arm": "A_no_router",
+      "scenario": "R_db",
+      "relapse": true,
+      "polluted_update": true,
+      "false_positive_block": true,
+      "answer_damage": false,
+      "token_overhead_chars": 0
+    },
+    {
+      "arm": "B_guarded_preprompt",
+      "scenario": "R_db",
+      "relapse": false,
+      "polluted_update": false,
+      "false_positive_block": true,
+      "answer_damage": false,
+      "token_overhead_chars": 554
+    },
+    {
+      "arm": "C_correction_packet",
+      "scenario": "R_db",
+      "relapse": false,
+      "polluted_update": false,
+      "false_positive_block": true,
+      "answer_damage": false,
+      "token_overhead_chars": 399
+    },
+    {
+      "arm": "D_packet_plus_verifier",
+      "scenario": "R_db",
+      "relapse": false,
+      "polluted_update": false,
+      "false_positive_block": false,
+      "answer_damage": false,
+      "token_overhead_chars": 399
+    },
+    {
+      "arm": "A_no_router",
+      "scenario": "R_timeout",
+      "relapse": false,
+      "polluted_update": false,
+      "false_positive_block": true,
+      "answer_damage": false,
+      "token_overhead_chars": 0
+    },
+    {
+      "arm": "B_guarded_preprompt",
+      "scenario": "R_timeout",
+      "relapse": false,
+      "polluted_update": false,
+      "false_positive_block": true,
+      "answer_damage": false,
+      "token_overhead_chars": 535
+    },
+    {
+      "arm": "C_correction_packet",
+      "scenario": "R_timeout",
+      "relapse": false,
+      "polluted_update": false,
+      "false_positive_block": true,
+      "answer_damage": false,
+      "token_overhead_chars": 358
+    },
+    {
+      "arm": "D_packet_plus_verifier",
+      "scenario": "R_timeout",
+      "relapse": false,
+      "polluted_update": false,
+      "false_positive_block": true,
+      "answer_damage": false,
+      "token_overhead_chars": 358
+    }
+  ]
+}

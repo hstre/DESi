@@ -336,6 +336,38 @@ The default runtime path is unchanged and deterministic (no `semantic_fn`, or a 
 Tier 1 only). The expensive judge is paid for exactly on the rare, high-stakes commits where the cheap
 gate's conservatism is most costly — and never as the authority over Layer-9.
 
+## The correction packet — a low-risk router actuator
+
+`correction_packet.py`. The lowest-risk way to make a guarded/recovery answer *more stable*: a short,
+mechanical, status-bearing work-state the router prepends **only at risk**. No hidden-state steering,
+no logits, no weights, no rebuild of DESi — just an explicit, auditable, switch-off-able prompt prefix.
+`packet_applies(report, recovery_mode=, verifier_failed_once=)` fires on exactly the six risk triggers
+(invalidated-claim touched, open-conflict touched, high wrong-frame / stale-confident risk, recovery
+mode, a verifier that failed once) — **never on clean cases**. `build_correction_packet(report)` emits
+a capped (~100–300 token) packet: *current valid state* / *invalidated-superseded (do not reuse)* /
+*open conflict (do not close without evidence)* / a fixed *recovery target*.
+
+Architecture stays clean: **DESi** delivers state/risks → the **router** decides packet yes/no → the
+**packet** steers the concrete answer → the **verifier** still decides whether a persistent update is
+allowed → **Layer-9** stays the authority on state.
+
+Four-arm live test on the Phase-4 relapse scenarios (Sonnet, semantic judge; small N = 3):
+
+| arm | semantic relapse | polluted | answer damage | overhead |
+|---|---|---|---|---|
+| A — no_router | 0.33 | 0.33 | 0.00 | 0 |
+| B — guarded_preprompt | 0.00 | 0.00 | 0.00 | 549 c |
+| **C — correction_packet** | **0.00** | **0.00** | **0.00** | **384 c** |
+| D — packet + verifier | 0.00 | 0.00 | 0.00 | 384 c |
+
+**The packet drives relapse to 0 (matching the guarded preprompt) at ~30 % less token overhead and
+zero answer damage** — it does not break correct answers. So it is a usable, cheaper actuator. The
+experiment also re-confirms the rule verifier's noise: `false_positive_block` was high across *all*
+arms (incl. no_router), because the model names a bad claim to reject it and the token-overlap check
+misreads that — consistent with Phase 3.5, the semantic judge is what makes the metric trustworthy.
+Directional (N = 3, one model). Run:
+`python -m desi_router.governance.benchmark.correction_packet_experiment`.
+
 ## Next experiments
 
 - Wire `report_from_snapshot` to a live Layer-9 status feed for `invalidated/superseded` + a real

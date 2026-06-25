@@ -7,6 +7,10 @@ inside DESi, never mutates persistent state (Layer-9's gate stays the authority)
 metadata governance is proven.
 """
 from desi_router.governance.audit import GovernanceAudit, audit_event
+from desi_router.governance.correction_packet import (
+    build_correction_packet,
+    packet_applies,
+)
 from desi_router.governance.modes import (
     MODES,
     RouterDecision,
@@ -25,4 +29,5 @@ from desi_router.governance.verifier import VerifierResult, verify_answer
 __all__ = ["DesiReport", "report_from_snapshot", "RouterDecision", "select_mode",
            "update_allowed_after_verifier", "MODES", "guarded_preprompt", "verify_answer",
            "VerifierResult", "GovernanceAudit", "audit_event",
-           "GateResult", "decide_commit", "is_critical_update"]
+           "GateResult", "decide_commit", "is_critical_update",
+           "build_correction_packet", "packet_applies"]
