@@ -203,8 +203,8 @@ guards the prompt, <b>verifies the answer after the fact</b>, and never mutates 
 <p class="small muted" style="margin:10px 0 0">The routing mirrors the recall table: the <b>R2n</b>
 case (no state → collapse + degeneration) is exactly where <code>select_mode</code> refuses a blind
 answer — no usable state → <b>retrieval_mode</b>; risky state → <b>guarded</b>/<b>recovery</b> + a
-required verifier. <b>26 tests</b> prove the gates fire on the measured failure modes (critical checks
-block, coherence only warns). Crucially, this <b>does not re-open the metadata claim</b>: B ≈ E still
+required verifier. A <b>deterministic test suite</b> proves the gates fire on the measured failure
+modes (critical checks block, coherence only warns). Crucially, this <b>does not re-open the metadata claim</b>: B ≈ E still
 stands — the layer governs <i>behaviour around</i> the state, not extraction quality.</p>
 </div>
 
