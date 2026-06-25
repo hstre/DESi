@@ -4,6 +4,32 @@ A minimal, deterministic governance layer in `desi_router/governance/`. It consu
 diagnostics, chooses an **epistemic mode**, optionally builds a guarded preprompt, **verifies the
 answer after the fact**, and audits the decision — without turning DESi into an enforcement engine.
 
+## At a glance
+
+The boundary is fixed throughout: **DESi diagnoses, the router acts, Layer-9 stays the authority on
+state.** The router never mutates persistent state — it only decides whether an answer may *propose* an
+update and whether a verifier must pass first.
+
+| Component | File | What it does |
+|---|---|---|
+| Read-only report | `report.py` | projects a Layer-9 snapshot into a router-facing `DesiReport` (+ heuristic risk scores) |
+| Mode selector | `modes.py` | a pure, most-cautious-first `select_mode` over 8 epistemic modes |
+| State-integrity producer | `state_integrity.py` | turns structural facts (status / provenance / scope / relevance) into a signal — closing the blind spot, honestly splitting reducible from irreducible |
+| Guarded preprompt | `preprompt.py` | short mechanical rules prepended in guarded/recovery |
+| Correction packet | `correction_packet.py` | a capped, status-bearing prompt prefix prepended **only at risk** — a cheaper actuator than the preprompt |
+| Post-answer verifier | `verifier.py` | deterministic rule checks (runtime gate); critical checks block an update proposal |
+| Two-tier commit gate | `two_tier_gate.py` | cheap rule gate everywhere; an expensive **semantic** judge only on a *critical* commit |
+| Audit | `audit.py` | a tamper-evident record per decision |
+
+**What the evidence says (all honest, often null):** state *selection* is load-bearing but **metadata
+governance is not a recall effect** (B ≈ E); the router gates **only the risky** commits (100 % recall
+on risky, 0 % over-block on clean, on Joni's real ledger); the rule verifier is a sound *gate* but a
+noisy *measure*, so a **semantic judge** is needed for the degeneration metrics; the correction packet
+cuts relapse to 0 at ~30 % less overhead with no answer damage; and the one real **blind spot** —
+plausible-wrong state with no signal — is shrunk to exactly its irreducible core and made visible, not
+papered over. Sections below give the numbers and the benchmark phases (1 fixtures · 2 replay · 3 live
+· 3.5 semantic verifier · 4 relapse).
+
 ## Why governance is not embedded inside DESi
 
 This mirrors what the codebase already does and what the ablations found:
@@ -140,8 +166,8 @@ exactly the situation where `select_mode` refuses a blind answer — no usable s
 risky state → `guarded`/`recovery` + a required verifier.
 
 **Net:** the ablation is the *evidence* of where an LLM degenerates without/with bad state; this layer
-is the *operational response* — the same metrics as deterministic gates, with 26 tests proving they
-fire on those failure modes. It does **not** re-open the metadata-governance claim: B ≈ E stands, and
+is the *operational response* — the same metrics as deterministic gates, with the governance tests
+proving they fire on those failure modes. It does **not** re-open the metadata-governance claim: B ≈ E stands, and
 this layer governs behaviour *around* the state, not the extraction quality.
 
 ## The benchmark — policy correctness, not answer quality
@@ -381,5 +407,13 @@ Directional (N = 3, one model). Run:
 
 ```bash
 python -m desi_router.governance.demo      # 5 scenarios: valid / invalidated / wrong-frame / conflict / missing-state
-pytest tests/router_governance -q          # 13 tests
+pytest tests/router_governance -q          # 62 tests (modes, verifier, gate, state-integrity, packet, benchmark)
+
+# benchmark + experiments (deterministic ones need no key; live ones need OPENROUTER_API_KEY)
+python -m desi_router.governance.benchmark.run                          # Phase 1: fixtures × baselines
+python -m desi_router.governance.benchmark.replay                       # Phase 2: replay vs the ablation
+python -m desi_router.governance.benchmark.hard_cases                   # state-integrity blind-spot closure
+python -m desi_router.governance.benchmark.live_loop                    # Phase 3: live closed-loop  (key)
+python -m desi_router.governance.benchmark.semantic_rescore             # Phase 3.5: semantic verifier (key)
+python -m desi_router.governance.benchmark.correction_packet_experiment # 4-arm packet test           (key)
 ```
