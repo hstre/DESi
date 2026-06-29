@@ -19,6 +19,9 @@ update and whether a verifier must pass first.
 | Correction packet | `correction_packet.py` | a capped, status-bearing prompt prefix prepended **only at risk** — a cheaper actuator than the preprompt |
 | Post-answer verifier | `verifier.py` | deterministic rule checks (runtime gate); critical checks block an update proposal |
 | Two-tier commit gate | `two_tier_gate.py` | cheap rule gate everywhere; an expensive **semantic** judge only on a *critical* commit |
+| Plausible-wrong-slice checks | `missing_opposition.py` · `provenance.py` · `scope.py` · `supersession.py` · `k_stability.py` | five deterministic detectors of a slice that *looks* clean but omits opposition / is thin-sourced / out-of-scope / silently superseded / fragile under widening |
+| Unified slice attack | `slice_attack.py` | one entry point that runs all five vectors as a falsification pass — a slice "survives" only if none fire |
+| Candidate channels | `clsp.py` · `ontology_probe/` | non-authoritative *producers* (cross-lingual probe, ontology type/scope probe) that feed candidates into the same gate — never decide |
 | Audit | `audit.py` | a tamper-evident record per decision |
 
 **What the evidence says (all honest, often null):** state *selection* is load-bearing but **metadata
@@ -394,6 +397,88 @@ misreads that — consistent with Phase 3.5, the semantic judge is what makes th
 Directional (N = 3, one model). Run:
 `python -m desi_router.governance.benchmark.correction_packet_experiment`.
 
+## The plausible-wrong-slice checks — the blind spot, made into five detectors
+
+The one real blind spot (a slice that looks clean but is subtly wrong, with **no** status signal) is
+attacked by five deterministic checks (no LLM), each catching a different way a slice can mislead:
+
+| # | Check | File | Fires when |
+|---|---|---|---|
+| 3 | missing opposition | `missing_opposition.py` | a slice-independent full-graph scan finds contradiction / supersession / open-question the slice omitted |
+| 4 | thin provenance | `provenance.py` | the slice's support is one-rooted / all-derived / stale (count-based, not entropy) |
+| 6 | scope mismatch | `scope.py` | a claim is valid but tagged to a different project / tenant / region than the task |
+| 5 | silent supersession | `supersession.py` | a same-scope **newer** sibling the slice omits — displaced-but-unflagged, no contradiction edge |
+| 2 | k-stability | `k_stability.py` | widening the slice escalates the mode or withdraws the update → the verdict was not robust |
+
+`slice_attack.py` (#7) runs all five as one falsification pass and reports which fired; a slice
+survives only if **none** do. Each check **degrades to caution**, never blocks, and returns `()` /
+`False` when its fact is absent — so a report that supplies no scan/provenance/scope keeps its exact
+prior behaviour.
+
+**Adopted with evidence, not on fixtures.** On an adversarial fixture set (PWS) all five drive
+`false_clean` 1.0 → 0.0 at `over_caution` 0.0. But adoption was gated on a **real-data shadow** over
+Joni's graph (per-claim, 1 366 live claims): `missing_opposition` 6.6 % and `thin_provenance` 3.0 %
+fire selectively (**adopt**); `same_scope_newer` fired on **64.8 %** with a topic-scope (**held back** —
+over-fire, the topic is too coarse a stand-in for scope) and is only usable once claims carry a real
+subject key; `scope_mismatch` is structurally dead (0 %, no scope tags in the data yet); `k_unstable`
+is marginal (0.4 %). The rule is literal: *an adopted check must pass a real measurement, not just a
+fixture.*
+
+## Candidate channels — CLSP and the Ontology Probe (producers, never authorities)
+
+Two channels *produce* candidate signals for the gate; neither decides. Both follow the same shape as
+the rest of the layer: an LLM (or corpus) does the open-ended part and emits candidates; a
+**deterministic, replay-stable core** classifies and gates them; the router consumes only finished
+fields. `Layer 9 decides; these only propose.`
+
+### CLSP — Cross-Lingual Semantic Probe (`clsp.py`)
+
+Re-expressing a text in other languages forces different semantic cuts and can surface weak signal —
+or hallucinate (a hedge becomes a causal claim). The rule is fixed: **the author's lead language is
+the authority; every cross-lingual projection is a probe.** A claim found only in a probe language
+stays a *candidate* until it can be re-anchored in the lead source. The deterministic core classifies
+each aligned cluster into six categories (`invariant_core` / `emergent_candidate` /
+`probe_only_candidate` / `translation_artifact` / `semantic_loss` / `overamplification_risk`),
+detects **over-amplification** (a hedged original projected into a stronger claim — including German
+litotes like *"nicht ganz unproblematisch"* via a structural double-negation matcher), and decides
+promotability. `to_report_inputs()` bridges promotable candidates into `report_from_snapshot` so they
+flow through the **same** gate: probe-only / artefact / loss never become trusted state; a weakly
+anchored (emergent) candidate lowers extraction confidence so `select_mode` requires a verifier; an
+all-`invariant_core` slice is trusted. Benchmark: `false_candidate_rate 0.0`, `overamp_detection 1.0`,
+`anchor_rate 1.0`.
+
+### Ontology Probe (`ontology_probe/`)
+
+An ontology (WordNet, later OpenCyc) is one **measurement channel**, never a truth: it offers
+type / sense / hypernym hints about a term. The contract is enforced structurally:
+
+- **`may_gate` is a constant property, not a field** — a hint can never be constructed to authorise a
+  decision; a `Sense` confidence is capped to `weak`. A hint is metadata, never evidence.
+- **Separate-only / asymmetric:** the one consumer signal, `scope_uncertain`, may only *withhold* a
+  `same_scope` / supersession flag (reducing over-fire — the #5 failure above), **never assert**
+  sameness or conflict. Absence of knowledge asserts nothing (`type_incompatible` is `False` when a
+  term is unknown). So a wrong hint can at worst make the router ask to disambiguate — never wrongly
+  confident.
+- **Fail-open & offline:** adapters are pluggable; a missing corpus or any error yields an
+  `unavailable` hint, never an exception in the gate path. **WordNet** is the reference adapter
+  (small, offline); OpenCyc is a later optional channel, not the default. A `StaticOntologyAdapter`
+  makes the rules unit-testable without a corpus.
+
+Like the slice checks, it is **not wired into the live gate yet** — adoption is gated on a real-data
+coverage shadow (Joni `shadow/ontology_coverage_shadow.py`) that measures the addressable pool
+(same-subject-key collision groups) and the ontology's actual coverage of those terms.
+
+## Property-based invariants (`tests/router_governance/test_router_properties.py`)
+
+Example tests pin cases; **Hypothesis** pins the *laws* the router hangs on, across generated reports.
+Test-only — the live router stays stdlib-only; Hypothesis never enters runtime code. Seven properties:
+the CLSP lead-language rule (un-anchored / over-amplified never promotable), no authoritative drift
+(promoted ⇒ lead-anchored; the bridge selects a subset of promotable), determinism (equal reports ⇒
+equal decision + audit hash), order-invariance (set-like inputs don't move the mode or risk vector),
+monotonic caution / k-stability (adding opposition never de-escalates, never grants a withheld
+update), and *no free update* (`may_update` never coexists with a pending verifier; a failing verifier
+blocks the proposal).
+
 ## Next experiments
 
 - Wire `report_from_snapshot` to a live Layer-9 status feed for `invalidated/superseded` + a real
@@ -407,7 +492,8 @@ Directional (N = 3, one model). Run:
 
 ```bash
 python -m desi_router.governance.demo      # 5 scenarios: valid / invalidated / wrong-frame / conflict / missing-state
-pytest tests/router_governance -q          # 62 tests (modes, verifier, gate, state-integrity, packet, benchmark)
+pytest tests/router_governance -q          # 117 tests (modes, verifier, gate, state-integrity, packet,
+                                           # slice checks, CLSP, ontology-probe, properties, benchmark)
 
 # benchmark + experiments (deterministic ones need no key; live ones need OPENROUTER_API_KEY)
 python -m desi_router.governance.benchmark.run                          # Phase 1: fixtures × baselines
