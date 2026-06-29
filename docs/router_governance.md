@@ -488,6 +488,34 @@ monotonic caution / k-stability (adding opposition never de-escalates, never gra
 update), and *no free update* (`may_update` never coexists with a pending verifier; a failing verifier
 blocks the proposal).
 
+## Red-teaming the gate for UNDER-blocking — what does a clean-looking slice still miss?
+
+The benchmark proves the gate does not over-block; the converse question is sharper: **is there a
+wrong slice that survives all five vectors and is allowed to update?** `benchmark/underblock.py`
+enumerates a catalogue of "plausible-wrong-but-passes" families and measures each twice — does it
+*survive* (the gate misses it), and is it *caught once its missing signal is fed*. The result is a
+clean, honest line:
+
+| family | class | survives | caught once fed |
+|---|---|---|---|
+| supersession via paraphrase (different salient tokens) | signal-quality upstream | yes | yes |
+| laundered provenance (N sources, one origin) | signal-quality upstream | yes | yes |
+| out-of-scope claim with no scope tag | data-model gap | yes | yes |
+| confident-wrong with no opposition in the graph | irreducible (no signal) | yes | — |
+
+The load-bearing conclusion: **every non-irreducible miss is caught the moment its signal is supplied
+— so the gate's coverage is bounded by the signals fed to it, not by the check logic.** Closing these
+means a better subject key / origin-aware provenance / scope tags in the claim model, not a logic fix.
+The one irreducible floor (a false claim whose contradiction was never extracted) is named, not
+papered over — only an external evidence step, not a slice check, can see it.
+
+**Do the tests actually pin the logic?** `benchmark/mutation_probe.py` applies decision-critical source
+mutations to `modes.py` one at a time and runs the suite: **9/12 killed**. The three survivors are
+*provably equivalent* mutants — the discrete risk lattice never yields `wrong_state_poisoning == 0.7`
+nor a `max(risk) == 0.4`, so the `>=` boundaries at `_HIGH`/`_MOD` have slack and there is no
+off-by-one to catch. The one real gap it surfaced (an `and`→`or` that would over-block a
+present-but-untouched invalidated claim) is now pinned by a regression test.
+
 ## Next experiments
 
 - Wire `report_from_snapshot` to a live Layer-9 status feed for `invalidated/superseded` + a real
@@ -501,8 +529,10 @@ blocks the proposal).
 
 ```bash
 python -m desi_router.governance.demo      # 5 scenarios: valid / invalidated / wrong-frame / conflict / missing-state
-pytest tests/router_governance -q          # 117 tests (modes, verifier, gate, state-integrity, packet,
-                                           # slice checks, CLSP, ontology-probe, properties, benchmark)
+pytest tests/router_governance -q          # 122 tests (modes, verifier, gate, state-integrity, packet,
+                                           # slice checks, CLSP, ontology-probe, properties, under-block)
+python -m desi_router.governance.benchmark.underblock        # the under-block red-team catalogue
+python -m desi_router.governance.benchmark.mutation_probe    # do the tests pin modes.py? (9/12, 3 equiv)
 
 # benchmark + experiments (deterministic ones need no key; live ones need OPENROUTER_API_KEY)
 python -m desi_router.governance.benchmark.run                          # Phase 1: fixtures × baselines

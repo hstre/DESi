@@ -39,6 +39,17 @@ def test_invalidated_claims_touched_is_guarded_plus_verifier():
     assert d.preprompt_policy == "guarded" and not d.persistent_state_update_allowed
 
 
+def test_invalidated_present_but_not_touched_is_state_slice_not_guarded():
+    # selectivity boundary: an invalidated claim merely PRESENT in the slice (task does not touch it)
+    # stays state_slice + verify — it must NOT escalate to guarded. Pins the `and` in the
+    # invalidated/superseded rule (an `or` would over-block every slice that holds any invalid claim).
+    d = select_mode(_rep(selected_claim_ids=("C1",), selected_claim_texts=("x",),
+                         invalidated_claim_ids=("D9",), invalidated_claim_texts=("old decision"),
+                         task_touches_invalidated=False))
+    assert d.chosen_mode == M.STATE_SLICE          # caution + verify, not guarded
+    assert d.validator_required and not d.persistent_state_update_allowed
+
+
 def test_open_conflict_to_resolve_is_guarded_or_anti_delphi():
     base = dict(selected_claim_ids=("C1",), selected_claim_texts=("x",),
                 answer_requires_conflict_resolution=True)
