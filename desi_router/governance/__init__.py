@@ -15,6 +15,7 @@ from desi_router.governance.clsp import (
     classify,
     overamplification,
     to_eir_candidates,
+    to_report_inputs,
 )
 from desi_router.governance.correction_packet import (
     build_correction_packet,
@@ -47,4 +48,5 @@ __all__ = ["DesiReport", "report_from_snapshot", "RouterDecision", "select_mode"
            "GateResult", "decide_commit", "is_critical_update",
            "build_correction_packet", "packet_applies",
            "attack_slice", "SliceAttackResult", "ATTACK_VECTORS", "verdict_unstable",
-           "classify", "to_eir_candidates", "overamplification", "Cluster", "CLSP_CATEGORIES"]
+           "classify", "to_eir_candidates", "to_report_inputs", "overamplification", "Cluster",
+           "CLSP_CATEGORIES"]

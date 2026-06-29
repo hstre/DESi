@@ -123,3 +123,29 @@ def _counts(cats) -> dict:
     for c in cats:
         out[c] = out.get(c, 0) + 1
     return out
+
+
+def to_report_inputs(clusters: list[Cluster]) -> dict:
+    """Bridge CLSP → EIR: turn the promotable candidates into ``report_from_snapshot`` kwargs, so the
+    cross-lingual findings flow through the SAME deterministic gate as any other claim. The lead-
+    language rule is preserved end-to-end: probe-only / artefact / loss clusters never become selected
+    claims. If any promoted candidate is only WEAKLY anchored (emergent), the slice's extraction
+    confidence is lowered so ``select_mode`` requires a verifier before the answer may propose
+    anything; an all-``invariant_core`` slice (strong, multilingual, anchored) is trusted.
+
+    Usage::
+
+        rep = report_from_snapshot(task_id, snapshot, **clsp.to_report_inputs(clusters))
+        decision = select_mode(rep)        # CLSP candidates now gated like everything else
+    """
+    usable = [(c, r) for c in clusters for r in (classify(c),) if r.promotable]
+    ids = tuple(f"clsp-{i}" for i, _ in enumerate(usable))
+    texts = tuple(c.claim for c, _ in usable)
+    has_emergent = any(r.category == EMERGENT_CANDIDATE for _, r in usable)
+    return {
+        "selected_claim_ids": ids,
+        "selected_claim_texts": texts,
+        # weak (emergent) anchoring -> low extraction confidence -> the router gates to verify/guard.
+        "extraction_confidence": 0.4 if has_emergent else 0.9,
+        "state_recall_estimate": 1.0,
+    }
