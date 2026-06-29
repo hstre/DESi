@@ -7,6 +7,15 @@ inside DESi, never mutates persistent state (Layer-9's gate stays the authority)
 metadata governance is proven.
 """
 from desi_router.governance.audit import GovernanceAudit, audit_event
+from desi_router.governance.clsp import (
+    CATEGORIES as CLSP_CATEGORIES,
+)
+from desi_router.governance.clsp import (
+    Cluster,
+    classify,
+    overamplification,
+    to_eir_candidates,
+)
 from desi_router.governance.correction_packet import (
     build_correction_packet,
     packet_applies,
@@ -37,4 +46,5 @@ __all__ = ["DesiReport", "report_from_snapshot", "RouterDecision", "select_mode"
            "VerifierResult", "GovernanceAudit", "audit_event",
            "GateResult", "decide_commit", "is_critical_update",
            "build_correction_packet", "packet_applies",
-           "attack_slice", "SliceAttackResult", "ATTACK_VECTORS", "verdict_unstable"]
+           "attack_slice", "SliceAttackResult", "ATTACK_VECTORS", "verdict_unstable",
+           "classify", "to_eir_candidates", "overamplification", "Cluster", "CLSP_CATEGORIES"]
