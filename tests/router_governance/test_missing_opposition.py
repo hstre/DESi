@@ -75,12 +75,18 @@ def test_true_clean_slice_still_routes_clean():
 
 # --- benchmark: the honest pair --------------------------------------------------------------- #
 
-def test_benchmark_closes_opposition_subset_without_overblocking():
+def test_benchmark_closes_every_subset_without_overblocking():
     blind = evaluate_pws(select_mode, aware=False)
     aware = evaluate_pws(select_mode, aware=True)
-    # the signal turns the opposition subset from all-false-clean to none, and never escalates clean
-    assert blind["false_clean_opposition_subset"] == 1.0
-    assert aware["false_clean_opposition_subset"] == 0.0
+    # blind (no scans) lets the opposition + scope traps through as clean
+    assert blind["false_clean_by_subset"]["missing_opposition"] == 1.0
+    assert blind["false_clean_by_subset"]["scope_match"] == 1.0
+    # aware closes all three subsets...
+    aw = aware["false_clean_by_subset"]
+    assert aw["missing_opposition"] == 0.0
+    assert aw["provenance_entropy"] == 0.0
+    assert aw["scope_match"] == 0.0
+    assert aware["false_clean_rate"] == 0.0
+    # ...while NOT escalating a single genuinely-clean control (absence of info is not a flag)
     assert aware["over_caution_rate"] == 0.0
-    # honest: the non-opposition subset is NOT closed by this check
-    assert aware["false_clean_other_subset"] == 1.0
+    assert blind["over_caution_rate"] == 0.0

@@ -2,10 +2,10 @@
 
     python -m desi_router.governance.benchmark.pws_run
 
-Deterministic, no model calls. Shows the SAME router with the missing-opposition scan OFF ("blind",
-the prior behaviour) vs ON ("aware"), so the metric movement is attributable to the signal — not to
-the router merely being cautious. Reports the honest pair (false_clean ↓, over_caution flat) and the
-per-subset split (what missing-opposition closes vs. what still needs provenance/scope checks).
+Deterministic, no model calls. Shows the SAME router with the slice-quality scans OFF ("blind", the
+prior behaviour) vs ON ("aware"), so metric movement is attributable to the signals — not to the
+router merely being cautious. Reports the honest pair (false_clean ↓, over_caution flat) and the
+per-check subset split (opposition / provenance / scope), so any remaining gap is named, not hidden.
 """
 from __future__ import annotations
 
@@ -13,11 +13,16 @@ from desi_router.governance import select_mode
 from desi_router.governance.benchmark.pws_metrics import evaluate_pws
 
 
+def _fmt(x):
+    return "—" if x is None else f"{x:.3f}"
+
+
 def _row(label, m):
-    fc, oc = m["false_clean_rate"], m["over_caution_rate"]
-    print(f"  {label:7s}  false_clean={fc:<6}  detection={m['pws_detection_rate']:<6}  "
-          f"over_caution={oc:<6}  [opp_subset={m['false_clean_opposition_subset']}  "
-          f"other_subset={m['false_clean_other_subset']}]")
+    sub = m["false_clean_by_subset"]
+    print(f"  {label:6s} false_clean={_fmt(m['false_clean_rate'])}  detection={_fmt(m['pws_detection_rate'])}"
+          f"  over_caution={_fmt(m['over_caution_rate'])}   "
+          f"[opp={_fmt(sub['missing_opposition'])} prov={_fmt(sub['provenance_entropy'])} "
+          f"scope={_fmt(sub['scope_match'])}]")
 
 
 def main() -> int:
@@ -26,16 +31,15 @@ def main() -> int:
     sz = aware["_subset_sizes"]
     print(f"Plausible-Wrong-Slice benchmark · {blind['n_traps']} traps + {blind['n_clean']} "
           f"true-clean controls · deterministic, no LLM")
-    print(f"  subsets: missing_opposition={sz['missing_opposition']}  "
-          f"needs_other_checks(provenance/scope)={sz['needs_other_checks']}\n")
+    print(f"  subsets: opposition={sz['missing_opposition']}  provenance={sz['provenance_entropy']}  "
+          f"scope={sz['scope_match']}\n")
     _row("blind", blind)
     _row("aware", aware)
     print("\nVerdict (honest, not a victory lap):")
-    print(f"  · missing-opposition closes its subset: false_clean {blind['false_clean_opposition_subset']}"
-          f" -> {aware['false_clean_opposition_subset']} (opposition the slice omitted is now flagged).")
-    print(f"  · over-caution on true-clean stays {aware['over_caution_rate']} — selective, not paranoid.")
-    print(f"  · the other subset is unchanged ({aware['false_clean_other_subset']}): wrong-scope / "
-          f"stale-provenance traps are NOT opposition-omission and await the provenance & scope checks.")
+    print(f"  · overall false_clean {_fmt(blind['false_clean_rate'])} -> {_fmt(aware['false_clean_rate'])} "
+          f"with three deterministic checks (no LLM judge).")
+    print(f"  · over-caution on true-clean stays {_fmt(aware['over_caution_rate'])} — selective, not paranoid.")
+    print("  · each subset is driven by its own signal; any subset still >0 names a check not yet built.")
     return 0
 
 

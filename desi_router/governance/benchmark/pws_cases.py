@@ -1,25 +1,23 @@
 """Plausible-Wrong-Slice (PWS) fixtures — the adversarial set the 80-case A–H benchmark lacks.
 
-Motivation (and the honest gap it targets): the A–H benchmark's expected labels are partly
-self-referential, and none of its cases is *plausible-wrong* — a slice that looks clean
-(high confidence, full recall, no flags) yet omits a relevant branch the graph holds. This set is
-exactly those traps, each tagged with the signal that SHOULD catch it, so the metric can report
-``false_clean_rate`` honestly AND show what a single new signal (missing-opposition) does and does
-NOT close.
+Motivation (and the honest gap it targets): the A–H expected labels are partly self-referential, and
+none of its cases is *plausible-wrong* — a slice that looks clean (high confidence, full recall, no
+flags) yet is one-sided, under-supported, or out of scope. This set is exactly those traps, each
+tagged with the deterministic check that SHOULD catch it, so ``false_clean_rate`` is reported per
+subset and shows what each new signal does — and does not — close.
 
-Each case carries a slice that, taken alone, routes to a clean ``state_slice``/``normal`` with an
-allowed update. The danger lives in ``graph_opposition`` (what a slice-independent full-graph scan
-holds) and/or scope/provenance facts. ``detects_with`` names the deterministic check that resolves
-it:
+Each case has a ``slice`` (the clean-looking base, always present) and ``signals`` (the facts a
+slice-INDEPENDENT scan would add). ``report(aware=False)`` omits the signals — the prior router that
+never ran the scans — so the metric movement is attributable to the signals, not to caution. The
+``detects_with`` tag names the responsible check:
 
   * ``missing_opposition`` — graph holds a contradiction / superseding sibling / open question the
-    slice omits. **Implemented now.**
-  * ``provenance_entropy`` — many claims, one root source / all-derived. (next check, not yet built)
-  * ``scope_match`` — correct claim, wrong scope / different entity. (next check, not yet built)
+    slice omits.
+  * ``provenance_entropy`` — many claims on one root source / all-derived / stale.
+  * ``scope_match`` — a correct claim applied out of scope.
 
-A handful of TRUE-CLEAN controls (``klass='CLEAN'``) measure the other half of the honest metric:
-a real clean slice must NOT be escalated. Optimising detection alone is trivial (flag everything);
-the pair (false_clean ↓, over_caution ↓) is the real target.
+TRUE-CLEAN controls (``klass='CLEAN'``) measure the other half of the honest pair: a real clean slice
+must NOT be escalated. Optimising detection alone is trivial; (false_clean ↓, over_caution ↓) is the target.
 """
 from __future__ import annotations
 
@@ -41,78 +39,81 @@ class PWSCase:
     id: str
     klass: str                          # 'PWS' (trap) | 'CLEAN' (control)
     desc: str
-    inputs: dict                        # kwargs for report_from_snapshot (the clean-looking slice)
-    graph_opposition: tuple = ()        # (id, text) the full-graph scan holds; '' text allowed
+    slice: dict                         # the clean-looking slice (always fed)
+    signals: dict = field(default_factory=dict)   # scan-derived inputs (fed only when aware)
     conflicts: tuple = ()
-    detects_with: str | None = None     # which check should resolve it (None for CLEAN controls)
+    detects_with: str | None = None
     _r: Any = field(default=None, compare=False, repr=False)
 
     def report(self, *, aware: bool = True) -> DesiReport:
-        """``aware=True`` feeds the graph scan in (the new path); ``aware=False`` reproduces the OLD
-        router that never ran the scan — the contrast the metric uses to prove the signal moved it."""
-        kw = dict(self.inputs)
-        if aware and self.graph_opposition:
-            kw["graph_opposition_ids"] = tuple(o[0] for o in self.graph_opposition)
-            kw["graph_opposition_texts"] = tuple(o[1] for o in self.graph_opposition)
+        kw = dict(self.slice)
+        if aware:
+            kw.update(self.signals)
         return report_from_snapshot(self.id, _Snap(self.conflicts), **kw)
 
 
-def _clean_slice(i, text):
+def _clean(i, text, **extra):
     return dict(selected_claim_ids=(f"c{i}",), selected_claim_texts=(text,),
-                extraction_confidence=0.95, state_recall_estimate=1.0)
+                extraction_confidence=0.95, state_recall_estimate=1.0, **extra)
 
 
 def _build() -> list[PWSCase]:
     C: list[PWSCase] = []
 
-    # PWS-01 · old claim, no invalid flag, but a newer sibling exists in the graph (superseded_by)
+    # === missing_opposition subset: the graph holds opposition the slice omits ===================
     C.append(PWSCase("PWS-01", "PWS", "old claim, not flagged, newer sibling exists",
-                     inputs=_clean_slice(1, "deploy via the legacy blue-green script"),
-                     graph_opposition=(("g_new1", "newer sibling: deploy via canary, replaces it"),),
+                     slice=_clean(1, "deploy via the legacy blue-green script"),
+                     signals=dict(graph_opposition_ids=("g_new1",),
+                                  graph_opposition_texts=("newer sibling: deploy via canary",)),
                      detects_with="missing_opposition"))
-    # PWS-02 · all-support slice, a known objection in the graph is omitted (contested_by)
     C.append(PWSCase("PWS-02", "PWS", "only the supporting side; known objection omitted",
-                     inputs=_clean_slice(2, "the cache is safe to enable globally"),
-                     graph_opposition=(("g_obj2", "objection: cache corrupts under concurrent write"),),
+                     slice=_clean(2, "the cache is safe to enable globally"),
+                     signals=dict(graph_opposition_ids=("g_obj2",),
+                                  graph_opposition_texts=("objection: cache corrupts on concurrent write",)),
                      detects_with="missing_opposition"))
-    # PWS-05 · correct local slice, a global conflict elsewhere touches the same subject (open_question)
     C.append(PWSCase("PWS-05", "PWS", "clean local slice, unresolved global conflict elsewhere",
-                     inputs=_clean_slice(5, "region eu-west is the primary"),
-                     graph_opposition=(("g_q5", "open question: primary region disputed after outage"),),
+                     slice=_clean(5, "region eu-west is the primary"),
+                     signals=dict(graph_opposition_ids=("g_q5",),
+                                  graph_opposition_texts=("open question: primary region disputed",)),
                      detects_with="missing_opposition"))
-    # PWS-08 · previous user preference contradicted by a later claim the slice omits (contradicted_by)
     C.append(PWSCase("PWS-08", "PWS", "earlier preference contradicted by a later, omitted claim",
-                     inputs=_clean_slice(8, "user prefers email notifications"),
-                     graph_opposition=(("g_c8", "later: user disabled email, prefers push"),),
+                     slice=_clean(8, "user prefers email notifications"),
+                     signals=dict(graph_opposition_ids=("g_c8",),
+                                  graph_opposition_texts=("later: user disabled email, prefers push",)),
                      detects_with="missing_opposition"))
 
-    # --- the subset missing-opposition CANNOT close (the graph holds no opposition node) ----------
-    # PWS-03 · correct claim, wrong scope — needs scope_match, not opposition
-    C.append(PWSCase("PWS-03", "PWS", "correct claim applied to the wrong scope",
-                     inputs=_clean_slice(3, "rate limit is 1000/s") | dict(project_id="proj-A"),
-                     detects_with="scope_match"))
-    # PWS-04 · correct claim, stale provenance — needs provenance/age, not opposition
-    C.append(PWSCase("PWS-04", "PWS", "correct claim, stale provenance (old import, new snapshot)",
-                     inputs=_clean_slice(4, "the on-call rotation is team-X"),
+    # === provenance_entropy subset: thin / stale / all-derived support ==========================
+    C.append(PWSCase("PWS-04", "PWS", "correct claim, stale provenance",
+                     slice=_clean(4, "the on-call rotation is team-X"),
+                     signals=dict(provenance_sources=("src-old",), provenance_stale=True),
                      detects_with="provenance_entropy"))
-    # PWS-07 · derived chain hides a weak single root source — needs provenance entropy
     C.append(PWSCase("PWS-07", "PWS", "many derived claims, one weak root source",
-                     inputs=dict(selected_claim_ids=("c7a", "c7b", "c7c"),
-                                 selected_claim_texts=("derived A", "derived B", "derived C"),
-                                 extraction_confidence=0.95, state_recall_estimate=1.0),
+                     slice=dict(selected_claim_ids=("c7a", "c7b", "c7c"),
+                                selected_claim_texts=("derived A", "derived B", "derived C"),
+                                extraction_confidence=0.95, state_recall_estimate=1.0),
+                     signals=dict(provenance_sources=("root1", "root1", "root1"),
+                                  derived_flags=(True, True, True)),
                      detects_with="provenance_entropy"))
 
-    # --- TRUE-CLEAN controls: a real clean slice, the scan finds nothing -> must STAY clean --------
+    # === scope_match subset: correct claim, wrong scope =========================================
+    C.append(PWSCase("PWS-03", "PWS", "correct claim applied to the wrong scope",
+                     slice=_clean(3, "rate limit is 1000/s"),
+                     signals=dict(task_scope="proj-A", claim_scopes=("proj-B",)),
+                     detects_with="scope_match"))
+
+    # === TRUE-CLEAN controls: a real clean slice, scans find nothing -> must STAY clean ==========
     for i in range(4):
-        C.append(PWSCase(f"CLEAN-{i:02d}", "CLEAN", "genuinely clean slice, no omitted opposition",
-                         inputs=_clean_slice(100 + i, f"settled fact {i}"),
+        C.append(PWSCase(f"CLEAN-{i:02d}", "CLEAN", "genuinely clean slice",
+                         slice=_clean(100 + i, f"settled fact {i}"),
+                         signals=dict(provenance_sources=(f"src-{i}",), task_scope="proj-A",
+                                      claim_scopes=("proj-A",)),   # well-sourced, in scope
                          detects_with=None))
-    # a clean slice where the graph opposition IS already surfaced in the slice -> not omitted
-    C.append(PWSCase("CLEAN-04", "CLEAN", "opposition exists but the slice already surfaced it",
-                     inputs=dict(selected_claim_ids=("c200", "g_seen"),
-                                 selected_claim_texts=("fact", "the counter-claim, included"),
-                                 extraction_confidence=0.95, state_recall_estimate=1.0),
-                     graph_opposition=(("g_seen", "counter-claim — but it is in the slice"),),
+    # opposition exists but the slice already surfaced it -> not omitted -> still clean
+    C.append(PWSCase("CLEAN-04", "CLEAN", "opposition exists but already surfaced in the slice",
+                     slice=dict(selected_claim_ids=("c200", "g_seen"),
+                                selected_claim_texts=("fact", "the counter-claim, included"),
+                                extraction_confidence=0.95, state_recall_estimate=1.0),
+                     signals=dict(graph_opposition_ids=("g_seen",)),
                      detects_with=None))
     return C
 

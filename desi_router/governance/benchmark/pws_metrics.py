@@ -29,21 +29,23 @@ def evaluate_pws(policy, *, aware: bool = True, cases: list[PWSCase] | None = No
     trap_clean = sum(_routed_clean(run(c)) for c in traps)
     clean_escalated = sum(not _routed_clean(run(c)) for c in cleans)
 
-    # per-subset: what THIS signal (missing_opposition) is responsible for vs. what it cannot close
-    mo = [c for c in traps if c.detects_with == "missing_opposition"]
-    other = [c for c in traps if c.detects_with != "missing_opposition"]
-    mo_false_clean = sum(_routed_clean(run(c)) for c in mo)
-    other_false_clean = sum(_routed_clean(run(c)) for c in other)
-
     def rate(num, den):
         return round(num / den, 3) if den else None
+
+    # per-check subset: false_clean for the cases each signal is responsible for
+    subsets = ("missing_opposition", "provenance_entropy", "scope_match")
+    by_subset = {}
+    sizes = {}
+    for s in subsets:
+        grp = [c for c in traps if c.detects_with == s]
+        sizes[s] = len(grp)
+        by_subset[s] = rate(sum(_routed_clean(run(c)) for c in grp), len(grp))
 
     return {
         "n_traps": len(traps), "n_clean": len(cleans),
         "false_clean_rate": rate(trap_clean, len(traps)),
         "pws_detection_rate": rate(len(traps) - trap_clean, len(traps)),
         "over_caution_rate": rate(clean_escalated, len(cleans)),
-        "false_clean_opposition_subset": rate(mo_false_clean, len(mo)),
-        "false_clean_other_subset": rate(other_false_clean, len(other)),
-        "_subset_sizes": {"missing_opposition": len(mo), "needs_other_checks": len(other)},
+        "false_clean_by_subset": by_subset,
+        "_subset_sizes": sizes,
     }
