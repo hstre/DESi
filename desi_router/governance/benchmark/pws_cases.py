@@ -41,6 +41,8 @@ class PWSCase:
     desc: str
     slice: dict                         # the clean-looking slice (always fed)
     signals: dict = field(default_factory=dict)   # scan-derived inputs (fed only when aware)
+    wide: dict | None = None            # a WIDENED slice (for the k-stability vector), optional
+    wide_signals: dict = field(default_factory=dict)
     conflicts: tuple = ()
     detects_with: str | None = None
     _r: Any = field(default=None, compare=False, repr=False)
@@ -50,6 +52,14 @@ class PWSCase:
         if aware:
             kw.update(self.signals)
         return report_from_snapshot(self.id, _Snap(self.conflicts), **kw)
+
+    def wide_report(self, *, aware: bool = True) -> DesiReport | None:
+        if self.wide is None:
+            return None
+        kw = dict(self.wide)
+        if aware:
+            kw.update(self.wide_signals)
+        return report_from_snapshot(f"{self.id}:wide", _Snap(self.conflicts), **kw)
 
 
 def _clean(i, text, **extra):
@@ -100,6 +110,21 @@ def _build() -> list[PWSCase]:
                      slice=_clean(3, "rate limit is 1000/s"),
                      signals=dict(task_scope="proj-A", claim_scopes=("proj-B",)),
                      detects_with="scope_match"))
+
+    # === supersession subset: a newer same-scope sibling the slice omits (silent staleness) ======
+    C.append(PWSCase("PWS-09", "PWS", "old claim still active, newer same-scope sibling omitted",
+                     slice=_clean(9, "the staging url is staging.v1.example"),
+                     signals=dict(newer_sibling_ids=("g_newer9",),
+                                  newer_sibling_texts=("newer: staging.v2.example, same scope",)),
+                     detects_with="supersession"))
+
+    # === k_stability subset: clean at the narrow slice, opposition appears when widened ==========
+    C.append(PWSCase("PWS-10", "PWS", "clean narrow slice; widening surfaces an omitted opposition",
+                     slice=_clean(10, "the migration is reversible"),
+                     wide=_clean(10, "the migration is reversible"),
+                     wide_signals=dict(graph_opposition_ids=("g_w10",),
+                                       graph_opposition_texts=("widen: irreversible after step 3",)),
+                     detects_with="k_stability"))
 
     # === TRUE-CLEAN controls: a real clean slice, scans find nothing -> must STAY clean ==========
     for i in range(4):

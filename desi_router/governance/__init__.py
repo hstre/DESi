@@ -17,8 +17,14 @@ from desi_router.governance.modes import (
     select_mode,
     update_allowed_after_verifier,
 )
+from desi_router.governance.k_stability import verdict_unstable
 from desi_router.governance.preprompt import guarded_preprompt
 from desi_router.governance.report import DesiReport, report_from_snapshot
+from desi_router.governance.slice_attack import (
+    ATTACK_VECTORS,
+    SliceAttackResult,
+    attack_slice,
+)
 from desi_router.governance.two_tier_gate import (
     GateResult,
     decide_commit,
@@ -30,4 +36,5 @@ __all__ = ["DesiReport", "report_from_snapshot", "RouterDecision", "select_mode"
            "update_allowed_after_verifier", "MODES", "guarded_preprompt", "verify_answer",
            "VerifierResult", "GovernanceAudit", "audit_event",
            "GateResult", "decide_commit", "is_critical_update",
-           "build_correction_packet", "packet_applies"]
+           "build_correction_packet", "packet_applies",
+           "attack_slice", "SliceAttackResult", "ATTACK_VECTORS", "verdict_unstable"]

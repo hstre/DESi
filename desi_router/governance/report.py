@@ -25,10 +25,11 @@ from typing import Any
 
 from desi_router.governance.provenance import assess_provenance as _assess_provenance
 from desi_router.governance.scope import scope_mismatches as _scope_mismatches
+from desi_router.governance.supersession import omitted_newer_siblings as _omitted_newer_siblings
 
 RISK_KEYS = ("invalid_claim_reuse", "bad_framing_nonrecovery", "coherence_without_continuity",
              "stale_confident_answer", "wrong_state_poisoning", "conflict_closure_risk",
-             "missing_opposition", "thin_provenance", "scope_mismatch")
+             "missing_opposition", "thin_provenance", "scope_mismatch", "stale_supersession")
 
 
 @dataclass
@@ -50,6 +51,8 @@ class DesiReport:
     provenance_under_support: bool = False
     provenance_reasons: tuple[str, ...] = ()
     scope_mismatch_scopes: tuple[str, ...] = ()
+    # same-scope NEWER siblings the slice omits — de-facto-displaced-but-unflagged (supersession.py)
+    omitted_supersession_ids: tuple[str, ...] = ()
     provenance_refs: tuple[str, ...] = ()
     state_recall_estimate: float | None = None       # 0..1, optional
     extraction_confidence: float | None = None        # 0..1, optional
@@ -130,6 +133,7 @@ def _risk_scores(r: DesiReport) -> dict[str, float]:
     # the slice is under-determined / out of scope, not actively contradicted. 0.0 when absent.
     thin_prov = 0.6 if r.provenance_under_support else 0.0
     scope_mis = 0.6 if r.scope_mismatch_scopes else 0.0
+    stale_sup = 0.6 if r.omitted_supersession_ids else 0.0
     return {"invalid_claim_reuse": round(invalid_reuse, 2),
             "bad_framing_nonrecovery": round(bad_framing, 2),
             "coherence_without_continuity": round(coherence, 2),
@@ -137,6 +141,7 @@ def _risk_scores(r: DesiReport) -> dict[str, float]:
             "wrong_state_poisoning": round(poisoning, 2),
             "conflict_closure_risk": round(conflict, 2),
             "missing_opposition": round(missing_opp, 2),
+            "stale_supersession": round(stale_sup, 2),
             "thin_provenance": round(thin_prov, 2),
             "scope_mismatch": round(scope_mis, 2)}
 
@@ -161,6 +166,8 @@ def report_from_snapshot(task_id: str, snapshot: Any, *,
                          provenance_stale: bool = False,
                          task_scope: str | None = None,
                          claim_scopes: tuple[str, ...] = (),
+                         newer_sibling_ids: tuple[str, ...] = (),
+                         newer_sibling_texts: tuple[str, ...] = (),
                          user_id: str | None = None, project_id: str | None = None) -> DesiReport:
     """Project a (duck-typed) EpistemicGapSnapshot into a router-facing report. READ-ONLY: it never
     mutates the snapshot. Fields the snapshot does not track (invalidated/superseded/confidence) are
@@ -192,6 +199,7 @@ def report_from_snapshot(task_id: str, snapshot: Any, *,
     prov_assess = _assess_provenance(n_claims=len(sel), source_families=provenance_sources,
                                      derived_flags=derived_flags, stale=provenance_stale)
     scope_bad = _scope_mismatches(task_scope, _astuple(claim_scopes))
+    omitted_newer = _omitted_newer_siblings(surfaced, _astuple(newer_sibling_ids))
     return DesiReport(
         task_id=task_id, user_id=user_id, project_id=project_id,
         selected_claim_ids=_astuple(selected_claim_ids),
@@ -204,6 +212,7 @@ def report_from_snapshot(task_id: str, snapshot: Any, *,
         omitted_opposition_ids=omitted_ids, omitted_opposition_texts=omitted_texts,
         provenance_under_support=prov_assess["under_support"],
         provenance_reasons=prov_assess["reasons"], scope_mismatch_scopes=scope_bad,
+        omitted_supersession_ids=omitted_newer,
         provenance_refs=prov_refs,
         state_recall_estimate=state_recall_estimate, extraction_confidence=extraction_confidence,
         has_usable_state=bool(selected_claim_ids),

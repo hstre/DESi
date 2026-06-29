@@ -18,11 +18,12 @@ def _fmt(x):
 
 
 def _row(label, m):
-    sub = m["false_clean_by_subset"]
-    print(f"  {label:6s} false_clean={_fmt(m['false_clean_rate'])}  detection={_fmt(m['pws_detection_rate'])}"
-          f"  over_caution={_fmt(m['over_caution_rate'])}   "
-          f"[opp={_fmt(sub['missing_opposition'])} prov={_fmt(sub['provenance_entropy'])} "
-          f"scope={_fmt(sub['scope_match'])}]")
+    s = m["false_clean_by_subset"]
+    print(f"  {label:6s} false_clean={_fmt(m['false_clean_rate'])}  "
+          f"detection={_fmt(m['pws_detection_rate'])}  over_caution={_fmt(m['over_caution_rate'])}")
+    print(f"           [opp={_fmt(s['missing_opposition'])} prov={_fmt(s['provenance_entropy'])} "
+          f"scope={_fmt(s['scope_match'])} super={_fmt(s['supersession'])} "
+          f"kstab={_fmt(s['k_stability'])}]")
 
 
 def main() -> int:
@@ -31,15 +32,15 @@ def main() -> int:
     sz = aware["_subset_sizes"]
     print(f"Plausible-Wrong-Slice benchmark · {blind['n_traps']} traps + {blind['n_clean']} "
           f"true-clean controls · deterministic, no LLM")
-    print(f"  subsets: opposition={sz['missing_opposition']}  provenance={sz['provenance_entropy']}  "
-          f"scope={sz['scope_match']}\n")
+    print(f"  vectors via attack_slice (#7): {sz}\n")
     _row("blind", blind)
     _row("aware", aware)
     print("\nVerdict (honest, not a victory lap):")
-    print(f"  · overall false_clean {_fmt(blind['false_clean_rate'])} -> {_fmt(aware['false_clean_rate'])} "
-          f"with three deterministic checks (no LLM judge).")
-    print(f"  · over-caution on true-clean stays {_fmt(aware['over_caution_rate'])} — selective, not paranoid.")
-    print("  · each subset is driven by its own signal; any subset still >0 names a check not yet built.")
+    print(f"  · overall false_clean {_fmt(blind['false_clean_rate'])} -> "
+          f"{_fmt(aware['false_clean_rate'])} via the unified attack pass (no LLM judge).")
+    print(f"  · over-caution on true-clean stays {_fmt(aware['over_caution_rate'])} — "
+          f"selective, not paranoid.")
+    print("  · each subset is driven by its own deterministic vector; any subset >0 names a gap.")
     return 0
 
 
