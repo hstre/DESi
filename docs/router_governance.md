@@ -416,13 +416,22 @@ survives only if **none** do. Each check **degrades to caution**, never blocks, 
 prior behaviour.
 
 **Adopted with evidence, not on fixtures.** On an adversarial fixture set (PWS) all five drive
-`false_clean` 1.0 → 0.0 at `over_caution` 0.0. But adoption was gated on a **real-data shadow** over
-Joni's graph (per-claim, 1 366 live claims): `missing_opposition` 6.6 % and `thin_provenance` 3.0 %
-fire selectively (**adopt**); `same_scope_newer` fired on **64.8 %** with a topic-scope (**held back** —
-over-fire, the topic is too coarse a stand-in for scope) and is only usable once claims carry a real
-subject key; `scope_mismatch` is structurally dead (0 %, no scope tags in the data yet); `k_unstable`
-is marginal (0.4 %). The rule is literal: *an adopted check must pass a real measurement, not just a
-fixture.*
+`false_clean` 1.0 → 0.0 at `over_caution` 0.0. But adoption is gated on a **real-data shadow** over
+Joni's graph (per-claim). The decisive case is `same_scope_newer` (#5): on 1 366 claims with a
+*topic*-scope it over-fired at **64.8 %** (held back), but once claims carried a deterministic
+**subject key**, a re-measurement on the grown graph (2 486 live claims) put it at **7.2 %** — now
+selective, so the hold is evidence-liftable. The others are stable across the regrow: `missing_opposition`
+**6.4 %** and `thin_provenance` **2.3 %** fire selectively (adopt); `scope_mismatch` is structurally
+dead (**0 %**, no scope tags in the data yet); `k_unstable` is marginal (**0.2 %**). The rule is
+literal: *an adopted check must pass a real measurement, not just a fixture* — and #5 shows it cuts both
+ways (a fixture-correct check is held until the data justifies it, then adopted when it does).
+
+**The Ontology Probe, measured and NOT adopted (yet).** The same shadow ran the ontology channel on the
+real graph: of 283 same-subject collision groups (739 claims), WordNet covered **0** tokens (no corpus
+→ a silent no-op, fail-open as designed), and even a labelled demo seed found its 4 covered ambiguous
+tokens only in *singleton* keys — **0 of 283 collision groups addressable**. Joni's collisions are
+genuine same-subject repeats, not homonymy, so the separate-only rule has no target here. Built and
+unit-correct, but honestly not adopted on this data.
 
 ## Candidate channels — CLSP and the Ontology Probe (producers, never authorities)
 
