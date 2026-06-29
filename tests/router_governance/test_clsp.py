@@ -19,6 +19,13 @@ def test_invariant_core_is_promotable_when_anchored_and_multilingual():
     assert r.category == clsp.INVARIANT_CORE and r.status == "candidate_for_eir"
 
 
+def test_strong_single_language_is_emergent_not_invariant():
+    # invariant_core requires cross-lingual STABILITY (>=2 languages); a STRONG claim in ONE language
+    # is anchored but not multilingual -> emergent, must be verified, never silently trusted as core.
+    r = clsp.classify(Cluster("single-lang strong", ("de",), clsp.STRONG, original_span="x"))
+    assert r.category == clsp.EMERGENT_CANDIDATE and r.status == "requires_verifier"
+
+
 def test_weak_anchor_requires_a_verifier_not_a_silent_promotion():
     r = clsp.classify(Cluster("methodological not factual", ("en", "fr"), clsp.WEAK))
     assert r.category == clsp.EMERGENT_CANDIDATE

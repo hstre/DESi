@@ -28,6 +28,8 @@ def test_low_risk_clean_state_is_state_slice_and_may_update():
 def test_no_state_no_risk_is_normal():
     d = select_mode(_rep(selected_claim_ids=()), retrieval_available=False)
     assert d.chosen_mode == M.NORMAL
+    # no state needed + low risk -> the answer may propose an update without a verifier
+    assert d.persistent_state_update_allowed and not d.validator_required
 
 
 def test_invalidated_claims_touched_is_guarded_plus_verifier():

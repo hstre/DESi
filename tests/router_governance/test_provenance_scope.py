@@ -43,6 +43,15 @@ def test_well_sourced_slice_is_clean():
     assert a["under_support"] is False
 
 
+def test_partial_derivation_is_not_all_derived():
+    # 'all_derived' must mean EVERY claim is derived — one derived claim among primaries is fine.
+    # (Pins `all(derived)`; an `any(derived)` would over-fire on a single derived claim.)
+    a = assess_provenance(n_claims=3, source_families=("a", "b", "c"),
+                          derived_flags=(True, False, False))
+    assert a["all_derived"] is False
+    assert a["under_support"] is False           # independent sources, not stale, not all-derived
+
+
 def test_thin_provenance_routes_to_caution_not_clean():
     r = _rep(selected_claim_ids=("c1", "c2"), selected_claim_texts=("a", "b"),
              provenance_sources=("root", "root"))
