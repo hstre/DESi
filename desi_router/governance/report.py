@@ -24,7 +24,8 @@ from dataclasses import asdict, dataclass, field
 from typing import Any
 
 RISK_KEYS = ("invalid_claim_reuse", "bad_framing_nonrecovery", "coherence_without_continuity",
-             "stale_confident_answer", "wrong_state_poisoning", "conflict_closure_risk")
+             "stale_confident_answer", "wrong_state_poisoning", "conflict_closure_risk",
+             "missing_opposition")
 
 
 @dataclass
@@ -37,6 +38,9 @@ class DesiReport:
     invalidated_claim_ids: tuple[str, ...] = ()
     superseded_claim_ids: tuple[str, ...] = ()
     open_conflict_ids: tuple[str, ...] = ()
+    # opposition the FULL-GRAPH scan holds for the selected claims but the slice did NOT surface —
+    # the plausible-wrong-slice signal (see missing_opposition.py). Empty unless a scan supplied it.
+    omitted_opposition_ids: tuple[str, ...] = ()
     provenance_refs: tuple[str, ...] = ()
     state_recall_estimate: float | None = None       # 0..1, optional
     extraction_confidence: float | None = None        # 0..1, optional
@@ -50,6 +54,7 @@ class DesiReport:
     invalidated_claim_texts: tuple[str, ...] = ()
     superseded_claim_texts: tuple[str, ...] = ()
     open_conflict_texts: tuple[str, ...] = ()
+    omitted_opposition_texts: tuple[str, ...] = ()
     risk_scores: dict[str, float] = field(default_factory=dict)
     recommended_mode: str = ""
     explanation_for_router: str = ""
@@ -71,7 +76,7 @@ class DesiReport:
         """The published router-facing schema (id-lists + risk_scores), without the verifier texts."""
         d = asdict(self)
         for k in ("selected_claim_texts", "invalidated_claim_texts", "superseded_claim_texts",
-                  "open_conflict_texts"):
+                  "open_conflict_texts", "omitted_opposition_texts"):
             d.pop(k, None)
         return d
 
@@ -109,12 +114,16 @@ def _risk_scores(r: DesiReport) -> dict[str, float]:
         else (0.5 if r.open_conflict_ids else 0.0)
     bad_framing = 0.9 if r.wrong_frame_present else (0.4 if poisoning >= 0.6 else 0.0)
     coherence = 0.6 if (r.has_usable_state and recall_low) else 0.2
+    # the graph holds opposition the slice omitted -> the slice is plausible but one-sided. 0.0 when
+    # the scan found nothing omitted, so every existing case (no scan) keeps its prior risk vector.
+    missing_opp = 1.0 if r.omitted_opposition_ids else 0.0
     return {"invalid_claim_reuse": round(invalid_reuse, 2),
             "bad_framing_nonrecovery": round(bad_framing, 2),
             "coherence_without_continuity": round(coherence, 2),
             "stale_confident_answer": round(stale, 2),
             "wrong_state_poisoning": round(poisoning, 2),
-            "conflict_closure_risk": round(conflict, 2)}
+            "conflict_closure_risk": round(conflict, 2),
+            "missing_opposition": round(missing_opp, 2)}
 
 
 def report_from_snapshot(task_id: str, snapshot: Any, *,
@@ -130,10 +139,18 @@ def report_from_snapshot(task_id: str, snapshot: Any, *,
                          wrong_frame_present: bool = False,
                          task_touches_invalidated: bool = False,
                          answer_requires_conflict_resolution: bool = False,
+                         graph_opposition_ids: tuple[str, ...] = (),
+                         graph_opposition_texts: tuple[str, ...] = (),
                          user_id: str | None = None, project_id: str | None = None) -> DesiReport:
     """Project a (duck-typed) EpistemicGapSnapshot into a router-facing report. READ-ONLY: it never
     mutates the snapshot. Fields the snapshot does not track (invalidated/superseded/confidence) are
-    supplied by the caller, never fabricated here."""
+    supplied by the caller, never fabricated here.
+
+    ``graph_opposition_ids``/``_texts`` are the result of a slice-INDEPENDENT full-graph scan for
+    opposition to the selected claims (contradiction / supersession / open question). What of it the
+    slice did not already surface becomes ``omitted_opposition_ids`` — the plausible-wrong-slice
+    flag. Empty by default, so callers that do not run the scan get the exact prior behaviour.
+    """
     conflicts = tuple(getattr(snapshot, "conflicts", ()) or ())
     prov = getattr(snapshot, "provenance", None)
     prov_refs = tuple(p for p in (getattr(prov, "snapshot_hash", "") or "",) if p)
@@ -141,6 +158,16 @@ def report_from_snapshot(task_id: str, snapshot: Any, *,
     open_conflict_texts = tuple(
         f"{getattr(c, 'kind', '')} over {', '.join(getattr(c, 'scope', ()) or ())}".strip()
         for c in conflicts)
+    # what the slice already surfaced; opposition the graph holds beyond this is "omitted"
+    sel = _astuple(selected_claim_ids)
+    surfaced = set(sel) | set(_astuple(invalidated_claim_ids)) | set(_astuple(superseded_claim_ids)) \
+        | set(open_conflict_ids)
+    opp_ids = _astuple(graph_opposition_ids)
+    opp_texts = _astuple(graph_opposition_texts)
+    omitted_pairs = [(oid, opp_texts[i] if i < len(opp_texts) else "")
+                     for i, oid in enumerate(opp_ids) if oid and oid not in surfaced]
+    omitted_ids = tuple(dict.fromkeys(oid for oid, _ in omitted_pairs))
+    omitted_texts = tuple(t for _, t in omitted_pairs if t)
     return DesiReport(
         task_id=task_id, user_id=user_id, project_id=project_id,
         selected_claim_ids=_astuple(selected_claim_ids),
@@ -150,6 +177,7 @@ def report_from_snapshot(task_id: str, snapshot: Any, *,
         superseded_claim_ids=_astuple(superseded_claim_ids),
         superseded_claim_texts=_astuple(superseded_claim_texts),
         open_conflict_ids=open_conflict_ids, open_conflict_texts=open_conflict_texts,
+        omitted_opposition_ids=omitted_ids, omitted_opposition_texts=omitted_texts,
         provenance_refs=prov_refs,
         state_recall_estimate=state_recall_estimate, extraction_confidence=extraction_confidence,
         has_usable_state=bool(selected_claim_ids),
