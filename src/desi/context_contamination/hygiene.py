@@ -76,16 +76,19 @@ _MANIPULATIVE_SIGNALS = (
 )
 
 
-def classify_register(text: str) -> list[str]:
+def classify_register(text: str,
+                      framework_terms: tuple[str, ...] = FRAMEWORK_TERMS) -> list[str]:
     """Closed-set register classification of a source text.
 
     Returns the subset of {esoteric, affective, manipulative, therapeutic}
     whose surface signals appear. Deterministic keyword heuristics; the
-    point is a *traceable* label, not a perfect one.
+    point is a *traceable* label, not a perfect one. ``framework_terms``
+    selects the vocabulary that triggers the "esoteric" label (default: the
+    esoteric set; the credible register passes ``CREDIBLE_FRAMEWORK_TERMS``).
     """
     t = (text or "").lower()
     registers: list[str] = []
-    if sum(term in t for term in FRAMEWORK_TERMS) >= 2:
+    if sum(term in t for term in framework_terms) >= 2:
         registers.append("esoteric")
     if sum(s in t for s in _AFFECTIVE_SIGNALS) >= 3:
         registers.append("affective")
@@ -119,7 +122,8 @@ def _extract_claims(text: str, max_claims: int = _MAX_CLAIMS,
 
 
 def build_hygiene_state(raw_text: str, source_label: str = "uploaded_file",
-                        density: int = 5) -> dict:
+                        density: int = 5,
+                        framework_terms: tuple[str, ...] = FRAMEWORK_TERMS) -> dict:
     """Raw adversarial text -> structured neutral state.
 
     The state carries everything the analysis needs (what the source claims,
@@ -137,11 +141,11 @@ def build_hygiene_state(raw_text: str, source_label: str = "uploaded_file",
         raise ValueError(f"unknown density {density!r}; choose from {DENSITY_LEVELS}")
     raw = raw_text or ""
     t = raw.lower()
-    terms_present = sorted({term for term in FRAMEWORK_TERMS if term in t})
+    terms_present = sorted({term for term in framework_terms if term in t})
 
     state: dict = {
         "source_label": source_label,
-        "source_register": classify_register(raw),
+        "source_register": classify_register(raw, framework_terms),
     }
     claims: list[str] = []
     if density >= 3:

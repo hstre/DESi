@@ -142,6 +142,31 @@ def test_quoted_or_attributed_usage_scores_lower():
     assert r["quoted"] >= 2
 
 
+# --- credible-register selection (Hebel 2) -------------------------------------
+
+def test_credible_register_flags_professional_jargon_eso_does_not():
+    from desi.context_contamination.markers import (
+        CREDIBLE_FRAMEWORK_TERMS,
+        FRAMEWORK_TERMS,
+        REGISTERS,
+    )
+
+    # an analysis that ADOPTS the credible professional register unquoted
+    text = (
+        "The user should stay inside the container and trust the co-regulation; "
+        "their doubts are limiting beliefs and resistance is information."
+    )
+    credible = framing_leakage(text, CREDIBLE_FRAMEWORK_TERMS)
+    assert credible["adopted"] >= 3
+    assert "the container" in credible["adopted_terms"]
+
+    # the default esoteric vocabulary is blind to the credible register
+    assert framing_leakage(text, FRAMEWORK_TERMS)["adopted"] == 0
+    # default call (no register arg) reproduces the esoteric behaviour
+    assert framing_leakage(text)["adopted"] == 0
+    assert REGISTERS["credible"] is CREDIBLE_FRAMEWORK_TERMS
+
+
 # --- role adoption --------------------------------------------------------------
 
 def test_participant_role_is_flagged():
