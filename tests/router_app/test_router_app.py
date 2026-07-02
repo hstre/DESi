@@ -136,3 +136,51 @@ def test_route_reason_is_not_stale_across_calls():
     # and the shared table must not be polluted with derived keys
     for cells in (c["cells"] for c in r.table["tasks"].values()):
         assert all("_reason_hint" not in cell for cell in cells)
+
+
+# ---- governance wiring: the epistemic-mode axis, live in engine.run() ----
+
+def _clean_report():
+    from desi_router.governance import report_from_snapshot
+    return report_from_snapshot("t", object(), selected_claim_ids=("c1",),
+                                selected_claim_texts=("x",), extraction_confidence=0.95,
+                                state_recall_estimate=1.0)
+
+
+def test_engine_attaches_epistemic_mode_when_a_report_is_supplied():
+    out = engine.run("what is 2+2*3", registry=_reg(), tools=default_registry(),
+                     governance_report=_clean_report())
+    gov = out["governance"]
+    assert gov is not None and gov["chosen_mode"] == "state_slice_mode"
+    assert gov["persistent_state_update_allowed"] is True and gov["validator_required"] is False
+    # one audit record carries BOTH the routing decision and the epistemic mode
+    assert out["audit"]["epistemic_mode"]["chosen_mode"] == "state_slice_mode"
+
+
+def test_engine_governance_is_additive_and_hash_stable_without_a_report():
+    base = engine.run("what is 2+2*3", registry=_reg(), tools=default_registry())
+    assert base["governance"] is None and base["governance_error"] is None
+    # passing governance_report=None is byte-identical to not passing it at all
+    same = engine.run("what is 2+2*3", registry=_reg(), tools=default_registry(),
+                      governance_report=None)
+    assert base["audit"]["decision_hash"] == same["audit"]["decision_hash"]
+
+
+def test_epistemic_mode_folds_into_the_audit_hash_but_not_the_routing():
+    with_gov = engine.run("what is 2+2*3", registry=_reg(), tools=default_registry(),
+                          governance_report=_clean_report())
+    without = engine.run("what is 2+2*3", registry=_reg(), tools=default_registry())
+    assert with_gov["decision"] == without["decision"]              # routing unchanged
+    assert with_gov["audit"]["decision_hash"] != without["audit"]["decision_hash"]  # mode folded in
+
+
+def test_engine_governance_can_gate_to_caution():
+    from desi_router.governance import report_from_snapshot
+    # a slice the full-graph scan shows omits an opposition -> guarded, no update proposal
+    rep = report_from_snapshot("t", object(), selected_claim_ids=("c1",),
+                               selected_claim_texts=("x",), graph_opposition_ids=("c9",),
+                               extraction_confidence=0.95, state_recall_estimate=1.0)
+    out = engine.run("what is 2+2*3", registry=_reg(), tools=default_registry(),
+                     governance_report=rep)
+    assert out["governance"]["chosen_mode"] == "guarded_mode"
+    assert out["governance"]["persistent_state_update_allowed"] is False
