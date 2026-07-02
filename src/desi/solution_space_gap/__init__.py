@@ -13,6 +13,7 @@ from .analysis import (
     static_kind_baseline,
 )
 from .snapshot import (
+    SCHEMA_VERSION,
     ConflictGap,
     EpistemicGapSnapshot,
     EvidenceGap,
@@ -24,6 +25,6 @@ from .snapshot import (
 
 __all__ = [
     "EpistemicGapSnapshot", "ConflictGap", "EvidenceGap", "MethodRecord", "MethodTrial",
-    "OpenQuestion", "SnapshotProvenance", "BlindSpotProposal", "analyze_gaps",
+    "OpenQuestion", "SnapshotProvenance", "SCHEMA_VERSION", "BlindSpotProposal", "analyze_gaps",
     "frequency_baseline", "static_kind_baseline",
 ]
