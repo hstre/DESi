@@ -138,6 +138,25 @@ deliberately not shipped; bring a sandboxed executor if you need one.)
 Task classes are decided by `desi_router.policy.classify` (keyword-based,
 overridable per call: `router.route(..., task_class="retrieval")`).
 
+### The classifier is measured, and replaceable
+
+The built-in classifier is a keyword heuristic — the weakest link of the
+router, so its quality is a number, not a claim:
+
+```bash
+python -m desi_router.classifier_eval     # accuracy per class + confusion matrix
+```
+
+The shipped set scores 100 %, but read it honestly: the patterns were tuned
+against that very set, so it is a pinned **regression floor**, not a
+generalization claim. Extend `classifier_eval.LABELED` with your domain's
+queries to measure what *you* will actually see — or replace the classifier
+entirely:
+
+```python
+router = DesiRouter(config, classifier=my_model_or_rules)   # (query) -> task_class
+```
+
 ## 5. The shared ledger (local Layer 9) — optional, one argument
 
 ```python
@@ -177,6 +196,14 @@ it opened itself (a `Ledger` instance you pass in stays yours to manage).
   (`score_source: "measured"`); your config's `task_scores` are a fallback
   hint; an unknown local model is honestly `unmeasured` — it never inherits a
   differently-named API model's score.
+- **The measurement lives:** with a shared ledger and an eval-time scorer, the
+  pipeline logs realized scores per (task, model). Once enough *scored*
+  attempts accumulate, re-fit the table from that evidence:
+  `python -m desi_router.table_evidence path/to/desi_ledger.db --refit`
+  (dry-run without `--refit`; min. 30 scored attempts per cell). A re-fitted
+  cell is marked `score_source: "ledger-refit"` with its sample size and the
+  previous benchmark score — it never masquerades as the original measurement,
+  and the routing decision surfaces that source in its rationale.
 
 ## 7. Going deeper
 

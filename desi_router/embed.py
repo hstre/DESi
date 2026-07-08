@@ -59,6 +59,11 @@ class DesiRouter:
     instance_id:
         How this embedding identifies itself in a shared ledger
         (default: ``hostname:pid``). Ignored when ``ledger`` is an instance.
+    classifier:
+        Bring your own task classifier: a callable ``(query: str) -> task_class``.
+        The built-in one is a measured keyword heuristic
+        (``python -m desi_router.classifier_eval`` prints its confusion matrix);
+        a host with domain knowledge can do better - this is the seam.
     """
 
     def __init__(
@@ -69,6 +74,7 @@ class DesiRouter:
         tools: ToolRegistry | None = None,
         ledger: str | Path | Ledger | None = None,
         instance_id: str | None = None,
+        classifier: Callable[[str], str] | None = None,
     ) -> None:
         if config is None:
             self.registry = Registry(providers=[])
@@ -79,6 +85,7 @@ class DesiRouter:
         else:
             self.registry = load_config(config)
         self.tools = tools if tools is not None else default_registry(corpus_dir)
+        self._classify = classifier or classify
         self._owns_ledger = not isinstance(ledger, Ledger)
         if ledger is None:
             self.ledger: Ledger | None = None
@@ -123,7 +130,7 @@ class DesiRouter:
             registry=self.registry,
             tools=self.tools,
             constraints=constraints,
-            task_class=task_class,
+            task_class=task_class or self._classify(query),
             execute_model=execute_model,
             ledger=self.ledger,
             reuse=reuse,
@@ -149,7 +156,7 @@ class DesiRouter:
             cost_budget_usd=cost_budget_usd,
             accuracy_target=accuracy_target,
         )
-        return decide(task_class or classify(query), constraints, self.registry, self.tools)
+        return decide(task_class or self._classify(query), constraints, self.registry, self.tools)
 
     # ---- extension ---------------------------------------------------------- #
 
