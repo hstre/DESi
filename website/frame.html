@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DESi — The Frame: one design grammar, four domains</title>
+<meta name="description" content="The frame behind DESi: one design grammar - architecture over trust - across the Alexandria Protocol, Layer 9, the Dual-Layer Economy, and the agents that instantiate them." />
+<meta property="og:title" content="DESi - The Frame" />
+<meta property="og:description" content="Determinism, an epistemic uncertainty relation, falsifiability and complementarity — the formal structure behind DESi and the Alexandria Protocol." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://hstre.github.io/DESi/assets/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/png" sizes="256x256" href="assets/favicon-256.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/favicon-180.png" />
+<style>
+  :root{
+    --bg:#070a10;--bg-2:#0c111b;--panel:#0f1622;--line:#1c2737;
+    --ink:#e8eef7;--muted:#8a99af;--faint:#5c6b82;
+    --accent:#2ce6c4;--accent-2:#5aa8ff;--warn:#ff6b6b;
+    --mono:"SF Mono",ui-monospace,"JetBrains Mono","Cascadia Code",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Noto Sans",sans-serif;
+    --cjk:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Noto Sans CJK JP","Yu Gothic",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body.lang-zh,body.lang-ja{font-family:var(--cjk)}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:860px;margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--mono)}
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:48px 48px;opacity:.10;mask-image:radial-gradient(circle at 50% 0%,#000,transparent 70%)}
+
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+    background:rgba(7,10,16,.72);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:14px;max-width:1080px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px;color:var(--ink)}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(44,230,196,.15)}
+  .brand-mark{height:26px;width:auto;display:block}
+  .brand .v{color:var(--faint);font-family:var(--mono);font-size:12px;font-weight:500}
+  .nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+  .back{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line);
+    padding:6px 11px;border-radius:8px}
+  .back:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
+  .langs{display:flex;gap:4px;flex-wrap:wrap}
+  .langs button{font-family:var(--mono);font-size:12px;letter-spacing:.5px;background:transparent;
+    color:var(--muted);border:1px solid transparent;padding:5px 9px;border-radius:7px;cursor:pointer;transition:.15s}
+  .langs button:hover{color:var(--ink);background:var(--panel)}
+  .langs button.active{color:var(--bg);background:var(--accent);font-weight:700}
+
+  header.hero{padding:80px 0 44px}
+  .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:3px;color:var(--accent);
+    text-transform:uppercase;margin-bottom:20px}
+  h1{font-size:clamp(30px,5vw,50px);line-height:1.08;letter-spacing:-1.3px;margin:0 0 20px;font-weight:800;max-width:30ch}
+  h1 .hl{color:var(--accent)}
+  .lead{font-size:clamp(16px,2.2vw,20px);color:var(--muted);max-width:64ch;margin:0}
+
+  .note{border:1px solid rgba(255,107,107,.3);background:rgba(255,107,107,.05);
+    border-radius:14px;padding:20px 22px;margin:30px 0}
+  .note .nk{font-family:var(--mono);font-size:11.5px;letter-spacing:2px;color:var(--warn);text-transform:uppercase;margin-bottom:8px}
+  .note p{margin:0;color:var(--muted);font-size:15px}
+
+  .part{border-top:1px solid var(--line);padding:54px 0 8px;margin-top:24px}
+  .part-k{font-family:var(--mono);font-size:12px;letter-spacing:3px;color:var(--accent-2);text-transform:uppercase}
+  .part-t{font-size:clamp(24px,3.6vw,36px);letter-spacing:-.8px;margin:10px 0 8px;font-weight:780}
+  .part-s{color:var(--muted);max-width:62ch;margin:0 0 8px;font-size:16px}
+
+  section.blk{padding:30px 0;border-top:1px solid rgba(28,39,55,.6)}
+  section.blk:first-of-type{border-top:none}
+  h2{font-size:clamp(19px,2.6vw,24px);letter-spacing:-.4px;margin:0 0 14px;font-weight:700}
+  h2 .nm{color:var(--accent);font-family:var(--mono);font-size:.8em;margin-right:6px}
+  .blk p{color:var(--muted);font-size:16px;margin:0 0 14px;max-width:68ch}
+  .blk p b,.blk p strong{color:var(--ink);font-weight:650}
+  .blk code{font-family:var(--mono);font-size:.88em;background:var(--panel);border:1px solid var(--line);
+    padding:1px 6px;border-radius:5px;color:var(--accent)}
+
+  .math{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);
+    border-left:3px solid var(--accent);border-radius:12px;padding:8px 20px;margin:18px 0;overflow-x:auto}
+  .math .cap{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.5px;margin-top:-2px}
+  .figure{margin:20px 0 8px;border:1px solid var(--line);border-radius:14px;
+    background:linear-gradient(180deg,var(--panel),var(--bg-2));padding:18px}
+  .figure svg{width:100%;height:auto;display:block}
+  .figure .cap{font-size:13px;color:var(--faint);margin:12px 4px 0;text-align:center;line-height:1.5}
+
+  table.grid{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px}
+  table.grid th,table.grid td{border:1px solid var(--line);padding:9px 12px;text-align:left}
+  table.grid th{background:var(--panel);color:var(--ink);font-family:var(--mono);font-size:12.5px;
+    letter-spacing:.5px;font-weight:600}
+  table.grid td{color:var(--muted)}
+  table.grid td.mono{font-family:var(--mono);color:var(--accent)}
+  table.grid tr:nth-child(even) td{background:rgba(15,22,34,.4)}
+
+  .derive{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0}
+  .derive .d{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:20px}
+  .derive .d h3{margin:0 0 8px;font-size:15.5px}
+  .derive .d.kant h3{color:var(--accent)}
+  .derive .d.pop h3{color:var(--accent-2)}
+  .derive .d.heis h3{color:#c79bff}
+  .derive .d p{margin:0;color:var(--muted);font-size:14px}
+
+  footer{padding:54px 0 80px;border-top:1px solid var(--line);background:var(--bg-2);margin-top:40px}
+  .foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end}
+  .foot-grid .who h3{margin:0 0 6px;font-size:19px;color:var(--ink)}
+  .foot-grid .who p{margin:0;color:var(--muted);font-size:14px}
+  .foot-links{display:flex;gap:10px;flex-wrap:wrap}
+  .foot-links a{font-family:var(--mono);font-size:13px;color:var(--muted);border:1px solid var(--line);
+    padding:9px 14px;border-radius:9px}
+  .foot-links a:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
+  .legal{margin-top:26px;color:var(--faint);font-size:12.5px;font-family:var(--mono);max-width:74ch}
+
+  @media(max-width:760px){
+    .derive{grid-template-columns:1fr}
+    nav .wrap{height:auto;min-height:56px;flex-wrap:wrap;gap:8px;padding-top:8px;padding-bottom:8px}
+    .brand .v{display:none}
+    .nav-right{width:100%;justify-content:flex-start;gap:8px}
+    .back{order:-1}
+    .langs{flex:1;justify-content:flex-end}
+    .langs button{padding:6px 8px}
+  }
+</style>
+</head>
+
+<body class="lang-en">
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><img class="brand-mark" src="assets/desi-mark.png" alt="" />DESi
+      <span class="v">The Frame</span></div>
+    <div class="nav-right">
+      <a class="back" href="theory.html" data-i18n="f_foundations"></a>
+      <a class="back" href="index.html" data-i18n="f_back"></a>
+      <div class="langs" id="langs">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="de">DE</button>
+        <button data-lang="zh">中文</button>
+        <button data-lang="es">ES</button>
+        <button data-lang="ja">日本語</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="f_eyebrow"></div>
+    <h1 data-i18n-html="f_title"></h1>
+    <p class="lead" data-i18n="f_sub"></p>
+    <div class="note">
+      <div class="nk" data-i18n="f_note_k"></div>
+      <p data-i18n-html="f_note_b"></p>
+    </div>
+  </div>
+</header>
+
+<div class="part"><div class="wrap">
+  <div class="part-k" data-i18n="f_rule_k"></div>
+  <div class="part-t" data-i18n="f_rule_t"></div>
+  <p class="part-s" data-i18n="f_rule_s"></p>
+</div></div>
+<section><div class="wrap">
+  <div class="inv-grid">
+    <div class="inv"><div class="n mono">01</div><h3 data-i18n="f_m1_h"></h3><p data-i18n="f_m1_b"></p></div>
+    <div class="inv"><div class="n mono">02</div><h3 data-i18n="f_m2_h"></h3><p data-i18n="f_m2_b"></p></div>
+    <div class="inv"><div class="n mono">03</div><h3 data-i18n="f_m3_h"></h3><p data-i18n="f_m3_b"></p></div>
+    <div class="inv"><div class="n mono">04</div><h3 data-i18n="f_m4_h"></h3><p data-i18n="f_m4_b"></p></div>
+    <div class="inv"><div class="n mono">05</div><h3 data-i18n="f_m5_h"></h3><p data-i18n="f_m5_b"></p></div>
+  </div>
+</div></section>
+
+<div class="part"><div class="wrap">
+  <div class="part-k" data-i18n="f_lin_k"></div>
+  <div class="part-t" data-i18n="f_lin_t"></div>
+  <p class="part-s" data-i18n="f_lin_s"></p>
+</div></div>
+<section><div class="wrap">
+  <h2><span class="nm">A</span><span data-i18n="f_al_h"></span></h2>
+  <p data-i18n-html="f_al_b"></p>
+  <h2><span class="nm">L9</span><span data-i18n="f_l9_h"></span></h2>
+  <p data-i18n-html="f_l9_b"></p>
+  <h2><span class="nm">DLE</span><span data-i18n="f_dle_h"></span></h2>
+  <p data-i18n-html="f_dle_b"></p>
+</div></section>
+
+<div class="part"><div class="wrap">
+  <div class="part-k" data-i18n="f_inst_k"></div>
+  <div class="part-t" data-i18n="f_inst_t"></div>
+  <p class="part-s" data-i18n="f_inst_s"></p>
+</div></div>
+<section><div class="wrap">
+  <div class="inv-grid">
+    <div class="inv"><div class="n mono" data-i18n="f_i1_tag"></div><h3 data-i18n="f_i1_h"></h3><p data-i18n-html="f_i1_b"></p></div>
+    <div class="inv"><div class="n mono" data-i18n="f_i2_tag"></div><h3 data-i18n="f_i2_h"></h3><p data-i18n-html="f_i2_b"></p></div>
+    <div class="inv"><div class="n mono" data-i18n="f_i3_tag"></div><h3 data-i18n="f_i3_h"></h3><p data-i18n-html="f_i3_b"></p></div>
+    <div class="inv"><div class="n mono" data-i18n="f_i4_tag"></div><h3 data-i18n="f_i4_h"></h3><p data-i18n-html="f_i4_b"></p></div>
+  </div>
+</div></section>
+
+<section class="honesty"><div class="wrap">
+  <h2 data-i18n="f_hon_h"></h2>
+  <p data-i18n-html="f_hon_b"></p>
+</div></section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><h3>DESi</h3><p class="muted" data-i18n="f_foot_by"></p></div>
+      <div class="foot-links">
+        <a href="index.html" data-i18n="f_back"></a>
+        <a href="theory.html" data-i18n="f_foundations"></a>
+        <a href="https://github.com/hstre/DESi">GitHub ↗</a>
+      </div>
+    </div>
+    <p class="legal muted" data-i18n="f_legal"></p>
+  </div>
+</footer>
+
+<script>
+const I18N = {
+  en:{"f_back": "← Overview", "f_foundations": "Foundations", "f_eyebrow": "The Frame · one design grammar, four domains", "f_title": "DESi is one instance of a larger idea: <span class=\"hl\">architecture over trust.</span>", "f_sub": "The router you can run is the smallest visible piece. The same design grammar runs across a knowledge protocol, a macro-economic model, and autonomous reasoning agents. This page shows how they fit — and labels honestly what is a paper, what is running code, and what is still a plan.", "f_note_k": "The through-line", "f_note_b": "Do not ask a component to be trustworthy. Build so that untrustworthiness cannot become authoritative state. Every system below is a different answer to the same question: <b>how does a system avoid failing at its own power?</b>", "f_rule_k": "The one rule", "f_rule_t": "Architecture over trust", "f_rule_s": "Five moves recur in every domain below. None is about making a part more reliable; all are about making unreliability structurally unable to win.", "f_m1_h": "Firewalls, not vigilance", "f_m1_b": "A boundary the grammar itself cannot cross: category purity in the protocol, a real-layer / synthetic-finance firewall in the economy, LLM-for-language vs rules-for-logic in the agent. The wrong kind of value is unrepresentable, not merely discouraged.", "f_m2_h": "Error history is immutable", "f_m2_b": "Nothing is deleted; a contradiction branches. Append-only, hash-chained ledgers make tampering evident. A corrected error stays in the chain forever — the record of how a belief broke is worth more than the belief.", "f_m3_h": "Invariants verified, not asserted", "f_m3_b": "Replay stability, the audit gate, the taint check, the write gate — each is re-checked at run time, and a check that cannot run is surfaced loudly rather than trusted silently. A dead guard is worse than none.", "f_m4_h": "The source is never the authority", "f_m4_b": "A paper, a forum voice, a model — all enter as sources with provenance, never as truth. Only an explicit human decision (or a deterministic rule) settles what counts. Assessability, not authority.", "f_m5_h": "Resilience is endogenous", "f_m5_b": "Stability comes not from preventing shocks but from metabolizing them. The economy's resilience capital and the agent's persona of corrected errors are structurally the same mechanism: absorbed error becomes the capacity to recover.", "f_lin_k": "The lineage", "f_lin_t": "Specifications & papers", "f_lin_s": "Three documents state the grammar — a specification and two working papers, part of a larger body on SSRN, cited and honestly preliminary.", "f_al_h": "Alexandria Protocol — the design authority", "f_al_b": "A specification for knowledge that binds itself to <b>assessability, never truth</b>: category purity (empirical / normative / model / speculative kept apart), branch-on-dissent instead of overwrite, no silent winner, an audit gate before anything becomes authoritative. Deviations elsewhere are declared against it, not hidden. <a href=\"https://ssrn.com/abstract=6395079\">Complete Edition v2.2 (SSRN)</a>.", "f_l9_h": "Layer 9 — the knowledge stack", "f_l9_b": "Semantic projection → claim identity &amp; provenance → drift and contradiction tracking → fork/merge policy → humans in roles around claims. A single claim keeps its lineage across models and time: <b>context retention is not claim continuity</b>. <a href=\"https://ssrn.com/abstract=6694758\">Working paper (SSRN)</a>.", "f_dle_h": "Dual-Layer Economy — the same grammar in macro", "f_dle_b": "A firewall between the real layer and synthetic finance made <b>structurally unrepresentable</b> in the ledger grammar; guards and projection instead of a fragile equilibrium; automatic stabilizers; and a resilience capital whose role is exactly the agent's persona — metabolized shocks, not prevented ones, enable recovery. <a href=\"https://ssrn.com/abstract=6320918\">Working paper (SSRN)</a>.", "f_inst_k": "The instantiations", "f_inst_t": "Running & built code", "f_inst_s": "The grammar is not only on paper. Here is where it runs — with an honest maturity tag on each.", "f_i1_tag": "BENCHMARKED", "f_i1_h": "DESi router", "f_i1_b": "Deterministic tool / local / API routing under a privacy·accuracy·cost policy, measured scores that re-fit from logged evidence, a replay-stable audit, an append-only local ledger. Runs offline; embeddable as a stdlib-only building block. <a href=\"https://ssrn.com/abstract=6846364\">Paper (SSRN)</a> · <a href=\"index.html\">run it →</a>", "f_i2_tag": "RUNNING · EXPERIMENTAL", "f_i2_h": "Joni", "f_i2_b": "An autonomous reasoning agent whose kernel is a single-node Layer 9. Learns from sources, opens (never force-resolves) contradictions, and builds a persona from its own corrected errors. The operator settles conflicts; the agent may lodge a reasoned objection. <a href=\"https://github.com/hstre/Joni\">Repo →</a>", "f_i3_tag": "BUILT · MVP", "f_i3_h": "Hermine", "f_i3_b": "A third-party agent (Hermes, a different model family) placed under Layer 9 as its <b>sole write authority</b>: every memory or skill write is a proposal the gate disposes of, never a direct write — a concrete instance of the <a href=\"https://ssrn.com/abstract=6272258\">persistent epistemic supervisor</a>. Maturity earned through the gate, not withheld. Not yet deployed.", "f_i4_tag": "DESIGNED", "f_i4_h": "The meeting point", "f_i4_b": "Two nodes exchanging claims-with-provenance — each reading the other as a source through its own gate, neither sharing writable state. Layer 9's Phase 4, the reason the grammar exists. Designed, not yet built.", "f_hon_h": "What is claimed — and what is not", "f_hon_b": "This is a research program, not a solved problem. The papers are <b>working papers</b>; the code runs but is experimental; one agent is built and not yet deployed. No general intelligence is claimed, no breakthrough implied. The lineage — Kant on the conditions of a mature reason, Popper on conjecture and refutation — is named and held to account, not borrowed for authority. The point is modest and serious at once: systems will build their successors, and the foundations that make a mind <i>assessable</i> should be inherited, not reinvented.", "f_foot_by": "The Frame · DESi · Alexandria Protocol · Hanns-Steffen Rentschler", "f_legal": "MIT License · © 2026 Hanns-Steffen Rentschler · A design grammar across four domains. No breakthrough claimed, none implied."},
+  de:{"f_back": "← Übersicht", "f_foundations": "Grundlagen", "f_eyebrow": "Der Rahmen · eine Design-Grammatik, vier Domänen", "f_title": "DESi ist eine Instanz einer größeren Idee: <span class=\"hl\">Architektur statt Vertrauen.</span>", "f_sub": "Der Router, den du starten kannst, ist das kleinste sichtbare Stück. Dieselbe Design-Grammatik trägt ein Wissensprotokoll, ein makroökonomisches Modell und autonome Reasoning-Agenten. Diese Seite zeigt, wie es zusammenpasst — und benennt ehrlich, was Paper ist, was laufender Code, und was noch Plan.", "f_note_k": "Der rote Faden", "f_note_b": "Verlange von einem Bauteil nicht, vertrauenswürdig zu sein. Baue so, dass Unzuverlässigkeit nicht zu gültigem Zustand werden kann. Jedes System unten ist eine andere Antwort auf dieselbe Frage: <b>Wie scheitert ein System nicht an seiner eigenen Macht?</b>", "f_rule_k": "Die eine Regel", "f_rule_t": "Architektur statt Vertrauen", "f_rule_s": "Fünf Züge wiederholen sich in jeder Domäne. Keiner macht ein Teil zuverlässiger; alle machen Unzuverlässigkeit strukturell chancenlos.", "f_m1_h": "Firewalls statt Wachsamkeit", "f_m1_b": "Eine Grenze, die die Grammatik selbst nicht überschreiten kann: Kategorienreinheit im Protokoll, eine Real-/Synthetik-Firewall in der Ökonomie, LLM-für-Sprache vs. Regeln-für-Logik im Agenten. Die falsche Art von Wert ist nicht unerwünscht, sondern nicht darstellbar.", "f_m2_h": "Die Fehlergeschichte ist unlöschbar", "f_m2_b": "Nichts wird gelöscht; ein Widerspruch verzweigt. Append-only, hash-verkettete Ledger machen Manipulation sichtbar. Ein korrigierter Irrtum bleibt für immer in der Kette — wie eine Überzeugung brach, ist wertvoller als die Überzeugung.", "f_m3_h": "Invarianten geprüft, nicht behauptet", "f_m3_b": "Replay-Stabilität, das Audit-Gate, die Taint-Prüfung, das Write-Gate — jede wird zur Laufzeit neu geprüft, und eine Prüfung, die nicht laufen kann, wird laut ausgewiesen statt still geglaubt. Ein toter Wächter ist schlimmer als keiner.", "f_m4_h": "Die Quelle ist nie die Autorität", "f_m4_b": "Ein Paper, eine Forumsstimme, ein Modell — alle treten als Quelle mit Provenienz ein, nie als Wahrheit. Nur eine ausdrückliche menschliche Entscheidung (oder eine deterministische Regel) settlet, was zählt. Beurteilbarkeit, nicht Autorität.", "f_m5_h": "Resilienz ist endogen", "f_m5_b": "Stabilität kommt nicht daher, Schocks zu verhindern, sondern sie zu metabolisieren. Das Resilienz-Kapital der Ökonomie und die Persona korrigierter Irrtümer des Agenten sind strukturell derselbe Mechanismus: absorbierter Fehler wird zur Fähigkeit, sich zu erholen.", "f_lin_k": "Die Herkunft", "f_lin_t": "Spezifikationen & Paper", "f_lin_s": "Drei Dokumente formulieren die Grammatik — eine Spezifikation und zwei Working Paper, Teil eines größeren Werks auf SSRN, zitiert und ehrlich vorläufig.", "f_al_h": "Alexandria-Protokoll — die Design-Autorität", "f_al_b": "Eine Wissens-Spezifikation, die sich an <b>Beurteilbarkeit bindet, nie an Wahrheit</b>: Kategorienreinheit (empirisch / normativ / Modell / spekulativ getrennt), Verzweigen-bei-Dissens statt Überschreiben, kein stiller Gewinner, ein Audit-Gate, bevor etwas autoritativ wird. Abweichungen anderswo werden dagegen deklariert, nicht versteckt. <a href=\"https://ssrn.com/abstract=6395079\">Complete Edition v2.2 (SSRN)</a>.", "f_l9_h": "Layer 9 — der Wissens-Stack", "f_l9_b": "Semantische Projektion → Claim-Identität &amp; Provenienz → Drift- und Widerspruchs-Verfolgung → Fork/Merge-Politik → Menschen in Rollen um Claims. Ein einzelner Claim behält seine Herkunft über Modelle und Zeit: <b>context retention is not claim continuity</b>. <a href=\"https://ssrn.com/abstract=6694758\">Working Paper (SSRN)</a>.", "f_dle_h": "Dual-Layer Economy — dieselbe Grammatik im Makro", "f_dle_b": "Eine Firewall zwischen Real-Layer und synthetischer Finanz, in der Ledger-Grammatik <b>strukturell nicht darstellbar</b>; Guards und Projektion statt fragilem Gleichgewicht; automatische Stabilisatoren; und ein Resilienz-Kapital, dessen Rolle genau die Persona des Agenten ist — metabolisierte, nicht verhinderte Schocks ermöglichen Erholung. <a href=\"https://ssrn.com/abstract=6320918\">Working Paper (SSRN)</a>.", "f_inst_k": "Die Instanzen", "f_inst_t": "Laufender & gebauter Code", "f_inst_s": "Die Grammatik steht nicht nur auf Papier. Hier läuft sie — jede mit ehrlichem Reifegrad.", "f_i1_tag": "BENCHMARKT", "f_i1_h": "DESi-Router", "f_i1_b": "Deterministisches Tool-/Lokal-/API-Routing unter einer Privacy·Genauigkeits·Kosten-Politik, gemessene Scores, die sich aus protokollierter Evidenz nachführen, ein replay-stabiles Audit, ein append-only lokales Ledger. Läuft offline; als stdlib-only Baustein einbettbar. <a href=\"https://ssrn.com/abstract=6846364\">Paper (SSRN)</a> · <a href=\"index.html\">starten →</a>", "f_i2_tag": "LÄUFT · EXPERIMENTELL", "f_i2_h": "Joni", "f_i2_b": "Ein autonomer Reasoning-Agent, dessen Kernel ein Ein-Knoten-Layer-9 ist. Lernt aus Quellen, öffnet Widersprüche (löst sie nie zwangsweise) und baut eine Persona aus seinen eigenen korrigierten Irrtümern. Der Betreiber settlet Konflikte; der Agent darf begründet widersprechen. <a href=\"https://github.com/hstre/Joni\">Repo →</a>", "f_i3_tag": "GEBAUT · MVP", "f_i3_h": "Hermine", "f_i3_b": "Ein fremder Agent (Hermes, andere Modellfamilie) unter Layer 9 als <b>alleiniger Schreibautorität</b>: jeder Memory- oder Skill-Schreibversuch ist ein Vorschlag, über den das Gate entscheidet, nie ein direkter Write — eine konkrete Instanz des <a href=\"https://ssrn.com/abstract=6272258\">persistenten epistemischen Supervisors</a>. Mündigkeit wird durchs Gate verdient, nicht vorenthalten. Noch nicht deployt.", "f_i4_tag": "ENTWORFEN", "f_i4_h": "Der Begegnungspunkt", "f_i4_b": "Zwei Knoten, die Claims-mit-Provenienz austauschen — jeder liest den anderen als Quelle durch sein eigenes Gate, keiner teilt beschreibbaren Zustand. Layer 9 Phase 4, der Grund, warum es die Grammatik gibt. Entworfen, noch nicht gebaut.", "f_hon_h": "Was behauptet wird — und was nicht", "f_hon_b": "Das ist ein Forschungsprogramm, kein gelöstes Problem. Die Paper sind <b>Working Paper</b>; der Code läuft, ist aber experimentell; ein Agent ist gebaut und noch nicht deployt. Keine allgemeine Intelligenz wird behauptet, kein Durchbruch angedeutet. Die Herkunft — Kant zu den Bedingungen einer mündigen Vernunft, Popper zu Vermutung und Widerlegung — wird benannt und zur Rechenschaft gehalten, nicht für Autorität geborgt. Der Punkt ist bescheiden und ernst zugleich: Systeme werden ihre Nachfolger bauen, und die Grundlagen, die einen Verstand <i>beurteilbar</i> machen, sollten geerbt werden, nicht neu erfunden.", "f_foot_by": "Der Rahmen · DESi · Alexandria-Protokoll · Hanns-Steffen Rentschler", "f_legal": "MIT-Lizenz · © 2026 Hanns-Steffen Rentschler · Eine Design-Grammatik über vier Domänen. Kein Durchbruch behauptet, keiner angedeutet."}
+};
+
+function applyLang(lang){
+  const dict = I18N[lang] || I18N.en;
+  document.documentElement.lang = (I18N[lang] ? lang : "en");
+  document.body.className = "lang-" + (I18N[lang] ? lang : "en");
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k = el.getAttribute("data-i18n"); if(dict[k]!==undefined) el.textContent = dict[k];
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{
+    const k = el.getAttribute("data-i18n-html"); if(dict[k]!==undefined) el.innerHTML = dict[k];
+  });
+  document.querySelectorAll(".langs button").forEach(b=>{
+    b.classList.toggle("active", b.getAttribute("data-lang")===lang);
+  });
+  try{ localStorage.setItem("desi_lang", lang); }catch(e){}
+}
+document.getElementById("langs").addEventListener("click", e=>{
+  const b = e.target.closest("button[data-lang]"); if(b) applyLang(b.getAttribute("data-lang"));
+});
+(function init(){
+  let lang=""; try{ lang = localStorage.getItem("desi_lang")||""; }catch(e){}
+  if(lang!=="en" && lang!=="de"){ const n=(navigator.language||"en").slice(0,2).toLowerCase(); lang=(n==="de")?"de":"en"; }
+  applyLang(lang);
+})();
+</script>
+</body>
+</html>
