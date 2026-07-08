@@ -118,3 +118,11 @@ def test_the_package_exports_a_stable_public_api():
         assert hasattr(desi_router, name), name
     assert desi_router.__version__
     assert desi_router.EpistemicRouter.__name__ == "EpistemicRouter"   # lazy export resolves
+
+
+def test_a_host_classifier_replaces_the_builtin_heuristic():
+    r = DesiRouter(CONFIG, classifier=lambda q: "scientific_claim")
+    d = r.decide("anything at all")
+    assert d.kind == "model" and d.extras["model_id"] == "stub:7b"
+    res = r.route("anything at all", execute_model=False)
+    assert res["task_class"] == "scientific_claim"
