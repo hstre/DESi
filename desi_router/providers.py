@@ -54,7 +54,13 @@ class Registry:
 
 
 def load_config(path: str | Path) -> Registry:
-    raw = json.loads(Path(path).read_text(encoding="utf-8"))
+    return registry_from_dict(json.loads(Path(path).read_text(encoding="utf-8")))
+
+
+def registry_from_dict(raw: dict) -> Registry:
+    """Build a Registry from an in-memory config dict (same shape as
+    ``config.example.json``) — so an embedding host can configure the router
+    from its own settings machinery without touching the filesystem."""
     providers = []
     for p in raw.get("providers", []):
         models = [
