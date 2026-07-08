@@ -22,6 +22,9 @@ We present DESi (Dynamic Epistemic Sequencer — Diagnostic), a deterministic, r
 > with a graphical Reviewer Port. Run `python -m desi_router.reviewer_port` from the repo
 > and open `http://localhost:8765`. See [QUICKSTART.md](QUICKSTART.md#6-run-the-router-local-tools--llms--shared-ledger)
 > and [desi/ROUTER_APP.md](desi_router/ROUTER_APP.md). (Appendix D.4.)
+> The router is also an **embeddable building block** — stdlib-only, zero
+> dependencies, two lines to a routed answer inside your own application:
+> [desi_router/EMBEDDING.md](desi_router/EMBEDDING.md).
 
 -----
 
@@ -1062,7 +1065,10 @@ fixtures, not a head-to-head against a live LLM (no model outputs exist in-repo)
 #### D.4.2 Runnable router (v0.1), local Layer 9, and prior-work reuse
 
 The routing idea is now a small, mostly-local, runnable product in the repo-root
-`desi_router/` package (run from the cloned repo, not the pip package):
+`desi_router/` package — runnable from the cloned repo, installable on its own
+(`pip install "desi-router @ git+https://github.com/hstre/DESi#subdirectory=desi_router"`),
+or vendorable by copying the folder; it is stdlib-only with zero dependencies.
+Embedding guide: [`desi_router/EMBEDDING.md`](desi_router/EMBEDDING.md).
 
 - **One adapter for local and API** (`providers.py`) — Ollama/llama.cpp/LM Studio
   and OpenRouter/DeepSeek/OpenAI are the same OpenAI-compatible wire format, so a
