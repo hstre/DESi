@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DESi — Negative Results: the wrong paths, kept on purpose</title>
+<meta name="description" content="The negative-results record behind DESi: real null results and self-falsifications from the DES working-paper series, kept on purpose so the next researcher need not walk the same wrong paths." />
+<meta property="og:title" content="DESi - Negative Results" />
+<meta property="og:description" content="Determinism, an epistemic uncertainty relation, falsifiability and complementarity — the formal structure behind DESi and the Alexandria Protocol." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://hstre.github.io/DESi/assets/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/png" sizes="256x256" href="assets/favicon-256.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/favicon-180.png" />
+<style>
+  :root{
+    --bg:#070a10;--bg-2:#0c111b;--panel:#0f1622;--line:#1c2737;
+    --ink:#e8eef7;--muted:#8a99af;--faint:#5c6b82;
+    --accent:#2ce6c4;--accent-2:#5aa8ff;--warn:#ff6b6b;
+    --mono:"SF Mono",ui-monospace,"JetBrains Mono","Cascadia Code",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Noto Sans",sans-serif;
+    --cjk:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Noto Sans CJK JP","Yu Gothic",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body.lang-zh,body.lang-ja{font-family:var(--cjk)}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:860px;margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--mono)}
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:48px 48px;opacity:.10;mask-image:radial-gradient(circle at 50% 0%,#000,transparent 70%)}
+
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+    background:rgba(7,10,16,.72);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:14px;max-width:1080px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px;color:var(--ink)}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(44,230,196,.15)}
+  .brand-mark{height:26px;width:auto;display:block}
+  .brand .v{color:var(--faint);font-family:var(--mono);font-size:12px;font-weight:500}
+  .nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+  .back{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line);
+    padding:6px 11px;border-radius:8px}
+  .back:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
+  .langs{display:flex;gap:4px;flex-wrap:wrap}
+  .langs button{font-family:var(--mono);font-size:12px;letter-spacing:.5px;background:transparent;
+    color:var(--muted);border:1px solid transparent;padding:5px 9px;border-radius:7px;cursor:pointer;transition:.15s}
+  .langs button:hover{color:var(--ink);background:var(--panel)}
+  .langs button.active{color:var(--bg);background:var(--accent);font-weight:700}
+
+  header.hero{padding:80px 0 44px}
+  .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:3px;color:var(--accent);
+    text-transform:uppercase;margin-bottom:20px}
+  h1{font-size:clamp(30px,5vw,50px);line-height:1.08;letter-spacing:-1.3px;margin:0 0 20px;font-weight:800;max-width:30ch}
+  h1 .hl{color:var(--accent)}
+  .lead{font-size:clamp(16px,2.2vw,20px);color:var(--muted);max-width:64ch;margin:0}
+
+  .note{border:1px solid rgba(255,107,107,.3);background:rgba(255,107,107,.05);
+    border-radius:14px;padding:20px 22px;margin:30px 0}
+  .note .nk{font-family:var(--mono);font-size:11.5px;letter-spacing:2px;color:var(--warn);text-transform:uppercase;margin-bottom:8px}
+  .note p{margin:0;color:var(--muted);font-size:15px}
+
+  .part{border-top:1px solid var(--line);padding:54px 0 8px;margin-top:24px}
+  .part-k{font-family:var(--mono);font-size:12px;letter-spacing:3px;color:var(--accent-2);text-transform:uppercase}
+  .part-t{font-size:clamp(24px,3.6vw,36px);letter-spacing:-.8px;margin:10px 0 8px;font-weight:780}
+  .part-s{color:var(--muted);max-width:62ch;margin:0 0 8px;font-size:16px}
+
+  section.blk{padding:30px 0;border-top:1px solid rgba(28,39,55,.6)}
+  section.blk:first-of-type{border-top:none}
+  h2{font-size:clamp(19px,2.6vw,24px);letter-spacing:-.4px;margin:0 0 14px;font-weight:700}
+  h2 .nm{color:var(--accent);font-family:var(--mono);font-size:.8em;margin-right:6px}
+  .blk p{color:var(--muted);font-size:16px;margin:0 0 14px;max-width:68ch}
+  .blk p b,.blk p strong{color:var(--ink);font-weight:650}
+  .blk code{font-family:var(--mono);font-size:.88em;background:var(--panel);border:1px solid var(--line);
+    padding:1px 6px;border-radius:5px;color:var(--accent)}
+
+  .math{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);
+    border-left:3px solid var(--accent);border-radius:12px;padding:8px 20px;margin:18px 0;overflow-x:auto}
+  .math .cap{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.5px;margin-top:-2px}
+  .figure{margin:20px 0 8px;border:1px solid var(--line);border-radius:14px;
+    background:linear-gradient(180deg,var(--panel),var(--bg-2));padding:18px}
+  .figure svg{width:100%;height:auto;display:block}
+  .figure .cap{font-size:13px;color:var(--faint);margin:12px 4px 0;text-align:center;line-height:1.5}
+
+  table.grid{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px}
+  table.grid th,table.grid td{border:1px solid var(--line);padding:9px 12px;text-align:left}
+  table.grid th{background:var(--panel);color:var(--ink);font-family:var(--mono);font-size:12.5px;
+    letter-spacing:.5px;font-weight:600}
+  table.grid td{color:var(--muted)}
+  table.grid td.mono{font-family:var(--mono);color:var(--accent)}
+  table.grid tr:nth-child(even) td{background:rgba(15,22,34,.4)}
+
+  .derive{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0}
+  .derive .d{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:20px}
+  .derive .d h3{margin:0 0 8px;font-size:15.5px}
+  .derive .d.kant h3{color:var(--accent)}
+  .derive .d.pop h3{color:var(--accent-2)}
+  .derive .d.heis h3{color:#c79bff}
+  .derive .d p{margin:0;color:var(--muted);font-size:14px}
+
+  footer{padding:54px 0 80px;border-top:1px solid var(--line);background:var(--bg-2);margin-top:40px}
+  .foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end}
+  .foot-grid .who h3{margin:0 0 6px;font-size:19px;color:var(--ink)}
+  .foot-grid .who p{margin:0;color:var(--muted);font-size:14px}
+  .foot-links{display:flex;gap:10px;flex-wrap:wrap}
+  .foot-links a{font-family:var(--mono);font-size:13px;color:var(--muted);border:1px solid var(--line);
+    padding:9px 14px;border-radius:9px}
+  .foot-links a:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
+  .legal{margin-top:26px;color:var(--faint);font-size:12.5px;font-family:var(--mono);max-width:74ch}
+
+  @media(max-width:760px){
+    .derive{grid-template-columns:1fr}
+    nav .wrap{height:auto;min-height:56px;flex-wrap:wrap;gap:8px;padding-top:8px;padding-bottom:8px}
+    .brand .v{display:none}
+    .nav-right{width:100%;justify-content:flex-start;gap:8px}
+    .back{order:-1}
+    .langs{flex:1;justify-content:flex-end}
+    .langs button{padding:6px 8px}
+  }
+</style>
+</head>
+
+<body class="lang-en">
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><img class="brand-mark" src="assets/desi-mark.png" alt="" />DESi
+      <span class="v">Negative Results</span></div>
+    <div class="nav-right">
+      <a class="back" href="frame.html" data-i18n="w_frame"></a>
+      <a class="back" href="index.html" data-i18n="w_back"></a>
+      <div class="langs" id="langs">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="de">DE</button>
+        <button data-lang="zh">中文</button>
+        <button data-lang="es">ES</button>
+        <button data-lang="ja">日本語</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="w_eyebrow"></div>
+    <h1 data-i18n-html="w_title"></h1>
+    <p class="lead" data-i18n="w_sub"></p>
+    <div class="note">
+      <div class="nk" data-i18n="w_note_k"></div>
+      <p data-i18n-html="w_note_b"></p>
+    </div>
+  </div>
+</header>
+
+<div class="part"><div class="wrap">
+  <div class="part-k" data-i18n="w_p1_k"></div>
+  <div class="part-t" data-i18n="w_p1_t"></div>
+  <p class="part-s" data-i18n="w_p1_s"></p>
+</div></div>
+<section><div class="wrap">
+  <h2><span class="nm">3</span><span data-i18n="w_d3_h"></span></h2>
+  <p data-i18n-html="w_d3_b"></p>
+  <h2><span class="nm">4</span><span data-i18n="w_d4_h"></span></h2>
+  <p data-i18n-html="w_d4_b"></p>
+  <h2><span class="nm">5</span><span data-i18n="w_d5_h"></span></h2>
+  <p data-i18n-html="w_d5_b"></p>
+  <h2><span class="nm">6</span><span data-i18n="w_d6_h"></span></h2>
+  <p data-i18n-html="w_d6_b"></p>
+  <h2><span class="nm">9.25</span><span data-i18n="w_d9_h"></span></h2>
+  <p data-i18n-html="w_d9_b"></p>
+</div></section>
+
+<div class="part"><div class="wrap">
+  <div class="part-k" data-i18n="w_p2_k"></div>
+  <div class="part-t" data-i18n="w_p2_t"></div>
+  <p class="part-s" data-i18n="w_p2_s"></p>
+</div></div>
+<section><div class="wrap">
+  <div class="inv-grid">
+    <div class="inv"><div class="n mono">&rarr;</div><h3 data-i18n="w_h1_h"></h3><p data-i18n-html="w_h1_b"></p></div>
+    <div class="inv"><div class="n mono">&rarr;</div><h3 data-i18n="w_h2_h"></h3><p data-i18n-html="w_h2_b"></p></div>
+    <div class="inv"><div class="n mono">&rarr;</div><h3 data-i18n="w_h3_h"></h3><p data-i18n-html="w_h3_b"></p></div>
+    <div class="inv"><div class="n mono">&#9733;</div><h3 data-i18n="w_h4_h"></h3><p data-i18n-html="w_h4_b"></p></div>
+  </div>
+</div></section>
+
+<section class="honesty"><div class="wrap">
+  <h2 data-i18n="w_hon_h"></h2>
+  <p data-i18n-html="w_hon_b"></p>
+</div></section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><h3>DESi</h3><p class="muted" data-i18n="w_foot_by"></p></div>
+      <div class="foot-links">
+        <a href="index.html" data-i18n="w_back"></a>
+        <a href="frame.html" data-i18n="w_frame"></a>
+        <a href="https://github.com/hstre/DESi">GitHub ↗</a>
+      </div>
+    </div>
+    <p class="legal muted" data-i18n="w_legal"></p>
+  </div>
+</footer>
+
+<script>
+const I18N = {
+  en:{"w_back": "← Overview", "w_frame": "The Frame", "w_eyebrow": "Negative results · kept on purpose", "w_title": "The wrong paths, kept so the next ones <span class=\"hl\">need not walk them.</span>", "w_sub": "The visible architecture stands on a longer record of things that did not work. This page keeps that record - not as a confession, but as inheritance. Every result below is a real null or a self-falsification from the DES working-paper series (Papers 2-9), reported with its own numbers.", "w_note_k": "Why keep them", "w_note_b": "The guiding rule of everything here is <b>expertise is the compressed history of corrected errors</b>. That is the mechanism the agents run on - and it applies to the researcher first. A dead end that is documented stops being a loss and becomes a boundary condition: it tells the next mind exactly where the wall is.", "w_p1_k": "The record", "w_p1_t": "Dead ends that taught", "w_p1_s": "Each of these was a hypothesis that failed. Each failure moved the boundary - it ruled something out, and in ruling it out, established what was really the case.", "w_d3_h": "The experiment that found nothing - and that was the finding", "w_d3_b": "Two attempts to classify anomalous outputs in completed runs - one pre-registered (v1.0), one revised after the first null (v1.1) - both returned <b>zero anomalies across 1,370 claims in 114 state files</b>. Not a failed experiment: the architecture normalizes pathological states before it seals them (minimum sealed confidence 0.40, above every classification threshold). The absence of anomalies was the evidence that the resolution machinery worked.", "w_d4_h": "Autonomous inquiry does not run forever", "w_d4_b": "Over 50 iterations across five domains, a stable self-sustaining research loop was <b>not confirmed in any domain</b>. The failure mode was semantic duplication within 2-4 loops: a graph-steered question selector converges on the space it draws its questions from. This forced a distinction the whole program now rests on - resolving a domain is not the same operation as inquiring indefinitely. It also demonstrated, in the negative, a stabilizing filter that an <a href=\"https://ssrn.com/abstract=5977016\">earlier paper</a> had specified five months before the experiment proved its absence.", "w_d5_h": "Four architectures failed before the problem was even in the right place", "w_d5_b": "Four pre-registered perturbation architectures (v0.1-0.5) were built and tested in succession; none extended loop depth as hoped. One (v0.3) was <b>an honest implementation bug</b>, flagged as the series' one genuine execution error rather than a conceptual null. The structural lesson only arrived after all four: the attractors form <i>within</i> a single run at the claim level, not <i>between</i> runs - so every inter-loop mechanism had been treating the symptom. Four dead ends relocated the problem.", "w_d6_h": "A measure that detects waste but cannot promise reward", "w_d6_b": "Semantic headroom - a claim-geometry measure - was confirmed as a controllability precondition at n=13 (ρ=0.739) but <b>not at n=5 (ρ=0.105)</b>, a self-caught warning about small-sample testing. Its accuracy is asymmetric: it flags low-headroom (wasteful) domains perfectly (6/6) but predicts high-headroom (promising) ones weakly (2/7). Reported as what it is - a waste detector, not an oracle.", "w_d9_h": "A hypothesis the author falsified himself", "w_d9_b": "Two measures were hypothesized as orthogonal geometric axes. They turned out <b>strongly inversely correlated (r = -0.80)</b> - not independent at all. A clean self-falsification, kept in the record rather than quietly dropped.", "w_p2_k": "What the dead ends became", "w_p2_t": "Metabolized, not discarded", "w_p2_s": "None of this was wasted. Each null defined a question the current architecture answers - and one first draft became the grammar itself.", "w_h1_h": "The ancestor spec", "w_h1_b": "An earlier four-layer specification - CAPTURE / VALIDATE / SEAL / RENDER, branch-on-contradiction instead of overwrite, a validator modeled as a <b>risk controller, not a truth oracle</b> - is the visible first draft of the whole grammar, half a year before it was named. <a href=\"https://ssrn.com/abstract=6395079\">Alexandria Protocol v2.2</a> is its metabolized form.", "w_h2_h": "The stabilizer, found by its absence", "w_h2_b": "The saturation failure named the exact missing part - a stability filter that keeps resolved claims from being re-mined as if new. Specified in theory before, proven necessary by the null, now load-bearing in the running system.", "w_h3_h": "Where the problem really lives", "w_h3_b": "Four failed perturbation architectures relocated the attractor from between-run to within-run, at the claim level. That relocation is why the current work gates and strengthens at the claim, not the loop.", "w_h4_h": "The surprise nobody designed", "w_h4_b": "Late in the series, the system began extracting intervention rules from its <i>own</i> prior trajectories - first-order self-modeling that no one had built in. That emergent property is the origin of the name, and of everything that followed.", "w_hon_h": "What this page is - and is not", "w_hon_b": "It is a negative-results record, published on purpose. Most hypotheses in the series were not confirmed; most architectural choices turned out sub-optimal; the positive findings were what remained after systematic elimination. Some of this work was not accepted for distribution - which is a statement about where honest null results fit in a positive-results culture, not about whether they are true. They are kept here for the next researcher and the next model, so a documented wall need never be walked into twice. The null results were the path.", "w_foot_by": "Negative Results · DES working-paper series · Hanns-Steffen Rentschler", "w_legal": "MIT License · © 2026 Hanns-Steffen Rentschler · Corrected errors, kept on purpose. No breakthrough claimed, none implied."},
+  de:{"w_back": "← Übersicht", "w_frame": "Der Rahmen", "w_eyebrow": "Negative Resultate · mit Absicht aufbewahrt", "w_title": "Die Irrwege, aufgehoben, damit die Nächsten sie <span class=\"hl\">nicht gehen müssen.</span>", "w_sub": "Die sichtbare Architektur steht auf einer längeren Geschichte dessen, was nicht funktioniert hat. Diese Seite bewahrt diese Geschichte - nicht als Beichte, sondern als Erbe. Jedes Ergebnis unten ist ein echtes Null-Resultat oder eine Selbst-Falsifikation aus der DES-Working-Paper-Serie (Paper 2-9), mit den eigenen Zahlen berichtet.", "w_note_k": "Warum aufheben", "w_note_b": "Die Leitregel von allem hier ist: <b>Expertise ist die verdichtete Geschichte korrigierter Irrtümer</b>. Das ist der Mechanismus, auf dem die Agenten laufen - und er gilt zuerst dem Forscher. Eine dokumentierte Sackgasse hört auf, ein Verlust zu sein, und wird zur Randbedingung: sie sagt dem nächsten Verstand genau, wo die Wand steht.", "w_p1_k": "Das Protokoll", "w_p1_t": "Sackgassen, die lehrten", "w_p1_s": "Jede davon war eine Hypothese, die scheiterte. Jedes Scheitern verschob die Grenze - es schloss etwas aus, und indem es das ausschloss, stellte es fest, was wirklich der Fall war.", "w_d3_h": "Das Experiment, das nichts fand - und das war der Fund", "w_d3_b": "Zwei Versuche, anomale Outputs in abgeschlossenen Läufen zu klassifizieren - einer vorregistriert (v1.0), einer nach dem ersten Null revidiert (v1.1) - lieferten beide <b>null Anomalien über 1.370 Claims in 114 State-Dateien</b>. Kein gescheitertes Experiment: die Architektur normalisiert pathologische Zustände, bevor sie sie versiegelt (minimale versiegelte Konfidenz 0.40, über jeder Klassifikationsschwelle). Die Abwesenheit von Anomalien war der Beleg, dass die Auflösungs-Maschinerie funktioniert.", "w_d4_h": "Autonome Forschung läuft nicht ewig", "w_d4_b": "Über 50 Iterationen in fünf Domänen wurde eine stabile, selbsttragende Forschungsschleife <b>in keiner Domäne bestätigt</b>. Der Fehlermodus war semantische Duplikation innerhalb von 2-4 Schleifen: ein graph-gesteuerter Fragenselektor konvergiert auf den Raum, aus dem er seine Fragen zieht. Das erzwang eine Unterscheidung, auf der das ganze Programm nun ruht - eine Domäne auflösen ist nicht dieselbe Operation wie unbegrenzt weiterfragen. Und es zeigte, im Negativen, einen stabilisierenden Filter, den ein <a href=\"https://ssrn.com/abstract=5977016\">früheres Paper</a> fünf Monate vor dem Experiment spezifiziert hatte.", "w_d5_h": "Vier Architekturen scheiterten, bevor das Problem überhaupt am richtigen Ort war", "w_d5_b": "Vier vorregistrierte Perturbations-Architekturen (v0.1-0.5) wurden nacheinander gebaut und getestet; keine verlängerte die Schleifentiefe wie erhofft. Eine (v0.3) war <b>ein ehrlicher Implementierungs-Bug</b>, als der eine echte Ausführungsfehler der Serie markiert, kein konzeptuelles Null. Die strukturelle Lehre kam erst nach allen vieren: die Attraktoren bilden sich <i>innerhalb</i> eines Laufs auf Claim-Ebene, nicht <i>zwischen</i> Läufen - jeder Inter-Loop-Mechanismus hatte das Symptom behandelt. Vier Sackgassen verlegten das Problem.", "w_d6_h": "Ein Maß, das Verschwendung erkennt, aber keinen Ertrag verspricht", "w_d6_b": "Semantic Headroom - ein Claim-Geometrie-Maß - wurde als Steuerbarkeits-Vorbedingung bei n=13 bestätigt (ρ=0.739), aber <b>nicht bei n=5 (ρ=0.105)</b>, eine selbst gefangene Warnung vor Kleinst-Stichproben. Seine Genauigkeit ist asymmetrisch: es markiert Domänen ohne Spielraum (verschwenderisch) perfekt (6/6), sagt vielversprechende aber schwach voraus (2/7). Berichtet als das, was es ist - ein Verschwendungs-Detektor, kein Orakel.", "w_d9_h": "Eine Hypothese, die der Autor selbst falsifizierte", "w_d9_b": "Zwei Maße waren als orthogonale geometrische Achsen hypothetisiert. Sie erwiesen sich als <b>stark invers korreliert (r = -0.80)</b> - gar nicht unabhängig. Eine saubere Selbst-Falsifikation, im Protokoll behalten statt still fallen gelassen.", "w_p2_k": "Was aus den Sackgassen wurde", "w_p2_t": "Metabolisiert, nicht verworfen", "w_p2_s": "Nichts davon war umsonst. Jedes Null definierte eine Frage, die die heutige Architektur beantwortet - und ein erster Entwurf wurde zur Grammatik selbst.", "w_h1_h": "Der Vorfahr-Spec", "w_h1_b": "Eine frühere Vier-Schichten-Spezifikation - CAPTURE / VALIDATE / SEAL / RENDER, Verzweigen-bei-Widerspruch statt Überschreiben, ein Validator als <b>Risk-Controller, nicht als Truth-Oracle</b> - ist der sichtbare erste Entwurf der ganzen Grammatik, ein halbes Jahr bevor sie einen Namen hatte. <a href=\"https://ssrn.com/abstract=6395079\">Alexandria-Protokoll v2.2</a> ist ihre metabolisierte Form.", "w_h2_h": "Der Stabilisator, gefunden durch seine Abwesenheit", "w_h2_b": "Das Sättigungs-Scheitern benannte das genau fehlende Teil - einen Stabilitätsfilter, der aufgelöste Claims davor bewahrt, wie neu wieder abgebaut zu werden. Vorher in der Theorie spezifiziert, durch das Null als nötig bewiesen, jetzt tragend im laufenden System.", "w_h3_h": "Wo das Problem wirklich sitzt", "w_h3_b": "Vier gescheiterte Perturbations-Architekturen verlegten den Attraktor von zwischen-Lauf zu innerhalb-Lauf, auf Claim-Ebene. Diese Verlegung ist der Grund, warum die heutige Arbeit auf Claim-Ebene gated und stärkt, nicht auf Schleifen-Ebene.", "w_h4_h": "Die Überraschung, die niemand entwarf", "w_h4_b": "Spät in der Serie begann das System, Interventionsregeln aus seinen <i>eigenen</i> früheren Trajektorien zu ziehen - Selbstmodellierung erster Ordnung, die niemand eingebaut hatte. Diese emergente Eigenschaft ist der Ursprung des Namens, und von allem, was folgte.", "w_hon_h": "Was diese Seite ist - und was nicht", "w_hon_b": "Sie ist ein Protokoll negativer Resultate, mit Absicht veröffentlicht. Die meisten Hypothesen der Serie wurden nicht bestätigt; die meisten Architektur-Entscheidungen erwiesen sich als suboptimal; die positiven Funde waren, was nach systematischer Elimination übrig blieb. Ein Teil dieser Arbeit wurde nicht zur Verbreitung angenommen - was etwas darüber sagt, wo ehrliche Null-Resultate in einer Kultur der positiven Claims hinpassen, nicht darüber, ob sie wahr sind. Sie stehen hier für den nächsten Forscher und das nächste Modell, damit eine dokumentierte Wand nie zweimal angerannt werden muss. Die Null-Resultate waren der Weg.", "w_foot_by": "Negative Resultate · DES-Working-Paper-Serie · Hanns-Steffen Rentschler", "w_legal": "MIT-Lizenz · © 2026 Hanns-Steffen Rentschler · Korrigierte Irrtümer, mit Absicht aufbewahrt. Kein Durchbruch behauptet, keiner angedeutet."}
+};
+
+function applyLang(lang){
+  const dict = I18N[lang] || I18N.en;
+  document.documentElement.lang = (I18N[lang] ? lang : "en");
+  document.body.className = "lang-" + (I18N[lang] ? lang : "en");
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k = el.getAttribute("data-i18n"); if(dict[k]!==undefined) el.textContent = dict[k];
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{
+    const k = el.getAttribute("data-i18n-html"); if(dict[k]!==undefined) el.innerHTML = dict[k];
+  });
+  document.querySelectorAll(".langs button").forEach(b=>{
+    b.classList.toggle("active", b.getAttribute("data-lang")===lang);
+  });
+  try{ localStorage.setItem("desi_lang", lang); }catch(e){}
+}
+document.getElementById("langs").addEventListener("click", e=>{
+  const b = e.target.closest("button[data-lang]"); if(b) applyLang(b.getAttribute("data-lang"));
+});
+(function init(){
+  let lang=""; try{ lang = localStorage.getItem("desi_lang")||""; }catch(e){}
+  if(lang!=="en" && lang!=="de"){ const n=(navigator.language||"en").slice(0,2).toLowerCase(); lang=(n==="de")?"de":"en"; }
+  applyLang(lang);
+})();
+</script>
+</body>
+</html>
