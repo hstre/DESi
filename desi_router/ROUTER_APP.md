@@ -5,6 +5,12 @@ decides **tool vs. local model vs. API model**, executes, and shows the decision
 and a replay-stable audit in a graphical **Reviewer Port**. Tools run offline and
 deterministically; a model is called only if you configure and reach one.
 
+> **Embedding it in your own application?** The router is a self-contained,
+> stdlib-only package with a one-object facade (`from desi_router import
+> DesiRouter`). See [EMBEDDING.md](EMBEDDING.md) — copy the folder, install it
+> from the repo subdirectory, or run from a checkout; the import surface is the
+> same.
+
 ## Run
 
 ```bash

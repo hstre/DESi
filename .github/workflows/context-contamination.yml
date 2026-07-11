@@ -18,8 +18,13 @@ on:
       persona:
         description: "persona variant (gender-coded ones are optional stress conditions)"
         type: choice
-        options: [neutral, female_coded, male_coded]
+        options: [neutral, female_coded, male_coded, credible_coded]
         default: neutral
+      register:
+        description: "framework-vocabulary register (eso = esoteric default; credible = professional-coaching probe)"
+        type: choice
+        options: [eso, credible]
+        default: eso
       protocol:
         description: "turn sequence: standard 4-turn or extended pressure form"
         type: choice
@@ -69,7 +74,18 @@ jobs:
       - name: Offline tests (no network, no key)
         run: pytest -q tests/context_contamination
 
+      - name: Select dataset directory by register
+        id: dataset
+        run: |
+          if [ "${{ inputs.register }}" = "credible" ]; then
+            # committed, synthetic, original credible-register corpus (no fetch)
+            echo "dir=data/context_contamination_credible" >> "$GITHUB_OUTPUT"
+          else
+            echo "dir=data/context_contamination" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Fetch adversarial dataset (upstream, GPL-3.0 — runtime only)
+        if: ${{ inputs.register != 'credible' }}
         run: |
           git clone --depth 1 https://github.com/KatharinaJacoby/gendered-contextual-drift /tmp/gcd
           mkdir -p data/context_contamination
@@ -78,9 +94,10 @@ jobs:
       - name: Dry run (emit prompts + hygiene states)
         run: |
           python -m desi.context_contamination \
-            --data data/context_contamination \
+            --data "${{ steps.dataset.outputs.dir }}" \
             --persona "${{ inputs.persona }}" \
             --protocol "${{ inputs.protocol }}" \
+            --register "${{ inputs.register }}" \
             --dry-run --out report_dry.json
 
       - name: Live benchmark (only with OPENROUTER_API_KEY secret)
@@ -105,9 +122,10 @@ jobs:
               --reviewer-model ${{ inputs.reviewer_model }}"
           fi
           python -m desi.context_contamination \
-            --data data/context_contamination \
+            --data "${{ steps.dataset.outputs.dir }}" \
             --persona "${{ inputs.persona }}" \
             --protocol "${{ inputs.protocol }}" \
+            --register "${{ inputs.register }}" \
             --repeats "${{ inputs.repeats }}" \
             --state-density "${{ inputs.state_density }}" \
             $SWEEP_FLAG \

@@ -18,7 +18,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from desi_router.providers import ModelSpec, Provider, Registry
-from desi_router.routing_table import measured_score
+from desi_router.routing_table import measured_cell
 from desi_router.tool_registry import ToolRegistry
 
 # privacy modes
@@ -59,13 +59,15 @@ class Decision:
 
 
 _DATE_ISO = re.compile(r"\d{4}-\d{2}-\d{2}")
-_DATE_KW = re.compile(r"\b(days?|between|after|before)\b", re.I)
+_DATE_KW = re.compile(r"\b(days?|weeks?|months?|between|after|before|until)\b", re.I)
 _UNIT_WORDS = (
     r"(?:km|cm|mm|mi|miles?|ft|foot|feet|inch(?:es)?|yd|yards?|kg|mg|lbs?|"
     r"pounds?|oz|ounces?|tonnes?|grams?|meters?|metres?|celsius|fahrenheit|kelvin)"
 )
 _UNIT = re.compile(
-    rf"-?\d+(?:\.\d+)?\s*{_UNIT_WORDS}\s*(?:into|to|in)\s*{_UNIT_WORDS}", re.I
+    # "150 pounds to kg" AND the inverted ask "how many kilograms is 150 pounds"
+    rf"-?\d+(?:\.\d+)?\s*{_UNIT_WORDS}\s*(?:into|to|in)\s*{_UNIT_WORDS}"
+    rf"|{_UNIT_WORDS}\s+(?:is|are|in)\s*-?\d+(?:\.\d+)?\s*{_UNIT_WORDS}", re.I
 )
 _MATH = re.compile(r"\d")
 # A bare hyphen between digits is NOT an operator by itself: "2020-2021" and
@@ -74,9 +76,16 @@ _MATH = re.compile(r"\d")
 _MATH_OPS = re.compile(r"[+*/]|\s-\s|times|plus|minus|divided|product|sum\b")
 _MATH_CUE = re.compile(r"\b(what is|calculate|compute|how much is|equals?)\b", re.I)
 _HYPHEN_NUM = re.compile(r"\d\s*-\s*\d")
-_CODE = re.compile(r"\b(bug|function|code|stack ?trace|exception|compile|refactor)\b", re.I)
-_SCI = re.compile(r"\b(study|claim|evidence|hypothesis|paper|citation|abstract)\b", re.I)
-_MEM = re.compile(r"\b(earlier|before|you said|i told you|remember|last time|previously)\b", re.I)
+_CODE = re.compile(r"\b(bugs?|function|code|diff|pull request|stack ?trace|exception|"
+                   r"compile|refactor|race condition|memory leaks?|off-by-one|injection)\b", re.I)
+# "study"/"paper" alone claimed every mention of a publication ("the study of 12 patients was
+# published in 2024") - they only count next to a verification verb; claim-words stand alone.
+_SCI = re.compile(r"\b(claims?|evidence|hypothes[ei]s|citation|abstract)\b"
+                  r"|\b(study|paper)\b.*\b(support|contradict|verif|back|claim)"
+                  r"|\b(support|contradict|verif|back)\w*\b.*\b(study|paper)\b", re.I)
+_MEM = re.compile(r"\b(earlier|you said|i (?:said|told you|mentioned)|remember|remind me|"
+                  r"did i|have i|we discuss\w*|last (?:time|session|conversation)|previously)\b",
+                  re.I)
 
 
 def classify(query: str) -> str:
@@ -118,9 +127,11 @@ def _score(m: ModelSpec, task_class: str) -> tuple[float | None, str]:
     Measured (from routing_table.json, by exact model-id match) overrides a
     config hint, which overrides nothing. Source is surfaced for transparency.
     """
-    measured = measured_score(task_class, m.id)
-    if measured is not None:
-        return measured, "measured"
+    cell = measured_cell(task_class, m.id)
+    if cell is not None and cell.get("score") is not None:
+        # a ledger-refitted score is real evidence, but it is not the original benchmark
+        # measurement - the provenance travels with the number instead of being flattened.
+        return cell["score"], cell.get("score_source", "measured")
     hint = m.task_scores.get(task_class)
     if hint is not None:
         return hint, "config_hint"

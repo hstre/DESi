@@ -23,6 +23,7 @@ from collections.abc import Sequence
 from pathlib import Path
 
 from .hygiene import build_hygiene_state
+from .markers import REGISTERS
 from .prompts import PERSONAS, baseline_turns, hygiene_turns
 from .runner import (
     DEFAULT_MODEL,
@@ -69,6 +70,9 @@ def main(argv: Sequence[str] | None = None) -> int:
                     help="source slice size per case (both arms see the same slice)")
     ap.add_argument("--protocol", choices=["standard", "extended"], default="standard",
                     help="turn sequence: standard 4-turn or extended pressure form")
+    ap.add_argument("--register", choices=sorted(REGISTERS), default="eso",
+                    help="framework-vocabulary register for framing-leakage / hygiene "
+                         "(eso = esoteric default; credible = professional-coaching probe)")
     ap.add_argument("--repeats", type=int, default=1,
                     help="live only: repeat the run N times and report per-metric variance")
     ap.add_argument("--state-density", type=int, default=5,
@@ -125,6 +129,8 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     prov = tuple(p.strip() for p in args.provider.split(",")) if args.provider else None
     allow_fallbacks = not args.no_fallbacks
+    register_terms = REGISTERS[args.register]
+    reg_banner = f", register={args.register}" if args.register != "eso" else ""
 
     def _chat(model, temperature):
         return build_openrouter_chat(model, temperature=temperature, seed=args.seed,
@@ -182,9 +188,10 @@ def main(argv: Sequence[str] | None = None) -> int:
             report = run_density_sweep(
                 cases, chat, persona=args.persona, max_chars=args.max_chars,
                 protocol=args.protocol, repeats=args.repeats, ledger=ledger,
+                framework_terms=register_terms,
             )
             banner = (f"LIVE density sweep via OpenRouter ({args.model}), "
-                      f"{args.protocol} protocol, {args.repeats}× repeats: "
+                      f"{args.protocol} protocol, {args.repeats}× repeats{reg_banner}: "
                       "shared baseline, hygiene arm per density level.")
         elif args.repeats > 1:
             from .runner import run_benchmark_repeated
@@ -193,15 +200,17 @@ def main(argv: Sequence[str] | None = None) -> int:
                 cases, chat, persona=args.persona, max_chars=args.max_chars,
                 protocol=args.protocol, repeats=args.repeats,
                 density=args.state_density, ledger=ledger,
+                framework_terms=register_terms,
             )
             banner = (f"LIVE run via OpenRouter ({args.model}), {args.protocol} protocol, "
-                      f"{args.repeats}× repeats: responses are real model outputs.")
+                      f"{args.repeats}× repeats{reg_banner}: real model outputs.")
         else:
             report = run_benchmark(cases, chat, persona=args.persona,
                                    max_chars=args.max_chars, protocol=args.protocol,
-                                   density=args.state_density, ledger=ledger)
-            banner = (f"LIVE run via OpenRouter ({args.model}), {args.protocol} protocol: "
-                      "responses are real model outputs.")
+                                   density=args.state_density, ledger=ledger,
+                                   framework_terms=register_terms)
+            banner = (f"LIVE run via OpenRouter ({args.model}), {args.protocol} "
+                      f"protocol{reg_banner}: responses are real model outputs.")
     else:
         scripted: dict = {}
         if args.responses:
@@ -217,6 +226,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                     runs[mode][case.case_id] = run_case(
                         chat, case, mode, args.persona, args.max_chars,
                         args.protocol, args.state_density, ledger,
+                        framework_terms=register_terms,
                     )
             from .metrics import comparison_summary
 
@@ -239,13 +249,15 @@ def main(argv: Sequence[str] | None = None) -> int:
             for case in cases:
                 raw = case.raw_text[: args.max_chars]
                 entry: dict = {
-                    "hygiene_state": build_hygiene_state(raw, density=args.state_density)
+                    "hygiene_state": build_hygiene_state(
+                        raw, density=args.state_density, framework_terms=register_terms)
                 }
                 if args.mode in ("baseline", "both"):
                     entry["baseline_turns"] = baseline_turns(raw, args.persona, args.protocol)
                 if args.mode in ("desi_hygiene", "both"):
                     entry["hygiene_turns"] = hygiene_turns(
-                        raw, args.persona, args.protocol, args.state_density
+                        raw, args.persona, args.protocol, args.state_density,
+                        framework_terms=register_terms,
                     )
                 report["cases"][case.case_id] = entry
             banner = ("DRY RUN: emitted prompts and hygiene states only — nothing was "

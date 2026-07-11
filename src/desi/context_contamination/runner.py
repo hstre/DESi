@@ -18,6 +18,7 @@ from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from .markers import FRAMEWORK_TERMS
 from .metrics import comparison_summary, score_run
 from .prompts import baseline_turns, hygiene_turns, review_messages, system_prompt
 
@@ -105,7 +106,8 @@ def _chat_config(chat: Chat) -> dict | None:
 def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
              max_chars: int = 8000, protocol: str = "standard",
              density: int = 5, ledger=None, reanchor: bool = False,
-             reviewer: Chat | None = None, repeat_index: int = 0) -> dict:
+             reviewer: Chat | None = None, repeat_index: int = 0,
+             framework_terms: tuple[str, ...] | None = None) -> dict:
     """Drive one case through one arm; returns responses + metrics.
 
     ``max_chars`` truncates the raw source (the pilot worked with 2k/8k
@@ -130,7 +132,8 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
                                reanchor=reanchor)
     else:
         turns = hygiene_turns(raw, persona=persona, protocol=protocol,
-                              density=density, reanchor=reanchor)
+                              density=density, reanchor=reanchor,
+                              framework_terms=framework_terms)
 
     messages: list[dict] = [{"role": "system", "content": system_prompt()}]
     responses: list[str] = []
@@ -155,7 +158,8 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
         messages.append({"role": "assistant", "content": reply})
         responses.append(reply)
 
-    metrics = score_run(responses)
+    score_terms = FRAMEWORK_TERMS if framework_terms is None else framework_terms
+    metrics = score_run(responses, score_terms)
     sampling = _chat_config(chat)
     reviewer_sampling = _chat_config(reviewer) if reviewer is not None else None
     # provider_sequence / served_model_sequence: the ordered per-call upstream
@@ -221,12 +225,14 @@ def run_case(chat: Chat, case: Case, mode: str, persona: str = "neutral",
 
 def run_benchmark(cases: list[Case], chat: Chat, persona: str = "neutral",
                   max_chars: int = 8000, protocol: str = "standard",
-                  density: int = 5, ledger=None, repeat_index: int = 0) -> dict:
+                  density: int = 5, ledger=None, repeat_index: int = 0,
+                  framework_terms: tuple[str, ...] | None = None) -> dict:
     """Both arms over all cases + per-case comparison summaries."""
     runs = {
         mode: {
             c.case_id: run_case(chat, c, mode, persona, max_chars, protocol,
-                                density, ledger, repeat_index=repeat_index)
+                                density, ledger, repeat_index=repeat_index,
+                                framework_terms=framework_terms)
             for c in cases
         }
         for mode in MODES
@@ -271,7 +277,8 @@ def _summarize_repeats(values: list[float]) -> dict:
 
 def run_benchmark_repeated(cases: list[Case], chat: Chat, persona: str = "neutral",
                            max_chars: int = 8000, protocol: str = "standard",
-                           repeats: int = 1, density: int = 5, ledger=None) -> dict:
+                           repeats: int = 1, density: int = 5, ledger=None,
+                           framework_terms: tuple[str, ...] | None = None) -> dict:
     """Run the benchmark ``repeats`` times and estimate variance per metric.
 
     Provider sampling is not seedable even at temperature 0, so repeats are the
@@ -281,7 +288,7 @@ def run_benchmark_repeated(cases: list[Case], chat: Chat, persona: str = "neutra
     """
     per_repeat = [
         run_benchmark(cases, chat, persona, max_chars, protocol, density, ledger,
-                      repeat_index=i)
+                      repeat_index=i, framework_terms=framework_terms)
         for i in range(max(1, repeats))
     ]
 
@@ -309,7 +316,8 @@ def run_benchmark_repeated(cases: list[Case], chat: Chat, persona: str = "neutra
 def run_density_sweep(cases: list[Case], chat: Chat, persona: str = "neutral",
                       max_chars: int = 8000, protocol: str = "standard",
                       densities: tuple[int, ...] | None = None,
-                      repeats: int = 1, ledger=None) -> dict:
+                      repeats: int = 1, ledger=None,
+                      framework_terms: tuple[str, ...] | None = None) -> dict:
     """Sweep the hygiene-state density ("k") against a shared baseline.
 
     The model-profiling step for this task family: per repeat, the baseline
@@ -330,14 +338,16 @@ def run_density_sweep(cases: list[Case], chat: Chat, persona: str = "neutral",
     for i in range(max(1, repeats)):
         base = {
             c.case_id: run_case(chat, c, "baseline", persona, max_chars,
-                                protocol, ledger=ledger, repeat_index=i)
+                                protocol, ledger=ledger, repeat_index=i,
+                                framework_terms=framework_terms)
             for c in cases
         }
         baselines.append(base)
         for k in ks:
             hyg = {
                 c.case_id: run_case(chat, c, "desi_hygiene", persona, max_chars,
-                                    protocol, density=k, ledger=ledger, repeat_index=i)
+                                    protocol, density=k, ledger=ledger, repeat_index=i,
+                                    framework_terms=framework_terms)
                 for c in cases
             }
             sweeps[k].append({

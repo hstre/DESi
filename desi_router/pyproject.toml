@@ -1,0 +1,52 @@
+# Standalone packaging for the desi_router building block.
+#
+# This file makes the router installable straight from the repository
+# subdirectory, independent of the desi-governance distribution:
+#
+#   pip install "desi-router @ git+https://github.com/hstre/DESi#subdirectory=desi_router"
+#
+# It changes nothing about the two other ways to use the router (vendor the
+# folder, or run from a repo checkout) — the import surface is `desi_router`
+# in all three. The root pyproject.toml packages only src/ and is unaffected.
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "desi-router"
+version = "0.1.0"
+description = "DESi router: deterministic tool-first, privacy-aware routing between local and API LLMs, with a replay-stable audit and an append-only shared ledger. Stdlib only."
+readme = "EMBEDDING.md"
+requires-python = ">=3.11"
+authors = [{ name = "Hanns-Steffen Rentschler" }]
+keywords = ["llm routing", "local llm", "privacy", "deterministic tools", "audit"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Operating System :: OS Independent",
+]
+# Deliberately empty: the router is stdlib-only. Embedding it must not pull a
+# single dependency into the host application.
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/hstre/DESi"
+Repository = "https://github.com/hstre/DESi"
+
+[tool.setuptools]
+packages = [
+    "desi_router",
+    "desi_router.governance",
+    "desi_router.governance.benchmark",
+    "desi_router.tools",
+]
+# The package root IS this directory (subpackage dirs resolve beneath it).
+package-dir = { "desi_router" = "." }
+
+[tool.setuptools.package-data]
+# The measured routing table is read at runtime via a __file__-relative path
+# and must ship; the example config and the guides ship for reference.
+desi_router = ["routing_table.json", "config.example.json", "*.md"]

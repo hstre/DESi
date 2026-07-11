@@ -34,5 +34,11 @@ def measured_score(task_class: str, model_id: str) -> float | None:
     return None if cell is None else cell.get("score")
 
 
+def measured_cell(task_class: str, model_id: str) -> dict | None:
+    """The full table cell (score + provenance). A cell re-fitted from ledger evidence carries
+    ``score_source: "ledger-refit"`` - callers surface that instead of claiming 'measured'."""
+    return _load().get((task_class, model_id))
+
+
 def has_table() -> bool:
     return _TABLE_PATH.exists()
