@@ -1,0 +1,92 @@
+{
+  "claims_total": 23,
+  "evidence_strength_distribution": {
+    "moderate": 1,
+    "none": 18,
+    "strong": 3,
+    "weak": 1
+  },
+  "graph": {
+    "claim_nodes": 25,
+    "contradicts_edges": 3,
+    "run_id": "marcognity_muse_spark_v1"
+  },
+  "omission": {
+    "examined_claim_ids": [
+      "DEF-01",
+      "DEF-02",
+      "VAL-01"
+    ],
+    "examined_types": [
+      "claim_about_validator",
+      "definition"
+    ],
+    "ignored_by_type": {
+      "author_attribution": [
+        "ATTR-01",
+        "ATTR-02"
+      ],
+      "direct_quote": [
+        "QUOTE-01",
+        "QUOTE-02"
+      ],
+      "empirical": [
+        "EMP-01"
+      ],
+      "heuristic_model": [
+        "HEUR-01",
+        "HEUR-02",
+        "HEUR-03"
+      ],
+      "historical_fact": [
+        "FACT-01",
+        "FACT-03"
+      ],
+      "juristic_fact": [
+        "FACT-02"
+      ],
+      "normative": [
+        "NORM-01"
+      ],
+      "theoretical_interpretation": [
+        "THEO-01"
+      ]
+    },
+    "ignored_content_claims": 13,
+    "note": "Direct quotes and author attributions — the highest-provenance claim types — were never examined."
+  },
+  "run_id": "marcognity_muse_spark_v1",
+  "self_sealing": {
+    "falsifiers_stated_in_experiment": false,
+    "is_self_sealing": true,
+    "reason": "Both a working and a failing validator are interpreted as confirming the Epistemic Boundary, and no outcome is designated as disconfirming. As run, the hypothesis is self-sealing. (MarCognity's own Boundary doc is more careful — doc:epistemic_boundary L119-122 asks for controlled validation — so the self-sealing is in the forum conclusion, not necessarily the underlying construct.)",
+    "would_refute": [
+      "A control showing the residual failures vanish under proper source-gating and provenance (i.e. the failures are a pipeline defect, not an 'intrinsic architecture' property) — NOT provided."
+    ],
+    "would_support": [
+      "Validator flags unverifiable claims -> the confidence/verifiability gap is 'made visible' (the stated goal).",
+      "Validator fails / mis-attributes sources -> read as the Boundary 'even within the validator' (muse:L237)."
+    ],
+    "would_weaken": [
+      "A pre-registered outcome where the validator, given domain-correct sources, verifies claims with quoted passages — NOT provided."
+    ]
+  },
+  "source_gate_admissible": 4,
+  "source_gate_total": 23,
+  "structural_contradictions": [
+    "C1",
+    "C2",
+    "C3"
+  ],
+  "verdict_distribution": {
+    "citation_mismatch": 1,
+    "contradicted": 2,
+    "heuristic_proposal": 3,
+    "interpretation": 4,
+    "normative_claim": 1,
+    "source_domain_mismatch": 1,
+    "supported": 1,
+    "unsupported": 1,
+    "unverifiable_from_available_evidence": 9
+  }
+}
