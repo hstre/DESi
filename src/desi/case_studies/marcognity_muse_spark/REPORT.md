@@ -76,12 +76,18 @@ Quelle, Provenienzart (primär / sekundär / nur-semantisch / keine) und konkret
 letztere leer, wo keine genannt wurde. Das Leere *ist* der Befund, es wird protokolliert, nicht
 kaschiert.
 
+**Wichtige Einschränkung:** Diese 23 Claims sind eine **kuratierte Auswahl**, die bewusst zuvor
+übersehene Claim-Klassen (Direktzitate, Autorenzuschreibungen, Heuristiken, normative Aussagen)
+aufnimmt — **keine gemessene vollständige Claim-Abdeckung** des Muse-Textes. Die Fixierung ist ein
+*closed dataset*, kein automatischer Extraktor über den Rohtext; eine vollständige, gemessene
+Abdeckung wäre ein eigener, hier nicht erhobener Schritt.
+
 ### 3.1 Wichtigste Claims (Auszug; vollständig in `claims.jsonl`)
 
 | ID | Typ | Urteil | Kern |
 |---|---|---|---|
 | MET-01 | methodisch | **contradicted** | „keine epistemischen Instruktionen" — vom eigenen Prompt widerlegt |
-| MET-02 | methodisch | **contradicted** | „unabhängige externe Validierung" — ein LLM-Call über den Generierungskontext |
+| MET-02 | methodisch | **partially_supported** | „extern“ trifft zu; „independent“ ist auf keiner Achse dokumentiert — methodische Fehlklassifikation |
 | MET-03 | methodisch | unverifiable | „vollständig reproduzierbar" — keine Modellversion/Seed/Parameter |
 | VAL-01 | über Validator | **source_domain_mismatch** | fünf Rechts-Claims „VERIFIED" durch „das PubMed-Dokument" |
 | VAL-02 | über Validator | **citation_mismatch** | „keine Zitate gefunden" — obwohl 8 Referenzen im Text stehen |
@@ -97,22 +103,32 @@ oder falsch klassifiziert, sondern als **heuristische Eigenkonstruktionen** mark
 selbst nennt sie „in a heuristic way" (muse:L88). Keine wissenschaftliche Herleitung, keine
 empirische Kalibrierung liegt vor.
 
-### 3.2 Wichtigste Widersprüche (`contradictions.md`)
+### 3.2 Strukturelle Konflikte (`contradictions.md`)
 
-Drei strukturelle Widersprüche werden von DESis **eigenem** Detektor
-`desi.self_audit.contradictions.find_contradictions` gefunden (nicht von Prosa behauptet):
+Drei strukturelle Konflikte werden von DESis **eigenem** Detektor
+`desi.self_audit.contradictions.find_contradictions` als Schlüssel/Wert-Inkonsistenzen gefunden
+(nicht von Prosa behauptet). **Nicht jeder ist ein logischer Widerspruch** — die Art wird bewusst
+unterschieden:
 
-- **C1 — Prompt ↔ Methode.** Die Methode (muse:L206) behauptet, das Modell habe „No epistemic
-  instructions (requests for verification, sources, stages, etc.)" erhalten. Der abgedruckte Prompt
-  verlangt aber ≥5 wissenschaftliche Quellen mit Direktzitaten (muse:L56-58), eine
+- **C1 — Widerspruch (logisch): Prompt ↔ Methode.** Die Methode (muse:L206) behauptet, das Modell
+  habe „No epistemic instructions (requests for verification, sources, stages, etc.)“ erhalten. Der
+  abgedruckte Prompt verlangt aber ≥5 wissenschaftliche Quellen mit Direktzitaten (muse:L56-58), eine
   Zitationskonsistenzprüfung (muse:L64), Datenbanksuchen (muse:L24-27) und **sechs benannte Phasen**
-  (muse:L29-47). Der Versuch widerspricht seinem eigenen Aufbau.
-- **C2 — „alle VERIFIED" ↔ „keine Zitate".** Derselbe Bericht stempelt fünf Claims `VERIFIED` und
-  schließt mit „No citations found or verifiable" — obwohl der Text acht wohlgeformte Referenzen
-  trägt (muse:L154-161). Ursache: zwei Subsysteme, ohne Abgleich konkateniert
-  (code:agent_metacognition L48-66).
-- **C3 — „unabhängig" ↔ ein LLM-Call.** „Independent external validator" (muse:L208) gegen
-  `llm.invoke` über den Generierungskontext (code:skeptical_agent L62, code:evaluator_prompt L24-28).
+  (muse:L29-47). Ein echter Widerspruch: beide Aussagen können nicht zugleich wahr sein.
+- **C2 — Pipeline-Inkonsistenz: VERIFIED ohne zitierbare Evidenz.** „VERIFIED“ und „No citations
+  found“ können theoretisch beide zutreffen — es ist *kein* strikter logischer Widerspruch. Das
+  eigentliche Problem: der Skeptical Agent behauptet Quellenunterstützung, **nennt aber keine Quelle
+  und keine Passage** (nur „das PubMed-Dokument“); der Citation Checker erkennt zugleich keine
+  überprüfbaren Referenzen (obwohl der Text acht trägt, muse:L154-161); beide Resultate werden **ohne
+  Konsistenzprüfung** zusammengefügt (code:agent_metacognition L48-66).
+- **C3 — Unbelegte Unabhängigkeit: „Independent external validation“ ↔ keine dokumentierte
+  Unabhängigkeit.** Dass der Validator technisch nur ein `llm.invoke` ist (code:skeptical_agent L62),
+  widerlegt Unabhängigkeit *nicht per se* — ein externer LLM-Aufruf könnte formal unabhängig sein.
+  Der Konflikt ist enger: „independent external validation“ (muse:L208) wird behauptet, ohne dass auf
+  **irgendeiner Achse** — organisatorisch, modellseitig oder evidenzseitig — Unabhängigkeit
+  dokumentiert wäre; der Validator hängt vollständig an den Generierungsdokumenten
+  (code:evaluator_prompt L24-28), ist nicht adversarial abgesichert und nicht reproduzierbar
+  spezifiziert. Behauptet, nicht etabliert — eine methodische Fehlklassifikation.
 
 ---
 
@@ -146,11 +162,17 @@ sie adjudiziert die Rechtsphilosophie nicht.)
   bekommt, was das Retrieval geliefert hat, und nennt es „the PubMed document".
 - **Warum keine Titel/Passagen?** Weil `skeptical_agent` nur gegen Abstract-Text prüft und nie eine
   Fundstelle extrahiert; „the PubMed document" bleibt titel- und passagenlos.
-- **Wie „alle bestätigt" *und* „keine verifizierbaren Referenzen"?** Weil zwei entkoppelte
-  Subsysteme (Claim-Check vs. Regex-Zitationscheck) unversöhnt nebeneinanderstehen (C2).
-- **Extern und unabhängig?** Nein im relevanten Sinn: gleicher Retrieval-Kontext wie die Generierung
-  (C3); das README gibt die geteilte Verzerrung selbst zu (doc:readme L133).
-- **Mehr als ein weiterer LLM-Aufruf mit Quellkontext?** Der Code zeigt: nein.
+- **Wie „alle bestätigt“ *und* „keine verifizierbaren Referenzen“?** Beides kann formal zugleich
+  gelten — die Pipeline-Inkonsistenz (C2) ist, dass zwei entkoppelte Subsysteme (Claim-Check vs.
+  Regex-Zitationscheck) unversöhnt nebeneinanderstehen und der Claim-Check Unterstützung *ohne
+  genannte Quelle/Passage* behauptet.
+- **Extern und unabhängig?** „Extern“ ja (separater Aufruf, hier anderes Modell); „unabhängig“ ist
+  auf keiner Achse dokumentiert (C3) — der Validator hängt an den Generierungsdokumenten, ist nicht
+  adversarial und nicht reproduzierbar spezifiziert; das README gibt die geteilte Verzerrung selbst
+  zu (doc:readme L133). Ein einzelner LLM-Aufruf *widerlegt* Unabhängigkeit nicht, *etabliert* sie
+  aber auch nicht.
+- **Mehr als ein weiterer LLM-Aufruf mit Quellkontext?** Der Code zeigt: methodisch nicht — ein
+  nicht-adversarialer, unspezifizierter Aufruf, vollständig abhängig von den bereitgestellten Dokumenten.
 - **Fehler durch semantische Ähnlichkeit ohne Provenienzprüfung?** Genau die: topische
   String-Nähe eines biomedizinischen Abstracts wird als Bestätigung eines Rechts-Claims gewertet.
 
@@ -184,7 +206,7 @@ Vollständige Tabelle: `comparison.md` (auto-generiert). In einem Satz je Achse:
 
 | Dimension | MarCognity | DESi |
 |---|---|---|
-| Claim-Abdeckung | 5 allgemeine Claims | 23 typisierte, inkl. Zitate/Attributionen |
+| Claim-Abdeckung | 5 allgemeine Claims | 23 kuratierte, typisierte Claims (inkl. übersehener Klassen); keine gemessene Vollständigkeit |
 | Quellenpassung | keine (PubMed ↔ Recht) | `source_domain_gate` → Mismatch statt „VERIFIED" |
 | Konkrete Provenienz | „das PubMed-Dokument" | exakter Anker (doc:Zeile) oder `provenance=none` |
 | Widerspruchserkennung | übersieht C1, erzeugt C2 | C1/C2/C3 via `find_contradictions` |
@@ -200,7 +222,9 @@ Vollständige Tabelle: `comparison.md` (auto-generiert). In einem Satz je Achse:
 
 - DESi **verhindert Fehler nicht**. Die Claim-Extraktion und Typisierung dieser Fallstudie ist von
   einem Menschen/Modell kuratiert und kann selbst falsch typisieren oder Claims übersehen; die
-  Fixierung ist ein *closed dataset*, nicht ein automatischer Extraktor über den Rohtext.
+  Fixierung ist ein *closed dataset*, nicht ein automatischer Extraktor über den Rohtext. Die 23
+  Claims sind ausdrücklich eine **kuratierte Auswahl, keine gemessene vollständige Claim-Abdeckung**
+  des Muse-Textes — „23“ ist daher keine Vollständigkeitsaussage.
 - DESi **adjudiziert die Rechtsphilosophie hier nicht**. Viele inhaltliche Claims enden bewusst auf
   `unverifiable_from_available_evidence` — das ist ehrlich, aber es ist *kein* positives Sachurteil.
   Wer die Attributionen prüfen will, muss die Primärquellen ziehen; das leistet diese Fallstudie

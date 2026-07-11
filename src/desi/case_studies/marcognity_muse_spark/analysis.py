@@ -35,9 +35,17 @@ RUN_ID = "marcognity_muse_spark_v1"
 
 @dataclass(frozen=True)
 class NamedContradiction:
-    """A ``Contradiction`` from the reused detector, with a stable id + gloss."""
+    """A key/value inconsistency from the reused detector, with a stable id + gloss.
+
+    ``kind`` names precisely what was found — not every conflict is a *logical*
+    contradiction: C1 is (prompt vs. method), C2 is an unresolved pipeline
+    inconsistency, C3 is an unsubstantiated independence claim. The detector finds
+    all three the same way (same key, different value); the ``kind`` keeps the
+    prose honest about their differing strength.
+    """
 
     cid: str
+    kind: str
     title: str
     contradiction: Contradiction
     explanation: str
@@ -56,44 +64,57 @@ def _explicit(doc: str, line: int, key: str, value: str,
 # The three conflicts, expressed as key/value claims the detector groups.
 # C1 & C2 are same-document (fire the document branch); C3 spans two documents
 # and fires the referenced-artifact branch.
-_CONTRA_INPUTS: tuple[tuple[str, str, str, ExplicitClaim, ExplicitClaim], ...] = (
+_CONTRA_INPUTS: tuple[tuple[str, str, str, str, ExplicitClaim, ExplicitClaim], ...] = (
     (
         "C1",
-        "Method says 'no instructions' — the prompt demands them",
-        "The Method section (muse:L206) states the model got no requests for "
-        "verification, sources, or stages. The printed prompt demands >=5 "
-        "scientific references with direct citations (muse:L56-58), a "
-        "citation-consistency check (muse:L64), database searches (muse:L24-27) "
-        "and six named Phases (muse:L29-47). The experiment contradicts its own setup.",
+        "Widerspruch (logisch)",
+        "Prompt ↔ Methode",
+        "Die Methode (muse:L206) sagt, das Modell habe keine Anweisungen zu "
+        "Verifikation, Quellen oder Stufen erhalten. Der abgedruckte Prompt verlangt "
+        "genau diese: ≥5 wissenschaftliche Quellen mit Direktzitaten (muse:L56-58), "
+        "eine Zitationskonsistenzprüfung (muse:L64), Datenbanksuchen (muse:L24-27) und "
+        "sechs benannte Phasen (muse:L29-47). Das ist ein echter logischer Widerspruch: "
+        "beide Aussagen können nicht zugleich wahr sein.",
         _explicit("muse", 206, "epistemic_instructions_given", "none: no verification/sources/stages"),
         _explicit("muse", 56, "epistemic_instructions_given",
                   "required: >=5 references, direct citations, citation-check, six phases"),
     ),
     (
         "C2",
-        "All claims 'VERIFIED' — yet 'no citations found or verifiable'",
-        "The report marks all five sampled claims STATUS: VERIFIED against 'the "
-        "PubMed document' (muse:L170-198), while the same report ends 'No citations "
-        "found or verifiable in the text' (muse:L201-202). The text nonetheless "
-        "lists eight references (muse:L154-161). The two verdicts are mutually "
-        "inconsistent — they come from two subsystems concatenated without "
-        "reconciliation (code:agent_metacognition L48-66).",
-        _explicit("muse", 172, "verifiable_evidence_present", "yes: five claims VERIFIED"),
-        _explicit("muse", 202, "verifiable_evidence_present", "no: no citations found or verifiable"),
+        "Pipeline-Inkonsistenz",
+        "VERIFIED ohne zitierbare Evidenz",
+        "„VERIFIED“ und „No citations found“ können theoretisch beide zugleich "
+        "zutreffen — es ist kein strikter logischer Widerspruch. Der eigentliche Fehler "
+        "ist eine unaufgelöste Pipeline-Inkonsistenz: der Skeptical Agent behauptet "
+        "Quellenunterstützung (muse:L170-198), nennt aber keine Quelle und keine "
+        "Passage (nur „das PubMed-Dokument“); der Citation Checker erkennt zugleich "
+        "keine überprüfbaren Referenzen (muse:L201-202) — obwohl der Text acht "
+        "Referenzen trägt (muse:L154-161). Beide Resultate werden ohne "
+        "Konsistenzprüfung zusammengefügt (code:agent_metacognition L48-66).",
+        _explicit("muse", 172, "citable_evidence_for_verified_claims",
+                  "asserted: claims supported by 'the PubMed document'"),
+        _explicit("muse", 202, "citable_evidence_for_verified_claims",
+                  "found: no citable/verifiable reference, no named source or passage"),
     ),
     (
         "C3",
-        "'Independent external validator' — actually one LLM over the generation context",
-        "The Method calls MarCognity an 'independent external validator' (muse:L208; "
-        "muse:L10). The implementation is a single llm.invoke call "
-        "(code:skeptical_agent L62) that receives 'the reference documents used for "
-        "generation' (code:evaluator_prompt L24-28). Independence is asserted; the "
-        "code and the README (doc:readme L133) say the evaluator shares the "
-        "generation context and may share biases.",
-        _explicit("muse", 208, "validator_independence", "independent external validator",
-                  artifact="marcognity_validator"),
+        "Unbelegte Unabhängigkeit",
+        "„Independent external validation“ ↔ keine dokumentierte Unabhängigkeit",
+        "Dass der Validator technisch nur ein einzelnes llm.invoke ist "
+        "(code:skeptical_agent L62), widerlegt Unabhängigkeit nicht per se — ein "
+        "externer LLM-Aufruf könnte formal unabhängig sein. Der Konflikt ist enger: die "
+        "Methode behauptet „independent external validation“ (muse:L208; muse:L10), ohne "
+        "dass auf irgendeiner Achse Unabhängigkeit dokumentiert wäre — organisatorisch, "
+        "modellseitig oder evidenzseitig. Der Validator erhält genau die Dokumente, die "
+        "schon die Generierung speisten (code:evaluator_prompt L24-28), ist nicht "
+        "adversarial abgesichert und nicht reproduzierbar spezifiziert; das README "
+        "räumt die geteilte Verzerrung selbst ein (doc:readme L133). Die Unabhängigkeit "
+        "ist behauptet, nicht etabliert — eine methodische Fehlklassifikation.",
+        _explicit("muse", 208, "validator_independence",
+                  "claimed: independent external validation", artifact="marcognity_validator"),
         _explicit("code:evaluator_prompt", 24, "validator_independence",
-                  "single LLM call over the generation retrieval context",
+                  "documented independence: none (evidence-side dependent on the "
+                  "generation documents; not adversarial; not reproducibly specified)",
                   artifact="marcognity_validator"),
     ),
 )
@@ -107,16 +128,16 @@ def detect_contradictions() -> tuple[NamedContradiction, ...]:
     contradiction') is produced by reused DESi code, not asserted by prose.
     """
     all_inputs: list[ExplicitClaim] = []
-    for _cid, _t, _e, a, b in _CONTRA_INPUTS:
+    for _cid, _kind, _t, _e, a, b in _CONTRA_INPUTS:
         all_inputs.extend((a, b))
     found = find_contradictions(tuple(all_inputs))
 
     by_key = {c.key: c for c in found}
     out: list[NamedContradiction] = []
-    for cid, title, expl, a, _b in _CONTRA_INPUTS:
+    for cid, kind, title, expl, a, _b in _CONTRA_INPUTS:
         con = by_key.get(a.key)
         if con is not None:
-            out.append(NamedContradiction(cid, title, con, expl))
+            out.append(NamedContradiction(cid, kind, title, con, expl))
     return tuple(out)
 
 
@@ -128,8 +149,9 @@ def detect_contradictions() -> tuple[NamedContradiction, ...]:
 _MATERIAL_FACTS: tuple[tuple[str, str], ...] = (
     ("PROMPT-01", "The prompt demands >=5 references, direct citations, a "
                   "citation-consistency check, and six phases (muse:L24-64)."),
-    ("CODE-01", "The Skeptical Agent is one llm.invoke over the generation "
-                "context, not an independent validator (code:skeptical_agent L62)."),
+    ("CODE-01", "No independence is documented for the validator on any axis: it "
+                "runs on the generation documents (evaluator_prompt L24-28), is "
+                "non-adversarial and not reproducibly specified (skeptical_agent L62)."),
 )
 
 # CONTRADICTS edges between real CaseClaim / material-fact nodes.

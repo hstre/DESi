@@ -181,14 +181,17 @@ CLAIMS: tuple[CaseClaim, ...] = (
         "validator').",
         ClaimType.METHODOLOGICAL, Domain.EXPERIMENT_META, S.METHOD_EXTERNAL_VALIDATION,
         "The validator's implementation and the inputs it receives.",
-        Verdict.CONTRADICTED,
-        "MarCognity's Skeptical Agent is a single LLM call (code:skeptical_agent "
-        "L62) that receives 'the reference documents used for generation' "
-        "(code:evaluator_prompt L24-28; code:agent_metacognition L48). Same model "
-        "family, same retrieval context: not independent of the generator.",
-        uncertainty="The generator here was Muse Spark, the validator a Llama model — "
-        "different families — but they share the generation retrieval context and the "
-        "'independent' label is over-stated by the README's own admission (doc:readme L133).",
+        Verdict.PARTIALLY_SUPPORTED,
+        "'External' holds literally — it is a separate call, here even a different "
+        "model family (Muse Spark vs. a Llama validator). But 'independent' is not "
+        "documented on any axis: the validator receives exactly the generation "
+        "documents (code:evaluator_prompt L24-28), is non-adversarial and not "
+        "reproducibly specified. A single external llm.invoke does not by itself "
+        "REFUTE independence — but it does not ESTABLISH it either; here the "
+        "'independent' label is a methodological misclassification, not a demonstrated "
+        "property (the README concedes the shared bias, doc:readme L133).",
+        uncertainty="'External' is uncontested; only the *documented* independence "
+        "(organizational / model-side / evidence-side) is missing.",
         contradiction_ids=("C3",),
     ),
     CaseClaim(
@@ -228,8 +231,12 @@ CLAIMS: tuple[CaseClaim, ...] = (
         "The text carries eight well-formed references (muse:L154-161: Kelsen 1960, "
         "Hart 1961, Bobbio 1993, Fuller 1969, Luhmann 1986, Guastini 1986, Tamanaha "
         "2001, Kaplow 1992). 'No citations found' is a false negative of the regex "
-        "extractor (code:extract_citations), and it flatly contradicts VAL-01's "
-        "'all VERIFIED'.",
+        "extractor (code:extract_citations). The deeper problem is the unresolved "
+        "pipeline inconsistency C2: the Skeptical Agent asserts source support without "
+        "naming a source or passage, while the citation checker finds no verifiable "
+        "references, and both are merged without a consistency check "
+        "(code:agent_metacognition L48-66) — 'VERIFIED' and 'no citations' need not "
+        "logically contradict, but here they stand un-reconciled.",
         uncertainty="Whether each reference is bibliographically correct is NOT "
         "asserted here (not independently checked); only that references plainly exist.",
         contradiction_ids=("C2",),

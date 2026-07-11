@@ -4,7 +4,7 @@
 
 | Dimension | MarCognity (Skeptical Agent) | DESi |
 |---|---|---|
-| **Claim-Abdeckung** | 5 sehr allgemeine Definitions-Claims geprüft; Zitate, Attributionen, Formeln, empirische & normative Aussagen ausgelassen. | 23 atomare Claims, typisiert; die höchst-belegbedürftigen (Direktzitate, Autorenzuschreibungen) explizit als eigene Einträge geführt. |
+| **Claim-Abdeckung** | 5 sehr allgemeine Definitions-Claims geprüft; Zitate, Attributionen, Formeln, empirische & normative Aussagen ausgelassen. | 23 kuratierte, typisierte Claims (inkl. zuvor übersehener Claim-Klassen) — eine kuratierte Auswahl, KEINE gemessene Vollständigkeit des Muse-Textes. |
 | **Quellenpassung (Source-Gating)** | Keine. Rechtsphilosophie gegen 'das PubMed-Dokument' geprüft (code: kein Domain-Gate). | `source_domain_gate`: biomedizinische Quelle ist für Rechtsphilosophie nicht zulässig → SOURCE_DOMAIN_MISMATCH, nicht 'VERIFIED'. |
 | **Konkrete Provenienz** | 'das PubMed-Dokument' — kein Titel, keine Passage. | Jede Bewertung zeigt exakten Anker (doc:Zeile + Wortlaut); fehlt eine Passage, wird `provenance_kind=none` protokolliert, nicht kaschiert. |
 | **Widerspruchserkennung** | Übersieht den Prompt/Methode-Widerspruch; produziert selbst den 'alle VERIFIED' ↔ 'keine Zitate' Widerspruch. | 3 strukturelle Widersprüche über `find_contradictions` (C1 Prompt↔Methode, C2 verifiziert↔keine Zitate, C3 'unabhängig'↔ein LLM-Call). |

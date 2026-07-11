@@ -48,14 +48,17 @@ def render_contradictions_md() -> str:
     cons = analysis.detect_contradictions()
     ss = analysis.self_sealing_analysis()
     out: list[str] = []
-    out.append("# Widerspruchsbericht — MarCognity / Muse Spark 1.1\n")
+    out.append("# Strukturelle Konflikte — MarCognity / Muse Spark 1.1\n")
     out.append("*Auto-generiert von `python -m desi.case_studies.marcognity_muse_spark`. "
-               "Die drei strukturellen Widersprüche werden von DESis eigenem Detektor "
-               "`desi.self_audit.contradictions.find_contradictions` gefunden, nicht von "
-               "Prosa behauptet.*\n")
+               "DESis Detektor `desi.self_audit.contradictions.find_contradictions` findet "
+               "diese als Schlüssel/Wert-Inkonsistenzen — nicht von Prosa behauptet. "
+               "Nicht jeder ist ein logischer Widerspruch: die Spalte „Art“ hält die "
+               "unterschiedliche Stärke fest (Widerspruch / Pipeline-Inkonsistenz / "
+               "unbelegte Unabhängigkeit).*\n")
     for nc in cons:
         con = nc.contradiction
         out.append(f"## {nc.cid} — {nc.title}\n")
+        out.append(f"- **Art:** {nc.kind}")
         out.append(f"- **Scope (Detektor):** `{con.scope}`")
         out.append(f"- **Konfligierende Werte:** {', '.join(repr(v) for v in con.values)}")
         out.append(f"- **Claim-IDs (Detektor):** {', '.join(con.claim_ids)}")
@@ -81,8 +84,8 @@ _COMPARISON_ROWS: tuple[tuple[str, str, str], ...] = (
     ("Claim-Abdeckung",
      "5 sehr allgemeine Definitions-Claims geprüft; Zitate, Attributionen, "
      "Formeln, empirische & normative Aussagen ausgelassen.",
-     "23 atomare Claims, typisiert; die höchst-belegbedürftigen (Direktzitate, "
-     "Autorenzuschreibungen) explizit als eigene Einträge geführt."),
+     "23 kuratierte, typisierte Claims (inkl. zuvor übersehener Claim-Klassen) — "
+     "eine kuratierte Auswahl, KEINE gemessene Vollständigkeit des Muse-Textes."),
     ("Quellenpassung (Source-Gating)",
      "Keine. Rechtsphilosophie gegen 'das PubMed-Dokument' geprüft "
      "(code: kein Domain-Gate).",

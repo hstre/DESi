@@ -1,30 +1,33 @@
-# Widerspruchsbericht — MarCognity / Muse Spark 1.1
+# Strukturelle Konflikte — MarCognity / Muse Spark 1.1
 
-*Auto-generiert von `python -m desi.case_studies.marcognity_muse_spark`. Die drei strukturellen Widersprüche werden von DESis eigenem Detektor `desi.self_audit.contradictions.find_contradictions` gefunden, nicht von Prosa behauptet.*
+*Auto-generiert von `python -m desi.case_studies.marcognity_muse_spark`. DESis Detektor `desi.self_audit.contradictions.find_contradictions` findet diese als Schlüssel/Wert-Inkonsistenzen — nicht von Prosa behauptet. Nicht jeder ist ein logischer Widerspruch: die Spalte „Art“ hält die unterschiedliche Stärke fest (Widerspruch / Pipeline-Inkonsistenz / unbelegte Unabhängigkeit).*
 
-## C1 — Method says 'no instructions' — the prompt demands them
+## C1 — Prompt ↔ Methode
 
+- **Art:** Widerspruch (logisch)
 - **Scope (Detektor):** `document:muse`
 - **Konfligierende Werte:** 'none: no verification/sources/stages', 'required: >=5 references, direct citations, citation-check, six phases'
 - **Claim-IDs (Detektor):** cl_04cc6b9fc834, cl_c859e464e204
 
-The Method section (muse:L206) states the model got no requests for verification, sources, or stages. The printed prompt demands >=5 scientific references with direct citations (muse:L56-58), a citation-consistency check (muse:L64), database searches (muse:L24-27) and six named Phases (muse:L29-47). The experiment contradicts its own setup.
+Die Methode (muse:L206) sagt, das Modell habe keine Anweisungen zu Verifikation, Quellen oder Stufen erhalten. Der abgedruckte Prompt verlangt genau diese: ≥5 wissenschaftliche Quellen mit Direktzitaten (muse:L56-58), eine Zitationskonsistenzprüfung (muse:L64), Datenbanksuchen (muse:L24-27) und sechs benannte Phasen (muse:L29-47). Das ist ein echter logischer Widerspruch: beide Aussagen können nicht zugleich wahr sein.
 
-## C2 — All claims 'VERIFIED' — yet 'no citations found or verifiable'
+## C2 — VERIFIED ohne zitierbare Evidenz
 
+- **Art:** Pipeline-Inkonsistenz
 - **Scope (Detektor):** `document:muse`
-- **Konfligierende Werte:** 'no: no citations found or verifiable', 'yes: five claims VERIFIED'
-- **Claim-IDs (Detektor):** cl_5e7a6e6d0fbd, cl_db18c12e7694
+- **Konfligierende Werte:** "asserted: claims supported by 'the PubMed document'", 'found: no citable/verifiable reference, no named source or passage'
+- **Claim-IDs (Detektor):** cl_c4823e724dea, cl_c78e74762bdd
 
-The report marks all five sampled claims STATUS: VERIFIED against 'the PubMed document' (muse:L170-198), while the same report ends 'No citations found or verifiable in the text' (muse:L201-202). The text nonetheless lists eight references (muse:L154-161). The two verdicts are mutually inconsistent — they come from two subsystems concatenated without reconciliation (code:agent_metacognition L48-66).
+„VERIFIED“ und „No citations found“ können theoretisch beide zugleich zutreffen — es ist kein strikter logischer Widerspruch. Der eigentliche Fehler ist eine unaufgelöste Pipeline-Inkonsistenz: der Skeptical Agent behauptet Quellenunterstützung (muse:L170-198), nennt aber keine Quelle und keine Passage (nur „das PubMed-Dokument“); der Citation Checker erkennt zugleich keine überprüfbaren Referenzen (muse:L201-202) — obwohl der Text acht Referenzen trägt (muse:L154-161). Beide Resultate werden ohne Konsistenzprüfung zusammengefügt (code:agent_metacognition L48-66).
 
-## C3 — 'Independent external validator' — actually one LLM over the generation context
+## C3 — „Independent external validation“ ↔ keine dokumentierte Unabhängigkeit
 
+- **Art:** Unbelegte Unabhängigkeit
 - **Scope (Detektor):** `artifact:marcognity_validator`
-- **Konfligierende Werte:** 'independent external validator', 'single LLM call over the generation retrieval context'
-- **Claim-IDs (Detektor):** cl_4031c819c67d, cl_72bf188969e6
+- **Konfligierende Werte:** 'claimed: independent external validation', 'documented independence: none (evidence-side dependent on the generation documents; not adversarial; not reproducibly specified)'
+- **Claim-IDs (Detektor):** cl_2a0392a586f0, cl_c773ddb31b5d
 
-The Method calls MarCognity an 'independent external validator' (muse:L208; muse:L10). The implementation is a single llm.invoke call (code:skeptical_agent L62) that receives 'the reference documents used for generation' (code:evaluator_prompt L24-28). Independence is asserted; the code and the README (doc:readme L133) say the evaluator shares the generation context and may share biases.
+Dass der Validator technisch nur ein einzelnes llm.invoke ist (code:skeptical_agent L62), widerlegt Unabhängigkeit nicht per se — ein externer LLM-Aufruf könnte formal unabhängig sein. Der Konflikt ist enger: die Methode behauptet „independent external validation“ (muse:L208; muse:L10), ohne dass auf irgendeiner Achse Unabhängigkeit dokumentiert wäre — organisatorisch, modellseitig oder evidenzseitig. Der Validator erhält genau die Dokumente, die schon die Generierung speisten (code:evaluator_prompt L24-28), ist nicht adversarial abgesichert und nicht reproduzierbar spezifiziert; das README räumt die geteilte Verzerrung selbst ein (doc:readme L133). Die Unabhängigkeit ist behauptet, nicht etabliert — eine methodische Fehlklassifikation.
 
 ## Selbstabdichtung (Aufgabe 7)
 

@@ -80,10 +80,11 @@
   ],
   "verdict_distribution": {
     "citation_mismatch": 1,
-    "contradicted": 2,
+    "contradicted": 1,
     "heuristic_proposal": 3,
     "interpretation": 4,
     "normative_claim": 1,
+    "partially_supported": 1,
     "source_domain_mismatch": 1,
     "supported": 1,
     "unsupported": 1,

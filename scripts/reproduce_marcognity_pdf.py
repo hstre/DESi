@@ -51,25 +51,34 @@ TR = {
         "evidence_note": "<b>{n} of 23</b> claims have no concrete evidence passage at all "
                          "— the validator referred throughout to “the PubMed "
                          "document” with no title or locus.",
-        "contra_h1": "The three structural contradictions",
+        "contra_h1": "The three structural conflicts",
         "contra_sub": "Found by DESi's own detector <font face='Courier'>desi.self_audit."
-                      "contradictions.find_contradictions</font> — not asserted by prose.",
+                      "contradictions.find_contradictions</font> as key/value "
+                      "inconsistencies — not asserted by prose. Not every one is a "
+                      "logical contradiction; the label names its strength.",
         "contra": [
-            ("C1", "Prompt ↔ Method",
+            ("C1", "Logical contradiction: Prompt ↔ Method",
              "The Method (muse:L206): “No epistemic instructions (verification, sources, "
              "stages)”. The printed prompt demands ≥5 references with direct "
              "citations (L56–58), a citation-consistency check (L64) and six named "
-             "Phases (L29–47). The experiment contradicts its own setup."),
-            ("C2", "“all VERIFIED” ↔ “no citations”",
-             "The same report stamps five claims VERIFIED (L170–198) and ends with "
-             "“No citations found or verifiable” (L201–202) — although the "
-             "text carries eight references (L154–161). Two decoupled subsystems, "
-             "concatenated without reconciliation (agent_metacognition L48–66)."),
-            ("C3", "“independent” ↔ one LLM call",
-             "“Independent external validator” (L208) vs. the implementation: a "
-             "single <font face='Courier'>llm.invoke</font> (skeptical_agent L62) that "
-             "receives “the reference documents used for generation” "
-             "(evaluator_prompt L24–28)."),
+             "Phases (L29–47). A genuine contradiction: both cannot be true at once."),
+            ("C2", "Pipeline inconsistency: VERIFIED without citable evidence",
+             "“VERIFIED” and “No citations found” can in principle both hold — this is "
+             "not a strict logical contradiction. The real fault is an unresolved "
+             "pipeline inconsistency: the Skeptical Agent asserts source support "
+             "(L170–198) but names no source and no passage (only “the PubMed "
+             "document”); the citation checker meanwhile finds no verifiable references "
+             "(L201–202) — although the text carries eight (L154–161). Both results "
+             "are merged without a consistency check (agent_metacognition L48–66)."),
+            ("C3", "Unsubstantiated independence: “independent” ↔ no documented independence",
+             "That the validator is technically a single <font face='Courier'>llm.invoke"
+             "</font> (skeptical_agent L62) does not by itself refute independence — an "
+             "external LLM call could be formally independent. The conflict is narrower: "
+             "“independent external validation” (L208) is claimed with no documented "
+             "independence on any axis — organizational, model-side or evidence-side. The "
+             "validator receives exactly the documents that fed generation "
+             "(evaluator_prompt L24–28), is non-adversarial and not reproducibly "
+             "specified. Asserted, not established — a methodological misclassification."),
         ],
         "selfseal_h2": "Self-sealing &amp; falsifiability",
         "ss_rows": [
@@ -86,9 +95,11 @@ TR = {
              "unfalsifiable <i>as run</i>."),
         ],
         "claims_h1": "All 23 claims — the data",
-        "claims_sub": "Complete and line-by-line auditable in <font face='Courier'>claims."
-                      "jsonl</font> / <font face='Courier'>evidence.jsonl</font>. Column "
-                      "“Evidence” = provenance kind of the source actually available.",
+        "claims_sub": "A <b>curated selection</b> (incl. previously missed claim classes), "
+                      "<b>not</b> a measured complete claim coverage of the Muse text. "
+                      "Line-by-line auditable in <font face='Courier'>claims.jsonl</font> / "
+                      "<font face='Courier'>evidence.jsonl</font>. Column “Evidence” = "
+                      "provenance kind of the source actually available.",
         "claims_head": ["ID", "Type", "Domain", "Verdict", "Evidence"],
         "prov_short": {"none": "none", "semantic_similarity_only": "semantic-only",
                        "primary": "primary", "secondary": "secondary"},
@@ -97,7 +108,7 @@ TR = {
                     "point at which an error, an omission or an inadmissible inference arises.",
         "comp_head": ["Dimension", "MarCognity (Skeptical Agent)", "DESi"],
         "comp": [
-            ("Claim coverage", "5 general claims", "23 typed, incl. quotes/attributions"),
+            ("Claim coverage", "5 general claims", "23 curated, typed claims (incl. missed classes); not measured completeness"),
             ("Source fit", "none (PubMed ↔ law)", "source_domain_gate → mismatch, not VERIFIED"),
             ("Concrete provenance", "“the PubMed document”", "exact anchor (doc:line) or none"),
             ("Contradiction detection", "misses C1, produces C2", "C1/C2/C3 via find_contradictions"),
@@ -115,7 +126,8 @@ TR = {
                   "then <b>reads its own failure as confirmation of the theory</b> (self-sealing, "
                   "with no falsification condition).",
         "limits_h2": "Limits of DESi (honestly)",
-        "limits_p": "DESi is not infallible: the claim fixture is curated (no auto-extractor); "
+        "limits_p": "DESi is not infallible: the claim fixture is a curated selection (no "
+                    "auto-extractor), <b>not measured complete coverage</b> of the Muse text; "
                     "the legal philosophy is <i>not</i> adjudicated on the merits here (many "
                     "claims deliberately end on “unverifiable”); source_domain_gate and "
                     "the self-sealing analysis are small, general extensions. MarCognity's own "
@@ -150,25 +162,36 @@ TR = {
         "evidence_note": "<b>{n} von 23</b> Claims haben gar keine konkrete Evidenzpassage "
                          "— der Validator nannte durchweg „das PubMed-Dokument“ "
                          "ohne Titel oder Fundstelle.",
-        "contra_h1": "Die drei strukturellen Widersprüche",
+        "contra_h1": "Drei strukturelle Konflikte",
         "contra_sub": "Gefunden von DESis eigenem Detektor <font face='Courier'>desi.self_audit."
-                      "contradictions.find_contradictions</font> — nicht von Prosa behauptet.",
+                      "contradictions.find_contradictions</font> als Schlüssel/Wert-"
+                      "Inkonsistenzen — nicht von Prosa behauptet. Nicht jeder ist ein "
+                      "logischer Widerspruch; die „Art“ hält die Stärke fest.",
         "contra": [
-            ("C1", "Prompt ↔ Methode",
+            ("C1", "Logischer Widerspruch: Prompt ↔ Methode",
              "Die Methode (muse:L206): „No epistemic instructions (verification, sources, "
              "stages)“. Der abgedruckte Prompt verlangt ≥5 Quellen mit Direktzitaten "
              "(L56–58), eine Zitationskonsistenzprüfung (L64) und sechs benannte Phasen "
-             "(L29–47). Der Versuch widerspricht seinem eigenen Aufbau."),
-            ("C2", "„alle VERIFIED“ ↔ „keine Zitate“",
-             "Derselbe Bericht stempelt fünf Claims VERIFIED (L170–198) und schließt "
-             "mit „No citations found or verifiable“ (L201–202) — obwohl der "
-             "Text acht Referenzen trägt (L154–161). Zwei entkoppelte Subsysteme, ohne "
-             "Abgleich konkateniert (agent_metacognition L48–66)."),
-            ("C3", "„unabhängig“ ↔ ein LLM-Call",
-             "„Independent external validator“ (L208) gegen die Implementierung: ein "
-             "einziges <font face='Courier'>llm.invoke</font> (skeptical_agent L62), das „the "
-             "reference documents used for generation“ erhält (evaluator_prompt "
-             "L24–28)."),
+             "(L29–47). Ein echter Widerspruch: beide Aussagen können nicht zugleich "
+             "wahr sein."),
+            ("C2", "Pipeline-Inkonsistenz: VERIFIED ohne zitierbare Evidenz",
+             "„VERIFIED“ und „No citations found“ können theoretisch beide zutreffen — "
+             "kein strikter logischer Widerspruch. Der eigentliche Fehler: der Skeptical "
+             "Agent behauptet Quellenunterstützung (L170–198), nennt aber keine Quelle "
+             "und keine Passage (nur „das PubMed-Dokument“); der Citation Checker findet "
+             "zugleich keine überprüfbaren Referenzen (L201–202) — obwohl der Text acht "
+             "trägt (L154–161). Beide werden ohne Konsistenzprüfung zusammengefügt "
+             "(agent_metacognition L48–66)."),
+            ("C3", "Unbelegte Unabhängigkeit: „independent“ ↔ keine dokumentierte Unabhängigkeit",
+             "Dass der Validator technisch ein einzelnes <font face='Courier'>llm.invoke"
+             "</font> ist (skeptical_agent L62), widerlegt Unabhängigkeit nicht per se — "
+             "ein externer LLM-Aufruf könnte formal unabhängig sein. Der Konflikt ist "
+             "enger: „independent external validation“ (L208) wird behauptet, ohne dass "
+             "auf irgendeiner Achse Unabhängigkeit dokumentiert wäre — organisatorisch, "
+             "modellseitig oder evidenzseitig. Der Validator erhält genau die "
+             "Generierungsdokumente (evaluator_prompt L24–28), ist nicht adversarial und "
+             "nicht reproduzierbar spezifiziert. Behauptet, nicht etabliert — eine "
+             "methodische Fehlklassifikation."),
         ],
         "selfseal_h2": "Selbstabdichtung &amp; Falsifizierbarkeit",
         "ss_rows": [
@@ -186,9 +209,11 @@ TR = {
              "<i>as run</i> unfalsifizierbar."),
         ],
         "claims_h1": "Alle 23 Claims — die Daten",
-        "claims_sub": "Vollständig und je Zeile auditierbar in <font face='Courier'>claims."
-                      "jsonl</font> / <font face='Courier'>evidence.jsonl</font>. Spalte "
-                      "„Evidenz“ = Provenienzart der tatsächlich verfügbaren Quelle.",
+        "claims_sub": "Eine <b>kuratierte Auswahl</b> (inkl. zuvor übersehener Claim-Klassen), "
+                      "<b>keine</b> gemessene vollständige Claim-Abdeckung des Muse-Textes. Je "
+                      "Zeile auditierbar in <font face='Courier'>claims.jsonl</font> / "
+                      "<font face='Courier'>evidence.jsonl</font>. Spalte „Evidenz“ = "
+                      "Provenienzart der tatsächlich verfügbaren Quelle.",
         "claims_head": ["ID", "Typ", "Domäne", "Urteil", "Evidenz"],
         "prov_short": {"none": "keine", "semantic_similarity_only": "nur semantisch",
                        "primary": "primär", "secondary": "sekundär"},
@@ -197,7 +222,7 @@ TR = {
                     "an der ein Fehler, eine Auslassung oder ein unzulässiger Schluss entsteht.",
         "comp_head": ["Dimension", "MarCognity (Skeptical Agent)", "DESi"],
         "comp": [
-            ("Claim-Abdeckung", "5 allgemeine Claims", "23 typisierte, inkl. Zitate/Attributionen"),
+            ("Claim-Abdeckung", "5 allgemeine Claims", "23 kuratierte, typisierte Claims (inkl. übersehener Klassen); keine gemessene Vollständigkeit"),
             ("Quellenpassung", "keine (PubMed ↔ Recht)", "source_domain_gate → Mismatch statt VERIFIED"),
             ("Konkrete Provenienz", "„das PubMed-Dokument“", "exakter Anker (doc:Zeile) oder none"),
             ("Widerspruchserkennung", "übersieht C1, erzeugt C2", "C1/C2/C3 via find_contradictions"),
@@ -215,8 +240,9 @@ TR = {
                   "Versuchsaufbau</b> (C1) und <b>deutet das eigene Versagen als Bestätigung "
                   "der Theorie</b> (Selbstabdichtung, ohne Falsifikationsbedingung).",
         "limits_h2": "Grenzen von DESi (ehrlich)",
-        "limits_p": "DESi ist nicht unfehlbar: die Claim-Fixierung ist kuratiert (kein "
-                    "Auto-Extraktor); die Rechtsphilosophie wird hier <i>nicht</i> inhaltlich "
+        "limits_p": "DESi ist nicht unfehlbar: die Claim-Fixierung ist eine kuratierte Auswahl "
+                    "(kein Auto-Extraktor), <b>keine gemessene vollständige Abdeckung</b> des "
+                    "Muse-Textes; die Rechtsphilosophie wird hier <i>nicht</i> inhaltlich "
                     "adjudiziert (viele Claims enden bewusst auf „unverifiable“); "
                     "source_domain_gate und die Selbstabdichtungs-Analyse sind kleine, allgemeine "
                     "Erweiterungen. MarCognitys eigenes README/Boundary-Dokument sind vorsichtiger "
