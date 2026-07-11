@@ -74,7 +74,12 @@ _CONTRA_INPUTS: tuple[tuple[str, str, str, str, ExplicitClaim, ExplicitClaim], .
         "genau diese: ≥5 wissenschaftliche Quellen mit Direktzitaten (muse:L56-58), "
         "eine Zitationskonsistenzprüfung (muse:L64), Datenbanksuchen (muse:L24-27) und "
         "sechs benannte Phasen (muse:L29-47). Das ist ein echter logischer Widerspruch: "
-        "beide Aussagen können nicht zugleich wahr sein.",
+        "beide Aussagen können nicht zugleich wahr sein. (Audit-Vorbehalt R1: der "
+        "Abschnittstitel muse:L12 nennt den Prompt „prompt used on chatgpt (taken from "
+        "marcognity)“; die Methode muse:L205-206 sagt jedoch, Muse Spark erhalte „a "
+        "complex prompt“ ohne epistemische Instruktionen — der Widerspruch hält auf den "
+        "eigenen Angaben des Versuchs, die Prompt-Herkunft bleibt eine kleine "
+        "Restunsicherheit.)",
         _explicit("muse", 206, "epistemic_instructions_given", "none: no verification/sources/stages"),
         _explicit("muse", 56, "epistemic_instructions_given",
                   "required: >=5 references, direct citations, citation-check, six phases"),

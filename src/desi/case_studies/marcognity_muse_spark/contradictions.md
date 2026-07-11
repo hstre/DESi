@@ -9,7 +9,7 @@
 - **Konfligierende Werte:** 'none: no verification/sources/stages', 'required: >=5 references, direct citations, citation-check, six phases'
 - **Claim-IDs (Detektor):** cl_04cc6b9fc834, cl_c859e464e204
 
-Die Methode (muse:L206) sagt, das Modell habe keine Anweisungen zu Verifikation, Quellen oder Stufen erhalten. Der abgedruckte Prompt verlangt genau diese: ≥5 wissenschaftliche Quellen mit Direktzitaten (muse:L56-58), eine Zitationskonsistenzprüfung (muse:L64), Datenbanksuchen (muse:L24-27) und sechs benannte Phasen (muse:L29-47). Das ist ein echter logischer Widerspruch: beide Aussagen können nicht zugleich wahr sein.
+Die Methode (muse:L206) sagt, das Modell habe keine Anweisungen zu Verifikation, Quellen oder Stufen erhalten. Der abgedruckte Prompt verlangt genau diese: ≥5 wissenschaftliche Quellen mit Direktzitaten (muse:L56-58), eine Zitationskonsistenzprüfung (muse:L64), Datenbanksuchen (muse:L24-27) und sechs benannte Phasen (muse:L29-47). Das ist ein echter logischer Widerspruch: beide Aussagen können nicht zugleich wahr sein. (Audit-Vorbehalt R1: der Abschnittstitel muse:L12 nennt den Prompt „prompt used on chatgpt (taken from marcognity)“; die Methode muse:L205-206 sagt jedoch, Muse Spark erhalte „a complex prompt“ ohne epistemische Instruktionen — der Widerspruch hält auf den eigenen Angaben des Versuchs, die Prompt-Herkunft bleibt eine kleine Restunsicherheit.)
 
 ## C2 — VERIFIED ohne zitierbare Evidenz
 

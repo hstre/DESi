@@ -214,10 +214,12 @@ CLAIMS: tuple[CaseClaim, ...] = (
         ClaimType.CLAIM_ABOUT_VALIDATOR, Domain.LEGAL_PHILOSOPHY, S.REPORT_ALL_VERIFIED,
         "A primary legal-philosophy source with a quoted passage per claim.",
         Verdict.SOURCE_DOMAIN_MISMATCH,
-        "PubMed indexes biomedical literature; the claims are legal philosophy "
-        "(Kelsen/Hart/Bobbio). 'Supported by the PubMed document' is a "
-        "domain-mismatched source, and no document title or passage is named. A "
-        "database hit is not evidence.",
+        "The load-bearing defect (audit R2) is that no document title or passage is "
+        "named at all — 'the PubMed document' is not a citable source, so it is not "
+        "evidence, whatever its domain. The probable secondary reason is a domain "
+        "mismatch: PubMed indexes biomedical literature while the claims are legal "
+        "philosophy (Kelsen/Hart/Bobbio); that mismatch is likely but not certain for "
+        "an unnamed source (PubMed does carry some health-law/bioethics material).",
         uncertainty="We cannot inspect the retrieved abstract (not printed); the "
         "mismatch is established by the validator's own wording and the code path.",
         contradiction_ids=("C2",),

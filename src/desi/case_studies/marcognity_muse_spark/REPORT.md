@@ -138,6 +138,12 @@ Von 23 Claims haben **nur 4** eine domänenzulässige, nicht-nur-semantische Evi
 ausschließlich die **Meta-Aussagen über den Versuch selbst** (der Prompt, die Implementierung).
 Für praktisch jeden *inhaltlichen* Claim gilt: keine konkrete Quelle, keine Passage, kein Titel.
 
+> **Rahmung (Audit R4):** „4/23 zulässig" und „18/23 ohne Passage" beschreiben die **bereitgestellte
+> Evidenz über die 23 kuratierten Claims** — *nicht* eine gemessene Fundierung des Muse-Textes. Ein
+> Teil des „keine Passage" reflektiert, dass DESi selbst keine Primärquellen zieht (es adjudiziert
+> die Rechtsphilosophie nicht). Die Zahlen sind also eine Eigenschaft des Versuchs-Materials, keine
+> Fundierungsmessung.
+
 Der Kernfehler ist **fehlendes Source-Gating**: eine rechtsphilosophische Aussage
 (Kelsen/Hart/Bobbio) wird gegen „das PubMed-Dokument" — eine biomedizinische Datenbank — „verifiziert"
 (muse:L174-198). Ein *Treffer* in einer Datenbank ist keine Evidenz, solange keine konkrete Quelle
@@ -154,6 +160,14 @@ sie adjudiziert die Rechtsphilosophie nicht.)
 ---
 
 ## 5. Bewertung der MarCognity-Validierung (der Bericht als eigenes Prüfobjekt)
+
+**Fairness zuerst (Audit R5):** MarCognitys Ansatz hat echte methodische Stärken, die zuerst zu
+benennen sind — Claim-Zerlegung statt Gesamttext-Urteil, Multi-Source-Retrieval (arXiv/PubMed/
+OpenAlex/Zenodo) und ein expliziter skeptischer Prüf-Pass, der Pro-Claim-Unterstützung verlangt. Das
+eigene README ist zudem vorsichtiger als der Forumsbeitrag (es räumt geteilte Verzerrung ein,
+doc:readme L133). Der Fehler liegt in **Gating und Provenienz**, nicht in der Idee — und die
+Überdehnung im **Forumsschluss**, nicht im Code. Genau deshalb ist die folgende Kritik präzise auf
+die Verarbeitungsschicht gerichtet, nicht auf das Vorhaben als Ganzes.
 
 - **Warum nur wenige, sehr allgemeine Claims?** Der Bericht prüft fünf breite Definitions-/
   Relationsaussagen und lässt **13 inhaltliche Claims** aus (`summary.json` → `omission`) — darunter
@@ -270,3 +284,10 @@ gehedgter Hypothese.
   `python scripts/reproduce_marcognity_pdf.py` (benötigt `reportlab`).
 - `source_material.py` — verbatim gesicherte, zeilenadressierte Materialanker (Aufgabe 1).
 - `claims.py` / `analysis.py` / `report.py` / `__main__.py` — Fixierung, Engine, Writer, Reproduktion.
+- `doktores/` — **adversarialer Doktores-Audit dieser Fallstudie** (vier Prüfer greifen die
+  DESi-Analyse an; deterministisch, offline). Ergebnis: die meisten Befunde hielten stand, einige
+  wurden eingeschränkt, C2/C3 als Nicht-Widersprüche bestätigt, Attest *passed_with_qualifications*
+  (kein Gütesiegel). Reproduktion: `python -m desi.case_studies.marcognity_muse_spark.doktores`.
+  Enthält `AUDIT_REPORT.md`, `ATTESTATION.md`, `claim_reviews.jsonl`, `contradiction_reviews.jsonl`,
+  `methodology_review.md`, `fairness_review.md`, `dissent.md`, `REVISION_LOG.md`, `audit_summary.json`.
+  Die Revisionen R1/R2/R4/R5 oben stammen aus diesem Audit (siehe `doktores/REVISION_LOG.md`).

@@ -50,7 +50,9 @@ TR = {
         "evidence_h2": "Evidence strength — where concrete support is missing",
         "evidence_note": "<b>{n} of 23</b> claims have no concrete evidence passage at all "
                          "— the validator referred throughout to “the PubMed "
-                         "document” with no title or locus.",
+                         "document” with no title or locus. (Audit R4: these counts describe "
+                         "the experiment's supplied evidence over 23 curated claims, not a "
+                         "measured groundedness of the Muse text.)",
         "contra_h1": "The three structural conflicts",
         "contra_sub": "Found by DESi's own detector <font face='Courier'>desi.self_audit."
                       "contradictions.find_contradictions</font> as key/value "
@@ -61,7 +63,10 @@ TR = {
              "The Method (muse:L206): “No epistemic instructions (verification, sources, "
              "stages)”. The printed prompt demands ≥5 references with direct "
              "citations (L56–58), a citation-consistency check (L64) and six named "
-             "Phases (L29–47). A genuine contradiction: both cannot be true at once."),
+             "Phases (L29–47). A genuine contradiction: both cannot be true at once. "
+             "(Audit caveat R1: the prompt header muse:L12 reads 'prompt used on chatgpt "
+             "(taken from marcognity)', so its provenance is slightly ambiguous; the "
+             "contradiction holds on the Method's own wording.)"),
             ("C2", "Pipeline inconsistency: VERIFIED without citable evidence",
              "“VERIFIED” and “No citations found” can in principle both hold — this is "
              "not a strict logical contradiction. The real fault is an unresolved "
@@ -132,11 +137,55 @@ TR = {
                     "claims deliberately end on “unverifiable”); source_domain_gate and "
                     "the self-sealing analysis are small, general extensions. MarCognity's own "
                     "README/Boundary document are more careful than the forum conclusion — "
-                    "the over-reach is in the conclusion, not in the hedged hypothesis.",
+                    "the over-reach is in the conclusion, not in the hedged hypothesis. "
+                    "In fairness (R5), MarCognity's approach has real strengths — claim "
+                    "decomposition, multi-source retrieval, an explicit skeptical pass; the "
+                    "fault is in gating and provenance, not the idea.",
         "footer": "DESi case study · marcognity_muse_spark · regenerated offline "
                   "&amp; deterministically",
         "page": "Page",
         "doc_title": "DESi case study MarCognity / Muse Spark 1.1 — findings",
+        "audit_h1": "Part II — Doktores audit (adversarial)",
+        "audit_sub": "Four source-anchored reviewers (provenance, methodology, logic, fairness) "
+                     "attacked the DESi analysis — deterministic, offline, no LLM. The result is "
+                     "mixed: most findings survived, some were qualified, C2/C3 were confirmed as "
+                     "NON-contradictions, and dissent is preserved.",
+        "audit_disclaimer": "This attestation does NOT certify the truth of the legal statements. "
+                            "It rates only the method, provenance, consistency and reach of the "
+                            "DESi case study.",
+        "audit_tiles_labels": ["claims reviewed", "survived (uphold / +qualification)",
+                               "verdicts overturned", "findings with dissent"],
+        "audit_reclass_h": "The three conflicts under adversarial review",
+        "audit_reclass": [
+            ("C1", "upheld — logical contradiction", "prompt ↔ method; both cannot be true "
+             "(with a small prompt-provenance caveat, R1)"),
+            ("C2", "reclassified → pipeline inconsistency", "VERIFIED and 'no citations' can "
+             "co-occur; not a logical contradiction"),
+            ("C3", "reclassified → unsubstantiated independence", "one LLM call does not refute "
+             "independence; it is simply not documented on any axis"),
+        ],
+        "att_h": "Attestation — twelve dimensions, separately rated (no blanket seal)",
+        "att_rating": {"passed": "passed", "passed_with_qualifications": "with qualifications",
+                       "needs_revision": "needs revision", "failed": "failed",
+                       "not_assessable": "n/a"},
+        "att_labels": ["Reproducibility", "Provenance", "Claim derivation", "Claim coverage",
+                       "Source fit", "Verdict logic", "Conflict classification", "Falsifiability",
+                       "Fairness to MarCognity", "DESi over-reach", "Auditability",
+                       "Open objections"],
+        "audit_open_h": "Open questions (missing original data)",
+        "audit_open": [
+            "The live Hugging Face thread and full MarCognity repo were not re-fetched — only "
+            "their reproduced content is anchored.",
+            "The actually retrieved 'PubMed document' text is unknown; the domain mismatch stays "
+            "probable, not certain.",
+            "Muse Spark's version / parameters are unknown; the underlying experiment's "
+            "reproducibility is not assessable.",
+            "The 23 claims are not measured coverage; the true claim coverage of the Muse text is "
+            "unknown.",
+        ],
+        "audit_note": "Overall attestation: <b>{att}</b>. Most findings survived because the "
+                      "artifact was already tight; the audit's teeth are in the reclassifications "
+                      "(C2/C3) and the qualifications (R1/R2/R4/R5), not in a rubber stamp.",
     },
     "de": {
         "title": "Epistemische Fallstudie — Befunde mit Daten",
@@ -161,7 +210,9 @@ TR = {
         "evidence_h2": "Evidenzstärke — wo konkrete Belege fehlen",
         "evidence_note": "<b>{n} von 23</b> Claims haben gar keine konkrete Evidenzpassage "
                          "— der Validator nannte durchweg „das PubMed-Dokument“ "
-                         "ohne Titel oder Fundstelle.",
+                         "ohne Titel oder Fundstelle. (Audit R4: diese Zahlen beschreiben die "
+                         "bereitgestellte Evidenz über 23 kuratierte Claims, keine gemessene "
+                         "Fundierung des Muse-Textes.)",
         "contra_h1": "Drei strukturelle Konflikte",
         "contra_sub": "Gefunden von DESis eigenem Detektor <font face='Courier'>desi.self_audit."
                       "contradictions.find_contradictions</font> als Schlüssel/Wert-"
@@ -173,7 +224,9 @@ TR = {
              "stages)“. Der abgedruckte Prompt verlangt ≥5 Quellen mit Direktzitaten "
              "(L56–58), eine Zitationskonsistenzprüfung (L64) und sechs benannte Phasen "
              "(L29–47). Ein echter Widerspruch: beide Aussagen können nicht zugleich "
-             "wahr sein."),
+             "wahr sein. (Audit-Vorbehalt R1: der Prompt-Titel muse:L12 nennt „prompt "
+             "used on chatgpt (taken from marcognity)“ — Herkunft leicht unklar; der "
+             "Widerspruch hält auf den eigenen Angaben der Methode.)"),
             ("C2", "Pipeline-Inkonsistenz: VERIFIED ohne zitierbare Evidenz",
              "„VERIFIED“ und „No citations found“ können theoretisch beide zutreffen — "
              "kein strikter logischer Widerspruch. Der eigentliche Fehler: der Skeptical "
@@ -247,20 +300,71 @@ TR = {
                     "source_domain_gate und die Selbstabdichtungs-Analyse sind kleine, allgemeine "
                     "Erweiterungen. MarCognitys eigenes README/Boundary-Dokument sind vorsichtiger "
                     "als der Forumsschluss — die Überdehnung liegt im Schluss, nicht in "
-                    "der gehedgten Hypothese.",
+                    "der gehedgten Hypothese. Fairnesshalber (R5): MarCognitys Ansatz hat "
+                    "echte Stärken — Claim-Zerlegung, Multi-Source-Retrieval, ein expliziter "
+                    "skeptischer Pass; der Fehler liegt in Gating/Provenienz, nicht in der Idee.",
         "footer": "DESi-Fallstudie · marcognity_muse_spark · regeneriert offline "
                   "&amp; deterministisch",
         "page": "Seite",
         "doc_title": "DESi-Fallstudie MarCognity / Muse Spark 1.1 — Befunde",
+        "audit_h1": "Teil II — Doktores-Audit (adversarial)",
+        "audit_sub": "Vier quell-verankerte Prüfer (Provenienz, Methodik, Logik, Fairness) griffen "
+                     "die DESi-Analyse an — deterministisch, offline, kein LLM. Das Ergebnis ist "
+                     "gemischt: die meisten Befunde hielten stand, einige wurden eingeschränkt, "
+                     "C2/C3 als NICHT-Widersprüche bestätigt, Dissens bleibt erhalten.",
+        "audit_disclaimer": "Dieses Attest bestätigt NICHT die Wahrheit der juristischen Aussagen. "
+                            "Es bewertet nur Methode, Provenienz, Konsistenz und Reichweite der "
+                            "DESi-Fallstudie.",
+        "audit_tiles_labels": ["Claims geprüft", "überlebt (uphold / +Auflage)",
+                               "Verdikte umgestoßen", "Befunde mit Dissens"],
+        "audit_reclass_h": "Die drei Konflikte unter adversarialer Prüfung",
+        "audit_reclass": [
+            ("C1", "gehalten — logischer Widerspruch", "Prompt ↔ Methode; beide nicht zugleich "
+             "wahr (kleiner Prompt-Provenienz-Vorbehalt, R1)"),
+            ("C2", "reklassifiziert → Pipeline-Inkonsistenz", "VERIFIED und „keine Zitate“ können "
+             "koexistieren; kein logischer Widerspruch"),
+            ("C3", "reklassifiziert → unbelegte Unabhängigkeit", "ein LLM-Call widerlegt "
+             "Unabhängigkeit nicht; sie ist nur auf keiner Achse dokumentiert"),
+        ],
+        "att_h": "Attest — zwölf Dimensionen, getrennt bewertet (kein Gütesiegel)",
+        "att_rating": {"passed": "bestanden", "passed_with_qualifications": "mit Auflagen",
+                       "needs_revision": "revidieren", "failed": "gescheitert",
+                       "not_assessable": "n/a"},
+        "att_labels": ["Reproduzierbarkeit", "Provenienz", "Claim-Ableitung", "Claim-Abdeckung",
+                       "Quellenpassung", "Urteilslogik", "Widerspruchsklassifikation",
+                       "Falsifizierbarkeit", "Fairness ggü. MarCognity", "DESi-Überdehnung",
+                       "Auditierbarkeit", "Offene Einwände"],
+        "audit_open_h": "Offene Fragen (fehlende Originaldaten)",
+        "audit_open": [
+            "Der Live-HF-Thread und der volle MarCognity-Repo-Baum wurden nicht neu abgerufen — "
+            "nur ihr wiedergegebener Inhalt ist verankert.",
+            "Der tatsächlich abgerufene „PubMed“-Text ist unbekannt; der Domänen-Mismatch bleibt "
+            "wahrscheinlich, nicht sicher.",
+            "Muse Sparks Version / Parameter sind unbekannt; die Reproduzierbarkeit des "
+            "zugrunde liegenden Versuchs ist nicht bewertbar.",
+            "Die 23 Claims sind keine gemessene Abdeckung; die wahre Claim-Abdeckung des "
+            "Muse-Textes ist unbekannt.",
+        ],
+        "audit_note": "Gesamtattest: <b>{att}</b>. Die meisten Befunde hielten, weil das Artefakt "
+                      "schon straff war; die Schärfe des Audits liegt in den Reklassifikationen "
+                      "(C2/C3) und den Auflagen (R1/R2/R4/R5), nicht in einem Stempel.",
     },
 }
+
+# German attestation dimension keys, in the order engine.ATTESTATION emits them.
+_ATT_ORDER = (
+    "Reproduzierbarkeit", "Provenienz", "Claim-Ableitung", "Claim-Abdeckung", "Quellenpassung",
+    "Urteilslogik", "Widerspruchsklassifikation", "Falsifizierbarkeit",
+    "Fairness gegenüber MarCognity", "Überdehnung der DESi-Schlussfolgerungen", "Auditierbarkeit",
+    "Offene Einwände",
+)
 
 
 def _build(lang, tr, data, rl):  # noqa: C901 - one linear layout routine
     (colors, mm, A4, ParagraphStyle, getSampleStyleSheet, TA_LEFT, Drawing, String,
      HorizontalBarChart, HRFlowable, KeepTogether, PageBreak, Paragraph,
      SimpleDocTemplate, Spacer, Table, TableStyle) = rl
-    summary, claims, evidence = data
+    summary, claims, evidence, audit = data
 
     INK = colors.HexColor("#1a1a1a")
     MUTE = colors.HexColor("#5b6570")
@@ -468,6 +572,68 @@ def _build(lang, tr, data, rl):  # noqa: C901 - one linear layout routine
     story.append(Paragraph(tr["limits_h2"], H2))
     story.append(Paragraph(tr["limits_p"], SMALL))
 
+    # ---- Part II: Doktores audit (only if the audit summary is available) ---- #
+    if audit:
+        _rating_color = {"passed": GREEN, "passed_with_qualifications": AMBER,
+                         "needs_revision": RED, "failed": RED, "not_assessable": SLATE}
+        cons = audit.get("consensus_distribution", {})
+        survived = cons.get("uphold", 0) + cons.get("uphold_with_qualification", 0)
+        story.append(PageBreak())
+        story.append(Paragraph(tr["audit_h1"], H1))
+        story.append(Paragraph(tr["audit_sub"], ParagraphStyle(
+            "asub", parent=BODY, fontSize=9.6, textColor=MUTE, spaceAfter=5)))
+        story.append(Paragraph(tr["audit_disclaimer"], SMALL))
+        hr()
+        story.append(tiles([
+            (str(audit.get("claims_reviewed", "")), tr["audit_tiles_labels"][0]),
+            (str(survived), tr["audit_tiles_labels"][1]),
+            (str(audit.get("claims_overturned", "")), tr["audit_tiles_labels"][2]),
+            (str(audit.get("claims_with_dissent", "")), tr["audit_tiles_labels"][3]),
+        ]))
+        story.append(Spacer(1, 10))
+
+        # the three conflicts under review
+        story.append(Paragraph(tr["audit_reclass_h"], H2))
+        contra = audit.get("contradictions", {})
+        rc_rows = []
+        for cid, verdict, note in tr["audit_reclass"]:
+            upheld = contra.get(cid, {}).get("upheld_as_structural", False)
+            rc_rows.append([cid, verdict, note, "✓" if upheld else "→"])
+        rct = data_table(["", "", "", ""], rc_rows,
+                         [14 * mm, 62 * mm, 82 * mm, 12 * mm])
+        # recolor: C1 green (upheld), C2/C3 amber (reclassified)
+        rc_style = [("TEXTCOLOR", (1, i + 1), (1, i + 1),
+                     GREEN if rc_rows[i][3] == "✓" else AMBER) for i in range(len(rc_rows))]
+        rc_style += [("FONTNAME", (1, i + 1), (1, i + 1), "Helvetica-Bold")
+                     for i in range(len(rc_rows))]
+        rct.setStyle(TableStyle(rc_style))
+        story.append(rct)
+        story.append(Spacer(1, 10))
+
+        # attestation — 12 dimensions
+        story.append(Paragraph(tr["att_h"], H2))
+        att = audit.get("attestation", {})
+        att_rows = []
+        for i, key in enumerate(_ATT_ORDER):
+            rating = att.get(key, "not_assessable")
+            att_rows.append([tr["att_labels"][i], tr["att_rating"].get(rating, rating)])
+        att_t = data_table(["Dimension", "Rating"], att_rows, [92 * mm, 78 * mm])
+        att_style = []
+        for i, key in enumerate(_ATT_ORDER):
+            rating = att.get(key, "not_assessable")
+            att_style.append(("TEXTCOLOR", (1, i + 1), (1, i + 1),
+                              _rating_color.get(rating, SLATE)))
+            att_style.append(("FONTNAME", (1, i + 1), (1, i + 1), "Helvetica-Bold"))
+        att_t.setStyle(TableStyle(att_style))
+        story.append(att_t)
+        story.append(Spacer(1, 8))
+        story.append(Paragraph(
+            tr["audit_note"].format(att=audit.get("overall_attestation", "")), BODY))
+
+        story.append(Paragraph(tr["audit_open_h"], H2))
+        for q in tr["audit_open"]:
+            story.append(Paragraph(f"• {q}", SMALL))
+
     def footer(canvas, doc):
         canvas.saveState()
         canvas.setFont("Helvetica", 7)
@@ -517,7 +683,9 @@ def main() -> int:
     claims = [json.loads(x) for x in (CS / "claims.jsonl").read_text().splitlines() if x]
     evidence = {json.loads(x)["claim_id"]: json.loads(x)
                 for x in (CS / "evidence.jsonl").read_text().splitlines() if x}
-    data = (summary, claims, evidence)
+    audit_path = CS / "doktores" / "audit_summary.json"
+    audit = json.loads(audit_path.read_text()) if audit_path.exists() else None
+    data = (summary, claims, evidence, audit)
 
     for lang in ("en", "de"):
         out = _build(lang, TR[lang], data, rl)
