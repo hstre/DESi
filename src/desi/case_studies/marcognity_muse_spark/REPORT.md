@@ -241,5 +241,7 @@ gehedgter Hypothese.
 - `contradictions.md` — die drei strukturellen Widersprüche + Selbstabdichtung *(generiert)*.
 - `comparison.md` — Vergleichstabelle MarCognity ↔ DESi *(generiert)*.
 - `summary.json` — maschinenlesbare Kennzahlen *(generiert)*.
+- `marcognity_muse_spark_findings.pdf` — Befunde mit Daten als PDF (Charts + Tabellen);
+  regenerierbar via `python scripts/reproduce_marcognity_pdf.py` (benötigt `reportlab`).
 - `source_material.py` — verbatim gesicherte, zeilenadressierte Materialanker (Aufgabe 1).
 - `claims.py` / `analysis.py` / `report.py` / `__main__.py` — Fixierung, Engine, Writer, Reproduktion.
