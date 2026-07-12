@@ -1,0 +1,448 @@
+{
+  "gold": [
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [
+        "overclaim"
+      ],
+      "id": "H01",
+      "pair": "H02",
+      "tell": "n=18 at one center cannot 'establish' a 'universal predictor across all cancers'; the opening hedge does not license the leap."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [],
+      "id": "H02",
+      "pair": "H01",
+      "tell": "Properly scoped and hedged — 'may', 'in this population', 'unknown'. Clean; a pattern-matcher may over-flag on 'single cohort' + 'predict relapse'."
+    },
+    {
+      "debatable": false,
+      "difficulty": "medium",
+      "gold": [
+        "untraceable_citation"
+      ],
+      "id": "H03",
+      "pair": "H04",
+      "tell": "'Well established', 'the literature', 'numerous studies' — no specific, checkable source is named anywhere."
+    },
+    {
+      "debatable": false,
+      "difficulty": "medium",
+      "gold": [],
+      "id": "H04",
+      "pair": "H03",
+      "tell": "A named source with edition and page and a specific claim — traceable. Clean."
+    },
+    {
+      "debatable": false,
+      "difficulty": "medium",
+      "gold": [
+        "source_domain_mismatch"
+      ],
+      "id": "H05",
+      "pair": "H06",
+      "tell": "Geophysics cannot ground a tax-elasticity claim; the field named cannot bear it."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [],
+      "id": "H06",
+      "pair": "H05",
+      "tell": "Legitimately cross-disciplinary: prospect theory is foundational in economics and Econometrica is an economics journal. Clean; a shallow reviewer may flag 'psychology in economics' as a mismatch."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [
+        "self_sealing"
+      ],
+      "id": "H07",
+      "pair": "H08",
+      "tell": "Both a decline and a non-decline are read as confirmation; no outcome is allowed to count against the framework."
+    },
+    {
+      "debatable": false,
+      "difficulty": "medium",
+      "gold": [],
+      "id": "H08",
+      "pair": "H07",
+      "tell": "A concrete, pre-stated falsification condition — the opposite of self-sealing. Clean."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [
+        "heuristic_not_empirical"
+      ],
+      "id": "H09",
+      "pair": "H10",
+      "tell": "The weights are asserted, the index uncalibrated, yet R = 0.72 is reported as a measured, empirical result ('shows … empirically robust')."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [],
+      "id": "H10",
+      "pair": "H09",
+      "tell": "Explicitly labelled a non-empirical heuristic with no claim drawn from it. Clean; the bare formula may still provoke a false positive."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [
+        "overclaim",
+        "untraceable_citation"
+      ],
+      "id": "H11",
+      "pair": "",
+      "tell": "'Extensive research', 'countless studies' name no source (untraceable) AND 'every domain', 'beyond dispute' overreach far past any stated evidence."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [
+        "heuristic_not_empirical",
+        "source_domain_mismatch"
+      ],
+      "id": "H12",
+      "pair": "",
+      "tell": "Hand-set weights presented as a measured 0.81 (heuristic-as-measurement) AND a materials-science database cannot validate legal certainty (domain mismatch)."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [],
+      "id": "H13",
+      "pair": "",
+      "tell": "Every safeguard is present: pre-registration, correct domain, CI, scope limit, per-source DOIs. Clean; jargon density baits over-flagging."
+    },
+    {
+      "debatable": true,
+      "difficulty": "hard",
+      "gold": [],
+      "id": "H14",
+      "pair": "",
+      "tell": "A strong claim that is actually supported (14 pre-registered replications) and correctly scoped ('within the tested paradigm'). Clean; reads like overclaim but is not."
+    }
+  ],
+  "n_items": 14,
+  "scores": [
+    {
+      "exact_match_mean": 0.986,
+      "f1_mean": 0.989,
+      "f1_stdev": 0.021,
+      "item_errors": {
+        "H09": [
+          "|over:overclaim"
+        ]
+      },
+      "item_exact_rate": {
+        "H01": 1.0,
+        "H02": 1.0,
+        "H03": 1.0,
+        "H04": 1.0,
+        "H05": 1.0,
+        "H06": 1.0,
+        "H07": 1.0,
+        "H08": 1.0,
+        "H09": 0.8,
+        "H10": 1.0,
+        "H11": 1.0,
+        "H12": 1.0,
+        "H13": 1.0,
+        "H14": 1.0
+      },
+      "model": "openai/gpt-5.1",
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "9/10",
+            "medium": "4/4"
+          },
+          "exact_match": 0.929,
+          "f1": 0.947,
+          "fn": 0,
+          "fp": 1,
+          "precision": 0.9,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        }
+      ],
+      "precision_mean": 0.98,
+      "recall_mean": 1.0,
+      "reviewer": "gpt51",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.886,
+      "f1_mean": 0.901,
+      "f1_stdev": 0.032,
+      "item_errors": {
+        "H11": [
+          "miss:overclaim",
+          "miss:overclaim",
+          "miss:overclaim",
+          "miss:overclaim",
+          "miss:overclaim"
+        ],
+        "H12": [
+          "miss:heuristic_not_empirical",
+          "miss:heuristic_not_empirical",
+          "miss:heuristic_not_empirical"
+        ]
+      },
+      "item_exact_rate": {
+        "H01": 1.0,
+        "H02": 1.0,
+        "H03": 1.0,
+        "H04": 1.0,
+        "H05": 1.0,
+        "H06": 1.0,
+        "H07": 1.0,
+        "H08": 1.0,
+        "H09": 1.0,
+        "H10": 1.0,
+        "H11": 0.0,
+        "H12": 0.4,
+        "H13": 1.0,
+        "H14": 1.0
+      },
+      "model": "google/gemini-2.5-pro",
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "9/10",
+            "medium": "4/4"
+          },
+          "exact_match": 0.929,
+          "f1": 0.941,
+          "fn": 1,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.889,
+          "tp": 8
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "9/10",
+            "medium": "4/4"
+          },
+          "exact_match": 0.929,
+          "f1": 0.941,
+          "fn": 1,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.889,
+          "tp": 8
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "8/10",
+            "medium": "4/4"
+          },
+          "exact_match": 0.857,
+          "f1": 0.875,
+          "fn": 2,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.778,
+          "tp": 7
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "8/10",
+            "medium": "4/4"
+          },
+          "exact_match": 0.857,
+          "f1": 0.875,
+          "fn": 2,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.778,
+          "tp": 7
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "8/10",
+            "medium": "4/4"
+          },
+          "exact_match": 0.857,
+          "f1": 0.875,
+          "fn": 2,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.778,
+          "tp": 7
+        }
+      ],
+      "precision_mean": 1.0,
+      "recall_mean": 0.822,
+      "reviewer": "gemini25pro",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.9,
+      "f1_mean": 0.926,
+      "f1_stdev": 0.042,
+      "item_errors": {
+        "H05": [
+          "|over:untraceable_citation",
+          "|over:untraceable_citation",
+          "|over:untraceable_citation",
+          "|over:untraceable_citation",
+          "|over:untraceable_citation"
+        ],
+        "H11": [
+          "miss:overclaim"
+        ],
+        "H12": [
+          "|over:untraceable_citation"
+        ]
+      },
+      "item_exact_rate": {
+        "H01": 1.0,
+        "H02": 1.0,
+        "H03": 1.0,
+        "H04": 1.0,
+        "H05": 0.0,
+        "H06": 1.0,
+        "H07": 1.0,
+        "H08": 1.0,
+        "H09": 1.0,
+        "H10": 1.0,
+        "H11": 0.8,
+        "H12": 0.8,
+        "H13": 1.0,
+        "H14": 1.0
+      },
+      "model": "x-ai/grok-4.5",
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "3/4"
+          },
+          "exact_match": 0.929,
+          "f1": 0.947,
+          "fn": 0,
+          "fp": 1,
+          "precision": 0.9,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "3/4"
+          },
+          "exact_match": 0.929,
+          "f1": 0.947,
+          "fn": 0,
+          "fp": 1,
+          "precision": 0.9,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "3/4"
+          },
+          "exact_match": 0.929,
+          "f1": 0.947,
+          "fn": 0,
+          "fp": 1,
+          "precision": 0.9,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "3/4"
+          },
+          "exact_match": 0.929,
+          "f1": 0.947,
+          "fn": 0,
+          "fp": 1,
+          "precision": 0.9,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "8/10",
+            "medium": "3/4"
+          },
+          "exact_match": 0.786,
+          "f1": 0.842,
+          "fn": 1,
+          "fp": 2,
+          "precision": 0.8,
+          "recall": 0.889,
+          "tp": 8
+        }
+      ],
+      "precision_mean": 0.88,
+      "recall_mean": 0.978,
+      "reviewer": "grok45",
+      "runs": 5
+    }
+  ]
+}
