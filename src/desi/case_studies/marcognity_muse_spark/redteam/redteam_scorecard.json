@@ -1,0 +1,123 @@
+{
+  "discriminating": true,
+  "failure_modes": [
+    "untraceable_citation",
+    "source_domain_mismatch",
+    "self_sealing",
+    "overclaim",
+    "heuristic_not_empirical"
+  ],
+  "note": "Der DESi-Referenz-Reviewer erreicht 5/5 per Konstruktion (er IST die Analyse, die die Probes definiert hat) — das ist ein Gold-Anker, keine unabhängige Leistung. Der Wert liegt im Harness, im Kontrast zum naiven Whole-Text-Reviewer (0/5) und im External-Slot, mit dem sich ein echter Background-Reviewer (z. B. der von Claude Science) an denselben fünf Failure-Modes messen lässt.",
+  "scores": [
+    {
+      "catch_rate": 1.0,
+      "caught": 5,
+      "per_mode": {
+        "heuristic_not_empirical": true,
+        "overclaim": true,
+        "self_sealing": true,
+        "source_domain_mismatch": true,
+        "untraceable_citation": true
+      },
+      "results": [
+        {
+          "caught": true,
+          "failure_mode": "untraceable_citation",
+          "probe_key": "P1-untraceable",
+          "raised": [
+            "untraceable_citation"
+          ],
+          "required_flag": "untraceable_citation"
+        },
+        {
+          "caught": true,
+          "failure_mode": "source_domain_mismatch",
+          "probe_key": "P2-domain",
+          "raised": [
+            "source_domain_mismatch"
+          ],
+          "required_flag": "source_domain_mismatch"
+        },
+        {
+          "caught": true,
+          "failure_mode": "self_sealing",
+          "probe_key": "P3-selfsealing",
+          "raised": [
+            "self_sealing"
+          ],
+          "required_flag": "self_sealing"
+        },
+        {
+          "caught": true,
+          "failure_mode": "overclaim",
+          "probe_key": "P4-overclaim",
+          "raised": [
+            "overclaim"
+          ],
+          "required_flag": "overclaim"
+        },
+        {
+          "caught": true,
+          "failure_mode": "heuristic_not_empirical",
+          "probe_key": "P5-heuristic",
+          "raised": [
+            "heuristic_not_empirical"
+          ],
+          "required_flag": "heuristic_not_empirical"
+        }
+      ],
+      "reviewer": "desi",
+      "total": 5
+    },
+    {
+      "catch_rate": 0.0,
+      "caught": 0,
+      "per_mode": {
+        "heuristic_not_empirical": false,
+        "overclaim": false,
+        "self_sealing": false,
+        "source_domain_mismatch": false,
+        "untraceable_citation": false
+      },
+      "results": [
+        {
+          "caught": false,
+          "failure_mode": "untraceable_citation",
+          "probe_key": "P1-untraceable",
+          "raised": [],
+          "required_flag": "untraceable_citation"
+        },
+        {
+          "caught": false,
+          "failure_mode": "source_domain_mismatch",
+          "probe_key": "P2-domain",
+          "raised": [],
+          "required_flag": "source_domain_mismatch"
+        },
+        {
+          "caught": false,
+          "failure_mode": "self_sealing",
+          "probe_key": "P3-selfsealing",
+          "raised": [],
+          "required_flag": "self_sealing"
+        },
+        {
+          "caught": false,
+          "failure_mode": "overclaim",
+          "probe_key": "P4-overclaim",
+          "raised": [],
+          "required_flag": "overclaim"
+        },
+        {
+          "caught": false,
+          "failure_mode": "heuristic_not_empirical",
+          "probe_key": "P5-heuristic",
+          "raised": [],
+          "required_flag": "heuristic_not_empirical"
+        }
+      ],
+      "reviewer": "naive_whole_text",
+      "total": 5
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{"caught": true, "failure_mode": "untraceable_citation", "probe_key": "P1-untraceable", "raised": ["untraceable_citation"], "required_flag": "untraceable_citation", "reviewer": "desi"}
+{"caught": true, "failure_mode": "source_domain_mismatch", "probe_key": "P2-domain", "raised": ["source_domain_mismatch"], "required_flag": "source_domain_mismatch", "reviewer": "desi"}
+{"caught": true, "failure_mode": "self_sealing", "probe_key": "P3-selfsealing", "raised": ["self_sealing"], "required_flag": "self_sealing", "reviewer": "desi"}
+{"caught": true, "failure_mode": "overclaim", "probe_key": "P4-overclaim", "raised": ["overclaim"], "required_flag": "overclaim", "reviewer": "desi"}
+{"caught": true, "failure_mode": "heuristic_not_empirical", "probe_key": "P5-heuristic", "raised": ["heuristic_not_empirical"], "required_flag": "heuristic_not_empirical", "reviewer": "desi"}
+{"caught": false, "failure_mode": "untraceable_citation", "probe_key": "P1-untraceable", "raised": [], "required_flag": "untraceable_citation", "reviewer": "naive_whole_text"}
+{"caught": false, "failure_mode": "source_domain_mismatch", "probe_key": "P2-domain", "raised": [], "required_flag": "source_domain_mismatch", "reviewer": "naive_whole_text"}
+{"caught": false, "failure_mode": "self_sealing", "probe_key": "P3-selfsealing", "raised": [], "required_flag": "self_sealing", "reviewer": "naive_whole_text"}
+{"caught": false, "failure_mode": "overclaim", "probe_key": "P4-overclaim", "raised": [], "required_flag": "overclaim", "reviewer": "naive_whole_text"}
+{"caught": false, "failure_mode": "heuristic_not_empirical", "probe_key": "P5-heuristic", "raised": [], "required_flag": "heuristic_not_empirical", "reviewer": "naive_whole_text"}

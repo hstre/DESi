@@ -294,3 +294,11 @@ gehedgter Hypothese.
   Enthält `AUDIT_REPORT.md`, `ATTESTATION.md`, `claim_reviews.jsonl`, `contradiction_reviews.jsonl`,
   `methodology_review.md`, `fairness_review.md`, `dissent.md`, `REVISION_LOG.md`, `audit_summary.json`.
   Die Revisionen R1/R2/R4/R5 oben stammen aus diesem Audit (siehe `doktores/REVISION_LOG.md`).
+- `redteam/` — **Red-Team-Benchmark für „Background-Reviewer"** (motiviert durch Claude Science's
+  „a background reviewer flags incorrect citations, untraceable numbers …"). Prüft, ob ein Reviewer
+  die fünf epistemischen Failure-Modes fängt, an denen MarCognitys Validator scheiterte
+  (untraceable_citation, source_domain_mismatch, self_sealing, overclaim, heuristic_not_empirical).
+  DESi-Referenz 5/5 (per Konstruktion), naiver Whole-Text-Reviewer 0/5 → der Benchmark
+  diskriminiert. Ein externer Reviewer lässt sich per JSON einspeisen. Reproduktion:
+  `python -m desi.case_studies.marcognity_muse_spark.redteam`. Enthält `REDTEAM.md`,
+  `redteam_results.jsonl`, `redteam_scorecard.json`.
