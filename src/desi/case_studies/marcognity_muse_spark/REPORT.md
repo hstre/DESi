@@ -307,8 +307,10 @@ gehedgter Hypothese.
   `python -m desi.case_studies.marcognity_muse_spark.redteam [--external out.json]`.
   **Echter cross-vendor Lauf** (`redteam/REDTEAM_RESULT.md`): drei blinde Frontier-Modelle
   (gpt-5.1, gemini-2.5-pro, grok-4.5; je 5 Läufe; NICHT Claude Science) erreichen **alle 5/5 Catch,
-  0 FP, Controls sauber, Stabilität 1.0** — genau wie DESi. Ehrliche, für DESi *unbequeme* Lesart: die
-  Differenzierungs-These **kollabiert auf diesem Pilot** — der Test (vor-destillierte Auszüge) ist zu
-  leicht, um einen guten LLM von DESis Regeln zu trennen; DESis Rest-Vorteil ist nur noch Cost +
-  garantierter Determinismus. **Nicht veröffentlichbar**; ein echter Befund bräuchte rohe Volltexte.
+  0 FP, Controls sauber, Stabilität 1.0** — genau wie DESi. Lesart: **Parität bei Catch/Präzision** —
+  und genau das ist der Punkt von „LLM für Sprache, Regeln für Logik": wo DESis Regeln greifen, matcht
+  DESi Frontier-Modelle bei **~10⁵–10⁶× weniger Energie/Review** (~1,6 mJ CPU vs. ~10²–10⁴ J LLM;
+  reproduzierbar via `scripts/redteam_energy_estimate.py`) und garantiertem Determinismus.
+  **Noch nicht veröffentlichbar**: die Parität ist nur auf vor-destillierten Auszügen gezeigt; der
+  Energie-Vorsprung trägt erst, wenn die Parität auch auf **rohen Volltexten** hält (ungetestet).
   Rohantworten verbatim in `redteam/external_runs/`.

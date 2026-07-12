@@ -33,34 +33,56 @@ Positives, beide Controls sauber, perfekte Stabilität** — ihre Ausgaben waren
 sogar identisch. Der frühere FP-Wert 0.8 des Claude-**Subagenten** war offenbar ein **Artefakt des
 Subagenten-Setups**, kein robustes Frontier-Modell-Verhalten: die drei API-Modelle über-flaggen nicht.
 
-## Ehrliche — und für DESi unbequeme — Schlussfolgerung
+## Ergebnis-Lesart — Parität beim Fangen, riesiger Vorsprung bei Energie/Determinismus
 
-Auf **diesem Pilot kollabiert die Differenzierungs-These weitgehend.** Die Frontier-Modelle matchen
-DESi nicht nur beim Catch (beide 5/5), sondern auch bei **Präzision (0 FP)** und **Stabilität**. DESis
-verbleibende Vorteile sind damit nur noch **Cost** (Tokens vs. CPU) und **garantierter** Determinismus
-/ Regel-Audit-Spur — die Modelle waren hier aber *empirisch* ebenfalls deterministisch. Das ist eine
-**deutlich schwächere** Architektur-Effizienz-Geschichte als erhofft: bei klar formulierten Fehlern
-ist ein Frontier-LLM genauso gut wie DESis Regeln, nur teurer.
+Korrektur einer früheren Fehl-Rahmung: das ist **kein unbequemes** Ergebnis für DESi. Beide Seiten —
+drei cross-vendor Frontier-Modelle UND DESi — erreichen 5/5, 0 FP, saubere Controls. Bei Catch und
+Präzision herrscht **Parität**. Genau das ist der Punkt der Architektur *„LLM für Sprache, Regeln für
+Logik"*: **wo DESis deterministische Regeln greifen, matcht DESi Frontier-Modelle — bei einem
+Bruchteil der Energie und mit garantiertem Determinismus.** Der Unterschied liegt nicht im
+*Ergebnis*, sondern in **marginaler Energie/Kosten pro Review** und in **Determinismus als Garantie
+statt Empirie**.
 
-Nüchtern: **Der Test ist zu leicht, um zwischen einem guten LLM und DESi zu unterscheiden.** Das ist
-das eigentliche Resultat — und es spricht **gegen**, nicht für eine „DESi liefert Kontrolle, die LLMs
-nicht haben"-Erzählung. Für vor-destillierte, isolierte Auszüge braucht man DESi nicht.
+## Energie-Überschlag (marginal, pro Review — reproduzierbar via `scripts/redteam_energy_estimate.py`)
 
-## Was das (nicht) über eine Veröffentlichung sagt
+Beide liefern *dieselbe* korrekte Antwort (5/5, 0 FP); verglichen wird also die Energie, mit der man
+zum selben Ergebnis kommt.
 
-**Nicht veröffentlichen.** Eine Geschichte „DESi matcht Frontier-Modelle günstiger" wäre hier
-**irreführend**, weil (a) die Modelle bereits perfekt sind und (b) die Aufgabe zu leicht ist, um
-irgendetwas zu zeigen. Der Pilot hat vor allem **kautelaren Wert**: die vor-destillierte
-Auszugs-Rahmung beweist nichts.
+- **DESi:** ~54 µs CPU-Regelauswertung → **≈ 1,6 mJ** pro Review (@30 W ein Kern).
+- **Frontier-LLM:** gemessene Tokens/Lauf × Serving-Energie/Token (Literatur-Bereich **0,3–3 J/Token**;
+  Reasoning-Modelle am oberen Ende):
 
-Wo DESi *überhaupt* einen Unterschied machen könnte — **hier ungetestet**:
-- **rohe Volltext-Paper** mit subtilen, verschränkten Fehlern (wo ein LLM etwas übersieht oder
-  über-flaggt und DESis Gating trotzdem hält),
-- **garantierter** Determinismus / auditierbare Regel-Spur als *Anforderung* (nicht als Nice-to-have),
-- **Cost at scale** (viele Paper, viele Claims).
+| Modell | Tokens/Lauf | Energie/Review | Faktor vs. DESi |
+|---|---|---|---|
+| openai/gpt-5.1 | 719 | ~216–2.157 J | **~130.000 – 1,3 Mio.×** |
+| x-ai/grok-4.5 | 2.194 | ~658–6.581 J | **~400.000 – 4,0 Mio.×** |
+| google/gemini-2.5-pro | 3.461 | ~1.038–10.382 J | **~640.000 – 6,4 Mio.×** |
 
-Ob DESi dort gewinnt, ist **offen** — dieser Pilot liefert dafür keinerlei Evidenz. Erst ein Lauf auf
-rohen Volltexten mit denselben cross-vendor Modellen würde die Frage beantworten.
+**Größenordnung: ~10⁵–10⁶×** — ein *frontier-LLM-Review kostet energetisch so viel wie hunderttausende
+bis Millionen DESi-Reviews.* Der Faktor ist so groß, dass selbst ±10× Unsicherheit bei der
+Energie/Token die Aussage nicht kippt (bleibt 10⁴–10⁷). Das ist ein **robuster, dauerhafter** Vorteil,
+der die nächste Modellgeneration überdauert — und die eigentliche Wertaussage von DESi.
+
+**Fairness-Vorbehalte (nicht versteckt):** (a) die ~1,6 mJ sind *marginal* — der einmalige menschliche
+Aufwand, die Regeln zu bauen, steckt nicht darin; (b) DESis Regeln decken nur, wofür sie gebaut sind,
+ein Frontier-LLM generalisiert auf **beliebige neue Fehlertypen** ohne Zusatz-Engineering (die
+komplementäre Stärke des LLM); (c) die Energie/Token ist eine Schätzung, keine Messung.
+
+## Was das über eine Veröffentlichung sagt
+
+Der Energie-Vorsprung macht die Sache **stärker**, nicht schwächer — verschiebt aber die
+Kernbedingung: Die Aussage „Parität bei ~10⁵–10⁶× weniger Energie" trägt nur, wenn die **Parität auch
+auf SCHWEREN Aufgaben** hält. Hier ist sie nur auf vor-destillierten Auszügen gezeigt — zu leicht, um
+allein zu tragen.
+
+- Hält DESi auf **rohen Volltext-Papern** mit — dann ist „gleiche Erkennung, 10⁵–10⁶× weniger Energie,
+  deterministisch" eine **starke, veröffentlichbare** Aussage.
+- Fällt DESi dort zurück, ist billig-aber-unvollständig wertlos — dann ist der Energiefaktor irrelevant.
+
+**Also: erst der Volltext-Test (dieselben drei Modelle + DESi auf rohe Paper), dann publizieren — jetzt
+mit dem Energie-Argument als Kern.** Der Pilot ist damit *nicht* wertlos, sondern der belastbare erste
+Halbschritt: Parität + Energiefaktor stehen; es fehlt nur der Härtetest, der aus „sauberer Testlauf"
+einen „Befund" macht.
 
 ## Grenzen (unverändert gültig)
 1. **Vor-destillierte Auszüge** — die größte Grenze; sie überschätzen die Fang-Leichtigkeit massiv.
