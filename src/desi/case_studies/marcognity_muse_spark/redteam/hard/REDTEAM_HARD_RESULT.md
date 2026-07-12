@@ -36,6 +36,32 @@ Near-Miss-Paare, Multi-Flag- und Zero-Flag-Items, adversariale Clean-Controls. M
 3. **Der einzige echte Bruch ist die Größen-Schwelle unten:** granite-**micro (3B) kollabiert**
    (F1 0.538, deterministisch *falsch*, σ = 0), granite-**8B** trägt (0.892), **≥30B** ~perfekt.
 
+## Kosten-Effizienz-Grenze — 20 Modelle (die „günstigsten k")
+
+Erweitert um die billigsten/kleinsten Modelle, um die *Kosten-pro-Qualität*-Grenze zu finden:
+
+| Ausschnitt (F1-sortiert) | Größe | F1 | $/M-Token | Anmerkung |
+|---|---|---|---|---|
+| **google/gemma-3-12b-it** | 12B | **1.00** | **0,15** | **billigstes F1 = 1.0** |
+| google/gemma-4-31b-it:**free** | 31B | 1.00 | **0** | bestes freies |
+| deepseek/deepseek-chat-v3.1 | — | 1.00 | 0,79 | |
+| qwen/qwen3-30b-a3b-instruct | 30B | 0.989 | 0,19 | = gpt-5.1, ~53× billiger |
+| deepseek/deepseek-v4-flash | — | 0.978 | 0,15 | |
+| mistralai/ministral-8b | 8B | 0.941 | 0,15 | solides 8B |
+| ibm-granite/granite-4.1-8b | 8B | 0.892 | 0,10 | DESis Router-Modell |
+| openai/gpt-5-nano | ~klein | 0.751 | 0,40 | „nano" fällt ab |
+| **google/gemma-3-27b-it** | 27B | **0.737** | 0,16 | **Anomalie: 27B < 12B** |
+| ibm-granite/granite-4.0-h-micro | ~3B | 0.538 | 0,11 | kollabiert |
+| mistralai/ministral-3b | 3B | 0.467 | 0,10 | kollabiert |
+| meta-llama/llama-3.2-3b | 3B | 0.422 | 0,33 | kollabiert |
+
+**Befunde:** (a) **das billigste F1 = 1.0 ist gemma-3-12b für $0,15/M-Token** — ein 12B-Modell,
+perfekt, für Cent-Beträge; ein $10-Frontier-Modell ist ~65× teurer bei gleicher/schlechterer F1.
+(b) Die Schwelle ist **nicht monoton in der Größe**: gemma-3-**27B** (0.74) liegt *unter* gemma-3-**12B**
+(1.0), und gpt-5-**nano** fällt ab — **Modell/Tuning zählt, nicht nur Parameterzahl.** (c) Der
+Sub-8B-Boden ist breit bestätigt (0.42–0.75). Konsequenz für den Router: nicht nur „≥8B", sondern
+**ein *validiertes* ≥~12B-Modell** (z. B. gemma-3-12b, qwen3-30b) — Größe allein garantiert nichts.
+
 ## Der eigentliche Diskriminator: Multi-Flag-Items
 
 Die zwei Items mit **zwei** verschränkten Fehlern trennen das Feld:

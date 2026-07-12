@@ -1,0 +1,16 @@
+{
+  "N1": ["untraceable_citation","source_domain_mismatch"],
+  "N2": ["untraceable_citation","self_sealing","overclaim"],
+  "N3": [],
+  "N4": [],
+  "N5": [],
+  "N6": ["overclaim"],
+  "N7": ["self_sealing"],
+  "N8": [],
+  "N9": ["source_domain_mismatch","untraceable_citation"],
+  "N10": [],
+  "N11": [],
+  "N12": ["untraceable_citation","overclaim"],
+  "N13": [],
+  "N14": []
+}

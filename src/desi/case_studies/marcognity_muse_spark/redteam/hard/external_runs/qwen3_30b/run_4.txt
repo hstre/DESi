@@ -1,0 +1,1 @@
+{"N1": ["source_domain_mismatch"], "N2": ["overclaim", "untraceable_citation"], "N3": [], "N4": ["heuristic_not_empirical"], "N5": [], "N6": ["overclaim", "untraceable_citation"], "N7": ["self_sealing"], "N8": [], "N9": ["source_domain_mismatch", "heuristic_not_empirical"], "N10": [], "N11": [], "N12": ["untraceable_citation"], "N13": [], "N14": []}

@@ -1,0 +1,3 @@
+Here are the results:
+
+{"N1": [], "N2": ["untraceable_citation"], "N3": [], "N4": ["overclaim"], "N5": [], "N6": ["untraceable_citation", "self_sealing"], "N7": ["self_sealing"], "N8": [], "N9": ["source_domain_mismatch", "overclaim"], "N10": [], "N11": [], "N12": ["untraceable_citation", "heuristic_not_empirical"], "N13": ["heuristic_not_empirical"], "N14": ["self_sealing"]}

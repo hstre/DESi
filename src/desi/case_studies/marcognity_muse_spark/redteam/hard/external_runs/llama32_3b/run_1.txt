@@ -1,0 +1,20 @@
+Here is the list of flagged excerpts:
+
+{"N1": [], "N2": ["untraceable_citation", "overclaim"], "N3": ["overclaim"], "N4": ["untraceable_citation", "overclaim", "heuristic_not_empirical"], "N5": [], "N6": ["self_sealing"], "N7": ["self_sealing"], "N8": ["self_sealing"], "N9": ["self_sealing", "overclaim", "source_domain_mismatch"], "N10": ["heuristic_not_empirical"], "N11": ["self_sealing"], "N12": ["untraceable_citation", "self_sealing"], "N13": ["heuristic_not_empirical"], "N14": ["self_sealing"]}
+
+Note:
+
+- N1: no flags
+- N2: both "untraceable_citation" and "overclaim" are present
+- N3: "overclaim" is present
+- N4: all three flags are present
+- N5: no flags
+- N6: "self_sealing" is present
+- N7: "self_sealing" is present
+- N8: no flags
+- N9: all three flags are present
+- N10: "heuristic_not_empirical" is present
+- N11: "self_sealing" is present
+- N12: both "untraceable_citation" and "self_sealing" are present
+- N13: "heuristic_not_empirical" is present
+- N14: "self_sealing" is present

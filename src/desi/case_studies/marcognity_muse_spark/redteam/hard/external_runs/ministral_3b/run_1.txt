@@ -1,0 +1,19 @@
+```json
+{
+    "N1": ["source_domain_mismatch"],
+    "N2": ["self_sealing"],
+    "N3": ["overclaim"],
+    "N4": ["heuristic_not_empirical"],
+    "N5": [],
+    "N6": ["overclaim"],
+    "N7": ["self_sealing"],
+    "N8": [],
+    "N9": ["source_domain_mismatch", "heuristic_not_empirical"],
+    "N10": [],
+    "N11": [],
+    "N2": [],  # Corrected duplicate entry (N2 was already listed)
+    "N12": ["untraceable_citation"],
+    "N13": ["heuristic_not_empirical"],
+    "N14": []
+}
+```
