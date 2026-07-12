@@ -365,3 +365,12 @@ gehedgter Hypothese.
   granite-micro **+0.131**, granite-8b **+0.108**, qwen3-30b **+0.077**, gemma-4-31b/ministral-8b/gemma-3-12b/
   deepseek-v4-flash **~+0.05**; mittleres ΔF1 **+0.075**, **null** neue FN/FP bei allen, overclaim-FP bei allen
   unverändert (R2 8× repliziert wirkungslos). gemma-4-31b + Regel = **0.927 bei $0,16**. Kein granite-Artefakt.
+- `redteam/sig_corpus/` (**R1-Härtung, LLM-frei**, `redteam/sig_corpus/REDTEAM_SIG_HARDENING_RESULT.md`):
+  48-Item-Signifikanz-Korpus (mechanische Labels, dev/test) zeigt zunächst, dass **gefrorenes R1 (v1) auf
+  neu formulierten Test-Positiven Recall 0.0** hat — im Kern ein Phrasen-Memorierer (die hard2/holdout-Gewinne
+  teilten sein Dev-Vokabular). **v2, nur aus dem Dev-Split gehärtet**, erreicht **blind** auf dem Test
+  **Recall 0.917 bei Precision 1.0** (F1 0.957), hebt zugleich den **hold-out**-SIG-Recall 0.571→1.0 **ohne**
+  Regression auf hard2 — kein Overfit. **Urteil: die deterministische Regel ist härtbar** (kodifizierbares
+  Muster → robuste, hochpräzise Deckung), nicht nur ein Benchmark-Zufall. Grenzen: 48 self-authored Items /
+  ein Annotator; v2 bleibt lexikalisch (Restlücke T-S04); nur R1 belegt. v1 bleibt eingefroren, v2 additiv.
+  Reproduktion: `python scripts/run_sig_corpus_test.py` (kein LLM-Call).

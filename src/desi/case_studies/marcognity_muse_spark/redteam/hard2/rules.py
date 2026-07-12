@@ -58,10 +58,70 @@ _EFFECT_SIZE_QUALIFIER = re.compile(
 
 
 def detect_significance_not_importance(text: str) -> bool:
-    """R1: p-value/significance used as a magnitude/importance claim, unqualified."""
+    """R1 (v1, FROZEN — used by the hard2 + hold-out results): p-value/significance
+    used as a magnitude/importance claim, unqualified. Do not modify; see v2 below."""
     if _EFFECT_SIZE_QUALIFIER.search(text):
         return False
     return bool(_SIGNIFICANCE.search(text) and _MAGNITUDE.search(text))
+
+
+# --- R1 v2: hardened on the sig_corpus DEV split only (v1 had 0.0 recall on novel
+# phrasing). Broadens the significance markers, the magnitude lexicon and the
+# effect-size guard, and adds a null-result guard. v1 is left untouched for
+# reproducibility of the earlier committed results. ---
+
+_SIG_MARKER_V2 = re.compile(
+    r"\bp\s*(?:[<>=]|below|under|over|of|above)\s*0?\.\d+"
+    r"|\bp[- ]?value"
+    r"|\bstatistical(?:ly)?\s+significan"
+    r"|\bstatistically\s+reliable"
+    r"|\bsignifican(?:t|ce)\s+at\s+the\s+\d+\s*%"
+    r"|\b(?:reached|achieved|hit|cleared|reaches)\s+significance"
+    r"|\bsignificance\b"
+    r"|\bsignificant(?:ly)?\b",
+    re.I,
+)
+_NULL_RESULT = re.compile(
+    r"\b(?:no|not|never|without|hardly)\s+(?:\w+\s+){0,3}significan"
+    r"|n't\s+(?:\w+\s+){0,3}significan"
+    r"|far from significance"
+    r"|(?:did not|failed to|didn't)\s+reach\s+significance",
+    re.I,
+)
+_MAGNITUDE_V2 = re.compile(
+    r"\b(far more effective|more effective|highly effective|effective|outperform\w*|"
+    r"superior|better|large|important|major|impact|dramatic\w*|substantial\w*|powerful|"
+    r"strong(?:est|er|ly)?|prov(?:e|es|en|ing)|proof|works?|breakthrough|"
+    r"game[- ]?changer|revolutionary|monumental|leap|markedly|enormous\w*|decisive\w*|"
+    r"hugely|vastly|sharply|meaningful\w*|overwhelming\w*|by far|front[- ]?runner|"
+    r"boosts?|beneficial|advance|must ship|game changer|clear (?:front[- ]?runner|winner))\b",
+    re.I,
+)
+# effect-size qualifiers that correctly scope significance (BLOCK v2). Written to NOT
+# match a SIG-positive's '5% level' or 'major practical impact'.
+_EFFECT_SIZE_QUALIFIER_V2 = re.compile(
+    r"\bd\s*=\s*0?\.\d+"
+    r"|\beffect size\b"
+    r"|\b(?:small|tiny|trivial|negligible|modest|minor)\b"
+    r"|\bodds ratio\b"
+    r"|\d+(?:\.\d+)?\s*%\s+of\s+variance"
+    r"|\bof little\b|\blittle practical\b"
+    r"|\bpractically (?:trivial|irrelevant|minor|negligible)\b"
+    r"|\bclinically (?:minor|irrelevant|trivial|insignificant|negligible)\b"
+    r"|\b0\.\d+\s*%"
+    r"|\d+(?:\.\d+)?[- ]points?\b",
+    re.I,
+)
+
+
+def detect_significance_not_importance_v2(text: str) -> bool:
+    """Hardened R1: a (broadened) significance marker, not a null result, co-occurs with
+    a (broadened) magnitude/importance claim, and no effect-size qualifier scopes it."""
+    if _EFFECT_SIZE_QUALIFIER_V2.search(text):
+        return False
+    if _NULL_RESULT.search(text):
+        return False
+    return bool(_SIG_MARKER_V2.search(text) and _MAGNITUDE_V2.search(text))
 
 
 # --- R2: overclaim suppression ---------------------------------------------------

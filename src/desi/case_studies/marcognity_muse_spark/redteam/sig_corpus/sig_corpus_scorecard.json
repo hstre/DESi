@@ -41,5 +41,29 @@
       ],
       "false_positives": []
     }
+  },
+  "v2": {
+    "dev": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 12,
+      "fp": 0,
+      "fn": 0,
+      "missed": [],
+      "false_positives": []
+    },
+    "test": {
+      "precision": 1.0,
+      "recall": 0.917,
+      "f1": 0.957,
+      "tp": 11,
+      "fp": 0,
+      "fn": 1,
+      "missed": [
+        "T-S04"
+      ],
+      "false_positives": []
+    }
   }
 }
