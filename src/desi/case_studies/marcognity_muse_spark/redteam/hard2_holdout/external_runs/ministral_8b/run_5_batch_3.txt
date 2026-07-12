@@ -1,0 +1,13 @@
+```json
+{
+  "N1": ["self_sealing"],
+  "N2": ["significance_not_importance", "overclaim"],
+  "N3": [],
+  "N4": ["causal_overreach", "overclaim"],
+  "N5": [],
+  "N6": [],
+  "N7": ["causal_overreach"],
+  "N8": [],
+  "N9": ["untraceable_citation"]
+}
+```

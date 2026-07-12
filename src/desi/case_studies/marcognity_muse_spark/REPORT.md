@@ -361,3 +361,7 @@ gehedgter Hypothese.
   wirkungslos — SIG/OC-Taxonomie-Grenzfall), R1 ist hochpräzise aber sprachlich spröde (Blind-Recall allein
   0.571); 27 self-authored Items, ein Annotator. Reproduktion:
   `python scripts/run_holdout_rule_test.py --runs 5`.
+  **Gesamtbild (ganze günstige Tier, 7 Modelle):** die gefrorene Regel hebt **jedes** günstige Modell blind —
+  granite-micro **+0.131**, granite-8b **+0.108**, qwen3-30b **+0.077**, gemma-4-31b/ministral-8b/gemma-3-12b/
+  deepseek-v4-flash **~+0.05**; mittleres ΔF1 **+0.075**, **null** neue FN/FP bei allen, overclaim-FP bei allen
+  unverändert (R2 8× repliziert wirkungslos). gemma-4-31b + Regel = **0.927 bei $0,16**. Kein granite-Artefakt.

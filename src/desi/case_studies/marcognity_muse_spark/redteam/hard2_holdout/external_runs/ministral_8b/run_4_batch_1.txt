@@ -1,0 +1,13 @@
+```json
+{
+    "N1": ["significance_not_importance", "causal_overreach"],
+    "N2": [],
+    "N3": ["overclaim", "heuristic_not_empirical"],
+    "N4": [],
+    "N5": ["source_domain_mismatch"],
+    "N6": ["significance_not_importance"],
+    "N7": [],
+    "N8": ["overclaim"],
+    "N9": ["base_rate_neglect"]
+}
+```

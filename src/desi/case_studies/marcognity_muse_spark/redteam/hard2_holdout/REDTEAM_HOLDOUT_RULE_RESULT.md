@@ -67,8 +67,40 @@ allein — auditierbar und reproduzierbar.
 - **27 self-authored Items, ein Annotator.** Für ein Paper: größerer Satz, ≥2 unabhängige Annotatoren (κ),
   und R1 gegen echte p-Wert-Korpora (korrekt getrennte *und* konflatierte Aussagen) härten.
 
+## Gesamtbild — die ganze günstige Tier (7 Modelle, blind, N=27, 5 Läufe)
+
+Dieselbe gefrorene Regel als Post-Layer über jedes günstige Modell (≤9 Excerpts/Batch):
+
+| Modell | $/M-Tok | F1 ohne | F1 + Regel | Δ | SIG-Recall | overclaim-FP | neu FN | neu FP |
+|---|---|---|---|---|---|---|---|---|
+| ibm-granite/granite-4.0-h-micro | 0,11 | 0.465 | **0.596** | **+0.131** | 0.143→0.714 | 30→30 | 0 | 0 |
+| ibm-granite/granite-4.1-8b | 0,10 | 0.645 | **0.753** | **+0.108** | 0.371→0.857 | 22→22 | 0 | 0 |
+| qwen/qwen3-30b-a3b | 0,19 | 0.832 | **0.909** | +0.077 | 0.571→0.943 | 7→7 | 0 | 0 |
+| google/gemma-4-31b-it | 0,16 | 0.872 | **0.927** | +0.055 | 0.714→1.00 | 10→10 | 0 | 0 |
+| mistralai/ministral-8b | 0,15 | 0.782 | **0.836** | +0.054 | 0.714→1.00 | 10→10 | 0 | 0 |
+| google/gemma-3-12b-it | 0,15 | 0.773 | **0.826** | +0.053 | 0.714→1.00 | 25→25 | 0 | 0 |
+| deepseek/deepseek-v4-flash | 0,15 | 0.799 | **0.848** | +0.049 | 0.743→1.00 | 29→29 | 0 | 0 |
+
+**Mittleres ΔF1 = +0.075, ausnahmslos positiv. Null neue FN, null neue FP bei *jedem* Modell.
+overclaim-FP bei *jedem* unverändert (R2 8× repliziert wirkungslos).** Kosten je Review ~$1·10⁻⁵–5·10⁻⁵,
+Regel +$0.
+
+**Das Muster ist genau wie vorhergesagt:** der marginale Gewinn ist am größten bei den **schwächsten**
+Modellen, die die meisten SIG-Fälle verfehlten (granite-micro +0.131, granite-8b +0.108), und kleiner
+(~+0.05) bei den stärkeren, die die lexikalisch-varianten Fälle schon selbst fingen — dort **vervollständigt**
+die Regel den SIG-Recall auf **1.00** (Komplementarität: Modell fängt Paraphrasen, Regel die kanonischen).
+Ein gutes günstiges Modell + Regel erreicht Frontier-nahe Werte auf blinden Daten: **gemma-4-31b + Regel =
+0.927 bei $0,16**.
+
+**Fazit des Gesamtbilds:** der deterministische Regel-Gewinn ist **kein granite-Artefakt**, sondern hält
+über die gesamte günstige Tier — universell, kollateralfrei, zu Grenzkosten $0, meist varianz-senkend. Genau
+das, was DESi als billige Reviewer-Schicht in einer Claude-Science-Pipeline sein soll. Grenzen unverändert:
+nur R1 trägt, R1 sprachlich spröde (Gewinn aus LLM+Regel-Komplementarität), 27 self-authored Items, ein
+Annotator.
+
 ## Reproduktion
-`OPENROUTER_API_KEY=… python scripts/run_holdout_rule_test.py --runs 5` (granite gebatcht ≤9/Call).
+`OPENROUTER_API_KEY=… python scripts/run_holdout_rule_test.py --runs 5` (ganze günstige Tier; granite
+gebatcht ≤9/Call). Einzelmodell: `--models "id:slug:preis"`.
 Regel eingefroren: `redteam/hard2/rules.py` (seit `c1f7db6`). Hold-out eingefroren vor dem Lauf: `c12cca6`.
 Rohantworten: `redteam/hard2_holdout/external_runs/granite_8b/run_*_batch_*.txt`. Scorecard:
 `redteam/hard2_holdout/holdout_rule_scorecard.json`.

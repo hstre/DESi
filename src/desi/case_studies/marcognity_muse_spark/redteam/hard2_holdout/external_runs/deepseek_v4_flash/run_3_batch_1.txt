@@ -1,0 +1,11 @@
+{
+  "N1": ["overclaim", "significance_not_importance"],
+  "N2": [],
+  "N3": ["overclaim", "significance_not_importance"],
+  "N4": [],
+  "N5": ["source_domain_mismatch"],
+  "N6": ["overclaim", "significance_not_importance"],
+  "N7": [],
+  "N8": ["overclaim"],
+  "N9": ["overclaim", "base_rate_neglect"]
+}

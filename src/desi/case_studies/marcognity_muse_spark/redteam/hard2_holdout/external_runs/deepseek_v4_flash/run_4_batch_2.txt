@@ -1,0 +1,11 @@
+{
+  "N1": ["significance_not_importance", "overclaim"],
+  "N2": ["heuristic_not_empirical", "overclaim"],
+  "N3": [],
+  "N4": ["overclaim"],
+  "N5": [],
+  "N6": ["untraceable_citation", "causal_overreach"],
+  "N7": ["base_rate_neglect"],
+  "N8": ["significance_not_importance", "causal_overreach", "overclaim"],
+  "N9": []
+}
