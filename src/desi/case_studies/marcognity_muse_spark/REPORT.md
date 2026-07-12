@@ -324,3 +324,16 @@ gehedgter Hypothese.
   zeigen hier aber *keinen* Genauigkeits-Vorteil (freie Modelle sind schon perfekt) — ihr Wert ist
   **Determinismus + Auditierbarkeit**, nicht Trefferquote. Reproduktion:
   `python scripts/run_hard_benchmark.py` (`OPENROUTER_API_KEY` aus env).
+- `redteam/hard2/` — **HARD2, 14 Modelle: Sättigung gebrochen** (`redteam/hard2/REDTEAM_HARD2_RESULT.md`).
+  Drei rigoros klingende Fehlertypen dazu (causal_overreach, significance_not_importance,
+  base_rate_neglect), 8 Flags, engere Near-Miss-Paare. **Gradient 0.42–0.93 statt 1.0.** Die HARD1-
+  Kostensieger fallen (gemma-3-12b 1.0→**0.73**, qwen3-30b 0.99→**0.71**): ein 12B fängt *leichte*,
+  nicht *subtile* Fehler. Am oberen Ende überlebt die Effizienz-These: ein **dichtes** 31B (gemma-4-31b,
+  **$0,16**) erreicht **0.909** — 1,8 Punkte unter gpt-5.1 (0.927, $10), ~65× billiger; MoE-mit-3B-aktiv
+  (qwen3-80b-a3b 0.784) und ~12B fallen ab. **Härtetreiber = ein Flag:** significance_not_importance
+  (Recall **0.43** über alle Modelle) — teils echtes Modellversagen, teils Taxonomie-Überlappung mit
+  overclaim (ehrlicher Caveat). **Revidierte DESi-Implikation:** „8B/12B reicht" gilt **nur für leichte**
+  Checks; für subtile braucht die Sprachschicht **~31B dicht** — und *hier* könnten die Regeln erstmals
+  Genauigkeit *hinzufügen* (die zwei systematischen LLM-Schwächen sind regel-kodierbar; testbare
+  Hypothese granite-8b allein vs. + Regel). Reproduktion:
+  `python scripts/run_hard_benchmark.py --benchmark hard2` (`OPENROUTER_API_KEY` aus env).

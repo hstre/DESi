@@ -1,0 +1,20 @@
+{
+  "N1": ["overclaim"],
+  "N2": ["self_sealing"],
+  "N3": ["source_domain_mismatch"],
+  "N4": ["overclaim"],
+  "N5": ["causal_overreach"],
+  "N6": [],
+  "N7": ["base_rate_neglect"],
+  "N8": [],
+  "N9": ["overclaim"],
+  "N10": [],
+  "N11": ["causal_overreach"],
+  "N12": ["source_domain_mismatch"],
+  "N13": ["base_rate_neglect"],
+  "N14": ["self_sealing"],
+  "N15": ["significance_not_importance"],
+  "N16": [],
+  "N17": ["source_domain_mismatch"],
+  "N18": []
+}

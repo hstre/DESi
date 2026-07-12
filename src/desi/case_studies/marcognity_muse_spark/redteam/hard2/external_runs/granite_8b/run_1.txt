@@ -1,0 +1,47 @@
+**Step‑by‑step evaluation of each excerpt**
+
+| Excerpt | Reasoning & Identified Issues |
+|---------|--------------------------------|
+| **N1** | The claim “so it is clearly a far more effective painkiller and should replace current first‑line therapy” goes beyond the mere statistical significance (p < 0.001). The evidence only shows superiority over placebo; it does **not** demonstrate superiority over existing first‑line agents or clinical importance. This is an **overclaim**. No other epistemic problems appear. |
+| **N2** | The statement sets a clear criterion (“if the therapy fails… we will record that as evidence against the theory”). There is no logical closure that would count any result as confirming the theory. Hence **self‑sealing** does **not** apply. No other issues are evident. |
+| **N3** | Human moral decision‑making is being inferred from effect sizes derived from rodent reward‑prediction‑error learning studies. The animal data cannot directly support a claim about human moral cognition; the source domain is mismatched. This is a **source_domain_mismatch**. |
+| **N4** | “Studies consistently show that eating breakfast makes children smarter, so mandating school breakfasts will raise national IQ” extrapolates a modest association to a large‑scale policy change without evidence of causality or scalability. This is an **overclaim** (and implicitly a causal over‑reach, but the primary flag is overclaim). |
+| **N5** | From an observational correlation (r = 0.34) the authors conclude that cutting social‑media use will reduce depression, i.e., they treat an association as a causal prescription. This is a **causal_overreach**. |
+| **N6** | The governance index uses pre‑registered weights validated against an independent outcome (AUC 0.82). The description does not indicate any circular calibration or lack of empirical grounding, so **heuristic_not_empirical** does not apply. No other problems are present. |
+| **N7** | The test is highly sensitive and specific (99 %/99 %) but the condition’s base rate is 1 in 10 000. The excerpt claims “they almost certainly have the condition” ignoring base‑rate neglect. Thus **base_rate_neglect** is clearly present. |
+| **N8** | The claim is anchored in a crystal structure (PDB 1ABC) and a dose‑response figure with deposited code, providing concrete empirical evidence. No epistemic problem is evident. |
+| **N9** | A post‑hoc subgroup (identified after inspecting the data) reaches p = 0.049 and is taken as proof to recommend the drug for *all* patients. This jumps from a subgroup finding to a universal recommendation, which is an **overclaim** (and also a questionable subgroup analysis, but the primary flag is overclaim). |
+| **N10** | The statement is a theoretical derivation (“as shown in Appendix A, Eq. 3”) asserting unbiasedness under stated assumptions. No evidential or interpretive problems are indicated. |
+| **N11** | The authors explicitly note the observational nature and that direction cannot be inferred, and they call for a randomized trial. This correctly avoids **causal_overreach** and acknowledges limitations. No flag needed. |
+| **N12** | Weights were tuned until three pre‑selected “well‑governed” countries scored high, which is a circular calibration of the index. This is a **heuristic_not_empirical** (the index is not objectively calibrated but rather fitted to desired outcomes). |
+| **N13** | The excerpt correctly acknowledges that high sensitivity/specificity combined with a rare condition yields many false positives, i.e., it does **not** conflate significance with importance. No flag is raised. |
+| **N14** | “If the therapy helps, the theory is confirmed. If it does not, the patient was not yet truly ready — a readiness we determine only afterwards from whether they improved.” This construction shields the theory from any disconfirming outcome, making it **self‑sealing**. |
+| **N15** | The authors differentiate statistical significance (p < 0.001) from a small effect size (≈0.5 points on a 100‑point scale) and correctly note limited clinical importance. No flag is present. |
+| **N16** | The report emphasizes uncertainty (95 % CI 0.05–0.60) and limits generalization to the pre‑registered target population and stopping rule. No epistemic problems are evident. |
+| **N17** | Human moral decision‑making is grounded in a meta‑analysis of human trolley‑dilemma experiments, so the source domain matches the claim. No flag. |
+| **N18** | The claim rests on “earlier reports” and “first principles” without naming a specific, checkable source. This is an **untraceable_citation**. |
+
+**Resulting flag list**
+
+```json
+{
+  "N1": ["overclaim"],
+  "N2": [],
+  "N3": ["source_domain_mismatch"],
+  "N4": ["overclaim"],
+  "N5": ["causal_overreach"],
+  "N6": [],
+  "N7": ["base_rate_neglect"],
+  "N8": [],
+  "N9": ["overclaim"],
+  "N10": [],
+  "N11": [],
+  "N12": ["heuristic_not_empirical"],
+  "N13": [],
+  "N14": ["self_sealing"],
+  "N15": [],
+  "N16": [],
+  "N17": [],
+  "N18": ["untraceable_citation"]
+}
+```

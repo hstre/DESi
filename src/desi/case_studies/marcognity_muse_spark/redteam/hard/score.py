@@ -16,10 +16,10 @@ def _prf(tp: int, fp: int, fn: int) -> tuple[float, float, float]:
     return round(prec, 3), round(rec, 3), round(f1, 3)
 
 
-def _score_one_run(run: dict[str, set]) -> dict:
+def _score_one_run(run: dict[str, set], items=HARD_ITEMS) -> dict:
     tp = fp = fn = exact = 0
     by_diff: dict[str, list[int]] = {}
-    for it in HARD_ITEMS:
+    for it in items:
         raised = set(run.get(it.id, set()))
         gold = set(it.gold)
         tp += len(raised & gold)
@@ -32,19 +32,19 @@ def _score_one_run(run: dict[str, set]) -> dict:
         d[1] += 1
     prec, rec, f1 = _prf(tp, fp, fn)
     return {"tp": tp, "fp": fp, "fn": fn, "precision": prec, "recall": rec, "f1": f1,
-            "exact_match": round(exact / len(HARD_ITEMS), 3),
+            "exact_match": round(exact / len(items), 3),
             "exact_by_difficulty": {k: f"{v[0]}/{v[1]}" for k, v in sorted(by_diff.items())}}
 
 
-def score_runs(name: str, runs: list[dict[str, set]]) -> dict:
-    per_run = [_score_one_run(r) for r in runs]
+def score_runs(name: str, runs: list[dict[str, set]], items=HARD_ITEMS) -> dict:
+    per_run = [_score_one_run(r, items) for r in runs]
     f1s = [r["f1"] for r in per_run]
     exact = [r["exact_match"] for r in per_run]
 
     # per-item catch fraction across runs (how often the reviewer matched gold exactly)
     item_exact: dict[str, float] = {}
     item_errors: dict[str, list[str]] = {}
-    for it in HARD_ITEMS:
+    for it in items:
         hits = 0
         errs: list[str] = []
         for r in runs:
@@ -74,16 +74,16 @@ def score_runs(name: str, runs: list[dict[str, set]]) -> dict:
     }
 
 
-def gold_table() -> list[dict]:
+def gold_table(items=HARD_ITEMS) -> list[dict]:
     def row(it: HardItem) -> dict:
         return {"id": it.id, "gold": sorted(f.value for f in it.gold),
                 "difficulty": it.difficulty, "debatable": it.debatable,
                 "pair": it.pair, "tell": it.tell}
-    return [row(it) for it in HARD_ITEMS]
+    return [row(it) for it in items]
 
 
-def write_scorecard(path: Path, scores: list[dict]) -> None:
-    card = {"gold": gold_table(), "n_items": len(HARD_ITEMS), "scores": scores}
+def write_scorecard(path: Path, scores: list[dict], items=HARD_ITEMS) -> None:
+    card = {"gold": gold_table(items), "n_items": len(items), "scores": scores}
     path.write_text(json.dumps(card, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
                     encoding="utf-8")
 

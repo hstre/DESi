@@ -1,0 +1,1911 @@
+{
+  "gold": [
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [
+        "causal_overreach"
+      ],
+      "id": "G01",
+      "pair": "G02",
+      "tell": "A correlation from cross-sectional data is turned into an intervention claim ('cutting … will reduce'); direction is not established."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [],
+      "id": "G02",
+      "pair": "G01",
+      "tell": "Correctly refuses the causal leap and names the design limit. Clean."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [
+        "significance_not_importance"
+      ],
+      "id": "G03",
+      "pair": "G04",
+      "tell": "A small p-value is read as a large effect ('far more effective'); significance is not magnitude."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [],
+      "id": "G04",
+      "pair": "G03",
+      "tell": "Explicitly separates significance from a small effect size. Clean."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [
+        "base_rate_neglect"
+      ],
+      "id": "G05",
+      "pair": "G06",
+      "tell": "At a prevalence of 1/10,000, most positives are false positives; the 'almost certainly' ignores the base rate."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [],
+      "id": "G06",
+      "pair": "G05",
+      "tell": "Correctly applies the base rate to positive predictive value. Clean."
+    },
+    {
+      "debatable": true,
+      "difficulty": "hard",
+      "gold": [
+        "untraceable_citation"
+      ],
+      "id": "G07",
+      "pair": "G08",
+      "tell": "'Our own earlier reports' and 'first principles' name no specific, checkable source; it is an unlocatable appeal."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [],
+      "id": "G08",
+      "pair": "G07",
+      "tell": "A specific, checkable internal reference (Appendix A, Eq. 3). Clean."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [
+        "source_domain_mismatch"
+      ],
+      "id": "G09",
+      "pair": "G10",
+      "tell": "Rodent reinforcement-learning effect sizes cannot ground a claim about human moral judgment; adjacent field, wrong object."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [],
+      "id": "G10",
+      "pair": "G09",
+      "tell": "Same-object, same-field evidence. Clean (baits a 'psychology' over-flag)."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [
+        "heuristic_not_empirical"
+      ],
+      "id": "G11",
+      "pair": "G12",
+      "tell": "Weights fitted to preselected exemplars, then the resulting number is presented as an objective, confirming measurement — circular."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [],
+      "id": "G12",
+      "pair": "G11",
+      "tell": "Pre-registered, independently validated — a legitimate empirical index. Clean."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [
+        "self_sealing"
+      ],
+      "id": "G13",
+      "pair": "G14",
+      "tell": "Failure is always re-described post hoc as 'not ready', assessed from the outcome itself; no result can disconfirm."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [],
+      "id": "G14",
+      "pair": "G13",
+      "tell": "A concrete falsifier is stated — NOT self-sealing. Clean (baits an over-flag)."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [
+        "overclaim",
+        "significance_not_importance"
+      ],
+      "id": "G15",
+      "pair": "",
+      "tell": "p just under 0.05 is read as 'proof' (significance-as-importance) AND 'works for all patients' overreaches far past a post-hoc subgroup."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [
+        "causal_overreach",
+        "untraceable_citation"
+      ],
+      "id": "G16",
+      "pair": "",
+      "tell": "'Studies consistently show' names no source (untraceable) AND an association is turned into a causal, policy-scale intervention claim."
+    },
+    {
+      "debatable": true,
+      "difficulty": "hard",
+      "gold": [],
+      "id": "G17",
+      "pair": "",
+      "tell": "Wide CI but every safeguard present and correctly scoped. Clean; the uncertainty baits a false positive."
+    },
+    {
+      "debatable": false,
+      "difficulty": "hard",
+      "gold": [],
+      "id": "G18",
+      "pair": "",
+      "tell": "Specific structure, figure, and code-backed data supporting a carefully hedged ('consistent with') mechanistic claim. Clean."
+    }
+  ],
+  "n_items": 18,
+  "scores": [
+    {
+      "exact_match_mean": 0.911,
+      "f1_mean": 0.927,
+      "f1_stdev": 0.033,
+      "item_errors": {
+        "G03": [
+          "|over:overclaim",
+          "|over:overclaim"
+        ],
+        "G11": [
+          "|over:self_sealing"
+        ],
+        "G15": [
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance"
+        ]
+      },
+      "item_exact_rate": {
+        "G01": 1.0,
+        "G02": 1.0,
+        "G03": 0.6,
+        "G04": 1.0,
+        "G05": 1.0,
+        "G06": 1.0,
+        "G07": 1.0,
+        "G08": 1.0,
+        "G09": 1.0,
+        "G10": 1.0,
+        "G11": 0.8,
+        "G12": 1.0,
+        "G13": 1.0,
+        "G14": 1.0,
+        "G15": 0.0,
+        "G16": 1.0,
+        "G17": 1.0,
+        "G18": 1.0
+      },
+      "model": "openai/gpt-5.1",
+      "out_price_per_mtok": 10.0,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "17/18"
+          },
+          "exact_match": 0.944,
+          "f1": 0.952,
+          "fn": 1,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "17/18"
+          },
+          "exact_match": 0.944,
+          "f1": 0.952,
+          "fn": 1,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "17/18"
+          },
+          "exact_match": 0.944,
+          "f1": 0.952,
+          "fn": 1,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "15/18"
+          },
+          "exact_match": 0.833,
+          "f1": 0.87,
+          "fn": 1,
+          "fp": 2,
+          "precision": 0.833,
+          "recall": 0.909,
+          "tp": 10
+        }
+      ],
+      "precision_mean": 0.948,
+      "recall_mean": 0.909,
+      "reviewer": "gpt51",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.889,
+      "f1_mean": 0.909,
+      "f1_stdev": 0.0,
+      "item_errors": {
+        "G03": [
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim"
+        ],
+        "G15": [
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance"
+        ]
+      },
+      "item_exact_rate": {
+        "G01": 1.0,
+        "G02": 1.0,
+        "G03": 0.0,
+        "G04": 1.0,
+        "G05": 1.0,
+        "G06": 1.0,
+        "G07": 1.0,
+        "G08": 1.0,
+        "G09": 1.0,
+        "G10": 1.0,
+        "G11": 1.0,
+        "G12": 1.0,
+        "G13": 1.0,
+        "G14": 1.0,
+        "G15": 0.0,
+        "G16": 1.0,
+        "G17": 1.0,
+        "G18": 1.0
+      },
+      "model": "google/gemma-4-31b-it",
+      "out_price_per_mtok": 0.16,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        }
+      ],
+      "precision_mean": 0.909,
+      "recall_mean": 0.909,
+      "reviewer": "gemma4_31b",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.889,
+      "f1_mean": 0.905,
+      "f1_stdev": 0.03,
+      "item_errors": {
+        "G03": [
+          "|over:overclaim",
+          "|over:overclaim"
+        ],
+        "G10": [
+          "|over:untraceable_citation"
+        ],
+        "G15": [
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance"
+        ],
+        "G16": [
+          "miss:causal_overreach",
+          "miss:untraceable_citation"
+        ]
+      },
+      "item_exact_rate": {
+        "G01": 1.0,
+        "G02": 1.0,
+        "G03": 0.6,
+        "G04": 1.0,
+        "G05": 1.0,
+        "G06": 1.0,
+        "G07": 1.0,
+        "G08": 1.0,
+        "G09": 1.0,
+        "G10": 0.8,
+        "G11": 1.0,
+        "G12": 1.0,
+        "G13": 1.0,
+        "G14": 1.0,
+        "G15": 0.0,
+        "G16": 0.6,
+        "G17": 1.0,
+        "G18": 1.0
+      },
+      "model": "poolside/laguna-m.1",
+      "out_price_per_mtok": 0.4,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "17/18"
+          },
+          "exact_match": 0.944,
+          "f1": 0.952,
+          "fn": 1,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "15/18"
+          },
+          "exact_match": 0.833,
+          "f1": 0.857,
+          "fn": 2,
+          "fp": 1,
+          "precision": 0.9,
+          "recall": 0.818,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.9,
+          "fn": 2,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.818,
+          "tp": 9
+        }
+      ],
+      "precision_mean": 0.944,
+      "recall_mean": 0.873,
+      "reviewer": "laguna",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.878,
+      "f1_mean": 0.901,
+      "f1_stdev": 0.016,
+      "item_errors": {
+        "G03": [
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim"
+        ],
+        "G15": [
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance"
+        ],
+        "G16": [
+          "|over:overclaim"
+        ]
+      },
+      "item_exact_rate": {
+        "G01": 1.0,
+        "G02": 1.0,
+        "G03": 0.0,
+        "G04": 1.0,
+        "G05": 1.0,
+        "G06": 1.0,
+        "G07": 1.0,
+        "G08": 1.0,
+        "G09": 1.0,
+        "G10": 1.0,
+        "G11": 1.0,
+        "G12": 1.0,
+        "G13": 1.0,
+        "G14": 1.0,
+        "G15": 0.0,
+        "G16": 0.8,
+        "G17": 1.0,
+        "G18": 1.0
+      },
+      "model": "google/gemini-2.5-pro",
+      "out_price_per_mtok": 10.0,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "15/18"
+          },
+          "exact_match": 0.833,
+          "f1": 0.87,
+          "fn": 1,
+          "fp": 2,
+          "precision": 0.833,
+          "recall": 0.909,
+          "tp": 10
+        }
+      ],
+      "precision_mean": 0.894,
+      "recall_mean": 0.909,
+      "reviewer": "gemini25pro",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.878,
+      "f1_mean": 0.901,
+      "f1_stdev": 0.016,
+      "item_errors": {
+        "G03": [
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim"
+        ],
+        "G15": [
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance"
+        ],
+        "G16": [
+          "|over:overclaim"
+        ]
+      },
+      "item_exact_rate": {
+        "G01": 1.0,
+        "G02": 1.0,
+        "G03": 0.0,
+        "G04": 1.0,
+        "G05": 1.0,
+        "G06": 1.0,
+        "G07": 1.0,
+        "G08": 1.0,
+        "G09": 1.0,
+        "G10": 1.0,
+        "G11": 1.0,
+        "G12": 1.0,
+        "G13": 1.0,
+        "G14": 1.0,
+        "G15": 0.0,
+        "G16": 0.8,
+        "G17": 1.0,
+        "G18": 1.0
+      },
+      "model": "x-ai/grok-4.5",
+      "out_price_per_mtok": 6.0,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "15/18"
+          },
+          "exact_match": 0.833,
+          "f1": 0.87,
+          "fn": 1,
+          "fp": 2,
+          "precision": 0.833,
+          "recall": 0.909,
+          "tp": 10
+        }
+      ],
+      "precision_mean": 0.894,
+      "recall_mean": 0.909,
+      "reviewer": "grok45",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.833,
+      "f1_mean": 0.872,
+      "f1_stdev": 0.04,
+      "item_errors": {
+        "G03": [
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim"
+        ],
+        "G07": [
+          "|over:overclaim"
+        ],
+        "G11": [
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim"
+        ],
+        "G15": [
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance"
+        ],
+        "G16": [
+          "|over:overclaim"
+        ]
+      },
+      "item_exact_rate": {
+        "G01": 1.0,
+        "G02": 1.0,
+        "G03": 0.0,
+        "G04": 1.0,
+        "G05": 1.0,
+        "G06": 1.0,
+        "G07": 0.8,
+        "G08": 1.0,
+        "G09": 1.0,
+        "G10": 1.0,
+        "G11": 0.4,
+        "G12": 1.0,
+        "G13": 1.0,
+        "G14": 1.0,
+        "G15": 0.0,
+        "G16": 0.8,
+        "G17": 1.0,
+        "G18": 1.0
+      },
+      "model": "z-ai/glm-5.2",
+      "out_price_per_mtok": 1.32,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "13/18"
+          },
+          "exact_match": 0.722,
+          "f1": 0.8,
+          "fn": 1,
+          "fp": 4,
+          "precision": 0.714,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "15/18"
+          },
+          "exact_match": 0.833,
+          "f1": 0.87,
+          "fn": 1,
+          "fp": 2,
+          "precision": 0.833,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "15/18"
+          },
+          "exact_match": 0.833,
+          "f1": 0.87,
+          "fn": 1,
+          "fp": 2,
+          "precision": 0.833,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        }
+      ],
+      "precision_mean": 0.84,
+      "recall_mean": 0.909,
+      "reviewer": "glm52",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.844,
+      "f1_mean": 0.868,
+      "f1_stdev": 0.046,
+      "item_errors": {
+        "G03": [
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim"
+        ],
+        "G07": [
+          "|over:overclaim"
+        ],
+        "G11": [
+          "|over:self_sealing",
+          "|over:self_sealing"
+        ],
+        "G15": [
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance"
+        ],
+        "G16": [
+          "miss:untraceable_citation|over:overclaim"
+        ]
+      },
+      "item_exact_rate": {
+        "G01": 1.0,
+        "G02": 1.0,
+        "G03": 0.0,
+        "G04": 1.0,
+        "G05": 1.0,
+        "G06": 1.0,
+        "G07": 0.8,
+        "G08": 1.0,
+        "G09": 1.0,
+        "G10": 1.0,
+        "G11": 0.6,
+        "G12": 1.0,
+        "G13": 1.0,
+        "G14": 1.0,
+        "G15": 0.0,
+        "G16": 0.8,
+        "G17": 1.0,
+        "G18": 1.0
+      },
+      "model": "deepseek/deepseek-v4-flash",
+      "out_price_per_mtok": 0.154,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "15/18"
+          },
+          "exact_match": 0.833,
+          "f1": 0.87,
+          "fn": 1,
+          "fp": 2,
+          "precision": 0.833,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "14/18"
+          },
+          "exact_match": 0.778,
+          "f1": 0.783,
+          "fn": 2,
+          "fp": 3,
+          "precision": 0.75,
+          "recall": 0.818,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "15/18"
+          },
+          "exact_match": 0.833,
+          "f1": 0.87,
+          "fn": 1,
+          "fp": 2,
+          "precision": 0.833,
+          "recall": 0.909,
+          "tp": 10
+        }
+      ],
+      "precision_mean": 0.847,
+      "recall_mean": 0.891,
+      "reviewer": "deepseek_v4_flash",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.844,
+      "f1_mean": 0.867,
+      "f1_stdev": 0.021,
+      "item_errors": {
+        "G03": [
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim"
+        ],
+        "G15": [
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance"
+        ],
+        "G16": [
+          "miss:untraceable_citation",
+          "miss:untraceable_citation",
+          "miss:untraceable_citation",
+          "miss:untraceable_citation"
+        ]
+      },
+      "item_exact_rate": {
+        "G01": 1.0,
+        "G02": 1.0,
+        "G03": 0.0,
+        "G04": 1.0,
+        "G05": 1.0,
+        "G06": 1.0,
+        "G07": 1.0,
+        "G08": 1.0,
+        "G09": 1.0,
+        "G10": 1.0,
+        "G11": 1.0,
+        "G12": 1.0,
+        "G13": 1.0,
+        "G14": 1.0,
+        "G15": 0.0,
+        "G16": 0.2,
+        "G17": 1.0,
+        "G18": 1.0
+      },
+      "model": "deepseek/deepseek-chat-v3.1",
+      "out_price_per_mtok": 0.79,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.909,
+          "fn": 1,
+          "fp": 1,
+          "precision": 0.909,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "15/18"
+          },
+          "exact_match": 0.833,
+          "f1": 0.857,
+          "fn": 2,
+          "fp": 1,
+          "precision": 0.9,
+          "recall": 0.818,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "15/18"
+          },
+          "exact_match": 0.833,
+          "f1": 0.857,
+          "fn": 2,
+          "fp": 1,
+          "precision": 0.9,
+          "recall": 0.818,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "15/18"
+          },
+          "exact_match": 0.833,
+          "f1": 0.857,
+          "fn": 2,
+          "fp": 1,
+          "precision": 0.9,
+          "recall": 0.818,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "15/18"
+          },
+          "exact_match": 0.833,
+          "f1": 0.857,
+          "fn": 2,
+          "fp": 1,
+          "precision": 0.9,
+          "recall": 0.818,
+          "tp": 9
+        }
+      ],
+      "precision_mean": 0.902,
+      "recall_mean": 0.836,
+      "reviewer": "deepseek_chat_v31",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.811,
+      "f1_mean": 0.784,
+      "f1_stdev": 0.03,
+      "item_errors": {
+        "G03": [
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim"
+        ],
+        "G11": [
+          "|over:self_sealing",
+          "|over:self_sealing"
+        ],
+        "G15": [
+          "miss:significance_not_importance|over:heuristic_not_empirical",
+          "miss:significance_not_importance|over:heuristic_not_empirical",
+          "miss:significance_not_importance|over:heuristic_not_empirical",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance"
+        ],
+        "G16": [
+          "miss:untraceable_citation|over:significance_not_importance",
+          "miss:untraceable_citation|over:overclaim",
+          "miss:untraceable_citation|over:significance_not_importance",
+          "miss:untraceable_citation|over:significance_not_importance",
+          "miss:untraceable_citation|over:significance_not_importance"
+        ]
+      },
+      "item_exact_rate": {
+        "G01": 1.0,
+        "G02": 1.0,
+        "G03": 0.0,
+        "G04": 1.0,
+        "G05": 1.0,
+        "G06": 1.0,
+        "G07": 1.0,
+        "G08": 1.0,
+        "G09": 1.0,
+        "G10": 1.0,
+        "G11": 0.6,
+        "G12": 1.0,
+        "G13": 1.0,
+        "G14": 1.0,
+        "G15": 0.0,
+        "G16": 0.0,
+        "G17": 1.0,
+        "G18": 1.0
+      },
+      "model": "qwen/qwen3-next-80b-a3b",
+      "out_price_per_mtok": 1.1,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "15/18"
+          },
+          "exact_match": 0.833,
+          "f1": 0.783,
+          "fn": 2,
+          "fp": 3,
+          "precision": 0.75,
+          "recall": 0.818,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "14/18"
+          },
+          "exact_match": 0.778,
+          "f1": 0.75,
+          "fn": 2,
+          "fp": 4,
+          "precision": 0.692,
+          "recall": 0.818,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "14/18"
+          },
+          "exact_match": 0.778,
+          "f1": 0.75,
+          "fn": 2,
+          "fp": 4,
+          "precision": 0.692,
+          "recall": 0.818,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "15/18"
+          },
+          "exact_match": 0.833,
+          "f1": 0.818,
+          "fn": 2,
+          "fp": 2,
+          "precision": 0.818,
+          "recall": 0.818,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "15/18"
+          },
+          "exact_match": 0.833,
+          "f1": 0.818,
+          "fn": 2,
+          "fp": 2,
+          "precision": 0.818,
+          "recall": 0.818,
+          "tp": 9
+        }
+      ],
+      "precision_mean": 0.754,
+      "recall_mean": 0.818,
+      "reviewer": "qwen3_80b",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.634,
+      "f1_mean": 0.733,
+      "f1_stdev": 0.02,
+      "item_errors": {
+        "G03": [
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim"
+        ],
+        "G04": [
+          "|over:significance_not_importance"
+        ],
+        "G06": [
+          "|over:base_rate_neglect",
+          "|over:base_rate_neglect",
+          "|over:base_rate_neglect",
+          "|over:base_rate_neglect",
+          "|over:base_rate_neglect"
+        ],
+        "G11": [
+          "|over:self_sealing",
+          "|over:self_sealing"
+        ],
+        "G12": [
+          "|over:heuristic_not_empirical",
+          "|over:heuristic_not_empirical",
+          "|over:heuristic_not_empirical",
+          "|over:heuristic_not_empirical",
+          "|over:heuristic_not_empirical"
+        ],
+        "G14": [
+          "|over:self_sealing",
+          "|over:self_sealing",
+          "|over:self_sealing",
+          "|over:self_sealing",
+          "|over:self_sealing"
+        ],
+        "G15": [
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance"
+        ],
+        "G16": [
+          "|over:overclaim",
+          "miss:causal_overreach|over:overclaim",
+          "miss:causal_overreach|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim"
+        ]
+      },
+      "item_exact_rate": {
+        "G01": 1.0,
+        "G02": 1.0,
+        "G03": 0.0,
+        "G04": 0.8,
+        "G05": 1.0,
+        "G06": 0.0,
+        "G07": 1.0,
+        "G08": 1.0,
+        "G09": 1.0,
+        "G10": 1.0,
+        "G11": 0.6,
+        "G12": 0.0,
+        "G13": 1.0,
+        "G14": 0.0,
+        "G15": 0.0,
+        "G16": 0.0,
+        "G17": 1.0,
+        "G18": 1.0
+      },
+      "model": "google/gemma-3-12b-it",
+      "out_price_per_mtok": 0.15,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "10/18"
+          },
+          "exact_match": 0.556,
+          "f1": 0.714,
+          "fn": 1,
+          "fp": 7,
+          "precision": 0.588,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "12/18"
+          },
+          "exact_match": 0.667,
+          "f1": 0.72,
+          "fn": 2,
+          "fp": 5,
+          "precision": 0.643,
+          "recall": 0.818,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "12/18"
+          },
+          "exact_match": 0.667,
+          "f1": 0.72,
+          "fn": 2,
+          "fp": 5,
+          "precision": 0.643,
+          "recall": 0.818,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "11/18"
+          },
+          "exact_match": 0.611,
+          "f1": 0.741,
+          "fn": 1,
+          "fp": 6,
+          "precision": 0.625,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "12/18"
+          },
+          "exact_match": 0.667,
+          "f1": 0.769,
+          "fn": 1,
+          "fp": 5,
+          "precision": 0.667,
+          "recall": 0.909,
+          "tp": 10
+        }
+      ],
+      "precision_mean": 0.633,
+      "recall_mean": 0.873,
+      "reviewer": "gemma3_12b",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.711,
+      "f1_mean": 0.714,
+      "f1_stdev": 0.011,
+      "item_errors": {
+        "G03": [
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim"
+        ],
+        "G11": [
+          "|over:self_sealing",
+          "|over:self_sealing",
+          "|over:self_sealing",
+          "|over:self_sealing",
+          "|over:self_sealing"
+        ],
+        "G12": [
+          "|over:heuristic_not_empirical"
+        ],
+        "G14": [
+          "|over:self_sealing",
+          "|over:self_sealing",
+          "|over:self_sealing",
+          "|over:self_sealing",
+          "|over:self_sealing"
+        ],
+        "G15": [
+          "miss:significance_not_importance|over:causal_overreach",
+          "miss:significance_not_importance|over:untraceable_citation",
+          "miss:significance_not_importance|over:causal_overreach",
+          "miss:significance_not_importance|over:untraceable_citation",
+          "miss:significance_not_importance|over:causal_overreach"
+        ],
+        "G16": [
+          "miss:untraceable_citation|over:base_rate_neglect",
+          "miss:untraceable_citation|over:base_rate_neglect",
+          "miss:untraceable_citation|over:base_rate_neglect",
+          "miss:untraceable_citation|over:overclaim",
+          "miss:untraceable_citation|over:overclaim"
+        ]
+      },
+      "item_exact_rate": {
+        "G01": 1.0,
+        "G02": 1.0,
+        "G03": 0.0,
+        "G04": 1.0,
+        "G05": 1.0,
+        "G06": 1.0,
+        "G07": 1.0,
+        "G08": 1.0,
+        "G09": 1.0,
+        "G10": 1.0,
+        "G11": 0.0,
+        "G12": 0.8,
+        "G13": 1.0,
+        "G14": 0.0,
+        "G15": 0.0,
+        "G16": 0.0,
+        "G17": 1.0,
+        "G18": 1.0
+      },
+      "model": "qwen/qwen3-30b-a3b-instruct-2507",
+      "out_price_per_mtok": 0.19,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "12/18"
+          },
+          "exact_match": 0.667,
+          "f1": 0.692,
+          "fn": 2,
+          "fp": 6,
+          "precision": 0.6,
+          "recall": 0.818,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "13/18"
+          },
+          "exact_match": 0.722,
+          "f1": 0.72,
+          "fn": 2,
+          "fp": 5,
+          "precision": 0.643,
+          "recall": 0.818,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "13/18"
+          },
+          "exact_match": 0.722,
+          "f1": 0.72,
+          "fn": 2,
+          "fp": 5,
+          "precision": 0.643,
+          "recall": 0.818,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "13/18"
+          },
+          "exact_match": 0.722,
+          "f1": 0.72,
+          "fn": 2,
+          "fp": 5,
+          "precision": 0.643,
+          "recall": 0.818,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "13/18"
+          },
+          "exact_match": 0.722,
+          "f1": 0.72,
+          "fn": 2,
+          "fp": 5,
+          "precision": 0.643,
+          "recall": 0.818,
+          "tp": 9
+        }
+      ],
+      "precision_mean": 0.634,
+      "recall_mean": 0.818,
+      "reviewer": "qwen3_30b",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.755,
+      "f1_mean": 0.681,
+      "f1_stdev": 0.062,
+      "item_errors": {
+        "G03": [
+          "miss:significance_not_importance|over:overclaim",
+          "miss:significance_not_importance|over:causal_overreach,overclaim",
+          "|over:causal_overreach,overclaim",
+          "miss:significance_not_importance|over:overclaim",
+          "miss:significance_not_importance|over:overclaim"
+        ],
+        "G05": [
+          "miss:base_rate_neglect"
+        ],
+        "G06": [
+          "|over:base_rate_neglect"
+        ],
+        "G11": [
+          "miss:heuristic_not_empirical|over:self_sealing,source_domain_mismatch"
+        ],
+        "G12": [
+          "|over:heuristic_not_empirical",
+          "|over:heuristic_not_empirical",
+          "|over:heuristic_not_empirical"
+        ],
+        "G14": [
+          "|over:self_sealing"
+        ],
+        "G15": [
+          "miss:significance_not_importance",
+          "miss:significance_not_importance|over:untraceable_citation",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance"
+        ],
+        "G16": [
+          "miss:causal_overreach,untraceable_citation|over:overclaim",
+          "miss:untraceable_citation|over:overclaim",
+          "miss:untraceable_citation|over:overclaim",
+          "miss:untraceable_citation",
+          "miss:untraceable_citation|over:overclaim"
+        ]
+      },
+      "item_exact_rate": {
+        "G01": 1.0,
+        "G02": 1.0,
+        "G03": 0.0,
+        "G04": 1.0,
+        "G05": 0.8,
+        "G06": 0.8,
+        "G07": 1.0,
+        "G08": 1.0,
+        "G09": 1.0,
+        "G10": 1.0,
+        "G11": 0.8,
+        "G12": 0.4,
+        "G13": 1.0,
+        "G14": 0.8,
+        "G15": 0.0,
+        "G16": 0.0,
+        "G17": 1.0,
+        "G18": 1.0
+      },
+      "model": "ibm-granite/granite-4.1-8b",
+      "out_price_per_mtok": 0.1,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "15/18"
+          },
+          "exact_match": 0.833,
+          "f1": 0.7,
+          "fn": 4,
+          "fp": 2,
+          "precision": 0.778,
+          "recall": 0.636,
+          "tp": 7
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "13/18"
+          },
+          "exact_match": 0.722,
+          "f1": 0.56,
+          "fn": 4,
+          "fp": 7,
+          "precision": 0.5,
+          "recall": 0.636,
+          "tp": 7
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "13/18"
+          },
+          "exact_match": 0.722,
+          "f1": 0.72,
+          "fn": 2,
+          "fp": 5,
+          "precision": 0.643,
+          "recall": 0.818,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "13/18"
+          },
+          "exact_match": 0.722,
+          "f1": 0.727,
+          "fn": 3,
+          "fp": 3,
+          "precision": 0.727,
+          "recall": 0.727,
+          "tp": 8
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "14/18"
+          },
+          "exact_match": 0.778,
+          "f1": 0.7,
+          "fn": 4,
+          "fp": 2,
+          "precision": 0.778,
+          "recall": 0.636,
+          "tp": 7
+        }
+      ],
+      "precision_mean": 0.685,
+      "recall_mean": 0.691,
+      "reviewer": "granite_8b",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.767,
+      "f1_mean": 0.66,
+      "f1_stdev": 0.334,
+      "item_errors": {
+        "G01": [
+          "miss:causal_overreach"
+        ],
+        "G03": [
+          "|over:causal_overreach",
+          "|over:causal_overreach",
+          "|over:causal_overreach",
+          "miss:significance_not_importance",
+          "|over:causal_overreach"
+        ],
+        "G05": [
+          "miss:base_rate_neglect",
+          "miss:base_rate_neglect"
+        ],
+        "G06": [
+          "|over:base_rate_neglect"
+        ],
+        "G07": [
+          "miss:untraceable_citation"
+        ],
+        "G09": [
+          "miss:source_domain_mismatch"
+        ],
+        "G11": [
+          "miss:heuristic_not_empirical",
+          "|over:overclaim"
+        ],
+        "G13": [
+          "miss:self_sealing"
+        ],
+        "G15": [
+          "miss:significance_not_importance",
+          "miss:significance_not_importance|over:untraceable_citation",
+          "miss:significance_not_importance|over:untraceable_citation",
+          "miss:overclaim,significance_not_importance",
+          "miss:significance_not_importance|over:untraceable_citation"
+        ],
+        "G16": [
+          "miss:causal_overreach|over:overclaim",
+          "miss:causal_overreach,untraceable_citation"
+        ]
+      },
+      "item_exact_rate": {
+        "G01": 0.8,
+        "G02": 1.0,
+        "G03": 0.0,
+        "G04": 1.0,
+        "G05": 0.6,
+        "G06": 0.8,
+        "G07": 0.8,
+        "G08": 1.0,
+        "G09": 0.8,
+        "G10": 1.0,
+        "G11": 0.6,
+        "G12": 1.0,
+        "G13": 0.8,
+        "G14": 1.0,
+        "G15": 0.0,
+        "G16": 0.6,
+        "G17": 1.0,
+        "G18": 1.0
+      },
+      "model": "mistralai/ministral-8b",
+      "out_price_per_mtok": 0.15,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "13/18"
+          },
+          "exact_match": 0.722,
+          "f1": 0.727,
+          "fn": 3,
+          "fp": 3,
+          "precision": 0.727,
+          "recall": 0.727,
+          "tp": 8
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.87,
+          "fn": 1,
+          "fp": 2,
+          "precision": 0.833,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "16/18"
+          },
+          "exact_match": 0.889,
+          "f1": 0.87,
+          "fn": 1,
+          "fp": 2,
+          "precision": 0.833,
+          "recall": 0.909,
+          "tp": 10
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "9/18"
+          },
+          "exact_match": 0.5,
+          "f1": 0.0,
+          "fn": 11,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.0,
+          "tp": 0
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "15/18"
+          },
+          "exact_match": 0.833,
+          "f1": 0.833,
+          "fn": 1,
+          "fp": 3,
+          "precision": 0.769,
+          "recall": 0.909,
+          "tp": 10
+        }
+      ],
+      "precision_mean": 0.832,
+      "recall_mean": 0.691,
+      "reviewer": "ministral_8b",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.444,
+      "f1_mean": 0.417,
+      "f1_stdev": 0.0,
+      "item_errors": {
+        "G02": [
+          "|over:causal_overreach",
+          "|over:causal_overreach",
+          "|over:causal_overreach",
+          "|over:causal_overreach",
+          "|over:causal_overreach"
+        ],
+        "G03": [
+          "miss:significance_not_importance|over:overclaim",
+          "miss:significance_not_importance|over:overclaim",
+          "miss:significance_not_importance|over:overclaim",
+          "miss:significance_not_importance|over:overclaim",
+          "miss:significance_not_importance|over:overclaim"
+        ],
+        "G04": [
+          "|over:significance_not_importance",
+          "|over:significance_not_importance",
+          "|over:significance_not_importance",
+          "|over:significance_not_importance",
+          "|over:significance_not_importance"
+        ],
+        "G06": [
+          "|over:base_rate_neglect",
+          "|over:base_rate_neglect",
+          "|over:base_rate_neglect",
+          "|over:base_rate_neglect",
+          "|over:base_rate_neglect"
+        ],
+        "G07": [
+          "miss:untraceable_citation",
+          "miss:untraceable_citation",
+          "miss:untraceable_citation",
+          "miss:untraceable_citation",
+          "miss:untraceable_citation"
+        ],
+        "G10": [
+          "|over:source_domain_mismatch",
+          "|over:source_domain_mismatch",
+          "|over:source_domain_mismatch",
+          "|over:source_domain_mismatch",
+          "|over:source_domain_mismatch"
+        ],
+        "G11": [
+          "miss:heuristic_not_empirical|over:source_domain_mismatch",
+          "miss:heuristic_not_empirical|over:source_domain_mismatch",
+          "miss:heuristic_not_empirical|over:source_domain_mismatch",
+          "miss:heuristic_not_empirical|over:source_domain_mismatch",
+          "miss:heuristic_not_empirical|over:source_domain_mismatch"
+        ],
+        "G14": [
+          "|over:self_sealing",
+          "|over:self_sealing",
+          "|over:self_sealing",
+          "|over:self_sealing",
+          "|over:self_sealing"
+        ],
+        "G15": [
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance",
+          "miss:significance_not_importance"
+        ],
+        "G16": [
+          "miss:causal_overreach,untraceable_citation|over:overclaim",
+          "miss:causal_overreach,untraceable_citation|over:overclaim",
+          "miss:causal_overreach,untraceable_citation|over:overclaim",
+          "miss:causal_overreach,untraceable_citation|over:overclaim",
+          "miss:causal_overreach,untraceable_citation|over:overclaim"
+        ]
+      },
+      "item_exact_rate": {
+        "G01": 1.0,
+        "G02": 0.0,
+        "G03": 0.0,
+        "G04": 0.0,
+        "G05": 1.0,
+        "G06": 0.0,
+        "G07": 0.0,
+        "G08": 1.0,
+        "G09": 1.0,
+        "G10": 0.0,
+        "G11": 0.0,
+        "G12": 1.0,
+        "G13": 1.0,
+        "G14": 0.0,
+        "G15": 0.0,
+        "G16": 0.0,
+        "G17": 1.0,
+        "G18": 1.0
+      },
+      "model": "ibm-granite/granite-4.0-h-micro",
+      "out_price_per_mtok": 0.112,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "8/18"
+          },
+          "exact_match": 0.444,
+          "f1": 0.417,
+          "fn": 6,
+          "fp": 8,
+          "precision": 0.385,
+          "recall": 0.455,
+          "tp": 5
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "8/18"
+          },
+          "exact_match": 0.444,
+          "f1": 0.417,
+          "fn": 6,
+          "fp": 8,
+          "precision": 0.385,
+          "recall": 0.455,
+          "tp": 5
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "8/18"
+          },
+          "exact_match": 0.444,
+          "f1": 0.417,
+          "fn": 6,
+          "fp": 8,
+          "precision": 0.385,
+          "recall": 0.455,
+          "tp": 5
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "8/18"
+          },
+          "exact_match": 0.444,
+          "f1": 0.417,
+          "fn": 6,
+          "fp": 8,
+          "precision": 0.385,
+          "recall": 0.455,
+          "tp": 5
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "8/18"
+          },
+          "exact_match": 0.444,
+          "f1": 0.417,
+          "fn": 6,
+          "fp": 8,
+          "precision": 0.385,
+          "recall": 0.455,
+          "tp": 5
+        }
+      ],
+      "precision_mean": 0.385,
+      "recall_mean": 0.455,
+      "reviewer": "granite_micro",
+      "runs": 5
+    }
+  ]
+}

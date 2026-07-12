@@ -21,11 +21,17 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from desi.case_studies.marcognity_muse_spark.redteam.hard import prompt, score  # noqa: E402
+from desi.case_studies.marcognity_muse_spark.redteam.hard import score  # noqa: E402
+from desi.case_studies.marcognity_muse_spark.redteam.hard import prompt as hard_prompt  # noqa: E402
+from desi.case_studies.marcognity_muse_spark.redteam.hard.items import HARD_ITEMS  # noqa: E402
+from desi.case_studies.marcognity_muse_spark.redteam.hard2 import prompt as hard2_prompt  # noqa: E402
+from desi.case_studies.marcognity_muse_spark.redteam.hard2.items import HARD2_ITEMS  # noqa: E402
 
-HARD_DIR = (Path(__file__).resolve().parents[1]
-            / "src/desi/case_studies/marcognity_muse_spark/redteam/hard")
-RUNS_DIR = HARD_DIR / "external_runs"
+_BASE = Path(__file__).resolve().parents[1] / "src/desi/case_studies/marcognity_muse_spark/redteam"
+_BENCH = {
+    "hard": (hard_prompt, HARD_ITEMS, _BASE / "hard"),
+    "hard2": (hard2_prompt, HARD2_ITEMS, _BASE / "hard2"),
+}
 
 
 def call(model: str, text_prompt: str, temperature: float, key: str) -> tuple[str, dict]:
@@ -53,9 +59,10 @@ def call(model: str, text_prompt: str, temperature: float, key: str) -> tuple[st
     return (txt or ""), data.get("usage", {})
 
 
-def run_model(model: str, slug: str, n: int, temp: float, key: str) -> dict:
-    p = prompt.build_prompt()
-    out_dir = RUNS_DIR / slug
+def run_model(model: str, slug: str, n: int, temp: float, key: str,
+              prompt_mod, items, runs_dir: Path) -> dict:
+    p = prompt_mod.build_prompt()
+    out_dir = runs_dir / slug
     out_dir.mkdir(parents=True, exist_ok=True)
     runs: list[dict] = []
     tin = tout = 0
@@ -68,12 +75,12 @@ def run_model(model: str, slug: str, n: int, temp: float, key: str) -> dict:
         (out_dir / f"run_{i}.txt").write_text(text, encoding="utf-8")
         tin += usage.get("prompt_tokens", 0)
         tout += usage.get("completion_tokens", 0)
-        parsed = prompt.parse_answer(text)
+        parsed = prompt_mod.parse_answer(text)
         if not text.strip() or "{" not in text:
             print(f"  {slug} run {i}: EMPTY/unparseable — excluded", file=sys.stderr)
             continue
         runs.append({k: v for k, v in parsed.items()})
-    s = score.score_runs(slug, runs)
+    s = score.score_runs(slug, runs, items)
     s["model"] = model
     s["tokens"] = {"in": tin, "out": tout, "per_run": round((tin + tout) / max(len(runs), 1))}
     return s
@@ -81,6 +88,7 @@ def run_model(model: str, slug: str, n: int, temp: float, key: str) -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--benchmark", choices=list(_BENCH), default="hard")
     ap.add_argument("--models", default="openai/gpt-5.1:gpt51,"
                     "google/gemini-2.5-pro:gemini25pro,x-ai/grok-4.5:grok45")
     ap.add_argument("--runs", type=int, default=5)
@@ -91,21 +99,25 @@ def main() -> int:
         print("OPENROUTER_API_KEY not set", file=sys.stderr)
         return 2
 
+    prompt_mod, items, bench_dir = _BENCH[args.benchmark]
+    runs_dir = bench_dir / "external_runs"
     scores = []
     for spec in args.models.split(","):
         model, slug = spec.rsplit(":", 1) if spec.count(":") > 1 else spec.split(":")
         try:
-            s = run_model(model, slug, args.runs, args.temperature, key)
+            s = run_model(model, slug, args.runs, args.temperature, key,
+                          prompt_mod, items, runs_dir)
         except (urllib.error.HTTPError, urllib.error.URLError) as e:
             print(f"{slug}: FAILED ({e}) — skipped", file=sys.stderr)
             continue
         scores.append(s)
-        print(f"{slug:<14} F1 {s['f1_mean']}±{s['f1_stdev']}  exact {s['exact_match_mean']}  "
+        print(f"{slug:<20} F1 {s['f1_mean']}±{s['f1_stdev']}  exact {s['exact_match_mean']}  "
               f"P {s['precision_mean']}  R {s['recall_mean']}  "
               f"tok/run {s['tokens']['per_run']}")
 
-    score.write_scorecard(HARD_DIR / "hard_scorecard.json", scores)
-    print(f"\nscorecard -> {HARD_DIR / 'hard_scorecard.json'}")
+    card = bench_dir / f"{args.benchmark}_scorecard.json"
+    score.write_scorecard(card, scores, items)
+    print(f"\nscorecard -> {card}")
     return 0
 
 

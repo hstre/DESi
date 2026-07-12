@@ -1,0 +1,22 @@
+```json
+{
+  "N1": ["significance_not_importance", "overclaim"],
+  "N2": ["self_sealing"],
+  "N3": ["source_domain_mismatch"],
+  "N4": ["untraceable_citation", "overclaim", "causal_overreach"],
+  "N5": ["causal_overreach"],
+  "N6": ["heuristic_not_empirical"],
+  "N7": ["base_rate_neglect"],
+  "N8": [],
+  "N9": ["overclaim"],
+  "N10": [],
+  "N11": [],
+  "N12": ["heuristic_not_empirical", "self_sealing"],
+  "N13": ["base_rate_neglect"],
+  "N14": ["self_sealing"],
+  "N15": ["significance_not_importance"],
+  "N16": [],
+  "N17": [],
+  "N18": ["untraceable_citation"]
+}
+```
