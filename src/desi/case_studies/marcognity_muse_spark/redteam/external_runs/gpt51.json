@@ -1,0 +1,107 @@
+{
+  "name": "gpt51",
+  "runs": [
+    {
+      "P2-domain": [
+        "source_domain_mismatch"
+      ],
+      "C1-clean-citation": [],
+      "P4-overclaim": [
+        "overclaim"
+      ],
+      "P1-untraceable": [
+        "untraceable_citation"
+      ],
+      "P5-heuristic": [
+        "heuristic_not_empirical"
+      ],
+      "C2-clean-heuristic": [],
+      "P3-selfsealing": [
+        "self_sealing"
+      ]
+    },
+    {
+      "P2-domain": [
+        "source_domain_mismatch"
+      ],
+      "C1-clean-citation": [],
+      "P4-overclaim": [
+        "overclaim"
+      ],
+      "P1-untraceable": [
+        "untraceable_citation"
+      ],
+      "P5-heuristic": [
+        "heuristic_not_empirical"
+      ],
+      "C2-clean-heuristic": [],
+      "P3-selfsealing": [
+        "self_sealing"
+      ]
+    },
+    {
+      "P2-domain": [
+        "source_domain_mismatch"
+      ],
+      "C1-clean-citation": [],
+      "P4-overclaim": [
+        "overclaim"
+      ],
+      "P1-untraceable": [
+        "untraceable_citation"
+      ],
+      "P5-heuristic": [
+        "heuristic_not_empirical"
+      ],
+      "C2-clean-heuristic": [],
+      "P3-selfsealing": [
+        "self_sealing"
+      ]
+    },
+    {
+      "P2-domain": [
+        "source_domain_mismatch"
+      ],
+      "C1-clean-citation": [],
+      "P4-overclaim": [
+        "overclaim"
+      ],
+      "P1-untraceable": [
+        "untraceable_citation"
+      ],
+      "P5-heuristic": [
+        "heuristic_not_empirical"
+      ],
+      "C2-clean-heuristic": [],
+      "P3-selfsealing": [
+        "self_sealing"
+      ]
+    },
+    {
+      "P2-domain": [
+        "source_domain_mismatch"
+      ],
+      "C1-clean-citation": [],
+      "P4-overclaim": [
+        "overclaim"
+      ],
+      "P1-untraceable": [
+        "untraceable_citation"
+      ],
+      "P5-heuristic": [
+        "heuristic_not_empirical"
+      ],
+      "C2-clean-heuristic": [],
+      "P3-selfsealing": [
+        "self_sealing"
+      ]
+    }
+  ],
+  "profile": {
+    "model": "openai/gpt-5.1",
+    "temperature": 0.7,
+    "n_runs": 5,
+    "cost": "3245 in + 350 out tokens across 5 runs (OpenRouter)",
+    "compute": "5 blind passes of openai/gpt-5.1 (cross-vendor frontier LLM)"
+  }
+}

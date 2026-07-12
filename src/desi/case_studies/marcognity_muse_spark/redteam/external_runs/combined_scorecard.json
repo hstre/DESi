@@ -1,0 +1,806 @@
+{
+  "controls": [
+    "C1-clean-citation",
+    "C2-clean-heuristic"
+  ],
+  "discriminating": true,
+  "failure_modes": [
+    "untraceable_citation",
+    "source_domain_mismatch",
+    "self_sealing",
+    "overclaim",
+    "heuristic_not_empirical"
+  ],
+  "note": "Dies ist ein HARNESS, kein Ergebnis. Der DESi-Referenz-Reviewer erreicht 5/5 Catch und 0 False Positives per Konstruktion (er IST die Analyse, die die Probes definiert hat); der naive Whole-Text-Reviewer 0/5. Beides ist kein Befund. Der interessante Befund entsteht erst, wenn ein ECHTER Background-Reviewer (Claude Science, ein Frontier-LLM) durch den External-Slot läuft und die Tabelle sich füllt — und die tragfähige Aussage wäre keine 'A schlägt B', sondern eine Architektur-Effizienz-These: vergleichbare epistemische Kontrolle bei deutlich geringerem, deterministischerem Compute.",
+  "scores": [
+    {
+      "catch_rate": 1.0,
+      "caught": 5,
+      "caught_per_run": [
+        5
+      ],
+      "compute": "cpu, offline, rule evaluation",
+      "controls_clean": 2,
+      "controls_total": 2,
+      "cost": "negligible (no model call)",
+      "false_positives": 0,
+      "false_positives_max": 0,
+      "false_positives_mean": 0.0,
+      "false_positives_per_run": [
+        0
+      ],
+      "per_mode": {
+        "heuristic_not_empirical": true,
+        "overclaim": true,
+        "self_sealing": true,
+        "source_domain_mismatch": true,
+        "untraceable_citation": true
+      },
+      "per_run": [
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 1
+        }
+      ],
+      "positives": 5,
+      "results": [
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "untraceable_citation",
+          "probe_key": "P1-untraceable",
+          "raised": [
+            "source_domain_mismatch",
+            "untraceable_citation"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "source_domain_mismatch",
+          "probe_key": "P2-domain",
+          "raised": [
+            "source_domain_mismatch"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "self_sealing",
+          "probe_key": "P3-selfsealing",
+          "raised": [
+            "overclaim",
+            "self_sealing"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "overclaim",
+          "probe_key": "P4-overclaim",
+          "raised": [
+            "overclaim",
+            "self_sealing"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "heuristic_not_empirical",
+          "probe_key": "P5-heuristic",
+          "raised": [
+            "heuristic_not_empirical"
+          ]
+        },
+        {
+          "caught": false,
+          "control_clean": true,
+          "false_positives": [],
+          "kind": "control",
+          "must_flag": null,
+          "probe_key": "C1-clean-citation",
+          "raised": []
+        },
+        {
+          "caught": false,
+          "control_clean": true,
+          "false_positives": [],
+          "kind": "control",
+          "must_flag": null,
+          "probe_key": "C2-clean-heuristic",
+          "raised": []
+        }
+      ],
+      "reviewer": "desi",
+      "runs": 1,
+      "stability": 1.0
+    },
+    {
+      "catch_rate": 0.0,
+      "caught": 0,
+      "caught_per_run": [
+        0
+      ],
+      "compute": "modelled (one whole-text LLM verdict)",
+      "controls_clean": 2,
+      "controls_total": 2,
+      "cost": "high in reality (1 LLM pass); stubbed here",
+      "false_positives": 0,
+      "false_positives_max": 0,
+      "false_positives_mean": 0.0,
+      "false_positives_per_run": [
+        0
+      ],
+      "per_mode": {
+        "heuristic_not_empirical": false,
+        "overclaim": false,
+        "self_sealing": false,
+        "source_domain_mismatch": false,
+        "untraceable_citation": false
+      },
+      "per_run": [
+        {
+          "caught": 0,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 1
+        }
+      ],
+      "positives": 5,
+      "results": [
+        {
+          "caught": false,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "untraceable_citation",
+          "probe_key": "P1-untraceable",
+          "raised": []
+        },
+        {
+          "caught": false,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "source_domain_mismatch",
+          "probe_key": "P2-domain",
+          "raised": []
+        },
+        {
+          "caught": false,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "self_sealing",
+          "probe_key": "P3-selfsealing",
+          "raised": []
+        },
+        {
+          "caught": false,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "overclaim",
+          "probe_key": "P4-overclaim",
+          "raised": []
+        },
+        {
+          "caught": false,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "heuristic_not_empirical",
+          "probe_key": "P5-heuristic",
+          "raised": []
+        },
+        {
+          "caught": false,
+          "control_clean": true,
+          "false_positives": [],
+          "kind": "control",
+          "must_flag": null,
+          "probe_key": "C1-clean-citation",
+          "raised": []
+        },
+        {
+          "caught": false,
+          "control_clean": true,
+          "false_positives": [],
+          "kind": "control",
+          "must_flag": null,
+          "probe_key": "C2-clean-heuristic",
+          "raised": []
+        }
+      ],
+      "reviewer": "naive_whole_text",
+      "runs": 1,
+      "stability": 0.0
+    },
+    {
+      "catch_rate": 1.0,
+      "caught": 5,
+      "caught_per_run": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "compute": "5 blind Claude Opus 4.8 subagent passes (frontier LLM; NOT Claude Science)",
+      "controls_clean": 2,
+      "controls_total": 2,
+      "cost": "~102k tokens across 5 runs (measured; ~20.4k/run); $ depends on pricing",
+      "false_positives": 0,
+      "false_positives_max": 1,
+      "false_positives_mean": 0.8,
+      "false_positives_per_run": [
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "per_mode": {
+        "heuristic_not_empirical": true,
+        "overclaim": true,
+        "self_sealing": true,
+        "source_domain_mismatch": true,
+        "untraceable_citation": true
+      },
+      "per_run": [
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 1
+        },
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 1,
+          "run": 2
+        },
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 1,
+          "run": 3
+        },
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 1,
+          "run": 4
+        },
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 1,
+          "run": 5
+        }
+      ],
+      "positives": 5,
+      "results": [
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "untraceable_citation",
+          "probe_key": "P1-untraceable",
+          "raised": [
+            "untraceable_citation"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "source_domain_mismatch",
+          "probe_key": "P2-domain",
+          "raised": [
+            "source_domain_mismatch"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "self_sealing",
+          "probe_key": "P3-selfsealing",
+          "raised": [
+            "self_sealing"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "overclaim",
+          "probe_key": "P4-overclaim",
+          "raised": [
+            "overclaim"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "heuristic_not_empirical",
+          "probe_key": "P5-heuristic",
+          "raised": [
+            "heuristic_not_empirical"
+          ]
+        },
+        {
+          "caught": false,
+          "control_clean": true,
+          "false_positives": [],
+          "kind": "control",
+          "must_flag": null,
+          "probe_key": "C1-clean-citation",
+          "raised": []
+        },
+        {
+          "caught": false,
+          "control_clean": true,
+          "false_positives": [],
+          "kind": "control",
+          "must_flag": null,
+          "probe_key": "C2-clean-heuristic",
+          "raised": []
+        }
+      ],
+      "reviewer": "claude_opus_4_8_blind",
+      "runs": 5,
+      "stability": 1.0
+    },
+    {
+      "catch_rate": 1.0,
+      "caught": 5,
+      "caught_per_run": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "compute": "5 blind passes of openai/gpt-5.1 (cross-vendor frontier LLM)",
+      "controls_clean": 2,
+      "controls_total": 2,
+      "cost": "3245 in + 350 out tokens across 5 runs (OpenRouter)",
+      "false_positives": 0,
+      "false_positives_max": 0,
+      "false_positives_mean": 0.0,
+      "false_positives_per_run": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "per_mode": {
+        "heuristic_not_empirical": true,
+        "overclaim": true,
+        "self_sealing": true,
+        "source_domain_mismatch": true,
+        "untraceable_citation": true
+      },
+      "per_run": [
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 1
+        },
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 2
+        },
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 3
+        },
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 4
+        },
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 5
+        }
+      ],
+      "positives": 5,
+      "results": [
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "untraceable_citation",
+          "probe_key": "P1-untraceable",
+          "raised": [
+            "untraceable_citation"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "source_domain_mismatch",
+          "probe_key": "P2-domain",
+          "raised": [
+            "source_domain_mismatch"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "self_sealing",
+          "probe_key": "P3-selfsealing",
+          "raised": [
+            "self_sealing"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "overclaim",
+          "probe_key": "P4-overclaim",
+          "raised": [
+            "overclaim"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "heuristic_not_empirical",
+          "probe_key": "P5-heuristic",
+          "raised": [
+            "heuristic_not_empirical"
+          ]
+        },
+        {
+          "caught": false,
+          "control_clean": true,
+          "false_positives": [],
+          "kind": "control",
+          "must_flag": null,
+          "probe_key": "C1-clean-citation",
+          "raised": []
+        },
+        {
+          "caught": false,
+          "control_clean": true,
+          "false_positives": [],
+          "kind": "control",
+          "must_flag": null,
+          "probe_key": "C2-clean-heuristic",
+          "raised": []
+        }
+      ],
+      "reviewer": "gpt51",
+      "runs": 5,
+      "stability": 1.0
+    },
+    {
+      "catch_rate": 1.0,
+      "caught": 5,
+      "caught_per_run": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "compute": "5 blind passes of google/gemini-2.5-pro (cross-vendor frontier LLM)",
+      "controls_clean": 2,
+      "controls_total": 2,
+      "cost": "3285 in + 14019 out tokens across 5 usable runs (OpenRouter)",
+      "false_positives": 0,
+      "false_positives_max": 0,
+      "false_positives_mean": 0.0,
+      "false_positives_per_run": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "per_mode": {
+        "heuristic_not_empirical": true,
+        "overclaim": true,
+        "self_sealing": true,
+        "source_domain_mismatch": true,
+        "untraceable_citation": true
+      },
+      "per_run": [
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 1
+        },
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 2
+        },
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 3
+        },
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 4
+        },
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 5
+        }
+      ],
+      "positives": 5,
+      "results": [
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "untraceable_citation",
+          "probe_key": "P1-untraceable",
+          "raised": [
+            "untraceable_citation"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "source_domain_mismatch",
+          "probe_key": "P2-domain",
+          "raised": [
+            "source_domain_mismatch",
+            "untraceable_citation"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "self_sealing",
+          "probe_key": "P3-selfsealing",
+          "raised": [
+            "self_sealing"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "overclaim",
+          "probe_key": "P4-overclaim",
+          "raised": [
+            "overclaim"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "heuristic_not_empirical",
+          "probe_key": "P5-heuristic",
+          "raised": [
+            "heuristic_not_empirical"
+          ]
+        },
+        {
+          "caught": false,
+          "control_clean": true,
+          "false_positives": [],
+          "kind": "control",
+          "must_flag": null,
+          "probe_key": "C1-clean-citation",
+          "raised": []
+        },
+        {
+          "caught": false,
+          "control_clean": true,
+          "false_positives": [],
+          "kind": "control",
+          "must_flag": null,
+          "probe_key": "C2-clean-heuristic",
+          "raised": []
+        }
+      ],
+      "reviewer": "gemini25pro",
+      "runs": 5,
+      "stability": 1.0
+    },
+    {
+      "catch_rate": 1.0,
+      "caught": 5,
+      "caught_per_run": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "compute": "5 blind passes of x-ai/grok-4.5 (cross-vendor frontier LLM)",
+      "controls_clean": 2,
+      "controls_total": 2,
+      "cost": "4255 in + 6714 out tokens across 5 usable runs (OpenRouter)",
+      "false_positives": 0,
+      "false_positives_max": 0,
+      "false_positives_mean": 0.0,
+      "false_positives_per_run": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "per_mode": {
+        "heuristic_not_empirical": true,
+        "overclaim": true,
+        "self_sealing": true,
+        "source_domain_mismatch": true,
+        "untraceable_citation": true
+      },
+      "per_run": [
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 1
+        },
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 2
+        },
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 3
+        },
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 4
+        },
+        {
+          "caught": 5,
+          "controls_clean": 2,
+          "false_positives": 0,
+          "run": 5
+        }
+      ],
+      "positives": 5,
+      "results": [
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "untraceable_citation",
+          "probe_key": "P1-untraceable",
+          "raised": [
+            "untraceable_citation"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "source_domain_mismatch",
+          "probe_key": "P2-domain",
+          "raised": [
+            "source_domain_mismatch",
+            "untraceable_citation"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "self_sealing",
+          "probe_key": "P3-selfsealing",
+          "raised": [
+            "self_sealing"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "overclaim",
+          "probe_key": "P4-overclaim",
+          "raised": [
+            "overclaim"
+          ]
+        },
+        {
+          "caught": true,
+          "control_clean": false,
+          "false_positives": [],
+          "kind": "failure",
+          "must_flag": "heuristic_not_empirical",
+          "probe_key": "P5-heuristic",
+          "raised": [
+            "heuristic_not_empirical"
+          ]
+        },
+        {
+          "caught": false,
+          "control_clean": true,
+          "false_positives": [],
+          "kind": "control",
+          "must_flag": null,
+          "probe_key": "C1-clean-citation",
+          "raised": []
+        },
+        {
+          "caught": false,
+          "control_clean": true,
+          "false_positives": [],
+          "kind": "control",
+          "must_flag": null,
+          "probe_key": "C2-clean-heuristic",
+          "raised": []
+        }
+      ],
+      "reviewer": "grok45",
+      "runs": 5,
+      "stability": 1.0
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "name": "grok45",
+  "runs": [
+    {
+      "P2-domain": [
+        "source_domain_mismatch",
+        "untraceable_citation"
+      ],
+      "C1-clean-citation": [],
+      "P4-overclaim": [
+        "overclaim"
+      ],
+      "P1-untraceable": [
+        "untraceable_citation"
+      ],
+      "P5-heuristic": [
+        "heuristic_not_empirical"
+      ],
+      "C2-clean-heuristic": [],
+      "P3-selfsealing": [
+        "self_sealing"
+      ]
+    },
+    {
+      "P2-domain": [
+        "source_domain_mismatch",
+        "untraceable_citation"
+      ],
+      "C1-clean-citation": [],
+      "P4-overclaim": [
+        "overclaim"
+      ],
+      "P1-untraceable": [
+        "untraceable_citation"
+      ],
+      "P5-heuristic": [
+        "heuristic_not_empirical"
+      ],
+      "C2-clean-heuristic": [],
+      "P3-selfsealing": [
+        "self_sealing"
+      ]
+    },
+    {
+      "P2-domain": [
+        "source_domain_mismatch",
+        "untraceable_citation"
+      ],
+      "C1-clean-citation": [],
+      "P4-overclaim": [
+        "overclaim"
+      ],
+      "P1-untraceable": [
+        "untraceable_citation"
+      ],
+      "P5-heuristic": [
+        "heuristic_not_empirical"
+      ],
+      "C2-clean-heuristic": [],
+      "P3-selfsealing": [
+        "self_sealing"
+      ]
+    },
+    {
+      "P2-domain": [
+        "source_domain_mismatch",
+        "untraceable_citation"
+      ],
+      "C1-clean-citation": [],
+      "P4-overclaim": [
+        "overclaim"
+      ],
+      "P1-untraceable": [
+        "untraceable_citation"
+      ],
+      "P5-heuristic": [
+        "heuristic_not_empirical"
+      ],
+      "C2-clean-heuristic": [],
+      "P3-selfsealing": [
+        "self_sealing"
+      ]
+    },
+    {
+      "P2-domain": [
+        "source_domain_mismatch",
+        "untraceable_citation"
+      ],
+      "C1-clean-citation": [],
+      "P4-overclaim": [
+        "overclaim"
+      ],
+      "P1-untraceable": [
+        "untraceable_citation"
+      ],
+      "P5-heuristic": [
+        "heuristic_not_empirical"
+      ],
+      "C2-clean-heuristic": [],
+      "P3-selfsealing": [
+        "self_sealing"
+      ]
+    }
+  ],
+  "profile": {
+    "model": "x-ai/grok-4.5",
+    "temperature": 0.7,
+    "n_runs": 5,
+    "failed_runs": 0,
+    "cost": "4255 in + 6714 out tokens across 5 usable runs (OpenRouter)",
+    "compute": "5 blind passes of x-ai/grok-4.5 (cross-vendor frontier LLM)"
+  }
+}

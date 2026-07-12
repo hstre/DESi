@@ -1,0 +1,22 @@
+```json
+{
+  "E1": [
+    "source_domain_mismatch",
+    "untraceable_citation"
+  ],
+  "E2": [],
+  "E3": [
+    "overclaim"
+  ],
+  "E4": [
+    "untraceable_citation"
+  ],
+  "E5": [
+    "heuristic_not_empirical"
+  ],
+  "E6": [],
+  "E7": [
+    "self_sealing"
+  ]
+}
+```

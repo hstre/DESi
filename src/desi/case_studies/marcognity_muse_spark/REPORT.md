@@ -305,9 +305,10 @@ gehedgter Hypothese.
   `runs` für Varianz) läuft; die tragfähige These wäre dann Architektur-Effizienz („vergleichbare
   Kontrolle, deutlich weniger/deterministischerer Compute"), nicht „A schlägt B". Reproduktion:
   `python -m desi.case_studies.marcognity_muse_spark.redteam [--external out.json]`.
-  **Erster echter Lauf** (`redteam/REDTEAM_RESULT.md`): ein *blinder* Claude-Opus-4.8-Reviewer
-  (5 Läufe; NICHT Claude Science — nicht verfügbar) fängt **5/5** Failure-Modes stabil und hält beide
-  Controls sauber, zeigt aber **milde Über-Flag-Tendenz** (FP Ø 0.8, in 4/5 Läufen ein `self_sealing`
-  zu viel); DESi 5/5, 0 FP, deterministisch. Ehrliche Lesart: vergleichbarer Catch, DESi mit
-  Präzision/Determinismus zu ~0 Cost — aber **noch kein veröffentlichbarer Befund** (vor-destillierte
-  Auszüge, gleiche Modellfamilie, n=1). Rohantworten verbatim in `redteam/external_runs/`.
+  **Echter cross-vendor Lauf** (`redteam/REDTEAM_RESULT.md`): drei blinde Frontier-Modelle
+  (gpt-5.1, gemini-2.5-pro, grok-4.5; je 5 Läufe; NICHT Claude Science) erreichen **alle 5/5 Catch,
+  0 FP, Controls sauber, Stabilität 1.0** — genau wie DESi. Ehrliche, für DESi *unbequeme* Lesart: die
+  Differenzierungs-These **kollabiert auf diesem Pilot** — der Test (vor-destillierte Auszüge) ist zu
+  leicht, um einen guten LLM von DESis Regeln zu trennen; DESis Rest-Vorteil ist nur noch Cost +
+  garantierter Determinismus. **Nicht veröffentlichbar**; ein echter Befund bräuchte rohe Volltexte.
+  Rohantworten verbatim in `redteam/external_runs/`.

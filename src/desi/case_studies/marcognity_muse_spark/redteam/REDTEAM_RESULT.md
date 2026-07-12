@@ -1,76 +1,76 @@
-# Red-Team-Ergebnis — der External-Slot, mit einem echten blinden Frontier-Reviewer gefüllt
+# Red-Team-Ergebnis — External-Slot mit echten, cross-vendor Frontier-Reviewern gefüllt
 
-*Der Harness war der Aufbau; dies ist der erste echte Lauf. Ergebnis zuerst, dann die Grenzen,
-die es (noch) unveröffentlichbar machen.*
+*Der Harness war der Aufbau; dies ist der echte Lauf, jetzt mit drei Anbietern. Ergebnis zuerst,
+dann die ehrliche — und für DESi unbequeme — Schlussfolgerung.*
 
-## Aufbau des Laufs
+## Aufbau
 
-- **Reviewer:** ein **blinder Claude-Opus-4.8-Reviewer** — fünf unabhängige, frische Subagenten,
-  die meinen Kontext (und damit den DESi-Answer-Key) **nicht** haben. Sie sahen nur die neutrale
-  Rubrik (fünf Flag-Definitionen) und sieben Auszüge mit neutralen IDs (E1–E7), gemischt, ohne
-  „failure/control"-Label (`redteam/external_probe.py`, roh gespeichert in
-  `redteam/external_runs/claude_blind/run_*.json`).
-- **NICHT Claude Science** — das Produkt war in dieser Umgebung nicht aufrufbar (keine API-Keys).
-  Ein möglichst vergleichbares Frontier-Modell wurde genommen; die Einschränkung steht unten.
-- **5 Läufe** für Varianz. Cost gemessen: ~20,4k Tokens/Lauf, ~102k gesamt.
+Alle Reviewer sahen denselben **blinden** Prompt (`external_probe.py`): die neutrale Rubrik (fünf
+Flag-Definitionen) + sieben Auszüge mit neutralen IDs E1–E7, gemischt, ohne „failure/control"-Label
+und **ohne Answer-Key**. Rohantworten verbatim unter `redteam/external_runs/<slug>/`.
 
-## Ergebnis (5 Läufe)
+- **Cross-vendor Frontier-Modelle via OpenRouter** (5 Läufe je, temp 0.7): `openai/gpt-5.1`,
+  `google/gemini-2.5-pro`, `x-ai/grok-4.5` — drei verschiedene Anbieter → echte **modellseitige
+  Unabhängigkeit**.
+- Zusätzlich der frühere **blinde Claude-Opus-4.8-Subagent** (5 Läufe).
+- **NICHT Claude Science** (das Produkt war nicht aufrufbar).
 
-| Reviewer | Catch | FP je Lauf | FP Ø | Controls sauber | Catch-Stabilität | Cost |
+## Ergebnis
+
+| Reviewer | Catch | FP/​Lauf | FP Ø | Controls sauber | Stabilität | Cost (Tokens, 5 Läufe) |
 |---|---|---|---|---|---|---|
-| naive_whole_text (Baseline) | 0/5 | [0] | 0 | 2/2 | 0 | (Stub) |
-| **claude_opus_4_8_blind** | **5/5** | **[0,1,1,1,1]** | **0.8** | **2/2** | **1.0** | ~102k Tok / 5 Läufe |
+| naive_whole_text (Baseline) | 0/5 | [0] | 0 | 2/2 | 0 | — |
+| **openai/gpt-5.1** | **5/5** | [0,0,0,0,0] | **0** | 2/2 | 1.0 | 3.2k in + 0.35k out |
+| **google/gemini-2.5-pro** | **5/5** | [0,0,0,0,0] | **0** | 2/2 | 1.0 | 3.3k in + 14k out |
+| **x-ai/grok-4.5** | **5/5** | [0,0,0,0,0] | **0** | 2/2 | 1.0 | 4.3k in + 6.7k out |
+| claude_opus_4.8 (blind subagent) | 5/5 | [0,1,1,1,1] | 0.8 | 2/2 | 1.0 | ~102k (Subagent-Overhead) |
 | DESi (Referenz) | 5/5\* | [0] | 0\* | 2/2 | 1.0 | vernachlässigbar (CPU) |
 
 \* per Konstruktion.
 
-**Was tatsächlich passierte:**
-- Der blinde Frontier-Reviewer **fängt alle fünf Failure-Modes in jedem Lauf** (Catch 5/5, stabil).
-  Das ist der wichtigste, *nicht* selbstbedienende Befund: die Geschichte ist **nicht** „DESi schlägt
-  das LLM beim Fangen". Beide fangen 5/5.
-- Er **hält beide Clean-Controls in jedem Lauf sauber** — gute Präzision auf den Negativen.
-- Er zeigt eine **milde Über-Flag-Tendenz**: in 4/5 Läufen hängt er `self_sealing` an den
-  Untraceable-Citation-Auszug (E4/P1), wo es nicht hingehört → ein echter False Positive (FP Ø 0.8,
-  Varianz zwischen 0 und 1).
+**Was tatsächlich passierte:** Alle drei cross-vendor Frontier-Modelle erreichen **5/5 Catch, 0 False
+Positives, beide Controls sauber, perfekte Stabilität** — ihre Ausgaben waren über die fünf Läufe
+sogar identisch. Der frühere FP-Wert 0.8 des Claude-**Subagenten** war offenbar ein **Artefakt des
+Subagenten-Setups**, kein robustes Frontier-Modell-Verhalten: die drei API-Modelle über-flaggen nicht.
 
-## Ehrliche Interpretation
+## Ehrliche — und für DESi unbequeme — Schlussfolgerung
 
-Auf **diesem Pilot** ist der eigentliche Unterschied nicht der Catch (beide 5/5), sondern:
-**DESi = 0 FP, deterministisch (0 Varianz), ~0 Cost** — der Frontier-Reviewer = **milder FP + Lauf-zu-
-Lauf-Varianz + echte Token-Kosten**. Das ist eine **partielle, ehrliche Stütze** der
-Architektur-Effizienz-These: *vergleichbare Fang-Leistung, aber DESi mit deterministischer Präzision
-zu vernachlässigbarem Compute* — **keine** „A schlägt B"-Aussage.
+Auf **diesem Pilot kollabiert die Differenzierungs-These weitgehend.** Die Frontier-Modelle matchen
+DESi nicht nur beim Catch (beide 5/5), sondern auch bei **Präzision (0 FP)** und **Stabilität**. DESis
+verbleibende Vorteile sind damit nur noch **Cost** (Tokens vs. CPU) und **garantierter** Determinismus
+/ Regel-Audit-Spur — die Modelle waren hier aber *empirisch* ebenfalls deterministisch. Das ist eine
+**deutlich schwächere** Architektur-Effizienz-Geschichte als erhofft: bei klar formulierten Fehlern
+ist ein Frontier-LLM genauso gut wie DESis Regeln, nur teurer.
 
-## Grenzen — warum das (noch) KEIN veröffentlichbarer Befund ist
+Nüchtern: **Der Test ist zu leicht, um zwischen einem guten LLM und DESi zu unterscheiden.** Das ist
+das eigentliche Resultat — und es spricht **gegen**, nicht für eine „DESi liefert Kontrolle, die LLMs
+nicht haben"-Erzählung. Für vor-destillierte, isolierte Auszüge braucht man DESi nicht.
 
-1. **Vor-destillierte Auszüge (die größte Grenze).** Ich habe dem Reviewer bereits **zugespitzte,
-   isolierte Snippets** gegeben, die das Problem quasi ansagen. Ein echter Background-Reviewer sieht
-   **rohe Volltexte**, nicht kuratierte Auszüge. Das **überschätzt** die Fang-Leichtigkeit massiv; auf
-   Rohtext läge Catch vermutlich niedriger und FP anders.
-2. **Gleiche Modellfamilie.** Der Reviewer ist ein Claude-Modell — dieselbe Familie wie der
-   Harness-Autor. **Modellseitige Unabhängigkeit ist begrenzt.** (Blind zum Answer-Key ist er
-   allerdings — die *evidenzseitige* Unabhängigkeit hält.)
-3. **Nicht Claude Science.** Das eigentlich interessante Zielsystem war nicht verfügbar.
-4. **n=1, winzig.** Ein Fall, 5 Failure-Probes + 2 Controls, 5 Läufe. Ein **Pilot**, kein Benchmark.
-5. **DESis 5/5 und 0 FP bleiben per Konstruktion** — Referenz, kein unabhängiger Beleg.
+## Was das (nicht) über eine Veröffentlichung sagt
 
-## Empfehlung
+**Nicht veröffentlichen.** Eine Geschichte „DESi matcht Frontier-Modelle günstiger" wäre hier
+**irreführend**, weil (a) die Modelle bereits perfekt sind und (b) die Aufgabe zu leicht ist, um
+irgendetwas zu zeigen. Der Pilot hat vor allem **kautelaren Wert**: die vor-destillierte
+Auszugs-Rahmung beweist nichts.
 
-**Noch nichts auf Hugging Face veröffentlichen.** Der Lauf zeigt: der Harness liefert ein sinnvolles,
-diskriminierendes Signal (Baseline 0/5, Frontier 5/5 mit mildem FP, DESi 5/5 deterministisch) — aber
-die vor-destillierten Auszüge, die gleiche Modellfamilie und n=1 disqualifizieren jede öffentliche
-Aussage. Für einen echten Befund:
+Wo DESi *überhaupt* einen Unterschied machen könnte — **hier ungetestet**:
+- **rohe Volltext-Paper** mit subtilen, verschränkten Fehlern (wo ein LLM etwas übersieht oder
+  über-flaggt und DESis Gating trotzdem hält),
+- **garantierter** Determinismus / auditierbare Regel-Spur als *Anforderung* (nicht als Nice-to-have),
+- **Cost at scale** (viele Paper, viele Claims).
 
-- **Rohe Volltext-Paper** statt zugespitzter Auszüge (der entscheidende Schritt);
-- ein **cross-vendor** Frontier-Modell (GPT/Gemini neben Claude) für echte modellseitige Unabhängigkeit;
-- **mehr Items/Domänen** (nicht nur Rechtsphilosophie);
-- wenn möglich **Claude Science selbst** durch denselben Slot.
+Ob DESi dort gewinnt, ist **offen** — dieser Pilot liefert dafür keinerlei Evidenz. Erst ein Lauf auf
+rohen Volltexten mit denselben cross-vendor Modellen würde die Frage beantworten.
 
-Erst dann trägt die Architektur-Effizienz-These — und erst dann ist es ein Befund, kein sauberer
-Testlauf.
+## Grenzen (unverändert gültig)
+1. **Vor-destillierte Auszüge** — die größte Grenze; sie überschätzen die Fang-Leichtigkeit massiv.
+2. **n=1**, 5 Failure-Probes + 2 Controls, 5 Läufe — Pilot, kein Benchmark.
+3. DESis 5/5 / 0 FP bleiben **per Konstruktion** (Referenz).
+4. Cross-vendor deckt jetzt GPT/Gemini/Grok ab (modellseitige Unabhängigkeit ✓), aber **nicht Claude
+   Science** selbst.
 
 ## Reproduktion
-Rohantworten: `redteam/external_runs/claude_blind/run_*.json` (verbatim). Assembliert:
-`redteam/external_runs/claude_blind.json`. Scoren:
-`python -m desi.case_studies.marcognity_muse_spark.redteam --external redteam/external_runs/claude_blind.json`.
-Kombinierte Scorecard: `redteam/external_runs/claude_blind_scorecard.json`.
+Rohantworten: `redteam/external_runs/{gpt51,gemini25pro,grok45,claude_blind}/`. Assembliert:
+`redteam/external_runs/<slug>.json`. Kombinierte Scorecard: `redteam/external_runs/combined_scorecard.json`.
+Runner (Key aus `OPENROUTER_API_KEY`, nie eingebettet): `scripts/run_openrouter_reviewer.py`.
+Scoren: `python -m desi.case_studies.marcognity_muse_spark.redteam --external redteam/external_runs/gpt51.json`.

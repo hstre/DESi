@@ -1,0 +1,9 @@
+{
+  "E1": ["untraceable_citation", "source_domain_mismatch"],
+  "E2": [],
+  "E3": ["overclaim"],
+  "E4": ["untraceable_citation"],
+  "E5": ["heuristic_not_empirical"],
+  "E6": [],
+  "E7": ["self_sealing"]
+}
