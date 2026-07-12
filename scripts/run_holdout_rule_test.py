@@ -31,17 +31,25 @@ from desi.case_studies.marcognity_muse_spark.redteam.hard2_holdout.items import 
     HOLDOUT_ITEMS,
 )
 
-MODEL = "ibm-granite/granite-4.1-8b"
-GRANITE_USD_PER_MTOK = 0.10  # blended, as documented in REDTEAM_HARD2_RESULT.md
+# the cheap tier (blended $/Mtok as documented in the hard2 scorecard); granite-8b is
+# already measured and its raw runs are reused, not re-run.
+CHEAP_MODELS = [
+    ("ibm-granite/granite-4.1-8b", "granite_8b", 0.10),
+    ("ibm-granite/granite-4.0-h-micro", "granite_micro", 0.11),
+    ("google/gemma-3-12b-it", "gemma3_12b", 0.15),
+    ("deepseek/deepseek-v4-flash", "deepseek_v4_flash", 0.15),
+    ("mistralai/ministral-8b-2512", "ministral_8b", 0.15),
+    ("google/gemma-4-31b-it", "gemma4_31b", 0.16),
+    ("qwen/qwen3-30b-a3b", "qwen3_30b", 0.19),
+]
 _BASE = (Path(__file__).resolve().parents[1]
          / "src/desi/case_studies/marcognity_muse_spark/redteam/hard2_holdout")
-_RAW = _BASE / "external_runs" / "granite_8b"
 _TEXT = {it.id: it.text for it in HOLDOUT_ITEMS}
 _GOLD = {it.id: set(it.gold) for it in HOLDOUT_ITEMS}
 
 
-def call(text_prompt: str, key: str, temperature: float) -> tuple[str, dict]:
-    body = json.dumps({"model": MODEL, "temperature": temperature,
+def call(model: str, text_prompt: str, key: str, temperature: float) -> tuple[str, dict]:
+    body = json.dumps({"model": model, "temperature": temperature,
                        "messages": [{"role": "user", "content": text_prompt}]}).encode()
     for attempt in range(6):
         req = urllib.request.Request(
@@ -64,19 +72,20 @@ def call(text_prompt: str, key: str, temperature: float) -> tuple[str, dict]:
     return txt, data.get("usage", {})
 
 
-def one_run(run_i: int, key: str, temperature: float) -> tuple[dict, int]:
-    """Run granite over all batches; return (item->flags, total tokens)."""
-    _RAW.mkdir(parents=True, exist_ok=True)
+def one_run(model: str, slug: str, run_i: int, key: str, temperature: float) -> tuple[dict, int]:
+    """Run one model over all batches; return (item->flags, total tokens). Resumable."""
+    raw_dir = _BASE / "external_runs" / slug
+    raw_dir.mkdir(parents=True, exist_ok=True)
     flags: dict[str, set] = {}
     tokens = 0
     for b, (ptext, id_map) in enumerate(prompt.build_prompts(), 1):
-        raw_path = _RAW / f"run_{run_i}_batch_{b}.txt"
+        raw_path = raw_dir / f"run_{run_i}_batch_{b}.txt"
         if raw_path.exists() and raw_path.read_text().strip():
             text = raw_path.read_text()
         else:
             text, usage = "", {}
             for _ in range(3):
-                text, usage = call(ptext, key, temperature)
+                text, usage = call(model, ptext, key, temperature)
                 if text.strip():
                     break
             raw_path.write_text(text, encoding="utf-8")
@@ -138,34 +147,21 @@ def _coverage_escalation(base_runs, aug_runs):
     return round(cov / n, 3), round(esc / n, 3)
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--runs", type=int, default=5)
-    ap.add_argument("--temperature", type=float, default=0.7)
-    args = ap.parse_args()
-    key = os.environ.get("OPENROUTER_API_KEY")
-    if not key:
-        print("OPENROUTER_API_KEY not set", file=sys.stderr)
-        return 2
-
-    base_runs, total_tokens = [], 0
-    for i in range(1, args.runs + 1):
-        fl, tok = one_run(i, key, args.temperature)
+def evaluate(model: str, slug: str, price: float, runs: int, key: str, temp: float) -> dict:
+    base_runs, tokens = [], 0
+    for i in range(1, runs + 1):
+        fl, tok = one_run(model, slug, i, key, temp)
         base_runs.append(fl)
-        total_tokens += tok
-        print(f"  run {i} done", file=sys.stderr)
+        tokens += tok
     aug_runs = [{iid: rules.apply_rules(_TEXT[iid], fl) for iid, fl in r.items()}
                 for r in base_runs]
-
-    b = score.score_runs("granite-8b", base_runs, HOLDOUT_ITEMS)
-    a = score.score_runs("granite-8b+rule", aug_runs, HOLDOUT_ITEMS)
+    b = score.score_runs(slug, base_runs, HOLDOUT_ITEMS)
+    a = score.score_runs(f"{slug}+rule", aug_runs, HOLDOUT_ITEMS)
     cov, esc = _coverage_escalation(base_runs, aug_runs)
-    n_reviews = args.runs * len(HOLDOUT_ITEMS)
-    cost_per_review = (total_tokens / 1e6 * GRANITE_USD_PER_MTOK / n_reviews) if total_tokens else None
-
-    report = {
-        "model": MODEL, "n_items": len(HOLDOUT_ITEMS), "runs": args.runs,
-        "batch_size": prompt.BATCH_SIZE,
+    n_reviews = runs * len(HOLDOUT_ITEMS)
+    cpr = (tokens / 1e6 * price / n_reviews) if tokens else None
+    return {
+        "model": model, "slug": slug, "runs": runs, "batch_size": prompt.BATCH_SIZE,
         "significance_recall": {"baseline": _recall(base_runs, Flag2.SIGNIFICANCE_NOT_IMPORTANCE),
                                 "with_rule": _recall(aug_runs, Flag2.SIGNIFICANCE_NOT_IMPORTANCE)},
         "overclaim_fp": {"baseline": _fp(base_runs, Flag2.OVERCLAIM),
@@ -178,13 +174,49 @@ def main() -> int:
         },
         "rule_coverage": cov, "escalation_rate": esc,
         "variance_f1_stdev": {"baseline": b["f1_stdev"], "with_rule": a["f1_stdev"]},
-        "cost": {"granite_tokens_total": total_tokens,
-                 "usd_per_review_granite": round(cost_per_review, 8) if cost_per_review else None,
+        "cost": {"tokens_total": tokens,
+                 "usd_per_review_model": round(cpr, 8) if cpr else None,
                  "usd_per_review_rule": 0.0},
     }
-    (_BASE / "holdout_rule_scorecard.json").write_text(
-        json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(json.dumps(report, indent=2, ensure_ascii=False))
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--runs", type=int, default=5)
+    ap.add_argument("--temperature", type=float, default=0.7)
+    ap.add_argument("--models", default="cheap",
+                    help="'cheap' for the built-in cheap tier, or 'id:slug:price,...'")
+    args = ap.parse_args()
+    key = os.environ.get("OPENROUTER_API_KEY")
+    if not key:
+        print("OPENROUTER_API_KEY not set", file=sys.stderr)
+        return 2
+
+    if args.models == "cheap":
+        specs = CHEAP_MODELS
+    else:
+        specs = [(s.split(":")[0], s.split(":")[1], float(s.split(":")[2]))
+                 for s in args.models.split(",")]
+
+    cards = []
+    for model, slug, price in specs:
+        try:
+            r = evaluate(model, slug, price, args.runs, key, args.temperature)
+        except (urllib.error.HTTPError, urllib.error.URLError) as e:
+            print(f"{slug}: FAILED ({e}) — skipped", file=sys.stderr)
+            continue
+        cards.append(r)
+        o = r["overall"]
+        print(f"{slug:18s} F1 {o['baseline']['f1_mean']:.3f} -> {o['with_rule']['f1_mean']:.3f} "
+              f"(Δ {o['with_rule']['f1_mean'] - o['baseline']['f1_mean']:+.3f})  "
+              f"sig-R {r['significance_recall']['baseline']}->{r['significance_recall']['with_rule']}  "
+              f"newFN {r['new_false_negatives_from_rule']} newFP {r['new_false_positives_from_rule']}",
+              file=sys.stderr)
+
+    (_BASE / "holdout_rule_scorecard_all.json").write_text(
+        json.dumps({"n_items": len(HOLDOUT_ITEMS), "cards": cards}, indent=2,
+                   ensure_ascii=False) + "\n", encoding="utf-8")
+    print(json.dumps({"cards": cards}, ensure_ascii=False))
     return 0
 
 
