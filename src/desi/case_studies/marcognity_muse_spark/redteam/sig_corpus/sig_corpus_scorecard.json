@@ -1,0 +1,45 @@
+{
+  "v1": {
+    "dev": {
+      "precision": 1.0,
+      "recall": 0.417,
+      "f1": 0.588,
+      "tp": 5,
+      "fp": 0,
+      "fn": 7,
+      "missed": [
+        "D-S03",
+        "D-S04",
+        "D-S05",
+        "D-S06",
+        "D-S07",
+        "D-S08",
+        "D-S10"
+      ],
+      "false_positives": []
+    },
+    "test": {
+      "precision": 1.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 12,
+      "missed": [
+        "T-S01",
+        "T-S02",
+        "T-S03",
+        "T-S04",
+        "T-S05",
+        "T-S06",
+        "T-S07",
+        "T-S08",
+        "T-S09",
+        "T-S10",
+        "T-S11",
+        "T-S12"
+      ],
+      "false_positives": []
+    }
+  }
+}
