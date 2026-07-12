@@ -1,0 +1,13 @@
+```json
+{
+    "N1": ["overclaim", "causal_overreach"],
+    "N2": ["heuristic_not_empirical"],
+    "N3": [],
+    "N4": ["overclaim", "untraceable_citation"],
+    "N5": [],
+    "N6": ["causal_overreach", "source_domain_mismatch"],
+    "N7": ["base_rate_neglect"],
+    "N8": ["significance_not_importance"],
+    "N9": []
+}
+```

@@ -1,0 +1,29 @@
+**Analysis of each excerpt**
+
+| Excerpt ID | Issues Identified | Flags |
+|------------|-------------------|-------|
+| N1 | The statement “this proves it is dramatically more protective” overstates the evidence; a statistically significant result does not automatically equate to a large or dramatic protective effect. | overclaim, significance_not_importance |
+| N2 | The author correctly notes that a cross‑sectional association cannot infer causation, so no epistemic error is present. | – (none) |
+| N3 | Using a post‑hoc subgroup p‑value of 0.049 to claim proof of efficacy for the entire population is a clear over‑generalisation. | overclaim |
+| N4 | Reporting a non‑significant p‑value (0.6) and concluding “no reliable difference” is appropriate; no error. | – (none) |
+| N5 | Effect sizes from pigeon foraging experiments are inapplicable to human economic decisions – domain mismatch. | source_domain_mismatch |
+| N6 | Stating that a significant p‑value (<0.01) makes the treatment “the better choice for routine use” conflates statistical significance with practical superiority/clinical recommendation. | overclaim, significance_not_importance |
+| N7 | The description of Michaelis‑Menten fit with R² = 0.98 is methodologically sound; no error. | – (none) |
+| N8 | Recommending the drug for all patients based solely on a post‑hoc subgroup finding is an over‑claim. | overclaim |
+| N9 | The base‑rate (1 in 10 000) is ignored when interpreting a high‑sensitivity/high‑specificity test; most positive results will be false positives. | base_rate_neglect |
+
+**JSON output**
+
+```json
+{
+  "N1": ["overclaim", "significance_not_importance"],
+  "N2": [],
+  "N3": ["overclaim"],
+  "N4": [],
+  "N5": ["source_domain_mismatch"],
+  "N6": ["overclaim", "significance_not_importance"],
+  "N7": [],
+  "N8": ["overclaim"],
+  "N9": ["base_rate_neglect"]
+}
+```

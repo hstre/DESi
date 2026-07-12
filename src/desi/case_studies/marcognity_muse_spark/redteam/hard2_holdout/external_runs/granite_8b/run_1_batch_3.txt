@@ -1,0 +1,44 @@
+**Judgment**
+
+- **N1**: The excerpt frames the model as never wrong by invoking hidden confounders regardless of outcome, making it self‑sealing.  
+  **Flags**: `["self_sealing"]`
+
+- **N2**: The author claims the compound should replace first‑line care based solely on statistical significance, over‑extending the evidence.  
+  **Flags**: `["overclaim"]` (and implicitly `["causal_overreach"]` because significance is used to infer clinical superiority, but the primary clear violation is the overclaim)
+
+- **N3**: The statement explicitly says no causal claim is being made, so no epistemic problem is present.  
+  **Flags**: `[]`
+
+- **N4**: A single uncontrolled case series is used to justify universal standardization, which is a clear overclaim.  
+  **Flags**: `["overclaim"]`
+
+- **N5**: The excerpt correctly notes that statistical significance is separate from practical importance, so no problem is evident.  
+  **Flags**: `[]`
+
+- **N6**: The claim about unbiasedness is properly sourced within the text, so no issue.  
+  **Flags**: `[]`
+
+- **N7**: Correlation is incorrectly presented as causal causation (more police → more crime), which is causal overreach.  
+  **Flags**: `["causal_overreach"]`
+
+- **N8**: The cautious interpretation of a wide confidence interval is appropriate; no problem.  
+  **Flags**: `[]`
+
+- **N9**: The assertion relies on “the wider literature and common sense” without naming specific sources, which is an untraceable citation.  
+  **Flags**: `["untraceable_citation"]`
+
+**Resulting JSON**
+
+```json
+{
+  "N1": ["self_sealing"],
+  "N2": ["overclaim"],
+  "N3": [],
+  "N4": ["overclaim"],
+  "N5": [],
+  "N6": [],
+  "N7": ["causal_overreach"],
+  "N8": [],
+  "N9": ["untraceable_citation"]
+}
+```

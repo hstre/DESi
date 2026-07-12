@@ -1,0 +1,63 @@
+**Step‑by‑step reasoning**
+
+**Excerpt N1**  
+> “If patients improve, the model is right; if they worsen, hidden confounders masked the true effect, so the model is never wrong.”  
+- The conclusion is framed so that **any outcome** (improvement or worsening) is interpreted as confirming the model. This makes the model **self‑sealing** – no possible result can falsify it.  
+- No other epistemic problems are evident.  
+
+**Excerpt N2**  
+> “With p below 0.001 against control, the compound is evidently a far stronger analgesic and ought to replace first‑line care.”  
+- The claim jumps from **statistical significance** to a **clinical‑relevance claim** (“far stronger… ought to replace”), i.e., it **overclaims** beyond what the evidence (a p‑value) supports.  
+- No other issues appear.  
+
+**Excerpt N3**  
+> “We observed a correlation (r = 0.3) and explicitly make no causal claim, reporting it as hypothesis‑generating.”  
+- The authors correctly **disclaim causality**; thus none of the listed problems apply.  
+
+**Excerpt N4**  
+> “One uncontrolled case series improved, therefore this therapy should be standard everywhere.”  
+- The evidence (a single uncontrolled case series) is **insufficient** to justify a universal recommendation; the conclusion **overreaches** the data.  
+- No other flags are triggered.  
+
+**Excerpt N5**  
+> “We found a significant association (p = 0.01); the standardized effect size was small (d = 0.12), so importance is limited.”  
+- The authors **explicitly distinguish** statistical significance from practical importance, avoiding the **significance‑not‑importance** error.  
+
+**Excerpt N6**  
+> “The estimator is unbiased under assumptions A1‑A3, as derived in Section 4.2.”  
+- This is a straightforward methodological statement; no epistemic problem is present.  
+
+**Excerpt N7**  
+> “Cities with more police reported more crime, so hiring more police increases crime.”  
+- The statement **infers causation from an observed correlation** without justification, exemplifying **causal overreach**. No other issues appear.  
+
+**Excerpt N8**  
+> “The 95% CI was wide (0.02‑0.71); we pre‑specified this secondary endpoint and interpret it cautiously.”  
+- The authors acknowledge uncertainty and cautious interpretation; no problem is evident.  
+
+**Excerpt N9**  
+> “As established in the wider literature and by common sense, the mechanism needs no further citation.”  
+- This is a **vague appeal** to “wider literature” without naming a specific source, which constitutes an **untraceable citation**.  
+
+**Result**  
+Mapping each excerpt ID to the list of clearly present flags:
+
+```json
+{
+  "N1": ["self_sealing"],
+  "N2": ["overclaim"],
+  "N3": [],
+  "N4": ["overclaim"],
+  "N5": [],
+  "N6": [],
+  "N7": ["causal_overreach"],
+  "N8": [],
+  "N9": ["untraceable_citation"]
+}
+```
+
+**Final JSON output**  
+
+```json
+{"N1": ["self_sealing"], "N2": ["overclaim"], "N3": [], "N4": ["overclaim"], "N5": [], "N6": [], "N7": ["causal_overreach"], "N8": [], "N9": ["untraceable_citation"]}
+```

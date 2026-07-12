@@ -349,3 +349,15 @@ gehedgter Hypothese.
   (die overclaim-FPs lagen auf grenzwertig-überziehenden Items, kein Regel-Ziel). Grenze: 18 Items, nur 2 mit
   SIG-Flag → Mechanismus belegt, Betrag überzeichnet; Robustheit braucht größeren, unabhängig annotierten
   Satz. Reproduktion: `python scripts/run_hard2_rule_test.py --model-slug <slug>` (kein LLM-Call).
+- `redteam/hard2_holdout/` (**blinder Hold-out-Test — das Urteil**,
+  `redteam/hard2_holdout/REDTEAM_HOLDOUT_RULE_RESULT.md`): Regeln auf hard2 entwickelt, per Commit
+  **eingefroren** (`c1f7db6`), dann **blind** auf 27 unabhängig autorierten Items (inkl. adversarialer
+  Paraphrasen) getestet; granite-4.1-8b gebatcht in seiner **kalibrierten k\*=10-Bande** (≤9 Excerpts/Call).
+  **Granite allein → +Regel:** F1 **0.645→0.753 (+0.108)**, `significance`-Recall **0.371→0.857**, **null**
+  neue FN, **null** neue FP, Varianz **0.081→0.060**, Grenzkosten **$0**. **Urteil: DESi als billige
+  deterministische Reviewer-Schicht ist nachgewiesen** — nicht nur Audit/Repro/Compute. Mechanismus =
+  **Komplementarität**: das LLM fängt lexikalisch-variante SIG-Fälle, die Regel die kanonischen, die das LLM
+  als `overclaim` fehllabelt; zusammen 0.857, allein keiner nah. Grenzen: nur **R1** trägt (R2 auf Dev+Blind
+  wirkungslos — SIG/OC-Taxonomie-Grenzfall), R1 ist hochpräzise aber sprachlich spröde (Blind-Recall allein
+  0.571); 27 self-authored Items, ein Annotator. Reproduktion:
+  `python scripts/run_holdout_rule_test.py --runs 5`.

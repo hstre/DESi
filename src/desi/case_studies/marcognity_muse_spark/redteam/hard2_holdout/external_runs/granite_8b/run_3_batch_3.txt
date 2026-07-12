@@ -1,0 +1,44 @@
+**Analysis of each excerpt**
+
+- **N1**: The statement frames the model as unrefutable regardless of outcome (“if they worsen, hidden confounders masked the true effect”). This is a classic **self‑sealing** argument: the conclusion is constructed so that any result can be interpreted as confirming it, leaving no possibility for disconfirmation.  
+  **Flags:** `self_sealing`
+
+- **N2**: Claims that a highly significant p‑value (p < 0.001) means the compound is “a far stronger analgesic and ought to replace first‑line care.” The evidence (statistical significance alone) does not justify such a strong clinical claim; the conclusion **overreaches** the data.  
+  **Flags:** `overclaim`
+
+- **N3**: Explicitly states “we make no causal claim” and presents a correlation as hypothesis‑generating. No epistemic problem is evident.  
+  **Flags:** `[]`
+
+- **N4**: Draws a universal recommendation (“this therapy should be standard everywhere”) from a single uncontrolled case series. This is a clear **overclaim** (extrapolating from anecdotal evidence).  
+  **Flags:** `overclaim`
+
+- **N5**: Reports both a statistically significant p‑value and a small effect size (d = 0.12) and notes the limited importance. The author acknowledges the nuance, so no problem is present.  
+  **Flags:** `[]`
+
+- **N6**: Provides a technical claim (“the estimator is unbiased under assumptions A1–A3”) with a direct reference to a specific section. No problematic epistemic issue is apparent.  
+  **Flags:** `[]`
+
+- **N7**: Infers causation from an association (“cities with more police reported more crime, so hiring more police increases crime”). This is a textbook **causal_overreach** (mistaking correlation for causation).  
+  **Flags:** `causal_overreach`
+
+- **N8**: Discusses a wide confidence interval and pre‑specified secondary endpoint with cautious interpretation. No epistemic flaw is evident.  
+  **Flags:** `[]`
+
+- **N9**: Asserts a mechanism as “established in the wider literature and by common sense” without naming any specific source. This is an **untraceable_citation** (vague, non‑referential claim).  
+  **Flags:** `untraceable_citation`
+
+**Result in JSON format**
+
+```json
+{
+  "N1": ["self_sealing"],
+  "N2": ["overclaim"],
+  "N3": [],
+  "N4": ["overclaim"],
+  "N5": [],
+  "N6": [],
+  "N7": ["causal_overreach"],
+  "N8": [],
+  "N9": ["untraceable_citation"]
+}
+```

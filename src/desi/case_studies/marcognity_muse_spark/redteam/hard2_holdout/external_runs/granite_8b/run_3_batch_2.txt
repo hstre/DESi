@@ -1,0 +1,61 @@
+**Judgment Process**
+
+1. **Excerpt N1** – Claims a statistically significant result (p = .03) is evidence of “substantially superior” performance *and* warrants rolling out the method.  
+   - The evidence (a single p‑value) does not prove *substantial* superiority; it only suggests a difference beyond chance.  
+   - The recommendation to roll out is an **overclaim** beyond what the evidence supports.  
+   - **Flag: overclaim**  
+
+2. **Excerpt N2** – Describes a “wellness score” that was weighted to make favorite clinics rank highest, and then declares those clinics are “objectively” the best.  
+   - The weighting is a subjective, self‑constructed metric, not an objective empirical measurement.  
+   - This is a **heuristic_not_empirical** construction presented as objective evidence.  
+   - **Flag: heuristic_not_empirical**  
+
+3. **Excerpt N3** – States the effect is statistically significant (p < 0.001) but tiny (0.2‑point shift on a 100‑point scale) and therefore not clinically meaningful.  
+   - The author correctly distinguishes significance from practical importance, so no epistemic problem is present.  
+   - **Flag: []**  
+
+4. **Excerpt N4** – Reports a post‑hoc finding with p = 0.049 and presents it as “clear evidence the compound is highly effective.”  
+   - The p‑value is borderline, the result is post‑hoc (data‑dredged), and the claim of “highly effective” goes beyond what that single p‑value justifies.  
+   - This is an **overclaim** and also a **untraceable_citation** (no prior methodological justification).  
+   - **Flag: overclaim** (the overclaim is the clearest issue; the untraceable citation is implicit but the primary error is the overinterpretation).  
+
+5. **Excerpt N5** – Cites a co‑crystal structure (PDB 2XYZ) and a dose‑response figure, with analysis code deposited.  
+   - All sources are directly relevant and appropriately referenced.  
+   - No epistemic problem is evident.  
+   - **Flag: []**  
+
+6. **Excerpt N6** – Asserts that “reports everywhere” show screen time lowers grades, therefore banning phones will raise test scores nationwide.  
+   - This jumps from an associative claim (screen time ↔ lower grades) to a causal policy recommendation (banning phones → higher scores).  
+   - It commits a **causal_overreach**.  
+   - **Flag: causal_overreach**  
+
+7. **Excerpt N7** – Claims a 99 % accurate test for a disease with prevalence 1 in 50 000 leads to “the patient almost certainly has it” given a positive result.  
+   - The statement ignores the low base rate, conflating high sensitivity/specificity with high positive predictive value.  
+   - This is a classic **base_rate_neglect**.  
+   - **Flag: base_rate_neglect**  
+
+8. **Excerpt N8** – States that a significant association at the 1 % level “clearly has a large practical impact.”  
+   - Significance level does not determine effect size or practical importance.  
+   - This conflates **statistical significance** with **practical importance**, i.e., **significance_not_importance**.  
+   - **Flag: significance_not_importance**  
+
+9. **Excerpt N9** – Reports a pre‑registered primary analysis with a 95 % confidence interval (0.10–0.42) and explicitly limits generalization to the studied cohort.  
+   - The author is cautious and transparent about the evidence’s scope.  
+   - No epistemic problem is present.  
+   - **Flag: []**  
+
+**Final JSON Output**
+
+```json
+{
+  "N1": ["overclaim"],
+  "N2": ["heuristic_not_empirical"],
+  "N3": [],
+  "N4": ["overclaim"],
+  "N5": [],
+  "N6": ["causal_overreach"],
+  "N7": ["base_rate_neglect"],
+  "N8": ["significance_not_importance"],
+  "N9": []
+}
+```

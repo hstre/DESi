@@ -1,0 +1,27 @@
+**Analysis of each excerpt**
+
+- **N1**: The statement “if they worsen, hidden confounders masked the true effect, so the model is never wrong” frames the outcome in a way that any result—improvement or worsening—is interpreted as confirming the model. This is a classic **self‑sealing** argument, as no possible evidence can falsify the claim.
+- **N2**: The leap from a very low p‑value to concluding the compound “ought to replace first‑line care” goes beyond what the statistical test alone justifies. The evidence (associative significance) does not establish clinical superiority or practical importance, which is an **overclaim**.
+- **N3**: The author explicitly notes that no causal claim is being made and that the correlation is presented only as hypothesis‑generating. No epistemic problem is evident.
+- **N4**: Drawing a universal recommendation (“should be standard everywhere”) from a single uncontrolled case series is a clear **overclaim**; the evidence is insufficient to support a policy change.
+- **N5**: The excerpt correctly distinguishes statistical significance (p = 0.01) from a small effect size (d = 0.12) and asserts limited importance. No problem is present.
+- **N6**: The claim that the estimator is unbiased under specified assumptions is a standard methodological statement; no epistemic issue arises.
+- **N7**: Correlation (“cities with more police reported more crime”) is used to infer that “hiring more police increases crime,” which is an **observational‑to‑causal** leap without evidence of manipulation or temporal precedence—**causal_overreach**.
+- **N8**: Pre‑specifying a secondary endpoint and interpreting the wide confidence interval cautiously avoids over‑interpretation; no problem is present.
+- **N9**: The author asserts a well‑established mechanism without providing any specific, checkable source or passage, making the claim **untraceable_citation**.
+
+**Resulting flags**
+
+```json
+{
+    "N1": ["self_sealing"],
+    "N2": ["overclaim"],
+    "N3": [],
+    "N4": ["overclaim"],
+    "N5": [],
+    "N6": [],
+    "N7": ["causal_overreach"],
+    "N8": [],
+    "N9": ["untraceable_citation"]
+}
+```

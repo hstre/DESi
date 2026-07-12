@@ -1,0 +1,27 @@
+**Analysis of each excerpt**
+
+- **N1**: Claims that statistical significance *proves* dramatic superiority, conflating significance with effect size/importance. → **significance_not_importance** (and also **overclaim** because the conclusion exceeds what the evidence alone supports).  
+- **N2**: Explicitly states that cross‑sectional data cannot support causal inference. No epistemic problem. → **[]**  
+- **N3**: Uses a data‑driven subgroup finding (p = 0.049) as proof of efficacy for the entire population, a classic post‑hoc over‑generalization. → **overclaim** (and also **heuristic_not_empirical** because the subgroup was selected after seeing the data).  
+- **N4**: Correctly interprets a non‑significant p‑value as indicating no reliable difference. → **[]**  
+- **N5**: Applies effect‑size findings from pigeon foraging experiments to human economic decisions, a clear domain mismatch. → **source_domain_mismatch**  
+- **N6**: Declares the treatment “better” based solely on statistical significance, without addressing effect size or clinical relevance. → **significance_not_importance** (and **overclaim**).  
+- **N7**: Presents a well‑fitted Michaelis‑Menten model with raw data; no epistemic issues. → **[]**  
+- **N8**: Recommends the drug for all patients based on a post‑hoc subgroup finding, another over‑generalization. → **overclaim** (and **heuristic_not_empirical**).  
+- **N9**: Calculates a high positive predictive value (PPV) but ignores the extremely low base rate (1 in 10 000). This is base‑rate neglect. → **base_rate_neglect**
+
+**JSON output**
+
+```json
+{
+  "N1": ["significance_not_importance", "overclaim"],
+  "N2": [],
+  "N3": ["overclaim", "heuristic_not_empirical"],
+  "N4": [],
+  "N5": ["source_domain_mismatch"],
+  "N6": ["significance_not_importance", "overclaim"],
+  "N7": [],
+  "N8": ["overclaim", "heuristic_not_empirical"],
+  "N9": ["base_rate_neglect"]
+}
+```

@@ -1,0 +1,29 @@
+**Step‑by‑step evaluation of each excerpt**
+
+| Excerpt | Potential epistemic problems present | Rationale |
+|---------|--------------------------------------|-----------|
+| **N1** | `causal_overreach`, `overclaim` | The excerpt reports a statistically significant reduction in infections (p = 0.0004) and then **concludes** that the vaccine is “dramatically more protective … than the standard shot.” This moves from an **association/ statistical significance** to a **causal/beneficial claim** without indicating that the comparison was part of a controlled trial. It also **overstates** the magnitude (“dramatically more protective”) beyond what the data alone guarantee. |
+| **N2** | `source_domain_mismatch` | The observation “Cities with more police reported more crime” is interpreted as a **cross‑sectional correlation**. The claim that the lack of inferable causation stems from the **cross‑sectional nature** is itself a cross‑sectional inference, thus **mismatching the domain** (the data are cross‑sectional, yet the conclusion about causation is drawn from that same domain). |
+| **N3** | `overclaim`, `untraceable_citation` | The effect in a **data‑defined subgroup** reaches p = 0.049, which is then taken as **proof** that the drug works for **all** patients. This is a classic **over‑generalisation** from a subgroup analysis. Moreover, the excerpt does not specify the source of the subgroup analysis, making the claim **untraceable**. |
+| **N4** | (none) | The statement correctly notes that a p‑value of 0.6 is far from conventional significance and therefore reports **no reliable difference**. No epistemic error is evident. |
+| **N5** | `source_domain_mismatch` | Effect sizes from **foraging experiments in pigeons** are used to support claims about **human economic decisions**. The animal‑behavior data cannot directly inform human economic behavior, representing a clear **domain mismatch**. |
+| **N6** | `overclaim`, `significance_not_importance` | The excerpt reports p < 0.01 and **concludes** that the treatment is the “better choice for routine use.” This jumps from statistical significance to a **clinical/practical recommendation** without evidence on effect size or clinical relevance. It also conflates **statistical significance** with **practical importance**. |
+| **N7** | (none) | The statement describes a fit of enzyme kinetics to Michaelis–Menten with a high R² and provides raw data. No epistemic problems are present. |
+| **N8** | `overclaim`, `untraceable_citation` | A **post‑hoc subgroup** response is used to **recommend** the drug for **all** patients. This is an **over‑generalisation** from a subgroup analysis. The excerpt offers no citation or justification for the post‑hoc subgroup, making the claim **untraceable**. |
+| **N9** | `base_rate_neglect` | The excerpt mentions a test with 99 % sensitivity and specificity, reports a fresh positive, and declares the disorder “almost surely” present, ignoring the **low base rate** (one in ten thousand). This neglect of the base rate leads to an **over‑optimistic** inference (many false positives). |
+
+**Resulting JSON mapping**
+
+```json
+{
+  "N1": ["causal_overreach", "overclaim"],
+  "N2": ["source_domain_mismatch"],
+  "N3": ["overclaim", "untraceable_citation"],
+  "N4": [],
+  "N5": ["source_domain_mismatch"],
+  "N6": ["overclaim", "significance_not_importance"],
+  "N7": [],
+  "N8": ["overclaim", "untraceable_citation"],
+  "N9": ["base_rate_neglect"]
+}
+```

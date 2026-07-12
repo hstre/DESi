@@ -1,0 +1,29 @@
+**Step‑by‑step reasoning for each excerpt**
+
+| Excerpt | Assessment of each flag | Reasoning |
+|---------|--------------------------|-----------|
+| **N1** | `["causal_overreach", "overclaim"]` | The statement “this proves it is dramatically more protective” jumps from statistical significance (association) to a causal claim about superiority, and it over‑generalises the finding to all contexts. |
+| **N2** | `[]` | The author explicitly notes the cross‑sectional nature and refrains from causal inference, so no epistemic problem is evident. |
+| **N3** | `["overclaim"]` | The post‑hoc subgroup finding is taken as “proof” for a universal recommendation, which exceeds what the evidence supports. |
+| **N4** | `[]` | The conclusion correctly states that with a non‑significant p‑value there is no reliable difference; no over‑claim or significance‑importance confusion is present. |
+| **N5** | `["source_domain_mismatch"]` | Effect sizes from pigeon foraging experiments cannot validly support claims about human economic decisions; the source domain is mismatched. |
+| **N6** | `["overclaim", "significance_not_importance"]` | Declaring the treatment “the better choice for routine use” based solely on statistical significance ignores whether the effect size is practically important. |
+| **N7** | `[]` | A straightforward description of model fit with raw data provided; no epistemic issue. |
+| **N8** | `["overclaim"]` | Recommending the drug for all patients on the basis of a post‑hoc subgroup is an over‑generalisation beyond the data. |
+| **N9** | `["base_rate_neglect"]` | The statement that a fresh positive “almost surely” indicates the disorder ignores the extremely low prevalence (1 in 10 000), leading to base‑rate neglect. |
+
+**Resulting JSON**
+
+```json
+{
+  "N1": ["causal_overreach", "overclaim"],
+  "N2": [],
+  "N3": ["overclaim"],
+  "N4": [],
+  "N5": ["source_domain_mismatch"],
+  "N6": ["overclaim", "significance_not_importance"],
+  "N7": [],
+  "N8": ["overclaim"],
+  "N9": ["base_rate_neglect"]
+}
+```

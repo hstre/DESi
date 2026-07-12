@@ -1,0 +1,34 @@
+**Judgment Process:**
+
+- **N1:** Claims a method is "substantially superior" and should be rolled out based solely on a statistically significant result (p = .03). This overstates the evidence; the size of the effect is not addressed. **Flag: overclaim** (also potentially causal_overreach, but the primary clear issue is overclaiming the superiority).
+
+- **N2:** Describes a "wellness score" that was weighted to favor certain clinics, presenting it as objective proof of those clinics being best. This is a self‑constructed, uncalibrated metric used as an empirical claim. **Flag: heuristic_not_empirical**.
+
+- **N3:** Correctly notes that a statistically significant result (p < 0.001) corresponds to a tiny effect (0.2‑point shift) and states it is not clinically meaningful. No epistemic problem is present. **Flag: []**.
+
+- **N4:** Uses a post‑hoc p‑value of 0.049 to claim "clear evidence" of high effectiveness, which overreaches the associative nature of the finding. **Flag: overclaim** (and potentially heuristic_not_empirical due to data dredging, but the primary clear issue is overclaim).
+
+- **N5:** Relies on a co‑crystal structure and dose‑response figure with deposited code, which is a standard, empirical justification. No epistemic problem is evident. **Flag: []**.
+
+- **N6:** Observational claim that screen time lowers grades is used to argue that banning phones will raise test scores nationwide—an intervention recommendation based solely on correlation. **Flag: causal_overreach**.
+
+- **N7:** States that a 99 % accurate test for a rare disease (1 in 50,000 prevalence) means a positive result "almost certainly" indicates disease, ignoring the low base rate. **Flag: base_rate_neglect**.
+
+- **N8:** Interprets a highly significant association (1 % level) as evidence of a "large practical impact," conflating statistical significance with practical importance. **Flag: significance_not_importance**.
+
+- **N9:** Reports a pre‑registered 95 % confidence interval and explicitly limits generalization to the studied cohort, showing careful handling of evidence. No epistemic problem is present. **Flag: []**.
+
+**Resulting JSON:**
+```json
+{
+  "N1": ["overclaim"],
+  "N2": ["heuristic_not_empirical"],
+  "N3": [],
+  "N4": ["overclaim"],
+  "N5": [],
+  "N6": ["causal_overreach"],
+  "N7": ["base_rate_neglect"],
+  "N8": ["significance_not_importance"],
+  "N9": []
+}
+```

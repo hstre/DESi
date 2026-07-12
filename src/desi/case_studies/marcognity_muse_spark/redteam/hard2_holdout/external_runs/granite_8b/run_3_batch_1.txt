@@ -1,0 +1,31 @@
+**Step‑by‑step reasoning for each excerpt**
+
+| Excerpt | Analysis of each flag | Flags present |
+|---|---|---|
+| **N1** | • *Causal overreach*: The excerpt claims the vaccine is “dramatically more protective” based only on statistical significance (p = 0.0004). The evidence is association (significance) rather than direct proof of superiority. <br>• *Significance vs. importance*: The wording “proves” conflates p‑value with practical importance. | `["causal_overreach", "significance_not_importance"]` |
+| **N2** | • The statement explicitly acknowledges the cross‑sectional nature and says no causal inference can be drawn, so **no** epistemic error. | `[]` |
+| **N3** | • *Overclaim*: A post‑hoc subgroup finding (p = 0.049) is used as “proof” that the drug works and is prescribed for *everyone*. This extrapolates beyond the limited evidence. | `["overclaim"]` |
+| **N4** | • The conclusion “no reliable difference” follows directly from a non‑significant p‑value (0.6). No over‑statement is present. | `[]` |
+| **N5** | • *Source domain mismatch*: Effect sizes from pigeon foraging experiments are applied to human economic decisions, a domain mismatch. | `["source_domain_mismatch"]` |
+| **N6** | • *Causal overreach*: “Significance was reached (p < 0.01); the treatment is therefore the better choice for routine use.” The causal implication (better choice) is not justified by significance alone. | `["causal_overreach"]` |
+| **N7** | • The description of Michaelis‑Menten fitting with R² = 0.98 and raw data provided is methodologically sound; no epistemic problems. | `[]` |
+| **N8** | • *Overclaim*: A post‑hoc subgroup response is used to **recommend the drug for all patients**, which exceeds the subgroup evidence. | `["overclaim"]` |
+| **N9** | • *Base‑rate neglect*: The statement “a fresh positive almost surely indicates the disorder, which strikes roughly one in ten thousand people” ignores the low prevalence (base rate). With 99 % specificity and sensitivity, the positive predictive value would be low, making the claim misleading. | `["base_rate_neglect"]` |
+
+**Resulting JSON**
+
+```json
+{
+  "N1": ["causal_overreach", "significance_not_importance"],
+  "N2": [],
+  "N3": ["overclaim"],
+  "N4": [],
+  "N5": ["source_domain_mismatch"],
+  "N6": ["causal_overreach"],
+  "N7": [],
+  "N8": ["overclaim"],
+  "N9": ["base_rate_neglect"]
+}
+```
+
+This JSON maps each excerpt ID to the list of clearly present epistemic problems, as required.

@@ -1,0 +1,41 @@
+{
+  "model": "ibm-granite/granite-4.1-8b",
+  "n_items": 27,
+  "runs": 5,
+  "batch_size": 9,
+  "significance_recall": {
+    "baseline": 0.371,
+    "with_rule": 0.857
+  },
+  "overclaim_fp": {
+    "baseline": 22,
+    "with_rule": 22
+  },
+  "new_false_negatives_from_rule": 0,
+  "new_false_positives_from_rule": 0,
+  "overall": {
+    "baseline": {
+      "f1_mean": 0.645,
+      "f1_stdev": 0.081,
+      "precision_mean": 0.625,
+      "recall_mean": 0.674
+    },
+    "with_rule": {
+      "f1_mean": 0.753,
+      "f1_stdev": 0.06,
+      "precision_mean": 0.68,
+      "recall_mean": 0.853
+    }
+  },
+  "rule_coverage": 0.126,
+  "escalation_rate": 0.126,
+  "variance_f1_stdev": {
+    "baseline": 0.081,
+    "with_rule": 0.06
+  },
+  "cost": {
+    "granite_tokens_total": 18589,
+    "usd_per_review_granite": 1.377e-05,
+    "usd_per_review_rule": 0.0
+  }
+}
