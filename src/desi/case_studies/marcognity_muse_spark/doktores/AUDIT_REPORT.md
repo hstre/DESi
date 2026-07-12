@@ -1,12 +1,14 @@
-# Doktores-Audit — adversariale Prüfung der DESi-Fallstudie MarCognity / Muse Spark 1.1
+# Doktores-Audit — regelgeleiteter Self-Audit der DESi-Fallstudie MarCognity / Muse Spark 1.1
 
-> Doktores prüfte die DESi-Fallstudie adversarial. Einige Befunde hielten stand, einige mussten eingeschränkt oder umklassifiziert werden, und bestimmte Fragen bleiben aufgrund fehlender Originaldaten offen.
+> Doktores prüfte die DESi-Fallstudie in einem regelgeleiteten Self-Audit. Einige Befunde hielten stand, einige mussten eingeschränkt oder umklassifiziert werden, und bestimmte Fragen bleiben aufgrund fehlender Originaldaten offen.
 
 > Dieses Attest bestätigt NICHT die Wahrheit sämtlicher juristischer Aussagen. Es bewertet ausschließlich die methodische Nachvollziehbarkeit, interne Konsistenz, Provenienz und Reichweite der DESi-Fallstudie.
 
+> Einordnung: Dies ist ein **regelgeleiteter Self-Audit**. Er ist **logisch und provenance-basiert adversarial** (jede Bewertung ist an eine Quelle gebunden, die Prüfregeln sind darauf angelegt, Fehler/Überdehnung/ausgelassene Gegenargumente zu finden), aber **nicht organisatorisch oder modellseitig unabhängig**: alle vier Prüfer sind fest programmierte Regeln aus demselben Repository. Es ist ein sauberer, deterministischer Gegencheck — **noch keine unabhängige Replikation**.
+
 ## 1. Auftrag und Prüfgegenstand
 
-DESi hat eine Analyse erzeugt (23 kuratierte Claims, drei als Konflikte geführte Befunde, Evidenz- und Selbstabdichtungsanalyse, Vergleich mit MarCognity). Doktores prüft **adversarial**, welche Befunde einem unabhängigen methodischen Angriff standhalten — Ziel ist nicht Bestätigung, sondern Widerlegung, Korrektur oder Eingrenzung.
+DESi hat eine Analyse erzeugt (23 kuratierte Claims, drei als Konflikte geführte Befunde, Evidenz- und Selbstabdichtungsanalyse, Vergleich mit MarCognity). Doktores prüft **logisch und provenance-basiert adversarial**, welche Befunde einem methodischen Angriff standhalten — Ziel ist nicht Bestätigung, sondern Widerlegung, Korrektur oder Eingrenzung. Zur Unabhängigkeit siehe die Einordnung oben: ein Self-Audit, keine unabhängige Replikation.
 
 ## 2. Verwendete Quellen
 
@@ -61,7 +63,15 @@ Die Prüfer erhielten die Originalquellen, die DESi-Artefakte und definierte Pr�
 | FACT-03 | unverifiable_from_available_evidence | **uphold_with_qualification** | medium | Minority (fairness): the strict 'database/common knowledge is not evidence' rule is protoc |
 | NORM-01 | normative_claim | **uphold** | high | — |
 
-**17 uphold, 6 uphold_with_qualification, 0 revise/reject** auf Claim-Ebene — kein DESi-Claim-Verdikt wurde umgestoßen; die Schärfe des Audits liegt in den Konflikt-Reklassifikationen und den Qualifikationen.
+**Auf Claim-Ebene:** 17 uphold, 6 uphold_with_qualification, **0 von diesem Audit umgestoßen**.
+
+**Transparente Bilanz über den gesamten Prüfprozess** (damit das Audit nicht wie ein nachträglicher Bestätigungsstempel wirkt):
+- 23 Claims geprüft
+- 22 unverändert oder mit Auflage bestätigt
+- 1 Claim-Verdikt revidiert (MET-02: contradicted → partially_supported; im Betreiber-Review vor diesem Audit, hier bestätigt)
+- 2 Konfliktklassifikationen revidiert (C2 → Pipeline-Inkonsistenz, C3 → unbelegte Unabhängigkeit)
+- 4 Formulierungs-Revisionen durch DIESEN Audit (R1/R2/R4/R5)
+- 0 Claims vollständig verworfen
 
 ## 6. Provenienz-Audit
 
@@ -125,10 +135,11 @@ _Keiner._ Kein DESi-Kernbefund war durch das Material vollständig ungedeckt; di
 
 ## 15. Grenzen des Doktores-Audits
 
+- **Keine organisatorische/modellseitige Unabhängigkeit:** ein regelgeleiteter Self-Audit (DESi prüft DESi mit Regeln aus demselben Repository) — logisch/provenance-adversarial, aber keine unabhängige Replikation. Eine echte Gegenprüfung bräuchte ein anderes Team/Modell.
 - Der Audit ist regelbasiert und offline (kein LLM); die Prüfregeln und ihre Anwendung sind menschlich kuratiert und könnten selbst Lücken haben.
 - Konfidenz ist qualitativ (high/medium/low), nicht kalibriert — es gibt keine Wahrscheinlichkeiten.
 - Der Audit adjudiziert die Rechtsphilosophie nicht; er prüft Methode, Provenienz, Konsistenz und Reichweite der DESi-Fallstudie.
 
 ## 16. Gesamturteil
 
-**Attest: passed_with_qualifications.** Doktores prüfte die DESi-Fallstudie adversarial. Einige Befunde hielten stand, einige mussten eingeschränkt oder umklassifiziert werden, und bestimmte Fragen bleiben aufgrund fehlender Originaldaten offen. Details je Dimension in `ATTESTATION.md`; Änderungen in `REVISION_LOG.md`; Dissens in `dissent.md`.
+**Attest: passed_with_qualifications.** Doktores prüfte die DESi-Fallstudie in einem regelgeleiteten Self-Audit. Einige Befunde hielten stand, einige mussten eingeschränkt oder umklassifiziert werden, und bestimmte Fragen bleiben aufgrund fehlender Originaldaten offen. Details je Dimension in `ATTESTATION.md`; Änderungen in `REVISION_LOG.md`; Dissens in `dissent.md`.

@@ -40,7 +40,7 @@ TR = {
         "tiles": [
             "atomic claims<br/>typed &amp; anchored",
             "claims with domain-<br/>admissible evidence",
-            "structural<br/>contradictions (detector)",
+            "structural conflicts<br/>(1 logical contradiction)",
             "self-sealing<br/>conclusion; falsifier: no",
         ],
         "verdicts_h2": "Distribution of verdicts (23 claims)",
@@ -145,16 +145,31 @@ TR = {
                   "&amp; deterministically",
         "page": "Page",
         "doc_title": "DESi case study MarCognity / Muse Spark 1.1 — findings",
-        "audit_h1": "Part II — Doktores audit (adversarial)",
-        "audit_sub": "Four source-anchored reviewers (provenance, methodology, logic, fairness) "
-                     "attacked the DESi analysis — deterministic, offline, no LLM. The result is "
-                     "mixed: most findings survived, some were qualified, C2/C3 were confirmed as "
-                     "NON-contradictions, and dissent is preserved.",
+        "audit_h1": "Part II — Doktores rule-guided self-audit",
+        "audit_sub": "A rule-guided <b>self-audit</b>: four source-anchored reviewers "
+                     "(provenance, methodology, logic, fairness) attacked the DESi analysis — "
+                     "deterministic, offline, no LLM. Most findings survived, some were "
+                     "qualified, C2/C3 were confirmed as NON-contradictions, dissent is preserved.",
+        "audit_indep": "Scope of independence: this is <b>logically and provenance adversarial</b> "
+                       "but <b>not organizationally or model-side independent</b> — all four "
+                       "reviewers are fixed rules from the same repository. A clean deterministic "
+                       "counter-check, NOT an independent replication.",
         "audit_disclaimer": "This attestation does NOT certify the truth of the legal statements. "
                             "It rates only the method, provenance, consistency and reach of the "
                             "DESi case study.",
-        "audit_tiles_labels": ["claims reviewed", "survived (uphold / +qualification)",
-                               "verdicts overturned", "findings with dissent"],
+        "audit_tiles_labels": ["claims reviewed", "verdicts overturned by this audit",
+                               "conflicts reclassified", "wording revisions"],
+        "audit_breakdown_h": "Transparent balance across the whole review process",
+        "audit_breakdown": [
+            "23 claims reviewed",
+            "22 confirmed unchanged or with a qualification",
+            "1 claim verdict revised (MET-02: contradicted → partially_supported; in the "
+            "operator review before this audit, confirmed here)",
+            "2 conflict classifications revised (C2 → pipeline inconsistency, C3 → "
+            "unsubstantiated independence)",
+            "4 wording revisions by this audit (R1/R2/R4/R5)",
+            "0 claims fully rejected",
+        ],
         "audit_reclass_h": "The three conflicts under adversarial review",
         "audit_reclass": [
             ("C1", "upheld — logical contradiction", "prompt ↔ method; both cannot be true "
@@ -200,7 +215,7 @@ TR = {
         "tiles": [
             "atomare Claims<br/>typisiert &amp; verankert",
             "Claims mit domänen-<br/>zulässiger Evidenz",
-            "strukturelle Wider-<br/>sprüche (Detektor)",
+            "strukturelle Konflikte<br/>(1 logischer Widerspruch)",
             "selbstabdichtender<br/>Schluss; Falsifier: nein",
         ],
         "verdicts_h2": "Verteilung der Urteile (23 Claims)",
@@ -307,16 +322,33 @@ TR = {
                   "&amp; deterministisch",
         "page": "Seite",
         "doc_title": "DESi-Fallstudie MarCognity / Muse Spark 1.1 — Befunde",
-        "audit_h1": "Teil II — Doktores-Audit (adversarial)",
-        "audit_sub": "Vier quell-verankerte Prüfer (Provenienz, Methodik, Logik, Fairness) griffen "
-                     "die DESi-Analyse an — deterministisch, offline, kein LLM. Das Ergebnis ist "
-                     "gemischt: die meisten Befunde hielten stand, einige wurden eingeschränkt, "
-                     "C2/C3 als NICHT-Widersprüche bestätigt, Dissens bleibt erhalten.",
+        "audit_h1": "Teil II — Doktores regelgeleiteter Self-Audit",
+        "audit_sub": "Ein regelgeleiteter <b>Self-Audit</b>: vier quell-verankerte Prüfer "
+                     "(Provenienz, Methodik, Logik, Fairness) griffen die DESi-Analyse an — "
+                     "deterministisch, offline, kein LLM. Die meisten Befunde hielten stand, "
+                     "einige wurden eingeschränkt, C2/C3 als NICHT-Widersprüche bestätigt, "
+                     "Dissens bleibt erhalten.",
+        "audit_indep": "Reichweite der Unabhängigkeit: <b>logisch und provenance-basiert "
+                       "adversarial</b>, aber <b>nicht organisatorisch oder modellseitig "
+                       "unabhängig</b> — alle vier Prüfer sind feste Regeln aus demselben "
+                       "Repository. Ein sauberer deterministischer Gegencheck, KEINE "
+                       "unabhängige Replikation.",
         "audit_disclaimer": "Dieses Attest bestätigt NICHT die Wahrheit der juristischen Aussagen. "
                             "Es bewertet nur Methode, Provenienz, Konsistenz und Reichweite der "
                             "DESi-Fallstudie.",
-        "audit_tiles_labels": ["Claims geprüft", "überlebt (uphold / +Auflage)",
-                               "Verdikte umgestoßen", "Befunde mit Dissens"],
+        "audit_tiles_labels": ["Claims geprüft", "Verdikte von diesem Audit umgestoßen",
+                               "Konflikte reklassifiziert", "Formulierungs-Revisionen"],
+        "audit_breakdown_h": "Transparente Bilanz über den gesamten Prüfprozess",
+        "audit_breakdown": [
+            "23 Claims geprüft",
+            "22 unverändert oder mit Auflage bestätigt",
+            "1 Claim-Verdikt revidiert (MET-02: contradicted → partially_supported; im "
+            "Betreiber-Review vor diesem Audit, hier bestätigt)",
+            "2 Konfliktklassifikationen revidiert (C2 → Pipeline-Inkonsistenz, C3 → "
+            "unbelegte Unabhängigkeit)",
+            "4 Formulierungs-Revisionen durch diesen Audit (R1/R2/R4/R5)",
+            "0 Claims vollständig verworfen",
+        ],
         "audit_reclass_h": "Die drei Konflikte unter adversarialer Prüfung",
         "audit_reclass": [
             ("C1", "gehalten — logischer Widerspruch", "Prompt ↔ Methode; beide nicht zugleich "
@@ -576,21 +608,25 @@ def _build(lang, tr, data, rl):  # noqa: C901 - one linear layout routine
     if audit:
         _rating_color = {"passed": GREEN, "passed_with_qualifications": AMBER,
                          "needs_revision": RED, "failed": RED, "not_assessable": SLATE}
-        cons = audit.get("consensus_distribution", {})
-        survived = cons.get("uphold", 0) + cons.get("uphold_with_qualification", 0)
+        pr = audit.get("process_revisions", {})
         story.append(PageBreak())
         story.append(Paragraph(tr["audit_h1"], H1))
         story.append(Paragraph(tr["audit_sub"], ParagraphStyle(
             "asub", parent=BODY, fontSize=9.6, textColor=MUTE, spaceAfter=5)))
+        story.append(Paragraph(tr["audit_indep"], SMALL))
         story.append(Paragraph(tr["audit_disclaimer"], SMALL))
         hr()
         story.append(tiles([
             (str(audit.get("claims_reviewed", "")), tr["audit_tiles_labels"][0]),
-            (str(survived), tr["audit_tiles_labels"][1]),
-            (str(audit.get("claims_overturned", "")), tr["audit_tiles_labels"][2]),
-            (str(audit.get("claims_with_dissent", "")), tr["audit_tiles_labels"][3]),
+            (str(audit.get("verdicts_overturned_by_this_audit", 0)), tr["audit_tiles_labels"][1]),
+            (str(len(pr.get("conflicts_reclassified", []))), tr["audit_tiles_labels"][2]),
+            (str(len(pr.get("wording_revisions", []))), tr["audit_tiles_labels"][3]),
         ]))
-        story.append(Spacer(1, 10))
+        story.append(Spacer(1, 8))
+        story.append(Paragraph(tr["audit_breakdown_h"], H2))
+        for b in tr["audit_breakdown"]:
+            story.append(Paragraph(f"• {b}", SMALL))
+        story.append(Spacer(1, 8))
 
         # the three conflicts under review
         story.append(Paragraph(tr["audit_reclass_h"], H2))

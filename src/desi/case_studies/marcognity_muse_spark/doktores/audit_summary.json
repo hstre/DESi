@@ -13,7 +13,6 @@
     "Widerspruchsklassifikation": "passed_with_qualifications",
     "Überdehnung der DESi-Schlussfolgerungen": "passed_with_qualifications"
   },
-  "claims_overturned": 0,
   "claims_reviewed": 23,
   "claims_with_dissent": 3,
   "consensus_distribution": {
@@ -38,7 +37,8 @@
     }
   },
   "disclaimer": "Dieses Attest bestätigt NICHT die Wahrheit sämtlicher juristischer Aussagen. Es bewertet ausschließlich die methodische Nachvollziehbarkeit, interne Konsistenz, Provenienz und Reichweite der DESi-Fallstudie.",
-  "headline": "Doktores prüfte die DESi-Fallstudie adversarial. Einige Befunde hielten stand, einige mussten eingeschränkt oder umklassifiziert werden, und bestimmte Fragen bleiben aufgrund fehlender Originaldaten offen.",
+  "headline": "Doktores prüfte die DESi-Fallstudie in einem regelgeleiteten Self-Audit. Einige Befunde hielten stand, einige mussten eingeschränkt oder umklassifiziert werden, und bestimmte Fragen bleiben aufgrund fehlender Originaldaten offen.",
+  "independence": "Einordnung: Dies ist ein **regelgeleiteter Self-Audit**. Er ist **logisch und provenance-basiert adversarial** (jede Bewertung ist an eine Quelle gebunden, die Prüfregeln sind darauf angelegt, Fehler/Überdehnung/ausgelassene Gegenargumente zu finden), aber **nicht organisatorisch oder modellseitig unabhängig**: alle vier Prüfer sind fest programmierte Regeln aus demselben Repository. Es ist ein sauberer, deterministischer Gegencheck — **noch keine unabhängige Replikation**.",
   "open_questions": [
     "Der Live-Hugging-Face-Thread und der vollständige MarCognity-Repo-Baum wurden im deterministischen Lauf NICHT neu abgerufen — sie sind über source_material.py verbatim verankert. Ein Re-Audit gegen die Live-Quellen könnte Weiteres zutage fördern.",
     "Der tatsächlich abgerufene 'PubMed'-Text ist unbekannt; ein Rest-Zweifel bleibt, ob es sich um einen rechtsnahen Artikel handelte. source_domain_mismatch bleibt wahrscheinlich, nicht sicher.",
@@ -46,10 +46,40 @@
     "Die 23 Claims sind keine gemessene Vollständigkeit; die tatsächliche Claim-Abdeckung des Muse-Textes ist unbekannt (eigener, hier nicht erhobener Schritt)."
   ],
   "overall_attestation": "passed_with_qualifications",
+  "process_revisions": {
+    "claim_verdicts_revised": [
+      {
+        "claim_id": "MET-02",
+        "from": "contradicted",
+        "to": "partially_supported",
+        "when": "operator review before this audit; this audit confirms it"
+      }
+    ],
+    "claims_fully_rejected": [],
+    "conflicts_reclassified": [
+      {
+        "cid": "C2",
+        "from": "structural_contradiction",
+        "to": "pipeline_inconsistency"
+      },
+      {
+        "cid": "C3",
+        "from": "structural_contradiction",
+        "to": "unsubstantiated_independence"
+      }
+    ],
+    "verdicts_overturned_by_this_audit": 0,
+    "wording_revisions": [
+      "R1",
+      "R2",
+      "R4",
+      "R5"
+    ]
+  },
   "provenance": {
     "engine_version": "v1",
     "input_hashes": {
-      "REPORT.md": "sha256:7c5c4ad7c33988eae5ea2b589e240593",
+      "REPORT.md": "sha256:7760dc0888448486d3441ba3253ebd33",
       "analysis.py": "sha256:72529197bd9c33df918c3748342fe039",
       "claims.jsonl": "sha256:9600dd85f3a0133ca9cbf8e9c09407c9",
       "claims.py": "sha256:5878bc8160c76ed84d82e4310a45a04d",
@@ -96,5 +126,6 @@
     "Selbstabdichtungs-Diagnose": "robust",
     "Vergleich MarCognity vs. DESi — Fairness": "qualified",
     "source_domain_mismatch (VAL-01)": "qualified"
-  }
+  },
+  "verdicts_overturned_by_this_audit": 0
 }

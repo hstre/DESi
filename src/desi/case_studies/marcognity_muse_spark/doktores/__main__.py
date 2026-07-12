@@ -48,13 +48,19 @@ def main(argv: Sequence[str] | None = None) -> int:
     written = engine.write_all(out_dir)
     summ = engine.audit_summary()
 
-    print(">> Doktores audit (adversarial, deterministic, offline) written to "
-          f"{written['out_dir']}")
+    print(">> Doktores rule-guided self-audit (logic/provenance-adversarial, not "
+          f"independent; deterministic, offline) written to {written['out_dir']}")
     print(f"   {engine.HEADLINE}")
     print(f"   claims reviewed: {summ['claims_reviewed']} | consensus: "
           f"{json.dumps(summ['consensus_distribution'], ensure_ascii=False)}")
-    print(f"   claims overturned: {summ['claims_overturned']} | with dissent: "
+    pr = summ["process_revisions"]
+    print(f"   verdicts overturned by THIS audit: "
+          f"{summ['verdicts_overturned_by_this_audit']} | with dissent: "
           f"{summ['claims_with_dissent']}")
+    print(f"   process revisions: {len(pr['claim_verdicts_revised'])} verdict, "
+          f"{len(pr['conflicts_reclassified'])} conflict reclassifications, "
+          f"{len(pr['wording_revisions'])} wording; "
+          f"{len(pr['claims_fully_rejected'])} fully rejected")
     for cid, c in summ["contradictions"].items():
         print(f"   {cid}: {c['reviewed_classification']} "
               f"(upheld_as_structural={c['upheld_as_structural']})")

@@ -284,10 +284,13 @@ gehedgter Hypothese.
   `python scripts/reproduce_marcognity_pdf.py` (benötigt `reportlab`).
 - `source_material.py` — verbatim gesicherte, zeilenadressierte Materialanker (Aufgabe 1).
 - `claims.py` / `analysis.py` / `report.py` / `__main__.py` — Fixierung, Engine, Writer, Reproduktion.
-- `doktores/` — **adversarialer Doktores-Audit dieser Fallstudie** (vier Prüfer greifen die
-  DESi-Analyse an; deterministisch, offline). Ergebnis: die meisten Befunde hielten stand, einige
-  wurden eingeschränkt, C2/C3 als Nicht-Widersprüche bestätigt, Attest *passed_with_qualifications*
-  (kein Gütesiegel). Reproduktion: `python -m desi.case_studies.marcognity_muse_spark.doktores`.
+- `doktores/` — **regelgeleiteter Doktores-Self-Audit dieser Fallstudie** (vier quell-verankerte
+  Prüfer greifen die DESi-Analyse an; deterministisch, offline). **Einordnung:** logisch und
+  provenance-basiert adversarial, aber *nicht* organisatorisch/modellseitig unabhängig — ein
+  sauberer Gegencheck, **keine unabhängige Replikation** (DESi prüft DESi). Ergebnis: die meisten
+  Befunde hielten stand, einige wurden eingeschränkt, C2/C3 als Nicht-Widersprüche bestätigt, Attest
+  *passed_with_qualifications* (kein Gütesiegel). Reproduktion:
+  `python -m desi.case_studies.marcognity_muse_spark.doktores`.
   Enthält `AUDIT_REPORT.md`, `ATTESTATION.md`, `claim_reviews.jsonl`, `contradiction_reviews.jsonl`,
   `methodology_review.md`, `fairness_review.md`, `dissent.md`, `REVISION_LOG.md`, `audit_summary.json`.
   Die Revisionen R1/R2/R4/R5 oben stammen aus diesem Audit (siehe `doktores/REVISION_LOG.md`).

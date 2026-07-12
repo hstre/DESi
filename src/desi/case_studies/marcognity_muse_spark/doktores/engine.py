@@ -38,10 +38,38 @@ DISCLAIMER = (
 )
 
 HEADLINE = (
-    "Doktores prüfte die DESi-Fallstudie adversarial. Einige Befunde hielten stand, "
-    "einige mussten eingeschränkt oder umklassifiziert werden, und bestimmte Fragen "
-    "bleiben aufgrund fehlender Originaldaten offen."
+    "Doktores prüfte die DESi-Fallstudie in einem regelgeleiteten Self-Audit. Einige "
+    "Befunde hielten stand, einige mussten eingeschränkt oder umklassifiziert werden, "
+    "und bestimmte Fragen bleiben aufgrund fehlender Originaldaten offen."
 )
+
+# Honest scope of this audit's independence — stated up front so it can NOT be
+# accused of the very thing the case study faults in MarCognity.
+INDEPENDENCE_NOTE = (
+    "Einordnung: Dies ist ein **regelgeleiteter Self-Audit**. Er ist **logisch und "
+    "provenance-basiert adversarial** (jede Bewertung ist an eine Quelle gebunden, die "
+    "Prüfregeln sind darauf angelegt, Fehler/Überdehnung/ausgelassene Gegenargumente zu "
+    "finden), aber **nicht organisatorisch oder modellseitig unabhängig**: alle vier "
+    "Prüfer sind fest programmierte Regeln aus demselben Repository. Es ist ein "
+    "sauberer, deterministischer Gegencheck — **noch keine unabhängige Replikation**."
+)
+
+# The real revisions across the whole review process (not a rubber stamp).
+# Distinguishes what THIS audit did (0 verdicts overturned) from the true deltas
+# in the case study, incl. operator-review rounds before this audit.
+PROCESS_REVISIONS = {
+    "claim_verdicts_revised": [
+        {"claim_id": "MET-02", "from": "contradicted", "to": "partially_supported",
+         "when": "operator review before this audit; this audit confirms it"},
+    ],
+    "conflicts_reclassified": [
+        {"cid": "C2", "from": "structural_contradiction", "to": "pipeline_inconsistency"},
+        {"cid": "C3", "from": "structural_contradiction", "to": "unsubstantiated_independence"},
+    ],
+    "wording_revisions": ["R1", "R2", "R4", "R5"],
+    "claims_fully_rejected": [],
+    "verdicts_overturned_by_this_audit": 0,
+}
 
 
 # --------------------------------------------------------------------------- #
@@ -209,6 +237,10 @@ OPEN_QUESTIONS: tuple[str, ...] = (
 )
 
 AUDIT_LIMITS: tuple[str, ...] = (
+    "**Keine organisatorische/modellseitige Unabhängigkeit:** ein regelgeleiteter Self-Audit "
+    "(DESi prüft DESi mit Regeln aus demselben Repository) — logisch/provenance-adversarial, "
+    "aber keine unabhängige Replikation. Eine echte Gegenprüfung bräuchte ein anderes Team/"
+    "Modell.",
     "Der Audit ist regelbasiert und offline (kein LLM); die Prüfregeln und ihre Anwendung sind "
     "menschlich kuratiert und könnten selbst Lücken haben.",
     "Konfidenz ist qualitativ (high/medium/low), nicht kalibriert — es gibt keine "
@@ -295,8 +327,11 @@ def audit_summary() -> dict:
         "overall_attestation": OVERALL_ATTESTATION.value,
         "claims_reviewed": len(reviews),
         "consensus_distribution": _consensus_counts(),
-        "claims_overturned": sum(1 for cr in reviews if cr.revised_verdict != cr.original_desi_verdict),
+        "verdicts_overturned_by_this_audit": sum(
+            1 for cr in reviews if cr.revised_verdict != cr.original_desi_verdict),
         "claims_with_dissent": sum(1 for cr in reviews if cr.dissent),
+        "independence": INDEPENDENCE_NOTE,
+        "process_revisions": PROCESS_REVISIONS,
         "contradictions": {
             c.cid: {"reviewed_classification": c.reviewed_classification.value,
                     "upheld_as_structural": c.upheld,
@@ -378,6 +413,7 @@ def render_revision_log_md() -> str:
 def render_attestation_md() -> str:
     out = ["# Doktores-Attest\n",
            f"> {DISCLAIMER}\n",
+           f"> {INDEPENDENCE_NOTE}\n",
            f"**Gesamturteil: {OVERALL_ATTESTATION.value}** — kein pauschales Gütesiegel.\n",
            "| Dimension | Bewertung | Begründung |", "|---|---|---|"]
     for a in ATTESTATION:
@@ -391,17 +427,19 @@ def render_audit_report_md() -> str:
     reviews = build_claim_reviews()
     prov = provenance_manifest()
     o = []
-    o.append("# Doktores-Audit — adversariale Prüfung der DESi-Fallstudie "
+    o.append("# Doktores-Audit — regelgeleiteter Self-Audit der DESi-Fallstudie "
              "MarCognity / Muse Spark 1.1\n")
     o.append(f"> {HEADLINE}\n")
     o.append(f"> {DISCLAIMER}\n")
+    o.append(f"> {INDEPENDENCE_NOTE}\n")
 
     o.append("## 1. Auftrag und Prüfgegenstand\n")
     o.append("DESi hat eine Analyse erzeugt (23 kuratierte Claims, drei als Konflikte "
              "geführte Befunde, Evidenz- und Selbstabdichtungsanalyse, Vergleich mit "
-             "MarCognity). Doktores prüft **adversarial**, welche Befunde einem unabhängigen "
-             "methodischen Angriff standhalten — Ziel ist nicht Bestätigung, sondern "
-             "Widerlegung, Korrektur oder Eingrenzung.\n")
+             "MarCognity). Doktores prüft **logisch und provenance-basiert adversarial**, "
+             "welche Befunde einem methodischen Angriff standhalten — Ziel ist nicht "
+             "Bestätigung, sondern Widerlegung, Korrektur oder Eingrenzung. Zur Unabhängigkeit "
+             "siehe die Einordnung oben: ein Self-Audit, keine unabhängige Replikation.\n")
 
     o.append("## 2. Verwendete Quellen\n")
     o.append("**Verfügbar (verbatim verankert):**\n" + _md_list(prov["sources_available"]))
@@ -438,9 +476,22 @@ def render_audit_report_md() -> str:
                  f"{cr.confidence.value} | {note[:90]} |")
     up = sum(1 for cr in reviews if cr.consensus == Consensus.UPHOLD)
     uq = sum(1 for cr in reviews if cr.consensus == Consensus.UPHOLD_WITH_QUALIFICATION)
-    o.append(f"\n**{up} uphold, {uq} uphold_with_qualification, 0 revise/reject** auf "
-             "Claim-Ebene — kein DESi-Claim-Verdikt wurde umgestoßen; die Schärfe des Audits "
-             "liegt in den Konflikt-Reklassifikationen und den Qualifikationen.\n")
+    pr = PROCESS_REVISIONS
+    o.append(f"\n**Auf Claim-Ebene:** {up} uphold, {uq} uphold_with_qualification, "
+             "**0 von diesem Audit umgestoßen**.\n")
+    o.append("**Transparente Bilanz über den gesamten Prüfprozess** (damit das Audit nicht wie "
+             "ein nachträglicher Bestätigungsstempel wirkt):\n"
+             f"- 23 Claims geprüft\n"
+             f"- {up + uq - len(pr['claim_verdicts_revised'])} unverändert oder mit Auflage "
+             "bestätigt\n"
+             f"- {len(pr['claim_verdicts_revised'])} Claim-Verdikt revidiert "
+             "(MET-02: contradicted → partially_supported; im Betreiber-Review vor diesem "
+             "Audit, hier bestätigt)\n"
+             f"- {len(pr['conflicts_reclassified'])} Konfliktklassifikationen revidiert "
+             "(C2 → Pipeline-Inkonsistenz, C3 → unbelegte Unabhängigkeit)\n"
+             f"- {len(pr['wording_revisions'])} Formulierungs-Revisionen durch DIESEN Audit "
+             "(R1/R2/R4/R5)\n"
+             f"- {len(pr['claims_fully_rejected'])} Claims vollständig verworfen\n")
 
     o.append("## 6. Provenienz-Audit\n")
     o.append("Jeder Doktoren-Befund trägt Quellenanker (siehe `claim_reviews.jsonl` / "
@@ -511,5 +562,5 @@ def write_all(out_dir: Path) -> dict:
 __all__ = [
     "consensus", "build_claim_reviews", "SYNTHESIS", "ATTESTATION",
     "OVERALL_ATTESTATION", "OPEN_QUESTIONS", "provenance_manifest", "audit_summary",
-    "write_all", "DISCLAIMER", "HEADLINE",
+    "write_all", "DISCLAIMER", "HEADLINE", "INDEPENDENCE_NOTE", "PROCESS_REVISIONS",
 ]

@@ -2,6 +2,8 @@
 
 > Dieses Attest bestätigt NICHT die Wahrheit sämtlicher juristischer Aussagen. Es bewertet ausschließlich die methodische Nachvollziehbarkeit, interne Konsistenz, Provenienz und Reichweite der DESi-Fallstudie.
 
+> Einordnung: Dies ist ein **regelgeleiteter Self-Audit**. Er ist **logisch und provenance-basiert adversarial** (jede Bewertung ist an eine Quelle gebunden, die Prüfregeln sind darauf angelegt, Fehler/Überdehnung/ausgelassene Gegenargumente zu finden), aber **nicht organisatorisch oder modellseitig unabhängig**: alle vier Prüfer sind fest programmierte Regeln aus demselben Repository. Es ist ein sauberer, deterministischer Gegencheck — **noch keine unabhängige Replikation**.
+
 **Gesamturteil: passed_with_qualifications** — kein pauschales Gütesiegel.
 
 | Dimension | Bewertung | Begründung |
@@ -19,4 +21,4 @@
 | Auditierbarkeit | **passed** | jsonl je Zeile, exakte Anker, optionaler hash-verketteter Ledger. |
 | Offene Einwände | **not_assessable** | Kein Pass/Fail — siehe die offenen Fragen (fehlende Originaldaten). |
 
-_Doktores prüfte die DESi-Fallstudie adversarial. Einige Befunde hielten stand, einige mussten eingeschränkt oder umklassifiziert werden, und bestimmte Fragen bleiben aufgrund fehlender Originaldaten offen._
+_Doktores prüfte die DESi-Fallstudie in einem regelgeleiteten Self-Audit. Einige Befunde hielten stand, einige mussten eingeschränkt oder umklassifiziert werden, und bestimmte Fragen bleiben aufgrund fehlender Originaldaten offen._

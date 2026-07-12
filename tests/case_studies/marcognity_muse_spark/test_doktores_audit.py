@@ -84,6 +84,30 @@ def test_attestation_has_no_blanket_truth_seal():
     assert engine.OVERALL_ATTESTATION.value != "passed"
 
 
+# 7b. The audit states its own independence limit (no over-claim of independence).
+def test_audit_states_its_independence_limit():
+    for text in (engine.render_audit_report_md(), engine.render_attestation_md()):
+        assert "Self-Audit" in text
+        assert "nicht organisatorisch oder modellseitig unabhängig" in text
+        assert "keine unabhängige Replikation" in text
+    summ = engine.audit_summary()
+    assert "independence" in summ and "Self-Audit" in summ["independence"]
+
+
+# 7c. The success numbers are transparent about real revisions (not a rubber stamp).
+def test_process_revisions_are_surfaced_transparently():
+    summ = engine.audit_summary()
+    assert summ["verdicts_overturned_by_this_audit"] == 0
+    pr = summ["process_revisions"]
+    assert len(pr["claim_verdicts_revised"]) == 1        # MET-02
+    assert len(pr["conflicts_reclassified"]) == 2        # C2, C3
+    assert len(pr["wording_revisions"]) == 4             # R1/R2/R4/R5
+    assert pr["claims_fully_rejected"] == []
+    report = engine.render_audit_report_md()
+    assert "1 Claim-Verdikt revidiert" in report
+    assert "2 Konfliktklassifikationen revidiert" in report
+
+
 # 8. Every doctor verdict is anchored (or the absence is marked).
 def test_every_doctor_verdict_is_anchored():
     for _cid, verdicts, *_ in reviews.CLAIM_VERDICTS:
