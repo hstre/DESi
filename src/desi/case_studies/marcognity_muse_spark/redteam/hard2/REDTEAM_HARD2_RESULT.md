@@ -71,6 +71,9 @@ Struktur selten** — und übertreiben zugleich `overclaim` auf gut belegten Aus
   Eine deterministische Regel, die genau diese Muster prüft, könnte ein schwaches Modell auf diesen
   Fällen schlagen — **eine konkrete, testbare Hypothese** (granite-8b allein vs. + Regel), die HARD2
   erstmals messbar macht.
+  → **Getestet und bestätigt** (`REDTEAM_HARD2_RULE_RESULT.md`): eine ~40-Zeilen-Regel hebt granite-8b
+  0.681→**0.781** und **jedes** der 14 Modelle (inkl. gpt-5.1 0.927→0.975), `significance`-Recall →1.00,
+  null neue FP. Nur R1 (Signifikanz) trägt; R2 (overclaim) war wirkungslos.
 
 ## Grenzen
 - 18 Items, self-authored Labels; ~3 als `debatable` markiert (G07 Selbstzitat, G17 breites CI, und die

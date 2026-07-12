@@ -337,3 +337,15 @@ gehedgter Hypothese.
   Genauigkeit *hinzufügen* (die zwei systematischen LLM-Schwächen sind regel-kodierbar; testbare
   Hypothese granite-8b allein vs. + Regel). Reproduktion:
   `python scripts/run_hard_benchmark.py --benchmark hard2` (`OPENROUTER_API_KEY` aus env).
+- `redteam/hard2/` (**Regel-Test, der eigentliche DESi-Befund**,
+  `redteam/hard2/REDTEAM_HARD2_RULE_RESULT.md`): eine **deterministische ~40-Zeilen-Regel**
+  (`redteam/hard2/rules.py`, aus den Flag-Definitionen abgeleitet, **nicht** Gold-getunt) als Post-Layer
+  über die gespeicherten Reviewer-Läufe **hebt alle 14 Modelle**: die kleinen um **+0.10 bis +0.12** F1,
+  alle größeren (inkl. **gpt-5.1** 0.927→**0.975**) um **~+0.05**; `significance_not_importance`-Recall
+  {0.0–0.5}→**1.00** bei jedem Modell, **null** neue False Positives (berührt nur die zwei Gold-SIG-Items).
+  **granite-8b + Regel (0.781) schlägt qwen3-30b/gemma-3-12b roh** — die billige deterministische Schicht
+  ersetzt einen Modell-Sprung. Das ist „rules for logic" an der **Genauigkeit** belegt (nicht nur
+  Kosten/Energie). Ehrlich: nur **R1** (Signifikanz) trägt; **R2** (overclaim-Unterdrückung) war wirkungslos
+  (die overclaim-FPs lagen auf grenzwertig-überziehenden Items, kein Regel-Ziel). Grenze: 18 Items, nur 2 mit
+  SIG-Flag → Mechanismus belegt, Betrag überzeichnet; Robustheit braucht größeren, unabhängig annotierten
+  Satz. Reproduktion: `python scripts/run_hard2_rule_test.py --model-slug <slug>` (kein LLM-Call).
