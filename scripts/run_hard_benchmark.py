@@ -14,6 +14,7 @@ import argparse
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -30,12 +31,21 @@ RUNS_DIR = HARD_DIR / "external_runs"
 def call(model: str, text_prompt: str, temperature: float, key: str) -> tuple[str, dict]:
     body = json.dumps({"model": model, "temperature": temperature,
                        "messages": [{"role": "user", "content": text_prompt}]}).encode()
-    req = urllib.request.Request(
-        "https://openrouter.ai/api/v1/chat/completions", data=body,
-        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json",
-                 "X-Title": "desi-redteam-hard"})
-    with urllib.request.urlopen(req, timeout=180) as r:
-        data = json.load(r)
+    # retry on rate-limit (429, common on :free) and transient 5xx, with backoff
+    for attempt in range(6):
+        req = urllib.request.Request(
+            "https://openrouter.ai/api/v1/chat/completions", data=body,
+            headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json",
+                     "X-Title": "desi-redteam-hard"})
+        try:
+            with urllib.request.urlopen(req, timeout=180) as r:
+                data = json.load(r)
+            break
+        except urllib.error.HTTPError as e:
+            if e.code in (429, 500, 502, 503) and attempt < 5:
+                time.sleep(min(3 * (attempt + 1), 20))
+                continue
+            raise
     msg = data["choices"][0]["message"]
     txt = msg.get("content")
     if isinstance(txt, list):
@@ -83,14 +93,14 @@ def main() -> int:
 
     scores = []
     for spec in args.models.split(","):
-        model, slug = spec.split(":")
+        model, slug = spec.rsplit(":", 1) if spec.count(":") > 1 else spec.split(":")
         try:
             s = run_model(model, slug, args.runs, args.temperature, key)
-        except urllib.error.HTTPError as e:
-            print(f"{slug}: HTTP {e.code} {e.read()[:200]!r}", file=sys.stderr)
-            return 1
+        except (urllib.error.HTTPError, urllib.error.URLError) as e:
+            print(f"{slug}: FAILED ({e}) — skipped", file=sys.stderr)
+            continue
         scores.append(s)
-        print(f"{slug:<12} F1 {s['f1_mean']}±{s['f1_stdev']}  exact {s['exact_match_mean']}  "
+        print(f"{slug:<14} F1 {s['f1_mean']}±{s['f1_stdev']}  exact {s['exact_match_mean']}  "
               f"P {s['precision_mean']}  R {s['recall_mean']}  "
               f"tok/run {s['tokens']['per_run']}")
 

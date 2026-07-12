@@ -132,6 +132,198 @@
   "n_items": 14,
   "scores": [
     {
+      "exact_match_mean": 1.0,
+      "f1_mean": 1.0,
+      "f1_stdev": 0.0,
+      "item_errors": {},
+      "item_exact_rate": {
+        "H01": 1.0,
+        "H02": 1.0,
+        "H03": 1.0,
+        "H04": 1.0,
+        "H05": 1.0,
+        "H06": 1.0,
+        "H07": 1.0,
+        "H08": 1.0,
+        "H09": 1.0,
+        "H10": 1.0,
+        "H11": 1.0,
+        "H12": 1.0,
+        "H13": 1.0,
+        "H14": 1.0
+      },
+      "label": "31B (free)",
+      "model": "google/gemma-4-31b-it:free",
+      "out_price_per_mtok": 0.0,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        }
+      ],
+      "precision_mean": 1.0,
+      "recall_mean": 1.0,
+      "reviewer": "gemma4_31b_free",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 1.0,
+      "f1_mean": 1.0,
+      "f1_stdev": 0.0,
+      "item_errors": {},
+      "item_exact_rate": {
+        "H01": 1.0,
+        "H02": 1.0,
+        "H03": 1.0,
+        "H04": 1.0,
+        "H05": 1.0,
+        "H06": 1.0,
+        "H07": 1.0,
+        "H08": 1.0,
+        "H09": 1.0,
+        "H10": 1.0,
+        "H11": 1.0,
+        "H12": 1.0,
+        "H13": 1.0,
+        "H14": 1.0
+      },
+      "label": "80B-a3b",
+      "model": "qwen/qwen3-next-80b-a3b-instruct",
+      "out_price_per_mtok": 1.1,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        }
+      ],
+      "precision_mean": 1.0,
+      "recall_mean": 1.0,
+      "reviewer": "qwen3_80b",
+      "runs": 5
+    },
+    {
       "exact_match_mean": 0.986,
       "f1_mean": 0.989,
       "f1_stdev": 0.021,
@@ -156,8 +348,9 @@
         "H13": 1.0,
         "H14": 1.0
       },
+      "label": "frontier",
       "model": "openai/gpt-5.1",
-      "out_price_per_tok": 1e-05,
+      "out_price_per_mtok": 10.0,
       "per_run": [
         {
           "exact_by_difficulty": {
@@ -231,6 +424,432 @@
       "runs": 5
     },
     {
+      "exact_match_mean": 0.972,
+      "f1_mean": 0.978,
+      "f1_stdev": 0.027,
+      "item_errors": {
+        "H03": [
+          "|over:overclaim"
+        ],
+        "H12": [
+          "miss:heuristic_not_empirical"
+        ]
+      },
+      "item_exact_rate": {
+        "H01": 1.0,
+        "H02": 1.0,
+        "H03": 0.8,
+        "H04": 1.0,
+        "H05": 1.0,
+        "H06": 1.0,
+        "H07": 1.0,
+        "H08": 1.0,
+        "H09": 1.0,
+        "H10": 1.0,
+        "H11": 1.0,
+        "H12": 0.8,
+        "H13": 1.0,
+        "H14": 1.0
+      },
+      "label": "cheap",
+      "model": "deepseek/deepseek-v4-flash",
+      "out_price_per_mtok": 0.154,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "3/4"
+          },
+          "exact_match": 0.929,
+          "f1": 0.947,
+          "fn": 0,
+          "fp": 1,
+          "precision": 0.9,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "9/10",
+            "medium": "4/4"
+          },
+          "exact_match": 0.929,
+          "f1": 0.941,
+          "fn": 1,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.889,
+          "tp": 8
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        }
+      ],
+      "precision_mean": 0.98,
+      "recall_mean": 0.978,
+      "reviewer": "deepseek_v4_flash",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.972,
+      "f1_mean": 0.978,
+      "f1_stdev": 0.027,
+      "item_errors": {
+        "H05": [
+          "|over:untraceable_citation"
+        ],
+        "H12": [
+          "miss:heuristic_not_empirical"
+        ]
+      },
+      "item_exact_rate": {
+        "H01": 1.0,
+        "H02": 1.0,
+        "H03": 1.0,
+        "H04": 1.0,
+        "H05": 0.8,
+        "H06": 1.0,
+        "H07": 1.0,
+        "H08": 1.0,
+        "H09": 1.0,
+        "H10": 1.0,
+        "H11": 1.0,
+        "H12": 0.8,
+        "H13": 1.0,
+        "H14": 1.0
+      },
+      "label": "cheap",
+      "model": "z-ai/glm-5.2",
+      "out_price_per_mtok": 1.32,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "3/4"
+          },
+          "exact_match": 0.929,
+          "f1": 0.947,
+          "fn": 0,
+          "fp": 1,
+          "precision": 0.9,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "9/10",
+            "medium": "4/4"
+          },
+          "exact_match": 0.929,
+          "f1": 0.941,
+          "fn": 1,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.889,
+          "tp": 8
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        }
+      ],
+      "precision_mean": 0.98,
+      "recall_mean": 0.978,
+      "reviewer": "glm52",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.929,
+      "f1_mean": 0.946,
+      "f1_stdev": 0.032,
+      "item_errors": {
+        "H05": [
+          "|over:untraceable_citation"
+        ],
+        "H09": [
+          "|over:overclaim",
+          "|over:overclaim"
+        ],
+        "H12": [
+          "miss:heuristic_not_empirical",
+          "miss:heuristic_not_empirical"
+        ]
+      },
+      "item_exact_rate": {
+        "H01": 1.0,
+        "H02": 1.0,
+        "H03": 1.0,
+        "H04": 1.0,
+        "H05": 0.8,
+        "H06": 1.0,
+        "H07": 1.0,
+        "H08": 1.0,
+        "H09": 0.6,
+        "H10": 1.0,
+        "H11": 1.0,
+        "H12": 0.6,
+        "H13": 1.0,
+        "H14": 1.0
+      },
+      "label": "free",
+      "model": "poolside/laguna-m.1:free",
+      "out_price_per_mtok": 0.0,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "9/10",
+            "medium": "4/4"
+          },
+          "exact_match": 0.929,
+          "f1": 0.941,
+          "fn": 1,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.889,
+          "tp": 8
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "9/10",
+            "medium": "4/4"
+          },
+          "exact_match": 0.929,
+          "f1": 0.947,
+          "fn": 0,
+          "fp": 1,
+          "precision": 0.9,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "9/10",
+            "medium": "4/4"
+          },
+          "exact_match": 0.929,
+          "f1": 0.941,
+          "fn": 1,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.889,
+          "tp": 8
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "10/10",
+            "medium": "4/4"
+          },
+          "exact_match": 1.0,
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "9/10",
+            "medium": "3/4"
+          },
+          "exact_match": 0.857,
+          "f1": 0.9,
+          "fn": 0,
+          "fp": 2,
+          "precision": 0.818,
+          "recall": 1.0,
+          "tp": 9
+        }
+      ],
+      "precision_mean": 0.944,
+      "recall_mean": 0.956,
+      "reviewer": "laguna_free",
+      "runs": 5
+    },
+    {
+      "exact_match_mean": 0.9,
+      "f1_mean": 0.927,
+      "f1_stdev": 0.022,
+      "item_errors": {
+        "H05": [
+          "|over:untraceable_citation"
+        ],
+        "H09": [
+          "|over:overclaim",
+          "|over:overclaim",
+          "|over:overclaim"
+        ],
+        "H11": [
+          "miss:overclaim",
+          "|over:self_sealing"
+        ],
+        "H12": [
+          "|over:overclaim"
+        ]
+      },
+      "item_exact_rate": {
+        "H01": 1.0,
+        "H02": 1.0,
+        "H03": 1.0,
+        "H04": 1.0,
+        "H05": 0.8,
+        "H06": 1.0,
+        "H07": 1.0,
+        "H08": 1.0,
+        "H09": 0.4,
+        "H10": 1.0,
+        "H11": 0.6,
+        "H12": 0.8,
+        "H13": 1.0,
+        "H14": 1.0
+      },
+      "label": "cheap",
+      "model": "deepseek/deepseek-v4-pro",
+      "out_price_per_mtok": 0.87,
+      "per_run": [
+        {
+          "exact_by_difficulty": {
+            "hard": "9/10",
+            "medium": "4/4"
+          },
+          "exact_match": 0.929,
+          "f1": 0.947,
+          "fn": 0,
+          "fp": 1,
+          "precision": 0.9,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "9/10",
+            "medium": "4/4"
+          },
+          "exact_match": 0.929,
+          "f1": 0.941,
+          "fn": 1,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.889,
+          "tp": 8
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "9/10",
+            "medium": "4/4"
+          },
+          "exact_match": 0.929,
+          "f1": 0.947,
+          "fn": 0,
+          "fp": 1,
+          "precision": 0.9,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "8/10",
+            "medium": "4/4"
+          },
+          "exact_match": 0.857,
+          "f1": 0.9,
+          "fn": 0,
+          "fp": 2,
+          "precision": 0.818,
+          "recall": 1.0,
+          "tp": 9
+        },
+        {
+          "exact_by_difficulty": {
+            "hard": "9/10",
+            "medium": "3/4"
+          },
+          "exact_match": 0.857,
+          "f1": 0.9,
+          "fn": 0,
+          "fp": 2,
+          "precision": 0.818,
+          "recall": 1.0,
+          "tp": 9
+        }
+      ],
+      "precision_mean": 0.887,
+      "recall_mean": 0.978,
+      "reviewer": "deepseek_v4_pro",
+      "runs": 5
+    },
+    {
       "exact_match_mean": 0.9,
       "f1_mean": 0.926,
       "f1_stdev": 0.042,
@@ -265,8 +884,9 @@
         "H13": 1.0,
         "H14": 1.0
       },
+      "label": "frontier",
       "model": "x-ai/grok-4.5",
-      "out_price_per_tok": 6e-06,
+      "out_price_per_mtok": 6.0,
       "per_run": [
         {
           "exact_by_difficulty": {
@@ -373,8 +993,9 @@
         "H13": 1.0,
         "H14": 1.0
       },
+      "label": "frontier",
       "model": "google/gemini-2.5-pro",
-      "out_price_per_tok": 1e-05,
+      "out_price_per_mtok": 10.0,
       "per_run": [
         {
           "exact_by_difficulty": {
@@ -487,8 +1108,9 @@
         "H13": 1.0,
         "H14": 1.0
       },
+      "label": "8B",
       "model": "ibm-granite/granite-4.1-8b",
-      "out_price_per_tok": 1e-07,
+      "out_price_per_mtok": 0.1,
       "per_run": [
         {
           "exact_by_difficulty": {
@@ -646,8 +1268,9 @@
         "H13": 1.0,
         "H14": 1.0
       },
+      "label": "~3B",
       "model": "ibm-granite/granite-4.0-h-micro",
-      "out_price_per_tok": 1.12e-07,
+      "out_price_per_mtok": 0.112,
       "per_run": [
         {
           "exact_by_difficulty": {

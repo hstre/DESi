@@ -4,19 +4,37 @@
 Near-Miss-Paare, Multi-Flag- und Zero-Flag-Items, adversariale Clean-Controls. Multi-Label-Scoring
 (Precision/Recall/F1), Ground Truth aus dem Text selbst. Blind, cross-vendor, 5 Läufe je Modell.*
 
-## Ergebnis (14 Items: 5×1-Flag, 2×2-Flag, 7 clean)
+## Ergebnis — 11 Modelle (14 Items: 5×1-Flag, 2×2-Flag, 7 clean; blind, 5 Läufe je Modell)
 
-| Modell | F1 (±σ) | Exact-Match | Precision | Recall | Fehlerprofil |
+| Modell | Klasse | F1 (±σ) | P | R | $/M-Token (out) |
 |---|---|---|---|---|---|
-| **openai/gpt-5.1** (frontier) | **0.989 ±0.02** | 0.986 | 0.98 | 1.00 | fängt alles; seltener (vertretbarer) Over-Flag |
-| **x-ai/grok-4.5** (frontier) | 0.926 ±0.04 | 0.90 | 0.88 | 0.978 | hohe Trefferquote, **über-flaggt** (Domain/Multi) |
-| **google/gemini-2.5-pro** (frontier) | 0.901 ±0.03 | 0.886 | **1.00** | 0.822 | nie Over-Flag, **übersieht** ~18 % |
-| **ibm-granite/granite-4.1-8b** (8B) | **0.892 ±0.06** | 0.857 | 0.884 | 0.911 | **kleines Modell, ~Frontier-nah** |
-| ibm-granite/granite-4.0-h-micro (~3B) | 0.538 ±0.00 | 0.357 | 0.412 | 0.778 | zu klein: über-flaggt Controls, übersieht Fehler |
+| **google/gemma-4-31b-it:free** | 31B, **frei** | **1.00 ±0.00** | 1.00 | 1.00 | **0** |
+| **qwen/qwen3-next-80b-a3b-instruct** | 80B-a3b | **1.00 ±0.00** | 1.00 | 1.00 | 1,10 |
+| openai/gpt-5.1 | frontier | 0.989 ±0.02 | 0.98 | 1.00 | 10,00 |
+| deepseek/deepseek-v4-flash | günstig | 0.978 ±0.03 | 0.98 | 0.978 | **0,15** |
+| z-ai/glm-5.2 | günstig | 0.978 ±0.03 | 0.98 | 0.978 | 1,32 |
+| poolside/laguna-m.1:free | **frei** | 0.946 ±0.03 | 0.944 | 0.956 | 0 |
+| deepseek/deepseek-v4-pro | günstig | 0.927 ±0.02 | 0.887 | 0.978 | 0,87 |
+| x-ai/grok-4.5 | frontier | 0.926 ±0.04 | 0.88 | 0.978 | 6,00 |
+| google/gemini-2.5-pro | frontier | 0.901 ±0.03 | 1.00 | 0.822 | 10,00 |
+| ibm-granite/granite-4.1-8b | 8B | 0.892 ±0.06 | 0.884 | 0.911 | 0,10 |
+| ibm-granite/granite-4.0-h-micro | ~3B | 0.538 ±0.00 | 0.412 | 0.778 | 0,11 |
 
-**Erstmals echte Spreizung** — drei Frontier-Fehlerprofile (GPT nahezu perfekt; Grok über-, Gemini
-unter-flaggt) **und ein klarer Größen-Schwellenwert bei den kleinen Modellen** (siehe eigener
-Abschnitt).
+*(qwen3-next-80b:free war rate-limitiert → die kostenpflichtige, identische Variante genommen.)*
+
+**Drei harte Befunde:**
+
+1. **Ein FREIES 31B-Modell (gemma-4-31b) und ein günstiges 80B (qwen3-next) erreichen F1 = 1.00** —
+   und **schlagen damit das teuerste Frontier-Modell** (gpt-5.1, 0.989, $10). deepseek-v4-flash
+   (**$0,15**) und glm-5.2 liegen bei 0.978. **Auf Kosten-pro-Qualität dominieren die freien/günstigen
+   Modelle das Frontier klar** (≈65× billiger bei gleicher/besserer F1).
+
+2. **Der Benchmark ist am oberen Ende gesättigt:** alles ab ~30B liegt bei **F1 0.89–1.00** — Frontier
+   *und* frei *und* günstig. Harte epistemische Fehlererkennung (auf selbst-enthaltenen Items) ist
+   **keine Frontier-Fähigkeit**, sondern breit verfügbar.
+
+3. **Der einzige echte Bruch ist die Größen-Schwelle unten:** granite-**micro (3B) kollabiert**
+   (F1 0.538, deterministisch *falsch*, σ = 0), granite-**8B** trägt (0.892), **≥30B** ~perfekt.
 
 ## Der eigentliche Diskriminator: Multi-Flag-Items
 
@@ -43,56 +61,44 @@ Zwei „Fehler" sind **Label-Ambiguität**, kein Modellversagen:
 Von 14 Items sind ~2 **strittig** (`debatable`); Uneinigkeit dort ist Datum, nicht Fehler. Das ist
 selbst ein Befund: **epistemische Ground Truth ist bei harten Fällen unscharf.**
 
-## Kleine Modelle — DESis eigene Sprachschicht (der eigentliche Test)
+## Was das für DESi bedeutet — zwei Seiten, beide ehrlich
 
-DESis Architektur ist „**LLM für Sprache, Regeln für Logik**" — die Sprachschicht ist ein **kleines**
-Modell (im Router-Setup `ibm-granite/granite-4.0-h-micro`). Genau deshalb ist der faire Effizienztest:
-schafft ein *kleines* Modell die harten Fälle? Antwort mit klarem **Schwellenwert**:
+**Stark bestätigt: „Du brauchst kein Frontier-Modell."** DESis Architektur ist „LLM für Sprache,
+Regeln für Logik" — die Sprachschicht ist ein kleines/günstiges Modell. Der Test zeigt: die
+Sprachschicht kann **kostenlos** F1 = 1.00 erreichen (gemma-4-31b:free) oder für $0,15/M-Token F1 0.978
+(deepseek-v4-flash). Frontier-Kosten sind für diese Aufgabe **nicht nötig**. Einzige Bedingung: **nicht
+zu klein** — das 3B-*micro* im aktuellen Router-Setup kollabiert (F1 0.54); ~30B frei/günstig ist der
+Sweet Spot.
 
-- **granite-4.0-h-micro (~3B): F1 0.538** — **kollabiert.** Precision 0.41 (über-flaggt die
-  adversarialen Clean-Controls massiv), Recall 0.78. Für harte, subtile Erkennung end-to-end **zu
-  klein.** (Interessant: σ = 0 — sehr deterministisch, aber deterministisch *falsch*.)
-- **granite-4.1-8b (8B): F1 0.892** — **fast Frontier.** Praktisch gleichauf mit gemini-2.5-pro
-  (0.901) und nah an grok (0.926). **90 % von gpt-5.1s F1 (0.892 vs 0.989) — bei ~100× niedrigerem
-  Output-Preis** (0.10 vs 10.00 $/M-Token).
+**Ehrlich einschränkend: die Regeln zeigen hier *keinen* Genauigkeits-Vorteil.** Da freie Modelle
+bereits F1 = 1.00 liefern, kann ein deterministisches Regel-Gate die **Genauigkeit** am oberen Ende
+nicht mehr verbessern — sie ist schon perfekt und **gratis**. DESis Regel-Wert reduziert sich damit auf
+das, was ein LLM *nicht* liefert: **σ = 0 als Garantie** (statt empirisch), eine **auditierbare
+Regel-Spur**, und feste, überprüfbare Semantik — nicht auf höhere Trefferquote. Das ist ein echter,
+aber **engerer** Anspruch als „bessere Erkennung".
 
-**Das ist der konkrete, dauerhafte Effizienz-Befund**, den der leichte Test verdeckt hatte: nicht
-„kleine Modelle können es nicht", sondern ein **Größen-Schwellenwert bei ~8B**. Ein 8B-Modell erreicht
-frontier-nahe epistemische Erkennung zu einem **Hundertstel** der Kosten/Energie.
-
-## Wo DESi steht — korrigiert und geschärft
-
-Frühere Aussage („DESi kann Rohtext gar nicht") war zu grob. **DESis Sprachschicht IST ein kleines
-Modell — und ein 8B-Granite liest Rohtext frontier-nah.** Damit:
-
-1. **Modellwahl:** Das Router-Setup nutzt derzeit *micro* (3B) — für harte epistemische Erkennung
-   **zu schwach** (F1 0.54, über-flaggt Controls). Für diese Aufgabe gehört **granite-4.1-8b** dorthin
-   (immer noch winzig, ~100× billiger, F1 0.89).
-2. **Regeln obendrauf:** granite-8b hat Rest-Schwächen (P 0.884 über-flaggt, R 0.911 übersieht etwas,
-   σ 0.058). Genau das — **FP/FN und Varianz auf den abgedeckten Mustern** — ist, was ein
-   deterministisches Regel-Gate (~0 Zusatzkosten) glätten könnte. Das ist DESis These, jetzt
-   **konkret motiviert**, aber weiterhin **ungetestet** (das 8B-Modell macht hier noch das *Urteil*
-   selbst; DESis Architektur würde es nur *extrahieren* lassen und die Regeln urteilen — Dekomposition
-   könnte helfen oder nicht).
-
-Ehrlich bleibt: DESis Regel-Abdeckung ist fix (5 Typen), ein LLM generalisiert auf neue Fehlertypen;
-und die Regeln selbst hat hier niemand auf Rohtext laufen lassen.
+**Der Benchmark ist zu leicht, um mehr zu zeigen.** Er sättigt ab ~30B (0.89–1.00). Wo DESis Regeln
+die Genauigkeit *verbessern* könnten, läge erst dort, wo auch 30B+-Modelle unter ~0.85 fallen — solche
+Items gibt es hier nicht (nur das 3B-Modell scheitert). Um DESis Gate-These auf **Genauigkeit** zu
+prüfen, braucht es **härtere Items** *und* den Vergleich granite-8b-allein vs. granite-8b + Regeln.
+Auf **Determinismus/Auditierbarkeit** ist DESis Vorteil dagegen schon jetzt real und modell-unabhängig.
 
 ## Veröffentlichung
 
-**Deutlich näher dran.** Jetzt gibt es einen echten, konkreten Befund: cross-vendor, blind, harte
-Items, echte Spreizung, ein benannter Frontier-Schwachpunkt (Multi-Flag-Unter-Berichten) — **und der
-Größen-Schwellenwert: ein 8B-Modell erreicht ~90 % der Frontier-F1 zu ~1/100 der Kosten, ein 3B nicht.**
-Für eine Veröffentlichung fehlt noch:
-- **mehr Items** (14 → ~50–100, mehr Domänen),
-- **unabhängige Label-Validierung** (≥2 Annotatoren; κ) — gerade wegen der Grauzone,
-- **die Regel-Gate-Stufe testen**: granite-8b (oder eine Extraktions-Dekomposition) + DESi-Regeln vs.
-  granite-8b allein — glätten die Regeln die Rest-FP/FN/Varianz?
+Der **publikationsreife Befund** ist jetzt der **Kosten/Fähigkeits-Befund**, nicht ein DESi-Vorteil:
+*„Harte epistemische Fehlererkennung auf selbst-enthaltenen Items ist keine Frontier-Fähigkeit — ein
+**freies** 31B und ein günstiges 80B erreichen F1 = 1.00 und schlagen ein $10/M-Token-Frontier-Modell;
+der einzige Bruch ist eine Größen-Schwelle unterhalb ~8B."* Das ist neu, überraschend und
+reproduzierbar — und für DESis „kein Frontier nötig"-These die stärkste Stütze bisher.
 
-Dann trägt die Aussage: *„Harte epistemische Fehlererkennung braucht kein Frontier-Modell — ein 8B
-gelingt zu ~1/100 der Kosten (F1 0.89 vs 0.99); ein 3B nicht. Ein deterministisches Gate auf den
-codierten Mustern (~0 Zusatzkosten) glättet die Rest-Fehler und die Varianz."* Das ist eine
-**prüfbare, dauerhafte** These — und genau DESis Architektur.
+Was für diesen Befund noch fehlt: **mehr Items** (14 → ~50–100, mehr Domänen) und **unabhängige
+Label-Validierung** (≥2 Annotatoren; κ) — gerade wegen der ~2 strittigen Items.
+
+Was der **DESi-Regel-Vorteil** angeht, ist die Lage nüchtern: auf **Genauigkeit** kann er hier nicht
+gezeigt werden (freie Modelle sind schon perfekt); er lebt von **Determinismus + Auditierbarkeit**.
+Ein *Genauigkeits*-Beleg bräuchte **härtere Items** (wo auch ≥30B-Modelle < 0.85 fallen) plus den
+direkten Vergleich *granite-8b allein vs. granite-8b + Regeln*. Ohne den ist „Regeln verbessern die
+Erkennung" **unbewiesen** — und das sollte kein Paper behaupten.
 
 ## Reproduktion
 Prompt/Scorer: `redteam/hard/{prompt,score,items}.py`. Rohantworten verbatim:

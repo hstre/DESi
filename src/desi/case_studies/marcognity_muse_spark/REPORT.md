@@ -314,11 +314,13 @@ gehedgter Hypothese.
   **Noch nicht veröffentlichbar**: die Parität ist nur auf vor-destillierten Auszügen gezeigt; der
   Energie-Vorsprung trägt erst, wenn die Parität auch auf **rohen Volltexten** hält (ungetestet).
   Rohantworten verbatim in `redteam/external_runs/`.
-- `redteam/hard/` — **HARTER Benchmark** (rohe, eingebettete Fehler, Near-Miss-Paare, Multi-Flag,
-  adversariale Controls; Multi-Label-P/R/F1; `redteam/hard/REDTEAM_HARD_RESULT.md`). Diskriminiert
-  jetzt: gpt-5.1 F1 **0.989**, grok-4.5 0.926, gemini-2.5-pro 0.901 (drei Fehlerprofile);
-  Diskriminator sind **verschränkte Multi-Flag-Items** (Modelle unter-berichten den zweiten Fehler).
-  **Kernbefund zur Energie-These:** DESis eigene Sprachschicht — ein *kleines* Modell —, konkret
-  getestet: **granite-4.1-8b F1 0.892 (~90 % von gpt-5.1) bei ~100× niedrigerem Preis**, aber
-  **granite-4.0-h-micro (3B) kollabiert (F1 0.538)**. Also Größen-Schwelle ~8B, kein „small model can't".
-  Reproduktion: `python scripts/run_hard_benchmark.py` (`OPENROUTER_API_KEY` aus env).
+- `redteam/hard/` — **HARTER Benchmark, 11 Modelle** (rohe eingebettete Fehler, Near-Miss-Paare,
+  Multi-Flag, adversariale Controls; Multi-Label-P/R/F1; `redteam/hard/REDTEAM_HARD_RESULT.md`).
+  **Kernbefund:** ein **freies** 31B (gemma-4-31b) und ein günstiges 80B (qwen3-next) erreichen
+  **F1 = 1.00** und schlagen gpt-5.1 (0.989, $10); deepseek-v4-flash 0.978 bei **$0,15**. Der Benchmark
+  **sättigt ab ~30B** (0.89–1.00, frontier = frei = günstig) — harte epistemische Erkennung ist **keine
+  Frontier-Fähigkeit**; einziger Bruch: granite-**micro (3B) kollabiert (0.538)**, 8B trägt (0.892).
+  Für DESi: starke Stütze für „kein Frontier nötig" (Sprachschicht gratis auf F1 1.0); die **Regeln**
+  zeigen hier aber *keinen* Genauigkeits-Vorteil (freie Modelle sind schon perfekt) — ihr Wert ist
+  **Determinismus + Auditierbarkeit**, nicht Trefferquote. Reproduktion:
+  `python scripts/run_hard_benchmark.py` (`OPENROUTER_API_KEY` aus env).
