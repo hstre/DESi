@@ -147,13 +147,14 @@ def _coverage_escalation(base_runs, aug_runs):
     return round(cov / n, 3), round(esc / n, 3)
 
 
-def evaluate(model: str, slug: str, price: float, runs: int, key: str, temp: float) -> dict:
+def evaluate(model: str, slug: str, price: float, runs: int, key: str, temp: float,
+             apply_fn=rules.apply_rules) -> dict:
     base_runs, tokens = [], 0
     for i in range(1, runs + 1):
         fl, tok = one_run(model, slug, i, key, temp)
         base_runs.append(fl)
         tokens += tok
-    aug_runs = [{iid: rules.apply_rules(_TEXT[iid], fl) for iid, fl in r.items()}
+    aug_runs = [{iid: apply_fn(_TEXT[iid], fl) for iid, fl in r.items()}
                 for r in base_runs]
     b = score.score_runs(slug, base_runs, HOLDOUT_ITEMS)
     a = score.score_runs(f"{slug}+rule", aug_runs, HOLDOUT_ITEMS)
@@ -186,7 +187,10 @@ def main() -> int:
     ap.add_argument("--temperature", type=float, default=0.7)
     ap.add_argument("--models", default="cheap",
                     help="'cheap' for the built-in cheap tier, or 'id:slug:price,...'")
+    ap.add_argument("--rules", choices=("v1", "v2"), default="v1",
+                    help="which frozen R1 to wire into the post-layer")
     args = ap.parse_args()
+    apply_fn = rules.apply_rules_v2 if args.rules == "v2" else rules.apply_rules
     key = os.environ.get("OPENROUTER_API_KEY")
     if not key:
         print("OPENROUTER_API_KEY not set", file=sys.stderr)
@@ -201,7 +205,7 @@ def main() -> int:
     cards = []
     for model, slug, price in specs:
         try:
-            r = evaluate(model, slug, price, args.runs, key, args.temperature)
+            r = evaluate(model, slug, price, args.runs, key, args.temperature, apply_fn)
         except (urllib.error.HTTPError, urllib.error.URLError) as e:
             print(f"{slug}: FAILED ({e}) — skipped", file=sys.stderr)
             continue
@@ -213,9 +217,10 @@ def main() -> int:
               f"newFN {r['new_false_negatives_from_rule']} newFP {r['new_false_positives_from_rule']}",
               file=sys.stderr)
 
-    (_BASE / "holdout_rule_scorecard_all.json").write_text(
-        json.dumps({"n_items": len(HOLDOUT_ITEMS), "cards": cards}, indent=2,
-                   ensure_ascii=False) + "\n", encoding="utf-8")
+    suffix = "" if args.rules == "v1" else f"_{args.rules}"
+    (_BASE / f"holdout_rule_scorecard_all{suffix}.json").write_text(
+        json.dumps({"n_items": len(HOLDOUT_ITEMS), "rules": args.rules, "cards": cards},
+                   indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({"cards": cards}, ensure_ascii=False))
     return 0
 

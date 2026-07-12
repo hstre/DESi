@@ -374,3 +374,9 @@ gehedgter Hypothese.
   Muster → robuste, hochpräzise Deckung), nicht nur ein Benchmark-Zufall. Grenzen: 48 self-authored Items /
   ein Annotator; v2 bleibt lexikalisch (Restlücke T-S04); nur R1 belegt. v1 bleibt eingefroren, v2 additiv.
   Reproduktion: `python scripts/run_sig_corpus_test.py` (kein LLM-Call).
+  **Abschließende Konsistenzprüfung** (`hard2_holdout/…`, `--rules v2` reapply auf Cache): gehärtetes v2 im
+  Pipeline-Post-Layer über die günstige Tier — **v2 ≥ v1 bei jedem Modell**, SIG-Recall **1.0 bei allen 7**,
+  null Kollateral, R2 unverändert inert; mittleres ΔF1 +0.089. **Kernaussage eng:** v1 nicht generalisierbar;
+  v2 nach Dev-Härtung auf blindem *synthetischem* Test P 1.0 / R 0.917 — Nachweis **kontrollierter
+  Regelhärtung**, noch **kein** Nachweis auf realen wissenschaftlichen Dokumenten (nächster Schritt: reales,
+  unabhängig annotiertes Signifikanz-Korpus). R2 bleibt negatives Ergebnis.

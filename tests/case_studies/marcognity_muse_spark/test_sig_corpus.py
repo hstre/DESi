@@ -51,3 +51,14 @@ def test_v2_no_regression_on_hard2_significance():
     for it in HARD2_ITEMS:
         # v2 must still flag exactly the gold-SIG items on the dev benchmark
         assert rules.detect_significance_not_importance_v2(it.text) == (SIG in it.gold)
+
+
+def test_apply_rules_v2_wiring_lifts_holdout_without_collateral():
+    from desi.case_studies.marcognity_muse_spark.redteam.hard2_holdout.items import HOLDOUT_ITEMS
+    SIG = Flag2.SIGNIFICANCE_NOT_IMPORTANCE
+    # v2 wired as a post-layer flags every gold-SIG holdout item and adds no non-gold flag
+    for it in HOLDOUT_ITEMS:
+        out = rules.apply_rules_v2(it.text, set())
+        if SIG in it.gold:
+            assert SIG in out
+        assert out <= it.gold                     # never adds a flag not in gold (no new FP)

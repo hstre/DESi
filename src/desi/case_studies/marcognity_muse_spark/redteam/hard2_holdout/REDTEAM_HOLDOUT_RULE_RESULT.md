@@ -98,9 +98,37 @@ das, was DESi als billige Reviewer-Schicht in einer Claude-Science-Pipeline sein
 nur R1 trägt, R1 sprachlich spröde (Gewinn aus LLM+Regel-Komplementarität), 27 self-authored Items, ein
 Annotator.
 
+## Abschließende Konsistenzprüfung — gehärtetes v2 im Pipeline-Post-Layer
+
+Dieselben **gecachten** Modell-Ausgaben (kein Neu-Aufruf), nur der deterministische Post-Layer von v1 auf
+das eingefrorene **v2** getauscht — isoliert den reinen Regel-Effekt. **Kein Regel-Tuning anhand dieses
+Laufs.**
+
+| Modell | F1 Basis | +v1 | +v2 | SIG-Recall v1→v2 | neu FN/FP | overclaim-FP |
+|---|---|---|---|---|---|---|
+| granite-4.0-h-micro | 0.465 | 0.596 | **0.653** | 0.714→**1.0** | 0/0 | 30→30 |
+| granite-4.1-8b | 0.645 | 0.753 | **0.782** | 0.857→**1.0** | 0/0 | 22→22 |
+| qwen3-30b-a3b | 0.832 | 0.909 | **0.920** | 0.943→**1.0** | 0/0 | 7→7 |
+| gemma-4-31b | 0.872 | 0.927 | 0.927 | 1.0→1.0 | 0/0 | 10→10 |
+| ministral-8b | 0.782 | 0.836 | 0.836 | 1.0→1.0 | 0/0 | 10→10 |
+| gemma-3-12b | 0.773 | 0.826 | 0.826 | 1.0→1.0 | 0/0 | 25→25 |
+| deepseek-v4-flash | 0.799 | 0.848 | 0.848 | 1.0→1.0 | 0/0 | 29→29 |
+
+**v2 ≥ v1 bei jedem Modell** (identisch, wo das LLM die Paraphrasen schon selbst fing; höher, wo es schwach
+war — granite-micro +0.057, granite-8b +0.029, qwen3 +0.011 gegenüber v1). **SIG-Recall = 1.0 bei allen 7.
+Null neue FN/FP bei allen. R2 (overclaim) bei allen unverändert — negatives Ergebnis, unverändert bestätigt.**
+Mittleres ΔF1 (v2) = **+0.089** (v1: +0.075). Der Lauf war LLM-frei (Post-Layer auf Cache).
+
+> **Kernaussage, eng gefasst:** v1 war **nicht generalisierungsfähig** (blinder synthetischer Test: Recall
+> 0.0). v2 erreichte **nach Dev-basierter Härtung** auf einem **blinden synthetischen** Test **Precision 1.0,
+> Recall 0.917** und hält diese Deckung konsistent über die günstige Modell-Tier (SIG-Recall 1.0, kollateral-
+> frei). Das ist ein **Nachweis kontrollierter Regelhärtung — noch KEIN Nachweis auf realen wissenschaftlichen
+> Dokumenten.** Der nächste Schritt ist ein reales, unabhängig annotiertes p-Wert-/Signifikanz-Korpus.
+
 ## Reproduktion
 `OPENROUTER_API_KEY=… python scripts/run_holdout_rule_test.py --runs 5` (ganze günstige Tier; granite
-gebatcht ≤9/Call). Einzelmodell: `--models "id:slug:preis"`.
+gebatcht ≤9/Call). Einzelmodell: `--models "id:slug:preis"`. Gehärtete Regel: `--rules v2` (reapply auf
+Cache, kein Neu-Aufruf). Scorecards: `holdout_rule_scorecard_all.json` (v1), `…_all_v2.json` (v2).
 Regel eingefroren: `redteam/hard2/rules.py` (seit `c1f7db6`). Hold-out eingefroren vor dem Lauf: `c12cca6`.
 Rohantworten: `redteam/hard2_holdout/external_runs/granite_8b/run_*_batch_*.txt`. Scorecard:
 `redteam/hard2_holdout/holdout_rule_scorecard.json`.

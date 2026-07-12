@@ -152,7 +152,7 @@ def suppress_overclaim(text: str) -> bool:
 
 
 def apply_rules(text: str, llm_flags: set[Flag2]) -> set[Flag2]:
-    """Post-process one excerpt's LLM flag set with the two deterministic rules."""
+    """Post-process one excerpt's LLM flag set with the two deterministic rules (v1 R1)."""
     out = set(llm_flags)
     if detect_significance_not_importance(text):
         out.add(Flag2.SIGNIFICANCE_NOT_IMPORTANCE)
@@ -161,4 +161,16 @@ def apply_rules(text: str, llm_flags: set[Flag2]) -> set[Flag2]:
     return out
 
 
-__all__ = ["detect_significance_not_importance", "suppress_overclaim", "apply_rules"]
+def apply_rules_v2(text: str, llm_flags: set[Flag2]) -> set[Flag2]:
+    """Same post-layer but with the hardened R1 (v2). Pure wiring of the frozen v2
+    detector; R2 (suppress_overclaim) is unchanged."""
+    out = set(llm_flags)
+    if detect_significance_not_importance_v2(text):
+        out.add(Flag2.SIGNIFICANCE_NOT_IMPORTANCE)
+    if Flag2.OVERCLAIM in out and suppress_overclaim(text):
+        out.discard(Flag2.OVERCLAIM)
+    return out
+
+
+__all__ = ["detect_significance_not_importance", "detect_significance_not_importance_v2",
+           "suppress_overclaim", "apply_rules", "apply_rules_v2"]
