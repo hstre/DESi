@@ -7,14 +7,34 @@ inside DESi, never mutates persistent state (Layer-9's gate stays the authority)
 metadata governance is proven.
 """
 from desi_router.governance.audit import GovernanceAudit, audit_event
+from desi_router.governance.clsp import (
+    CATEGORIES as CLSP_CATEGORIES,
+)
+from desi_router.governance.clsp import (
+    Cluster,
+    classify,
+    overamplification,
+    to_eir_candidates,
+    to_report_inputs,
+)
+from desi_router.governance.correction_packet import (
+    build_correction_packet,
+    packet_applies,
+)
 from desi_router.governance.modes import (
     MODES,
     RouterDecision,
     select_mode,
     update_allowed_after_verifier,
 )
+from desi_router.governance.k_stability import verdict_unstable
 from desi_router.governance.preprompt import guarded_preprompt
 from desi_router.governance.report import DesiReport, report_from_snapshot
+from desi_router.governance.slice_attack import (
+    ATTACK_VECTORS,
+    SliceAttackResult,
+    attack_slice,
+)
 from desi_router.governance.two_tier_gate import (
     GateResult,
     decide_commit,
@@ -25,4 +45,8 @@ from desi_router.governance.verifier import VerifierResult, verify_answer
 __all__ = ["DesiReport", "report_from_snapshot", "RouterDecision", "select_mode",
            "update_allowed_after_verifier", "MODES", "guarded_preprompt", "verify_answer",
            "VerifierResult", "GovernanceAudit", "audit_event",
-           "GateResult", "decide_commit", "is_critical_update"]
+           "GateResult", "decide_commit", "is_critical_update",
+           "build_correction_packet", "packet_applies",
+           "attack_slice", "SliceAttackResult", "ATTACK_VECTORS", "verdict_unstable",
+           "classify", "to_eir_candidates", "to_report_inputs", "overamplification", "Cluster",
+           "CLSP_CATEGORIES"]

@@ -13,6 +13,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
+# The version of THIS snapshot contract. A projector stamps it into the provenance so a consumer can
+# tell which schema produced a snapshot (and refuse / adapt on a mismatch). Bump on a breaking change.
+SCHEMA_VERSION = "epistemic_gap_snapshot_v1"
+
 
 @dataclass(frozen=True)
 class MethodRecord:
@@ -77,6 +81,12 @@ class OpenQuestion:
 class SnapshotProvenance:
     snapshot_hash: str = ""
     layer9_sequence: int = 0
+    # Optional, appended (positional construction of the first two stays valid): which core commit and
+    # schema produced the snapshot, and per-field source/confidence marks (direct / derived / unknown)
+    # so a consumer can see what is real vs. absent. All default to empty -> older callers unaffected.
+    core_commit: str = ""
+    schema_version: str = ""
+    field_sources: dict = field(default_factory=dict)
 
 
 @dataclass(frozen=True)

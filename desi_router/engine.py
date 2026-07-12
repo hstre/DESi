@@ -70,10 +70,35 @@ def run(
     execute_model: bool = True,
     ledger=None,
     reuse: bool = True,
+    governance_report: Any = None,
+    retrieval_available: bool = True,
+    anti_delphi_available: bool = False,
 ) -> dict[str, Any]:
     constraints = constraints or Constraints()
     tc = task_class or classify(query)
     decision: Decision = decide(tc, constraints, registry, tools)
+
+    # Epistemic-mode axis (governance): when the caller supplies a read-only DESi/Layer-9 report, the
+    # deterministic `select_mode` runs ALONGSIDE the tool/local/api decision, so one query yields both
+    # — and both are folded into one audit record. Purely additive and fail-open: no report (default)
+    # or any governance error leaves the routing byte-identical; the router never enforces in DESi.
+    epistemic_mode: dict[str, Any] | None = None
+    governance_error: str | None = None
+    if governance_report is not None:
+        try:
+            from desi_router.governance import select_mode as _select_mode
+            gd = _select_mode(governance_report, retrieval_available=retrieval_available,
+                              anti_delphi_available=anti_delphi_available)
+            epistemic_mode = {
+                "chosen_mode": gd.chosen_mode,
+                "validator_required": gd.validator_required,
+                "persistent_state_update_allowed": gd.persistent_state_update_allowed,
+                "preprompt_policy": gd.preprompt_policy,
+                "required_post_checks": list(gd.required_post_checks),
+                "reason": gd.reason,
+            }
+        except Exception as exc:  # noqa: BLE001 — governance is optional; never break routing
+            governance_error = f"governance unavailable: {exc}"
 
     ch = _content_hash(query)
     mh = _method_hash(tc, decision.to_dict())
@@ -144,6 +169,7 @@ def run(
         decision=decision.to_dict(),
         answer=answer,
         answer_source=answer_source,
+        epistemic_mode=epistemic_mode,
     )
     result = {
         "task_class": tc,
@@ -152,6 +178,8 @@ def run(
         "answer_source": answer_source,
         "error": error,
         "prior": prior,
+        "governance": epistemic_mode,
+        "governance_error": governance_error,
         "audit": audit.to_dict(),
     }
 
@@ -168,6 +196,7 @@ def run(
                 "method_class": mc,
                 "reused": reused,
                 "prior_seq": prior["content_prior_seq"],
+                "epistemic_mode": epistemic_mode,
             },
             decision_hash=audit.decision_hash,
             content_hash=ch,

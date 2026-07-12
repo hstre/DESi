@@ -105,6 +105,14 @@ def select_mode(report: DesiReport, *, retrieval_available: bool = True,
                             "stabilising", preprompt="guarded", validate=True, fallback=GUARDED)
         return decision(GUARDED, "open conflict the answer would resolve (no anti-delphi module) -> "
                         "keep it open", preprompt="guarded", validate=True, fallback=GUARDED)
+    if report.omitted_opposition_ids:
+        # the slice looks clean, but a full-graph scan found opposition (contradiction / supersession
+        # / open question) the slice omitted -> a plausible-but-one-sided slice. Do NOT treat it as
+        # settled: guard it, verify the answer, and withhold the update proposal. Fires ONLY when the
+        # graph genuinely holds omitted opposition, so a true-clean slice is never escalated by it.
+        return decision(GUARDED, "graph holds opposition the selected slice omits (plausible "
+                        "one-sided slice) -> do not treat as settled", preprompt="guarded",
+                        validate=True, may_update=False, fallback=STATE_SLICE)
     if max(r.values()) >= _MOD:
         return decision(STATE_SLICE, "moderate risk; give the slice + verify the answer",
                         validate=True, may_update=False, fallback=GUARDED)

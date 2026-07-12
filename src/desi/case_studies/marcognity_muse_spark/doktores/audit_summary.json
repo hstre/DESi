@@ -1,0 +1,131 @@
+{
+  "attestation": {
+    "Auditierbarkeit": "passed",
+    "Claim-Abdeckung": "passed_with_qualifications",
+    "Claim-Ableitung": "passed_with_qualifications",
+    "Fairness gegenüber MarCognity": "passed_with_qualifications",
+    "Falsifizierbarkeit": "passed",
+    "Offene Einwände": "not_assessable",
+    "Provenienz": "passed",
+    "Quellenpassung": "passed_with_qualifications",
+    "Reproduzierbarkeit": "passed",
+    "Urteilslogik": "passed",
+    "Widerspruchsklassifikation": "passed_with_qualifications",
+    "Überdehnung der DESi-Schlussfolgerungen": "passed_with_qualifications"
+  },
+  "claims_reviewed": 23,
+  "claims_with_dissent": 3,
+  "consensus_distribution": {
+    "uphold": 17,
+    "uphold_with_qualification": 6
+  },
+  "contradictions": {
+    "C1": {
+      "report_change_required": true,
+      "reviewed_classification": "logical_contradiction",
+      "upheld_as_structural": true
+    },
+    "C2": {
+      "report_change_required": false,
+      "reviewed_classification": "pipeline_inconsistency",
+      "upheld_as_structural": false
+    },
+    "C3": {
+      "report_change_required": false,
+      "reviewed_classification": "unsubstantiated_claim",
+      "upheld_as_structural": false
+    }
+  },
+  "disclaimer": "Dieses Attest bestätigt NICHT die Wahrheit sämtlicher juristischer Aussagen. Es bewertet ausschließlich die methodische Nachvollziehbarkeit, interne Konsistenz, Provenienz und Reichweite der DESi-Fallstudie.",
+  "headline": "Doktores prüfte die DESi-Fallstudie in einem regelgeleiteten Self-Audit. Einige Befunde hielten stand, einige mussten eingeschränkt oder umklassifiziert werden, und bestimmte Fragen bleiben aufgrund fehlender Originaldaten offen.",
+  "independence": "Einordnung: Dies ist ein **regelgeleiteter Self-Audit**. Er ist **logisch und provenance-basiert adversarial** (jede Bewertung ist an eine Quelle gebunden, die Prüfregeln sind darauf angelegt, Fehler/Überdehnung/ausgelassene Gegenargumente zu finden), aber **nicht organisatorisch oder modellseitig unabhängig**: alle vier Prüfer sind fest programmierte Regeln aus demselben Repository. Es ist ein sauberer, deterministischer Gegencheck — **noch keine unabhängige Replikation**.",
+  "open_questions": [
+    "Der Live-Hugging-Face-Thread und der vollständige MarCognity-Repo-Baum wurden im deterministischen Lauf NICHT neu abgerufen — sie sind über source_material.py verbatim verankert. Ein Re-Audit gegen die Live-Quellen könnte Weiteres zutage fördern.",
+    "Der tatsächlich abgerufene 'PubMed'-Text ist unbekannt; ein Rest-Zweifel bleibt, ob es sich um einen rechtsnahen Artikel handelte. source_domain_mismatch bleibt wahrscheinlich, nicht sicher.",
+    "Modellversion und Laufparameter von Muse Spark sind unbekannt; die Reproduzierbarkeit des  zugrunde liegenden Versuchs ist nicht bewertbar.",
+    "Die 23 Claims sind keine gemessene Vollständigkeit; die tatsächliche Claim-Abdeckung des Muse-Textes ist unbekannt (eigener, hier nicht erhobener Schritt)."
+  ],
+  "overall_attestation": "passed_with_qualifications",
+  "process_revisions": {
+    "claim_verdicts_revised": [
+      {
+        "claim_id": "MET-02",
+        "from": "contradicted",
+        "to": "partially_supported",
+        "when": "operator review before this audit; this audit confirms it"
+      }
+    ],
+    "claims_fully_rejected": [],
+    "conflicts_reclassified": [
+      {
+        "cid": "C2",
+        "from": "structural_contradiction",
+        "to": "pipeline_inconsistency"
+      },
+      {
+        "cid": "C3",
+        "from": "structural_contradiction",
+        "to": "unsubstantiated_independence"
+      }
+    ],
+    "verdicts_overturned_by_this_audit": 0,
+    "wording_revisions": [
+      "R1",
+      "R2",
+      "R4",
+      "R5"
+    ]
+  },
+  "provenance": {
+    "engine_version": "v1",
+    "input_hashes": {
+      "REPORT.md": "sha256:7760dc0888448486d3441ba3253ebd33",
+      "analysis.py": "sha256:72529197bd9c33df918c3748342fe039",
+      "claims.jsonl": "sha256:9600dd85f3a0133ca9cbf8e9c09407c9",
+      "claims.py": "sha256:5878bc8160c76ed84d82e4310a45a04d",
+      "comparison.md": "sha256:5a23ce2b6851fd37fa6760a7efd2ddd8",
+      "contradictions.md": "sha256:2442e36a9ed88ce0a61e223d900249bb",
+      "evidence.jsonl": "sha256:85b47750c4f52be8d101f816c95725fa",
+      "source_material.py": "sha256:7f4e86616935229c29341dbd6bb9ca1b",
+      "summary.json": "sha256:4b98ad12792ffbdc76e3ff4fced07e66"
+    },
+    "mode": "deterministic_offline_rule_based",
+    "models_used": "none",
+    "raw_llm_responses": "n/a (no LLM used)",
+    "seed": null,
+    "sources_available": [
+      "Muse Spark 1.1 text, prompt, validator report, method, conclusion (verbatim in source_material.py)",
+      "MarCognity code anchors: skeptical_agent, agent_metacognition, extract_citations, scientific_verification, evaluator_prompt (quoted)",
+      "MarCognity README + Epistemic Boundary doc (quoted)",
+      "All DESi case-study artifacts (hashed above)"
+    ],
+    "sources_not_refetched": [
+      "The live Hugging Face thread (only its reproduced content is anchored)",
+      "The full MarCognity repository tree beyond the quoted files",
+      "The actual retrieved 'PubMed document' text (never printed in the material)",
+      "Muse Spark model version / decoding parameters (unknown)"
+    ],
+    "temperature": null,
+    "timestamp": null
+  },
+  "revisions_mandated": [
+    "R1",
+    "R2",
+    "R4",
+    "R5"
+  ],
+  "synthesis": {
+    "C1 — Prompt ↔ Methode (logischer Widerspruch)": "qualified",
+    "C2 — VERIFIED ohne zitierbare Evidenz": "revise",
+    "C3 — 'independent external validation'": "revise",
+    "Claim-Typisierung (heuristic/normative/interpretation getrennt)": "robust",
+    "EB-02 — 'empirically demonstrates … intrinsic' überdehnt": "robust",
+    "FACT-03 — DAO 2016 'unverifiable'": "qualified",
+    "Kennzahlen '4/23 zulässig' / '18/23 ohne Passage'": "qualified",
+    "Kuratierte Auswahl ≠ gemessene Vollständigkeit": "robust",
+    "Selbstabdichtungs-Diagnose": "robust",
+    "Vergleich MarCognity vs. DESi — Fairness": "qualified",
+    "source_domain_mismatch (VAL-01)": "qualified"
+  },
+  "verdicts_overturned_by_this_audit": 0
+}

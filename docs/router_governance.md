@@ -4,6 +4,35 @@ A minimal, deterministic governance layer in `desi_router/governance/`. It consu
 diagnostics, chooses an **epistemic mode**, optionally builds a guarded preprompt, **verifies the
 answer after the fact**, and audits the decision — without turning DESi into an enforcement engine.
 
+## At a glance
+
+The boundary is fixed throughout: **DESi diagnoses, the router acts, Layer-9 stays the authority on
+state.** The router never mutates persistent state — it only decides whether an answer may *propose* an
+update and whether a verifier must pass first.
+
+| Component | File | What it does |
+|---|---|---|
+| Read-only report | `report.py` | projects a Layer-9 snapshot into a router-facing `DesiReport` (+ heuristic risk scores) |
+| Mode selector | `modes.py` | a pure, most-cautious-first `select_mode` over 8 epistemic modes |
+| State-integrity producer | `state_integrity.py` | turns structural facts (status / provenance / scope / relevance) into a signal — closing the blind spot, honestly splitting reducible from irreducible |
+| Guarded preprompt | `preprompt.py` | short mechanical rules prepended in guarded/recovery |
+| Correction packet | `correction_packet.py` | a capped, status-bearing prompt prefix prepended **only at risk** — a cheaper actuator than the preprompt |
+| Post-answer verifier | `verifier.py` | deterministic rule checks (runtime gate); critical checks block an update proposal |
+| Two-tier commit gate | `two_tier_gate.py` | cheap rule gate everywhere; an expensive **semantic** judge only on a *critical* commit |
+| Plausible-wrong-slice checks | `missing_opposition.py` · `provenance.py` · `scope.py` · `supersession.py` · `k_stability.py` | five deterministic detectors of a slice that *looks* clean but omits opposition / is thin-sourced / out-of-scope / silently superseded / fragile under widening |
+| Unified slice attack | `slice_attack.py` | one entry point that runs all five vectors as a falsification pass — a slice "survives" only if none fire |
+| Candidate channels | `clsp.py` · `ontology_probe/` | non-authoritative *producers* (cross-lingual probe, ontology type/scope probe) that feed candidates into the same gate — never decide |
+| Audit | `audit.py` | a tamper-evident record per decision |
+
+**What the evidence says (all honest, often null):** state *selection* is load-bearing but **metadata
+governance is not a recall effect** (B ≈ E); the router gates **only the risky** commits (100 % recall
+on risky, 0 % over-block on clean, on Joni's real ledger); the rule verifier is a sound *gate* but a
+noisy *measure*, so a **semantic judge** is needed for the degeneration metrics; the correction packet
+cuts relapse to 0 at ~30 % less overhead with no answer damage; and the one real **blind spot** —
+plausible-wrong state with no signal — is shrunk to exactly its irreducible core and made visible, not
+papered over. Sections below give the numbers and the benchmark phases (1 fixtures · 2 replay · 3 live
+· 3.5 semantic verifier · 4 relapse).
+
 ## Why governance is not embedded inside DESi
 
 This mirrors what the codebase already does and what the ablations found:
@@ -140,8 +169,8 @@ exactly the situation where `select_mode` refuses a blind answer — no usable s
 risky state → `guarded`/`recovery` + a required verifier.
 
 **Net:** the ablation is the *evidence* of where an LLM degenerates without/with bad state; this layer
-is the *operational response* — the same metrics as deterministic gates, with 26 tests proving they
-fire on those failure modes. It does **not** re-open the metadata-governance claim: B ≈ E stands, and
+is the *operational response* — the same metrics as deterministic gates, with the governance tests
+proving they fire on those failure modes. It does **not** re-open the metadata-governance claim: B ≈ E stands, and
 this layer governs behaviour *around* the state, not the extraction quality.
 
 ## The benchmark — policy correctness, not answer quality
@@ -336,6 +365,157 @@ The default runtime path is unchanged and deterministic (no `semantic_fn`, or a 
 Tier 1 only). The expensive judge is paid for exactly on the rare, high-stakes commits where the cheap
 gate's conservatism is most costly — and never as the authority over Layer-9.
 
+## The correction packet — a low-risk router actuator
+
+`correction_packet.py`. The lowest-risk way to make a guarded/recovery answer *more stable*: a short,
+mechanical, status-bearing work-state the router prepends **only at risk**. No hidden-state steering,
+no logits, no weights, no rebuild of DESi — just an explicit, auditable, switch-off-able prompt prefix.
+`packet_applies(report, recovery_mode=, verifier_failed_once=)` fires on exactly the six risk triggers
+(invalidated-claim touched, open-conflict touched, high wrong-frame / stale-confident risk, recovery
+mode, a verifier that failed once) — **never on clean cases**. `build_correction_packet(report)` emits
+a capped (~100–300 token) packet: *current valid state* / *invalidated-superseded (do not reuse)* /
+*open conflict (do not close without evidence)* / a fixed *recovery target*.
+
+Architecture stays clean: **DESi** delivers state/risks → the **router** decides packet yes/no → the
+**packet** steers the concrete answer → the **verifier** still decides whether a persistent update is
+allowed → **Layer-9** stays the authority on state.
+
+Four-arm live test on the Phase-4 relapse scenarios (Sonnet, semantic judge; small N = 3):
+
+| arm | semantic relapse | polluted | answer damage | overhead |
+|---|---|---|---|---|
+| A — no_router | 0.33 | 0.33 | 0.00 | 0 |
+| B — guarded_preprompt | 0.00 | 0.00 | 0.00 | 549 c |
+| **C — correction_packet** | **0.00** | **0.00** | **0.00** | **384 c** |
+| D — packet + verifier | 0.00 | 0.00 | 0.00 | 384 c |
+
+**The packet drives relapse to 0 (matching the guarded preprompt) at ~30 % less token overhead and
+zero answer damage** — it does not break correct answers. So it is a usable, cheaper actuator. The
+experiment also re-confirms the rule verifier's noise: `false_positive_block` was high across *all*
+arms (incl. no_router), because the model names a bad claim to reject it and the token-overlap check
+misreads that — consistent with Phase 3.5, the semantic judge is what makes the metric trustworthy.
+Directional (N = 3, one model). Run:
+`python -m desi_router.governance.benchmark.correction_packet_experiment`.
+
+## The plausible-wrong-slice checks — the blind spot, made into five detectors
+
+The one real blind spot (a slice that looks clean but is subtly wrong, with **no** status signal) is
+attacked by five deterministic checks (no LLM), each catching a different way a slice can mislead:
+
+| # | Check | File | Fires when |
+|---|---|---|---|
+| 3 | missing opposition | `missing_opposition.py` | a slice-independent full-graph scan finds contradiction / supersession / open-question the slice omitted |
+| 4 | thin provenance | `provenance.py` | the slice's support is one-rooted / all-derived / stale (count-based, not entropy) |
+| 6 | scope mismatch | `scope.py` | a claim is valid but tagged to a different project / tenant / region than the task |
+| 5 | silent supersession | `supersession.py` | a same-scope **newer** sibling the slice omits — displaced-but-unflagged, no contradiction edge |
+| 2 | k-stability | `k_stability.py` | widening the slice escalates the mode or withdraws the update → the verdict was not robust |
+
+`slice_attack.py` (#7) runs all five as one falsification pass and reports which fired; a slice
+survives only if **none** do. Each check **degrades to caution**, never blocks, and returns `()` /
+`False` when its fact is absent — so a report that supplies no scan/provenance/scope keeps its exact
+prior behaviour.
+
+**Adopted with evidence, not on fixtures.** On an adversarial fixture set (PWS) all five drive
+`false_clean` 1.0 → 0.0 at `over_caution` 0.0. But adoption is gated on a **real-data shadow** over
+Joni's graph (per-claim). The decisive case is `same_scope_newer` (#5): on 1 366 claims with a
+*topic*-scope it over-fired at **64.8 %** (held back), but once claims carried a deterministic
+**subject key**, a re-measurement on the grown graph (2 486 live claims) put it at **7.2 %** — now
+selective, so the hold is evidence-liftable. The others are stable across the regrow: `missing_opposition`
+**6.4 %** and `thin_provenance` **2.3 %** fire selectively (adopt); `scope_mismatch` is structurally
+dead (**0 %**, no scope tags in the data yet); `k_unstable` is marginal (**0.2 %**). The rule is
+literal: *an adopted check must pass a real measurement, not just a fixture* — and #5 shows it cuts both
+ways (a fixture-correct check is held until the data justifies it, then adopted when it does).
+
+**The Ontology Probe, measured and NOT adopted (yet).** The same shadow ran the ontology channel on the
+real graph: of 283 same-subject collision groups (739 claims), WordNet covered **0** tokens (no corpus
+→ a silent no-op, fail-open as designed), and even a labelled demo seed found its 4 covered ambiguous
+tokens only in *singleton* keys — **0 of 283 collision groups addressable**. Joni's collisions are
+genuine same-subject repeats, not homonymy, so the separate-only rule has no target here. Built and
+unit-correct, but honestly not adopted on this data.
+
+## Candidate channels — CLSP and the Ontology Probe (producers, never authorities)
+
+Two channels *produce* candidate signals for the gate; neither decides. Both follow the same shape as
+the rest of the layer: an LLM (or corpus) does the open-ended part and emits candidates; a
+**deterministic, replay-stable core** classifies and gates them; the router consumes only finished
+fields. `Layer 9 decides; these only propose.`
+
+### CLSP — Cross-Lingual Semantic Probe (`clsp.py`)
+
+Re-expressing a text in other languages forces different semantic cuts and can surface weak signal —
+or hallucinate (a hedge becomes a causal claim). The rule is fixed: **the author's lead language is
+the authority; every cross-lingual projection is a probe.** A claim found only in a probe language
+stays a *candidate* until it can be re-anchored in the lead source. The deterministic core classifies
+each aligned cluster into six categories (`invariant_core` / `emergent_candidate` /
+`probe_only_candidate` / `translation_artifact` / `semantic_loss` / `overamplification_risk`),
+detects **over-amplification** (a hedged original projected into a stronger claim — including German
+litotes like *"nicht ganz unproblematisch"* via a structural double-negation matcher), and decides
+promotability. `to_report_inputs()` bridges promotable candidates into `report_from_snapshot` so they
+flow through the **same** gate: probe-only / artefact / loss never become trusted state; a weakly
+anchored (emergent) candidate lowers extraction confidence so `select_mode` requires a verifier; an
+all-`invariant_core` slice is trusted. Benchmark: `false_candidate_rate 0.0`, `overamp_detection 1.0`,
+`anchor_rate 1.0`.
+
+### Ontology Probe (`ontology_probe/`)
+
+An ontology (WordNet, later OpenCyc) is one **measurement channel**, never a truth: it offers
+type / sense / hypernym hints about a term. The contract is enforced structurally:
+
+- **`may_gate` is a constant property, not a field** — a hint can never be constructed to authorise a
+  decision; a `Sense` confidence is capped to `weak`. A hint is metadata, never evidence.
+- **Separate-only / asymmetric:** the one consumer signal, `scope_uncertain`, may only *withhold* a
+  `same_scope` / supersession flag (reducing over-fire — the #5 failure above), **never assert**
+  sameness or conflict. Absence of knowledge asserts nothing (`type_incompatible` is `False` when a
+  term is unknown). So a wrong hint can at worst make the router ask to disambiguate — never wrongly
+  confident.
+- **Fail-open & offline:** adapters are pluggable; a missing corpus or any error yields an
+  `unavailable` hint, never an exception in the gate path. **WordNet** is the reference adapter
+  (small, offline); OpenCyc is a later optional channel, not the default. A `StaticOntologyAdapter`
+  makes the rules unit-testable without a corpus.
+
+Like the slice checks, it is **not wired into the live gate yet** — adoption is gated on a real-data
+coverage shadow (Joni `shadow/ontology_coverage_shadow.py`) that measures the addressable pool
+(same-subject-key collision groups) and the ontology's actual coverage of those terms.
+
+## Property-based invariants (`tests/router_governance/test_router_properties.py`)
+
+Example tests pin cases; **Hypothesis** pins the *laws* the router hangs on, across generated reports.
+Test-only — the live router stays stdlib-only; Hypothesis never enters runtime code. Seven properties:
+the CLSP lead-language rule (un-anchored / over-amplified never promotable), no authoritative drift
+(promoted ⇒ lead-anchored; the bridge selects a subset of promotable), determinism (equal reports ⇒
+equal decision + audit hash), order-invariance (set-like inputs don't move the mode or risk vector),
+monotonic caution / k-stability (adding opposition never de-escalates, never grants a withheld
+update), and *no free update* (`may_update` never coexists with a pending verifier; a failing verifier
+blocks the proposal).
+
+## Red-teaming the gate for UNDER-blocking — what does a clean-looking slice still miss?
+
+The benchmark proves the gate does not over-block; the converse question is sharper: **is there a
+wrong slice that survives all five vectors and is allowed to update?** `benchmark/underblock.py`
+enumerates a catalogue of "plausible-wrong-but-passes" families and measures each twice — does it
+*survive* (the gate misses it), and is it *caught once its missing signal is fed*. The result is a
+clean, honest line:
+
+| family | class | survives | caught once fed |
+|---|---|---|---|
+| supersession via paraphrase (different salient tokens) | signal-quality upstream | yes | yes |
+| laundered provenance (N sources, one origin) | signal-quality upstream | yes | yes |
+| out-of-scope claim with no scope tag | data-model gap | yes | yes |
+| confident-wrong with no opposition in the graph | irreducible (no signal) | yes | — |
+
+The load-bearing conclusion: **every non-irreducible miss is caught the moment its signal is supplied
+— so the gate's coverage is bounded by the signals fed to it, not by the check logic.** Closing these
+means a better subject key / origin-aware provenance / scope tags in the claim model, not a logic fix.
+The one irreducible floor (a false claim whose contradiction was never extracted) is named, not
+papered over — only an external evidence step, not a slice check, can see it.
+
+**Do the tests actually pin the logic?** `benchmark/mutation_probe.py` applies decision-critical source
+mutations to `modes.py` one at a time and runs the suite: **9/12 killed**. The three survivors are
+*provably equivalent* mutants — the discrete risk lattice never yields `wrong_state_poisoning == 0.7`
+nor a `max(risk) == 0.4`, so the `>=` boundaries at `_HIGH`/`_MOD` have slack and there is no
+off-by-one to catch. The one real gap it surfaced (an `and`→`or` that would over-block a
+present-but-untouched invalidated claim) is now pinned by a regression test.
+
 ## Next experiments
 
 - Wire `report_from_snapshot` to a live Layer-9 status feed for `invalidated/superseded` + a real
@@ -349,5 +529,16 @@ gate's conservatism is most costly — and never as the authority over Layer-9.
 
 ```bash
 python -m desi_router.governance.demo      # 5 scenarios: valid / invalidated / wrong-frame / conflict / missing-state
-pytest tests/router_governance -q          # 13 tests
+pytest tests/router_governance -q          # 122 tests (modes, verifier, gate, state-integrity, packet,
+                                           # slice checks, CLSP, ontology-probe, properties, under-block)
+python -m desi_router.governance.benchmark.underblock        # the under-block red-team catalogue
+python -m desi_router.governance.benchmark.mutation_probe    # do the tests pin modes.py? (9/12, 3 equiv)
+
+# benchmark + experiments (deterministic ones need no key; live ones need OPENROUTER_API_KEY)
+python -m desi_router.governance.benchmark.run                          # Phase 1: fixtures × baselines
+python -m desi_router.governance.benchmark.replay                       # Phase 2: replay vs the ablation
+python -m desi_router.governance.benchmark.hard_cases                   # state-integrity blind-spot closure
+python -m desi_router.governance.benchmark.live_loop                    # Phase 3: live closed-loop  (key)
+python -m desi_router.governance.benchmark.semantic_rescore             # Phase 3.5: semantic verifier (key)
+python -m desi_router.governance.benchmark.correction_packet_experiment # 4-arm packet test           (key)
 ```
