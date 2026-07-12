@@ -22,6 +22,7 @@
 |---|---|---|---|---|---|---|
 | **desi** | 5/5 | 0 | 2/2 | 1.0 | 1 | negligible (no model call) |
 | **naive_whole_text** | 0/5 | 0 | 2/2 | 0.0 | 1 | high in reality (1 LLM pass); stubbed here |
+| **claude_opus_4_8_blind** | 5/5 | 0 | 2/2 | 1.0 | 5 | ~102k tokens across 5 runs (measured; ~20.4k/run); $ depends on pricing |
 
 **Diskriminiert der Harness?** ja. Aber die Baseline (0/5) ist kein Befund — der Vergleich wird erst mit echten Reviewern aussagekräftig.
 

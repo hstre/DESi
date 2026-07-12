@@ -80,23 +80,50 @@ def _stability(reviewer: Reviewer) -> float:
     return round(sum(fracs) / len(fracs), 3) if fracs else 0.0
 
 
+def _per_run(reviewer: Reviewer) -> list[dict]:
+    """Per-run catch / false-positive / control counts — the representative run alone
+    can hide across-run over-flagging (variance), so report every run."""
+    n_runs = max((len(reviewer.runs_for(p)) for p in PROBES), default=1)
+    out: list[dict] = []
+    for i in range(n_runs):
+        caught = fp = clean = 0
+        for p in PROBES:
+            runs = reviewer.runs_for(p)
+            raised = runs[i] if i < len(runs) else set()
+            if p.kind == "failure":
+                caught += 1 if p.must_flag in raised else 0
+            else:
+                clean += 1 if not raised else 0
+            fp += len(raised - p.applicable_flags)
+        out.append({"run": i + 1, "caught": caught, "false_positives": fp,
+                    "controls_clean": clean})
+    return out
+
+
 def score(reviewer: Reviewer) -> dict:
     results = run_reviewer(reviewer)
     caught = sum(1 for r in results if r.kind == "failure" and r.caught)
     fp_total = sum(len(r.false_positives) for r in results)
     controls_clean = sum(1 for r in results if r.kind == "control" and r.control_clean)
     prof = reviewer.profile()
+    per_run = _per_run(reviewer)
+    fp_runs = [d["false_positives"] for d in per_run]
     return {
         "reviewer": reviewer.name,
         "caught": caught, "positives": len(FAILURE_PROBES),
         "catch_rate": round(caught / len(FAILURE_PROBES), 3),
-        "false_positives": fp_total,
+        "false_positives": fp_total,                       # representative run
+        "false_positives_per_run": fp_runs,
+        "false_positives_mean": round(sum(fp_runs) / len(fp_runs), 3) if fp_runs else 0.0,
+        "false_positives_max": max(fp_runs) if fp_runs else 0,
         "controls_clean": controls_clean, "controls_total": len(CONTROL_PROBES),
         "stability": _stability(reviewer),
+        "caught_per_run": [d["caught"] for d in per_run],
         "runs": prof.get("runs", 1),
         "cost": prof.get("cost", "unknown"),
         "compute": prof.get("compute", "unknown"),
         "per_mode": {r.must_flag: r.caught for r in results if r.kind == "failure"},
+        "per_run": per_run,
         "results": [r.to_dict() for r in results],
     }
 

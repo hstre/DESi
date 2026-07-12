@@ -1,0 +1,112 @@
+{
+  "name": "claude_opus_4_8_blind",
+  "runs": [
+    {
+      "P2-domain": [
+        "source_domain_mismatch"
+      ],
+      "C1-clean-citation": [],
+      "P4-overclaim": [
+        "overclaim"
+      ],
+      "P1-untraceable": [
+        "untraceable_citation"
+      ],
+      "P5-heuristic": [
+        "heuristic_not_empirical"
+      ],
+      "C2-clean-heuristic": [],
+      "P3-selfsealing": [
+        "self_sealing"
+      ]
+    },
+    {
+      "P2-domain": [
+        "source_domain_mismatch",
+        "untraceable_citation"
+      ],
+      "C1-clean-citation": [],
+      "P4-overclaim": [
+        "overclaim"
+      ],
+      "P1-untraceable": [
+        "self_sealing",
+        "untraceable_citation"
+      ],
+      "P5-heuristic": [
+        "heuristic_not_empirical"
+      ],
+      "C2-clean-heuristic": [],
+      "P3-selfsealing": [
+        "self_sealing"
+      ]
+    },
+    {
+      "P2-domain": [
+        "source_domain_mismatch",
+        "untraceable_citation"
+      ],
+      "C1-clean-citation": [],
+      "P4-overclaim": [
+        "overclaim"
+      ],
+      "P1-untraceable": [
+        "self_sealing",
+        "untraceable_citation"
+      ],
+      "P5-heuristic": [
+        "heuristic_not_empirical"
+      ],
+      "C2-clean-heuristic": [],
+      "P3-selfsealing": [
+        "self_sealing"
+      ]
+    },
+    {
+      "P2-domain": [
+        "source_domain_mismatch",
+        "untraceable_citation"
+      ],
+      "C1-clean-citation": [],
+      "P4-overclaim": [
+        "overclaim"
+      ],
+      "P1-untraceable": [
+        "self_sealing",
+        "untraceable_citation"
+      ],
+      "P5-heuristic": [
+        "heuristic_not_empirical"
+      ],
+      "C2-clean-heuristic": [],
+      "P3-selfsealing": [
+        "self_sealing"
+      ]
+    },
+    {
+      "P2-domain": [
+        "source_domain_mismatch",
+        "untraceable_citation"
+      ],
+      "C1-clean-citation": [],
+      "P4-overclaim": [
+        "overclaim"
+      ],
+      "P1-untraceable": [
+        "self_sealing",
+        "untraceable_citation"
+      ],
+      "P5-heuristic": [
+        "heuristic_not_empirical"
+      ],
+      "C2-clean-heuristic": [],
+      "P3-selfsealing": [
+        "self_sealing"
+      ]
+    }
+  ],
+  "profile": {
+    "cost": "~102k tokens across 5 runs (measured; ~20.4k/run); $ depends on pricing",
+    "compute": "5 blind Claude Opus 4.8 subagent passes (frontier LLM; NOT Claude Science)"
+  }
+}

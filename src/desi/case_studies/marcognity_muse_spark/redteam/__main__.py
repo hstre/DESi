@@ -39,10 +39,12 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     print(">> Background-reviewer red-team HARNESS (deterministic, offline) written to "
           f"{written['out_dir']}")
-    print(f"   {'reviewer':<18} catch  FP  controls  stability  cost")
+    print(f"   {'reviewer':<22} catch  FP(mean/run)  controls  stability  cost")
     for s in card["scores"]:
-        print(f"   {s['reviewer']:<18} {s['caught']}/{s['positives']}    "
-              f"{s['false_positives']:<3} {s['controls_clean']}/{s['controls_total']}"
+        fp = (f"{s['false_positives_mean']} {s['false_positives_per_run']}"
+              if s["runs"] > 1 else str(s["false_positives"]))
+        print(f"   {s['reviewer']:<22} {s['caught']}/{s['positives']}    "
+              f"{fp:<16} {s['controls_clean']}/{s['controls_total']}"
               f"       {s['stability']:<9} {s['cost']}")
     print(f"   discriminating harness: {card['discriminating']} "
           "(baseline 0/5 is not a finding — fill the external slot)")
