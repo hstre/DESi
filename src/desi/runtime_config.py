@@ -18,7 +18,21 @@ from __future__ import annotations
 import configparser
 import os
 import pathlib
+import re
 from dataclasses import dataclass
+
+# Empirical floor for DESi's small language layer. On the hard epistemic-detection
+# benchmark a ~3B model (granite-4.0-h-micro) collapses (F1 0.54, over-flags the
+# adversarial controls) while granite-4.1-8b holds (F1 0.89) and >=30B free/cheap
+# models saturate near 1.0. So the small model must be >= ~8B. See
+# src/desi/case_studies/marcognity_muse_spark/redteam/hard/REDTEAM_HARD_RESULT.md
+SMALL_MODEL_FLOOR_B = 8
+SMALL_MODEL_FLOOR_NOTE = (
+    "DESi's small language layer must be >= ~8B: on the hard epistemic-detection "
+    "benchmark a ~3B model collapses (F1 0.54) while an 8B holds (0.89). "
+    "See redteam/hard/REDTEAM_HARD_RESULT.md."
+)
+_BELOW_FLOOR_TOKENS = ("micro", "nano")
 
 # Built-in safe defaults (used if no INI is found).
 _DEFAULTS: dict[str, dict[str, str]] = {
@@ -179,6 +193,32 @@ def get_model_route(task_type: str) -> str:
     return small
 
 
+def small_model_meets_floor(model_id: str) -> bool:
+    """Heuristic advisory: is the small model at/above the ~8B floor?
+
+    Flags known-too-small models (a 'micro'/'nano' tag, or an explicit size token
+    below 8B such as '-3b'). Unknown/unsized ids are assumed OK (frontier/named
+    models). This is advisory (surfaced by ``desi doctor``); it does not block
+    routing.
+    """
+    mid = (model_id or "").lower()
+    if any(t in mid for t in _BELOW_FLOOR_TOKENS):
+        return False
+    m = re.search(r"(\d+(?:\.\d+)?)b\b", mid)     # size like -8b, -3b, -31b, -80b
+    if m:
+        try:
+            return float(m.group(1)) >= SMALL_MODEL_FLOOR_B
+        except ValueError:
+            return True
+    return True
+
+
+def small_model_floor_ok() -> bool:
+    """Whether the configured small model meets the empirical ~8B floor."""
+    small = get_provider_config("openrouter").get("default_small_model", "")
+    return small_model_meets_floor(small)
+
+
 def configured_providers() -> tuple[str, ...]:
     return tuple(
         p for p in ("openrouter", "openai", "anthropic")
@@ -188,6 +228,8 @@ def configured_providers() -> tuple[str, ...]:
 
 __all__ = [
     "Config",
+    "SMALL_MODEL_FLOOR_B",
+    "SMALL_MODEL_FLOOR_NOTE",
     "config_source",
     "configured_providers",
     "get_model_route",
@@ -197,5 +239,7 @@ __all__ = [
     "offline_mode",
     "provider_key_present",
     "redacted_provider_view",
+    "small_model_floor_ok",
+    "small_model_meets_floor",
     "write_live_captures_enabled",
 ]

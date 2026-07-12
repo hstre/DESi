@@ -61,6 +61,19 @@ def test_model_routing() -> None:
     assert rc.get_model_route("semantic") == "deepseek/deepseek-v4-pro"
 
 
+def test_small_model_floor() -> None:
+    # the default small model meets the >= ~8B floor
+    assert rc.small_model_floor_ok() is True
+    assert rc.get_model_route("small") == "ibm-granite/granite-4.1-8b"
+    # the retired 3B micro is below the floor; >=8B / >=30B are fine
+    assert rc.small_model_meets_floor("ibm-granite/granite-4.0-h-micro") is False
+    assert rc.small_model_meets_floor("mistralai/ministral-3b-2512") is False
+    assert rc.small_model_meets_floor("gpt-5-nano") is False
+    assert rc.small_model_meets_floor("ibm-granite/granite-4.1-8b") is True
+    assert rc.small_model_meets_floor("google/gemma-4-31b-it:free") is True
+    assert rc.small_model_meets_floor("qwen/qwen3-next-80b-a3b-instruct") is True
+
+
 # --- secrets never leak -------------------------
 def test_env_key_overrides_but_redacted_view_hides_it(
     monkeypatch,

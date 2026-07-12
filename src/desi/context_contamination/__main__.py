@@ -86,8 +86,10 @@ def main(argv: Sequence[str] | None = None) -> int:
                          "vs single-model controls")
     ap.add_argument("--analyst-model", default=DEFAULT_MODEL,
                     help="mixed-model: the analyst model id")
-    ap.add_argument("--reviewer-model", default="ibm-granite/granite-4.0-h-micro",
-                    help="mixed-model: the cross-model reviewer model id")
+    ap.add_argument("--reviewer-model", default="ibm-granite/granite-4.1-8b",
+                    help="mixed-model: the cross-model reviewer model id (>= ~8B floor; "
+                         "a 3B micro collapses on hard epistemic detection — see "
+                         "redteam/hard/REDTEAM_HARD_RESULT.md)")
     ap.add_argument("--ledger", default=None,
                     help="append every case-run to this local Layer-9 SQLite ledger "
                          "(viewable in the DESi Reviewer Port)")
