@@ -1,17 +1,17 @@
 """Reviewers under test — a pluggable interface so any reviewer can be scored.
 
-- ``DesiReviewer`` — the reference: it derives each flag DETERMINISTICALLY from the
-  parent case study's own analysis (source-domain gate, self-sealing check, claim
-  types/verdicts). It catches all five **by construction** — it IS the analysis that
-  defined the probes — so it is a gold/reference reviewer, not an independent
-  achievement. Its role is to anchor the benchmark and show the flags are derivable
-  from rules, not vibes.
+- ``DesiReviewer`` — the reference: content-scoped rules derive each flag from the
+  parent case study's own analysis. It catches all five and raises no false
+  positives **by construction** (it is the analysis that defined the probes), so
+  BOTH its catch and its FP are reference properties, not independent achievements.
 - ``NaiveWholeTextReviewer`` — models a coherence-first, whole-text reviewer (what
-  MarCognity's Skeptical Agent effectively did): it emits no flags. It exists so the
-  benchmark demonstrably DISCRIMINATES (a reviewer can score 0).
-- ``ExternalReviewer`` — loads a real reviewer's structured output from JSON, so you
-  can score an external background reviewer (e.g. a transcript of its findings)
-  without live access.
+  MarCognity's Skeptical Agent effectively did): emits no flags.
+- ``ExternalReviewer`` — loads a real reviewer's structured output from JSON,
+  optionally across repeated runs (for stability), plus a cost/compute profile.
+
+The point of the harness is the LAST one: score a real background reviewer (e.g.
+Claude Science, a frontier LLM) on catch-rate, false positives, stability and cost —
+that is where an interesting finding could live, not in the reference's own score.
 """
 from __future__ import annotations
 
@@ -21,7 +21,9 @@ from typing import Protocol, runtime_checkable
 
 from .. import analysis, claims as PC
 from ..claims import ClaimType, ProvenanceKind, Verdict
-from .failure_modes import PROBES, Flag, Probe
+from .failure_modes import Flag, Probe
+
+_SELF_SEALING_CLAIMS = frozenset({"EB-01", "EB-02"})
 
 
 @runtime_checkable
@@ -29,59 +31,62 @@ class Reviewer(Protocol):
     name: str
 
     def review(self, probe: Probe) -> set[Flag]:
-        """Return the set of flags this reviewer raises for one probe."""
+        """Flags this reviewer raises for one probe (its representative run)."""
+        ...
+
+    def runs_for(self, probe: Probe) -> list[set[Flag]]:
+        """One entry per repeated run (for stability). Default: a single run."""
+        ...
+
+    def profile(self) -> dict:
+        """Cost / determinism metadata for the scorecard."""
         ...
 
 
 class DesiReviewer:
-    """Reference reviewer: flags derived deterministically from the DESi analysis."""
+    """Reference reviewer: content-scoped flags derived from the DESi analysis."""
 
     name = "desi"
 
     def review(self, probe: Probe) -> set[Flag]:
         raised: set[Flag] = set()
         by_id = PC.claims_by_id()
-        ev = PC.evidence_by_id()
+        cids = probe.claim_ids
 
-        # P1 — untraceable citation: a "verified"/asserted claim whose evidence names
-        # no source or passage (provenance none/semantic, empty passage).
-        for cid in probe.claim_ids:
-            e = ev.get(cid)
-            if e and e.provenance_kind in (ProvenanceKind.NONE, ProvenanceKind.SEMANTIC_ONLY) \
-                    and not e.concrete_passage.strip():
-                raised.add(Flag.UNTRACEABLE_CITATION)
+        for cid in cids:
             v = by_id.get(cid)
-            if v and v.verdict in (Verdict.CITATION_MISMATCH, Verdict.SOURCE_DOMAIN_MISMATCH):
+            if not v:
+                continue
+            # untraceable citation — the verdict that specifically means "citation problem"
+            if v.verdict == Verdict.CITATION_MISMATCH:
                 raised.add(Flag.UNTRACEABLE_CITATION)
-
-        # P2 — source-domain mismatch: the gate rejects the used source's domain.
-        for cid in probe.claim_ids:
+            # source-domain mismatch — the verdict, or the domain gate rejecting a
+            # semantic-only source
             gate = analysis.source_domain_gate(cid)
-            if not gate.admissible and gate.provenance_kind == ProvenanceKind.SEMANTIC_ONLY:
+            if v.verdict == Verdict.SOURCE_DOMAIN_MISMATCH or \
+                    (not gate.admissible and gate.provenance_kind == ProvenanceKind.SEMANTIC_ONLY):
                 raised.add(Flag.SOURCE_DOMAIN_MISMATCH)
-            if by_id.get(cid) and by_id[cid].verdict == Verdict.SOURCE_DOMAIN_MISMATCH:
-                raised.add(Flag.SOURCE_DOMAIN_MISMATCH)
-
-        # P3 — self-sealing: the deterministic falsifiability check fires.
-        ss = analysis.self_sealing_analysis()
-        if ss.is_self_sealing and not ss.falsifiers_stated_in_experiment:
-            raised.add(Flag.SELF_SEALING)
-
-        # P4 — overclaim: an EB claim judged unsupported (reach beyond the evidence).
-        for cid in probe.claim_ids:
-            if by_id.get(cid) and by_id[cid].verdict == Verdict.UNSUPPORTED:
+            # overclaim
+            if v.verdict == Verdict.UNSUPPORTED:
                 raised.add(Flag.OVERCLAIM)
-
-        # P5 — heuristic-not-empirical: a heuristic-model claim / heuristic_proposal verdict.
-        for cid in probe.claim_ids:
-            v = by_id.get(cid)
-            if v and (v.claim_type == ClaimType.HEURISTIC_MODEL
-                      or v.verdict == Verdict.HEURISTIC_PROPOSAL):
+            # heuristic-as-measurement
+            if v.claim_type == ClaimType.HEURISTIC_MODEL or v.verdict == Verdict.HEURISTIC_PROPOSAL:
                 raised.add(Flag.HEURISTIC_NOT_EMPIRICAL)
 
-        # Only credit flags relevant to THIS probe's failure mode (the benchmark scores
-        # per-mode); cross-mode signals are dropped so a probe isn't "caught" by accident.
-        return {f for f in raised if f == probe.must_flag}
+        # self-sealing is a property of the conclusion — only for conclusion-linked probes
+        if set(cids) & _SELF_SEALING_CLAIMS:
+            ss = analysis.self_sealing_analysis()
+            if ss.is_self_sealing and not ss.falsifiers_stated_in_experiment:
+                raised.add(Flag.SELF_SEALING)
+        return raised
+
+    def runs_for(self, probe: Probe) -> list[set[Flag]]:
+        return [self.review(probe)]                      # deterministic → one run suffices
+
+    def profile(self) -> dict:
+        return {"deterministic": True, "runs": 1,
+                "compute": "cpu, offline, rule evaluation",
+                "cost": "negligible (no model call)"}
 
 
 class NaiveWholeTextReviewer:
@@ -92,38 +97,66 @@ class NaiveWholeTextReviewer:
     def review(self, probe: Probe) -> set[Flag]:
         return set()
 
+    def runs_for(self, probe: Probe) -> list[set[Flag]]:
+        return [set()]
+
+    def profile(self) -> dict:
+        return {"deterministic": True, "runs": 1,
+                "compute": "modelled (one whole-text LLM verdict)",
+                "cost": "high in reality (1 LLM pass); stubbed here"}
+
 
 class ExternalReviewer:
     """Scores a real reviewer's structured output, loaded from JSON.
 
-    JSON shape: ``{"name": "...", "flags": {"<probe_key>": ["untraceable_citation", ...]}}``.
-    Unknown flag strings are ignored (with the benefit of the doubt going to the
-    reviewer only if the string matches a known Flag).
+    JSON shape (single run)::
+        {"name": "...", "flags": {"P2-domain": ["source_domain_mismatch"], ...},
+         "profile": {"cost": "...", "compute": "..."}}
+
+    Or with repeated runs for stability::
+        {"name": "...", "runs": [ {"P2-domain": ["source_domain_mismatch"]}, {...} ],
+         "profile": {...}}
+
+    Unknown flag strings are ignored. This is how a real background reviewer (Claude
+    Science, a frontier LLM) gets red-teamed on the same probes without live access.
     """
 
-    def __init__(self, name: str, flags: dict[str, set[Flag]]):
+    def __init__(self, name: str, runs: list[dict[str, set[Flag]]], profile: dict):
         self.name = name
-        self._flags = flags
+        self._runs = runs or [{}]
+        self._profile = profile
+
+    def _run(self, i: int, probe: Probe) -> set[Flag]:
+        return set(self._runs[i].get(probe.key, set()))
 
     def review(self, probe: Probe) -> set[Flag]:
-        return {f for f in self._flags.get(probe.key, set()) if f == probe.must_flag}
+        return self._run(0, probe)                        # representative (first) run
+
+    def runs_for(self, probe: Probe) -> list[set[Flag]]:
+        return [self._run(i, probe) for i in range(len(self._runs))]
+
+    def profile(self) -> dict:
+        return {"deterministic": len(self._runs) <= 1, "runs": len(self._runs),
+                **self._profile}
 
     @classmethod
     def from_json(cls, path: str | Path) -> "ExternalReviewer":
         data = json.loads(Path(path).read_text(encoding="utf-8"))
         known = {f.value: f for f in Flag}
-        flags: dict[str, set[Flag]] = {}
-        for key, raw in (data.get("flags") or {}).items():
-            flags[key] = {known[s] for s in raw if s in known}
-        return cls(data.get("name", "external"), flags)
+
+        def parse(m: dict) -> dict[str, set[Flag]]:
+            return {k: {known[s] for s in v if s in known} for k, v in (m or {}).items()}
+
+        if "runs" in data:
+            runs = [parse(r) for r in data["runs"]]
+        else:
+            runs = [parse(data.get("flags") or {})]
+        return cls(data.get("name", "external"), runs, data.get("profile") or {})
 
 
 def default_reviewers() -> list[Reviewer]:
     return [DesiReviewer(), NaiveWholeTextReviewer()]
 
-
-# sanity: every probe's must_flag is a real Flag the DesiReviewer can emit
-assert all(p.must_flag in set(Flag) for p in PROBES)
 
 __all__ = [
     "Reviewer", "DesiReviewer", "NaiveWholeTextReviewer", "ExternalReviewer",

@@ -294,11 +294,14 @@ gehedgter Hypothese.
   Enthält `AUDIT_REPORT.md`, `ATTESTATION.md`, `claim_reviews.jsonl`, `contradiction_reviews.jsonl`,
   `methodology_review.md`, `fairness_review.md`, `dissent.md`, `REVISION_LOG.md`, `audit_summary.json`.
   Die Revisionen R1/R2/R4/R5 oben stammen aus diesem Audit (siehe `doktores/REVISION_LOG.md`).
-- `redteam/` — **Red-Team-Benchmark für „Background-Reviewer"** (motiviert durch Claude Science's
-  „a background reviewer flags incorrect citations, untraceable numbers …"). Prüft, ob ein Reviewer
-  die fünf epistemischen Failure-Modes fängt, an denen MarCognitys Validator scheiterte
-  (untraceable_citation, source_domain_mismatch, self_sealing, overclaim, heuristic_not_empirical).
-  DESi-Referenz 5/5 (per Konstruktion), naiver Whole-Text-Reviewer 0/5 → der Benchmark
-  diskriminiert. Ein externer Reviewer lässt sich per JSON einspeisen. Reproduktion:
-  `python -m desi.case_studies.marcognity_muse_spark.redteam`. Enthält `REDTEAM.md`,
-  `redteam_results.jsonl`, `redteam_scorecard.json`.
+- `redteam/` — **Harness (kein Ergebnis) für „Background-Reviewer"** (motiviert durch Claude
+  Science's „a background reviewer flags incorrect citations, untraceable numbers …"). Prüft
+  mehrdimensional, ob ein Reviewer die fünf epistemischen Failure-Modes fängt (untraceable_citation,
+  source_domain_mismatch, self_sealing, overclaim, heuristic_not_empirical) — **ohne** über
+  Clean-Controls hinweg über-zu-flaggen: Metriken sind Catch, **False Positives**, Control-Pass,
+  **Stabilität** (über Wiederholungen) und **Cost**. DESi-Referenz 5/5 Catch, 0 FP *per
+  Konstruktion*; naiver Whole-Text-Reviewer 0/5 — beides **kein Befund**. Der Befund entsteht erst,
+  wenn ein echter Reviewer (Claude Science / Frontier-LLM) durch den External-Slot (JSON, inkl.
+  `runs` für Varianz) läuft; die tragfähige These wäre dann Architektur-Effizienz („vergleichbare
+  Kontrolle, deutlich weniger/deterministischerer Compute"), nicht „A schlägt B". Reproduktion:
+  `python -m desi.case_studies.marcognity_muse_spark.redteam [--external out.json]`.

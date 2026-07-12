@@ -1,26 +1,29 @@
-"""Five epistemic failure modes a scientific "background reviewer" must catch.
+"""Five epistemic failure modes a scientific "background reviewer" must catch —
+plus clean controls, so over-flagging is penalised (false positives matter).
 
 Motivation. Claude Science ships "a background reviewer [that] flags incorrect
 citations, untraceable numbers, and figures that don't match their underlying
-code" and promises artifacts that "ship with their history". That is exactly the
-territory the MarCognity / Muse Spark case study mapped — and the case study's whole
-point is that an LLM reviewer with retrieval context but WITHOUT source-gating and
-provenance binding "verifies" domain-mismatched claims and reads its own failure as
-confirmation. So the case study doubles as a **red-team benchmark**: given a
-reviewer, does it catch the five failure modes below?
+code". The MarCognity / Muse Spark case study is a probe set for exactly that: does
+a reviewer catch the five epistemic failures MarCognity's own validator missed?
 
-Each probe is anchored to the frozen material (``source_material``) and tied to the
-parent case study's own claims, so the benchmark is not a new special-case fixture —
-it reuses the analysis that already exists.
+But catch-rate alone is a weak measure: a reviewer that flags EVERYTHING scores 5/5
+and is useless. So each probe also carries ``applicable_flags`` (the flags that
+legitimately apply) — anything a reviewer raises beyond that set is a **false
+positive** — and there are **clean controls** (well-formed statements) where the
+correct answer is *no flag at all*. This makes the benchmark a harness that can
+tell a discriminating reviewer from a trigger-happy one.
+
+Each failure probe is anchored to the frozen material and tied to the parent case
+study's own claims; the clean controls are clearly-labelled constructed statements.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import Enum
 
 
 class Flag(str, Enum):
-    """What a competent reviewer must raise. A reviewer's output is a set of these."""
+    """What a competent reviewer may raise. A reviewer's output is a set of these."""
 
     UNTRACEABLE_CITATION = "untraceable_citation"        # "verified" with no nameable source/passage
     SOURCE_DOMAIN_MISMATCH = "source_domain_mismatch"    # evidence from the wrong domain
@@ -31,92 +34,118 @@ class Flag(str, Enum):
 
 @dataclass(frozen=True)
 class Probe:
-    """One red-team item: a snippet + the flag a competent reviewer must raise."""
+    """One benchmark item.
+
+    ``must_flag`` is the headline flag a competent reviewer must raise (``None`` for a
+    clean control). ``applicable_flags`` is the full set that legitimately applies —
+    anything raised outside it is a false positive. For a clean control both are empty.
+    """
 
     key: str
-    failure_mode: Flag
+    kind: str                          # "failure" | "control"
     title: str
-    source_anchor: str          # doc:line into the frozen material
-    claim_ids: tuple[str, ...]  # the parent case-study claims this draws on
-    snippet: str                # verbatim-ish excerpt under review
-    must_flag: Flag
-    what_a_reviewer_must_say: str
+    source_anchor: str                 # doc:line into the frozen material, or "constructed"
+    claim_ids: tuple[str, ...]         # parent case-study claims this draws on (empty for controls)
+    snippet: str                       # excerpt / statement under review
+    must_flag: Flag | None
+    applicable_flags: frozenset[Flag] = field(default_factory=frozenset)
+    what_a_reviewer_must_say: str = ""
+
+    @property
+    def failure_mode(self) -> Flag | None:
+        return self.must_flag
 
 
-PROBES: tuple[Probe, ...] = (
+FAILURE_PROBES: tuple[Probe, ...] = (
     Probe(
-        "P1-untraceable",
-        Flag.UNTRACEABLE_CITATION,
+        "P1-untraceable", "failure",
         "Claims 'VERIFIED' with no nameable source or passage",
-        "muse:L170-202",
-        ("VAL-01", "VAL-02"),
+        "muse:L170-202", ("VAL-01", "VAL-02"),
         "Every sampled claim is STATUS: VERIFIED, 'supported by ... the PubMed document' — "
         "yet no document title or passage is named, and the report ends 'No citations found "
         "or verifiable in the text' (although the text lists eight references).",
         Flag.UNTRACEABLE_CITATION,
-        "A database hit is not evidence: 'verified' must name a source and a passage. Here "
-        "none is named, and the citation module simultaneously finds nothing — flag it.",
+        frozenset({Flag.UNTRACEABLE_CITATION, Flag.SOURCE_DOMAIN_MISMATCH}),
+        "A database hit is not evidence: 'verified' must name a source and a passage. "
+        "(The same claim is also domain-mismatched, so that flag is applicable too.)",
     ),
     Probe(
-        "P2-domain",
-        Flag.SOURCE_DOMAIN_MISMATCH,
+        "P2-domain", "failure",
         "Legal-philosophy claims 'verified' against a biomedical database",
-        "muse:L174-198; muse:L235",
-        ("VAL-01", "VAL-03"),
+        "muse:L174-198; muse:L235", ("VAL-01", "VAL-03"),
         "Claims about Kelsen/Hart/Bobbio (legal philosophy) are 'verified' against 'the "
-        "PubMed document'; the conclusion itself admits 'assigning the authorship of "
-        "concepts from the philosophy of law to PubMed sources'.",
+        "PubMed document'; the conclusion admits 'assigning the authorship of concepts from "
+        "the philosophy of law to PubMed sources'.",
         Flag.SOURCE_DOMAIN_MISMATCH,
-        "PubMed indexes biomedical literature; it is not admissible evidence for legal "
-        "philosophy. The reviewer must gate the source by domain, not accept topical overlap.",
+        frozenset({Flag.SOURCE_DOMAIN_MISMATCH, Flag.UNTRACEABLE_CITATION}),
+        "PubMed is not admissible evidence for legal philosophy; the reviewer must gate the "
+        "source by domain, not accept topical overlap.",
     ),
     Probe(
-        "P3-selfsealing",
-        Flag.SELF_SEALING,
+        "P3-selfsealing", "failure",
         "Validator failure reinterpreted as confirmation of the theory",
-        "muse:L237",
-        ("EB-01", "EB-02"),
-        "'The test proved so profound that it revealed the Epistemic Boundary even within "
-        "the validator itself' — a working validator confirms the theory; a failing one "
-        "also confirms it. No outcome is designated as disconfirming.",
+        "muse:L237", ("EB-01", "EB-02"),
+        "'The test proved so profound that it revealed the Epistemic Boundary even within the "
+        "validator itself' — a working validator confirms the theory; a failing one also "
+        "confirms it. No outcome is designated as disconfirming.",
         Flag.SELF_SEALING,
-        "If success and failure both confirm and no falsification condition is stated, the "
-        "hypothesis is unfalsifiable as run. The reviewer must flag the missing falsifier.",
+        frozenset({Flag.SELF_SEALING, Flag.OVERCLAIM}),
+        "Success and failure both confirming, with no stated falsifier, is self-sealing.",
     ),
     Probe(
-        "P4-overclaim",
-        Flag.OVERCLAIM,
+        "P4-overclaim", "failure",
         "n=1 anecdote stated as an 'empirically demonstrated', 'intrinsic' law",
-        "muse:L237",
-        ("EB-02",),
+        "muse:L237", ("EB-02",),
         "'This phenomenon empirically demonstrates that the residual uncertainty regime is ... "
         "an intrinsic characteristic of the autoregressive architecture' — from a single "
         "uncontrolled run.",
         Flag.OVERCLAIM,
-        "One uncontrolled instance cannot 'empirically demonstrate' an 'intrinsic' property; "
-        "the reviewer must flag the reach beyond the evidence (and the tension with the "
-        "repo's own hedged Boundary doc).",
+        frozenset({Flag.OVERCLAIM, Flag.SELF_SEALING}),
+        "One uncontrolled instance cannot 'empirically demonstrate' an 'intrinsic' property.",
     ),
     Probe(
-        "P5-heuristic",
-        Flag.HEURISTIC_NOT_EMPIRICAL,
+        "P5-heuristic", "failure",
         "Self-constructed formulas presented as measured indices",
-        "muse:L87-100",
-        ("HEUR-01", "HEUR-02", "HEUR-03"),
+        "muse:L87-100", ("HEUR-01", "HEUR-02", "HEUR-03"),
         "C = alpha*Ch + beta*St + gamma*Ge and E = w1*Comp + w2*Appl + w3*Esec are offered as "
         "certainty/effectiveness 'indices' with no derivation or empirical calibration — the "
         "text itself says 'in a heuristic way'.",
         Flag.HEURISTIC_NOT_EMPIRICAL,
-        "A heuristic own-construction is neither true nor false and must not be scored as a "
-        "measured result; the reviewer must mark it as a proposal, not evidence.",
+        frozenset({Flag.HEURISTIC_NOT_EMPIRICAL}),
+        "A heuristic own-construction must not be scored as a measured result.",
     ),
 )
 
+# Clean controls: well-formed statements where the correct answer is NO flag. A
+# reviewer that flags these is over-triggering (false positive). Constructed, not
+# from the MarCognity material — and labelled as such.
+CONTROL_PROBES: tuple[Probe, ...] = (
+    Probe(
+        "C1-clean-citation", "control",
+        "A properly sourced, quoted claim (nothing to flag)",
+        "constructed", (),
+        "Hart (1961), The Concept of Law, Oxford: Clarendon Press, p. 124, direct quote: "
+        "'the rule of recognition ... exists only as a complex ... practice'. The claim is "
+        "attributed to a named source with a page and a verbatim passage.",
+        None, frozenset(),
+        "This is a clean, traceable citation; raising any flag here is a false positive.",
+    ),
+    Probe(
+        "C2-clean-heuristic", "control",
+        "A model explicitly and correctly presented AS a heuristic (nothing to flag)",
+        "constructed", (),
+        "We propose, explicitly as a non-empirical heuristic and with no claim to measurement, "
+        "a weighting w1*a + w2*b to organise discussion; it is a framing device, not a result.",
+        None, frozenset(),
+        "A heuristic that is labelled a heuristic is not a 'heuristic-as-measurement' error; "
+        "raising heuristic_not_empirical here is a false positive.",
+    ),
+)
 
-def probes_by_mode() -> dict[Flag, Probe]:
-    return {p.failure_mode: p for p in PROBES}
-
+PROBES: tuple[Probe, ...] = FAILURE_PROBES + CONTROL_PROBES
 
 ALL_FLAGS: frozenset[Flag] = frozenset(Flag)
 
-__all__ = ["Flag", "Probe", "PROBES", "probes_by_mode", "ALL_FLAGS"]
+__all__ = [
+    "Flag", "Probe", "FAILURE_PROBES", "CONTROL_PROBES", "PROBES", "ALL_FLAGS",
+]

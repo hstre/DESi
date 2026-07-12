@@ -1,11 +1,18 @@
-"""The red-team benchmark: score reviewers against the five failure modes.
+"""The red-team benchmark — a HARNESS, not a result.
 
-Deterministic and offline. A reviewer "catches" a probe iff it raises the probe's
-required flag. The scorecard reports per-mode and overall catch-rate. Honest by
-construction: the DESi reference reviewer scores 5/5 because it IS the analysis that
-defined the probes; the naive whole-text baseline scores 0/5, so the benchmark
-demonstrably discriminates. The point is the harness + the contrast + the external
-slot, not the reference's own score.
+It scores reviewers against five epistemic failure modes AND clean controls, on:
+catch-rate, false positives (over-flagging), control pass-rate, stability across
+repeated runs, and self-reported cost. Catch-rate alone is a weak measure — a
+reviewer that flags everything trivially "catches" 5/5 — so false positives and the
+controls are first-class.
+
+Honest framing. The DESi reference scores 5/5 catch and 0 false positives BY
+CONSTRUCTION (it is the analysis that defined the probes); the naive whole-text
+baseline scores 0/5. Neither is a finding. The finding — if any — begins when a REAL
+background reviewer (Claude Science, a frontier LLM) is put through the external
+slot and the whole table fills in. The claim worth chasing is not "A beats B" but an
+architecture-efficiency one: *comparable epistemic control at far lower, more
+deterministic compute* — which ages better than a model-vs-model result.
 """
 from __future__ import annotations
 
@@ -13,33 +20,35 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 
-from .failure_modes import PROBES
+from .failure_modes import CONTROL_PROBES, FAILURE_PROBES, PROBES
 from .reviewers import Reviewer, default_reviewers
 
-REDTEAM_NOTE = (
-    "Der DESi-Referenz-Reviewer erreicht 5/5 per Konstruktion (er IST die Analyse, die "
-    "die Probes definiert hat) — das ist ein Gold-Anker, keine unabhängige Leistung. Der "
-    "Wert liegt im Harness, im Kontrast zum naiven Whole-Text-Reviewer (0/5) und im "
-    "External-Slot, mit dem sich ein echter Background-Reviewer (z. B. der von Claude "
-    "Science) an denselben fünf Failure-Modes messen lässt."
+HARNESS_NOTE = (
+    "Dies ist ein HARNESS, kein Ergebnis. Der DESi-Referenz-Reviewer erreicht 5/5 Catch und "
+    "0 False Positives per Konstruktion (er IST die Analyse, die die Probes definiert hat); der "
+    "naive Whole-Text-Reviewer 0/5. Beides ist kein Befund. Der interessante Befund entsteht "
+    "erst, wenn ein ECHTER Background-Reviewer (Claude Science, ein Frontier-LLM) durch den "
+    "External-Slot läuft und die Tabelle sich füllt — und die tragfähige Aussage wäre keine "
+    "'A schlägt B', sondern eine Architektur-Effizienz-These: vergleichbare epistemische "
+    "Kontrolle bei deutlich geringerem, deterministischerem Compute."
 )
 
 
 @dataclass(frozen=True)
 class ProbeResult:
     probe_key: str
-    failure_mode: str
-    required_flag: str
+    kind: str
+    must_flag: str | None
     raised: tuple[str, ...]
-    caught: bool
+    caught: bool                 # (failure probes) target flag present
+    false_positives: tuple[str, ...]   # flags raised outside applicable_flags
+    control_clean: bool          # (controls) no flag raised
 
     def to_dict(self) -> dict:
         return {
-            "probe_key": self.probe_key,
-            "failure_mode": self.failure_mode,
-            "required_flag": self.required_flag,
-            "raised": list(self.raised),
-            "caught": self.caught,
+            "probe_key": self.probe_key, "kind": self.kind, "must_flag": self.must_flag,
+            "raised": list(self.raised), "caught": self.caught,
+            "false_positives": list(self.false_positives), "control_clean": self.control_clean,
         }
 
 
@@ -47,23 +56,47 @@ def run_reviewer(reviewer: Reviewer) -> list[ProbeResult]:
     out: list[ProbeResult] = []
     for p in PROBES:
         raised = reviewer.review(p)
+        fps = sorted(f.value for f in (raised - p.applicable_flags))
         out.append(ProbeResult(
-            probe_key=p.key, failure_mode=p.failure_mode.value,
-            required_flag=p.must_flag.value,
+            probe_key=p.key, kind=p.kind,
+            must_flag=p.must_flag.value if p.must_flag else None,
             raised=tuple(sorted(f.value for f in raised)),
-            caught=p.must_flag in raised))
+            caught=(p.must_flag in raised) if p.kind == "failure" else False,
+            false_positives=tuple(fps),
+            control_clean=(len(raised) == 0) if p.kind == "control" else False))
     return out
+
+
+def _stability(reviewer: Reviewer) -> float:
+    """Mean over failure probes of the fraction of runs that caught the target flag."""
+    fracs = []
+    for p in FAILURE_PROBES:
+        runs = reviewer.runs_for(p)
+        if not runs:
+            fracs.append(0.0)
+            continue
+        hits = sum(1 for r in runs if p.must_flag in r)
+        fracs.append(hits / len(runs))
+    return round(sum(fracs) / len(fracs), 3) if fracs else 0.0
 
 
 def score(reviewer: Reviewer) -> dict:
     results = run_reviewer(reviewer)
-    caught = sum(1 for r in results if r.caught)
+    caught = sum(1 for r in results if r.kind == "failure" and r.caught)
+    fp_total = sum(len(r.false_positives) for r in results)
+    controls_clean = sum(1 for r in results if r.kind == "control" and r.control_clean)
+    prof = reviewer.profile()
     return {
         "reviewer": reviewer.name,
-        "caught": caught,
-        "total": len(results),
-        "catch_rate": round(caught / len(results), 3) if results else 0.0,
-        "per_mode": {r.failure_mode: r.caught for r in results},
+        "caught": caught, "positives": len(FAILURE_PROBES),
+        "catch_rate": round(caught / len(FAILURE_PROBES), 3),
+        "false_positives": fp_total,
+        "controls_clean": controls_clean, "controls_total": len(CONTROL_PROBES),
+        "stability": _stability(reviewer),
+        "runs": prof.get("runs", 1),
+        "cost": prof.get("cost", "unknown"),
+        "compute": prof.get("compute", "unknown"),
+        "per_mode": {r.must_flag: r.caught for r in results if r.kind == "failure"},
         "results": [r.to_dict() for r in results],
     }
 
@@ -72,8 +105,9 @@ def scorecard(reviewers: list[Reviewer] | None = None) -> dict:
     reviewers = reviewers or default_reviewers()
     scores = [score(r) for r in reviewers]
     return {
-        "note": REDTEAM_NOTE,
-        "failure_modes": [p.failure_mode.value for p in PROBES],
+        "note": HARNESS_NOTE,
+        "failure_modes": [p.must_flag.value for p in FAILURE_PROBES],
+        "controls": [p.key for p in CONTROL_PROBES],
         "scores": scores,
         "discriminating": (
             any(s["catch_rate"] == 1.0 for s in scores)
@@ -85,52 +119,71 @@ def render_report_md(reviewers: list[Reviewer] | None = None) -> str:
     reviewers = reviewers or default_reviewers()
     card = scorecard(reviewers)
     o: list[str] = []
-    o.append("# Red-Team-Benchmark — hält ein Background-Reviewer die fünf Failure-Modes aus?\n")
+    o.append("# Red-Team-Benchmark — Harness für Background-Reviewer (kein Ergebnis)\n")
     o.append("*Motiviert durch Claude Science ('a background reviewer flags incorrect "
              "citations, untraceable numbers ...'). Die MarCognity/Muse-Spark-Fallstudie wird "
-             "hier zum Prüfstein: erkennt ein Reviewer die fünf epistemischen Fehler, an denen "
-             "MarCognitys eigener Validator scheiterte? Deterministisch, offline.*\n")
+             "zum Prüfstein: fängt ein Reviewer die fünf epistemischen Fehler, an denen "
+             "MarCognitys Validator scheiterte — **ohne** über Clean-Controls hinweg "
+             "über-zu-flaggen? Deterministisch, offline.*\n")
     o.append(f"> {card['note']}\n")
 
-    o.append("## Failure-Modes (je an das Material verankert)\n")
-    o.append("| # | Failure-Mode | muss geflaggt werden | Anker | Claims |")
+    o.append("## Probes\n")
+    o.append("| Key | Art | Ziel-Flag | Anker | Claims |")
     o.append("|---|---|---|---|---|")
-    for i, p in enumerate(PROBES, 1):
-        o.append(f"| {i} | **{p.failure_mode.value}** | `{p.must_flag.value}` | "
-                 f"{p.source_anchor} | {', '.join(p.claim_ids)} |")
+    for p in PROBES:
+        target = f"`{p.must_flag.value}`" if p.must_flag else "— (clean)"
+        o.append(f"| {p.key} | {p.kind} | {target} | {p.source_anchor} | "
+                 f"{', '.join(p.claim_ids) or '—'} |")
 
-    o.append("\n## Scorecard\n")
-    header = "| Reviewer | " + " | ".join(p.failure_mode.value for p in PROBES) + " | catch-rate |"
-    o.append(header)
-    o.append("|" + "---|" * (len(PROBES) + 2))
+    o.append("\n## Scorecard (mehrdimensional — Catch allein wäre zu schwach)\n")
+    o.append("| Reviewer | Catch | False Positives | Controls sauber | Stabilität | Runs | Cost |")
+    o.append("|---|---|---|---|---|---|---|")
     for s in card["scores"]:
-        cells = " | ".join("✓" if s["per_mode"].get(p.failure_mode.value) else "✗"
-                           for p in PROBES)
-        o.append(f"| **{s['reviewer']}** | {cells} | {s['caught']}/{s['total']} |")
-    o.append(f"\n**Diskriminiert der Benchmark?** {'ja' if card['discriminating'] else 'nein'} "
-             "— ein Reviewer erreicht 5/5, ein anderer 0/5.\n")
+        o.append(f"| **{s['reviewer']}** | {s['caught']}/{s['positives']} | "
+                 f"{s['false_positives']} | {s['controls_clean']}/{s['controls_total']} | "
+                 f"{s['stability']} | {s['runs']} | {s['cost']} |")
+    o.append(f"\n**Diskriminiert der Harness?** {'ja' if card['discriminating'] else 'nein'}. "
+             "Aber die Baseline (0/5) ist kein Befund — der Vergleich wird erst mit echten "
+             "Reviewern aussagekräftig.\n")
 
-    o.append("## Wie man einen externen Reviewer misst\n")
-    o.append("Strukturierte Ausgabe eines echten Background-Reviewers als JSON ablegen und "
-             "einspeisen:\n")
+    o.append("## Die eigentlich interessante Tabelle (zu füllen)\n")
+    o.append("| Reviewer | Catch-Rate | False Positives | Cost | Varianz |")
+    o.append("|---|---|---|---|---|")
+    o.append("| Naive LLM | ? | ? | hoch | hoch |")
+    o.append("| Claude Science | ? | ? | hoch | ? |")
+    o.append("| Frontier-LLM (GPT/…) | ? | ? | hoch | ? |")
+    o.append("| **DESi** | 5/5\\* | 0\\* | niedrig | 0 (deterministisch) |")
+    o.append("\n\\* per Konstruktion (Referenz). Kommt ein echter Reviewer nahe an 5/5 und "
+             "DESi ebenfalls, ist die tragfähige Aussage **keine** 'A schlägt B', sondern: "
+             "*vergleichbare epistemische Kontrolle bei deutlich geringerem, deterministischerem "
+             "Compute* — eine Architektur-Effizienz-These, die die nächste Modellgeneration "
+             "überdauert.\n")
+
+    o.append("## Einen echten Reviewer einspeisen (mit Wiederholungen für Varianz)\n")
+    o.append("Strukturierte Ausgabe eines echten Background-Reviewers als JSON ablegen:\n")
     example = (
         "```json\n"
         "{\n"
         '  "name": "some-background-reviewer",\n'
-        '  "flags": {\n'
-        '    "P1-untraceable": ["untraceable_citation"],\n'
-        '    "P2-domain": ["source_domain_mismatch"]\n'
-        "  }\n"
+        '  "runs": [\n'
+        '    {"P2-domain": ["source_domain_mismatch"], "P4-overclaim": ["overclaim"]},\n'
+        '    {"P2-domain": ["source_domain_mismatch"]}\n'
+        "  ],\n"
+        '  "profile": {"cost": "1 LLM pass / probe", "compute": "frontier api"}\n'
         "}\n"
         "```\n"
     )
     o.append(example)
-    o.append("`python -m desi.case_studies.marcognity_muse_spark.redteam --external out.json`.\n")
+    o.append("`python -m desi.case_studies.marcognity_muse_spark.redteam --external out.json`. "
+             "Mehrere `runs` → der Harness rechnet Stabilität; `profile` füllt Cost/Compute.\n")
 
-    o.append("## Grenze\n")
-    o.append("Fünf Probes, ein Fall — ein *Startpunkt*, keine erschöpfende Suite. Es prüft "
-             "**Erkennung** dieser fünf Fehler, nicht die allgemeine Reviewer-Qualität. Und der "
-             "DESi-Reviewer ist Referenz, kein unabhängiger Prüfer (siehe Notiz oben).\n")
+    o.append("## Grenzen\n")
+    o.append("- **Harness, kein Ergebnis** — 5 Failure-Probes + 2 Controls, ein Fall. Ein "
+             "Startpunkt, keine erschöpfende Suite.\n"
+             "- Der DESi-Reviewer ist **Referenz** (5/5, 0 FP per Konstruktion), kein "
+             "unabhängiger Prüfer.\n"
+             "- Der Befund entsteht erst, wenn der External-Slot mit ≥1 echten Reviewer "
+             "gefüllt ist — vorher weiß man nur, dass die Testumgebung sauber ist.\n")
     return "\n".join(o)
 
 
@@ -157,5 +210,5 @@ def write_all(out_dir: Path, reviewers: list[Reviewer] | None = None) -> dict:
 
 __all__ = [
     "ProbeResult", "run_reviewer", "score", "scorecard", "render_report_md",
-    "write_results_jsonl", "write_all", "REDTEAM_NOTE",
+    "write_results_jsonl", "write_all", "HARNESS_NOTE",
 ]

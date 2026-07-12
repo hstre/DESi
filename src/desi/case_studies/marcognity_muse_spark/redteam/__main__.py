@@ -37,22 +37,25 @@ def main(argv: Sequence[str] | None = None) -> int:
     written = bench.write_all(Path(args.out_dir), reviewers)
     card = bench.scorecard(reviewers)
 
-    print(">> Background-reviewer red-team (deterministic, offline) written to "
+    print(">> Background-reviewer red-team HARNESS (deterministic, offline) written to "
           f"{written['out_dir']}")
+    print(f"   {'reviewer':<18} catch  FP  controls  stability  cost")
     for s in card["scores"]:
-        marks = " ".join(
-            f"{m}={'✓' if s['per_mode'][m] else '✗'}" for m in card["failure_modes"])
-        print(f"   {s['reviewer']:<18} {s['caught']}/{s['total']}  [{marks}]")
-    print(f"   discriminating benchmark: {card['discriminating']}")
+        print(f"   {s['reviewer']:<18} {s['caught']}/{s['positives']}    "
+              f"{s['false_positives']:<3} {s['controls_clean']}/{s['controls_total']}"
+              f"       {s['stability']:<9} {s['cost']}")
+    print(f"   discriminating harness: {card['discriminating']} "
+          "(baseline 0/5 is not a finding — fill the external slot)")
 
     if args.print_scorecard:
         print(json.dumps(card, ensure_ascii=False, indent=2, sort_keys=True))
 
-    # self-check: the reference reviewer must catch all five, else the benchmark is broken.
+    # self-check: the reference must catch all five AND raise no false positives,
+    # else the harness itself is broken.
     ref = next(s for s in card["scores"] if s["reviewer"] == "desi")
-    if ref["caught"] != ref["total"]:
-        print(f"[self-check FAILED] reference reviewer caught {ref['caught']}/{ref['total']}",
-              file=sys.stderr)
+    if ref["caught"] != ref["positives"] or ref["false_positives"] != 0:
+        print(f"[self-check FAILED] reference caught {ref['caught']}/{ref['positives']}, "
+              f"FP={ref['false_positives']}", file=sys.stderr)
         return 1
     return 0
 
