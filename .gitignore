@@ -237,3 +237,7 @@ ab_evidence/results/*selftest*
 ab_evidence/reports/*selftest*
 
 ab_evidence/data/longmemeval/
+
+# external-validation built corpora (third-party article text)
+**/external_validation/data/
+**/external_validation/corpus_*/
