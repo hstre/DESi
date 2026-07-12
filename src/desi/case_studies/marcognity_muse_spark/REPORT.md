@@ -380,3 +380,10 @@ gehedgter Hypothese.
   v2 nach Dev-Härtung auf blindem *synthetischem* Test P 1.0 / R 0.917 — Nachweis **kontrollierter
   Regelhärtung**, noch **kein** Nachweis auf realen wissenschaftlichen Dokumenten (nächster Schritt: reales,
   unabhängig annotiertes Signifikanz-Korpus). R2 bleibt negatives Ergebnis.
+- `redteam/EXTERNAL_VALIDATION_PROTOCOL.md` — **Präregistrierung** für die externe Validierung von v2 auf
+  **realen** Dokumenten (nur Protokoll, keine Daten): reale Signifikanz-vs-Relevanz-Aussagen im
+  Dokumentkontext, Positiv/Negativ/Grenzfälle, ≥2 unabhängige Annotatoren, vorab fixierte Guidelines, Cohen's
+  κ / Krippendorff's α, **strikt eingefrorenes v2**, getrennte Precision/Recall/F1/Coverage. Kern: Gold auf
+  **Satz-** *und* **Dokument-Ebene** plus Stratifizierung nach **Effektgrößen-Verortung** (selber Satz /
+  Nachbarsatz / Tabelle / nur CI / nirgends) — das trennt die lexikalische Satzregel von echter dokumentweiter
+  Prüfung. Quelle/Beschaffung wird erst nach Protokoll-Freigabe entschieden.
