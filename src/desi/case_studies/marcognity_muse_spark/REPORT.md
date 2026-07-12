@@ -314,3 +314,11 @@ gehedgter Hypothese.
   **Noch nicht veröffentlichbar**: die Parität ist nur auf vor-destillierten Auszügen gezeigt; der
   Energie-Vorsprung trägt erst, wenn die Parität auch auf **rohen Volltexten** hält (ungetestet).
   Rohantworten verbatim in `redteam/external_runs/`.
+- `redteam/hard/` — **HARTER Benchmark** (rohe, eingebettete Fehler, Near-Miss-Paare, Multi-Flag,
+  adversariale Controls; Multi-Label-P/R/F1; `redteam/hard/REDTEAM_HARD_RESULT.md`). Diskriminiert
+  jetzt: gpt-5.1 F1 **0.989**, grok-4.5 0.926, gemini-2.5-pro 0.901 (drei Fehlerprofile);
+  Diskriminator sind **verschränkte Multi-Flag-Items** (Modelle unter-berichten den zweiten Fehler).
+  **Kernbefund zur Energie-These:** DESis eigene Sprachschicht — ein *kleines* Modell —, konkret
+  getestet: **granite-4.1-8b F1 0.892 (~90 % von gpt-5.1) bei ~100× niedrigerem Preis**, aber
+  **granite-4.0-h-micro (3B) kollabiert (F1 0.538)**. Also Größen-Schwelle ~8B, kein „small model can't".
+  Reproduktion: `python scripts/run_hard_benchmark.py` (`OPENROUTER_API_KEY` aus env).

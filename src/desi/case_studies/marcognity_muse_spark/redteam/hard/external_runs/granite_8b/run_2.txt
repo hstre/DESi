@@ -1,0 +1,39 @@
+**Analysis of each excerpt**
+
+| Excerpt ID | Identified Epistemic Problems | Rationale |
+|------------|------------------------------|-----------|
+| **N1** | `source_domain_mismatch` | The claim is about *economic elasticity of tax revenue* but the source is a *geophysical research* article, which cannot substantiate an economic claim. |
+| **N2** | `overclaim`, `untraceable_citation` | The statement that the proprietary method *generalizes to essentially every domain* is an overreach, especially given “countless studies” that are never named. The lack of specific citations makes the support untraceable. |
+| **N3** | *(none)* | The authors correctly limit the conclusion to the single cohort and acknowledge the need for larger studies; no epistemic fault is evident. |
+| **N4** | `heuristic_not_empirical` | The “Resilience Index R” is a hand‑crafted weighted sum with subjective weights; it is presented as an empirical measurement rather than a calibrated heuristic. |
+| **N5** | *(none)* | The study uses a pre‑registered protocol, a domain‑appropriate corpus, a reported effect size with confidence interval, and cites all sources by DOI—no epistemic issues. |
+| **N6** | `overclaim` | The conclusion that the biomarker is a *universal* predictor across all cancers extrapolates far beyond a single‑center, small‑sample study. |
+| **N7** | `self_sealing` | The framework interprets any outcome (decline or no decline) as confirming the claim, precluding any result that would refute it—classic self‑sealing reasoning. |
+| **N8** | *(none)* | The citation is explicit (Murphy’s *Immunobiology*, 9th ed., p. 96) and the claim is directly supported; no epistemic problem. |
+| **N9** | `source_domain_mismatch`, `heuristic_not_empirical` | Legal certainty is quantified using a *materials‑science crystal‑stability database*, which is inappropriate for a legal metric, and the index uses expert intuition weights without calibration—both problematic. |
+| **N10** | *(none)* | The reference to Kahneman & Tversky’s *Econometrica* article on prospect theory is specific and directly relevant to an economic model; no issue. |
+| **N11** | *(none)* | Replications are pre‑registered, the effect appears in every sample, and the conclusion is confined to the tested paradigm—well‑supported. |
+| **N12** | `untraceable_citation` | The claim that the compound “improves outcomes” is said to be “well established… across the literature” without naming any specific studies or locations, making the support untraceable. |
+| **N13** | *(none)* | The excerpt explicitly labels the formula a *purely illustrative heuristic* and states no empirical conclusion follows; thus no epistemic fault. |
+| **N14** | *(none)* | The prediction includes a clear falsification criterion (reduction < 10 %); the reasoning is straightforward and non‑problematic. |
+
+**JSON output**
+
+```json
+{
+  "N1": ["source_domain_mismatch"],
+  "N2": ["overclaim", "untraceable_citation"],
+  "N3": [],
+  "N4": ["heuristic_not_empirical"],
+  "N5": [],
+  "N6": ["overclaim"],
+  "N7": ["self_sealing"],
+  "N8": [],
+  "N9": ["source_domain_mismatch", "heuristic_not_empirical"],
+  "N10": [],
+  "N11": [],
+  "N12": ["untraceable_citation"],
+  "N13": [],
+  "N14": []
+}
+```

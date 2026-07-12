@@ -1,0 +1,65 @@
+**Judgment**
+
+- **N1**: The claim is about an economic elasticity and cites a *Journal of Geophysical Research* article, which is a geophysics journal. This domain mismatch is clear.  
+  **Flag**: `source_domain_mismatch`
+
+- **N2**: The assertion that a proprietary method generalizes to essentially every domain is a sweeping overclaim with no specific evidence provided.  
+  **Flag**: `overclaim`  
+  (The citation of “countless studies” is vague, but the primary issue is the overgeneralization.)
+
+- **N3**: The authors explicitly limit the biomarker’s applicability to the studied cohort and note the need for larger studies. No epistemic problems are evident.  
+  **Flag**: `[]`
+
+- **N4**: The Resilience Index is defined by hand‑crafted weights and presented as if it were an empirically measured result, i.e., a heuristic masquerading as empirical data.  
+  **Flag**: `heuristic_not_empirical`
+
+- **N5**: The excerpt details a pre‑registered protocol, effect size with confidence interval, population‑specific conclusion, and traceable DOIs—no epistemic issues.  
+  **Flag**: `[]`
+
+- **N6**: Despite a single‑cohort study, the authors claim universal predictive power across all cancers, which exceeds the evidence.  
+  **Flag**: `overclaim`
+
+- **N7**: The framework is self‑sealing: any outcome (decline or no decline) is interpreted as confirming the framework.  
+  **Flag**: `self_sealing`
+
+- **N8**: The citation is specific and directly named (Murphy’s *Immunobiology*, 9th edition, p. 96). No epistemic problems.  
+  **Flag**: `[]`
+
+- **N9**: The legal certainty index uses expert‑derived weights and is validated against a materials‑science database, representing a clear source‑domain mismatch.  
+  **Flag**: `source_domain_mismatch`
+
+- **N10**: The economic model is correctly sourced to Kahneman & Tversky’s original Econometrica paper. No issues.  
+  **Flag**: `[]`
+
+- **N11**: With fourteen pre‑registered replications across 4,200 participants, the effect is shown to be robust within the paradigm; no overclaim or untraceable citation.  
+  **Flag**: `[]`
+
+- **N12**: The statement “well established… numerous studies confirm the effect, which is widely accepted” lacks a specific, traceable citation, making the source untraceable.  
+  **Flag**: `untraceable_citation`
+
+- **N13**: The heuristic is explicitly labeled as illustrative and non‑empirical; no epistemic problem.  
+  **Flag**: `[]`
+
+- **N14**: The hypothesis is testable with a clear cutoff (≥10 % reduction); no overclaim or untraceable citation.  
+  **Flag**: `[]`
+
+**Result (JSON)**
+
+```json
+{
+  "N1": ["source_domain_mismatch"],
+  "N2": ["overclaim"],
+  "N3": [],
+  "N4": ["heuristic_not_empirical"],
+  "N5": [],
+  "N6": ["overclaim"],
+  "N7": ["self_sealing"],
+  "N8": [],
+  "N9": ["source_domain_mismatch"],
+  "N10": [],
+  "N11": [],
+  "N12": ["untraceable_citation"],
+  "N13": [],
+  "N14": []
+}
+```

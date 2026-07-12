@@ -1,0 +1,16 @@
+{
+  "N1": ["source_domain_mismatch"],
+  "N2": ["overclaim","untraceable_citation"],
+  "N3": ["self_sealing","untraceable_citation"],
+  "N4": ["overclaim","heuristic_not_empirical"],
+  "N5": [],
+  "N6": ["self_sealing","untraceable_citation"],
+  "N7": ["self_sealing"],
+  "N8": ["source_domain_mismatch"],
+  "N9": ["source_domain_mismatch"],
+  "N10": ["source_domain_mismatch"],
+  "N11": [],
+  "N12": ["overclaim","untraceable_citation"],
+  "N13": ["heuristic_not_empirical"],
+  "N14": ["overclaim"]
+}
