@@ -11,6 +11,6 @@ v2, does not run the rule, and does not produce gold labels — annotators do th
 """
 from __future__ import annotations
 
-from . import candidates, europepmc, export, jats
+from . import candidates, europepmc, evaluate, export, jats
 
-__all__ = ["europepmc", "jats", "candidates", "export"]
+__all__ = ["europepmc", "jats", "candidates", "export", "evaluate"]

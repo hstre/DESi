@@ -37,6 +37,16 @@ v2 stays unchanged across both stages; only the guidelines may be refined after 
   research-article`; title not a review/meta-analysis/scoping/protocol/qualitative; at least
   one quantitative marker (p / CI / effect size) present.
 
+## Scoring (after annotation)
+- `evaluate.py` + `scripts/evaluate_external_validation.py` — once the two annotators have
+  filled their workbooks (and disagreements are adjudicated), this computes inter-annotator
+  **Cohen's κ** and **Krippendorff's α** (for the SIG/clean decision at sentence and document
+  level, the effect-size locus, and error type), builds the adjudicated gold, applies the
+  **frozen v2** rule sentence-wise, and reports its **precision/recall/F1/coverage vs both
+  sentence-gold and document-gold**, the **recall on true epistemic errors**, the **share of
+  sentence-judgments revised by document context**, and a **per-locus** breakdown. Applies v2;
+  never modifies it.
+
 ## What this does NOT do
 - No gold labels (annotators produce them), no v2 execution, no rule tuning.
 - Fetched article text and built corpora are written under `--out` and are **not committed**
