@@ -203,6 +203,10 @@
     <div class="kicker" data-i18n="a_s1_k"></div>
     <h2 data-i18n="a_s1_t"></h2>
     <p class="sect-sub" data-i18n="a_s1_s"></p>
+    <div class="agnostic" style="margin:8px 0 24px">
+      <div class="nk" data-i18n="a_s1_scope_k"></div>
+      <p data-i18n="a_s1_scope_b"></p>
+    </div>
     <div class="grid">
       <div class="blk"><h3 data-i18n="a_c1_h"></h3><p data-i18n="a_c1_b"></p></div>
       <div class="blk"><h3 data-i18n="a_c2_h"></h3><p data-i18n="a_c2_b"></p></div>
@@ -304,6 +308,8 @@ const I18N = {
     a_s1_k:"DESi Review",
     a_s1_t:"An agent skill that runs the pipeline instead of opining",
     a_s1_s:"It runs the DESi paper-review pipeline over any text, then adjudicates the extracted claims one by one. Deterministic extraction, replay-stable ledger, hashed through the DESi replay kernel. The point is a verdict that is constrained by a schema rather than produced by a mood.",
+    a_s1_scope_k:"Scope",
+    a_s1_scope_b:"DESi Review is not intended to replace an ordinary expert or LLM review. It is a complementary claim-audit layer designed to expose omissions, enforce coverage, and make individual adjudications inspectable.",
     a_c1_h:"Audit a draft before you publish",
     a_c1_b:"Extracts every claim, classifies it into a fixed taxonomy, and flags the ones with no inline support. Runs on your own manuscript as readily as on someone else's paper.",
     a_c2_h:"See your own claim ratio",
@@ -348,6 +354,8 @@ const I18N = {
     a_s1_k:"DESi Review",
     a_s1_t:"Ein Agent-Skill, der die Pipeline läuft statt zu urteilen",
     a_s1_s:"Er lässt die DESi-Paper-Review-Pipeline über einen beliebigen Text laufen und adjudiziert anschließend die extrahierten Claims einzeln. Deterministische Extraktion, replay-stabiles Ledger, gehasht über den DESi-Replay-Kernel. Der Punkt ist ein Urteil, das ein Schema erzwingt — nicht eine Stimmung.",
+    a_s1_scope_k:"Einordnung",
+    a_s1_scope_b:"DESi Review soll keine normale Experten- oder LLM-Review ersetzen. Es ist eine ergänzende Claim-Audit-Schicht, die Auslassungen sichtbar macht, Abdeckung erzwingt und einzelne Bewertungen nachprüfbar macht.",
     a_c1_h:"Einen Entwurf prüfen, bevor er raus geht",
     a_c1_b:"Extrahiert jeden Claim, ordnet ihn einer festen Taxonomie zu und markiert die ohne Beleg im Text. Läuft über das eigene Manuskript so gut wie über fremde Paper.",
     a_c2_h:"Das eigene Claim-Verhältnis sehen",
@@ -392,6 +400,8 @@ const I18N = {
     a_s1_k:"DESi Review",
     a_s1_t:"运行流水线而非发表意见的代理技能",
     a_s1_s:"它对任意文本运行 DESi 论文审阅流水线，然后逐条裁定提取出的断言。确定性提取、可重放的台账，经 DESi 重放内核哈希。关键在于：结论由固定模式约束，而非凭感觉产生。",
+    a_s1_scope_k:"定位",
+    a_s1_scope_b:"DESi Review 并不旨在取代普通的专家评审或 LLM 评审。它是一个互补的断言审计层，旨在暴露遗漏、强制覆盖，并使每一条裁定都可检查。",
     a_c1_h:"发表前审查草稿",
     a_c1_b:"提取每一条断言，归入固定分类，并标记文中无支撑的那些。对自己的稿件与对他人的论文同样适用。",
     a_c2_h:"看见自己的断言比例",
@@ -436,6 +446,8 @@ const I18N = {
     a_s1_k:"DESi Review",
     a_s1_t:"Una agent skill que ejecuta la tubería en vez de opinar",
     a_s1_s:"Ejecuta la tubería de revisión de DESi sobre cualquier texto y luego adjudica una por una las afirmaciones extraídas. Extracción determinista, registro estable en replay, hasheado por el núcleo de replay de DESi. El punto es un veredicto que un esquema restringe, no que un estado de ánimo produce.",
+    a_s1_scope_k:"Alcance",
+    a_s1_scope_b:"DESi Review no pretende sustituir una revisión normal de un experto o de un LLM. Es una capa complementaria de auditoría de afirmaciones, diseñada para exponer omisiones, exigir cobertura y hacer inspeccionables las adjudicaciones individuales.",
     a_c1_h:"Auditar un borrador antes de publicar",
     a_c1_b:"Extrae cada afirmación, la clasifica en una taxonomía fija y señala las que no tienen respaldo en el texto. Funciona sobre tu propio manuscrito igual que sobre el artículo de otro.",
     a_c2_h:"Ver tu propia proporción de afirmaciones",
@@ -480,6 +492,8 @@ const I18N = {
     a_s1_k:"DESi Review",
     a_s1_t:"意見を述べる代わりにパイプラインを実行するエージェントスキル",
     a_s1_s:"任意のテキストに対して DESi の論文レビューパイプラインを実行し、抽出された主張を一つずつ裁定します。決定的な抽出、リプレイ安定な台帳、DESi リプレイカーネルによるハッシュ。要点は、気分ではなくスキーマに拘束された判定です。",
+    a_s1_scope_k:"位置づけ",
+    a_s1_scope_b:"DESi Review は通常の専門家レビューや LLM レビューを置き換えることを意図していません。省略を可視化し、網羅性を担保し、個々の裁定を検査可能にするための、補完的なクレーム監査レイヤーです。",
     a_c1_h:"公開前に草稿を監査する",
     a_c1_b:"すべての主張を抽出し、固定の分類体系に割り当て、本文中に裏付けのないものを指摘します。他人の論文と同じように自分の原稿にも使えます。",
     a_c2_h:"自分の主張比率を見る",
