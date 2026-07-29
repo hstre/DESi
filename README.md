@@ -1,5 +1,13 @@
 # DESi: A Replay-Governed Epistemic Governance System for LLM-Based Research Pipelines
 
+> **⚠️ Dieses Projekt ist eingestellt (29. Juli 2026).** Der zentrale Anspruch wurde in vier
+> versiegelten Blindtests widerlegt. Details, Zahlen und eine Entschuldigung:
+> [`PROJEKTABSCHLUSS.md`](PROJEKTABSCHLUSS.md).
+>
+> **⚠️ This project is discontinued (29 July 2026).** Its central claim was refuted in four sealed
+> blind tests. Details, numbers and an apology: [`PROJEKTABSCHLUSS.md`](PROJEKTABSCHLUSS.md).
+
+
 **Empirical Results Across 38 Experimental Phases**
 
 **Hanns-Steffen Rentschler**  
