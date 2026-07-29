@@ -3,12 +3,14 @@ name: CI
 # Report-only CI. It NEVER auto-fixes, auto-formats, or commits.
 # It fails or reports; resolution is always human-gated.
 
+# ABGESCHALTET 2026-07-29 (Projektabschluss): automatische Ausloeser stillgelegt.
+# Es feuert nichts mehr von selbst; ein Lauf ist nur noch von Hand ueber
+# workflow_dispatch moeglich. Zum Reaktivieren die Kommentarzeichen unten entfernen.
 on:
-  push:
-    branches: ["**"]
-  pull_request:
-  schedule:
-    - cron: "0 3 * * *"   # nightly full regression (UTC)
+#    branches: ["**"]
+#  pull_request:
+#  schedule:
+#    - cron: "0 3 * * *"   # nightly full regression (UTC)
   workflow_dispatch:
 
 permissions:
